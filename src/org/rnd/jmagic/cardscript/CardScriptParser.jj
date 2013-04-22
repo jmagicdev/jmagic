@@ -401,11 +401,11 @@ EventFramework getEvent_Framework() :
 	|
 		"move"
 		"("
-		parameter = getGenerator()
+		parameter1 = getGenerator()
 		")"
 		{
 			event.type = MOVE_OBJECTS;
-			event.parameters.put(TO, parameter);
+			event.parameters.put(TO, parameter1);
 		}
 	|
 		"tap"

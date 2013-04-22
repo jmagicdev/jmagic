@@ -1,0 +1,8 @@
+/bin
+/src/org/rnd/jmagic/cardscript/CardScriptParser.java
+/src/org/rnd/jmagic/cardscript/CardScriptParserConstants.java
+/src/org/rnd/jmagic/cardscript/CardScriptParserTokenManager.java
+/src/org/rnd/jmagic/cardscript/ParseException.java
+/src/org/rnd/jmagic/cardscript/SimpleCharStream.java
+/src/org/rnd/jmagic/cardscript/Token.java
+/src/org/rnd/jmagic/cardscript/TokenMgrError.java
