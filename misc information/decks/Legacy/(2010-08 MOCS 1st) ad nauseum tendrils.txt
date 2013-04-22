@@ -1,0 +1,36 @@
+## Archer. (1st Place)
+## Legacy MOCS #1448403 on 08/01/2010
+
+2  Crystal Vein
+2  Flooded Strand
+2  Gemstone Mine
+1  Island
+4  Polluted Delta
+1  Swamp
+1  Tundra
+2  Underground Sea
+
+2  Ad Nauseam
+4  Brainstorm
+4  Cabal Ritual
+3  Chrome Mox
+4  Dark Ritual
+4  Duress
+1  Ill-Gotten Gains
+4  Infernal Tutor
+4  Lion's Eye Diamond
+4  Lotus Petal
+1  Orim's Chant
+4  Ponder
+2  Sensei's Divining Top
+3  Silence
+1  Tendrils of Agony
+
+SB: 4  Dark Confidant
+SB: 2  Disfigure
+SB: 2  Echoing Truth
+SB: 2  Extirpate
+SB: 2  Krosan Grip
+SB: 1  Slaughter Pact
+SB: 1  Tendrils of Agony
+SB: 1  Tropical Island

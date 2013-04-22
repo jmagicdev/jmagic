@@ -1,0 +1,35 @@
+## Thomas Holzinger
+## Pro Tour Avacyn Restored Top 8 - Innistrad/Avacyn Restored Block Constructed
+
+3  Clifftop Retreat
+4  Evolving Wilds
+11  Forest
+2  Gavony Township
+3  Mountain
+1  Plains
+
+4  Avacyn's Pilgrim
+2  Borderland Ranger
+4  Huntmaster of the Fells
+3  Restoration Angel
+4  Scorned Villager
+3  Wolfir Avenger
+4  Wolfir Silverheart
+
+3  Bonfire of the Damned
+2  Brimstone Volley
+4  Pillar of Flame
+
+3  Garruk Relentless
+
+SB: 1  Bonfire of the Damned
+SB: 1  Burning Oil
+SB: 2  Cloudshift
+SB: 2  Divine Deflection
+SB: 1  Garruk Relentless
+SB: 1  Grafdigger's Cage
+SB: 1  Increasing Savagery
+SB: 1  Smite the Monstrous
+SB: 1  Tree of Redemption
+SB: 2  Triumph of Ferocity
+SB: 2  Zealous Conscripts

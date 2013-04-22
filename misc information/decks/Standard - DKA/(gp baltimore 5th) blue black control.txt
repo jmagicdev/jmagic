@@ -1,0 +1,36 @@
+## Paulo Vitor Damo da Rosa (UB Control)
+## Grand Prix Baltimore 2012 (Standard)
+
+4  Darkslick Shores
+4  Drowned Catacomb
+2  Ghost Quarter
+8  Island
+2  Nephalia Drownyard
+7  Swamp
+
+2  Grave Titan
+3  Snapcaster Mage
+
+3  Black Sun's Zenith
+1  Blue Sun's Zenith
+2  Curse of Death's Hold
+2  Dissipate
+2  Doom Blade
+3  Forbidden Alchemy
+4  Mana Leak
+2  Ratchet Bomb
+4  Think Twice
+3  Tragic Slip
+2  Tribute to Hunger
+
+SB: 2  Batterskull
+SB: 2  Bloodline Keeper
+SB: 1  Dissipate
+SB: 1  Flashfreeze
+SB: 1  Go for the Throat
+SB: 1  Negate
+SB: 2  Nephalia Drownyard
+SB: 2  Nihil Spellbomb
+SB: 1  Phantasmal Image
+SB: 1  Surgical Extraction
+SB: 1  Tribute to Hunger

@@ -1,0 +1,33 @@
+## Jason Yap (Red Green Beats)
+## Grand Prix Kuala Lumpur - Top 8 Standard
+
+4  Copperline Gorge
+7  Forest
+2  Kessig Wolf Run
+6  Mountain
+4  Rootbound Crag
+
+1  Acidic Slime
+4  Birds of Paradise
+3  Hellrider
+4  Huntmaster of the Fells
+3  Llanowar Elves
+2  Phyrexian Metamorph
+4  Strangleroot Geist
+1  Thrun, the Last Troll
+
+4  Galvanic Blast
+3  Green Sun's Zenith
+3  Incinerate
+1  Red Sun's Zenith
+1  Sword of Feast and Famine
+3  Sword of War and Peace
+
+SB: 2  Ancient Grudge
+SB: 2  Corrosive Gale
+SB: 2  Dismember
+SB: 2  Garruk Relentless
+SB: 1  Red Sun's Zenith
+SB: 2  Surgical Extraction
+SB: 2  Sword of Feast and Famine
+SB: 2  Thrun, the Last Troll

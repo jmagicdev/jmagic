@@ -1,0 +1,37 @@
+## Luke Mulcahy
+## GP Brisbane Top 8
+
+4  Copperline Gorge
+7  Forest
+4  Inkmoth Nexus
+2  Kessig Wolf Run
+5  Mountain
+4  Rootbound Crag
+
+3  Acidic Slime
+1  Birds of Paradise
+2  Primeval Titan
+4  Solemn Simulacrum
+1  Thrun, the Last Troll
+4  Viridian Emissary
+4  Wurmcoil Engine
+
+1  Batterskull
+1  Devil's Play
+1  Garruk Relentless
+4  Green Sun's Zenith
+1  Mortarpod
+4  Rampant Growth
+3  Slagstorm
+
+SB: 1  Acidic Slime
+SB: 2  Ancient Grudge
+SB: 1  Ezuri's Archers
+SB: 2  Garruk Relentless
+SB: 2  Karn Liberated
+SB: 1  Slagstorm
+SB: 1  Spellskite
+SB: 2  Thrun, the Last Troll
+SB: 1  Urabrask the Hidden
+SB: 1  Viridian Corrupter
+SB: 1  Witchbane Orb

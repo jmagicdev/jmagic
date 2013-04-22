@@ -1,0 +1,41 @@
+## Destroyed (4th Place)
+## Legacy MOCS #1448403 on 08/01/2010
+
+5  Forest
+2  Horizon Canopy
+1  Karakas
+1  Plains
+3  Savannah
+3  Serra's Sanctum
+4  Windswept Heath
+
+
+
+4  Argothian Enchantress
+
+2  Chrome Mox
+1  City of Solitude
+4  Elephant Grass
+4  Enchantress's Presence
+1  Ground Seal
+1  Karmic Justice
+1  Leyline of Sanctity
+2  Mirri's Guile
+1  Moat
+3  Oblivion Ring
+2  Sigil of the Empty Throne
+3  Solitary Confinement
+4  Sterling Grove
+4  Utopia Sprawl
+4  Wild Growth
+
+SB: 1  Aura of Silence
+SB: 1  City of Solitude
+SB: 1  Ground Seal
+SB: 1  Karakas
+SB: 1  Karmic Justice
+SB: 2  Krosan Grip
+SB: 3  Leyline of Sanctity
+SB: 2  Sacred Ground
+SB: 1  Sacred Mesa
+SB: 2  Wheel of Sun and Moon

@@ -1,0 +1,56 @@
+## PainterGrindstone-KeyVault, by Ivan Stanoev – 6th place
+
+## Business (34)
+4 Force of Will
+2 Thoughtseize
+2 Red Elemental Blast
+3 Sensei's Divining Top
+1 Demonic Tutor
+1 Demonic Consultation
+3 Intuition
+1 Vampiric Tutor
+1 Time Walk
+1 Brainstorm
+1 Ancestral Recall
+1 Tinker
+1 Inkwell Leviathan
+2 Goblin Welder
+4 Painter's Servant
+3 Grindstone
+1 Time Vault
+1 Voltaic Key
+1 Yawgmoth's Will
+
+## Mana Sources (26)
+1 Mox Ruby
+1 Mox Pearl
+1 Mox Sapphire
+1 Mox Jet
+1 Mox Emerald
+1 Black Lotus
+1 Lion's Eye Diamond
+1 Sol Ring
+1 Mana Vault
+2 Mox Opal
+1 Great Furnace
+1 Seat of the Synod
+1 Tolarian Academy
+2 Ancient Tomb
+3 Polluted Delta
+2 Scalding Tarn
+1 Underground Sea
+2 Volcanic Island
+1 Badlands
+1 Tropical Island
+
+## Sideboard (15)
+SB: 1 Viashino Heretic
+SB: 3 Ancient Grudge
+SB: 2 Red Elemental Blast
+SB: 1 Pyroblast
+SB: 1 Thoughtseize
+SB: 2 Nihil Spellbomb
+SB: 2 Yixlid Jailer
+SB: 1 Pithing Needle
+SB: 1 Rebuild
+SB: 1 Tormod's Crypt

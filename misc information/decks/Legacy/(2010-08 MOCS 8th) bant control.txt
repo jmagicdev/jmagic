@@ -1,0 +1,32 @@
+## Demonic_Penguin (8th Place)
+## Legacy MOCS #1448403 on 08/01/2010
+
+1  Forest
+3  Horizon Canopy
+1  Karakas
+4  Misty Rainforest
+4  Tropical Island
+2  Tundra
+4  Wasteland
+4  Windswept Heath
+
+
+
+4  Knight of the Reliquary
+4  Noble Hierarch
+4  Tarmogoyf
+2  Terravore
+2  Vendilion Clique
+
+4  Brainstorm
+4  Daze
+4  Force of Will
+3  Ponder
+4  Stifle
+2  Swords to Plowshares
+
+SB: 4  Krosan Grip
+SB: 4  Meddling Mage
+SB: 2  Rhox War Monk
+SB: 2  Swords to Plowshares
+SB: 3  Tormod's Crypt

@@ -1,0 +1,39 @@
+## Jonathan Justin Luces
+## Grand Prix Manila 2012 - Top 8 Deck
+##  
+##  
+## 
+
+2  Cavern of Souls
+4  Glacial Fortress
+8  Island
+2  Moorland Haunt
+2  Plains
+4  Seachrome Coast
+
+4  Delver of Secrets
+4  Geist of Saint Traft
+4  Restoration Angel
+4  Snapcaster Mage
+
+1  Dismember
+3  Gitaxian Probe
+2  Gut Shot
+4  Mana Leak
+4  Ponder
+1  Sword of Feast and Famine
+2  Sword of War and Peace
+1  Thought Scour
+4  Vapor Snag
+
+
+SB: 2  Blade Splicer
+SB: 1  Celestial Purge
+SB: 1  Consecrated Sphinx
+SB: 1  Day of Judgment
+SB: 2  Dissipate
+SB: 2  Divine Offering
+SB: 1  Ghost Quarter
+SB: 2  Phantasmal Image
+SB: 1  Sun Titan
+SB: 2  Timely Reinforcements

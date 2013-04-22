@@ -1,0 +1,47 @@
+## Rick Lee
+## Grand Prix Manila 2012 - Top 8 Deck
+##  
+##  
+## 
+
+2  Cavern of Souls
+4  Copperline Gorge
+4  Forest
+3  Gavony Township
+1  Mountain
+2  Plains
+4  Razorverge Thicket
+2  Rootbound Crag
+2  Sunpetal Grove
+
+1  Acidic Slime
+3  Avacyn's Pilgrim
+4  Birds of Paradise
+4  Blade Splicer
+1  Borderland Ranger
+1  Fiend Hunter
+3  Huntmaster of the Fells
+1  Inferno Titan
+2  Phyrexian Metamorph
+4  Restoration Angel
+2  Strangleroot Geist
+3  Thalia, Guardian of Thraben
+1  Ulvenwald Tracker
+1  Wolfir Silverheart
+1  Zealous Conscripts
+
+2  Birthing Pod
+
+2  Garruk Relentless
+
+SB: 1  Ancient Grudge
+SB: 3  Bonfire of the Damned
+SB: 1  Crushing Vines
+SB: 1  Daybreak Ranger
+SB: 1  Hero of Bladehold
+SB: 1  Huntmaster of the Fells
+SB: 2  Oblivion Ring
+SB: 1  Stingerfling Spider
+SB: 2  Sword of War and Peace
+SB: 1  Ulvenwald Tracker
+SB: 1  Zealous Conscripts

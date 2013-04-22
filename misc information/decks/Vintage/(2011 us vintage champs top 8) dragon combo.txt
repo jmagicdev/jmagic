@@ -1,0 +1,54 @@
+## Nick Coss
+## U.S Nationals Championship 2011 (Vintage Top 8)
+
+## apologies from the jMagic team.
+## this deck is missing cards in jMagic and won't load in this version of jMagic.
+## blame the insta-chant cycle.
+
+4  Bazaar of Baghdad
+3  Flooded Strand
+2  Island
+4  Polluted Delta
+1  Swamp
+4  Underground Sea
+
+4  Dark Confidant
+1  Oona, Queen of the Fae
+3  Worldgorger Dragon
+
+1  Ancestral Recall
+2  Animate Dead
+1  Black Lotus
+1  Brainstorm
+2  Dance of the Dead
+1  Demonic Tutor
+4  Duress
+1  Echoing Truth
+4  Force of Will
+1  Imperial Seal
+2  Intuition
+1  Mana Crypt
+1  Mox Emerald
+1  Mox Jet
+1  Mox Pearl
+1  Mox Ruby
+1  Mox Sapphire
+1  Necromancy
+2  Read the Runes
+1  Sensei's Divining Top
+1  Sol Ring
+1  Thirst for Knowledge
+1  Time Walk
+1  Vampiric Tutor
+
+SB: 1  Blightsteel Colossus
+SB: 1  Gifts Ungiven
+SB: 2  Jace, the Mind Sculptor
+SB: 4  Mana Drain
+SB: 1  Snow-Covered Island
+SB: 1  Tezzeret the Seeker
+SB: 1  Time Vault
+SB: 1  Tinker
+SB: 1  Tolarian Academy
+SB: 1  Voltaic Key
+SB: 1  Yawgmoth's Will

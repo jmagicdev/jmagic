@@ -1,0 +1,48 @@
+## Joseph Bogaard
+## U.S Nationals Championship 2011 (Vintage Top 8)
+
+1  Bayou
+1  Island
+3  Misty Rainforest
+3  Polluted Delta
+1  Strip Mine
+2  Tropical Island
+4  Underground Sea
+4  Wasteland
+
+4  Dark Confidant
+2  Tarmogoyf
+3  Trygon Predator
+2  Vendilion Clique
+
+1  Ancestral Recall
+1  Black Lotus
+1  Brainstorm
+4  Daze
+1  Demonic Tutor
+1  Diabolic Edict
+2  Duress
+1  Echoing Truth
+4  Force of Will
+2  Jace, the Mind Sculptor
+1  Life from the Loam
+1  Mox Emerald
+1  Mox Jet
+1  Mox Sapphire
+1  Mystical Tutor
+3  Null Rod
+2  Thoughtseize
+1  Time Walk
+1  Vampiric Tutor
+
+SB: 1  Darkblast
+SB: 1  Echoing Truth
+SB: 3  Energy Flux
+SB: 1  Hurkyl's Recall
+SB: 2  Nature's Claim
+SB: 1  Nihil Spellbomb
+SB: 1  Relic of Progenitus
+SB: 1  Sower of Temptation
+SB: 1  Tarmogoyf
+SB: 1  Tormod's Crypt
+SB: 2  Yixlid Jailer

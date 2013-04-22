@@ -1,0 +1,39 @@
+## Max Tietze (UB Control)
+## Grand Prix Baltimore 2012 (Standard)
+
+4  Darkslick Shores
+4  Drowned Catacomb
+8  Island
+4  Nephalia Drownyard
+7  Swamp
+
+1  Consecrated Sphinx
+1  Grave Titan
+2  Snapcaster Mage
+
+3  Black Sun's Zenith
+1  Blue Sun's Zenith
+2  Curse of Death's Hold
+2  Dissipate
+3  Forbidden Alchemy
+2  Go for the Throat
+4  Mana Leak
+3  Ratchet Bomb
+4  Think Twice
+1  Tragic Slip
+
+3 Liliana of the Veil
+1 Sorin Markov
+
+SB: 1  Bloodline Keeper
+SB: 1  Blue Sun's Zenith
+SB: 2  Curse of Death's Hold
+SB: 2  Despise
+SB: 1  Dissipate
+SB: 1  Karn Liberated
+SB: 2  Nihil Spellbomb
+SB: 1  Phantasmal Image
+SB: 1  Sever the Bloodline
+SB: 1  Surgical Extraction
+SB: 1  Tragic Slip
+SB: 1  Volition Reins

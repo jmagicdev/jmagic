@@ -1,0 +1,34 @@
+## Denniz Rachid
+## Pro Tour Avacyn Restored Top 8 - Innistrad/Avacyn Restored Block Constructed
+
+4  Cavern of Souls
+7  Forest
+3  Gavony Township
+11  Plains
+
+3  Avacyn's Pilgrim
+4  Champion of the Parish
+2  Druid's Familiar
+3  Fiend Hunter
+3  Mayor of Avabruck
+2  Restoration Angel
+3  Sigarda, Host of Herons
+4  Silverblade Paladin
+3  Thalia, Guardian of Thraben
+
+3  Divine Deflection
+1  Faith's Shield
+4  Gather the Townsfolk
+
+SB: 2  Crushing Vines
+SB: 1  Faith's Shield
+SB: 1  Garruk Relentless
+SB: 1  Grafdigger's Cage
+SB: 1  Purify the Grave
+SB: 2  Ray of Revelation
+SB: 1  Riders of Gavony
+SB: 1  Seraph of Dawn
+SB: 1  Thalia, Guardian of Thraben
+SB: 1  Tree of Redemption
+SB: 1  Witchbane Orb
+SB: 2  Wolfir Silverheart

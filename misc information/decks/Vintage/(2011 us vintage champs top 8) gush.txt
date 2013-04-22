@@ -1,0 +1,52 @@
+## Rich Shay
+## U.S Nationals Championship 2011 (Vintage Top 8)
+
+2  Flooded Strand
+3  Island
+1  Library of Alexandria
+4  Misty Rainforest
+2  Tropical Island
+3  Underground Sea
+
+1  Blightsteel Colossus
+
+1  Ancestral Recall
+1  Black Lotus
+1  Brainstorm
+1  Demonic Tutor
+1  Duress
+1  Fastbond
+4  Force of Will
+4  Gush
+2  Hurkyl's Recall
+2  Jace, the Mind Sculptor
+1  Mana Crypt
+3  Mana Drain
+4  Mental Misstep
+1  Merchant Scroll
+1  Mox Emerald
+1  Mox Jet
+1  Mox Pearl
+1  Mox Ruby
+1  Mox Sapphire
+1  Mystical Tutor
+3  Preordain
+1  Regrowth
+1  Sol Ring
+1  Tendrils of Agony
+1  Time Walk
+1  Timetwister
+1  Tinker
+1  Vampiric Tutor
+1  Yawgmoth's Will
+
+SB: 2  Dismember
+SB: 1  Duress
+SB: 1  Flusterstorm
+SB: 2  Hurkyl's Recall
+SB: 3  Nature's Claim
+SB: 2  Nihil Spellbomb
+SB: 1  Pithing Needle
+SB: 1  Praetor's Grasp
+SB: 1  Ravenous Trap
+SB: 1  Yixlid Jailer

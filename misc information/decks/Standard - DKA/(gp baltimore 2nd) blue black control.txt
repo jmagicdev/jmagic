@@ -1,0 +1,39 @@
+## Dave Shiels (UB Control)
+## Grand Prix Baltimore 2012 (Standard)
+
+4  Darkslick Shores
+4  Drowned Catacomb
+2  Ghost Quarter
+8  Island
+3  Nephalia Drownyard
+6  Swamp
+
+2  Consecrated Sphinx
+3  Snapcaster Mage
+
+3  Black Sun's Zenith
+1  Blue Sun's Zenith
+2  Curse of Death's Hold
+2  Dissipate
+3  Forbidden Alchemy
+2  Go for the Throat
+4  Mana Leak
+1  Nihil Spellbomb
+1  Ratchet Bomb
+4  Think Twice
+3  Tragic Slip
+
+2 Liliana of the Veil
+
+SB: 2  Batterskull
+SB: 2  Bloodline Keeper
+SB: 1  Dissipate
+SB: 1  Flashfreeze
+SB: 1  Ghost Quarter
+SB: 1  Negate
+SB: 1  Nephalia Drownyard
+SB: 1  Nihil Spellbomb
+SB: 1  Phantasmal Image
+SB: 1  Ratchet Bomb
+SB: 2  Surgical Extraction
+SB: 1  Wurmcoil Engine

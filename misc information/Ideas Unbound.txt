@@ -1,0 +1,83 @@
+================================================================================
+Things to think about -- are these good ideas?  If they are good ideas, then
+TODO them, Trac them, or implement them.  If they are bad ideas, then put them
+at the top of this file (above the big line of "=") and explain why they're bad
+so someone else doesn't come along and suggest the same thing.
+
+
+PROBLEM:  Reversing game states isn't quite up to speed at the moment.  There is
+such a thing as an irreversible mana ability (Chromatic Sphere in 99% of cases is
+irreversible) and currently we don't handle that.  (Rule 422)
+
+IDEA:
+(x) Keep a collection (what kind?) of actions currently being performed.
+(x) Store the "most current" action.
+The game will update these data members as needed.
+(x) Add an irreversible flag to PlayerAction.
+(x) The MOVE_BETWEEN_ZONES event makes current action irreversible when appropriate.
+(x) Add a manaProduced and a manaPaid member to PlayerAction.
+(x) The ADD_MANA event will associate the mana produced with the current action. 
+(x) The PAY_MANA event will associate the mana paid with the current action.
+To each class which extends PlayerAction, add lots of things to store choices.
+Events associated with actions will store the choices as they're made.
+Add applyAction(GameState state) to PlayerAction.  This function will apply
+	the action it's called on to the state given in the parameter, using the
+	choices stored in the action.  Each class which extends PlayerAction will
+	know how to handle this.
+
+Situation:
+I announce Disenchant (1W).  During the playing of Disenchant:
+I tap a land for mana.  This associates that mana with the action of tapping
+	the land.
+I activate Chromatic Sphere.  This puts a card in my hand, so the action becomes
+	irreversible, and the mana this produces is associated with the action
+	of activating the sphere.
+I fail to play disenchant.  The Sphere's action has been marked as irreversible,
+	so before restoring any game states, we do the following:
+Figure out what mana was used on the Sphere's action.
+Apply the action associated with that mana to all backed-up game states.  (If
+	this action were something else, like activating a Chromatic Star (which
+	is normally reversible), then we might also have to track down what mana
+	was used for that in a similar manner).
+Apply the action of activating the sphere to all backed-up game states.
+Reverse to the last saved game state (right before playing the Disenchant).  At
+	this point, the player should have a tapped land, a sacced sphere, a mana,
+	and a card in hand.
+
+QUESTION: When playing mana abilities as part of a resolving spell or ability
+(Lightning Rift, Mana Leak), if the game state reverts, will we still be in
+the middle of that spell or ability (correct) or will we start resolving that
+spell or ability all over again (incorrect)?  This will probably involve a
+PAY_MANA_2 event or some such nonsense (terrible name but I can't think of
+any other way to describe it at the moment), or we could modify PAY_MANA to
+allow the player to play mana abilities, since all instances where a player is
+asked to pay mana also allow them to play mana abilities.
+
+
+IDEA:  Related to above, 217.2f says "If a spell or ability causes a
+card to be drawn while another spell or ability is being played, the drawn card
+is kept face down until that spell or ability becomes played."  This will most
+likely involve a collection of spells/abilities being played stored in the game
+state.  When PLAY_SPELL_OR_ACTIVATED_ABILITY puts the spell or ability on the
+stack, we immediately add that spell or ability to the collection.  The
+BECOMES_PLAYED event will remove that spell or ability from the collection.
+
+We'll need to solidify how we're hiding cards from players (in general; as in,
+things that RFG cards "face down", cards in libaries, as well as cards that are
+hidden from a fraction of the players, such as morphed permanents, cards in
+hands, face down RFG cards where the effect lets one player look at them, etc)
+The DRAW_ONE_CARD event will check to see if a spell or ability is being played;
+if it is, it will hide the card from all players.  The BECOMES_PLAYED event,
+after it removes its spell or ability from the "being played" collection, will
+check all hands for any cards hidden by the DRAW_ONE_CARD event and unhide them
+if there are no objects left in the "being played" collection.
+
+
+
+============= I really think everything above this line should be in Trac.
+
+
+IDEA:  class SplitCard extends Card { private Card left; private Card right; }
+with some way of denoting which side is "active" at any given time, as well as
+some way of causing the characteristics inherited from Card to change to the
+side being played when it's on the stack (probably with the clone method). 

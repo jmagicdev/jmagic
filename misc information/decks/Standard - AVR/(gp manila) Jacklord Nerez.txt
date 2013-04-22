@@ -1,0 +1,37 @@
+## Jacklord Nerez
+## Grand Prix Manila 2012 - Top 8 Deck
+##  
+##  
+## 
+
+4  Blackcleave Cliffs
+3  Cavern of Souls
+4  Dragonskull Summit
+12  Swamp
+
+3  Blood Artist
+4  Diregraf Ghoul
+2  Falkenrath Aristocrat
+2  Fume Spitter
+4  Geralf's Messenger
+4  Gravecrawler
+2  Phyrexian Metamorph
+3  Porcelain Legionnaire
+
+4  Brimstone Volley
+2  Geth's Verdict
+2  Go for the Throat
+1  Killing Wave
+2  Mortarpod
+2  Tragic Slip
+
+
+SB: 1  Batterskull
+SB: 1  Killing Wave
+SB: 2  Manabarbs
+SB: 2  Manic Vandal
+SB: 1  Massacre Wurm
+SB: 2  Nihil Spellbomb
+SB: 3  Pillar of Flame
+SB: 1  Witchbane Orb
+SB: 2  Zealous Conscripts

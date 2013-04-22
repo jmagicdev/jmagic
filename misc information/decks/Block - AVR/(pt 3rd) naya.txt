@@ -1,0 +1,33 @@
+## Joshua Cho
+## Pro Tour Avacyn Restored Top 8 - Innistrad/Avacyn Restored Block Constructed
+
+4  Cavern of Souls
+3  Clifftop Retreat
+4  Evolving Wilds
+8  Forest
+3  Gavony Township
+1  Mountain
+2  Plains
+
+4  Avacyn's Pilgrim
+3  Borderland Ranger
+3  Fiend Hunter
+4  Huntmaster of the Fells
+1  Mikaeus, the Lunarch
+4  Restoration Angel
+4  Scorned Villager
+1  Ulvenwald Tracker
+4  Wolfir Silverheart
+
+3  Bonfire of the Damned
+
+4  Garruk Relentless
+
+SB: 2  Brimstone Volley
+SB: 1  Grafdigger's Cage
+SB: 3  Nevermore
+SB: 3  Sigarda, Host of Herons
+SB: 1  Slayer of the Wicked
+SB: 2  Tree of Redemption
+SB: 1  Ulvenwald Tracker
+SB: 2  Zealous Conscripts

@@ -1,0 +1,38 @@
+1  Academy Ruins
+1  Barbarian Ring
+1  Bayou
+1  Cephalid Coliseum
+1  Forest
+1  Glacial Chasm
+4  Maze of Ith
+4  Mishra's Factory
+1  Misty Rainforest
+4  Rishadan Port
+1  Taiga
+1  The Tabernacle at Pendrell Vale
+3  Tolaria West
+3  Tranquil Thicket
+3  Tropical Island
+1  Verdant Catacombs
+4  Wasteland
+1  Windswept Heath
+1  Wooded Foothills
+
+1  Engineered Explosives
+4  Exploration
+4  Intuition
+4  Life from the Loam
+4  Manabond
+1  Mindslaver
+4  Mox Diamond
+1  Tormod's Crypt
+
+# SB: 1  Ancient Grudge
+# SB: 4  Chalice of the Void
+# SB: 1  Ensnaring Bridge
+# SB: 3  Extirpate
+# SB: 1  Karakas
+# SB: 1  Ray of Revelation
+# SB: 1  Smokestack
+# SB: 2  Tormod's Crypt
+# SB: 1  Zuran Orb

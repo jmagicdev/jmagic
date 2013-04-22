@@ -1,0 +1,50 @@
+## Paul Mastriano
+## U.S Nationals Championship 2011 (Vintage Top 8)
+
+1  Island
+2  Misty Rainforest
+4  Scalding Tarn
+2  Tropical Island
+3  Underground Sea
+1  Volcanic Island
+
+1  Blightsteel Colossus
+4  Dark Confidant
+3  Trygon Predator
+
+1  Ancestral Recall
+1  Black Lotus
+1  Brainstorm
+1  Demonic Tutor
+1  Fastbond
+4  Force of Will
+4  Gush
+1  Hurkyl's Recall
+1  Merchant Scroll
+1  Mox Emerald
+1  Mox Jet
+1  Mox Pearl
+1  Mox Ruby
+1  Mox Sapphire
+1  Mystical Tutor
+1  Ponder
+4  Preordain
+2  Sensei's Divining Top
+1  Sol Ring
+4  Spell Pierce
+1  Time Vault
+1  Time Walk
+1  Tinker
+1  Vampiric Tutor
+1  Voltaic Key
+1  Yawgmoth's Will
+
+SB: 1  Ancient Grudge
+SB: 3  Ingot Chewer
+SB: 4  Leyline of the Void
+SB: 1  Lightning Bolt
+SB: 1  Mountain
+SB: 1  Pithing Needle
+SB: 1  Pyroblast
+SB: 1  Pyroclasm
+SB: 2  Red Elemental Blast

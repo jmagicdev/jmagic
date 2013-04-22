@@ -1,0 +1,42 @@
+## Tanaka, Kouichi
+## 2011 GP Hiroshima Top 8
+
+7  Forest
+4  Hinterland Harbor
+1  Island
+2  Plains
+4  Razorverge Thicket
+3  Seachrome Coast
+2  Sunpetal Grove
+
+3  Acidic Slime
+1  Archon of Justice
+4  Avacyn's Pilgrim
+3  Birds of Paradise
+2  Blade Splicer
+1  Brindle Boar
+1  Elesh Norn, Grand Cenobite
+1  Fiend Hunter
+1  Frost Titan
+3  Phantasmal Image
+1  Phyrexian Metamorph
+1  Skaab Ruinator
+2  Solemn Simulacrum
+2  Sun Titan
+3  Viridian Emissary
+1  Wing Splicer
+1  Wurmcoil Engine
+
+4  Birthing Pod
+2  Mimic Vat
+
+SB: 2  Brindle Boar
+SB: 2  Day of Judgment
+SB: 1  Fiend Hunter
+SB: 2  Flashfreeze
+SB: 2  Garruk Relentless
+SB: 1  Oblivion Ring
+SB: 1  Stonehorn Dignitary
+SB: 1  Sunblast Angel
+SB: 1  Sylvok Replica
+SB: 2  Thrun, the Last Troll

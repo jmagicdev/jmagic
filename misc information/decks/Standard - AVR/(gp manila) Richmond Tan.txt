@@ -1,0 +1,50 @@
+## Richmond Tan
+## Grand Prix Manila 2012 - Top 8 Deck
+##  
+##  
+## 
+
+3  Cavern of Souls
+4  Copperline Gorge
+6  Forest
+1  Gavony Township
+1  Kessig Wolf Run
+1  Mountain
+1  Plains
+4  Razorverge Thicket
+1  Rootbound Crag
+2  Sunpetal Grove
+
+1  Acidic Slime
+2  Avacyn's Pilgrim
+4  Birds of Paradise
+2  Blade Splicer
+2  Borderland Ranger
+1  Elesh Norn, Grand Cenobite
+1  Fiend Hunter
+3  Huntmaster of the Fells
+1  Inferno Titan
+1  Phyrexian Metamorph
+2  Restoration Angel
+3  Strangleroot Geist
+1  Sun Titan
+2  Zealous Conscripts
+
+3  Birthing Pod
+3  Bonfire of the Damned
+2  Oblivion Ring
+
+1  Garruk Relentless
+1  Gideon Jura
+
+SB: 1  Ancient Grudge
+SB: 1  Celestial Purge
+SB: 2  Crushing Vines
+SB: 2  Day of Judgment
+SB: 2  Gut Shot
+SB: 1  Nihil Spellbomb
+SB: 1  Ray of Revelation
+SB: 1  Surgical Extraction
+SB: 2  Thalia, Guardian of Thraben
+SB: 1  Tree of Redemption
+SB: 1  Zealous Conscripts

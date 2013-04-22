@@ -1,0 +1,28 @@
+## Chikara Nakajima - Mono-Red Affinity
+## Pro Tour Philadelphia, Modern Top 8
+
+3  Blinkmoth Nexus
+4  Darksteel Citadel
+3  Inkmoth Nexus
+4  Mountain
+
+4  Arcbound Ravager
+4  Atog
+4  Frogmite
+4  Memnite
+4  Ornithopter
+4  Signal Pest
+4  Vault Skirge
+
+4  Cranial Plating
+2  Fling
+4  Galvanic Blast
+4  Mox Opal
+1  Shrapnel Blast
+3  Springleaf Drum
+
+SB: 4  Blood Moon
+SB: 3  Etched Champion
+SB: 1  Magus of the Moon
+SB: 4  Mindbreak Trap
+SB: 3  Torpor Orb

@@ -1,0 +1,37 @@
+## TheThirdMoon (5th Place)
+## Legacy MOCS #1448403 on 08/01/2010
+
+3  Boseiju, Who Shelters All
+1  City of Brass
+3  City of Traitors
+4  Flooded Strand
+4  Gemstone Mine
+1  Island
+1  Misty Rainforest
+1  Plateau
+1  Savannah
+1  Tropical Island
+1  Volcanic Island
+
+
+
+3  Elvish Spirit Guide
+4  Emrakul, the Aeons Torn
+2  Inkwell Leviathan
+3  Iona, Shield of Emeria
+4  Progenitus
+4  Simian Spirit Guide
+
+3  Ardent Plea
+4  Force of Will
+2  Hypergenesis
+2  Intuition
+4  Show and Tell
+4  Violent Outburst
+
+SB: 1  Boseiju, Who Shelters All
+SB: 3  Form of the Dragon
+SB: 3  Krosan Grip
+SB: 3  Leyline of the Void
+SB: 2  Ricochet Trap
+SB: 3  Volcanic Fallout

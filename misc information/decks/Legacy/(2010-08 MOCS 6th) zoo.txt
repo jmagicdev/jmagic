@@ -1,0 +1,35 @@
+## bolov0 (6th Place)
+## Legacy MOCS #1448403 on 08/01/2010
+
+4  Arid Mesa
+2  Horizon Canopy
+1  Mountain
+1  Plains
+3  Plateau
+1  Savannah
+1  Snow-Covered Forest
+2  Taiga
+3  Windswept Heath
+3  Wooded Foothills
+
+
+
+3  Grim Lavamancer
+2  Kird Ape
+4  Knight of the Reliquary
+3  Loam Lion
+4  Qasali Pridemage
+4  Tarmogoyf
+4  Wild Nacatl
+
+4  Chain Lightning
+4  Lightning Bolt
+3  Lightning Helix
+4  Path to Exile
+
+SB: 2  Ethersworn Canonist
+SB: 3  Krosan Grip
+SB: 3  Price of Progress
+SB: 2  Pyroblast
+SB: 3  Tormod's Crypt
+SB: 2  Umezawa's Jitte

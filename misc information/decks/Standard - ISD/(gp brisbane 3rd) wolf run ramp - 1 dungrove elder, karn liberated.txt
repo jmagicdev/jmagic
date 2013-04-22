@@ -1,0 +1,36 @@
+## Andreas Prantos
+## GP Brisbane Top 8
+
+18  Forest
+4  Inkmoth Nexus
+2  Kessig Wolf Run
+1  Mountain
+1  Rootbound Crag
+
+1  Acidic Slime
+3  Birds of Paradise
+1  Dungrove Elder
+2  Llanowar Elves
+2  Primeval Titan
+2  Solemn Simulacrum
+1  Thrun, the Last Troll
+3  Wurmcoil Engine
+
+4  Beast Within
+2  Garruk Relentless
+4  Garruk, Primal Hunter
+4  Green Sun's Zenith
+1  Karn Liberated
+4  Rampant Growth
+
+SB: 1  Acidic Slime
+SB: 2  Ancient Grudge
+SB: 1  Batterskull
+SB: 1  Blasphemous Act
+SB: 1  Bramblecrush
+SB: 1  Garruk Relentless
+SB: 2  Ratchet Bomb
+SB: 2  Sword of Feast and Famine
+SB: 2  Thrun, the Last Troll
+SB: 1  Tree of Redemption
+SB: 1  Viridian Corrupter

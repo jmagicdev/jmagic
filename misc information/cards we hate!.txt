@@ -1,0 +1,27 @@
+Azusa, Lost but Seeking (and Summer Bloom, etc.)
+	Playing additional lands is possibly one of the most confusing things,
+	like, ever.  Situation:
+	First main phase, I play Azusa.  I can now play three lands this turn.
+	I play a land, and declare that it is "for" Azusa.  I play another land,
+	and that one is also "for" Azusa.  Now, if Azusa leaves play, I STILL HAVE
+	MY LAND DROP FOR THE TURN AVAILABLE.  If I play another Azusa, I CAN STILL
+	PLAY TWO MORE LANDS!
+	
+Crucible of Worlds
+	Single-handedly caused us to add a second category of permissions for
+	playing lands.
+	
+Seedborn Muse
+	CHANGES THE RULES OF THE GAME to add a new game action which untaps your
+	cards.  Good lord, could it get any more complicated?
+	
+Piracy
+	... Yes, it CAN get more complicated.  Playing abilities of cards you don't
+	control... ugh
+	
+Primitive Justice
+	"As an additional cost to play ~, you may pay [a] and/or [b] any number of
+	times." ... lolwut?  Each time you pay one of these costs, it adds a target.
+	Except not, since choosing targets comes before paying costs; you'll have to
+	announce your intent to pay each of those costs some number of times, then
+	choose targets, then pay the costs.

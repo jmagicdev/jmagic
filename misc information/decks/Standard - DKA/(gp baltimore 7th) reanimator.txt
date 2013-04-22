@@ -1,0 +1,30 @@
+## Eric Meng (Reanimator)
+## Grand Prix Baltimore 2012 (Standard)
+
+4  Blackcleave Cliffs
+4  Copperline Gorge
+2  Darkslick Shores
+6  Forest
+1  Mountain
+1  Plains
+4  Razorverge Thicket
+1  Rootbound Crag
+
+4  Avacyn's Pilgrim
+4  Birds of Paradise
+4  Elesh Norn, Grand Cenobite
+4  Inferno Titan
+1  Llanowar Elves
+
+4  Faithless Looting
+4  Lingering Souls
+4  Mulch
+4  Tracker's Instincts
+4  Unburial Rites
+
+SB: 2  Ancient Grudge
+SB: 2  Memory's Journey
+SB: 2  Ray of Revelation
+SB: 4  Sword of War and Peace
+SB: 3  Thrun, the Last Troll
+SB: 2  Wurmcoil Engine

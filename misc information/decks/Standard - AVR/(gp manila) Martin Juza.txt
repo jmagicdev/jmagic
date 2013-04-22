@@ -1,0 +1,36 @@
+## Martin Juza
+## Grand Prix Manila 2012 - Top 8 Deck
+##  
+##  
+## 
+
+4  Cavern of Souls
+4  Copperline Gorge
+3  Forest
+4  Gavony Township
+2  Mountain
+2  Plains
+4  Razorverge Thicket
+
+4  Avacyn's Pilgrim
+4  Birds of Paradise
+4  Blade Splicer
+4  Borderland Ranger
+3  Geist-Honored Monk
+4  Huntmaster of the Fells
+4  Restoration Angel
+3  Strangleroot Geist
+3  Thalia, Guardian of Thraben
+
+4  Bonfire of the Damned
+
+
+SB: 1  Ancient Grudge
+SB: 2  Celestial Purge
+SB: 2  Combust
+SB: 1  Crushing Vines
+SB: 2  Hero of Bladehold
+SB: 1  Oblivion Ring
+SB: 1  Plummet
+SB: 2  Wolfir Silverheart
+SB: 3  Zealous Conscripts

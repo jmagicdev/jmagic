@@ -1,0 +1,35 @@
+# Name: MTGS Wiki's deck from MTGSalvation.com
+
+# Lands
+12 Island
+3 Flooded Strand
+3 Polluted Delta
+
+# Instants
+2 Brain Freeze
+4 Brainstorm
+2 Cryptic Command
+3 Cunning Wish
+2 Flash of Insight
+4 Force of Will
+4 High Tide
+4 Impulse
+3 Meditate
+3 Opt
+1 Peek
+3 Remand
+4 Reset
+3 Turnabout
+
+
+# Sideboard
+SB:  3 Disrupt
+SB:  2 Echoing Truth
+SB:  2 Twincast
+SB:  2 Wipe Away
+SB:  1 Hydroblast
+SB:  1 Meditate
+SB:  1 Merchant Scroll
+SB:  1 Rebuild
+SB:  1 Stroke of Genius
+SB:  1 Turnabout

@@ -1,0 +1,33 @@
+## Matthew Costa (UW Delver)
+## Grand Prix Baltimore 2012 (Standard)
+
+4  Glacial Fortress
+9  Island
+3  Moorland Haunt
+1  Plains
+4  Seachrome Coast
+
+4  Delver of Secrets
+4  Geist of Saint Traft
+3  Invisible Stalker
+4  Snapcaster Mage
+
+2  Dismember
+4  Gitaxian Probe
+4  Mana Leak
+4  Ponder
+2  Runechanter's Pike
+2  Sword of War and Peace
+2  Thought Scour
+4  Vapor Snag
+
+SB: 1  Batterskull
+SB: 2  Celestial Purge
+SB: 2  Corrosive Gale
+SB: 2  Dissipate
+SB: 1  Divine Offering
+SB: 1  Jace, Memory Adept
+SB: 2  Phantasmal Image
+SB: 1  Revoke Existence
+SB: 1  Surgical Extraction
+SB: 2  Timely Reinforcements

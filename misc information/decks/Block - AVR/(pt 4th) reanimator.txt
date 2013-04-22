@@ -1,0 +1,30 @@
+## Ken Yukuhiro
+## Pro Tour Avacyn Restored Top 8 - Innistrad/Avacyn Restored Block Constructed
+
+1  Cavern of Souls
+4  Clifftop Retreat
+4  Evolving Wilds
+3  Forest
+2  Mountain
+4  Plains
+1  Swamp
+4  Woodland Cemetery
+
+3  Angel of Glory's Rise
+4  Borderland Ranger
+4  Cathedral Sanctifier
+3  Falkenrath Aristocrat
+4  Fiend Hunter
+4  Griselbrand
+3  Huntmaster of the Fells
+
+4  Faithless Looting
+4  Mulch
+4  Unburial Rites
+
+SB: 3  Blasphemous Act
+SB: 1  Falkenrath Aristocrat
+SB: 3  Geist-Honored Monk
+SB: 3  Purify the Grave
+SB: 3  Restoration Angel
+SB: 2  Witchbane Orb

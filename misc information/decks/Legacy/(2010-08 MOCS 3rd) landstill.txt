@@ -1,0 +1,33 @@
+## osmanozguney (3rd Place)
+## Legacy MOCS #1448403 on 08/01/2010
+
+4  Flooded Strand
+1  Island
+4  Mishra's Factory
+4  Polluted Delta
+1  Scrubland
+3  Tropical Island
+2  Tundra
+2  Underground Sea
+3  Wasteland
+
+
+
+
+4  Brainstorm
+4  Counterspell
+4  Force of Will
+2  Innocent Blood
+4  Jace, the Mind Sculptor
+2  Life from the Loam
+4  Pernicious Deed
+4  Spell Snare
+4  Standstill
+4  Swords to Plowshares
+
+SB: 2  Engineered Explosives
+SB: 3  Extirpate
+SB: 4  Hydroblast
+SB: 1  Innocent Blood
+SB: 3  Thoughtseize
+SB: 2  Tormod's Crypt

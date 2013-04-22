@@ -1,0 +1,31 @@
+## Dredge, by Richard Lessmann (pickle.69) – 3rd place
+
+## Business (49)
+4 Leyline of the Void
+4 Unmask
+4 Cabal Therapy
+1 Terastodon
+4 Bridge from Below
+2 Dread Return
+2 Darkblast
+2 Golgari Thug
+4 Golgari Grave-Troll
+4 Stinkweed Imp
+4 Narcomoeba
+4 Bloodghast
+2 Ichorid
+4 Serum Powder
+4 Bazaar of Baghdad
+
+## Mana Sources (11)
+3 City of Brass
+4 Petrified Field
+4 Undiscovered Paradise
+
+## Sideboard (15)
+SB: 4 Chain of Vapor
+SB: 4 Nature's Claim
+SB: 2 Wispmare
+SB: 1 City of Brass
+SB: 2 Ancient Grudge
+SB: 2 Firestorm

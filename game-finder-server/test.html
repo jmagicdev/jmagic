@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Game-Finder Testing</title>
+<style>
+.indent {
+	padding-left: 2.5em;
+}
+</style>
+</head>
+<body>
+<h1>Game-Finder Functions</h1>
+<h2>Cancel a game</h2>
+<form action="cancel.php" method="POST">
+<ul>
+	<li><input name="token" type="text"> Token</li>
+</ul>
+<div class="indent"><input type="submit"></div>
+</form>
+<h2>Create a new game</h2>
+<form action="create.php" method="POST">
+<p>
+	If no errors occurs, this will output a token which is required to use
+	the cancel and update functions. None of the fields are permitted to
+	contain a colon (":").
+</p>
+<ul>
+	<li><input name="hostPlayerName" type="text"> Hosting player name</li>
+	<li><input name="port" type="text"> Port</li>
+	<li><input name="description" type="text"> Description</li>
+	<li><input name="maxPlayers" type="text"> Maximum number of players</li>
+	<li><input name="format" type="text"> Format (Block, Standard, Extended, Legacy, Vintage, or Custom)</li>
+</ul>
+<div class="indent"><input type="submit"></div>
+</form>
+<h2>Heartbeat a game so it doesn't die</h2>
+<form action="heartbeat.php" method="POST">
+<ul>
+	<li><input name="token" type="text"> Token</li>
+</ul>
+<div class="indent"><input type="submit"></div>
+</form>
+<h2>List what games are available to play</h2>
+<div class="indent"><a href="list.php">View results</a></div>
+<h2>Setup the game-finder for the first time</h2>
+<div class="indent"><a href="setup.php">View results</a></div>
+<h2>Update the game-finder that a player has joined a game</h2>
+<form action="update.php" method="POST">
+<ul>
+	<li><input name="token" type="text"> Token</li>
+</ul>
+<div class="indent"><input type="submit"></div>
+</form>
+<h2>View the version of the game-finder</h2>
+<div class="indent"><a href="version.php">View results</a></div>
+</body>
+</html>

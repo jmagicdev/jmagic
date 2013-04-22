@@ -1,0 +1,35 @@
+## thekid (7th Place)
+## Legacy MOCS #1448403 on 08/01/2010
+
+1  Academy Ruins
+4  Flooded Strand
+4  Island
+3  Marsh Flats
+1  Plains
+2  Polluted Delta
+1  Swamp
+3  Tundra
+3  Underground Sea
+
+
+
+4  Spellstutter Sprite
+4  Vendilion Clique
+
+4  Bitterblossom
+4  Brainstorm
+4  Daze
+4  Force of Will
+2  Jace, the Mind Sculptor
+2  Spell Pierce
+4  Spell Snare
+4  Swords to Plowshares
+2  Umezawa's Jitte
+
+SB: 3  Engineered Explosives
+SB: 3  Engineered Plague
+SB: 1  Jace, the Mind Sculptor
+SB: 4  Leyline of the Void
+SB: 2  Path to Exile
+SB: 1  Spell Pierce
+SB: 1  Vedalken Shackles
