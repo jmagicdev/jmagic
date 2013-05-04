@@ -21,9 +21,9 @@ public class HasName extends SetGenerator
 		}
 	}
 
-	public static HasName instance(String what)
+	public static HasName instance(String... what)
 	{
-		return new HasName(Identity.instance(what));
+		return new HasName(Identity.instance((Object[])what));
 	}
 
 	public static HasName instance(SetGenerator what)
