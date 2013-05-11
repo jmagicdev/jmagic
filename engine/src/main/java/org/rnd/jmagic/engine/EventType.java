@@ -14,9 +14,7 @@ public abstract class EventType
 {
 	public enum Parameter
 	{
-		ABILITY, ACTION, ALTERNATE_COST, ATTACKER, CARD, CAUSE, CHOICE, COLOR, CONTROLLER, COST, @SuppressWarnings("hiding")
-		COUNTER, DAMAGE, DEFENDER, EFFECT, ELSE, EVENT, EXPIRES, FACE_DOWN, FROM, HIDDEN, IF, INDEX, LAND, MANA, MULTIPLY, NAME, NUMBER, OBJECT, ORDERED, PERMANENT, PHASE, PLAYER, POWER, PREVENT, @SuppressWarnings("hiding")
-		RANDOM, REASON, RESOLVING, SOURCE, STEP, SUBTYPE, SUPERTYPE, TAKER, TAPPED, TARGET, THEN, TO, TOUGHNESS, TURN, TYPE, USES, ZONE, ZONE_CHANGE
+		ABILITY, ACTION, ALTERNATE_COST, ATTACKER, CARD, CAUSE, CHOICE, COLOR, CONTROLLER, COST, COUNTER, DAMAGE, DEFENDER, EFFECT, ELSE, EVENT, EXPIRES, FACE_DOWN, FROM, HIDDEN, IF, INDEX, LAND, MANA, MULTIPLY, NAME, NUMBER, OBJECT, ORDERED, PERMANENT, PHASE, PLAYER, POWER, PREVENT, RANDOM, REASON, RESOLVING, SOURCE, STEP, SUBTYPE, SUPERTYPE, TAKER, TAPPED, TARGET, THEN, TO, TOUGHNESS, TURN, TYPE, USES, ZONE, ZONE_CHANGE
 	}
 
 	public static class ParameterMap extends java.util.HashMap<Parameter, SetGenerator>
@@ -37,8 +35,15 @@ public abstract class EventType
 	 * @eparam PLAYER: who is getting the mana
 	 * @eparam RESULT: the mana objects as they exist in the player(s) manapool
 	 */
-	public static final EventType ADD_MANA = new EventType("ADD_MANA")
+	public static final EventType ADD_MANA = new AddMana();
+
+	private static final class AddMana extends EventType
 	{
+		private AddMana()
+		{
+			super("ADD_MANA");
+		}
+
 		@Override
 		public boolean addsMana()
 		{
@@ -191,8 +196,15 @@ public abstract class EventType
 	 * @eparam NUMBER: the number to add
 	 * @eparam RESULT: the counters as they exist on the player
 	 */
-	public static final EventType ADD_POISON_COUNTERS = new EventType("ADD_POISON_COUNTERS")
+	public static final EventType ADD_POISON_COUNTERS = new AddPoisonCounters();
+
+	private static final class AddPoisonCounters extends EventType
 	{
+		private AddPoisonCounters()
+		{
+			super("ADD_POISON_COUNTERS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -237,8 +249,15 @@ public abstract class EventType
 	 * assign its normal amount of combat damage.
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType ASSIGN_COMBAT_DAMAGE = new EventType("ASSIGN_COMBAT_DAMAGE")
+	public static final EventType ASSIGN_COMBAT_DAMAGE = new AssignCombatDamage();
+
+	private static final class AssignCombatDamage extends EventType
 	{
+		private AssignCombatDamage()
+		{
+			super("ASSIGN_COMBAT_DAMAGE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -277,8 +296,15 @@ public abstract class EventType
 	 * @eparam TARGET: the AttachableTo which will become attached to
 	 * @eparam RESULT: the AttachableBy instances which are now attached to
 	 */
-	public static final EventType ATTACH = new EventType("ATTACH")
+	public static final EventType ATTACH = new Attach();
+
+	private static final class Attach extends EventType
 	{
+		private Attach()
+		{
+			super("ATTACH");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -369,8 +395,15 @@ public abstract class EventType
 	 * to
 	 * @eparam RESULT: the GameObject instances which are now attached to
 	 */
-	public static final EventType ATTACH_TO_CHOICE = new EventType("ATTACH_TO_CHOICE")
+	public static final EventType ATTACH_TO_CHOICE = new AttachToChoice();
+
+	private static final class AttachToChoice extends EventType
 	{
+		private AttachToChoice()
+		{
+			super("ATTACH_TO_CHOICE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -471,8 +504,15 @@ public abstract class EventType
 	 * @eparam DEFENDER: the blockers
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType BECOMES_BLOCKED = new EventType("BECOMES_BLOCKED")
+	public static final EventType BECOMES_BLOCKED = new BecomesBlocked();
+
+	private static final class BecomesBlocked extends EventType
 	{
+		private BecomesBlocked()
+		{
+			super("BECOMES_BLOCKED");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -507,13 +547,21 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam ATTACKER: the blocked attacker
 	 * @eparam DEFENDER: a single object blocking the attacker
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType BECOMES_BLOCKED_BY_ONE = new EventType("BECOMES_BLOCKED_BY_ONE")
+	public static final EventType BECOMES_BLOCKED_BY_ONE = new BecomesBlockedByOne();
+
+	private static final class BecomesBlockedByOne extends EventType
 	{
+		private BecomesBlockedByOne()
+		{
+			super("BECOMES_BLOCKED_BY_ONE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -538,6 +586,7 @@ public abstract class EventType
 		}
 
 	};
+
 	/**
 	 * This is a marker event for the moment at which a spell or ability becomes
 	 * played. Mana abilities resolve here.
@@ -552,8 +601,15 @@ public abstract class EventType
 	 * @eparam OBJECT: the spell/ability/land
 	 * @eparam RESULT: the first GameObject in OBJECT
 	 */
-	public static final EventType BECOMES_PLAYED = new EventType("BECOMES_PLAYED")
+	public static final EventType BECOMES_PLAYED = new BecomesPlayed();
+
+	private static final class BecomesPlayed extends EventType
 	{
+		private BecomesPlayed()
+		{
+			super("BECOMES_PLAYED");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -578,13 +634,21 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam OBJECT: the targetter
 	 * @eparam TARGET: the targettee
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType BECOMES_TARGET = new EventType("BECOMES_TARGET")
+	public static final EventType BECOMES_TARGET = new BecomesTarget();
+
+	private static final class BecomesTarget extends EventType
 	{
+		private BecomesTarget()
+		{
+			super("BECOMES_TARGET");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -598,12 +662,20 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam ATTACKER: the unblocked attacker
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType BECOMES_UNBLOCKED = new EventType("BECOMES_UNBLOCKED")
+	public static final EventType BECOMES_UNBLOCKED = new BecomesUnblocked();
+
+	private static final class BecomesUnblocked extends EventType
 	{
+		private BecomesUnblocked()
+		{
+			super("BECOMES_UNBLOCKED");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -617,12 +689,20 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam PHASE: the phase
 	 * @eparam RESULT: the phase
 	 */
-	public static final EventType BEGIN_PHASE = new EventType("BEGIN_PHASE")
+	public static final EventType BEGIN_PHASE = new BeginPhase();
+
+	private static final class BeginPhase extends EventType
 	{
+		private BeginPhase()
+		{
+			super("BEGIN_PHASE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -638,12 +718,20 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam STEP: the step
 	 * @eparam RESULT: the step
 	 */
-	public static final EventType BEGIN_STEP = new EventType("BEGIN_STEP")
+	public static final EventType BEGIN_STEP = new BeginStep();
+
+	private static final class BeginStep extends EventType
 	{
+		private BeginStep()
+		{
+			super("BEGIN_STEP");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -664,8 +752,15 @@ public abstract class EventType
 	 * @eparam TURN: the turn
 	 * @eparam RESULT: the turn
 	 */
-	public static final EventType BEGIN_TURN = new EventType("BEGIN_TURN")
+	public static final EventType BEGIN_TURN = new BeginTurn();
+
+	private static final class BeginTurn extends EventType
 	{
+		private BeginTurn()
+		{
+			super("BEGIN_TURN");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -698,8 +793,15 @@ public abstract class EventType
 	 * spell is to have (see {@link ZoneChange#faceDownCharacteristics})
 	 * @eparam RESULT: the object as it exists on the stack, empty otherwise
 	 */
-	public static final EventType CAST_SPELL_OR_ACTIVATE_ABILITY = new EventType("CAST_SPELL_OR_ACTIVATE_ABILITY")
+	public static final EventType CAST_SPELL_OR_ACTIVATE_ABILITY = new CastSpellOrActivateAbility();
+
+	private static final class CastSpellOrActivateAbility extends EventType
 	{
+		private CastSpellOrActivateAbility()
+		{
+			super("CAST_SPELL_OR_ACTIVATE_ABILITY");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -1236,6 +1338,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * This is a marker event. Don't call it.
 	 * 
@@ -1247,8 +1350,15 @@ public abstract class EventType
 	 * {@link EventType#MOVE_BATCH})
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType CHANGE_CONTROL = new EventType("CHANGE_CONTROL")
+	public static final EventType CHANGE_CONTROL = new ChangeControl();
+
+	private static final class ChangeControl extends EventType
 	{
+		private ChangeControl()
+		{
+			super("CHANGE_CONTROL");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -1285,14 +1395,22 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam OBJECT: the spell or ability to change a target of
 	 * @eparam TARGET: the new assignment for the target
 	 * @eparam PLAYER: the player choosing which target to reassign
 	 * @eparam RESULT: the objects whose targets were changed
 	 */
-	public static final EventType CHANGE_SINGLE_TARGET_TO = new EventType("CHANGE_SINGLE_TARGET_TO")
+	public static final EventType CHANGE_SINGLE_TARGET_TO = new ChangeSingleTargetTo();
+
+	private static final class ChangeSingleTargetTo extends EventType
 	{
+		private ChangeSingleTargetTo()
+		{
+			super("CHANGE_SINGLE_TARGET_TO");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -1411,13 +1529,21 @@ public abstract class EventType
 		}
 
 	};
+
 	/**
 	 * @eparam OBJECT: the spell or ability to choose new targets for
 	 * @eparam PLAYER: the player choosing the targets
 	 * @eparam RESULT: the objects whose targets were changed
 	 */
-	public static final EventType CHANGE_TARGETS = new EventType("CHANGE_TARGETS")
+	public static final EventType CHANGE_TARGETS = new ChangeTargets();
+
+	private static final class ChangeTargets extends EventType
 	{
+		private ChangeTargets()
+		{
+			super("CHANGE_TARGETS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -1504,13 +1630,21 @@ public abstract class EventType
 			return ret;
 		}
 	};
+
 	/**
 	 * @eparam PLAYER: who is choosing
 	 * @eparam EVENT: event factories for the events to choose from
 	 * @eparam RESULT: the chosen event
 	 */
-	public static final EventType CHOOSE_AND_PERFORM = new EventType("CHOOSE_AND_PERFORM")
+	public static final EventType CHOOSE_AND_PERFORM = new ChooseAndPerform();
+
+	private static final class ChooseAndPerform extends EventType
 	{
+		private ChooseAndPerform()
+		{
+			super("CHOOSE_AND_PERFORM");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -1557,13 +1691,21 @@ public abstract class EventType
 			return status;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: the cause
 	 * @eparam PLAYER: the players involved in the clash
 	 * @eparam RESULT: the winner of the clash
 	 */
-	public static final EventType CLASH = new EventType("CLASH")
+	public static final EventType CLASH = new Clash();
+
+	private static final class Clash extends EventType
 	{
+		private Clash()
+		{
+			super("CLASH");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -1626,13 +1768,21 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: the cause
 	 * @eparam PLAYER: the player initiating the clash
 	 * @eparam RESULT: the winner of the clash
 	 */
-	public static final EventType CLASH_WITH_AN_OPPONENT = new EventType("CLASH_WITH_AN_OPPONENT")
+	public static final EventType CLASH_WITH_AN_OPPONENT = new ClashWithAnOpponent();
+
+	private static final class ClashWithAnOpponent extends EventType
 	{
+		private ClashWithAnOpponent()
+		{
+			super("CLASH_WITH_AN_OPPONENT");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -1663,14 +1813,22 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is copying the spell
 	 * @eparam OBJECT: the spell to copy for each possible target
 	 * @eparam TARGET: a subset of the targets to limit it to
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType COPY_SPELL_FOR_EACH_TARGET = new EventType("COPY_SPELL_FOR_EACH_TARGET")
+	public static final EventType COPY_SPELL_FOR_EACH_TARGET = new CopySpellForEachTarget();
+
+	private static final class CopySpellForEachTarget extends EventType
 	{
+		private CopySpellForEachTarget()
+		{
+			super("COPY_SPELL_FOR_EACH_TARGET");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -1740,6 +1898,7 @@ public abstract class EventType
 			return ret;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is copying the spell
 	 * @eparam OBJECT: the spell to copy
@@ -1752,8 +1911,15 @@ public abstract class EventType
 	 * is 1]
 	 * @eparam RESULT: the copy
 	 */
-	public static final EventType COPY_SPELL_OR_ABILITY = new EventType("COPY_SPELL_OR_ABILITY")
+	public static final EventType COPY_SPELL_OR_ABILITY = new CopySpellOrAbility();
+
+	private static final class CopySpellOrAbility extends EventType
 	{
+		private CopySpellOrAbility()
+		{
+			super("COPY_SPELL_OR_ABILITY");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -1881,6 +2047,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is countering
 	 * @eparam OBJECT: objects being countered
@@ -1888,8 +2055,15 @@ public abstract class EventType
 	 * owner's graveyard]
 	 * @eparam RESULT: the objects as they exist after the counter
 	 */
-	public static final EventType COUNTER = new EventType("COUNTER")
+	public static final EventType COUNTER = new CounterSpellOrAbility();
+
+	private static final class CounterSpellOrAbility extends EventType
 	{
+		private CounterSpellOrAbility()
+		{
+			super("COUNTER_SPELL_OR_ABILITY");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -1920,6 +2094,7 @@ public abstract class EventType
 			return allCountered;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is countering
 	 * @eparam OBJECT: object being countered
@@ -1928,8 +2103,15 @@ public abstract class EventType
 	 * @eparam RESULT: the object as it exists after the counter
 	 */
 
-	public static final EventType COUNTER_ONE = new EventType("COUNTER_ONE")
+	public static final EventType COUNTER_ONE = new CounterOne();
+
+	private static final class CounterOne extends EventType
 	{
+		private CounterOne()
+		{
+			super("COUNTER_ONE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -2003,8 +2185,15 @@ public abstract class EventType
 	 * paying COST [optional; requires COST]
 	 * @eparam RESULT: the trigger
 	 */
-	public static final EventType CREATE_DELAYED_TRIGGER = new EventType("CREATE_DELAYED_TRIGGER")
+	public static final EventType CREATE_DELAYED_TRIGGER = new CreateDelayedTrigger();
+
+	private static final class CreateDelayedTrigger extends EventType
 	{
+		private CreateDelayedTrigger()
+		{
+			super("CREATE_DELAYED_TRIGGER");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -2103,8 +2292,15 @@ public abstract class EventType
 	 * @eparam CONTROLLER: who will control the emblem
 	 * @eparam RESULT: the emblem as it exists in the battlefield
 	 */
-	public static final EventType CREATE_EMBLEM = new EventType("CREATE_EMBLEM")
+	public static final EventType CREATE_EMBLEM = new CreateEmblem();
+
+	private static final class CreateEmblem extends EventType
 	{
+		private CreateEmblem()
+		{
+			super("CREATE_EMBLEM");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -2171,8 +2367,15 @@ public abstract class EventType
 	 * redirect
 	 * @eparam RESULT: all floating continuous effects in EFFECT
 	 */
-	public static final EventType CREATE_FLOATING_CONTINUOUS_EFFECT = new EventType("CREATE_FLOATING_CONTINUOUS_EFFECT")
+	public static final EventType CREATE_FLOATING_CONTINUOUS_EFFECT = new CreateFloatingContinuousEffect();
+
+	private static final class CreateFloatingContinuousEffect extends EventType
 	{
+		private CreateFloatingContinuousEffect()
+		{
+			super("CREATE_FLOATING_CONTINUOUS_EFFECT");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -2255,13 +2458,21 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what's creating the shield
 	 * @eparam OBJECT: the objects being shielded
 	 * @eparam RESULT: the regeneration shields
 	 */
-	public static final EventType CREATE_REGENERATION_SHIELD = new EventType("CREATE_REGENERATION_SHIELD")
+	public static final EventType CREATE_REGENERATION_SHIELD = new CreateRegenerationShield();
+
+	private static final class CreateRegenerationShield extends EventType
 	{
+		private CreateRegenerationShield()
+		{
+			super("CREATE_REGENERATION_SHIELD");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -2301,6 +2512,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam NUMBER: the number of tokens to instantiate
 	 * @eparam NAME: the name of the tokens
@@ -2309,8 +2521,15 @@ public abstract class EventType
 	 * to be set for effects like Doubling Season to see it)
 	 * @eparam RESULT: the tokens
 	 */
-	public static final EventType CREATE_TOKEN = new EventType("CREATE_TOKEN")
+	public static final EventType CREATE_TOKEN = new CreateToken();
+
+	private static final class CreateToken extends EventType
 	{
+		private CreateToken()
+		{
+			super("CREATE_TOKEN");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -2333,6 +2552,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is creating the tokens
 	 * @eparam ABILITY: any abilities the token should have [optional; default
@@ -2364,8 +2584,15 @@ public abstract class EventType
 	 * prohibited when EVENT is something else]
 	 * @eparam RESULT: the tokens as they exist on the battlefield
 	 */
-	public static final EventType CREATE_TOKEN_ON_BATTLEFIELD = new EventType("CREATE_TOKEN_ON_BATTLEFIELD")
+	public static final EventType CREATE_TOKEN_ON_BATTLEFIELD = new CreateTokenOnBattlefield();
+
+	private static final class CreateTokenOnBattlefield extends EventType
 	{
+		private CreateTokenOnBattlefield()
+		{
+			super("CREATE_TOKEN_ON_BATTLEFIELD");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -2520,6 +2747,7 @@ public abstract class EventType
 			return ret;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is putting it onto the battlefield
 	 * @eparam ATTACKER: the attacker to block
@@ -2546,8 +2774,15 @@ public abstract class EventType
 	 * TOUGHNESS are required)
 	 * @eparam RESULT: result of the PUT_ONTO_BATTLEFIELD event
 	 */
-	public static final EventType CREATE_TOKEN_BLOCKING = new EventType("CREATE_TOKEN_BLOCKING")
+	public static final EventType CREATE_TOKEN_BLOCKING = new CreateTokenBlocking();
+
+	private static final class CreateTokenBlocking extends EventType
 	{
+		private CreateTokenBlocking()
+		{
+			super("CREATE_TOKEN_BLOCKING");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -2580,6 +2815,7 @@ public abstract class EventType
 			return status;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is creating the tokens
 	 * @eparam CONTROLLER: who will control the tokens
@@ -2591,8 +2827,15 @@ public abstract class EventType
 	 * to add as part of the copying process
 	 * @eparam RESULT: the zone changes
 	 */
-	public static final EventType CREATE_TOKEN_COPY = new EventType("CREATE_TOKEN_COPY")
+	public static final EventType CREATE_TOKEN_COPY = new CreateTokenCopy();
+
+	private static final class CreateTokenCopy extends EventType
 	{
+		private CreateTokenCopy()
+		{
+			super("CREATE_TOKEN_COPY");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -2661,12 +2904,20 @@ public abstract class EventType
 			return status;
 		}
 	};
+
 	/**
 	 * @eparam TARGET: DamageAssignment objects
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType DEAL_COMBAT_DAMAGE = new EventType("DEAL_COMBAT_DAMAGE")
+	public static final EventType DEAL_COMBAT_DAMAGE = new DealCombatDamage();
+
+	private static final class DealCombatDamage extends EventType
 	{
+		private DealCombatDamage()
+		{
+			super("DEAL_COMBAT_DAMAGE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -2682,6 +2933,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * This event ACTUALLY DEALS DAMAGE. This event should only be created or
 	 * performed in Event.perform().
@@ -2689,8 +2941,15 @@ public abstract class EventType
 	 * @eparam TARGET: DamageAssignments
 	 * @eparam RESULT: the damage assignments of the damage actually dealt
 	 */
-	public static final EventType DEAL_DAMAGE_BATCHES = new EventType("DEAL_DAMAGE_BATCHES")
+	public static final EventType DEAL_DAMAGE_BATCHES = new DealDamageBatches();
+
+	private static final class DealDamageBatches extends EventType
 	{
+		private DealDamageBatches()
+		{
+			super("DEAL_DAMAGE_BATCHES");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -2901,6 +3160,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam SOURCE: what is dealing damage
 	 * @eparam NUMBER: how much damage
@@ -2908,8 +3168,15 @@ public abstract class EventType
 	 * @eparam PREVENT: [optional] if present, the damage is unpreventable.
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType DEAL_DAMAGE_EVENLY = new EventType("DEAL_DAMAGE_EVENLY")
+	public static final EventType DEAL_DAMAGE_EVENLY = new DealDamageEvenly();
+
+	private static final class DealDamageEvenly extends EventType
 	{
+		private DealDamageEvenly()
+		{
+			super("DEAL_DAMAGE_EVENLY");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -2934,6 +3201,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam SOURCE: what is dealing damage
 	 * @eparam NUMBER: how much damage
@@ -2941,8 +3209,15 @@ public abstract class EventType
 	 * @eparam PREVENT: [optional] if present, the damage is unpreventable
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType DEAL_DAMAGE_EVENLY_CANT_BE_REGENERATED = new EventType("DEAL_DAMAGE_EVENLY_CANT_BE_REGENERATED")
+	public static final EventType DEAL_DAMAGE_EVENLY_CANT_BE_REGENERATED = new DealDamageEvenlyCantBeRegenerated();
+
+	private static final class DealDamageEvenlyCantBeRegenerated extends EventType
 	{
+		private DealDamageEvenlyCantBeRegenerated()
+		{
+			super("DEAL_DAMAGE_EVENLY_CANT_BE_REGENERATED");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -2979,8 +3254,15 @@ public abstract class EventType
 	/**
 	 * @eparam RESULT: the creatures declared as attacking
 	 */
-	public static final EventType DECLARE_ATTACKERS = new EventType("DECLARE_ATTACKERS")
+	public static final EventType DECLARE_ATTACKERS = new DeclareAttackers();
+
+	private static final class DeclareAttackers extends EventType
 	{
+		private DeclareAttackers()
+		{
+			super("DECLARE_ATTACKERS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3007,11 +3289,19 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType DECLARE_BLOCKERS = new EventType("DECLARE_BLOCKERS")
+	public static final EventType DECLARE_BLOCKERS = new DeclareBlockers();
+
+	private static final class DeclareBlockers extends EventType
 	{
+		private DeclareBlockers()
+		{
+			super("DECLARE_BLOCKERS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3091,13 +3381,21 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam OBJECT: the attacking creature
 	 * @eparam DEFENDER: the thing it's attacking
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType DECLARE_ONE_ATTACKER = new EventType("DECLARE_ONE_ATTACKER")
+	public static final EventType DECLARE_ONE_ATTACKER = new DeclareOneAttacker();
+
+	private static final class DeclareOneAttacker extends EventType
 	{
+		private DeclareOneAttacker()
+		{
+			super("DECLARE_ONE_ATTACKER");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3111,13 +3409,21 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam OBJECT: the blocking creature
 	 * @eparam ATTACKER: the things it's blocking
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType DECLARE_ONE_BLOCKER = new EventType("DECLARE_ONE_BLOCKER")
+	public static final EventType DECLARE_ONE_BLOCKER = new DeclareOneBlocker();
+
+	private static final class DeclareOneBlocker extends EventType
 	{
+		private DeclareOneBlocker()
+		{
+			super("DECLARE_ONE_BLOCKER");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3131,6 +3437,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * NEVER, NEVER, NEVER INVOKE *_ONE_* EVENTS DIRECTLY! These event types are
 	 * here solely for the purpose of being invoked by other events! DON'T
@@ -3140,8 +3447,15 @@ public abstract class EventType
 	 * @eparam PERMANENT: the permanent being destroyed
 	 * @eparam RESULT: the result of the {@link EventType#MOVE_OBJECTS} event
 	 */
-	public static final EventType DESTROY_ONE_PERMANENT = new EventType("DESTROY_ONE_PERMANENT")
+	public static final EventType DESTROY_ONE_PERMANENT = new DestroyOnePermanent();
+
+	private static final class DestroyOnePermanent extends EventType
 	{
+		private DestroyOnePermanent()
+		{
+			super("DESTROY_ONE_PERMANENT");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3168,13 +3482,21 @@ public abstract class EventType
 			return status;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is destroying things
 	 * @eparam PERMANENT: what is being destroyed
 	 * @eparam RESULT: the zone changes
 	 */
-	public static final EventType DESTROY_PERMANENTS = new EventType("DESTROY_PERMANENTS")
+	public static final EventType DESTROY_PERMANENTS = new DestroyPermanents();
+
+	private static final class DestroyPermanents extends EventType
 	{
+		private DestroyPermanents()
+		{
+			super("DESTROY_PERMANENTS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3207,6 +3529,7 @@ public abstract class EventType
 			return allDestroyed;
 		}
 	};
+
 	/**
 	 * 701.26. Detain
 	 * 
@@ -3221,8 +3544,15 @@ public abstract class EventType
 	 * @eparam PERMANENT: the permanents to detain
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType DETAIN = new EventType("DETAIN")
+	public static final EventType DETAIN = new Detain();
+
+	private static final class Detain extends EventType
 	{
+		private Detain()
+		{
+			super("DETAIN");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3265,6 +3595,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * Causes a player to discard a specific set of cards from their hand. To
 	 * cause a player to discard cards of their choice, use DISCARD_CHOICE. To
@@ -3275,8 +3606,15 @@ public abstract class EventType
 	 * @eparam CARD: what is being discarded
 	 * @eparam RESULT: the {@link ZoneChange}s that were generated
 	 */
-	public static final EventType DISCARD_CARDS = new EventType("DISCARD_CARDS")
+	public static final EventType DISCARD_CARDS = new DiscardCards();
+
+	private static final class DiscardCards extends EventType
 	{
+		private DiscardCards()
+		{
+			super("DISCARD_CARDS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3318,6 +3656,7 @@ public abstract class EventType
 			return allDiscarded;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the discard
 	 * @eparam PLAYER: the players that are discarding (and thus choosing)
@@ -3327,8 +3666,15 @@ public abstract class EventType
 	 * default, it's a Bad Thing(tm) to have multiple players specified here.
 	 * @eparam RESULT: the zone change(s)
 	 */
-	public static final EventType DISCARD_CHOICE = new EventType("DISCARD_CHOICE")
+	public static final EventType DISCARD_CHOICE = new DiscardChoice();
+
+	private static final class DiscardChoice extends EventType
 	{
+		private DiscardChoice()
+		{
+			super("DISCARD_CHOICE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3422,6 +3768,7 @@ public abstract class EventType
 			return allDiscarded;
 		}
 	};
+
 	/**
 	 * This event causes PLAYER to look at all of the cards in TARGET's hand
 	 * since it invokes a {@link EventType#SEARCH}.
@@ -3434,8 +3781,15 @@ public abstract class EventType
 	 * the cards in the player's hand] (uses double-generator idiom)
 	 * @eparam RESULT: the results of the DISCARD_CARDS events
 	 */
-	public static final EventType DISCARD_FORCE = new EventType("DISCARD_FORCE")
+	public static final EventType DISCARD_FORCE = new DiscardForce();
+
+	private static final class DiscardForce extends EventType
 	{
+		private DiscardForce()
+		{
+			super("DISCARD_FORCE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3526,6 +3880,7 @@ public abstract class EventType
 			return allDiscarded;
 		}
 	};
+
 	/**
 	 * NEVER, NEVER, NEVER INVOKE *_ONE_* EVENTS DIRECTLY! These event types are
 	 * here solely for the purpose of being invoked by other events! DON'T
@@ -3539,8 +3894,15 @@ public abstract class EventType
 	 * [required if TO is the battlefield or the stack; prohibited otherwise]
 	 * @eparam RESULT: the zone change
 	 */
-	public static final EventType DISCARD_ONE_CARD = new EventType("DISCARD_ONE_CARD")
+	public static final EventType DISCARD_ONE_CARD = new DiscardOneCard();
+
+	private static final class DiscardOneCard extends EventType
 	{
+		private DiscardOneCard()
+		{
+			super("DISCARD_ONE_CARD");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3594,6 +3956,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the discard
 	 * @eparam PLAYER: the players that are discarding
@@ -3602,8 +3965,15 @@ public abstract class EventType
 	 * players' hands]
 	 * @eparam RESULT: the results of the {@link #DISCARD_CARDS} event(s)
 	 */
-	public static final EventType DISCARD_RANDOM = new EventType("DISCARD_RANDOM")
+	public static final EventType DISCARD_RANDOM = new DiscardRandom();
+
+	private static final class DiscardRandom extends EventType
 	{
+		private DiscardRandom()
+		{
+			super("DISCARD_RANDOM");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3687,14 +4057,22 @@ public abstract class EventType
 			return allDiscarded;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the discard
 	 * @eparam PLAYER: the players discarding
 	 * @eparam NUMBER: number of cards for each player to keep
 	 * @eparam RESULT: the results of the DISCARD_CARDS event(s)
 	 */
-	public static final EventType DISCARD_TO = new EventType("DISCARD_TO")
+	public static final EventType DISCARD_TO = new DiscardTo();
+
+	private static final class DiscardTo extends EventType
 	{
+		private DiscardTo()
+		{
+			super("DISCARD_TO");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3738,6 +4116,7 @@ public abstract class EventType
 			return allDiscarded;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: the cause of the counters
 	 * @eparam PLAYER: the player distributing the counters
@@ -3745,8 +4124,15 @@ public abstract class EventType
 	 * @eparam COUNTER: the Counter.CounterType of counters to distribute
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType DISTRIBUTE_COUNTERS = new EventType("DISTRIBUTE_COUNTERS")
+	public static final EventType DISTRIBUTE_COUNTERS = new DistributeCounters();
+
+	private static final class DistributeCounters extends EventType
 	{
+		private DistributeCounters()
+		{
+			super("DISTRIBUTE_COUNTERS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3770,14 +4156,22 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam SOURCE: the source of damage
 	 * @eparam TAKER: targets describing who is taking damage and how much
 	 * @eparam PREVENT: [optional] if present, the damage is unpreventable
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType DISTRIBUTE_DAMAGE = new EventType("DISTRIBUTE_DAMAGE")
+	public static final EventType DISTRIBUTE_DAMAGE = new DistributeDamage();
+
+	private static final class DistributeDamage extends EventType
 	{
+		private DistributeDamage()
+		{
+			super("DISTRIBUTE_DAMAGE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3802,14 +4196,22 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam SOURCE: the source of the new mana
 	 * @eparam PLAYER: the player whose mana to double
 	 * @eparam MANA: the mana to double
 	 * @eparam RESULT: the mana that was created this way
 	 */
-	public static final EventType DOUBLE_MANA = new EventType("DOUBLE_MANA")
+	public static final EventType DOUBLE_MANA = new DoubleMana();
+
+	private static final class DoubleMana extends EventType
 	{
+		private DoubleMana()
+		{
+			super("DOUBLE_MANA");
+		}
+
 		@Override
 		public boolean addsMana()
 		{
@@ -3874,8 +4276,15 @@ public abstract class EventType
 	 * factory and pass it to this parameter.
 	 * @eparam RESULT: The result of the draw event.
 	 */
-	public static final EventType DRAW_AND_REVEAL = new EventType("DRAW_AND_REVEAL")
+	public static final EventType DRAW_AND_REVEAL = new DrawAndReveal();
+
+	private static final class DrawAndReveal extends EventType
 	{
+		private DrawAndReveal()
+		{
+			super("DRAW_AND_REVEAL");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3909,8 +4318,15 @@ public abstract class EventType
 	 * @eparam NUMBER: number of cards to draw
 	 * @eparam RESULT: the results of the {@link #DRAW_ONE_CARD} event(s)
 	 */
-	public static final EventType DRAW_CARDS = new EventType("DRAW_CARDS")
+	public static final EventType DRAW_CARDS = new DrawCards();
+
+	private static final class DrawCards extends EventType
 	{
+		private DrawCards()
+		{
+			super("DRAW_CARDS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3951,6 +4367,7 @@ public abstract class EventType
 			return allDrawn;
 		}
 	};
+
 	/**
 	 * NEVER, NEVER, NEVER INVOKE *_ONE_* EVENTS DIRECTLY! These event types are
 	 * here solely for the purpose of being invoked by other events! DON'T
@@ -3960,8 +4377,15 @@ public abstract class EventType
 	 * @eparam PLAYER: the player that is drawing
 	 * @eparam RESULT: the result of the {@link #MOVE_OBJECTS} event
 	 */
-	public static final EventType DRAW_ONE_CARD = new EventType("DRAW_ONE_CARD")
+	public static final EventType DRAW_ONE_CARD = new DrawOneCard();
+
+	private static final class DrawOneCard extends EventType
 	{
+		private DrawOneCard()
+		{
+			super("DRAW_ONE_CARD");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -3996,9 +4420,17 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/** @eparam RESULT: Empty */
-	public static final EventType EMPTY_ALL_MANA_POOLS = new EventType("EMPTY_ALL_MANA_POOLS")
+	public static final EventType EMPTY_ALL_MANA_POOLS = new EmptyAllManaPools();
+
+	private static final class EmptyAllManaPools extends EventType
 	{
+		private EmptyAllManaPools()
+		{
+			super("EMPTY_ALL_MANA_POOLS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4018,13 +4450,21 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is emptying the mana pools
 	 * @eparam PLAYER: whose mana pools to empty
 	 * @eparam RESULT: the mana emptied
 	 */
-	public static final EventType EMPTY_MANA_POOL = new EventType("EMPTY_MANA_POOL")
+	public static final EventType EMPTY_MANA_POOL = new EmptyManaPool();
+
+	private static final class EmptyManaPool extends EventType
 	{
+		private EmptyManaPool()
+		{
+			super("EMPTY_MANA_POOL");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4072,8 +4512,15 @@ public abstract class EventType
 	 * @eparam STEP: the step that is ending
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType END_STEP = new EventType("END_STEP")
+	public static final EventType END_STEP = new EndStep();
+
+	private static final class EndStep extends EventType
 	{
+		private EndStep()
+		{
+			super("END_STEP");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4094,8 +4541,15 @@ public abstract class EventType
 	 * @eparam CAUSE: why is the turn ending?
 	 * @eparam RESULT: nothing. thats all thats left. nothing.
 	 */
-	public static final EventType END_THE_TURN = new EventType("END_THE_TURN")
+	public static final EventType END_THE_TURN = new EndTheTurn();
+
+	private static final class EndTheTurn extends EventType
 	{
+		private EndTheTurn()
+		{
+			super("END_THE_TURN");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4140,6 +4594,7 @@ public abstract class EventType
 			throw new Game.StopPriorityException();
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the swap
 	 * @eparam OBJECT: the two objects whose control is beings swapped (no more
@@ -4147,8 +4602,15 @@ public abstract class EventType
 	 * one, not three, four is right out)
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType EXCHANGE_CONTROL = new EventType("EXCHANGE_CONTROL")
+	public static final EventType EXCHANGE_CONTROL = new ExchangeControl();
+
+	private static final class ExchangeControl extends EventType
 	{
+		private ExchangeControl()
+		{
+			super("EXCHANGE_CONTROL");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4230,14 +4692,22 @@ public abstract class EventType
 			return ret;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the swap
 	 * @eparam PLAYER: the two players swapping lifetotals (no more than two, no
 	 * less than two)
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType EXCHANGE_LIFE_TOTALS = new EventType("EXCHANGE_LIFE_TOTALS")
+	public static final EventType EXCHANGE_LIFE_TOTALS = new ExchangeLifeTotals();
+
+	private static final class ExchangeLifeTotals extends EventType
 	{
+		private ExchangeLifeTotals()
+		{
+			super("EXCHANGE_LIFE_TOTALS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4309,6 +4779,7 @@ public abstract class EventType
 			return ret;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the choice
 	 * @eparam NUMBER: how many to choose (integer or range) [optional; default
@@ -4319,8 +4790,15 @@ public abstract class EventType
 	 * (hidden).
 	 * @eparam RESULT: results of the MOVE_OBJECTS event
 	 */
-	public static final EventType EXILE_CHOICE = new EventType("EXILE_CHOICE")
+	public static final EventType EXILE_CHOICE = new ExileChoice();
+
+	private static final class ExileChoice extends EventType
 	{
+		private ExileChoice()
+		{
+			super("EXILE_CHOICE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4385,6 +4863,7 @@ public abstract class EventType
 			return event.allChoicesMade && status;
 		}
 	};
+
 	/**
 	 * IMPORTANT NOTE: The OBJECT parameter takes two objects that can either be
 	 * 2 Targets, 1 Target and 1 GameObject, or 2 GameObjects. If there is a
@@ -4410,8 +4889,15 @@ public abstract class EventType
 	 * @eparam OBJECT: two objects representing the creatures that are fighting
 	 * @eparam RESULT: the creatures that fought
 	 */
-	public static final EventType FIGHT = new EventType("FIGHT")
+	public static final EventType FIGHT = new Fight();
+
+	private static final class Fight extends EventType
 	{
+		private Fight()
+		{
+			super("FIGHT");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4469,12 +4955,20 @@ public abstract class EventType
 			return ret;
 		}
 	};
+
 	/**
 	 * @eparam OBJECT: the card to flip
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType FLIP_CARD = new EventType("FLIP_CARD")
+	public static final EventType FLIP_CARD = new FlipCard();
+
+	private static final class FlipCard extends EventType
 	{
+		private FlipCard()
+		{
+			super("FLIP_CARD");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4491,6 +4985,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam PLAYER: who is flipping
 	 * @eparam TYPE: a set containing exactly two Answer objects representing
@@ -4499,8 +4994,15 @@ public abstract class EventType
 	 * HEADS/TAILS flips))
 	 * @eparam RESULT: an Answer that is the result of this flip
 	 */
-	public static final EventType FLIP_COIN = new EventType("FLIP_COIN")
+	public static final EventType FLIP_COIN = new FlipCoin();
+
+	private static final class FlipCoin extends EventType
 	{
+		private FlipCoin()
+		{
+			super("FLIP_COIN");
+		}
+
 		private final java.util.Random generator = new java.util.Random();
 
 		@Override
@@ -4536,6 +5038,7 @@ public abstract class EventType
 			return (flipResult != Answer.LOSE);
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the life gain
 	 * @eparam PLAYER: the players gaining the life
@@ -4543,8 +5046,15 @@ public abstract class EventType
 	 * @eparam RESULT: the players that gained life and each amount of life
 	 * gained by a player
 	 */
-	public static final EventType GAIN_LIFE = new EventType("GAIN_LIFE")
+	public static final EventType GAIN_LIFE = new GainLife();
+
+	private static final class GainLife extends EventType
 	{
+		private GainLife()
+		{
+			super("GAIN_LIFE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4596,14 +5106,22 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the life gain
 	 * @eparam PLAYER: the player gaining the life
 	 * @eparam NUMBER: how much life is being gained
 	 * @eparam RESULT: the player that gained life and the amount of life gained
 	 */
-	public static final EventType GAIN_LIFE_ONE_PLAYER = new EventType("GAIN_LIFE_ONE_PLAYER")
+	public static final EventType GAIN_LIFE_ONE_PLAYER = new GainLifeOnePlayer();
+
+	private static final class GainLifeOnePlayer extends EventType
 	{
+		private GainLifeOnePlayer()
+		{
+			super("GAIN_LIFE_ONE_PLAYER");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4625,8 +5143,16 @@ public abstract class EventType
 			return true;
 		}
 	};
-	public static final EventType GAME_OVER = new EventType("GAME_OVER")
+
+	public static final EventType GAME_OVER = new GameOver();
+
+	private static final class GameOver extends EventType
 	{
+		private GameOver()
+		{
+			super("GAME_OVER");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4644,6 +5170,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * Marker event for the decks having been established. This is a hack to
 	 * support X-10 modifying the decks after Pack Wars. The correct solution is
@@ -4651,8 +5178,15 @@ public abstract class EventType
 	 * 
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType GAME_START = new EventType("GAME_START")
+	public static final EventType GAME_START = new GameStart();
+
+	private static final class GameStart extends EventType
 	{
+		private GameStart()
+		{
+			super("GAME_START");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4667,14 +5201,22 @@ public abstract class EventType
 		}
 
 	};
+
 	/**
 	 * @eparam IF: if the set's size is 0, do else, otherwise, do then
 	 * @eparam THEN: EventFactory to perform for nonempty
 	 * @eparam ELSE: EventFactory to perform for empty
 	 * @eparam RESULT: result of THEN or ELSE, depending on how IF evaluated
 	 */
-	public static final EventType IF_CONDITION_THEN_ELSE = new EventType("IF_CONDITION_THEN_ELSE")
+	public static final EventType IF_CONDITION_THEN_ELSE = new IfConditionThenElse();
+
+	private static final class IfConditionThenElse extends EventType
 	{
+		private IfConditionThenElse()
+		{
+			super("IF_CONDITION_THEN_ELSE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4717,6 +5259,7 @@ public abstract class EventType
 			return status;
 		}
 	};
+
 	/**
 	 * @eparam IF: EventFactory to perform and test
 	 * @eparam THEN: EventFactory to perform on success
@@ -4724,8 +5267,15 @@ public abstract class EventType
 	 * @eparam RESULT: results of either THEN or ELSE, depending on whether IF
 	 * successfully performed
 	 */
-	public static final EventType IF_EVENT_THEN_ELSE = new EventType("IF_EVENT_THEN_ELSE")
+	public static final EventType IF_EVENT_THEN_ELSE = new IfEventThenElse();
+
+	private static final class IfEventThenElse extends EventType
 	{
+		private IfEventThenElse()
+		{
+			super("IF_EVENT_THEN_ELSE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4768,6 +5318,7 @@ public abstract class EventType
 			return status;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the look
 	 * @eparam OBJECT: the objects to be looked at or zones from which to look
@@ -4777,8 +5328,15 @@ public abstract class EventType
 	 * if set, this will create a reveal fce with that duration]
 	 * @eparam RESULT: the revealed object
 	 */
-	public static final EventType LOOK = new EventType("LOOK")
+	public static final EventType LOOK = new Look();
+
+	private static final class Look extends EventType
 	{
+		private Look()
+		{
+			super("LOOK");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4837,6 +5395,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * Encapsulates
 	 * "look at the top [n] cards of your library, then put them back in any order."
@@ -4847,8 +5406,15 @@ public abstract class EventType
 	 * @eparam NUMBER: number of cards to look at
 	 * @eparam RESULT: the zone changes
 	 */
-	public static final EventType LOOK_AND_PUT_BACK = new EventType("LOOK_AND_PUT_BACK")
+	public static final EventType LOOK_AND_PUT_BACK = new LookAndPutBack();
+
+	private static final class LookAndPutBack extends EventType
 	{
+		private LookAndPutBack()
+		{
+			super("LOOK_AND_PUT_BACK");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4922,14 +5488,22 @@ public abstract class EventType
 			return ret;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the game loss (must contain one and
 	 * exactly one Game.LoseReason)
 	 * @eparam PLAYER: the player losing the game (one and exactly one)
 	 * @eparam RESULT: the player who lost
 	 */
-	public static final EventType LOSE_GAME = new EventType("LOSE_GAME")
+	public static final EventType LOSE_GAME = new LoseGame();
+
+	private static final class LoseGame extends EventType
 	{
+		private LoseGame()
+		{
+			super("LOSE_GAME");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -4956,6 +5530,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the life loss
 	 * @eparam PLAYER: the players losing the life
@@ -4965,8 +5540,15 @@ public abstract class EventType
 	 * @eparam RESULT: the players that lost life and each amount of life lost
 	 * by a player
 	 */
-	public static final EventType LOSE_LIFE = new EventType("LOSE_LIFE")
+	public static final EventType LOSE_LIFE = new LoseLife();
+
+	private static final class LoseLife extends EventType
 	{
+		private LoseLife()
+		{
+			super("LOSE_LIFE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -5018,6 +5600,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the life loss
 	 * @eparam PLAYER: the player losing the life
@@ -5026,8 +5609,15 @@ public abstract class EventType
 	 * parameter; prohibited otherwise
 	 * @eparam RESULT: the player that lost life and how much life was lost
 	 */
-	public static final EventType LOSE_LIFE_ONE_PLAYER = new EventType("LOSE_LIFE_ONE_PLAYER")
+	public static final EventType LOSE_LIFE_ONE_PLAYER = new LoseLifeOnePlayer();
+
+	private static final class LoseLifeOnePlayer extends EventType
 	{
+		private LoseLifeOnePlayer()
+		{
+			super("LOSE_LIFE_ONE_PLAYER");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -5054,14 +5644,22 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the mill
 	 * @eparam NUMBER: how many cards to mill
 	 * @eparam PLAYER: who is milling
 	 * @eparam RESULT: results of the MOVE_OBJECTS event(s)
 	 */
-	public static final EventType MILL_CARDS = new EventType("MILL_CARDS")
+	public static final EventType MILL_CARDS = new MillCards();
+
+	private static final class MillCards extends EventType
 	{
+		private MillCards()
+		{
+			super("MILL_CARDS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -5112,6 +5710,7 @@ public abstract class EventType
 			return allMilled;
 		}
 	};
+
 	/**
 	 * This event ACTUALLY MOVES OBJECTS. This event should only be created or
 	 * performed in Event.perform().
@@ -5119,8 +5718,15 @@ public abstract class EventType
 	 * @eparam TARGET: Movements
 	 * @eparam RESULT: the new GameObject instances
 	 */
-	public static final EventType MOVE_BATCH = new EventType("MOVE_BATCH")
+	public static final EventType MOVE_BATCH = new MoveBatch();
+
+	private static final class MoveBatch extends EventType
 	{
+		private MoveBatch()
+		{
+			super("MOVE_BATCH");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -5473,6 +6079,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the choice
 	 * @eparam NUMBER: how many to choose (integer or range) [optional; default
@@ -5487,8 +6094,15 @@ public abstract class EventType
 	 * {@link ZoneChange#index})
 	 * @eparam RESULT: results of the {@link #MOVE_OBJECTS} event
 	 */
-	public static final EventType MOVE_CHOICE = new EventType("MOVE_CHOICE")
+	public static final EventType MOVE_CHOICE = new MoveChoice();
+
+	private static final class MoveChoice extends EventType
 	{
+		private MoveChoice()
+		{
+			super("MOVE_CHOICE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -5563,6 +6177,7 @@ public abstract class EventType
 			return event.allChoicesMade && status;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is doing the moving
 	 * @eparam FROM: where it's coming from
@@ -5571,8 +6186,15 @@ public abstract class EventType
 	 * @eparam COUNTER: the type of counter to move
 	 * @eparam RESULT: the counters that were moved
 	 */
-	public static final EventType MOVE_COUNTERS = new EventType("MOVE_COUNTERS")
+	public static final EventType MOVE_COUNTERS = new MoveCounters();
+
+	private static final class MoveCounters extends EventType
 	{
+		private MoveCounters()
+		{
+			super("MOVE_COUNTERS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -5629,6 +6251,7 @@ public abstract class EventType
 			return success;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is doing the moving
 	 * @eparam TO: where it's going
@@ -5654,8 +6277,15 @@ public abstract class EventType
 	 * @eparam RESULT: {@link ZoneChange}s that will eventually be carried out
 	 * by {@link EventType#MOVE_BATCH}
 	 */
-	public static final EventType MOVE_OBJECTS = new EventType("MOVE_OBJECTS")
+	public static final EventType MOVE_OBJECTS = new MoveObjects();
+
+	private static final class MoveObjects extends EventType
 	{
+		private MoveObjects()
+		{
+			super("MOVE_OBJECTS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -5755,8 +6385,15 @@ public abstract class EventType
 	 * @eparam PLAYER: the player mulliganning
 	 * @eparam RESULT: Empty
 	 */
-	public static final EventType MULLIGAN = new EventType("MULLIGAN")
+	public static final EventType MULLIGAN = new Mulligan();
+
+	private static final class Mulligan extends EventType
 	{
+		private Mulligan()
+		{
+			super("MULLIGAN");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -5798,12 +6435,20 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam PLAYER: the players mulliganning
 	 * @eparam RESULT: The players who chose not to keep
 	 */
-	public static final EventType MULLIGAN_SIMULTANEOUS = new EventType("MULLIGAN_SIMULTANEOUS")
+	public static final EventType MULLIGAN_SIMULTANEOUS = new MulliganSimultaneous();
+
+	private static final class MulliganSimultaneous extends EventType
 	{
+		private MulliganSimultaneous()
+		{
+			super("MULLIGAN_SIMULTANEOUS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -5889,8 +6534,15 @@ public abstract class EventType
 	 * @eparam NUMBER: the number of times to pay it
 	 * @eparam RESULT: the results of all the cost events
 	 */
-	public static final EventType PAY_CUMULATIVE_UPKEEP = new EventType("PAY_CUMULATIVE_UPKEEP")
+	public static final EventType PAY_CUMULATIVE_UPKEEP = new PayCumulativeUpkeep();
+
+	private static final class PayCumulativeUpkeep extends EventType
 	{
+		private PayCumulativeUpkeep()
+		{
+			super("PAY_CUMULATIVE_UPKEEP");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -5927,14 +6579,22 @@ public abstract class EventType
 			return status;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is asking for life payment
 	 * @eparam PLAYER: what player is paying the life (singular!)
 	 * @eparam NUMBER: how much life is being paid
 	 * @eparam RESULT: the player who paid life and the amount of life paid
 	 */
-	public static final EventType PAY_LIFE = new EventType("PAY_LIFE")
+	public static final EventType PAY_LIFE = new PayLife();
+
+	private static final class PayLife extends EventType
 	{
+		private PayLife()
+		{
+			super("PAY_LIFE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -5979,6 +6639,7 @@ public abstract class EventType
 			return status;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is asking the player to pay mana
 	 * @eparam OBJECT: if this payment is the cost to play an object, that
@@ -5991,8 +6652,15 @@ public abstract class EventType
 	 * is 1]
 	 * @eparam RESULT: the mana used to pay the cost
 	 */
-	public static final EventType PAY_MANA = new EventType("PAY_MANA")
+	public static final EventType PAY_MANA = new PayMana();
+
+	private static final class PayMana extends EventType
 	{
+		private PayMana()
+		{
+			super("PAY_MANA");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -6104,6 +6772,7 @@ public abstract class EventType
 			}
 		}
 	};
+
 	/**
 	 * NOTE -- THIS EVENT DOES NOT ACCEPT A COST! If you're looking for that,
 	 * you want {@link EventType#PAY_MANA}!!
@@ -6113,8 +6782,15 @@ public abstract class EventType
 	 * @eparam OBJECT: the object for which to pay the mana cost
 	 * @eparam RESULT: empty (should this be something meaningful?)
 	 */
-	public static final EventType PAY_MANA_COST = new EventType("PAY_MANA_COST")
+	public static final EventType PAY_MANA_COST = new PayManaCost();
+
+	private static final class PayManaCost extends EventType
 	{
+		private PayManaCost()
+		{
+			super("PAY_MANA_COST");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -6186,6 +6862,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is letting the player play the card
 	 * @eparam PLAYER: the player playing the card
@@ -6194,8 +6871,15 @@ public abstract class EventType
 	 * [optional]
 	 * @eparam RESULT: the object after it's played
 	 */
-	public static final EventType PLAY_CARD = new EventType("PLAY_CARD")
+	public static final EventType PLAY_CARD = new PlayCard();
+
+	private static final class PlayCard extends EventType
 	{
+		private PlayCard()
+		{
+			super("PLAY_CARD");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -6261,14 +6945,22 @@ public abstract class EventType
 			return ret;
 		}
 	};
+
 	/**
 	 * @eparam ACTION: what action is being used to play the land
 	 * @eparam PLAYER: the player playing the land
 	 * @eparam LAND: the land being played
 	 * @eparam RESULT: result of the PUT_ONTO_BATTLEFIELD event
 	 */
-	public static final EventType PLAY_LAND = new EventType("PLAY_LAND")
+	public static final EventType PLAY_LAND = new PlayLand();
+
+	private static final class PlayLand extends EventType
 	{
+		private PlayLand()
+		{
+			super("PLAY_LAND");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -6324,6 +7016,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * Don't feel the need to use this unless it's the "only way". Performing
 	 * choices directly via {@link Player}'s choose methods is fine. This event
@@ -6340,8 +7033,15 @@ public abstract class EventType
 	 * otherwise]
 	 * @eparam RESULT: what was chosen
 	 */
-	public static final EventType PLAYER_CHOOSE = new EventType("PLAYER_CHOOSE")
+	public static final EventType PLAYER_CHOOSE = new PlayerChoose();
+
+	private static final class PlayerChoose extends EventType
 	{
+		private PlayerChoose()
+		{
+			super("PLAYER_CHOOSE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -6374,6 +7074,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * Don't feel the need to use this unless it's the "only way". Performing
 	 * choices directly via {@link Player}'s choose methods is fine. This event
@@ -6385,8 +7086,15 @@ public abstract class EventType
 	 * @eparam TYPE: a {@link String} describing the choice
 	 * @eparam RESULT: what was chosen
 	 */
-	public static final EventType PLAYER_CHOOSE_NUMBER = new EventType("PLAYER_CHOOSE_NUMBER")
+	public static final EventType PLAYER_CHOOSE_NUMBER = new PlayerChooseNumber();
+
+	private static final class PlayerChooseNumber extends EventType
 	{
+		private PlayerChooseNumber()
+		{
+			super("PLAYER_CHOOSE_NUMBER");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -6405,6 +7113,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam PLAYER: the player being given the choice
 	 * @eparam EVENT: an EventFactory describing the event to perform
@@ -6413,8 +7122,15 @@ public abstract class EventType
 	 * @eparam RESULT: the players YES/NO response, empty if the event is
 	 * impossible
 	 */
-	public static final EventType PLAYER_MAY = new EventType("PLAYER_MAY")
+	public static final EventType PLAYER_MAY = new PlayerMay();
+
+	private static final class PlayerMay extends EventType
 	{
+		private PlayerMay()
+		{
+			super("PLAYER_MAY");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -6456,6 +7172,7 @@ public abstract class EventType
 			return mayEvent.perform(event, false);
 		}
 	};
+
 	/**
 	 * @eparam PLAYER: the player being given the choice
 	 * @eparam OBJECT: the card to cast
@@ -6464,8 +7181,15 @@ public abstract class EventType
 	 * @eparam RESULT: the spell on the stack, if it is cast this way; empty
 	 * otherwise
 	 */
-	public static final EventType PLAYER_MAY_CAST = new EventType("PLAYER_MAY_CAST")
+	public static final EventType PLAYER_MAY_CAST = new PlayerMayCast();
+
+	private static final class PlayerMayCast extends EventType
 	{
+		private PlayerMayCast()
+		{
+			super("PLAYER_MAY_CAST");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -6498,6 +7222,7 @@ public abstract class EventType
 			return false;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is asking the player to pay mana
 	 * @eparam COST: what mana cost is being paid (use a ManaPool)
@@ -6508,8 +7233,15 @@ public abstract class EventType
 	 * they might choose to pay and fail; this doesn't affect the outcome of any
 	 * cards currently but it might in the future.)
 	 */
-	public static final EventType PLAYER_MAY_PAY_MANA = new EventType("PLAYER_MAY_PAY_MANA")
+	public static final EventType PLAYER_MAY_PAY_MANA = new PlayerMayPayMana();
+
+	private static final class PlayerMayPayMana extends EventType
 	{
+		private PlayerMayPayMana()
+		{
+			super("PLAYER_MAY_PAY_MANA");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -6545,6 +7277,7 @@ public abstract class EventType
 			return ret;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is asking the player to pay mana
 	 * @eparam PLAYER: who is being asked to pay
@@ -6552,8 +7285,15 @@ public abstract class EventType
 	 * the player may pay (X)(R), pass (R) here) [optional; default is nothing]
 	 * @eparam RESULT: value of X if they paid, empty if they didn't
 	 */
-	public static final EventType PLAYER_MAY_PAY_X = new EventType("PLAYER_MAY_PAY_X")
+	public static final EventType PLAYER_MAY_PAY_X = new PlayerMayPayX();
+
+	private static final class PlayerMayPayX extends EventType
 	{
+		private PlayerMayPayX()
+		{
+			super("PLAYER_MAY_PAY_X");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -6621,6 +7361,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * 
 	 * 701.27. Populate
@@ -6635,8 +7376,15 @@ public abstract class EventType
 	 * @eparam PLAYER: the player choosing
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType POPULATE = new EventType("POPULATE")
+	public static final EventType POPULATE = new Populate();
+
+	private static final class Populate extends EventType
 	{
+		private Populate()
+		{
+			super("POPULATE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -6670,13 +7418,21 @@ public abstract class EventType
 			return ret;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the proliferation
 	 * @eparam PLAYER: the player choosing
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType PROLIFERATE = new EventType("PROLIFERATE")
+	public static final EventType PROLIFERATE = new Proliferate();
+
+	private static final class Proliferate extends EventType
 	{
+		private Proliferate()
+		{
+			super("PROLIFERATE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -6748,6 +7504,7 @@ public abstract class EventType
 			return ret;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is putting the counter
 	 * @eparam CHOICE: set of objects to choose one from
@@ -6755,8 +7512,15 @@ public abstract class EventType
 	 * @eparam PLAYER: who is choosing
 	 * @eparam RESULT: results of the {@link EventType#PUT_COUNTERS} event(s)
 	 */
-	public static final EventType PUT_COUNTER_ON_CHOICE = new EventType("PUT_COUNTER_ON_CHOICE")
+	public static final EventType PUT_COUNTER_ON_CHOICE = new PutCounterOnChoice();
+
+	private static final class PutCounterOnChoice extends EventType
 	{
+		private PutCounterOnChoice()
+		{
+			super("PUT_COUNTER_ON_CHOICE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -6807,6 +7571,7 @@ public abstract class EventType
 			return allReceivedCounters;
 		}
 	};
+
 	/**
 	 * Do not use this event in {@link SimpleEventPattern}s. Use the
 	 * {@link CounterPlacedPattern} instead.
@@ -6817,8 +7582,15 @@ public abstract class EventType
 	 * @eparam OBJECT: the object to put the counters on
 	 * @eparam RESULT: results of the {@link EventType#PUT_ONE_COUNTER} event(s)
 	 */
-	public static final EventType PUT_COUNTERS = new EventType("PUT_COUNTERS")
+	public static final EventType PUT_COUNTERS = new PutCounters();
+
+	private static final class PutCounters extends EventType
 	{
+		private PutCounters()
+		{
+			super("PUT_COUNTERS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -6859,6 +7631,7 @@ public abstract class EventType
 			return allPlaced;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is moving the objects
 	 * @eparam CONTROLLER: who will control the objects
@@ -6878,8 +7651,15 @@ public abstract class EventType
 	 * this parameter.
 	 * @eparam RESULT: result of the {@link #MOVE_OBJECTS} event(s)
 	 */
-	public static final EventType PUT_IN_CONTROLLED_ZONE = new EventType("PUT_IN_CONTROLLED_ZONE")
+	public static final EventType PUT_IN_CONTROLLED_ZONE = new PutInControlledZone();
+
+	private static final class PutInControlledZone extends EventType
 	{
+		private PutInControlledZone()
+		{
+			super("PUT_IN_CONTROLLED_ZONE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -6941,6 +7721,7 @@ public abstract class EventType
 			return allMoved;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is moving the cards
 	 * @eparam INDEX: where to put the cards 1 = top, 2 = second from top, 3 =
@@ -6949,8 +7730,15 @@ public abstract class EventType
 	 * @eparam OBJECT: cards being moved
 	 * @eparam RESULT: results of the MOVE_OBJECTS event(s)
 	 */
-	public static final EventType PUT_INTO_GRAVEYARD = new EventType("PUT_INTO_GRAVEYARD")
+	public static final EventType PUT_INTO_GRAVEYARD = new PutIntoGraveyard();
+
+	private static final class PutIntoGraveyard extends EventType
 	{
+		private PutIntoGraveyard()
+		{
+			super("PUT_INTO_GRAVEYARD");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -7020,8 +7808,15 @@ public abstract class EventType
 	 * @eparam PERMANENT: what is being bounced
 	 * @eparam RESULT: the zone changes
 	 */
-	public static final EventType PUT_INTO_HAND = new EventType("PUT_INTO_HAND")
+	public static final EventType PUT_INTO_HAND = new PutIntoHand();
+
+	private static final class PutIntoHand extends EventType
 	{
+		private PutIntoHand()
+		{
+			super("PUT_INTO_HAND");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -7071,6 +7866,7 @@ public abstract class EventType
 			return whoOwnsWhat;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the bounce
 	 * @eparam PLAYER: the players that are bouncing (and thus choosing)
@@ -7078,8 +7874,15 @@ public abstract class EventType
 	 * @eparam CHOICE: set of permanents to choose from
 	 * @eparam RESULT: the results of the BOUNCE events
 	 */
-	public static final EventType PUT_INTO_HAND_CHOICE = new EventType("PUT_INTO_HAND_CHOICE")
+	public static final EventType PUT_INTO_HAND_CHOICE = new PutIntoHandChoice();
+
+	private static final class PutIntoHandChoice extends EventType
 	{
+		private PutIntoHandChoice()
+		{
+			super("PUT_INTO_HAND_CHOICE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -7182,6 +7985,7 @@ public abstract class EventType
 			return allBounced;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is moving the cards
 	 * @eparam INDEX: where to insert the object (See {@link ZoneChange#index})
@@ -7190,8 +7994,15 @@ public abstract class EventType
 	 * order (and thus players won't be asked to order their cards)
 	 * @eparam RESULT: results of the MOVE_OBJECT event(s)
 	 */
-	public static final EventType PUT_INTO_LIBRARY = new EventType("PUT_INTO_LIBRARY")
+	public static final EventType PUT_INTO_LIBRARY = new PutIntoLibrary();
+
+	private static final class PutIntoLibrary extends EventType
 	{
+		private PutIntoLibrary()
+		{
+			super("PUT_INTO_LIBRARY");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -7254,6 +8065,7 @@ public abstract class EventType
 			return allMoved;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is moving the object
 	 * @eparam CONTROLLER: player who controls it on the battlefield [required
@@ -7265,8 +8077,15 @@ public abstract class EventType
 	 * @eparam TO: the zone to put it into/on top of
 	 * @eparam RESULT: the result of the put onto the battlefield event
 	 */
-	public static final EventType PUT_INTO_ZONE_AS_A_COPY_OF = new EventType("PUT_INTO_ZONE_AS_A_COPY_OF")
+	public static final EventType PUT_INTO_ZONE_AS_A_COPY_OF = new PutIntoZoneAsACopyOf();
+
+	private static final class PutIntoZoneAsACopyOf extends EventType
 	{
+		private PutIntoZoneAsACopyOf()
+		{
+			super("PUT_INTO_ZONE_AS_A_COPY_OF");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -7334,8 +8153,15 @@ public abstract class EventType
 	 * @eparam OBJECT: the object to put the counter on
 	 * @eparam RESULT: the counter as it exists on the object
 	 */
-	public static final EventType PUT_ONE_COUNTER = new EventType("PUT_ONE_COUNTER")
+	public static final EventType PUT_ONE_COUNTER = new PutOneCounter();
+
+	private static final class PutOneCounter extends EventType
 	{
+		private PutOneCounter()
+		{
+			super("PUT_ONE_COUNTER");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -7357,6 +8183,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is putting it onto the battlefield
 	 * @eparam CONTROLLER: player who controls it after it's put onto the
@@ -7369,8 +8196,15 @@ public abstract class EventType
 	 * this parameter.
 	 * @eparam RESULT: result of the {@link #PUT_IN_CONTROLLED_ZONE} event
 	 */
-	public static final EventType PUT_ONTO_BATTLEFIELD = new EventType("PUT_ONTO_BATTLEFIELD")
+	public static final EventType PUT_ONTO_BATTLEFIELD = new PutOntoBattlefield();
+
+	private static final class PutOntoBattlefield extends EventType
 	{
+		private PutOntoBattlefield()
+		{
+			super("PUT_ONTO_BATTLEFIELD");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -7403,6 +8237,7 @@ public abstract class EventType
 			return status;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is putting it onto the battlefield
 	 * @eparam CONTROLLER: player who controls it after it's put onto the
@@ -7414,8 +8249,15 @@ public abstract class EventType
 	 * @eparam TYPE: the ChoiceType of the choice to be made, and a ChooseReason
 	 * @eparam RESULT: result of the PUT_ONTO_BATTLEFIELD event
 	 */
-	public static final EventType PUT_ONTO_BATTLEFIELD_AND_CHOOSE = new EventType("PUT_ONTO_BATTLEFIELD_AND_CHOOSE")
+	public static final EventType PUT_ONTO_BATTLEFIELD_AND_CHOOSE = new PutOntoBattlefieldAndChoose();
+
+	private static final class PutOntoBattlefieldAndChoose extends EventType
 	{
+		private PutOntoBattlefieldAndChoose()
+		{
+			super("PUT_ONTO_BATTLEFIELD_AND_CHOOSE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -7454,6 +8296,7 @@ public abstract class EventType
 			return ret;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is putting it onto the battlefield
 	 * @eparam CONTROLLER: player who controls it after it's put onto the
@@ -7467,8 +8310,15 @@ public abstract class EventType
 	 * @eparam TARGET: the object to attach to
 	 * @eparam RESULT: result of the PUT_ONTO_BATTLEFIELD event
 	 */
-	public static final EventType PUT_ONTO_BATTLEFIELD_ATTACHED_TO = new EventType("PUT_ONTO_BATTLEFIELD_ATTACHED_TO")
+	public static final EventType PUT_ONTO_BATTLEFIELD_ATTACHED_TO = new PutOntoBattlefieldAttachedTo();
+
+	private static final class PutOntoBattlefieldAttachedTo extends EventType
 	{
+		private PutOntoBattlefieldAttachedTo()
+		{
+			super("PUT_ONTO_BATTLEFIELD_ATTACHED_TO");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -7521,6 +8371,7 @@ public abstract class EventType
 			return false;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is putting it onto the battlefield
 	 * @eparam CONTROLLER: player who controls it after it's put onto the
@@ -7532,8 +8383,15 @@ public abstract class EventType
 	 * @eparam CHOICE: the choices of things to attach to
 	 * @eparam RESULT: result of the PUT_ONTO_BATTLEFIELD event
 	 */
-	public static final EventType PUT_ONTO_BATTLEFIELD_ATTACHED_TO_CHOICE = new EventType("PUT_ONTO_BATTLEFIELD_ATTACHED_TO_CHOICE")
+	public static final EventType PUT_ONTO_BATTLEFIELD_ATTACHED_TO_CHOICE = new PutOntoBattlefieldAttachedToChoice();
+
+	private static final class PutOntoBattlefieldAttachedToChoice extends EventType
 	{
+		private PutOntoBattlefieldAttachedToChoice()
+		{
+			super("PUT_ONTO_BATTLEFIELD_ATTACHED_TO_CHOICE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -7586,6 +8444,7 @@ public abstract class EventType
 			return status;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is putting it onto the battlefield
 	 * @eparam CONTROLLER: player who controls it after it's put onto the
@@ -7597,8 +8456,15 @@ public abstract class EventType
 	 * CONTROLLER]
 	 * @eparam RESULT: result of the {@link #PUT_ONTO_BATTLEFIELD} event
 	 */
-	public static final EventType PUT_ONTO_BATTLEFIELD_CHOICE = new EventType("PUT_ONTO_BATTLEFIELD_CHOICE")
+	public static final EventType PUT_ONTO_BATTLEFIELD_CHOICE = new PutOntoBattlefieldChoice();
+
+	private static final class PutOntoBattlefieldChoice extends EventType
 	{
+		private PutOntoBattlefieldChoice()
+		{
+			super("PUT_ONTO_BATTLEFIELD_CHOICE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -7698,6 +8564,7 @@ public abstract class EventType
 		}
 
 	};
+
 	/**
 	 * @eparam CAUSE: what is putting it onto the battlefield
 	 * @eparam CONTROLLER: player who controls it after it's put onto the
@@ -7709,8 +8576,15 @@ public abstract class EventType
 	 * @eparam TARGET: the object to attach to
 	 * @eparam RESULT: result of the PUT_ONTO_BATTLEFIELD_ATTACHED_TO event
 	 */
-	public static final EventType PUT_ONTO_BATTLEFIELD_CHOICE_ATTACHED_TO = new EventType("PUT_ONTO_BATTLEFIELD_CHOICE_ATTACHED_TO")
+	public static final EventType PUT_ONTO_BATTLEFIELD_CHOICE_ATTACHED_TO = new PutOntoBattlefieldChoiceAttachedTo();
+
+	private static final class PutOntoBattlefieldChoiceAttachedTo extends EventType
 	{
+		private PutOntoBattlefieldChoiceAttachedTo()
+		{
+			super("PUT_ONTO_BATTLEFIELD_CHOICE_ATTACHED_TO");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -7785,6 +8659,7 @@ public abstract class EventType
 			return allChosen && moveSuccess;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is putting it onto the battlefield
 	 * @eparam CONTROLLER: player who controls it after it's put onto the
@@ -7792,8 +8667,15 @@ public abstract class EventType
 	 * @eparam OBJECT: the thing being put onto the battlefield
 	 * @eparam RESULT: result of the PUT_ONTO_BATTLEFIELD event
 	 */
-	public static final EventType PUT_ONTO_BATTLEFIELD_TAPPED = new EventType("PUT_ONTO_BATTLEFIELD_TAPPED")
+	public static final EventType PUT_ONTO_BATTLEFIELD_TAPPED = new PutOntoBattlefieldTapped();
+
+	private static final class PutOntoBattlefieldTapped extends EventType
 	{
+		private PutOntoBattlefieldTapped()
+		{
+			super("PUT_ONTO_BATTLEFIELD_TAPPED");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -7827,6 +8709,7 @@ public abstract class EventType
 			return status;
 		}
 	};
+
 	/**
 	 * @eparam ATTACKER: the attackingID to assign it [optional; default = the
 	 * player chooses when this event performs]
@@ -7836,8 +8719,15 @@ public abstract class EventType
 	 * @eparam OBJECT: the thing being put onto the battlefield
 	 * @eparam RESULT: result of the PUT_ONTO_BATTLEFIELD event
 	 */
-	public static final EventType PUT_ONTO_BATTLEFIELD_TAPPED_AND_ATTACKING = new EventType("PUT_ONTO_BATTLEFIELD_TAPPED_AND_ATTACKING")
+	public static final EventType PUT_ONTO_BATTLEFIELD_TAPPED_AND_ATTACKING = new PutOntoBattlefieldTappedAndAttacking();
+
+	private static final class PutOntoBattlefieldTappedAndAttacking extends EventType
 	{
+		private PutOntoBattlefieldTappedAndAttacking()
+		{
+			super("PUT_ONTO_BATTLEFIELD_TAPPED_AND_ATTACKING");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -7905,6 +8795,7 @@ public abstract class EventType
 			return status;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is putting it onto the battlefield
 	 * @eparam CONTROLLER: player who controls it after it's put onto the
@@ -7914,8 +8805,15 @@ public abstract class EventType
 	 * @eparam COUNTER: the counterTypes to add
 	 * @eparam RESULT: result of the PUT_ONTO_BATTLEFIELD event
 	 */
-	public static final EventType PUT_ONTO_BATTLEFIELD_TAPPED_WITH_COUNTERS = new EventType("PUT_ONTO_BATTLEFIELD_TAPPED_WITH_COUNTERS")
+	public static final EventType PUT_ONTO_BATTLEFIELD_TAPPED_WITH_COUNTERS = new PutOntoBattlefieldTappedWithCounters();
+
+	private static final class PutOntoBattlefieldTappedWithCounters extends EventType
 	{
+		private PutOntoBattlefieldTappedWithCounters()
+		{
+			super("PUT_ONTO_BATTLEFIELD_TAPPED_WITH_COUNTERS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -7961,6 +8859,7 @@ public abstract class EventType
 			return status && counterStatus;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is putting it onto the battlefield
 	 * @eparam CONTROLLER: player who controls it after it's put onto the
@@ -7968,8 +8867,15 @@ public abstract class EventType
 	 * @eparam OBJECT: the thing being put onto the battlefield
 	 * @eparam RESULT: result of the PUT_ONTO_BATTLEFIELD event
 	 */
-	public static final EventType PUT_ONTO_BATTLEFIELD_TRANSFORMED = new EventType("PUT_ONTO_BATTLEFIELD_TRANSFORMED")
+	public static final EventType PUT_ONTO_BATTLEFIELD_TRANSFORMED = new PutOntoBattlefieldTransformed();
+
+	private static final class PutOntoBattlefieldTransformed extends EventType
 	{
+		private PutOntoBattlefieldTransformed()
+		{
+			super("PUT_ONTO_BATTLEFIELD_TRANSFORMED");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -8002,13 +8908,21 @@ public abstract class EventType
 			return status;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is putting things into play
 	 * @eparam OBJECT: what is being put into play
 	 * @eparam RESULT: the zone changes
 	 */
-	public static final EventType PUT_ONTO_BATTLEFIELD_UNDER_OWNER_CONTROL = new EventType("PUT_ONTO_BATTLEFIELD_UNDER_OWNER_CONTROL")
+	public static final EventType PUT_ONTO_BATTLEFIELD_UNDER_OWNER_CONTROL = new PutOntoBattlefieldUnderOwnerControl();
+
+	private static final class PutOntoBattlefieldUnderOwnerControl extends EventType
 	{
+		private PutOntoBattlefieldUnderOwnerControl()
+		{
+			super("PUT_ONTO_BATTLEFIELD_UNDER_OWNER_CONTROL");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -8051,6 +8965,7 @@ public abstract class EventType
 			return allMoved;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is putting it onto the battlefield
 	 * @eparam CONTROLLER: player who controls it after it's put onto the
@@ -8060,8 +8975,15 @@ public abstract class EventType
 	 * @eparam COUNTER: the counterTypes to add
 	 * @eparam RESULT: result of the PUT_ONTO_BATTLEFIELD event
 	 */
-	public static final EventType PUT_ONTO_BATTLEFIELD_WITH_COUNTERS = new EventType("PUT_ONTO_BATTLEFIELD_WITH_COUNTERS")
+	public static final EventType PUT_ONTO_BATTLEFIELD_WITH_COUNTERS = new PutOntoBattlefieldWithCounters();
+
+	private static final class PutOntoBattlefieldWithCounters extends EventType
 	{
+		private PutOntoBattlefieldWithCounters()
+		{
+			super("PUT_ONTO_BATTLEFIELD_WITH_COUNTERS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -8101,13 +9023,21 @@ public abstract class EventType
 			return moveStatus;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: the reason its being regenerated
 	 * @eparam OBJECT: the object being regenerated
 	 * @eparam RESULT: the objects that were regenerated
 	 */
-	public static final EventType REGENERATE = new EventType("REGENERATE")
+	public static final EventType REGENERATE = new Regenerate();
+
+	private static final class Regenerate extends EventType
 	{
+		private Regenerate()
+		{
+			super("REGENERATE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -8162,6 +9092,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is removing the counter
 	 * @eparam COUNTER: the counter types to remove [optional; default = all
@@ -8169,8 +9100,15 @@ public abstract class EventType
 	 * @eparam OBJECT: the object to remove the counters from
 	 * @eparam RESULT: results of the REMOVE_ONE_COUNTER event(s)
 	 */
-	public static final EventType REMOVE_ALL_COUNTERS = new EventType("REMOVE_ALL_COUNTERS")
+	public static final EventType REMOVE_ALL_COUNTERS = new RemoveAllCounters();
+
+	private static final class RemoveAllCounters extends EventType
 	{
+		private RemoveAllCounters()
+		{
+			super("REMOVE_ALL_COUNTERS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -8210,6 +9148,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is removing the counter
 	 * @eparam COUNTER: the counterTypes being removed
@@ -8218,8 +9157,15 @@ public abstract class EventType
 	 * @eparam OBJECT: the object or player to remove the counters from
 	 * @eparam RESULT: results of the {@link #REMOVE_ONE_COUNTER} event(s)
 	 */
-	public static final EventType REMOVE_COUNTERS = new EventType("REMOVE_COUNTERS")
+	public static final EventType REMOVE_COUNTERS = new RemoveCounters();
+
+	private static final class RemoveCounters extends EventType
 	{
+		private RemoveCounters()
+		{
+			super("REMOVE_COUNTERS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -8295,8 +9241,15 @@ public abstract class EventType
 	 * @eparam PLAYER: the player choosing
 	 * @eparam RESULT: the removed counters
 	 */
-	public static final EventType REMOVE_COUNTERS_CHOICE = new EventType("REMOVE_COUNTERS_CHOICE")
+	public static final EventType REMOVE_COUNTERS_CHOICE = new RemoveCountersChoice();
+
+	private static final class RemoveCountersChoice extends EventType
 	{
+		private RemoveCountersChoice()
+		{
+			super("REMOVE_COUNTERS_CHOICE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -8372,6 +9325,7 @@ public abstract class EventType
 			return allRemoved;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: the cause
 	 * @eparam COUNTER: the counter type to remove
@@ -8383,8 +9337,15 @@ public abstract class EventType
 	 * @eparam PLAYER: the player choosing
 	 * @eparam RESULT: the removed counters
 	 */
-	public static final EventType REMOVE_COUNTERS_FROM_CHOICE = new EventType("REMOVE_COUNTERS_FROM_CHOICE")
+	public static final EventType REMOVE_COUNTERS_FROM_CHOICE = new RemoveCountersFromChoice();
+
+	private static final class RemoveCountersFromChoice extends EventType
 	{
+		private RemoveCountersFromChoice()
+		{
+			super("REMOVE_COUNTERS_FROM_CHOICE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -8448,8 +9409,15 @@ public abstract class EventType
 	 * @eparam OBJECT: GameObjects and Players to be removed from combat
 	 * @eparam RESULT: The GameObjects/Players removed from combat
 	 */
-	public static final EventType REMOVE_FROM_COMBAT = new EventType("REMOVE_FROM_COMBAT")
+	public static final EventType REMOVE_FROM_COMBAT = new RemoveFromCombat();
+
+	private static final class RemoveFromCombat extends EventType
 	{
+		private RemoveFromCombat()
+		{
+			super("REMOVE_FROM_COMBAT");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -8485,6 +9453,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * NEVER, NEVER, NEVER INVOKE *_ONE_* EVENTS DIRECTLY! These event types are
 	 * here solely for the purpose of being invoked by other events! DON'T
@@ -8495,8 +9464,15 @@ public abstract class EventType
 	 * @eparam OBJECT: the object or player to remove the counter from
 	 * @eparam RESULT: the removed counter
 	 */
-	public static final EventType REMOVE_ONE_COUNTER = new EventType("REMOVE_ONE_COUNTER")
+	public static final EventType REMOVE_ONE_COUNTER = new RemoveOneCounter();
+
+	private static final class RemoveOneCounter extends EventType
 	{
+		private RemoveOneCounter()
+		{
+			super("REMOVE_ONE_COUNTER");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -8565,13 +9541,21 @@ public abstract class EventType
 			return removed;
 		}
 	};
+
 	/**
 	 * @eparam PLAYER: the player to remove counters from
 	 * @eparam NUMBER: the number of counters to remove
 	 * @eparam RESULT: the counters removed from the players
 	 */
-	public static final EventType REMOVE_POISON_COUNTERS = new EventType("REMOVE_POISON_COUNTERS")
+	public static final EventType REMOVE_POISON_COUNTERS = new RemovePoisonCounters();
+
+	private static final class RemovePoisonCounters extends EventType
 	{
+		private RemovePoisonCounters()
+		{
+			super("REMOVE_POISON_COUNTERS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -8607,6 +9591,7 @@ public abstract class EventType
 			return false;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what removed the last counter
 	 * @eparam COUNTER: the type of counter that was removed, and of which there
@@ -8614,8 +9599,15 @@ public abstract class EventType
 	 * @eparam OBJECT: the object the counter was removed from
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType REMOVED_LAST_COUNTER = new EventType("REMOVED_LAST_COUNTER")
+	public static final EventType REMOVED_LAST_COUNTER = new RemovedLastCounter();
+
+	private static final class RemovedLastCounter extends EventType
 	{
+		private RemovedLastCounter()
+		{
+			super("REMOVED_LAST_COUNTER");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -8634,8 +9626,15 @@ public abstract class EventType
 	 * @eparam OBJECT: any objects exempt from the procedure that restarts the
 	 * game
 	 */
-	public static final EventType RESTART_THE_GAME = new EventType("RESTART_THE_GAME")
+	public static final EventType RESTART_THE_GAME = new RestartTheGame();
+
+	private static final class RestartTheGame extends EventType
 	{
+		private RestartTheGame()
+		{
+			super("RESTART_THE_GAME");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -8750,8 +9749,15 @@ public abstract class EventType
 	 * enough for spells and abilities on the stack)]
 	 * @eparam RESULT: the revealed object
 	 */
-	public static final EventType REVEAL = new EventType("REVEAL")
+	public static final EventType REVEAL = new Reveal();
+
+	private static final class Reveal extends EventType
 	{
+		private Reveal()
+		{
+			super("REVEAL");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -8807,6 +9813,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: the cause of the reveal
 	 * @eparam OBJECT: the objects to choose from
@@ -8817,8 +9824,15 @@ public abstract class EventType
 	 * @eparam PLAYER: the player who chooses what to reveal
 	 * @eparam RESULT: the revealed object
 	 */
-	public static final EventType REVEAL_CHOICE = new EventType("REVEAL_CHOICE")
+	public static final EventType REVEAL_CHOICE = new RevealChoice();
+
+	private static final class RevealChoice extends EventType
 	{
+		private RevealChoice()
+		{
+			super("REVEAL_CHOICE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -8872,14 +9886,22 @@ public abstract class EventType
 			return ret;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: the cause of the reveal
 	 * @eparam PLAYER: the players to randomly reveal cards
 	 * @eparam NUMBER: the number of cards to randomly reveal
 	 * @eparam RESULT: the combined results of REVEAL events
 	 */
-	public static final EventType REVEAL_RANDOM_FROM_HAND = new EventType("REVEAL_RANDOM_FROM_HAND")
+	public static final EventType REVEAL_RANDOM_FROM_HAND = new RevealRandomFromHand();
+
+	private static final class RevealRandomFromHand extends EventType
 	{
+		private RevealRandomFromHand()
+		{
+			super("REVEAL_RANDOM_FROM_HAND");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -8934,8 +9956,15 @@ public abstract class EventType
 	 * @eparam PLAYER: who is choosing and sacrificing
 	 * @eparam RESULT: results of the {@link #SACRIFICE_PERMANENTS} event(s)
 	 */
-	public static final EventType SACRIFICE_CHOICE = new EventType("SACRIFICE_CHOICE")
+	public static final EventType SACRIFICE_CHOICE = new SacrificeChoice();
+
+	private static final class SacrificeChoice extends EventType
 	{
+		private SacrificeChoice()
+		{
+			super("SACRIFICE_CHOICE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -9034,6 +10063,7 @@ public abstract class EventType
 			return ret;
 		}
 	};
+
 	/**
 	 * NEVER, NEVER, NEVER INVOKE *_ONE_* EVENTS DIRECTLY! These event types are
 	 * here solely for the purpose of being invoked by other events! DON'T
@@ -9044,8 +10074,15 @@ public abstract class EventType
 	 * @eparam PERMANENT: what is being sacrificed
 	 * @eparam RESULT: the zone change
 	 */
-	public static final EventType SACRIFICE_ONE_PERMANENT = new EventType("SACRIFICE_ONE_PERMANENT")
+	public static final EventType SACRIFICE_ONE_PERMANENT = new SacrificeOnePermanent();
+
+	private static final class SacrificeOnePermanent extends EventType
 	{
+		private SacrificeOnePermanent()
+		{
+			super("SACRIFICE_ONE_PERMANENT");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -9085,6 +10122,7 @@ public abstract class EventType
 			return status;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the sacrifice
 	 * @eparam PLAYER: who is sacrificing (singular) (not redundant, as an
@@ -9092,8 +10130,15 @@ public abstract class EventType
 	 * @eparam PERMANENT: the permanents being sacrificed
 	 * @eparam RESULT: results of the {@link #SACRIFICE_ONE_PERMANENT} event(s)
 	 */
-	public static final EventType SACRIFICE_PERMANENTS = new EventType("SACRIFICE_PERMANENTS")
+	public static final EventType SACRIFICE_PERMANENTS = new SacrificePermanents();
+
+	private static final class SacrificePermanents extends EventType
 	{
+		private SacrificePermanents()
+		{
+			super("SACRIFICE_PERMANENTS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -9146,6 +10191,7 @@ public abstract class EventType
 			return allSacrificed;
 		}
 	};
+
 	/**
 	 * 701.17. Scry
 	 * 
@@ -9158,8 +10204,15 @@ public abstract class EventType
 	 * @eparam NUMBER: the number of objects to look at
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType SCRY = new EventType("SCRY")
+	public static final EventType SCRY = new Scry();
+
+	private static final class Scry extends EventType
 	{
+		private Scry()
+		{
+			super("SCRY");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -9217,6 +10270,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * 701.14. Search<br>
 	 * <br>
@@ -9260,8 +10314,15 @@ public abstract class EventType
 	 * (requires double generator idiom)
 	 * @eparam RESULT: the objects found and the {@link Zone}s searched
 	 */
-	public static final EventType SEARCH = new EventType("SEARCH")
+	public static final EventType SEARCH = new Search();
+
+	private static final class Search extends EventType
 	{
+		private Search()
+		{
+			super("SEARCH");
+		}
+
 		// SEARCH_FOR_ALL_AND_PUT_INTO breaks the restriction on CARD -- it
 		// specifies cards from multiple zones. Card writers are not allowed to
 		// break this restriction.
@@ -9431,6 +10492,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * Search [zones] for all cards matching [condition] and put them in [zone].
 	 * E.g. {@link org.rnd.jmagic.cards.CranialExtraction}.
@@ -9443,8 +10505,15 @@ public abstract class EventType
 	 * @eparam TO: where to put the cards after they're found
 	 * @eparam RESULT: the results of the PLAYER_CHOOSE event
 	 */
-	public static final EventType SEARCH_FOR_ALL_AND_PUT_INTO = new EventType("SEARCH_FOR_ALL_AND_PUT_INTO")
+	public static final EventType SEARCH_FOR_ALL_AND_PUT_INTO = new SearchForAllAndPutInto();
+
+	private static final class SearchForAllAndPutInto extends EventType
 	{
+		private SearchForAllAndPutInto()
+		{
+			super("SEARCH_FOR_ALL_AND_PUT_INTO");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -9516,6 +10585,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: the reason for the search
 	 * @eparam CONTROLLER: who controls the object after it moves [required when
@@ -9535,8 +10605,15 @@ public abstract class EventType
 	 * @eparam HIDDEN: if present, is passed on to MOVE_OBJECTS [optional]
 	 * @eparam RESULT: the new object
 	 */
-	public static final EventType SEARCH_LIBRARY_AND_PUT_INTO = new EventType("SEARCH_LIBRARY_AND_PUT_INTO")
+	public static final EventType SEARCH_LIBRARY_AND_PUT_INTO = new SearchLibraryAndPutInto();
+
+	private static final class SearchLibraryAndPutInto extends EventType
 	{
+		private SearchLibraryAndPutInto()
+		{
+			super("SEARCH_LIBRARY_AND_PUT_INTO");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -9621,6 +10698,7 @@ public abstract class EventType
 			return ret;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what is causing the search
 	 * @eparam PLAYER: who is searching
@@ -9628,8 +10706,15 @@ public abstract class EventType
 	 * [optional; default is all] (requires double generator idiom)
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType SEARCH_LIBRARY_AND_PUT_ON_TOP = new EventType("SEARCH_LIBRARY_AND_PUT_ON_TOP")
+	public static final EventType SEARCH_LIBRARY_AND_PUT_ON_TOP = new SearchLibraryAndPutOnTop();
+
+	private static final class SearchLibraryAndPutOnTop extends EventType
 	{
+		private SearchLibraryAndPutOnTop()
+		{
+			super("SEARCH_LIBRARY_AND_PUT_ON_TOP");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -9675,6 +10760,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam PLAYER: the player searching
 	 * @eparam CARD: the cards/zones being searched
@@ -9748,8 +10834,15 @@ public abstract class EventType
 	 * @eparam PLAYER: whose life is being set
 	 * @eparam RESULT: each player whose life was changed
 	 */
-	public static final EventType SET_LIFE = new EventType("SET_LIFE")
+	public static final EventType SET_LIFE = new SetLife();
+
+	private static final class SetLife extends EventType
 	{
+		private SetLife()
+		{
+			super("SET_LIFE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -9834,6 +10927,7 @@ public abstract class EventType
 			return allSet;
 		}
 	};
+
 	/**
 	 * TODO: this event performs a top level move because performing a shuffle
 	 * after it is harder otherwise
@@ -9846,8 +10940,15 @@ public abstract class EventType
 	 * @eparam RESULT: the cards as they exist in the library, and the shuffled
 	 * library
 	 */
-	public static final EventType SHUFFLE_INTO_LIBRARY = new EventType("SHUFFLE_INTO_LIBRARY")
+	public static final EventType SHUFFLE_INTO_LIBRARY = new ShuffleIntoLibrary();
+
+	private static final class ShuffleIntoLibrary extends EventType
 	{
+		private ShuffleIntoLibrary()
+		{
+			super("SHUFFLE_INTO_LIBRARY");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -9927,8 +11028,15 @@ public abstract class EventType
 	 * @eparam CHOICE: the choice of cards to shuffle in
 	 * @eparam RESULT: the result of SHUFFLE_INTO_LIBRARY
 	 */
-	public static final EventType SHUFFLE_INTO_LIBRARY_CHOICE = new EventType("SHUFFLE_INTO_LIBRARY_CHOICE")
+	public static final EventType SHUFFLE_INTO_LIBRARY_CHOICE = new ShuffleIntoLibraryChoice();
+
+	private static final class ShuffleIntoLibraryChoice extends EventType
 	{
+		private ShuffleIntoLibraryChoice()
+		{
+			super("SHUFFLE_INTO_LIBRARY_CHOICE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -9981,8 +11089,15 @@ public abstract class EventType
 	 * @eparam PLAYER: players shuffling their libraries
 	 * @eparam RESULT: the shuffled libraries
 	 */
-	public static final EventType SHUFFLE_LIBRARY = new EventType("SHUFFLE_LIBRARY")
+	public static final EventType SHUFFLE_LIBRARY = new ShuffleLibrary();
+
+	private static final class ShuffleLibrary extends EventType
 	{
+		private ShuffleLibrary()
+		{
+			super("SHUFFLE_LIBRARY");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10012,13 +11127,21 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: what's causing the shuffle
 	 * @eparam PLAYER: player (only one) shuffling their library
 	 * @eparam RESULT: the shuffled library
 	 */
-	public static final EventType SHUFFLE_ONE_LIBRARY = new EventType("SHUFFLE_ONE_LIBRARY")
+	public static final EventType SHUFFLE_ONE_LIBRARY = new ShuffleOneLibrary();
+
+	private static final class ShuffleOneLibrary extends EventType
 	{
+		private ShuffleOneLibrary()
+		{
+			super("SHUFFLE_ONE_LIBRARY");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10041,6 +11164,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * <p>
 	 * Permanently reveals an object that is hidden. Cards using this will have
@@ -10056,8 +11180,15 @@ public abstract class EventType
 	 * @eparam OBJECT: the object(s) to "turn face up".
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType SHOW = new EventType("SHOW")
+	public static final EventType SHOW = new Show();
+
+	private static final class Show extends EventType
 	{
+		private Show()
+		{
+			super("SHOW");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10084,6 +11215,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: The reason a phase is being added
 	 * @eparam PHASE: A {@link java.util.List} of
@@ -10094,8 +11226,15 @@ public abstract class EventType
 	 * won't create extra phases, and will fail (return false).
 	 * @eparam RESULT: The created phase(s)
 	 */
-	public static final EventType TAKE_EXTRA_PHASE = new EventType("TAKE_EXTRA_PHASE")
+	public static final EventType TAKE_EXTRA_PHASE = new TakeExtraPhase();
+
+	private static final class TakeExtraPhase extends EventType
 	{
+		private TakeExtraPhase()
+		{
+			super("TAKE_EXTRA_PHASE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10141,6 +11280,7 @@ public abstract class EventType
 			return true;
 		}
 	};
+
 	/**
 	 * @eparam CAUSE: the reason turns are being added
 	 * @eparam PLAYER: the player to take the turn
@@ -10148,8 +11288,15 @@ public abstract class EventType
 	 * @eparam STEP: the StepType of any steps that should be skipped
 	 * @eparam RESULT: the turns that were created
 	 */
-	public static final EventType TAKE_EXTRA_TURN = new EventType("TAKE_EXTRA_TURN")
+	public static final EventType TAKE_EXTRA_TURN = new TakeExtraTurn();
+
+	private static final class TakeExtraTurn extends EventType
 	{
+		private TakeExtraTurn()
+		{
+			super("TAKE_EXTRA_TURN");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10202,8 +11349,15 @@ public abstract class EventType
 	 * @eparam NUMBER: how many to tap (integer or range)
 	 * @eparam RESULT: the tapped object
 	 */
-	public static final EventType TAP_CHOICE = new EventType("TAP_CHOICE")
+	public static final EventType TAP_CHOICE = new TapChoice();
+
+	private static final class TapChoice extends EventType
 	{
+		private TapChoice()
+		{
+			super("TAP_CHOICE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10275,8 +11429,15 @@ public abstract class EventType
 	 * @eparam OBJECT: what is being tapped
 	 * @eparam RESULT: the tapped objects
 	 */
-	public static final EventType TAP_HARD = new EventType("TAP_HARD")
+	public static final EventType TAP_HARD = new TapHard();
+
+	private static final class TapHard extends EventType
 	{
+		private TapHard()
+		{
+			super("TAP_HARD");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10327,13 +11488,21 @@ public abstract class EventType
 		}
 
 	};
+
 	/**
 	 * @eparam CAUSE: what is doing the tapping
 	 * @eparam OBJECT: what is being tapped
 	 * @eparam RESULT: the tapped object
 	 */
-	public static final EventType TAP_ONE_PERMANENT = new EventType("TAP_ONE_PERMANENT")
+	public static final EventType TAP_ONE_PERMANENT = new TapOnePermanent();
+
+	private static final class TapOnePermanent extends EventType
 	{
+		private TapOnePermanent()
+		{
+			super("TAP_ONE_PERMANENT");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10375,8 +11544,15 @@ public abstract class EventType
 	 * @eparam OBJECT: what is being tapped
 	 * @eparam RESULT: the tapped objects
 	 */
-	public static final EventType TAP_PERMANENTS = new EventType("TAP_PERMANENTS")
+	public static final EventType TAP_PERMANENTS = new TapPermanents();
+
+	private static final class TapPermanents extends EventType
 	{
+		private TapPermanents()
+		{
+			super("TAP_PERMANENTS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10422,8 +11598,15 @@ public abstract class EventType
 	 * (optional; default is "until cleanup")
 	 * @eparam RESULT: Empty.
 	 */
-	public static final EventType TEXT_CHANGE_COLOR_OR_BASIC_LAND_TYPE = new EventType("TEXT_CHANGE_COLOR_OR_BASIC_LAND_TYPE")
+	public static final EventType TEXT_CHANGE_COLOR_OR_BASIC_LAND_TYPE = new TextChangeColorOrBasicLandType();
+
+	private static final class TextChangeColorOrBasicLandType extends EventType
 	{
+		private TextChangeColorOrBasicLandType()
+		{
+			super("TEXT_CHANGE_COLOR_OR_BASIC_LAND_TYPE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10483,8 +11666,15 @@ public abstract class EventType
 	 * @eparam OBJECT: what permanents to turn face down
 	 * @eparam RESULT: the permanents that were turned face down
 	 */
-	public static final EventType TURN_PERMANENTS_FACE_DOWN = new EventType("TURN_PERMANENTS_FACE_DOWN")
+	public static final EventType TURN_PERMANENTS_FACE_DOWN = new TurnPermanentsFaceDown();
+
+	private static final class TurnPermanentsFaceDown extends EventType
 	{
+		private TurnPermanentsFaceDown()
+		{
+			super("TURN_PERMANENTS_FACE_DOWN");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10531,8 +11721,15 @@ public abstract class EventType
 	 * @eparam OBJECT: the card to transform
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType TRANSFORM_ONE_PERMANENT = new EventType("TRANSFORM_ONE_PERMANENT")
+	public static final EventType TRANSFORM_ONE_PERMANENT = new TransformOnePermanent();
+
+	private static final class TransformOnePermanent extends EventType
 	{
+		private TransformOnePermanent()
+		{
+			super("TRANSFORM_ONE_PERMANENT");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10555,8 +11752,15 @@ public abstract class EventType
 	 * @eparam OBJECT: the cards to transform
 	 * @eparam RESULT: empty
 	 */
-	public static final EventType TRANSFORM_PERMANENT = new EventType("TRANSFORM_PERMANENT")
+	public static final EventType TRANSFORM_PERMANENT = new TransformPermanent();
+
+	private static final class TransformPermanent extends EventType
 	{
+		private TransformPermanent()
+		{
+			super("TRANSFORM_PERMANENT");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10586,8 +11790,15 @@ public abstract class EventType
 	 * @eparam OBJECT: what permanent to turn face up
 	 * @eparam RESULT: the permanents that were turned face up
 	 */
-	public static final EventType TURN_PERMANENT_FACE_UP = new EventType("TURN_PERMANENT_FACE_UP")
+	public static final EventType TURN_PERMANENT_FACE_UP = new TurnPermanentFaceUp();
+
+	private static final class TurnPermanentFaceUp extends EventType
 	{
+		private TurnPermanentFaceUp()
+		{
+			super("TURN_PERMANENT_FACE_UP");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10625,8 +11836,15 @@ public abstract class EventType
 	 * @eparam RESULT: the AttachedBy instances which were previously attached
 	 * to
 	 */
-	public static final EventType UNATTACH = new EventType("DETACH")
+	public static final EventType UNATTACH = new Unattach();
+
+	private static final class Unattach extends EventType
 	{
+		private Unattach()
+		{
+			super("UNATTACH");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10657,8 +11875,15 @@ public abstract class EventType
 	 * @eparam NUMBER: how many to untap (integer or range)
 	 * @eparam RESULT: the tapped object
 	 */
-	public static final EventType UNTAP_CHOICE = new EventType("UNTAP_CHOICE")
+	public static final EventType UNTAP_CHOICE = new UntapChoice();
+
+	private static final class UntapChoice extends EventType
 	{
+		private UntapChoice()
+		{
+			super("UNTAP_CHOICE");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10728,8 +11953,15 @@ public abstract class EventType
 	 * @eparam OBJECT: what is being untapped
 	 * @eparam RESULT: the untapped object
 	 */
-	public static final EventType UNTAP_ONE_PERMANENT = new EventType("UNTAP_ONE_PERMANENT")
+	public static final EventType UNTAP_ONE_PERMANENT = new UntapOnePermanent();
+
+	private static final class UntapOnePermanent extends EventType
 	{
+		private UntapOnePermanent()
+		{
+			super("UNTAP_ONE_PERMANENT");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10771,8 +12003,15 @@ public abstract class EventType
 	 * @eparam OBJECT: what is being untapped
 	 * @eparam RESULT: the untapped objects
 	 */
-	public static final EventType UNTAP_PERMANENTS = new EventType("UNTAP_PERMANENTS")
+	public static final EventType UNTAP_PERMANENTS = new UntapPermanents();
+
+	private static final class UntapPermanents extends EventType
 	{
+		private UntapPermanents()
+		{
+			super("UNTAP_PERMANENTS");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10818,8 +12057,15 @@ public abstract class EventType
 	 * @eparam RESULT: nothing. an exception gets thrown, so we don't even set
 	 * it up.
 	 */
-	public static final EventType WIN_GAME = new EventType("WIN_GAME")
+	public static final EventType WIN_GAME = new WinGame();
+
+	private static final class WinGame extends EventType
 	{
+		private WinGame()
+		{
+			super("WIN_GAME");
+		}
+
 		@Override
 		public Parameter affects()
 		{
@@ -10854,8 +12100,15 @@ public abstract class EventType
 	 * In general, we need to make sure that an event type's perform method is
 	 * simultaneous-friendly.
 	 */
-	public static final EventType WISH = new EventType("WISH")
+	public static final EventType WISH = new Wish();
+
+	private static final class Wish extends EventType
 	{
+		private Wish()
+		{
+			super("WISH");
+		}
+
 		@Override
 		public Parameter affects()
 		{
