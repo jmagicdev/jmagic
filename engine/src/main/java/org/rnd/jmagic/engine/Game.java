@@ -98,7 +98,7 @@ public class Game
 	 * Exception to be thrown when to end the game normally. {@link Game#run}
 	 * catches this and reports the winner.
 	 */
-	static class GameOverException extends RuntimeException
+	public static class GameOverException extends RuntimeException
 	{
 		private static final long serialVersionUID = 1L;
 	}
@@ -801,7 +801,7 @@ public class Game
 	/** The "physical" game state. Objects are represented "as printed." */
 	public GameState physicalState;
 
-	boolean restarted;
+	public boolean restarted;
 
 	// To hold snapshots of objects that will be copied in the near future, but
 	// will become ghosts before then. snapshotCache holds the actual snapshots,
@@ -810,7 +810,7 @@ public class Game
 	private java.util.Map<Integer, CopiableValues> snapshotCache;
 	private java.util.Collection<Integer> snapshotSoon;
 
-	protected boolean started;
+	public boolean started;
 
 	private SetGenerator wishboard;
 
@@ -1752,7 +1752,7 @@ public class Game
 	 * @param firstPlayer The player taking the first turn, or null to randomly
 	 * determine the first player.
 	 */
-	void startGame(Player firstPlayer)
+	public void startGame(Player firstPlayer)
 	{
 		this.refreshActualState();
 

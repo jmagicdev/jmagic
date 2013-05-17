@@ -46,7 +46,7 @@ public class FloatingContinuousEffect extends ContinuousEffect
 	 * @param game The game in which this effect should exist.
 	 * @param name The text of the effect.
 	 */
-	FloatingContinuousEffect(Game game, String name)
+	public FloatingContinuousEffect(Game game, String name)
 	{
 		super(game.physicalState, name);
 		this.expires = EndMostFloatingEffects.instance();

@@ -182,7 +182,7 @@ public class Event extends Identified implements Sanitizable
 	 * 
 	 * Constructs an event with an empty parameter map.
 	 */
-	Event(GameState state, String name, EventType type)
+	public Event(GameState state, String name, EventType type)
 	{
 		super(state);
 

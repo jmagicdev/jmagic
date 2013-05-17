@@ -427,12 +427,12 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		}
 	}
 
-	void addSubTypes(java.util.Collection<SubType> subTypes)
+	public void addSubTypes(java.util.Collection<SubType> subTypes)
 	{
 		this.characteristics.subTypes.addAll(subTypes);
 	}
 
-	void addSuperTypes(java.util.Collection<SuperType> superTypes)
+	public void addSuperTypes(java.util.Collection<SuperType> superTypes)
 	{
 		this.characteristics.superTypes.addAll(superTypes);
 	}
@@ -477,7 +477,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		this.addTarget(1, target);
 	}
 
-	void addTypes(java.util.Collection<Type> types)
+	public void addTypes(java.util.Collection<Type> types)
 	{
 		this.characteristics.types.addAll(types);
 	}
@@ -487,7 +487,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 * guarantees that the first element is this object and the last element is
 	 * this object as it exists in the physical state.
 	 */
-	java.util.List<GameObject> andPhysical()
+	public java.util.List<GameObject> andPhysical()
 	{
 		if(this.state == this.game.physicalState)
 			return java.util.Collections.singletonList(this);
@@ -1730,7 +1730,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 * @param visibility true or false to set the players visibility to that;
 	 * null to reset it
 	 */
-	void setActualVisibility(Player player, Boolean visibility)
+	public void setActualVisibility(Player player, Boolean visibility)
 	{
 		if(visibility == null)
 			this.actualVisibility.remove(player.ID);
@@ -1953,7 +1953,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 * @param visibility true or false to set the players visibility to that;
 	 * null to reset it
 	 */
-	void setPhysicalVisibility(Player player, Boolean visibility)
+	public void setPhysicalVisibility(Player player, Boolean visibility)
 	{
 		if(visibility == null)
 			this.physicalVisibility.remove(player.ID);

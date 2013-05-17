@@ -632,7 +632,7 @@ public class GameState implements Cloneable
 		return this.previousStep;
 	}
 
-	void put(Identified i)
+	public void put(Identified i)
 	{
 		Identified old = this.identifieds.put(i.ID, i);
 		if(null != old && old != i && old.state == this)

@@ -12,7 +12,7 @@ public final class SpellCopy extends GameObject implements Castable
 	 * @param state The state to create this spell copy in.
 	 * @param original The spell it's copying.
 	 */
-	SpellCopy(GameState state, String name)
+	public SpellCopy(GameState state, String name)
 	{
 		super(state);
 

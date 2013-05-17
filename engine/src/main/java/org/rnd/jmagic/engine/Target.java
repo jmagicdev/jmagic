@@ -110,7 +110,7 @@ public class Target implements Cloneable, Sanitizable
 	 * if the target is legal as a spell resolves, and also to copy division
 	 * amounts (so that writing a card like Cone of Flame is intuitive).
 	 */
-	Target(Identified target, Target properties)
+	public Target(Identified target, Target properties)
 	{
 		this.chooser = properties.chooser;
 		this.condition = org.rnd.jmagic.engine.generators.NonEmpty.instance();
