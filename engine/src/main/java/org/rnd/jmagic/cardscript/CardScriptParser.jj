@@ -1,0 +1,1010 @@
+options
+{
+	IGNORE_CASE = true;
+	STATIC = false;
+}
+
+PARSER_BEGIN(CardScriptParser)
+
+package org.rnd.jmagic.cardscript;
+
+import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.abilities.keywords.*;
+import static org.rnd.jmagic.engine.EventType.*;
+import static org.rnd.jmagic.engine.EventType.Parameter.*;
+
+public class CardScriptParser
+{
+	public static void main(String[] args)
+	{
+		CardScriptParser p = new CardScriptParser(System.in);
+		for(java.util.Map.Entry<String, ObjectFramework> entry: p.getCards().entrySet())
+		{
+			ObjectFramework card = entry.getValue();
+			card.writeCard();
+		}
+	}
+  
+	private java.util.Map<String, String> variables = new java.util.HashMap<String, String>();
+	private java.util.Map<String, ObjectFramework> cards = null;
+	
+	public java.util.Map<String, ObjectFramework> getCards()
+	{
+		if(this.cards == null)
+		{
+			this.cards = new java.util.HashMap<String, ObjectFramework>();
+			try
+			{
+				CardScriptFile();
+			}
+			catch(ParseException ex)
+			{
+				ex.printStackTrace();
+				cards = null;
+			}
+		}
+		return cards;
+	}
+}
+
+PARSER_END(CardScriptParser)
+
+void CardScriptFile() :
+{
+	ObjectFramework card;
+}
+{
+	(
+		card = ParseObject()
+		{
+			cards.put(card.name, card);
+		}
+	)*
+	<EOF>
+}
+
+ObjectFramework ParseObject() :
+{
+	ObjectFramework card;
+	String name;
+}
+{
+	(
+		"card"
+		{
+			card = new ObjectFramework("Card");
+		}
+	|
+		"activatedAbility"
+		{
+			card = new ObjectFramework("ActivatedAbility");
+		}
+	|
+		"triggeredAbility"
+		{
+			card = new ObjectFramework("EventTriggeredAbility");
+		} 
+	)
+	name = getUnquotedString()
+	{
+		// Remove the quotation marks to form the card name
+		card.name = name;
+	}
+	< EOL >
+	(ParseObject_Attribute(card))*
+	(ParseObject_Block(card))*
+	(< EOL >)*
+	{
+		return card;
+	}
+}
+
+void ParseObject_Attribute(ObjectFramework card) : {}
+{
+	(
+		ParseObject_Attribute_TypeLine(card)
+	| 
+		ParseObject_Attribute_Printings(card)
+	| 
+		ParseObject_Attribute_PowerToughness(card)
+	|
+		ParseObject_Attribute_Pattern(card) 
+	|
+		ParseObject_Attribute_ManaCost(card)
+	)
+}
+
+void ParseObject_Attribute_ManaCost(ObjectFramework card) :
+{
+	String token;
+}
+{
+	"cost"
+	token = getUnquotedString()
+	{
+		if(token.equals("null"))
+			card.manaCost = null;
+		else
+			card.manaCost = token;
+	}
+	< EOL >
+}
+
+void ParseObject_Attribute_Pattern(ObjectFramework card) :
+{
+	EventFramework event;
+}
+{
+	"event"
+	event = getEvent()
+	{
+		card.eventPatterns.add(event);
+	}
+}
+
+void ParseObject_Attribute_PowerToughness(ObjectFramework card) :
+{
+	Token token;
+}
+{
+	"pt"
+	"("
+	token = < INTEGER >
+	{
+		card.power = Integer.parseInt(token.image);
+	}
+	"/"
+	token = < INTEGER >
+	{
+		card.toughness = Integer.parseInt(token.image);
+	}
+	")"
+	< EOL >
+}
+
+void ParseObject_Attribute_Printings(ObjectFramework card) :
+{
+	Token token;
+}
+{
+	"printings"
+	(
+		token = < PRINTING >
+		{
+			String printing = token.image.substring(1, token.image.indexOf(")"));
+			int separator = printing.indexOf(",");
+			String expansion = printing.substring(0, separator).trim().toUpperCase();
+			String rarity = printing.substring(separator + 1).trim().toUpperCase();
+
+			expansion_loop:for(Expansion ex: Expansion.values())
+			{
+				if(ex.code.equals(expansion))
+				{
+					for(Rarity r: Rarity.values())
+					{
+						if(r.toString().equals(rarity))
+						{
+							card.printings.put(ex, r);
+							break expansion_loop;
+						}
+					}
+				}
+			}
+		}
+	)*
+	< EOL >
+}
+
+void ParseObject_Attribute_TypeLine(ObjectFramework card) :
+{
+	SuperType superType;
+	Type type;
+	SubType subType;
+}
+{
+	"type"
+	(
+		superType = getSuperType()
+		{
+			card.superTypes.add(superType);
+		}
+	|
+		type = getType()
+		{
+			card.types.add(type);
+		}
+	|
+		subType = getSubType()
+		{
+			card.subTypes.add(subType);
+		}
+	)*
+	< EOL >
+}
+
+void ParseObject_Block(ObjectFramework card) :
+{
+	ModeFramework mode = new ModeFramework();
+}
+{
+	"{"
+	< EOL >
+	(
+		LOOKAHEAD(1)
+		ParseObject_Block_Ability(card)
+	|
+		ParseObject_Block_Effect(mode)
+	|
+		ParseObject_Block_KeywordAbility(card)
+	|
+		ParseObject_Block_Target(mode)
+	)*
+	"}"
+	< EOL >
+	{
+		card.modes.add(mode);
+	}
+}
+
+void ParseObject_Block_Ability(ObjectFramework card) :
+{
+	ObjectFramework ability;
+}
+{
+	ability = ParseObject()
+	{
+		card.abilities.add(ability);
+	}
+}
+
+void ParseObject_Block_Effect(ModeFramework mode) :
+{
+	EventFramework event;
+}
+{
+	event = getEvent()
+	{
+		mode.textbox.add(event);
+	}
+}
+
+void ParseObject_Block_KeywordAbility(ObjectFramework card) :
+{
+	java.util.List<Object> parameters = new java.util.LinkedList<Object>();
+	Class<? extends Identified> cls;
+	ObjectFramework keyword = new ObjectFramework("Keyword");
+}
+{
+	cls = getKeyword(parameters)
+	{
+		keyword.clazz = cls;
+		keyword.parameters.addAll(parameters);
+		card.abilities.add(keyword);
+	}
+	< EOL >
+}
+
+void ParseObject_Block_Target(ModeFramework mode) :
+{
+	Token token;
+	TargetFramework target = new TargetFramework();
+}
+{
+	token = < VARIABLE_DECLARATION >
+	{
+		target.name = "target" + token.image.substring(2);
+		target.name = target.name.substring(0, target.name.length() - 1);
+	}
+	"="
+	"target"
+	"("
+	{
+		target.generator = getGenerator();
+	}
+	(
+		","
+		token = < INTEGER >
+		{
+			target.min = Integer.parseInt(token.image);
+		}
+		(
+			","
+			token = < INTEGER >
+			{
+				target.max = Integer.parseInt(token.image);
+			}
+		)?
+	)?
+	")"
+	{
+		mode.targets.add(target);
+		this.variables.put(token.image.substring(1), "targetedBy(" + target.name + ")");
+	}
+	< EOL >
+}
+
+Color getColor():
+{
+	Token token;
+}
+{
+	token = < COLOR >
+	{
+		return Color.valueOf(token.image.toUpperCase());
+	}
+}
+
+EventFramework getEvent() :
+{
+	String actorGenerator;
+	EventFramework event;
+	String acteeGenerator;
+}
+{
+	actorGenerator = getGenerator()
+	event = getEvent_Framework()
+	acteeGenerator = getGenerator()
+	{
+		event.setActor(actorGenerator);
+		event.setActee(acteeGenerator);
+	}
+	< EOL >
+	{
+		return event;
+	}
+}
+
+EventFramework getEvent_Framework() :
+{
+	EventFramework event = new EventFramework();
+	String parameter1;
+	String parameter2;
+}
+{
+	(
+		"dealDamage"
+		"("
+		parameter1 = getGenerator()
+		")"
+		{
+			event.type = DEAL_DAMAGE_EVENLY;
+			event.actorParameter = SOURCE;
+			event.acteeParameter = TAKER;
+			event.parameters.put(NUMBER, parameter1);
+		}
+	|
+		"destroy"
+		{
+			event.type = DESTROY_PERMANENTS;
+			event.acteeParameter = PERMANENT;
+		}
+	|
+		"gainLife"
+		"("
+		parameter1 = getGenerator()
+		")"
+		{
+			event.type = GAIN_LIFE;
+			event.acteeParameter = PLAYER;
+			event.parameters.put(NUMBER, parameter1);
+		}
+	|
+		"loseLife"
+		"("
+		parameter1 = getGenerator()
+		")"
+		{
+			event.type = LOSE_LIFE;
+			event.acteeParameter = PLAYER;
+			event.parameters.put(NUMBER, parameter1);
+		}
+	|
+		"move"
+		"("
+		parameter1 = getGenerator()
+		")"
+		{
+			event.type = MOVE_OBJECTS;
+			event.parameters.put(TO, parameter1);
+		}
+	|
+		"tap"
+		{
+			event.type = TAP_PERMANENTS;
+		}
+	)
+	{
+		return event;
+	}
+}
+
+String getGenerator() :
+{
+	String ret;
+}
+{
+	(
+		(
+			"("
+			ret = getGenerator()
+			")"
+		|
+			ret = getGenerator_Named()
+		)
+		
+		(ret = getGenerator_Operation(ret))?
+	|	 
+		"any"
+		{
+			ret = null;
+		}
+	)
+	{
+		return ret;
+	}
+}
+
+String getGenerator_Named() :
+{
+	Object object;
+	Token token;
+	String ret;
+	boolean first = false;
+}
+{
+	(
+		"abilitySource"
+		"("
+		{
+			ret = "AbilitySource.instance(" + getGenerator() + ")";
+		}
+		")"
+	| 
+		"attachedBy"
+		"("
+		{
+			ret = "AttachedBy.instance(" + getGenerator() + ")";
+		}
+		")"
+	|
+		"attachedTo"
+		"("
+		{
+			ret = "AttachedTo.instance(" + getGenerator() + ")";
+		}
+		")"
+	|
+		"battlefield"
+		{
+			ret = "Battlefield.instance()";
+		}
+	|
+		"blocking"
+		"("
+		{
+			ret = "Blocking.instance(" + getGenerator() + ")";
+		}
+		")"
+	|
+		"card"
+		{
+			ret = "Cards.instance()";
+		}
+	|
+		"cardName"
+		{
+			ret = "CardNames.instance()";
+		}
+	|
+		"controlledBy"
+		"("
+		{
+			ret = "ControlledBy.instance(" + getGenerator() + ")";
+		}
+		")"
+	|
+		"controllerOf"
+		"("
+		{
+			ret = "ControllerOf.instance(" + getGenerator() + ")";
+		}
+		")"
+	|
+		"count"
+		"("
+		{
+			ret = "Count.instance(" + getGenerator() + ")";
+		}
+		")"
+	|
+		"exile"
+		{
+			ret = "ExileZone.instance()";
+		}
+	|
+		"graveyardOf"
+		"("
+		{
+			ret = "GraveyardOf.instance(" + getGenerator() + ")";
+		}
+		")"
+	|
+		"handOf"
+		"("
+		{
+			ret = "HandOf.instance(" + getGenerator() + ")";
+		}
+		")"
+	|
+		"hasColor"
+		"("
+		{
+			ret = "HasColor.instance(" + getColor() + ")";
+		}
+		")"
+	|
+		"hasType"
+		"("
+		{
+			first = true;
+			ret = "HasType.instance(";
+			for(Type type: getTypes())
+			{
+				if(first)
+				  first = false;
+				else
+				  ret += ", ";
+				ret += "Type." + type.name();
+			}
+			ret += ")";
+		}
+		")"
+	|
+		"hasSubType"
+		"("
+		{
+			first = true;
+			ret = "HasSubType.instance(";
+			for(SubType type: getSubTypes())
+			{
+				if(first)
+				  first = false;
+				else
+				  ret += ", ";
+				ret += "SubType." + type.name();
+			}
+			ret += ")";
+		}
+		")"
+	|
+		"inZone"
+		"("
+		{
+			ret = "InZone.instance(" + getGenerator() + ")";
+		}
+		")"
+	|
+		"libraryOf"
+		"("
+		{
+			ret = "LibraryOf.instance(" + getGenerator() + ")";
+		}
+		")"
+	|
+		"nameOf"
+		"("
+		{
+			ret = "NameOf.instance(" + getGenerator() + ")";
+		}
+		")"
+	|
+		"opponentsOf"
+		"("
+		{
+			ret = "OpponentsOf.instance(" + getGenerator() + ")";
+		}
+		")"
+	|
+		"ownedBy"
+		"("
+		{
+			ret = "OwnedBy.instance(" + getGenerator() + ")";
+		}
+		")"
+	|
+		"permanent"
+		{
+			ret = "Permanents.instance()";
+		}
+	|
+		"player"
+		{
+			ret = "Players.instance()";
+		}
+	|
+		"spell"
+		{
+			ret = "Spells.instance()";
+		}
+	|
+		"subTypesOf"
+		"("
+		object = getGenerator()
+		","
+		{
+			ret = "SubTypesOf.instance(" + object + ", Type." + getType().name() + ")";
+		}
+		")"
+	|
+		"tapped"
+		{
+			ret = "Tapped.instance()";
+		}
+	|
+		"this"
+		{
+			ret = "This.instance()";
+		}
+	|
+		"topCards"
+		"("
+		object = getGenerator()
+		","
+		{
+			ret = "TopCards.instance(" + object + ", " + getGenerator() + ")";
+		}
+		")"
+	|
+		"untapped"
+		{
+			ret = "Untapped.instance()";
+		}		
+	|
+		"upkeepOf"
+		"("
+		{
+			ret = "UpkeepStepOf.instance(" + getGenerator() + ")";
+		}
+		")"
+	|
+		"you"
+		{
+			ret = "You.instance()";
+		}
+	|
+		token = < INTEGER >
+		{
+			ret = "numberGenerator(" + token.image + ")";
+		}
+	|
+		token = < VARIABLE_REFERENCE >
+		{
+			ret = this.variables.get(token.image.substring(1));
+		}
+	|
+		object = getType()
+		{
+			ret = "Intersect.instance(Permanents.instance(), HasType.instance(Type."+((Type)object).name()+"))";
+		}
+	)
+	{
+		return ret;
+	}
+}
+
+String getGenerator_Operation(String ret) :
+{
+	String secondGenerator;
+}
+{
+	(
+		< INTERSECT >
+		secondGenerator = getGenerator()
+		{
+			ret = "Intersect.instance(" + ret + ", " + secondGenerator + ")";
+		}
+	|
+		< UNION >
+		secondGenerator = getGenerator()
+		{
+			ret = "Union.instance(" + ret + ", " + secondGenerator + ")";
+		}
+	|
+		< COMPLEMENT >
+		secondGenerator = getGenerator()
+		{
+			ret = "RelativeComplement.instance(" + ret + ", " + secondGenerator + ")";
+		}
+	|
+		< ADDITION >
+		secondGenerator = getGenerator()
+		{
+			ret = "Sum.instance(Union.instance(" + ret + ", " + secondGenerator + "))";
+		}
+	|
+		< SUBTRACTION >
+		secondGenerator = getGenerator()
+		{
+			ret = "Subtract.instance(" + ret + ", " + secondGenerator + ")";
+		}
+	|
+		< DIVISION_ROUNDUP >
+		secondGenerator = getGenerator()
+		{
+			ret = "DivideBy.instance(" + ret + ", " + secondGenerator + ", true)";
+		}
+	|
+		< DIVISION_ROUNDDOWN >
+		secondGenerator = getGenerator()
+		{
+			ret = "DivideBy.instance(" + ret + ", " + secondGenerator + ", false)";
+		}
+	|
+		< MULTIPLICATION >
+		secondGenerator = getGenerator()
+		{
+			ret = "Multiply.instance(" + ret + ", " + secondGenerator + ")";
+		}
+	|
+		secondGenerator = getGenerator()
+		{
+			ret = "Intersect.instance(" + ret + ", " + secondGenerator + ")";
+		}
+	)
+	{
+		return ret;
+	}
+}
+
+Class<? extends Keyword> getKeyword(java.util.List<Object> parameters) :
+{
+	parameters.clear();
+}
+{
+	(
+		"enchant"
+		"("
+		{
+			String generator = getGenerator();
+		}
+		","
+		{
+			parameters.add('"' + getUnquotedString() + '"');
+			parameters.add(generator);
+		}
+		")"
+		{
+			return Enchant.Final.class;
+		}
+	|
+		"equip"
+		{
+			String cost;
+		}
+		(
+			cost = getUnquotedString()
+			{
+				parameters.add('"' + cost + '"');
+			}
+			// TODO: add nonmana costs once we figure out how to parse events
+		)
+		{
+			return Equip.class;
+		}
+	|
+		"fear"
+		{
+			return Fear.class;
+		}
+	|
+		"firstStrike"
+		{
+			return FirstStrike.class;
+		}
+	|
+		"flash"
+		{
+			return Flash.class;
+		}
+	|
+		"flying"
+		{
+			return Flying.class;
+		}
+	|
+		"haste"
+		{
+			return Haste.class;
+		}
+	|
+		"protectionFrom"
+		{
+			parameters.add(getGenerator());
+		}
+		","
+		{
+			parameters.add('"' + getUnquotedString() + '"');
+			return Protection.From.class;
+		}
+	|
+		"reach"
+		{
+			return Reach.class;
+		}
+	|
+		"trample"
+		{
+			return Trample.class;
+		}
+	|
+		"basicLandCycle"
+		{
+			parameters.add('"' + getUnquotedString() + '"');
+			return TypeCycling.BasicLandCycling.class;
+		}
+	|
+		"vigilance"
+		{
+			return Vigilance.class;
+		}
+	)
+}
+
+SubType getSubType():
+{
+	Token token;
+}
+{
+	token = < SUBTYPE >
+	{
+		return SubType.valueOf(token.image.toUpperCase());
+	}
+}
+
+java.util.Set<SubType> getSubTypes() :
+{
+	SubType type;
+	java.util.Set<SubType> ret;
+}
+{
+	type = getSubType()
+	{
+		ret = java.util.EnumSet.of(type);
+	}
+	(
+		","
+		type = getSubType()
+		{
+			ret.add(type);
+		}
+	)*
+	{
+		return ret;
+	}
+}
+
+SuperType getSuperType():
+{
+	Token token;
+}
+{
+	token = < SUPERTYPE >
+	{
+		return SuperType.valueOf(token.image.toUpperCase());
+	}
+}
+
+Type getType():
+{
+	Token token;
+}
+{
+	token = < TYPE >
+	{
+		return Type.valueOf(token.image.toUpperCase());
+	}
+}
+
+java.util.Set<Type> getTypes():
+{
+	Type type;
+	java.util.Set<Type> ret;
+}
+{
+	type = getType()
+	{
+		ret = java.util.EnumSet.of(type);
+	}
+	(
+		","
+		type = getType()
+		{
+			ret.add(type);
+		}
+	)*
+	{
+		return ret;
+	}
+}
+
+String getUnquotedString() :
+{
+	Token token;
+}
+{
+	token = < STRING >
+	{
+		return token.image.substring(1, token.image.length() - 1);
+	} 
+}
+
+
+SKIP:
+{
+	" "
+|
+	"\t"
+}
+
+MORE :
+{
+    "/*": IN_MULTILINE_COMMENT
+}
+
+SPECIAL_TOKEN :
+{
+    < SINGLE_LINE_COMMENT: "//"(~["\n","\r"])* ("\n"|"\r"|"\r\n")? >
+}
+
+< IN_MULTILINE_COMMENT > MORE :
+{
+    < ~[] >
+}
+
+< IN_MULTILINE_COMMENT > SKIP :
+{
+    "*/": DEFAULT
+}
+
+TOKEN :
+{
+	<EOL: (["\r","\n"])+ >
+|	
+	<#DIGIT: ["0"-"9"] >
+|
+	<INTEGER: (["-","+"])?(<DIGIT>)+ >
+|
+	<STRING: "\"" (~["\""])+ "\"" >
+|
+	<#CHARACTER: (<DIGIT>|["a"-"z","A"-"Z"]) >
+|
+	<PRINTING:	"(" (<CHARACTER>){1,3} "," <CHARACTER> ")" (",")? >
+|
+	<VARIABLE_DECLARATION: "&" <STRING> >
+|
+	<VARIABLE_REFERENCE: "?" <STRING> >
+|
+	<INTERSECT: "&" >
+|
+	<UNION: "|" >
+|
+	<COMPLEMENT: "~" >
+|
+	<ADDITION: "+" >
+|
+	<SUBTRACTION: "-" >
+|
+	<DIVISION_ROUNDUP: "/+" >
+|
+	<DIVISION_ROUNDDOWN: "/-" >
+|
+	<MULTIPLICATION: "*" >
+|
+	<COLOR: "white"|"blue"|"black"|"red"|"green" >
+|
+	<SUPERTYPE: "basic"|"legendary"|"snow"|"world" >
+|
+	<TYPE: "artifact"|"creature"|"enchantment"|"instant"|"land"|"plane"|"planeswalker"|"sorcery"|"tribal" >
+|
+	<SUBTYPE: (["a"-"z","-","0"-"9"])+ >
+}
