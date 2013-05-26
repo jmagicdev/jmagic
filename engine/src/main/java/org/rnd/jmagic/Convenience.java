@@ -429,52 +429,6 @@ public class Convenience
 		}
 	}
 
-	public static final class ExtraLandsActionFactory extends PlayLandActionFactory
-	{
-		/**
-		 * SetGenerator representing when this effect has been used up. Use it
-		 * in the EXPIRES parameter to the continuous effect introducing this
-		 * factory.
-		 */
-		public final SetGenerator allPlayed;
-		private final int creatorID;
-
-		private final GenericIntegerTracker flag = new GenericIntegerTracker();
-
-		private ExtraLandsActionFactory(Game game, GameObject creator, final int number)
-		{
-			super(game);
-			this.creatorID = creator.ID;
-			this.allPlayed = new SetGenerator()
-			{
-				@Override
-				public Set evaluate(GameState state, Identified thisObject)
-				{
-					if(ExtraLandsActionFactory.this.flag.getValue(state) >= number)
-						return NonEmpty.set;
-					return Empty.set;
-				}
-			};
-		}
-
-		@Override
-		public PlayLandAction createAction(Player who, GameObject object)
-		{
-			return new PlayLandAction(this.game, "Play land " + object + " with " + this.game.actualState.<GameObject>get(this.creatorID), object, who, this.creatorID)
-			{
-				@Override
-				public boolean perform()
-				{
-					if(!(super.perform()))
-						return false;
-
-					ExtraLandsActionFactory.this.flag.register(this.game.physicalState, null);
-					return true;
-				}
-			};
-		}
-	}
-
 	private static class ImmutableEventPattern implements EventPattern
 	{
 		private final EventPattern pattern;
@@ -2682,20 +2636,14 @@ public class Convenience
 	 * @return An <code>EventFactory</code> that will create a floating
 	 * continuous effect giving the specified player extra play land actions.
 	 */
-	public static EventFactory playExtraLands(final Game game, final GameObject creator, SetGenerator who, final int number, String effectName)
+	public static EventFactory playExtraLands(SetGenerator who, final int number, String effectName)
 	{
 		ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PLAY_ADDITIONAL_LANDS);
 
-		ExtraLandsActionFactory extraLandsFactory = new ExtraLandsActionFactory(game, creator, number);
-
 		part.parameters.put(ContinuousEffectType.Parameter.PLAYER, who);
-		part.parameters.put(ContinuousEffectType.Parameter.ACTION, Identity.instance(extraLandsFactory));
+		part.parameters.put(ContinuousEffectType.Parameter.NUMBER, numberGenerator(number));
 
-		// the effect expires when either the turn ends or it's been used up.
-		SetGenerator eot = Intersect.instance(CurrentStep.instance(), CleanupStepOf.instance(Players.instance()));
-		SetGenerator expires = Union.instance(eot, extraLandsFactory.allPlayed);
-
-		return createFloatingEffect(expires, effectName, part);
+		return createFloatingEffect(effectName, part);
 	}
 
 	public static EventFactory populate()

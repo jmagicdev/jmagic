@@ -16,7 +16,7 @@ public final class Explore extends Card
 		super(state);
 
 		// You may play an additional land this turn.
-		this.addEffect(playExtraLands(state.game, this, You.instance(), 1, "You may play an additional land this turn."));
+		this.addEffect(playExtraLands(You.instance(), 1, "You may play an additional land this turn."));
 
 		// Draw a card.
 		this.addEffect(drawCards(You.instance(), 1, "\n\nDraw a card."));

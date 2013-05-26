@@ -4,16 +4,14 @@ import org.rnd.jmagic.engine.*;
 
 public class SanitizedPlayLandAction extends SanitizedPlayerAction
 {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2L;
 
 	public final int land;
-	public final boolean isPerTurnAction;
 
 	public SanitizedPlayLandAction(PlayLandAction action)
 	{
 		super(action);
 		this.land = action.landID;
-		this.isPerTurnAction = (action instanceof PerTurnPlayLandAction);
 	}
 
 	@Override
@@ -22,8 +20,6 @@ public class SanitizedPlayLandAction extends SanitizedPlayerAction
 		if(!super.equals(obj))
 			return false;
 		SanitizedPlayLandAction other = (SanitizedPlayLandAction)obj;
-		if(this.isPerTurnAction != other.isPerTurnAction)
-			return false;
 		if(this.land != other.land)
 			return false;
 		return true;
@@ -34,7 +30,6 @@ public class SanitizedPlayLandAction extends SanitizedPlayerAction
 	{
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + (this.isPerTurnAction ? 1231 : 1237);
 		result = prime * result + this.land;
 		return result;
 	}

@@ -17,6 +17,6 @@ public final class UrbanEvolution extends Card
 
 		// Draw three cards. You may play an additional land this turn.
 		this.addEffect(drawCards(You.instance(), 3, "Draw three cards."));
-		this.addEffect(playExtraLands(state.game, this, You.instance(), 1, "You may play an additional land this turn."));
+		this.addEffect(playExtraLands(You.instance(), 1, "You may play an additional land this turn."));
 	}
 }

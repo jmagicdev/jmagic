@@ -2359,23 +2359,36 @@ public abstract class ContinuousEffectType
 
 	/**
 	 * @eparam PLAYER: the player who gets the factories
-	 * @eparam ACTION: the play-land action factories to add to the player
-	 * actions list
+	 * @eparam NUMBER: the number of additional land actions the player may use
+	 * (or leave empty for 'unlimited')
 	 */
 	public static final ContinuousEffectType PLAY_ADDITIONAL_LANDS = new ContinuousEffectType("PLAY_ADDITIONAL_LANDS")
 	{
 		@Override
 		public Parameter affects()
 		{
-			return null;
+			return Parameter.PLAYER;
 		}
 
 		@Override
 		public void apply(GameState state, ContinuousEffect effect, java.util.Map<Parameter, Set> parameters)
 		{
+			Set numberSet = parameters.get(Parameter.NUMBER);
+			Integer number;
+			if(numberSet.isEmpty())
+				number = null;
+			else
+				number = Sum.get(numberSet);
 			for(Player player: parameters.get(Parameter.PLAYER).getAll(Player.class))
-				if(state.playLandActionFactories.containsKey(player.ID))
-					state.playLandActionFactories.get(player.ID).addAll(parameters.get(Parameter.ACTION).getAll(PlayLandActionFactory.class));
+			{
+				if(player.totalLandActions != null)
+				{
+					if(number == null)
+						player.totalLandActions = null;
+					else
+						player.totalLandActions += number;
+				}
+			}
 		}
 
 		@Override

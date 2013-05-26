@@ -3,7 +3,7 @@ package org.rnd.jmagic.engine;
 import org.rnd.jmagic.engine.generators.*;
 
 /** Represents the action of playing a land. */
-public class PlayLandAction extends PlayerAction
+public final class PlayLandAction extends PlayerAction
 {
 	public final int landID;
 	private int playedID;
@@ -14,9 +14,10 @@ public class PlayLandAction extends PlayerAction
 	 * land [name of land]".
 	 * @param land The land to play.
 	 */
-	public PlayLandAction(Game game, String name, GameObject land, Player player, int source)
+	public PlayLandAction(Game game, String name, GameObject land, Player player)
 	{
-		super(game, name, player, source);
+		// the source is the game, 0
+		super(game, name, player, 0);
 		this.landID = land.ID;
 	}
 

@@ -120,12 +120,6 @@ public class GameState implements Cloneable
 
 	public int playingFirstID;
 
-	/**
-	 * keys are player IDs, values are play land action factories that generate
-	 * actions that player can use
-	 */
-	public java.util.Map<Integer, java.util.Set<PlayLandActionFactory>> playLandActionFactories;
-
 	private Step previousStep;
 
 	public java.util.Collection<EventPattern> eventProhibitions;
@@ -193,7 +187,6 @@ public class GameState implements Cloneable
 		this.playerWithPriorityID = -1;
 		this.players = new IDList<Player>(this);
 		this.playingFirstID = -1;
-		this.playLandActionFactories = new java.util.HashMap<Integer, java.util.Set<PlayLandActionFactory>>();
 		this.previousStep = null;
 		this.eventProhibitions = new java.util.LinkedList<EventPattern>();
 		this.sourcesOfUnpreventableDamage = new java.util.LinkedList<GameObject>();
@@ -206,6 +199,7 @@ public class GameState implements Cloneable
 
 		// The set of Trackers that the game always needs
 		this.ensureTracker(new SuccessfullyAttacked());
+		this.ensureTracker(new org.rnd.jmagic.engine.generators.LandsPlayedThisTurn.LandsPlayedTracker());
 	}
 
 	/**
@@ -227,8 +221,6 @@ public class GameState implements Cloneable
 	public void addPlayer(Player player)
 	{
 		this.players.add(player);
-
-		this.playLandActionFactories.put(player.ID, new java.util.HashSet<PlayLandActionFactory>());
 
 		this.manaThatDoesntEmpty.put(player.ID, new MultipleSetPattern(false));
 		this.summoningSick.put(player.ID, new java.util.LinkedList<Integer>());
@@ -305,7 +297,6 @@ public class GameState implements Cloneable
 		this.manaCostRestrictedReductions.clear();
 		this.playerActions.clear();
 		this.players.clear();
-		this.playLandActionFactories.clear();
 		this.eventProhibitions.clear();
 		this.sourcesOfUnpreventableDamage.clear();
 		this.specialActionFactories.clear();
@@ -397,9 +388,6 @@ public class GameState implements Cloneable
 			for(int key: this.manaThatDoesntEmpty.keySet())
 				ret.manaThatDoesntEmpty.put(key, new MultipleSetPattern(false));
 			ret.playerActions = new java.util.HashSet<PlayerAction>();
-			ret.playLandActionFactories = new java.util.HashMap<Integer, java.util.Set<PlayLandActionFactory>>();
-			for(int key: this.playLandActionFactories.keySet())
-				ret.playLandActionFactories.put(key, new java.util.HashSet<PlayLandActionFactory>());
 			ret.eventProhibitions = new java.util.LinkedList<EventPattern>();
 			ret.zoneChangeProhibitions = new java.util.LinkedList<ZoneChangePattern>();
 			ret.sourcesOfUnpreventableDamage = new java.util.LinkedList<GameObject>();
@@ -667,8 +655,6 @@ public class GameState implements Cloneable
 
 		for(Player player: players)
 		{
-			this.playLandActionFactories.remove(player.ID);
-
 			this.manaThatDoesntEmpty.remove(player.ID);
 			this.summoningSick.remove(player.ID);
 			this.waitingTriggers.remove(player.ID);

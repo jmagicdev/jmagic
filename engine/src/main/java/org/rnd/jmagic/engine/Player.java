@@ -27,6 +27,7 @@ public final class Player extends Identified implements AttachableTo, Attackable
 	private int handID;
 	private int libraryID;
 	public int lifeTotal;
+	public Integer totalLandActions;
 	/**
 	 * If damage would reduce your life total to less than [x], it reduces it to
 	 * [x] instead.
@@ -38,8 +39,6 @@ public final class Player extends Identified implements AttachableTo, Attackable
 	 */
 	public java.util.Map<Integer, EventFactory> mulliganOptions;
 	public boolean outOfGame;
-	public Turn playLandActionLastUsed;
-	public int playLandActionUses;
 	public ManaPool pool;
 	private int sideboardID;
 
@@ -83,14 +82,13 @@ public final class Player extends Identified implements AttachableTo, Attackable
 		this.minimumLifeTotalFromDamage = null;
 		this.mulliganOptions = new java.util.HashMap<Integer, EventFactory>();
 		this.outOfGame = false;
-		this.playLandActionLastUsed = null;
-		this.playLandActionUses = 0;
 		this.pool = new ManaPool();
 		this.sideboardID = new Zone(state, name + "'s Sideboard").ID;
 		this.keywordAbilities = new java.util.LinkedList<Keyword>();
 		this.nonStaticAbilities = new java.util.LinkedList<NonStaticAbility>();
 		this.staticAbilities = new java.util.LinkedList<StaticAbility>();
 		this.thisPlayer = org.rnd.jmagic.engine.generators.PlayerByID.instance(this.ID);
+		this.totalLandActions = 1;
 		this.unableToDraw = false;
 		this.wonGame = false;
 	}

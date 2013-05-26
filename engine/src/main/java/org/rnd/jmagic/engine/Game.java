@@ -974,9 +974,9 @@ public class Game
 	{
 		java.util.Set<PlayLandAction> ret = new java.util.HashSet<PlayLandAction>();
 
-		for(PlayLandActionFactory factory: this.actualState.playLandActionFactories.get(who.ID))
+		if(!who.outOfGame && (null != this.actualState.currentTurn()) && (who.totalLandActions == null || LandsPlayedThisTurn.get(who) < who.totalLandActions))
 		{
-			PlayLandAction action = factory.createAction(who, land);
+			PlayLandAction action = new PlayLandAction(this, "Play land " + land + ".", land, who);
 			if(action.attempt())
 				ret.add(action);
 		}
@@ -1486,11 +1486,6 @@ public class Game
 						o.setActualVisibility(controller, true);
 			}
 		}
-
-		// Prohibitions are stronger than permissions
-		for(Player playerActing: this.actualState.players)
-			if(!playerActing.outOfGame && (null != this.actualState.currentTurn()) && ((this.actualState.currentTurn() != playerActing.playLandActionLastUsed) || (playerActing.playLandActionUses < 1)))
-				this.actualState.playLandActionFactories.get(playerActing.ID).add(new PerTurnPlayLandActionFactory(this));
 
 		if(previous != null)
 		{

@@ -3,43 +3,10 @@ package org.rnd.jmagic.abilities;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
+import static org.rnd.jmagic.Convenience.*;
+
 public abstract class PlayExtraLands extends StaticAbility
 {
-	private static class ExtraLandsActionFactory extends PlayLandActionFactory
-	{
-		private static class ExtraLandsAction extends PlayLandAction
-		{
-			public ExtraLandsAction(GameObject land, Player who, int extraLandsID)
-			{
-				super(land.game, "Play land " + land + " with " + land.game.actualState.<StaticAbility>get(extraLandsID).getSource(land.game.actualState), land, who, extraLandsID);
-			}
-
-			@Override
-			public boolean perform()
-			{
-				if(!(super.perform()))
-					return false;
-
-				this.game.physicalState.<PlayExtraLands>get(this.sourceID).flag.register(this.game.physicalState, null);
-				return true;
-			}
-		}
-
-		private final int extraLandsID;
-
-		public ExtraLandsActionFactory(Game game, int ExtraLandsID)
-		{
-			super(game);
-			this.extraLandsID = ExtraLandsID;
-		}
-
-		@Override
-		public ExtraLandsActionFactory.ExtraLandsAction createAction(Player who, GameObject land)
-		{
-			return new ExtraLandsAction(land, who, this.extraLandsID);
-		}
-	}
-
 	private static class CanBeUsed extends SetGenerator
 	{
 		public static CanBeUsed instance(int extraLandsID)
@@ -87,8 +54,11 @@ public abstract class PlayExtraLands extends StaticAbility
 		this.abilityName = abilityName;
 
 		ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PLAY_ADDITIONAL_LANDS);
-		part.parameters.put(ContinuousEffectType.Parameter.ACTION, Identity.instance(new ExtraLandsActionFactory(this.state.game, this.ID)));
 		part.parameters.put(ContinuousEffectType.Parameter.PLAYER, who);
+		if(number == null)
+			part.parameters.put(ContinuousEffectType.Parameter.NUMBER, Empty.instance());
+		else
+			part.parameters.put(ContinuousEffectType.Parameter.NUMBER, numberGenerator(number));
 		this.addEffectPart(part);
 
 		this.setCanApply(this.canApply);

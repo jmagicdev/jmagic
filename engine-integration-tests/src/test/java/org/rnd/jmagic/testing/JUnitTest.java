@@ -560,15 +560,6 @@ public abstract class JUnitTest
 		return null;
 	}
 
-	protected final SanitizedPlayLandAction getLandForTheTurnAction(Class<? extends GameObject> land)
-	{
-		for(SanitizedPlayLandAction choice: this.choices.getAll(SanitizedPlayLandAction.class))
-			if(choice.isPerTurnAction && this.game.actualState.get(choice.land).getClass() == land)
-				return choice;
-		fail("Failed to find SanitizedPlayLandAction(" + land.getSimpleName() + ")");
-		return null;
-	}
-
 	protected final Zone getLibrary(int playerNum)
 	{
 		return this.game.physicalState.<Player>get(this.playerIDs[playerNum]).getLibrary(this.game.physicalState);

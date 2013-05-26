@@ -108,7 +108,6 @@ public class AdditionalLandsTest extends JUnitTest
 	@Test
 	public void twoTurns()
 	{
-
 		this.addDeck(Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, AzusaLostbutSeeking.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		startGame(GameTypes.STACKED);
@@ -149,7 +148,7 @@ public class AdditionalLandsTest extends JUnitTest
 		goToPhase(Phase.PhaseType.BEGINNING);
 		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
 
-		respondWith(getLandForTheTurnAction(Forest.class));
+		respondWith(getLandAction(Forest.class));
 
 		// play forest x 3 (have played 4 of 7 so far), tap forest for mana x 4
 		assertEquals(7, this.choices.size());
@@ -157,5 +156,64 @@ public class AdditionalLandsTest extends JUnitTest
 		respondWith(getLandAction(Forest.class));
 		// tap forest for mana x 6
 		assertEquals(6, this.choices.size());
+	}
+
+	@Test
+	public void extraActionsForBouncing()
+	{
+		this.addDeck(Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Boomerang.class, AzusaLostbutSeeking.class);
+		this.addDeck(Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Boomerang.class, AzusaLostbutSeeking.class);
+		startGame(GameTypes.STACKED);
+
+		respondWith(getPlayer(0));
+		keep();
+		keep();
+
+		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
+
+		// 5 lands, azusa, boomerang
+		assertEquals(7, choices.size());
+		assertNotNull(player(0).getActual().totalLandActions);
+		assertEquals(1, player(0).getActual().totalLandActions.intValue());
+
+		respondWith(getLandAction(Forest.class));
+
+		// azusa, boomerang, 1 mana
+		assertEquals(3, choices.size());
+
+		castAndResolveSpell(AzusaLostbutSeeking.class);
+
+		// 4 lands, boomerang, 1 mana
+		assertEquals(6, choices.size());
+		assertNotNull(player(0).getActual().totalLandActions);
+		assertEquals(3, player(0).getActual().totalLandActions.intValue());
+
+		respondWith(getLandAction(Forest.class));
+
+		// 3 lands, boomerang, 2 mana
+		assertEquals(6, choices.size());
+
+		respondWith(getLandAction(Forest.class));
+
+		// boomerang, 3 mana
+		assertEquals(4, choices.size());
+
+		castAndResolveSpell(Boomerang.class, AzusaLostbutSeeking.class);
+
+		// azusa, 3 mana
+		assertEquals(4, choices.size());
+
+		castAndResolveSpell(AzusaLostbutSeeking.class);
+
+		Player player0 = player(0).getActual();
+		Zone hand = player0.getHand(this.game.actualState);
+
+		// 3 mana
+		assertEquals(3, choices.size(), 0);
+		assertEquals(2, hand.objects.size(), 2);
+		assertEquals("Forest", hand.objects.get(0).getName());
+		assertEquals("Forest", hand.objects.get(1).getName());
+		assertNotNull(player0.totalLandActions);
+		assertEquals(3, player0.totalLandActions.intValue());
 	}
 }
