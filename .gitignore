@@ -1,6 +1,7 @@
 cards/target
 engine/target
 gui/target
+development/target
 .settings
 .classpath
 .project
@@ -13,3 +14,6 @@ engine/.project
 gui/.settings
 gui/.classpath
 gui/.project
+development/.settings
+development/.classpath
+development/.project

@@ -12,5 +12,6 @@
         <module>engine</module>
         <module>cards</module>
         <module>gui</module>
+        <module>development</module>
     </modules>
 </project>
