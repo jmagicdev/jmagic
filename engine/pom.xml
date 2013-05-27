@@ -5,7 +5,7 @@
     <groupId>org.rnd.jmagic</groupId>
     <artifactId>engine</artifactId>
     <name>jmagic engine</name>
-    <version>1.0</version>
+    <version>0.12</version>
 
     <properties>
         <springframework.version>3.0.2.RELEASE</springframework.version>
