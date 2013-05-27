@@ -2,21 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>jmagic</groupId>
+    <groupId>org.rnd.jmagic</groupId>
     <artifactId>cards</artifactId>
     <name>jmagic cards</name>
     <version>1.0</version>
-    <packaging>jar</packaging>
-    <description>jmagic cards</description>
 
     <properties>
-        <springframework.version>3.0.2.RELEASE</springframework.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+
     <dependencies>
         <dependency>
-            <groupId>jmagic</groupId>
+            <groupId>org.rnd.jmagic</groupId>
             <artifactId>engine</artifactId>
             <version>1.0</version>
         </dependency>
@@ -29,8 +27,6 @@
         </dependency>
     </dependencies>
 
-
-    <!-- Enhance the test classes -->
     <build>
         <plugins>
             <plugin>
