@@ -17,11 +17,6 @@
             <artifactId>engine</artifactId>
             <version>0.12</version>
         </dependency>
-        <dependency>
-            <groupId>org.rnd.jmagic</groupId>
-            <artifactId>cards</artifactId>
-            <version>0.12</version>
-        </dependency>
     </dependencies>
 
     <build>

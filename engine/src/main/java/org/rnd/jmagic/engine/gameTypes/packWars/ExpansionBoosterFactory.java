@@ -1,6 +1,7 @@
 package org.rnd.jmagic.engine.gameTypes.packWars;
 
 import org.rnd.jmagic.*;
+import org.rnd.jmagic.CardLoader.CardLoaderException;
 import org.rnd.jmagic.engine.*;
 
 @Name("Expansion booster")
@@ -10,6 +11,12 @@ public class ExpansionBoosterFactory implements BoosterFactory
 	{
 		public final Class<? extends Card> cardClass;
 		public final Expansion expansion;
+
+		public CardClassWithExpansion(String name, Expansion expansion) throws CardLoaderException
+		{
+			this.cardClass = CardLoader.getCard(name);
+			this.expansion = expansion;
+		}
 
 		public CardClassWithExpansion(Class<? extends Card> cardClass, Expansion expansion)
 		{
@@ -99,11 +106,11 @@ public class ExpansionBoosterFactory implements BoosterFactory
 		// Always include one land (not all sets have lands, so always take it
 		// from the latest base set)
 		java.util.List<CardClassWithExpansion> lands = new java.util.LinkedList<CardClassWithExpansion>();
-		lands.add(new CardClassWithExpansion(org.rnd.jmagic.cards.Plains.class, Expansion.MAGIC_2011));
-		lands.add(new CardClassWithExpansion(org.rnd.jmagic.cards.Island.class, Expansion.MAGIC_2011));
-		lands.add(new CardClassWithExpansion(org.rnd.jmagic.cards.Swamp.class, Expansion.MAGIC_2011));
-		lands.add(new CardClassWithExpansion(org.rnd.jmagic.cards.Mountain.class, Expansion.MAGIC_2011));
-		lands.add(new CardClassWithExpansion(org.rnd.jmagic.cards.Forest.class, Expansion.MAGIC_2011));
+		lands.add(new CardClassWithExpansion("Plains", Expansion.MAGIC_2011));
+		lands.add(new CardClassWithExpansion("Island", Expansion.MAGIC_2011));
+		lands.add(new CardClassWithExpansion("Swamp", Expansion.MAGIC_2011));
+		lands.add(new CardClassWithExpansion("Mountain", Expansion.MAGIC_2011));
+		lands.add(new CardClassWithExpansion("Forest", Expansion.MAGIC_2011));
 		addRandomCards(ret, lands, 1, state);
 
 		return ret;

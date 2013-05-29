@@ -1,6 +1,5 @@
 package org.rnd.jmagic.engine.gameTypes;
 
-import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
 
 /**
@@ -11,26 +10,12 @@ import org.rnd.jmagic.engine.*;
 @Description("A third of the cards in the deck must share a common creature type.  Implements a banned list, as well.")
 public class Tribal extends GameType.SimpleGameTypeRule
 {
-	private static final java.util.Collection<Class<?>> bannedList = java.util.Arrays.<Class<?>>asList(
-	// Arboria.class,
-	// Balance.class,
-	// Channel.class,
-	// CircleofSolace.class,
-	DemonicConsultation.class, DemonicTutor.class, EngineeredPlague.class,
-	// Flash.class,
-	ImperialSeal.class, ManaCrypt.class,
-	// Necropotence.class,
-	// PeerPressure.class,
-	Skullclamp.class, StripMine.class,
-	// TheAbyss.class,
-	Tinker.class, TolarianAcademy.class,
-	// TsabosDecree.class,
-	UmezawasJitte.class, YawgmothsWill.class);
+	private static final java.util.Collection<String> bannedList = java.util.Arrays.<String>asList("Arboria", "Balance", "Channel", "Circle of Solace", "Demonic Consultation", "Demonic Tutor", "Engineered Plague", "Flash", "Imperial Seal", "Mana Crypt", "Necropotence", "Peer Pressure", "Skullclamp", "Strip Mine", "The Abyss", "Tinker", "Tolarian Academy", "Tsabo's Decree", "Umezawa's Jitte", "Yawgmoth's Will");
 
 	@Override
 	public boolean checkCard(Class<? extends Card> card)
 	{
-		return !bannedList.contains(card);
+		return !bannedList.contains(card.getAnnotation(Name.class).value());
 	}
 
 	@Override
