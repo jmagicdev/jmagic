@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.rnd.jmagic</groupId>
-	<artifactId>development</artifactId>
-	<name>jmagic development</name>
+	<artifactId>engine-integration-tests</artifactId>
+	<name>jmagic engine integration tests</name>
 	<version>0.12</version>
 
 	<properties>
@@ -12,17 +11,29 @@
 	</properties>
 
 	<dependencies>
+		<!-- Test dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.rnd.jmagic</groupId>
 			<artifactId>engine</artifactId>
 			<version>0.12</version>
 		</dependency>
-		<!-- Note that this is included not just for testing so that classes that
-			depend on JUnit are available in the JAR of this project -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<groupId>org.rnd.jmagic</groupId>
+			<artifactId>cards</artifactId>
+			<version>0.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.rnd.jmagic</groupId>
+			<artifactId>development</artifactId>
+			<version>0.12</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

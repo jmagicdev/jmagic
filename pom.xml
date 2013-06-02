@@ -13,5 +13,6 @@
 		<module>cards</module>
 		<module>gui</module>
 		<module>development</module>
+		<module>engine-integration-tests</module>
 	</modules>
 </project>
