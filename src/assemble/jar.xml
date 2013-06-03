@@ -1,0 +1,29 @@
+<assembly
+	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+	<id>bin</id>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<dependencySets>
+		<dependencySet>
+			<includes>
+				<include>org.rnd.jmagic:engine</include>
+				<include>org.rnd.jmagic:gui</include>
+				<include>org.rnd.jmagic:cards</include>
+				<include>org.springframework:spring-context</include>
+				<include>org.teleal.cling:cling-support</include>
+				<!-- These are run-time, not compile-time, dependencies so they don't 
+					show up in any other dependency lists -->
+				<include>commons-logging:commons-logging</include>
+				<include>org.springframework:spring-asm</include>
+				<include>org.springframework:spring-beans</include>
+				<include>org.springframework:spring-core</include>
+				<include>org.teleal.cling:cling-core</include>
+				<include>org.teleal:teleal-common</include>
+			</includes>
+			<unpack>true</unpack>
+			<useProjectArtifact>false</useProjectArtifact>
+			<useStrictFiltering>true</useStrictFiltering>
+		</dependencySet>
+	</dependencySets>
+</assembly>

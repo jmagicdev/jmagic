@@ -8,6 +8,10 @@
 	<packaging>pom</packaging>
 	<name>jmagic</name>
 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
 	<modules>
 		<module>engine</module>
 		<module>cards</module>
@@ -15,4 +19,56 @@
 		<module>development</module>
 		<module>engine-integration-tests</module>
 	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.rnd.jmagic</groupId>
+			<artifactId>engine</artifactId>
+			<version>0.12</version>
+		</dependency>
+		<dependency>
+			<groupId>org.rnd.jmagic</groupId>
+			<artifactId>cards</artifactId>
+			<version>0.12</version>
+		</dependency>
+		<dependency>
+			<groupId>org.rnd.jmagic</groupId>
+			<artifactId>gui</artifactId>
+			<version>0.12</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<appendAssemblyId>false</appendAssemblyId>
+							<archive>
+								<manifest>
+									<mainClass>org.rnd.jmagic.gui.Start</mainClass>
+								</manifest>
+								<manifestEntries>
+									<built-by>jMagic Team</built-by>
+								</manifestEntries>
+							</archive>
+							<descriptors>
+								<descriptor>src/assemble/jar.xml</descriptor>
+							</descriptors>
+							<formats>
+								<format>jar</format>
+							</formats>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
