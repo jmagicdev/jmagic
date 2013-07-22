@@ -983,9 +983,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		if(this.definedX == null)
 			return -1;
 		Set Xset = this.definedX.evaluate(this.game, this);
-		if(Xset.isEmpty())
-			return 0;
-		return Xset.getOne(Integer.class);
+		return Sum.get(Xset);
 	}
 
 	/**
