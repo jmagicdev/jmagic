@@ -37,7 +37,7 @@ public class ConfigurationFrame extends javax.swing.JFrame
 	private static final long serialVersionUID = 1L;
 
 	private java.util.Set<OptionPanel> optionPanels;
-	private final javax.swing.DefaultListModel listModel;
+	private final javax.swing.DefaultListModel<String> listModel;
 	private final javax.swing.JPanel content;
 	private final java.util.Properties properties;
 
@@ -49,7 +49,7 @@ public class ConfigurationFrame extends javax.swing.JFrame
 
 		this.optionPanels = new java.util.HashSet<OptionPanel>();
 
-		this.listModel = new javax.swing.DefaultListModel();
+		this.listModel = new javax.swing.DefaultListModel<String>();
 		final java.awt.CardLayout contentLayout = new java.awt.CardLayout();
 		this.content = new javax.swing.JPanel(contentLayout);
 
@@ -104,7 +104,7 @@ public class ConfigurationFrame extends javax.swing.JFrame
 		right.add(this.content);
 		right.add(buttonPanel);
 
-		final javax.swing.JList tree = new javax.swing.JList(this.listModel);
+		final javax.swing.JList<String> tree = new javax.swing.JList<String>(this.listModel);
 		tree.setPreferredSize(new java.awt.Dimension(150, 600));
 		tree.addListSelectionListener(new javax.swing.event.ListSelectionListener()
 		{
