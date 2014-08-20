@@ -1489,7 +1489,7 @@ public class Start
 				{
 					String message;
 					if(parameters instanceof org.rnd.jmagic.engine.PlayerInterface.ErrorParameters.CardLoadingError)
-						message = "The following cards weren't loaded properly: " + org.rnd.util.SeparatedList.get("and", ((org.rnd.jmagic.engine.PlayerInterface.ErrorParameters.CardLoadingError)parameters).cardNames);
+						message = "The following cards weren't loaded properly:\n" + org.rnd.util.SeparatedList.get("\n", "", ((org.rnd.jmagic.engine.PlayerInterface.ErrorParameters.CardLoadingError)parameters).cardNames);
 					else if(parameters instanceof org.rnd.jmagic.engine.PlayerInterface.ErrorParameters.HostError)
 						message = "The host has encountered an error. The current game will no longer continue.";
 					else if(parameters instanceof org.rnd.jmagic.engine.PlayerInterface.ErrorParameters.IllegalCardsError)
