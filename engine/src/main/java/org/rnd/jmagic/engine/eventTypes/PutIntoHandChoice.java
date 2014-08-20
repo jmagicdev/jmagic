@@ -109,7 +109,7 @@ public final class PutIntoHandChoice extends EventType
 			result.addAll(bounceEvent.getResult());
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return allBounced;
 	}
 }

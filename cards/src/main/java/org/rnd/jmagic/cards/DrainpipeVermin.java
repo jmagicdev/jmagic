@@ -21,7 +21,7 @@ public final class DrainpipeVermin extends Card
 
 			EventFactory mayPay = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay (B)");
 			mayPay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			mayPay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(B)")));
+			mayPay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(B)")));
 			mayPay.parameters.put(EventType.Parameter.PLAYER, You.instance());
 
 			SetGenerator target = targetedBy(this.addTarget(Players.instance(), "target player"));

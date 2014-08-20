@@ -136,7 +136,7 @@ public final class Madness extends Keyword
 
 			EventFactory cast = new EventFactory(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY, "Cast it by paying " + costString + " rather than paying its mana cost.");
 			cast.parameters.put(EventType.Parameter.PLAYER, owner);
-			cast.parameters.put(EventType.Parameter.ALTERNATE_COST, Identity.instance(newCosts));
+			cast.parameters.put(EventType.Parameter.ALTERNATE_COST, Identity.fromCollection(newCosts));
 			cast.parameters.put(EventType.Parameter.OBJECT, newObject);
 
 			EventFactory mayCast = playerMay(owner, cast, "Its owner may cast it by paying " + costString + " rather than paying its mana cost.");

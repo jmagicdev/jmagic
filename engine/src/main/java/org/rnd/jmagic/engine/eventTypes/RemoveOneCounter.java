@@ -64,7 +64,7 @@ public final class RemoveOneCounter extends EventType
 
 		counters.removeAll(result.getAll(Counter.class));
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 
 		if(last)
 		{

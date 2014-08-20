@@ -18,7 +18,7 @@ public abstract class AsThisEntersTheBattlefieldChooseACreatureType extends Stat
 
 		EventFactory factory = new EventFactory(EventType.PLAYER_CHOOSE, "Choose a creature type.");
 		factory.parameters.put(EventType.Parameter.PLAYER, ControllerOf.instance(originalEvent));
-		factory.parameters.put(EventType.Parameter.CHOICE, Identity.instance(SubType.getAllCreatureTypes()));
+		factory.parameters.put(EventType.Parameter.CHOICE, Identity.fromCollection(SubType.getAllCreatureTypes()));
 		factory.parameters.put(EventType.Parameter.TYPE, Identity.instance(PlayerInterface.ChoiceType.ENUM, PlayerInterface.ChooseReason.CHOOSE_CREATURE_TYPE));
 		factory.setLink(this);
 		replacement.addEffect(factory);

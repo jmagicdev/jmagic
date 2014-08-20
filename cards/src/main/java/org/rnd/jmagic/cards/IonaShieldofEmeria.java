@@ -38,7 +38,7 @@ public final class IonaShieldofEmeria extends Card
 		@Override
 		public boolean match(GameState state, Identified thisObject, Set set)
 		{
-			Set mostRecent = Identity.instance(set).evaluate(state, thisObject);
+			Set mostRecent = Identity.fromCollection(set).evaluate(state, thisObject);
 			Color color = this.color.evaluate(state, thisObject).getOne(Color.class);
 			for(Castable c: mostRecent.getAll(Castable.class))
 				if(((GameObject)c).getColors().contains(color))
@@ -49,7 +49,7 @@ public final class IonaShieldofEmeria extends Card
 		@Override
 		public void freeze(GameState state, Identified thisObject)
 		{
-			this.color = Identity.instance(this.color.evaluate(state, thisObject)).noTextChanges();
+			this.color = Identity.fromCollection(this.color.evaluate(state, thisObject)).noTextChanges();
 		}
 	}
 

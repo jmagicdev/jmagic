@@ -54,7 +54,7 @@ public final class PutOntoBattlefieldAttachedToChoice extends EventType
 		putOntoBattlefieldParameters.put(Parameter.CAUSE, cause);
 		putOntoBattlefieldParameters.put(Parameter.OBJECT, new Set(object));
 		putOntoBattlefieldParameters.put(Parameter.CONTROLLER, controller);
-		putOntoBattlefieldParameters.put(Parameter.TARGET, new Set(chosen));
+		putOntoBattlefieldParameters.put(Parameter.TARGET, Set.fromCollection(chosen));
 		Event putOntoBattlefield = createEvent(game, "Put " + object + " onto the battlefield attached to " + chosen, PUT_ONTO_BATTLEFIELD_ATTACHED_TO, putOntoBattlefieldParameters);
 		boolean status = putOntoBattlefield.perform(event, false);
 

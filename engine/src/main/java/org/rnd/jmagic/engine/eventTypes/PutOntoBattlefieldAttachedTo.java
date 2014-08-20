@@ -51,7 +51,7 @@ public final class PutOntoBattlefieldAttachedTo extends EventType
 
 				EventFactory attach = new EventFactory(ATTACH, "Attach to target");
 				attach.parameters.put(Parameter.OBJECT, NewObjectOf.instance(Identity.instance(zoneChange)));
-				attach.parameters.put(Parameter.TARGET, Identity.instance(parameters.get(Parameter.TARGET)));
+				attach.parameters.put(Parameter.TARGET, Identity.fromCollection(parameters.get(Parameter.TARGET)));
 
 				zoneChange.events.add(attach);
 				event.setResult(putOntoBattlefield.getResultGenerator());

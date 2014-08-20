@@ -1,5 +1,7 @@
 package org.rnd.jmagic.engine;
 
+import java.util.Collection;
+
 /**
  * Represents a Magic-specific version of a mathematical set.
  * 
@@ -155,6 +157,35 @@ public class Set implements java.util.Set<Object>, java.io.Serializable
 		}
 	}
 
+	/**
+	 * Constructs a Set containing all the elements in a given collection.
+	 * 
+	 * @param c The collection.
+	 */
+	public static Set fromCollection(Collection<?> c)
+	{
+		if(null == c)
+			throw new UnsupportedOperationException("Attempt to initialize a Set with a null collection");
+
+		Set ret = new Set();
+		boolean hasNumberRange = false;
+		for(Object e: c)
+			if(null != e)
+				if(e instanceof Integer)
+					ret.store.add(new IntWrapper((Integer)e));
+				else
+				{
+					if(e instanceof org.rnd.util.NumberRange)
+					{
+						if(hasNumberRange)
+							throw new UnsupportedOperationException("Attempt to initialize a Set with a collection containing two NumberRange instances");
+						hasNumberRange = true;
+					}
+					ret.store.add(e);
+				}
+		return ret;
+	}
+
 	protected java.util.Set<Object> store;
 
 	private static final long serialVersionUID = 1L;
@@ -164,35 +195,7 @@ public class Set implements java.util.Set<Object>, java.io.Serializable
 	{
 		this.store = new java.util.HashSet<Object>();
 	}
-
-	/**
-	 * Constructs a Set containing all the elements in a given collection.
-	 * 
-	 * @param c The collection.
-	 */
-	public Set(java.util.Collection<?> c)
-	{
-		this();
-		if(null == c)
-			throw new UnsupportedOperationException("Attempt to initialize a Set with a null collection");
-
-		boolean hasNumberRange = false;
-		for(Object e: c)
-			if(null != e)
-				if(e instanceof Integer)
-					this.store.add(new IntWrapper((Integer)e));
-				else
-				{
-					if(e instanceof org.rnd.util.NumberRange)
-					{
-						if(hasNumberRange)
-							throw new UnsupportedOperationException("Attempt to initialize a Set with a collection containing two NumberRange instances");
-						hasNumberRange = true;
-					}
-					this.store.add(e);
-				}
-	}
-
+	
 	/**
 	 * Constructs a Set containing all the elements in a given array.
 	 * 

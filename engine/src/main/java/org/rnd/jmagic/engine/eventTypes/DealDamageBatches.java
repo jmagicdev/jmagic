@@ -216,7 +216,7 @@ public final class DealDamageBatches extends EventType
 		// If we get as far as this event type, all the damage here will be
 		// dealt. No need to check for damage not being dealt, so we just
 		// add the assignments directly to the result. -RulesGuru
-		event.setResult(Identity.instance(assignments));
+		event.setResult(Identity.fromCollection(assignments));
 
 		return true;
 	}

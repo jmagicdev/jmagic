@@ -44,7 +44,7 @@ public final class KabiraEvangel extends Card
 			Color color = event.getChoices(you).getOne(Color.class);
 
 			ContinuousEffect.Part protection = new ContinuousEffect.Part(ContinuousEffectType.ADD_ABILITY_TO_OBJECT);
-			protection.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.instance(allies));
+			protection.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.fromCollection(allies));
 			protection.parameters.put(ContinuousEffectType.Parameter.ABILITY, Identity.instance(new org.rnd.jmagic.abilities.keywords.Protection.AbilityFactory(color)));
 
 			java.util.Map<Parameter, Set> fceParameters = new java.util.HashMap<Parameter, Set>();

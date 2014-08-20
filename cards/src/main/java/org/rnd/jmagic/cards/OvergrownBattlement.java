@@ -27,7 +27,7 @@ public final class OvergrownBattlement extends Card
 
 			EventFactory factory = new EventFactory(EventType.ADD_MANA, "Add (G) to your mana pool for each creature with defender you control");
 			factory.parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			factory.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("G")));
+			factory.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("G")));
 			factory.parameters.put(EventType.Parameter.NUMBER, Count.instance(creaturesWithDefenderYouControl));
 			factory.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			this.addEffect(factory);

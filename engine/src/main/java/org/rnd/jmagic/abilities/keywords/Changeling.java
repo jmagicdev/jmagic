@@ -26,7 +26,7 @@ public final class Changeling extends Keyword
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.ADD_TYPES);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());
-			part.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.instance(SubType.getAllCreatureTypes()));
+			part.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.fromCollection(SubType.getAllCreatureTypes()));
 			this.addEffectPart(part);
 		}
 	}

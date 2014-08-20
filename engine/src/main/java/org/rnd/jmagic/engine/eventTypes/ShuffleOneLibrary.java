@@ -29,7 +29,7 @@ public final class ShuffleOneLibrary extends EventType
 			event.removeIndexedZone(actualLibrary);
 
 		result.add(actualLibrary);
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return true;
 	}
 }

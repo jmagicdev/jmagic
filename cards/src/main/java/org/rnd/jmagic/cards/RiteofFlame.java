@@ -22,7 +22,7 @@ public final class RiteofFlame extends Card
 		{
 			EventType.ParameterMap parameters = new EventType.ParameterMap();
 			SetGenerator numberOfRitesInGraveyards = Count.instance(Intersect.instance(HasName.instance("Rite of Flame"), InZone.instance(GraveyardOf.instance(Players.instance()))));
-			SetGenerator singleRed = Identity.instance(new ManaPool("R"));
+			SetGenerator singleRed = Identity.fromCollection(new ManaPool("R"));
 			parameters.put(EventType.Parameter.SOURCE, This.instance());
 			parameters.put(EventType.Parameter.MANA, singleRed);
 			parameters.put(EventType.Parameter.NUMBER, numberOfRitesInGraveyards);

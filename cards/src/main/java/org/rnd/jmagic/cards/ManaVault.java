@@ -21,7 +21,7 @@ public final class ManaVault extends Card
 			EventFactory pay4 = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay (4)");
 			pay4.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			pay4.parameters.put(EventType.Parameter.PLAYER, You.instance());
-			pay4.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("4")));
+			pay4.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("4")));
 
 			EventFactory effect = ifThen(pay4, untap(ABILITY_SOURCE_OF_THIS, "Untap Mana Vault"), "You may pay (4). If you do, untap Mana Vault.");
 			this.addEffect(effect);

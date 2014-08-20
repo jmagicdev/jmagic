@@ -685,7 +685,7 @@ public class Game
 				Event moveToYard = new Event(game.physicalState, "Put " + moveToGraveyard + " into owner's graveyard(s) due to state-based actions.", EventType.PUT_INTO_GRAVEYARD);
 				moveToYard.parameters.put(EventType.Parameter.CAUSE, CurrentGame.instance());
 				moveToYard.parameters.put(EventType.Parameter.INDEX, numberGenerator(1));
-				moveToYard.parameters.put(EventType.Parameter.OBJECT, Identity.instance(moveToGraveyard));
+				moveToYard.parameters.put(EventType.Parameter.OBJECT, Identity.fromCollection(moveToGraveyard));
 
 				stateBasedActions.add(moveToYard);
 			}
@@ -695,7 +695,7 @@ public class Game
 			{
 				Event destroyEvent = new Event(game.physicalState, "Destroy " + destroy + " due to state-based actions.", EventType.DESTROY_PERMANENTS);
 				destroyEvent.parameters.put(EventType.Parameter.CAUSE, CurrentGame.instance());
-				destroyEvent.parameters.put(EventType.Parameter.PERMANENT, Identity.instance(destroy));
+				destroyEvent.parameters.put(EventType.Parameter.PERMANENT, Identity.fromCollection(destroy));
 
 				stateBasedActions.add(destroyEvent);
 			}
@@ -703,7 +703,7 @@ public class Game
 			if(detach.size() > 0)
 			{
 				Event detachEvent = new Event(game.physicalState, "Unattach " + detach + " due to state-based actions.", EventType.UNATTACH);
-				detachEvent.parameters.put(EventType.Parameter.OBJECT, Identity.instance(detach));
+				detachEvent.parameters.put(EventType.Parameter.OBJECT, Identity.fromCollection(detach));
 
 				stateBasedActions.add(detachEvent);
 			}
@@ -1840,11 +1840,11 @@ public class Game
 		// turn order does the same. Once each player has made a
 		// declaration, all players who decided to take mulligans do so at
 		// the same time.
-		Set canMulligan = new Set(this.physicalState.players);
+		Set canMulligan = Set.fromCollection(this.physicalState.players);
 		while(!canMulligan.isEmpty())
 		{
 			Event mulliganEvent = new Event(this.physicalState, canMulligan + " choose whether to mulligan.", EventType.MULLIGAN_SIMULTANEOUS);
-			mulliganEvent.parameters.put(EventType.Parameter.PLAYER, Identity.instance(canMulligan));
+			mulliganEvent.parameters.put(EventType.Parameter.PLAYER, Identity.fromCollection(canMulligan));
 			mulliganEvent.perform(null, true);
 
 			canMulligan = mulliganEvent.getResult();

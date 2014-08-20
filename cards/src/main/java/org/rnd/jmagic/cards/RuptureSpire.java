@@ -23,7 +23,7 @@ public final class RuptureSpire extends Card
 
 			EventFactory pay = new EventFactory(EventType.PAY_MANA, "Pay (1)");
 			pay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			pay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(1)")));
+			pay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(1)")));
 			pay.parameters.put(EventType.Parameter.PLAYER, You.instance());
 
 			this.addEffect(unless(You.instance(), sacrifice, pay, "Sacrifice Rupture Spire unless you pay (1)."));

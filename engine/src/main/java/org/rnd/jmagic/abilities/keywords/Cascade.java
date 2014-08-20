@@ -1,6 +1,7 @@
 package org.rnd.jmagic.abilities.keywords;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -80,7 +81,7 @@ public final class Cascade extends Keyword
 			java.util.Map<Parameter, Set> bottomParameters = new java.util.HashMap<Parameter, Set>();
 			bottomParameters.put(Parameter.CAUSE, cascade);
 			bottomParameters.put(Parameter.INDEX, new Set(-1));
-			bottomParameters.put(Parameter.OBJECT, new Set(cardsExiledThisWay));
+			bottomParameters.put(Parameter.OBJECT, Set.fromCollection(cardsExiledThisWay));
 			bottomParameters.put(Parameter.RANDOM, Empty.set);
 			Event bottom = createEvent(game, "Put the rest of those cards on the bottom of your libarary in a random order", EventType.PUT_INTO_LIBRARY, bottomParameters);
 			bottom.perform(event, true);

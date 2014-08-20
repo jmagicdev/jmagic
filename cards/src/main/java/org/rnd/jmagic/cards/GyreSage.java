@@ -23,7 +23,7 @@ public final class GyreSage extends Card
 
 			EventFactory addMana = new EventFactory(EventType.ADD_MANA, "Add (G) to your mana pool for each +1/+1 counter on Gyre Sage.");
 			addMana.parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			addMana.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("(G)")));
+			addMana.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("(G)")));
 			addMana.parameters.put(EventType.Parameter.MULTIPLY, count);
 			addMana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			this.addEffect(addMana);

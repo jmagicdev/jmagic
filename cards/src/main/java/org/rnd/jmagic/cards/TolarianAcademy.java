@@ -23,7 +23,7 @@ public final class TolarianAcademy extends Card
 
 			EventType.ParameterMap parameters = new EventType.ParameterMap();
 			parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("U")));
+			parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("U")));
 			parameters.put(EventType.Parameter.NUMBER, numControllersArtifacts);
 			parameters.put(EventType.Parameter.PLAYER, You.instance());
 			this.addEffect(new EventFactory(EventType.ADD_MANA, parameters, "Add (U) to your mana pool for each artifact you control."));

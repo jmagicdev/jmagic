@@ -35,7 +35,7 @@ public final class Electropotence extends Card
 
 			EventFactory mayPay = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay (2)(R).");
 			mayPay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			mayPay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(2)(R)")));
+			mayPay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(2)(R)")));
 			mayPay.parameters.put(EventType.Parameter.PLAYER, You.instance());
 
 			EventFactory ifFactory = new EventFactory(EventType.IF_EVENT_THEN_ELSE, "You may pay (2)(R). If you do, that creature deals damage equal to its power to target creature or player.");

@@ -45,7 +45,7 @@ public final class PlayerMay extends EventType
 		Set result = new Set();
 		for(Answer response: choice)
 			result.add(response);
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 
 		if(choice.size() == 0 || choice.get(0).equals(Answer.NO))
 			return false;

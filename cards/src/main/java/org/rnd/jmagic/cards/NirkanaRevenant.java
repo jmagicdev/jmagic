@@ -22,7 +22,7 @@ public final class NirkanaRevenant extends Card
 
 			EventFactory addMana = new EventFactory(EventType.ADD_MANA, "Add (B) to your mana pool.");
 			addMana.parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			addMana.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("B")));
+			addMana.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("B")));
 			addMana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			this.addEffect(addMana);
 		}

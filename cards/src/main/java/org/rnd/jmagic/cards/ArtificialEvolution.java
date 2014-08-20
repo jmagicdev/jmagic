@@ -42,7 +42,7 @@ public final class ArtificialEvolution extends Card
 			Enum<?> to = you.choose(1, choices, PlayerInterface.ChoiceType.CREATURE_TYPE, SECOND_REASON).get(0);
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.CHANGE_TEXT);
-			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.instance(parameters.get(Parameter.TARGET)));
+			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.fromCollection(parameters.get(Parameter.TARGET)));
 			part.parameters.put(ContinuousEffectType.Parameter.FROM, Identity.instance(from));
 			part.parameters.put(ContinuousEffectType.Parameter.TO, Identity.instance(to));
 

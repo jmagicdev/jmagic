@@ -33,7 +33,7 @@ public final class CounterOne extends EventType
 		}
 		else
 			status = false;
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 
 		return status;
 	}

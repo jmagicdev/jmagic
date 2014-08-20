@@ -35,7 +35,7 @@ public final class RingsofBrighthearth extends Card
 
 			EventFactory mayFactory = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay (2).");
 			mayFactory.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			mayFactory.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(2)")));
+			mayFactory.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(2)")));
 			mayFactory.parameters.put(EventType.Parameter.PLAYER, You.instance());
 
 			EventFactory ifFactory = new EventFactory(EventType.IF_EVENT_THEN_ELSE, "You may pay (2). If you do, copy that ability. You may choose new targets for the copy.");

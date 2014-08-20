@@ -317,7 +317,7 @@ public class Step implements Ownable
 
 							Event assignDamage = new Event(game.physicalState, attacker + " assigns combat damage", EventType.ASSIGN_COMBAT_DAMAGE);
 							assignDamage.parameters.put(EventType.Parameter.OBJECT, Identity.instance(attacker));
-							assignDamage.parameters.put(EventType.Parameter.TARGET, Identity.instance(targetParameter));
+							assignDamage.parameters.put(EventType.Parameter.TARGET, Identity.fromCollection(targetParameter));
 							assignDamage.setSource(null);
 							assignDamage.perform(null, true);
 							assignment.put(attacker.getActual(), assignTo);
@@ -506,7 +506,7 @@ public class Step implements Ownable
 
 							Event assignDamage = new Event(game.physicalState, blocker + " assigns combat damage", EventType.ASSIGN_COMBAT_DAMAGE);
 							assignDamage.parameters.put(EventType.Parameter.OBJECT, Identity.instance(blocker));
-							assignDamage.parameters.put(EventType.Parameter.TARGET, Identity.instance(targetParameter));
+							assignDamage.parameters.put(EventType.Parameter.TARGET, Identity.fromCollection(targetParameter));
 							assignDamage.setSource(null);
 							assignDamage.perform(null, true);
 
@@ -608,7 +608,7 @@ public class Step implements Ownable
 				{
 					Set firstStrike = HasKeywordAbility.instance(org.rnd.jmagic.abilities.keywords.FirstStrike.class).evaluate(game, null);
 					SetGenerator doubleStrike = HasKeywordAbility.instance(org.rnd.jmagic.abilities.keywords.DoubleStrike.class);
-					Set hasStrikeAbility = Union.instance(Identity.instance(firstStrike), doubleStrike).evaluate(game, null);
+					Set hasStrikeAbility = Union.instance(Identity.fromCollection(firstStrike), doubleStrike).evaluate(game, null);
 
 					attackers = Intersect.get(attackers, hasStrikeAbility);
 					blockers = Intersect.get(blockers, hasStrikeAbility);
@@ -686,7 +686,7 @@ public class Step implements Ownable
 
 				java.util.Map<GameObject, java.util.List<Target>> blockingAssignment = new java.util.HashMap<GameObject, java.util.List<Target>>();
 				for(java.util.Set<GameObject> onePlayersBlockers: blockersByController.values())
-					while((blockingAssignment = getLegalBlockAssignment(game, new Set(onePlayersBlockers))) == null)
+					while((blockingAssignment = getLegalBlockAssignment(game, Set.fromCollection(onePlayersBlockers))) == null)
 					{
 						// continue until you get a legal assignment
 					}
@@ -720,7 +720,7 @@ public class Step implements Ownable
 				}
 
 				Event damageEvent = new Event(game.physicalState, "Deal combat damage.", EventType.DEAL_COMBAT_DAMAGE);
-				damageEvent.parameters.put(EventType.Parameter.TARGET, Identity.instance(damage));
+				damageEvent.parameters.put(EventType.Parameter.TARGET, Identity.fromCollection(damage));
 				damageEvent.perform(null, true);
 
 				game.givePriority();

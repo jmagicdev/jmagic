@@ -35,6 +35,6 @@ public class ManaInPool extends SetGenerator
 	@Override
 	public java.util.Set<ManaSymbol.ManaType> extractColors(Game game, GameObject thisObject, java.util.Set<SetGenerator> ignoreThese) throws NoSuchMethodException
 	{
-		return Identity.instance(this.evaluate(game, thisObject)).extractColors(game, thisObject, ignoreThese);
+		return Identity.fromCollection(this.evaluate(game, thisObject)).extractColors(game, thisObject, ignoreThese);
 	}
 }

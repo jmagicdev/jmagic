@@ -19,7 +19,7 @@ public final class BrightstoneRitual extends Card
 		SetGenerator goblinsOnTheBattlefield = Intersect.instance(CreaturePermanents.instance(), goblins);
 		EventFactory addMana = new EventFactory(EventType.ADD_MANA, "Add (R) to your mana pool for each Goblin on the battlefield.");
 		addMana.parameters.put(EventType.Parameter.SOURCE, This.instance());
-		addMana.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("(R)")));
+		addMana.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("(R)")));
 		addMana.parameters.put(EventType.Parameter.NUMBER, Count.instance(goblinsOnTheBattlefield));
 		addMana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 		this.addEffect(addMana);

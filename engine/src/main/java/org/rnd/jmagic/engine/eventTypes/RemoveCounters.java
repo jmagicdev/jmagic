@@ -72,7 +72,7 @@ public final class RemoveCounters extends EventType
 			}
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return allRemoved;
 	}
 }

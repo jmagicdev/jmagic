@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -32,7 +33,7 @@ public final class HauntingEchoes extends Card
 			Player searcher = parameters.get(Parameter.CONTROLLER).getOne(Player.class);
 
 			Zone graveyard = player.getGraveyard(game.actualState);
-			Set cardsToRemove = RelativeComplement.get(new Set(graveyard.objects), Intersect.instance(HasSuperType.instance(SuperType.BASIC), HasType.instance(Type.LAND)).evaluate(game.actualState, null));
+			Set cardsToRemove = RelativeComplement.get(Set.fromCollection(graveyard.objects), Intersect.instance(HasSuperType.instance(SuperType.BASIC), HasType.instance(Type.LAND)).evaluate(game.actualState, null));
 
 			java.util.Map<Parameter, Set> exileParameters = new java.util.HashMap<Parameter, Set>();
 			exileParameters.put(Parameter.CAUSE, parameters.get(Parameter.CAUSE));

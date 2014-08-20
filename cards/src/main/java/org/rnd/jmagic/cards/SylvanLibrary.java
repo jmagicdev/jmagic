@@ -78,7 +78,7 @@ public final class SylvanLibrary extends Card
 
 			java.util.Map<Parameter, Set> newParameters = new java.util.HashMap<Parameter, Set>();
 			newParameters.put(EventType.Parameter.PLAYER, new Set(you));
-			newParameters.put(EventType.Parameter.EVENT, new Set(events));
+			newParameters.put(EventType.Parameter.EVENT, Set.fromCollection(events));
 			Event doIt = createEvent(game, "For each of those cards, pay 4 life or put the card on top of your library", EventType.CHOOSE_AND_PERFORM, newParameters);
 			doIt.perform(event, true);
 

@@ -255,7 +255,7 @@ public class ContinuousEffect extends Identified
 				// process.
 				Set affected = p.apply(this.game, object, this);
 				if(this.affectedObjects == null && affected != null)
-					this.affectedObjects = Identity.instance(affected);
+					this.affectedObjects = Identity.fromCollection(affected);
 			}
 	}
 
@@ -285,7 +285,7 @@ public class ContinuousEffect extends Identified
 				// process.
 				Set affected = p.apply(this.game, object, this);
 				if(this.affectedObjects == null && affected != null)
-					this.affectedObjects = Identity.instance(affected);
+					this.affectedObjects = Identity.fromCollection(affected);
 			}
 	}
 

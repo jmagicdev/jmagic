@@ -29,7 +29,7 @@ public final class IsolationCell extends Card
 
 			EventFactory pay = new EventFactory(EventType.PAY_MANA, "Pay (2)");
 			pay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			pay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(2)")));
+			pay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(2)")));
 			pay.parameters.put(EventType.Parameter.PLAYER, thatPlayer);
 
 			this.addEffect(unless(thatPlayer, loseLife, pay, "That player loses 2 life unless he or she pays (2)."));

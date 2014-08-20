@@ -28,6 +28,6 @@ public class SplitOnController extends SetGenerator
 			whoControlsWhat.put(p.ID, new Set());
 		for(GameObject object: this.what.evaluate(state, thisObject).getAll(GameObject.class))
 			whoControlsWhat.get(object.controllerID).add(object);
-		return new Set(whoControlsWhat.values());
+		return Set.fromCollection(whoControlsWhat.values());
 	}
 }

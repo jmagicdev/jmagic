@@ -35,7 +35,7 @@ public final class PutOntoBattlefieldTapped extends EventType
 		for(ZoneChange change: putOntoBattlefield.getResult().getAll(ZoneChange.class))
 		{
 			EventFactory tap = new EventFactory(TAP_PERMANENTS, event.getName());
-			tap.parameters.put(EventType.Parameter.CAUSE, Identity.instance(parameters.get(Parameter.CAUSE)));
+			tap.parameters.put(EventType.Parameter.CAUSE, Identity.fromCollection(parameters.get(Parameter.CAUSE)));
 			tap.parameters.put(EventType.Parameter.OBJECT, NewObjectOf.instance(Identity.instance(change)));
 			change.events.add(tap);
 		}

@@ -40,7 +40,7 @@ public final class ShrineofBoundlessGrowth extends Card
 
 			EventFactory addMana = new EventFactory(EventType.ADD_MANA, "Add (1) to your mana pool for each charge counter on Shrine of Boundless Growth.");
 			addMana.parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			addMana.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("(1)")));
+			addMana.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("(1)")));
 			addMana.parameters.put(EventType.Parameter.NUMBER, counters);
 			addMana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			this.addEffect(addMana);

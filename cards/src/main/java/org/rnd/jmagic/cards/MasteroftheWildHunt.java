@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -128,7 +129,7 @@ public final class MasteroftheWildHunt extends Card
 
 			java.util.Map<Parameter, Set> damageParameters = new java.util.HashMap<Parameter, Set>();
 			damageParameters.put(Parameter.SOURCE, new Set(dealingBack));
-			damageParameters.put(Parameter.TAKER, new Set(wolves));
+			damageParameters.put(Parameter.TAKER, Set.fromCollection(wolves));
 			createEvent(game, dealingBack + " deals damage divided as its controller chooses among " + wolves + ".", DISTRIBUTE_DAMAGE, damageParameters).perform(event, false);
 
 			event.setResult(Empty.set);

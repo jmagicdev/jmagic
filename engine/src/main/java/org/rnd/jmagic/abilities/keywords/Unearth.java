@@ -67,7 +67,7 @@ public final class Unearth extends Keyword
 
 					// Trigger effect
 					EventFactory exileFactory = new EventFactory(EventType.MOVE_OBJECTS, "Exile it.");
-					exileFactory.parameters.put(EventType.Parameter.CAUSE, Identity.instance(cause));
+					exileFactory.parameters.put(EventType.Parameter.CAUSE, Identity.fromCollection(cause));
 					exileFactory.parameters.put(EventType.Parameter.TO, ExileZone.instance());
 					exileFactory.parameters.put(EventType.Parameter.OBJECT, Identity.instance(it));
 

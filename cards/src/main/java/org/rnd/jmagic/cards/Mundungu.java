@@ -48,9 +48,9 @@ public final class Mundungu extends Card
 
 			ManaPool cost = new ManaPool("1");
 			EventFactory factory = new EventFactory(PAY_MANA, "Pay (1)");
-			factory.parameters.put(Parameter.CAUSE, Identity.instance(parameters.get(Parameter.CAUSE)));
-			factory.parameters.put(Parameter.COST, Identity.instance(cost));
-			factory.parameters.put(Parameter.PLAYER, Identity.instance(playerParameter));
+			factory.parameters.put(Parameter.CAUSE, Identity.fromCollection(parameters.get(Parameter.CAUSE)));
+			factory.parameters.put(Parameter.COST, Identity.fromCollection(cost));
+			factory.parameters.put(Parameter.PLAYER, Identity.fromCollection(playerParameter));
 
 			java.util.Map<Parameter, Set> mayPayParameters = new java.util.HashMap<Parameter, Set>();
 			mayPayParameters.put(Parameter.PLAYER, playerParameter);

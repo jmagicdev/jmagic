@@ -18,7 +18,7 @@ public class ManaColorPattern implements SetPattern
 	@Override
 	public void freeze(GameState state, Identified thisObject)
 	{
-		this.colors = Identity.instance(this.colors.evaluate(state, thisObject)).noTextChanges();
+		this.colors = Identity.fromCollection(this.colors.evaluate(state, thisObject)).noTextChanges();
 	}
 
 	@Override

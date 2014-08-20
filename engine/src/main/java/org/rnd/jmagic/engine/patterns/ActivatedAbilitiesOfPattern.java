@@ -22,7 +22,7 @@ public class ActivatedAbilitiesOfPattern implements SetPattern
 	@Override
 	public void freeze(GameState state, Identified thisObject)
 	{
-		this.objects = Identity.instance(this.objects.evaluate(state, thisObject)).noTextChanges();
+		this.objects = Identity.fromCollection(this.objects.evaluate(state, thisObject)).noTextChanges();
 	}
 
 	@Override

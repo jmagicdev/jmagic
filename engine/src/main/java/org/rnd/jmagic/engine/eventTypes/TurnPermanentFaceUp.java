@@ -36,7 +36,7 @@ public final class TurnPermanentFaceUp extends EventType
 			result.add(actual);
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return true;
 	}
 }

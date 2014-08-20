@@ -19,7 +19,7 @@ public final class TrainingGrounds extends Card
 
 			ContinuousEffect.Part reduce = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 			reduce.parameters.put(ContinuousEffectType.Parameter.OBJECT, AbilitiesOf.instance(CREATURES_YOU_CONTROL));
-			reduce.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("2")));
+			reduce.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("2")));
 			reduce.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Empty.instance());
 			this.addEffectPart(reduce);
 		}

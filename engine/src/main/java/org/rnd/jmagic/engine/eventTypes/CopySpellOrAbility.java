@@ -93,7 +93,7 @@ public final class CopySpellOrAbility extends EventType
 					result.addAll(movedCopies.getResult());
 			}
 
-			result = NewObjectOf.instance(Identity.instance(result)).evaluate(game, null);
+			result = NewObjectOf.instance(Identity.fromCollection(result)).evaluate(game, null);
 
 			if(!parameters.containsKey(Parameter.TARGET))
 			{

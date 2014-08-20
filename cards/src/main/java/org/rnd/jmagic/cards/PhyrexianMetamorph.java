@@ -38,7 +38,7 @@ public final class PhyrexianMetamorph extends Card
 			chooseParameters.thisID = placeCopyEffectOn.ID;
 			java.util.List<?> choice = chooser.sanitizeAndChoose(game.actualState, parameters.get(Parameter.SOURCE), chooseParameters);
 
-			GameObject createCopyEffectFrom = new Set(choice).getOne(GameObject.class);
+			GameObject createCopyEffectFrom = Set.fromCollection(choice).getOne(GameObject.class);
 
 			if(createCopyEffectFrom != null)
 			{

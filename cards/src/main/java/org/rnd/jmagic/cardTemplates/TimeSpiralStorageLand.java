@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cardTemplates;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -66,11 +67,11 @@ public abstract class TimeSpiralStorageLand extends Card
 			java.util.Map<Parameter, Set> manaParameters = new java.util.HashMap<Parameter, Set>();
 			manaParameters.put(Parameter.SOURCE, source);
 			manaParameters.put(Parameter.PLAYER, you);
-			manaParameters.put(Parameter.MANA, new Set(new ManaPool(mana.toString())));
+			manaParameters.put(Parameter.MANA, Set.fromCollection(new ManaPool(mana.toString())));
 			Event makeMana = createEvent(game, eventName, ADD_MANA, manaParameters);
 			makeMana.perform(event, true);
 
-			event.setResult(Identity.instance(makeMana.getResult()));
+			event.setResult(Identity.fromCollection(makeMana.getResult()));
 			return true;
 		}
 	};
@@ -94,7 +95,7 @@ public abstract class TimeSpiralStorageLand extends Card
 
 			EventFactory effect = new EventFactory(STORAGE_LAND_EVENT, "Add X mana in any combination of (" + colors.substring(0, 1) + ") and/or (" + colors.substring(1, 2) + ") to your mana pool.");
 			effect.parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			effect.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("(" + colors + ")")));
+			effect.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("(" + colors + ")")));
 			effect.parameters.put(EventType.Parameter.NUMBER, ValueOfX.instance(This.instance()));
 			effect.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			this.addEffect(effect);

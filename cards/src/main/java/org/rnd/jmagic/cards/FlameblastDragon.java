@@ -22,7 +22,7 @@ public final class FlameblastDragon extends Card
 			EventFactory mayPayX = new EventFactory(EventType.PLAYER_MAY_PAY_X, "You may pay (X)(R)");
 			mayPayX.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			mayPayX.parameters.put(EventType.Parameter.PLAYER, You.instance());
-			mayPayX.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("R")));
+			mayPayX.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("R")));
 
 			SetGenerator target = targetedBy(this.addTarget(CREATURES_AND_PLAYERS, "target creature or player"));
 			EventFactory damage = permanentDealDamage(EffectResult.instance(mayPayX), target, "Flameblast Dragon deals X damage to target creature or player");

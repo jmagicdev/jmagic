@@ -47,7 +47,7 @@ public final class TextChangeColorOrBasicLandType extends EventType
 		}
 
 		ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.CHANGE_TEXT);
-		part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.instance(parameters.get(Parameter.TARGET)));
+		part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.fromCollection(parameters.get(Parameter.TARGET)));
 		part.parameters.put(ContinuousEffectType.Parameter.FROM, Identity.instance(from));
 		part.parameters.put(ContinuousEffectType.Parameter.TO, Identity.instance(to));
 

@@ -42,10 +42,10 @@ public final class Opt extends Card
 			createEvent(game, "Look at the top card of your library.", LOOK, lookParameters).perform(event, false);
 
 			EventType.ParameterMap moveParameters = new EventType.ParameterMap();
-			moveParameters.put(Parameter.CAUSE, Identity.instance(cause));
-			moveParameters.put(Parameter.TO, Identity.instance(library));
+			moveParameters.put(Parameter.CAUSE, Identity.fromCollection(cause));
+			moveParameters.put(Parameter.TO, Identity.fromCollection(library));
 			moveParameters.put(Parameter.INDEX, numberGenerator(-1));
-			moveParameters.put(Parameter.OBJECT, Identity.instance(topCard));
+			moveParameters.put(Parameter.OBJECT, Identity.fromCollection(topCard));
 			Set move = new Set(new EventFactory(MOVE_OBJECTS, moveParameters, "Put that card on the bottom of your library."));
 
 			java.util.Map<Parameter, Set> mayParameters = new java.util.HashMap<Parameter, Set>();

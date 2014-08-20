@@ -114,7 +114,7 @@ public final class PayMana extends EventType
 				if(null != game.currentAction)
 					game.currentAction.manaPaid.addAll(choice);
 
-				event.setResult(Identity.instance(choice));
+				event.setResult(Identity.fromCollection(choice));
 				return true;
 			}
 			// TODO: Else, let the player know that the choice was

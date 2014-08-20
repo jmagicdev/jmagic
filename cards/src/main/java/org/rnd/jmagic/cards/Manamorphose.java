@@ -19,7 +19,7 @@ public final class Manamorphose extends Card
 		EventFactory mana = new EventFactory(EventType.ADD_MANA, "Add two mana in any combination of colors to your mana pool.");
 		mana.parameters.put(EventType.Parameter.SOURCE, This.instance());
 		mana.parameters.put(EventType.Parameter.PLAYER, You.instance());
-		mana.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("(WUBRG)(WUBRG)")));
+		mana.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("(WUBRG)(WUBRG)")));
 		this.addEffect(mana);
 
 		// Draw a card.

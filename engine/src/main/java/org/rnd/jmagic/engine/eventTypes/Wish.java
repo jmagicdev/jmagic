@@ -30,7 +30,7 @@ public final class Wish extends EventType
 
 		Set cause = parameters.get(Parameter.CAUSE);
 		Player player = parameters.get(Parameter.PLAYER).getOne(Player.class);
-		Set choices = new Set(player.sanitizeAndChoose(game.actualState, 0, 1, parameters.get(Parameter.CHOICE).getAll(GameObject.class), PlayerInterface.ChoiceType.OBJECTS, new PlayerInterface.ChooseReason(PlayerInterface.ChooseReason.GAME, event.getName(), false)));
+		Set choices = Set.fromCollection(player.sanitizeAndChoose(game.actualState, 0, 1, parameters.get(Parameter.CHOICE).getAll(GameObject.class), PlayerInterface.ChoiceType.OBJECTS, new PlayerInterface.ChooseReason(PlayerInterface.ChooseReason.GAME, event.getName(), false)));
 
 		java.util.Map<EventType.Parameter, Set> revealParameters = new java.util.HashMap<EventType.Parameter, Set>();
 		revealParameters.put(Parameter.CAUSE, cause);

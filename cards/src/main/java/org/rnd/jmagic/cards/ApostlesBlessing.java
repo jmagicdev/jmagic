@@ -67,7 +67,7 @@ public final class ApostlesBlessing extends Card
 			}
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.ADD_ABILITY_TO_OBJECT);
-			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.instance(parameters.get(Parameter.TARGET)));
+			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.fromCollection(parameters.get(Parameter.TARGET)));
 			part.parameters.put(ContinuousEffectType.Parameter.ABILITY, Identity.instance(new org.rnd.jmagic.engine.SimpleAbilityFactory(ability)));
 
 			java.util.Map<Parameter, Set> fceParameters = new java.util.HashMap<Parameter, Set>();

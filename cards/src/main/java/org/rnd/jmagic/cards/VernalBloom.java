@@ -25,7 +25,7 @@ public final class VernalBloom extends Card
 
 			EventFactory addMana = new EventFactory(EventType.ADD_MANA, "Its controller adds (G) to his or her mana pool.");
 			addMana.parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			addMana.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("G")));
+			addMana.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("G")));
 			addMana.parameters.put(EventType.Parameter.PLAYER, ControllerOf.instance(AbilitySource.instance(manaAbility)));
 			this.addEffect(addMana);
 		}

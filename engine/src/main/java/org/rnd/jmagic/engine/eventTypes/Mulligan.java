@@ -28,7 +28,7 @@ public final class Mulligan extends EventType
 		for(GameObject card: hand)
 			cardsInHand.add(card);
 
-		Set shuffleObjects = new Set(cardsInHand);
+		Set shuffleObjects = Set.fromCollection(cardsInHand);
 		shuffleObjects.add(player);
 
 		java.util.Map<Parameter, Set> shuffleParameters = new java.util.HashMap<Parameter, Set>();

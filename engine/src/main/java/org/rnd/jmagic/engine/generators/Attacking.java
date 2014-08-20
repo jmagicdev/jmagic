@@ -65,6 +65,6 @@ public class Attacking extends SetGenerator
 				objectIterator.remove();
 		}
 
-		return new Set(attackingThisPlayer);
+		return Set.fromCollection(attackingThisPlayer);
 	}
 }

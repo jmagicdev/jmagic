@@ -28,7 +28,7 @@ public final class Embersmith extends Card
 
 			EventFactory mayPay = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay (1)");
 			mayPay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			mayPay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(1)")));
+			mayPay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(1)")));
 			mayPay.parameters.put(EventType.Parameter.PLAYER, You.instance());
 
 			EventFactory effect = new EventFactory(EventType.IF_EVENT_THEN_ELSE, "You may pay (1). If you do, Embersmith deals 1 damage to target creature or player.");

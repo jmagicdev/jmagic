@@ -25,7 +25,7 @@ public final class SomberwaldSage extends Card
 			mana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			mana.parameters.put(EventType.Parameter.TYPE, Identity.instance(new TypePattern(Type.CREATURE)));
 			mana.parameters.put(EventType.Parameter.PERMANENT, Empty.instance());
-			mana.parameters.put(EventType.Parameter.MANA, Identity.instance(Color.allColors()));
+			mana.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(Color.allColors()));
 			mana.parameters.put(EventType.Parameter.NUMBER, numberGenerator(3));
 			this.addEffect(mana);
 		}

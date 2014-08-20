@@ -56,7 +56,7 @@ public interface PlayerInterface
 
 		public ChooseParameters(ChooseParameters<? extends T> copy)
 		{
-			this.number = new Set(copy.number);
+			this.number = Set.fromCollection(copy.number);
 			this.choices = new java.util.LinkedList<T>(copy.choices);
 			this.type = copy.type;
 			this.reason = copy.reason;

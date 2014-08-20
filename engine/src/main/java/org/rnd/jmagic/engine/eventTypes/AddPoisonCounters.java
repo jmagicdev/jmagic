@@ -33,7 +33,7 @@ public final class AddPoisonCounters extends EventType
 					counters.add(counter);
 			}
 		}
-		event.setResult(Identity.instance(counters));
+		event.setResult(Identity.fromCollection(counters));
 		return true;
 	}
 }

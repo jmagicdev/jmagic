@@ -22,13 +22,13 @@ public final class RiththeAwakener extends Card
 
 			EventFactory payMana = new EventFactory(EventType.PAY_MANA, "Pay (2)(G)");
 			payMana.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			payMana.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(2)(G)")));
+			payMana.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(2)(G)")));
 			payMana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			EventFactory youMayPay = youMay(payMana, "You may pay (2)(G)");
 
 			EventFactory choose = new EventFactory(EventType.PLAYER_CHOOSE, "Choose a color,");
 			choose.parameters.put(EventType.Parameter.PLAYER, You.instance());
-			choose.parameters.put(EventType.Parameter.CHOICE, Identity.instance(Color.allColors()));
+			choose.parameters.put(EventType.Parameter.CHOICE, Identity.fromCollection(Color.allColors()));
 			choose.parameters.put(EventType.Parameter.TYPE, Identity.instance(PlayerInterface.ChooseReason.CHOOSE_COLOR, PlayerInterface.ChoiceType.COLOR));
 			choose.parameters.put(EventType.Parameter.OBJECT, This.instance());
 

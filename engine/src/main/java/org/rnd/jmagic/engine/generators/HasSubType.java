@@ -24,7 +24,7 @@ public class HasSubType extends SetGenerator
 
 	public static HasSubType instance(java.util.Collection<SubType> what)
 	{
-		return new HasSubType(Identity.instance(what));
+		return new HasSubType(Identity.fromCollection(what));
 	}
 
 	private final SetGenerator type;

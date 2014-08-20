@@ -44,7 +44,7 @@ public final class UntapPermanents extends EventType
 				allUntapped = false;
 			result.addAll(untapOne.getResult());
 		}
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return allUntapped;
 	}
 }

@@ -35,14 +35,14 @@ public final class Turnabout extends Card
 			Player chooser = parameters.get(Parameter.PLAYER).getOne(Player.class);
 			Type choice = chooser.choose(1, java.util.EnumSet.of(Type.ARTIFACT, Type.CREATURE, Type.LAND), PlayerInterface.ChoiceType.ENUM, TURNABOUT_CHOICE).get(0);
 
-			SetGenerator objects = Intersect.instance(ControlledBy.instance(Identity.instance(parameters.get(Parameter.TARGET))), HasType.instance(choice));
+			SetGenerator objects = Intersect.instance(ControlledBy.instance(Identity.fromCollection(parameters.get(Parameter.TARGET))), HasType.instance(choice));
 
 			EventFactory tapEvent = new EventFactory(EventType.TAP_PERMANENTS, "Tap all untapped permanents of the chosen type target player controls.");
-			tapEvent.parameters.put(Parameter.CAUSE, Identity.instance(parameters.get(Parameter.CAUSE)));
+			tapEvent.parameters.put(Parameter.CAUSE, Identity.fromCollection(parameters.get(Parameter.CAUSE)));
 			tapEvent.parameters.put(Parameter.OBJECT, Intersect.instance(objects, Untapped.instance()));
 
 			EventFactory untapEvent = new EventFactory(EventType.UNTAP_PERMANENTS, "Untap all tapped permanents of the chosen type target player controls.");
-			untapEvent.parameters.put(Parameter.CAUSE, Identity.instance(parameters.get(Parameter.CAUSE)));
+			untapEvent.parameters.put(Parameter.CAUSE, Identity.fromCollection(parameters.get(Parameter.CAUSE)));
 			untapEvent.parameters.put(Parameter.OBJECT, Intersect.instance(objects, Tapped.instance()));
 
 			java.util.Map<Parameter, Set> mayParameters = new java.util.HashMap<Parameter, Set>();

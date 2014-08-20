@@ -20,7 +20,7 @@ public final class Draco extends Card
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("2")));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("2")));
 			part.parameters.put(ContinuousEffectType.Parameter.NUMBER, Domain.instance(You.instance()));
 			this.addEffectPart(part);
 
@@ -37,7 +37,7 @@ public final class Draco extends Card
 
 			EventFactory payMana = new EventFactory(EventType.PAY_MANA, "Pay (10). This cost is reduced by (2) for each basic land type among lands you control.");
 			payMana.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			payMana.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("2")));
+			payMana.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("2")));
 			payMana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			payMana.parameters.put(EventType.Parameter.NUMBER, Subtract.instance(numberGenerator(5), Domain.instance(You.instance())));
 			this.addEffect(unless(You.instance(), sacrificeThis("Draco"), payMana, "Sacrifice Draco unless you pay (10). This cost is reduced by (2) for each basic land type among lands you control."));

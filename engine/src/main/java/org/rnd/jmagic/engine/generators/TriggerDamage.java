@@ -14,7 +14,7 @@ public class TriggerDamage extends SetGenerator
 
 	public static Set get(EventTriggeredAbility ability)
 	{
-		return new Set(ability.damageCause);
+		return Set.fromCollection(ability.damageCause);
 	}
 
 	private final SetGenerator abilities;

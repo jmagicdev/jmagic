@@ -52,7 +52,7 @@ public final class VendilionClique extends Card
 			for(GameObject card: target.getHand(game.actualState).objects)
 				if(!card.getTypes().contains(Type.LAND))
 					nonlandCards.add(card);
-			Set chosen = new Set(you.sanitizeAndChoose(game.actualState, 1, nonlandCards, PlayerInterface.ChoiceType.OBJECTS, REASON));
+			Set chosen = Set.fromCollection(you.sanitizeAndChoose(game.actualState, 1, nonlandCards, PlayerInterface.ChoiceType.OBJECTS, REASON));
 
 			// If you do, that player reveals the chosen card,
 			java.util.Map<Parameter, Set> revealParameters = new java.util.HashMap<Parameter, Set>();
@@ -103,14 +103,14 @@ public final class VendilionClique extends Card
 			// look at target player's hand.
 			java.util.Map<Parameter, Set> lookParameters = new java.util.HashMap<Parameter, Set>();
 			lookParameters.put(Parameter.CAUSE, cause);
-			lookParameters.put(Parameter.OBJECT, new Set(target.getHand(game.actualState).objects));
+			lookParameters.put(Parameter.OBJECT, Set.fromCollection(target.getHand(game.actualState).objects));
 			lookParameters.put(Parameter.PLAYER, new Set(you));
 			createEvent(game, "Look at target player's hand", LOOK, lookParameters).perform(event, true);
 			you = you.getActual();
 			target = target.getActual();
 
 			ParameterMap napParameters = new ParameterMap();
-			napParameters.put(Parameter.CAUSE, Identity.instance(cause));
+			napParameters.put(Parameter.CAUSE, Identity.fromCollection(cause));
 			napParameters.put(Parameter.PLAYER, Identity.instance(you));
 			napParameters.put(Parameter.TARGET, Identity.instance(target));
 

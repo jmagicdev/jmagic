@@ -38,14 +38,14 @@ public final class KodamasReach extends Card
 			searchParameters.put(Parameter.CAUSE, cause);
 			searchParameters.put(Parameter.PLAYER, new Set(you));
 			searchParameters.put(Parameter.NUMBER, new Set(2));
-			searchParameters.put(Parameter.CARD, new Set(you.getLibrary(game.actualState).objects));
+			searchParameters.put(Parameter.CARD, Set.fromCollection(you.getLibrary(game.actualState).objects));
 			searchParameters.put(Parameter.TYPE, choices);
 			Event search = createEvent(game, "Search your library for two basic land cards and reveal those cards", EventType.SEARCH, searchParameters);
 			search.perform(event, true);
 			Set found = search.getResult();
 
 			you = you.getActual();
-			Set chosen = new Set(you.sanitizeAndChoose(game.actualState, 1, found.getAll(GameObject.class), PlayerInterface.ChoiceType.OBJECTS, PlayerInterface.ChooseReason.PUT_ONTO_BATTLEFIELD));
+			Set chosen = Set.fromCollection(you.sanitizeAndChoose(game.actualState, 1, found.getAll(GameObject.class), PlayerInterface.ChoiceType.OBJECTS, PlayerInterface.ChooseReason.PUT_ONTO_BATTLEFIELD));
 
 			java.util.Map<Parameter, Set> battlefieldParameters = new java.util.HashMap<Parameter, Set>();
 			battlefieldParameters.put(Parameter.CAUSE, cause);

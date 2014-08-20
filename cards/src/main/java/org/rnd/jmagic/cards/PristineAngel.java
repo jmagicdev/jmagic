@@ -16,7 +16,7 @@ public final class PristineAngel extends Card
 	{
 		private static SetGenerator from()
 		{
-			return Union.instance(HasType.instance(Type.ARTIFACT), HasColor.instance(Identity.instance(Color.allColors())));
+			return Union.instance(HasType.instance(Type.ARTIFACT), HasColor.instance(Identity.fromCollection(Color.allColors())));
 		}
 
 		public Protection(GameState state)

@@ -24,7 +24,7 @@ public final class ChainLightning extends Card
 
 		EventFactory mayPay = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "That player or that creature's controller may pay (R)(R)");
 		mayPay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-		mayPay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("RR")));
+		mayPay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("RR")));
 		mayPay.parameters.put(EventType.Parameter.PLAYER, thatPlayer);
 
 		// If the player does, he or she may copy this spell and may choose a

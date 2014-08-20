@@ -31,7 +31,7 @@ public final class RiteofConsumption extends Card
 
 			Set target = parameters.get(Parameter.TARGET);
 			int amount = parameters.get(Parameter.NUMBER).getOne(Integer.class);
-			Event damage = spellDealDamage(amount, Identity.instance(target), "Rite of Consumption deals damage equal to the sacrificed creature's power to target player.").createEvent(game, event.getSource());
+			Event damage = spellDealDamage(amount, Identity.fromCollection(target), "Rite of Consumption deals damage equal to the sacrificed creature's power to target player.").createEvent(game, event.getSource());
 			damage.perform(event, true);
 
 			int life = damage.getDamage().size();

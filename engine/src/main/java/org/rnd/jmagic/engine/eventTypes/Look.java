@@ -56,8 +56,8 @@ public final class Look extends EventType
 			expiration = Not.instance(Exists.instance(Identity.instance(cause)));
 
 		ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.LOOK);
-		part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.instance(objects));
-		part.parameters.put(ContinuousEffectType.Parameter.PLAYER, Identity.instance(players));
+		part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.fromCollection(objects));
+		part.parameters.put(ContinuousEffectType.Parameter.PLAYER, Identity.fromCollection(players));
 
 		java.util.Map<Parameter, Set> lookParameters = new java.util.HashMap<Parameter, Set>();
 		lookParameters.put(Parameter.CAUSE, new Set(cause));
@@ -65,7 +65,7 @@ public final class Look extends EventType
 		lookParameters.put(Parameter.EXPIRES, new Set(expiration));
 		createEvent(game, event.getName(), CREATE_FLOATING_CONTINUOUS_EFFECT, lookParameters).perform(event, false);
 
-		event.setResult(Identity.instance(ret));
+		event.setResult(Identity.fromCollection(ret));
 		return true;
 	}
 }

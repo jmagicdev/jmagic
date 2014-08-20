@@ -22,7 +22,7 @@ public final class TheTabernacleatPendrellVale extends Card
 
 			EventFactory pay = new EventFactory(EventType.PAY_MANA, "Pay (1)");
 			pay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			pay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(1)")));
+			pay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(1)")));
 			pay.parameters.put(EventType.Parameter.PLAYER, You.instance());
 
 			this.addEffect(unless(You.instance(), destroy, pay, "Destroy this creature unless you pay (1)."));

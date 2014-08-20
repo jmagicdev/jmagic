@@ -56,7 +56,7 @@ public final class RisefromtheGrave extends Card
 			zombiePart.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.instance(SubType.ZOMBIE));
 
 			EventFactory factory = new EventFactory(EventType.CREATE_FLOATING_CONTINUOUS_EFFECT, "That creature is a black Zombie in addition to its other colors and types.");
-			factory.parameters.put(Parameter.CAUSE, Identity.instance(cause));
+			factory.parameters.put(Parameter.CAUSE, Identity.fromCollection(cause));
 			factory.parameters.put(Parameter.EFFECT, Identity.instance(blackPart, zombiePart));
 			factory.parameters.put(Parameter.EXPIRES, Identity.instance(Empty.instance()));
 			ontoField.getResult().getOne(ZoneChange.class).events.add(factory);

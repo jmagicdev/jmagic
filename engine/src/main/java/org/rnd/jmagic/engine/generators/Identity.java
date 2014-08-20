@@ -9,9 +9,9 @@ public class Identity extends SetGenerator
 
 	private boolean applyTextChanges = true;
 
-	public static Identity instance(java.util.Collection<?> what)
+	public static Identity fromCollection(java.util.Collection<?> what)
 	{
-		return new Identity(new Set(what));
+		return new Identity(Set.fromCollection(what));
 	}
 
 	public static Identity instance(Object... what)
@@ -41,7 +41,7 @@ public class Identity extends SetGenerator
 	@Override
 	public Set evaluate(GameState state, Identified thisObject)
 	{
-		Set ret = new Set(this.nonIdentifieds);
+		Set ret = Set.fromCollection(this.nonIdentifieds);
 
 		for(int ID: this.ids)
 		{

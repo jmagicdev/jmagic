@@ -77,7 +77,7 @@ public final class SphinxAmbassador extends Card
 			{
 				// you may put it onto the battlefield under your control.
 				EventType.ParameterMap ontoFieldParameters = new EventType.ParameterMap();
-				ontoFieldParameters.put(Parameter.CAUSE, Identity.instance(cause));
+				ontoFieldParameters.put(Parameter.CAUSE, Identity.fromCollection(cause));
 				ontoFieldParameters.put(Parameter.CONTROLLER, Identity.instance(you));
 				ontoFieldParameters.put(Parameter.OBJECT, Identity.instance(searchedFor));
 

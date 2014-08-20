@@ -19,6 +19,6 @@ public class EmblemFilter extends SetGenerator
 	@Override
 	public Set evaluate(GameState state, Identified thisObject)
 	{
-		return new Set(this.what.evaluate(state, thisObject).getAll(Emblem.class));
+		return Set.fromCollection(this.what.evaluate(state, thisObject).getAll(Emblem.class));
 	}
 }

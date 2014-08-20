@@ -26,7 +26,7 @@ public final class Mirrorworks extends Card
 
 			EventFactory payTwo = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay (2).");
 			payTwo.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			payTwo.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(2)")));
+			payTwo.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(2)")));
 			payTwo.parameters.put(EventType.Parameter.PLAYER, You.instance());
 
 			EventFactory factory = new EventFactory(EventType.IF_EVENT_THEN_ELSE, "You may pay (2). If you do, put a token that's a copy of that artifact onto the battlefield.");

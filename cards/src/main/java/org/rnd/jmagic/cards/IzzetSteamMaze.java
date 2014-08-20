@@ -48,7 +48,7 @@ public final class IzzetSteamMaze extends Card
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Intersect.instance(HasType.instance(Type.INSTANT, Type.SORCERY), ControlledBy.instance(You.instance(), Stack.instance())));
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("3")));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("3")));
 
 			this.addEffect(createFloatingEffect("Instant and sorcery spells you cast this turn cost (3) less to cast.", part));
 

@@ -22,7 +22,7 @@ public final class PrimalSurge extends Card
 		SetGenerator result = NewObjectOf.instance(EffectResult.instance(exile));
 		EventFactory youMay = youMay(putOntoBattlefield(result, "Put it onto the battlefield."), "You may put it onto the battlefield.");
 
-		SetGenerator ifIsPermanentType = Intersect.instance(TypesOf.instance(result), Identity.instance(Type.permanentTypes()));
+		SetGenerator ifIsPermanentType = Intersect.instance(TypesOf.instance(result), Identity.fromCollection(Type.permanentTypes()));
 		EventFactory ifThen = ifThen(ifIsPermanentType, youMay, "If it's a permanent card, you may put it onto the battlefield.");
 
 		// Use the 'if' condition in case there was no exiled card (in which

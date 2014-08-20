@@ -19,7 +19,7 @@ public final class SphereofSafety extends Card
 			SetGenerator yourEnchantments = Intersect.instance(EnchantmentPermanents.instance(), ControlledBy.instance(You.instance()));
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.ATTACKING_COST);
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("(1)")));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("(1)")));
 			part.parameters.put(ContinuousEffectType.Parameter.NUMBER, Count.instance(yourEnchantments));
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, CreaturePermanents.instance());
 			part.parameters.put(ContinuousEffectType.Parameter.PLAYER, Union.instance(You.instance(), Intersect.instance(HasType.instance(Type.PLANESWALKER), ControlledBy.instance(You.instance()))));

@@ -30,7 +30,7 @@ public final class Terastodon extends Card
 			event.setResult(Empty.set);
 
 			Set targets = parameters.get(Parameter.OBJECT);
-			Event destroy = destroy(Identity.instance(targets), "Destroy up to three target noncreature permanents").createEvent(game, event.getSource());
+			Event destroy = destroy(Identity.fromCollection(targets), "Destroy up to three target noncreature permanents").createEvent(game, event.getSource());
 			destroy.perform(event, true);
 
 			Set cause = parameters.get(Parameter.CAUSE);

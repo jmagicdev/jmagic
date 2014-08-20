@@ -32,7 +32,7 @@ public final class DiscardChoice extends EventType
 			if(parameters.containsKey(Parameter.CHOICE))
 				cards = parameters.get(Parameter.CHOICE).getAll(Card.class);
 			else
-				cards = new Set(player.getHand(game.actualState).objects).getAll(Card.class);
+				cards = Set.fromCollection(player.getHand(game.actualState).objects).getAll(Card.class);
 
 			successes = 0;
 			for(Card thisCard: cards)
@@ -71,7 +71,7 @@ public final class DiscardChoice extends EventType
 		for(Player player: parameters.get(Parameter.PLAYER).getAll(Player.class))
 		{
 			if(!specificChoices)
-				cardsInHand = new Set(player.getHand(game.actualState).objects).getAll(Card.class);
+				cardsInHand = Set.fromCollection(player.getHand(game.actualState).objects).getAll(Card.class);
 
 			java.util.Collection<Card> choices = player.sanitizeAndChoose(game.actualState, numberOfCards, cardsInHand, PlayerInterface.ChoiceType.OBJECTS, PlayerInterface.ChooseReason.DISCARD);
 			if(choices.size() != numberOfCards)
@@ -100,7 +100,7 @@ public final class DiscardChoice extends EventType
 			result.addAll(discard.getResult());
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return allDiscarded;
 	}
 }

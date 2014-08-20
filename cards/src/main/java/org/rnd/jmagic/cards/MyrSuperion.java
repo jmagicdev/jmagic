@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -77,7 +78,7 @@ public final class MyrSuperion extends Card
 		@Override
 		public Set evaluate(GameState state, Identified thisObject)
 		{
-			return new Set(state.getTracker(Tracker.class).getValue(state));
+			return Set.fromCollection(state.getTracker(Tracker.class).getValue(state));
 		}
 	}
 

@@ -73,7 +73,7 @@ public final class PayManaCost extends EventType
 			manaParameters.put(Parameter.CAUSE, new Set(o));
 			manaParameters.put(Parameter.OBJECT, new Set(o));
 			manaParameters.put(Parameter.PLAYER, new Set(p));
-			manaParameters.put(Parameter.COST, new Set(cost.manaCost));
+			manaParameters.put(Parameter.COST, Set.fromCollection(cost.manaCost));
 			Event payMana = createEvent(game, p + " pays " + cost.manaCost, EventType.PAY_MANA, manaParameters);
 			if(!payMana.perform(event, true))
 				return false;

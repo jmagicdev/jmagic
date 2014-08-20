@@ -58,7 +58,7 @@ public final class SearchForAllAndPutInto extends EventType
 		searchParameters.put(Parameter.CAUSE, new Set(cause));
 		searchParameters.put(Parameter.PLAYER, new Set(player));
 		searchParameters.put(Parameter.NUMBER, new Set(new org.rnd.util.NumberRange(0, null)));
-		searchParameters.put(Parameter.CARD, new Set(zones));
+		searchParameters.put(Parameter.CARD, Set.fromCollection(zones));
 		searchParameters.put(Parameter.TYPE, new Set(restriction));
 		Event search = createEvent(game, player + " searches " + zones, EventType.SEARCH, searchParameters);
 		search.perform(event, false);
@@ -78,7 +78,7 @@ public final class SearchForAllAndPutInto extends EventType
 			result.addAll(move.getResult());
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return true;
 	}
 }

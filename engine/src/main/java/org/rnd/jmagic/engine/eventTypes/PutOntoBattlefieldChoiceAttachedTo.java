@@ -70,7 +70,7 @@ public final class PutOntoBattlefieldChoiceAttachedTo extends EventType
 		if(choices.size() != number)
 			allChosen = false;
 
-		Set stuffToPutOntoBattlefield = new Set(choices);
+		Set stuffToPutOntoBattlefield = Set.fromCollection(choices);
 		Set target = parameters.get(Parameter.TARGET);
 
 		java.util.Map<Parameter, Set> putOntoBattlefieldParameters = new java.util.HashMap<Parameter, Set>();

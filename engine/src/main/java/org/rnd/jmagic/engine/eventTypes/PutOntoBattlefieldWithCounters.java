@@ -39,8 +39,8 @@ public final class PutOntoBattlefieldWithCounters extends EventType
 			if(parameters.containsKey(Parameter.NUMBER))
 				number = Sum.get(parameters.get(Parameter.NUMBER));
 			EventFactory putCounters = new EventFactory(PUT_COUNTERS, "Put " + number + " " + counterType.getOne(Counter.CounterType.class) + (number == 1 ? "" : "s") + " on " + parameters.get(Parameter.OBJECT).getAll(GameObject.class));
-			putCounters.parameters.put(Parameter.CAUSE, Identity.instance(parameters.get(Parameter.CAUSE)));
-			putCounters.parameters.put(Parameter.COUNTER, Identity.instance(counterType));
+			putCounters.parameters.put(Parameter.CAUSE, Identity.fromCollection(parameters.get(Parameter.CAUSE)));
+			putCounters.parameters.put(Parameter.COUNTER, Identity.fromCollection(counterType));
 			putCounters.parameters.put(Parameter.NUMBER, Identity.instance(number));
 			putCounters.parameters.put(Parameter.OBJECT, NewObjectOf.instance(Identity.instance(change)));
 			change.events.add(putCounters);

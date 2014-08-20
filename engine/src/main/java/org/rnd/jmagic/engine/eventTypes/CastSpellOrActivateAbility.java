@@ -273,7 +273,7 @@ public final class CastSpellOrActivateAbility extends EventType
 			{
 				java.util.Map<Parameter, Set> revealParameters = new java.util.HashMap<Parameter, Set>();
 				revealParameters.put(Parameter.CAUSE, new Set(game));
-				revealParameters.put(Parameter.OBJECT, new Set(splice));
+				revealParameters.put(Parameter.OBJECT, Set.fromCollection(splice));
 				Event revealSplices = createEvent(game, "Reveal " + splice, REVEAL, revealParameters);
 				revealSplices.perform(event, true);
 
@@ -507,7 +507,7 @@ public final class CastSpellOrActivateAbility extends EventType
 			java.util.Map<Parameter, Set> payManaParameters = new java.util.HashMap<Parameter, Set>();
 			payManaParameters.put(Parameter.CAUSE, new Set(game));
 			payManaParameters.put(Parameter.OBJECT, new Set(onStack));
-			payManaParameters.put(Parameter.COST, new Set(totalManaCost));
+			payManaParameters.put(Parameter.COST, Set.fromCollection(totalManaCost));
 			payManaParameters.put(Parameter.PLAYER, new Set(playerActing));
 
 			Event payMana = createEvent(game, "Pay " + totalManaCost, PAY_MANA, payManaParameters);

@@ -55,14 +55,14 @@ public final class DoubleMana extends EventType
 
 			java.util.Map<Parameter, Set> manaParameters = new java.util.HashMap<Parameter, Set>();
 			manaParameters.put(Parameter.SOURCE, parameters.get(Parameter.SOURCE));
-			manaParameters.put(Parameter.MANA, new Set(newMana));
+			manaParameters.put(Parameter.MANA, Set.fromCollection(newMana));
 			manaParameters.put(Parameter.PLAYER, new Set(player));
 			Event manaEvent = createEvent(game, "Add " + newMana + " to " + player.getName() + "'s mana pool.", EventType.ADD_MANA, manaParameters);
 			success = (manaEvent.perform(event, false) && success);
 			result.addAll(manaEvent.getResult());
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return success;
 	}
 }

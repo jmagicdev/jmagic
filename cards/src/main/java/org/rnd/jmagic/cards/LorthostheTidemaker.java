@@ -27,7 +27,7 @@ public final class LorthostheTidemaker extends Card
 			EventFactory mayPay8 = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay (8)");
 			mayPay8.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			mayPay8.parameters.put(EventType.Parameter.PLAYER, You.instance());
-			mayPay8.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(8)")));
+			mayPay8.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(8)")));
 
 			EventFactory tapHard = new EventFactory(EventType.TAP_HARD, "Tap up to eight target permanents. Those permanents don't untap during their controllers' next untap steps.");
 			tapHard.parameters.put(EventType.Parameter.CAUSE, This.instance());

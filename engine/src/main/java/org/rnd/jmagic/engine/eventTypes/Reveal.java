@@ -51,10 +51,10 @@ public final class Reveal extends EventType
 				throw new UnsupportedOperationException(cause + ": REVEAL.EFFECT didn't contain a SetGenerator!");
 		}
 		else
-			expiration = Not.instance(Exists.instance(Identity.instance(cause)));
+			expiration = Not.instance(Exists.instance(Identity.fromCollection(cause)));
 
 		ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.REVEAL);
-		part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.instance(ret));
+		part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.fromCollection(ret));
 
 		java.util.Map<Parameter, Set> revealParameters = new java.util.HashMap<Parameter, Set>();
 		revealParameters.put(Parameter.CAUSE, cause);
@@ -62,7 +62,7 @@ public final class Reveal extends EventType
 		revealParameters.put(Parameter.EXPIRES, new Set(expiration));
 		createEvent(game, event.getName(), CREATE_FLOATING_CONTINUOUS_EFFECT, revealParameters).perform(event, false);
 
-		event.setResult(Identity.instance(ret));
+		event.setResult(Identity.fromCollection(ret));
 		return true;
 	}
 }

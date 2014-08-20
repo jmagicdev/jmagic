@@ -42,7 +42,7 @@ public final class RemoveFromCombat extends EventType
 			physical.defendingIDs.clear();
 			results.add(physical);
 		}
-		event.setResult(Identity.instance(results));
+		event.setResult(Identity.fromCollection(results));
 		return true;
 	}
 }

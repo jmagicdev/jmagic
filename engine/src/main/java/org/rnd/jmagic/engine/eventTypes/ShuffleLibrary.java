@@ -36,7 +36,7 @@ public final class ShuffleLibrary extends EventType
 		// Objects were created... :(
 		game.refreshActualState();
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return true;
 	}
 }

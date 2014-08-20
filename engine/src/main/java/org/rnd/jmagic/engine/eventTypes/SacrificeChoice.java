@@ -78,7 +78,7 @@ public final class SacrificeChoice extends EventType
 				allSacrificed = false;
 			result.addAll(sacrifice.getResult());
 		}
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return allSacrificed;
 	}
 

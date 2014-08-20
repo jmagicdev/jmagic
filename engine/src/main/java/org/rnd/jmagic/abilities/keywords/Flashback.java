@@ -125,7 +125,7 @@ public final class Flashback extends Keyword
 			castEventFactory.parameters.put(EventType.Parameter.PLAYER, Identity.instance(casting));
 			castEventFactory.parameters.put(EventType.Parameter.ACTION, Identity.instance(this));
 			castEventFactory.parameters.put(EventType.Parameter.OBJECT, Identity.instance(toBePlayed));
-			castEventFactory.parameters.put(EventType.Parameter.ALTERNATE_COST, Identity.instance(altCost));
+			castEventFactory.parameters.put(EventType.Parameter.ALTERNATE_COST, Identity.fromCollection(altCost));
 			Event castEvent = castEventFactory.createEvent(this.game, toBePlayed);
 			if(!castEvent.perform(null, true))
 				return null;

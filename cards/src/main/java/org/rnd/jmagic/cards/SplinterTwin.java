@@ -27,7 +27,7 @@ public final class SplinterTwin extends Card
 		public boolean perform(Game game, Event event, java.util.Map<Parameter, Set> parameters)
 		{
 			Set thatCreature = parameters.get(Parameter.OBJECT);
-			EventFactory exile = exile(Identity.instance(thatCreature), "Exile that token");
+			EventFactory exile = exile(Identity.fromCollection(thatCreature), "Exile that token");
 			java.util.Map<Parameter, Set> triggerParameters = new java.util.HashMap<Parameter, Set>();
 			triggerParameters.put(EventType.Parameter.CAUSE, new Set(event.getSource()));
 			triggerParameters.put(EventType.Parameter.EVENT, new Set(atTheBeginningOfTheEndStep()));

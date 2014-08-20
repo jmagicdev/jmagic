@@ -19,7 +19,7 @@ public abstract class Medallion extends Card
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, stuff);
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("1")));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("1")));
 
 			this.addEffectPart(part);
 		}

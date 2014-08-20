@@ -21,7 +21,7 @@ public final class CarrionThrash extends Card
 
 			EventFactory mayPayTwo = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay (2)");
 			mayPayTwo.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			mayPayTwo.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(2)")));
+			mayPayTwo.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(2)")));
 			mayPayTwo.parameters.put(EventType.Parameter.PLAYER, You.instance());
 
 			SetGenerator yourGraveyard = GraveyardOf.instance(You.instance());

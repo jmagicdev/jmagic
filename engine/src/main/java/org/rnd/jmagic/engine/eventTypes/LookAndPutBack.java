@@ -80,7 +80,7 @@ public final class LookAndPutBack extends EventType
 				move.perform(event, true);
 				result.addAll(move.getResult());
 			}
-			event.setResult(Identity.instance(result));
+			event.setResult(Identity.fromCollection(result));
 		}
 
 		return ret;

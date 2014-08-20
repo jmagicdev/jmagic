@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -33,7 +34,7 @@ public final class ThoughtHemorrhage extends Card
 			Set cause = parameters.get(Parameter.CAUSE);
 
 			Player target = parameters.get(Parameter.TARGET).getOne(Player.class).getActual();
-			Set cardsInTargetsHand = new Set(target.getHand(game.actualState).objects);
+			Set cardsInTargetsHand = Set.fromCollection(target.getHand(game.actualState).objects);
 
 			java.util.Map<Parameter, Set> revealParameters = new java.util.HashMap<Parameter, Set>();
 			revealParameters.put(Parameter.CAUSE, cause);

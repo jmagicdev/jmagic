@@ -35,7 +35,7 @@ public final class Clash extends EventType
 		// that clash.
 
 		Set players = parameters.get(Parameter.PLAYER);
-		Set revealed = TopCards.instance(1, LibraryOf.instance(Identity.instance(players))).evaluate(game, null);
+		Set revealed = TopCards.instance(1, LibraryOf.instance(Identity.fromCollection(players))).evaluate(game, null);
 
 		java.util.Map<Parameter, Set> revealParameters = new java.util.HashMap<Parameter, Set>();
 		revealParameters.put(EventType.Parameter.CAUSE, parameters.get(Parameter.CAUSE));
@@ -62,7 +62,7 @@ public final class Clash extends EventType
 		for(Player participant: game.actualState.apnapOrder(players))
 		{
 			EventFactory bottom = new EventFactory(EventType.PUT_INTO_LIBRARY, "Put that card on the bottom of his or her library.");
-			bottom.parameters.put(Parameter.CAUSE, Identity.instance(parameters.get(Parameter.CAUSE)));
+			bottom.parameters.put(Parameter.CAUSE, Identity.fromCollection(parameters.get(Parameter.CAUSE)));
 			bottom.parameters.put(Parameter.INDEX, numberGenerator(-1));
 			bottom.parameters.put(Parameter.OBJECT, TopCards.instance(1, LibraryOf.instance(Identity.instance(participant))));
 			playerMay(Identity.instance(participant), bottom, "That player may then put that card on the bottom of his or her library.").createEvent(game, event.getSource()).perform(event, false);

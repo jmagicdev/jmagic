@@ -49,7 +49,7 @@ public final class DoublingChant extends Card
 				searchParameters.put(EventType.Parameter.PLAYER, you);
 				searchParameters.put(EventType.Parameter.NUMBER, ONE);
 				searchParameters.put(EventType.Parameter.CARD, new Set(library));
-				searchParameters.put(EventType.Parameter.TYPE, new Set(Identity.instance(findable)));
+				searchParameters.put(EventType.Parameter.TYPE, new Set(Identity.fromCollection(findable)));
 				Event search = createEvent(game, "Search your library for a creature card named " + creatureName + ".", EventType.SEARCH, searchParameters);
 				search.perform(event, false);
 				found.addAll(search.getResult());

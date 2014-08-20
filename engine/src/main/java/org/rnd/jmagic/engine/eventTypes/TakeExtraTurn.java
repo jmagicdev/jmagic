@@ -54,7 +54,7 @@ public final class TakeExtraTurn extends EventType
 					skipStep.perform(event, false);
 				}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return true;
 	}
 }

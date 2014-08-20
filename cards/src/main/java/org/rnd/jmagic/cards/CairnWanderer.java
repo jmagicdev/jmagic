@@ -38,7 +38,7 @@ public final class CairnWanderer extends Card
 					if(c.isAssignableFrom(a.getClass()))
 						ret.put(a.getName(), a);
 
-			return new Set(ret.values());
+			return Set.fromCollection(ret.values());
 		}
 	}
 

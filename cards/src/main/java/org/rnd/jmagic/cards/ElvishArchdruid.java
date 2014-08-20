@@ -27,7 +27,7 @@ public final class ElvishArchdruid extends Card
 
 			EventType.ParameterMap parameters = new EventType.ParameterMap();
 			parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("G")));
+			parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("G")));
 			parameters.put(EventType.Parameter.NUMBER, numElvesYouControl);
 			parameters.put(EventType.Parameter.PLAYER, You.instance());
 			this.addEffect(new EventFactory(EventType.ADD_MANA, parameters, "Add (G) to your mana pool for each Elf you control."));

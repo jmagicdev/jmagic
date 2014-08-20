@@ -25,7 +25,7 @@ public final class ForbiddenOrchard extends Card
 			effect.parameters.put(EventType.Parameter.CONTROLLER, targetedBy(t));
 			effect.parameters.put(EventType.Parameter.NUMBER, numberGenerator(1));
 			effect.parameters.put(EventType.Parameter.POWER, numberGenerator(1));
-			effect.parameters.put(EventType.Parameter.SUBTYPE, Identity.instance(java.util.Arrays.asList(SubType.SPIRIT)));
+			effect.parameters.put(EventType.Parameter.SUBTYPE, Identity.instance((Object)java.util.Arrays.asList(SubType.SPIRIT)));
 			effect.parameters.put(EventType.Parameter.TOUGHNESS, numberGenerator(1));
 			effect.parameters.put(EventType.Parameter.TYPE, Identity.instance(Type.CREATURE));
 			effect.parameters.put(EventType.Parameter.NUMBER, numberGenerator(1));

@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -53,7 +54,7 @@ public final class WrexialtheRisenDeep extends Card
 			if(!replace.perform(event, true))
 				return false;
 
-			Set result = new Set(thatCard);
+			Set result = Set.fromCollection(thatCard);
 			result.retainAll(replace.getResult());
 			event.setResult(result);
 			return true;

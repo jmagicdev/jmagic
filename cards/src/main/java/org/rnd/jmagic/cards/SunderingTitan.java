@@ -68,7 +68,7 @@ public final class SunderingTitan extends Card
 				result.addAll(destroy.getResult());
 			}
 
-			event.setResult(Identity.instance(result));
+			event.setResult(Identity.fromCollection(result));
 			return allDestroyed;
 		}
 

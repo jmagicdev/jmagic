@@ -206,7 +206,7 @@ public class Characteristics implements Sanitizable, Cloneable
 		// // Remove any abilities that weren't copied
 		// }
 
-		Set allAbilities = new Set(abilitiesCopied.values());
+		Set allAbilities = Set.fromCollection(abilitiesCopied.values());
 
 		// Set up the links for the physical versions of all the abilities
 		for(Linkable link: allAbilities.getAll(Linkable.class))
@@ -283,7 +283,7 @@ public class Characteristics implements Sanitizable, Cloneable
 		ret.alternateCost = this.alternateCost;
 		ret.optionalAdditionalCostsChosen = new java.util.LinkedList<CostCollection>(this.optionalAdditionalCostsChosen);
 		ret.selectedModes = new java.util.LinkedList<Mode>(this.selectedModes);
-		ret.numModes = new Set(this.numModes);
+		ret.numModes = Set.fromCollection(this.numModes);
 
 		ret.chosenTargets = new java.util.HashMap<Target, java.util.List<Target>>(this.chosenTargets);
 		for(java.util.Map.Entry<Target, java.util.List<Target>> entry: this.chosenTargets.entrySet())

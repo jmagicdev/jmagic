@@ -18,7 +18,7 @@ public class SubTypePattern implements SetPattern
 	@Override
 	public void freeze(GameState state, Identified thisObject)
 	{
-		this.subtypes = Identity.instance(this.subtypes.evaluate(state, thisObject)).noTextChanges();
+		this.subtypes = Identity.fromCollection(this.subtypes.evaluate(state, thisObject)).noTextChanges();
 	}
 
 	@Override

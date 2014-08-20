@@ -41,13 +41,13 @@ public final class MirrorofFate extends Card
 				java.util.Map<Parameter, Set> exileParameters = new java.util.HashMap<Parameter, Set>();
 				exileParameters.put(Parameter.CAUSE, parameters.get(Parameter.CAUSE));
 				exileParameters.put(Parameter.TO, new Set(game.actualState.exileZone()));
-				exileParameters.put(Parameter.OBJECT, new Set(library.objects));
+				exileParameters.put(Parameter.OBJECT, Set.fromCollection(library.objects));
 				Event exileEvent = createEvent(game, "Exile all the cards from your library.", EventType.MOVE_OBJECTS, exileParameters);
 				boolean ret = exileEvent.perform(event, true);
 
 				java.util.Map<Parameter, Set> libraryParameters = new java.util.HashMap<Parameter, Set>();
 				libraryParameters.put(Parameter.CAUSE, parameters.get(Parameter.CAUSE));
-				libraryParameters.put(Parameter.OBJECT, new Set(chosenCards));
+				libraryParameters.put(Parameter.OBJECT, Set.fromCollection(chosenCards));
 				Event libraryEvent = createEvent(game, "Put the chosen cards on top of your library.", EventType.PUT_INTO_LIBRARY, libraryParameters);
 				ret = libraryEvent.perform(event, true) && ret;
 

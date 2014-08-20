@@ -20,7 +20,7 @@ public final class BlasphemousAct extends Card
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());
 			part.parameters.put(ContinuousEffectType.Parameter.NUMBER, Count.instance(CreaturePermanents.instance()));
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("(1)")));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("(1)")));
 			this.addEffectPart(part);
 
 			// doesn't union with this.canApply since it completely changes when

@@ -24,7 +24,7 @@ public final class ManaDrain extends Card
 		// where X is that spell's converted mana cost.
 		EventFactory mana = new EventFactory(EventType.ADD_MANA, "Add (X) to your mana pool, where X is that spell's converted mana cost.");
 		mana.parameters.put(EventType.Parameter.SOURCE, This.instance());
-		mana.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("1")));
+		mana.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("1")));
 		mana.parameters.put(EventType.Parameter.NUMBER, ConvertedManaCostOf.instance(delayedTriggerContext(target)));
 		mana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 

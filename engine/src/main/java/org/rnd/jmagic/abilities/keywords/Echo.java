@@ -225,7 +225,7 @@ public final class Echo extends Keyword
 
 			EventFactory payMana = new EventFactory(EventType.PAY_MANA, "Pay " + manaCostString);
 			payMana.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			payMana.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool(manaCostString)));
+			payMana.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool(manaCostString)));
 			payMana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			this.addEffect(unless(You.instance(), sacrificeThis("this permanent"), payMana, "Sacrifice this permanent unless you pay " + manaCostString + "."));
 		}

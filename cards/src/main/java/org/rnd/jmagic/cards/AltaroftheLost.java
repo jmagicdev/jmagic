@@ -46,7 +46,7 @@ public final class AltaroftheLost extends Card
 			makeMana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			makeMana.parameters.put(EventType.Parameter.TYPE, Identity.instance(new Flashbacked()));
 			makeMana.parameters.put(EventType.Parameter.PERMANENT, Empty.instance());
-			makeMana.parameters.put(EventType.Parameter.MANA, Identity.instance(Color.allColors()));
+			makeMana.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(Color.allColors()));
 
 			// i hate this :-/ but the "number" parameter to add_restricted_mana
 			// causes the mana to both be the same color (vedalken engineer

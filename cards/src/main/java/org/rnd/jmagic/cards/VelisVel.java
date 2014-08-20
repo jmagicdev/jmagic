@@ -39,7 +39,7 @@ public final class VelisVel extends Card
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.ADD_TYPES);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, targetedBy(target));
-			part.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.instance(SubType.getAllCreatureTypes()));
+			part.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.fromCollection(SubType.getAllCreatureTypes()));
 			this.addEffect(createFloatingEffect("Target creature gains all creature types until end of turn.", part));
 
 			this.canTrigger = Planechase.triggeredAbilityCanTrigger;

@@ -47,7 +47,7 @@ public final class DrawCards extends EventType
 			}
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return allDrawn;
 	}
 }

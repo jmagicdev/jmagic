@@ -39,7 +39,7 @@ public final class DestroyPermanents extends EventType
 				allDestroyed = false;
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return allDestroyed;
 	}
 }

@@ -36,7 +36,7 @@ public final class UtopiaSprawl extends Card
 
 			EventFactory factory = new EventFactory(EventType.PLAYER_CHOOSE, "Choose a color.");
 			factory.parameters.put(EventType.Parameter.PLAYER, ControllerOf.instance(originalEvent));
-			factory.parameters.put(EventType.Parameter.CHOICE, Identity.instance(Color.allColors()));
+			factory.parameters.put(EventType.Parameter.CHOICE, Identity.fromCollection(Color.allColors()));
 			factory.parameters.put(EventType.Parameter.TYPE, Identity.instance(PlayerInterface.ChoiceType.COLOR, PlayerInterface.ChooseReason.CHOOSE_COLOR));
 			factory.parameters.put(EventType.Parameter.OBJECT, This.instance());
 			factory.setLink(this);

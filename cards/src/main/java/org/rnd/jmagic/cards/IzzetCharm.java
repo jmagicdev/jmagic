@@ -25,7 +25,7 @@ public final class IzzetCharm extends Card
 			SetGenerator controller = ControllerOf.instance(targetedBy(target));
 			EventFactory pay = new EventFactory(EventType.PAY_MANA, "Pay (2)");
 			pay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			pay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(2)")));
+			pay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(2)")));
 			pay.parameters.put(EventType.Parameter.PLAYER, controller);
 
 			this.addEffect(1, unless(controller, counter, pay, "Counter target noncreature spell unless its controller pays (2)"));

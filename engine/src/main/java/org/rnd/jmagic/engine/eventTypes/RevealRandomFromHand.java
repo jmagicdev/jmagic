@@ -41,7 +41,7 @@ public final class RevealRandomFromHand extends EventType
 
 			java.util.Map<Parameter, Set> revealParameters = new java.util.HashMap<Parameter, Set>();
 			revealParameters.put(EventType.Parameter.CAUSE, parameters.get(Parameter.CAUSE));
-			revealParameters.put(EventType.Parameter.OBJECT, new Set(reveal));
+			revealParameters.put(EventType.Parameter.OBJECT, Set.fromCollection(reveal));
 			Event revealEvent = createEvent(game, player + " reveals " + reveal, EventType.REVEAL, revealParameters);
 
 			if(!revealEvent.perform(event, false))

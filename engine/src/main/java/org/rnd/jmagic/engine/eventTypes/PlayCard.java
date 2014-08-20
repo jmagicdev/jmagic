@@ -69,7 +69,7 @@ public final class PlayCard extends EventType
 
 		CastSpellAction cast = new CastSpellAction(game, object, player, sourceID);
 		if(parameters.containsKey(Parameter.ALTERNATE_COST))
-			cast.forceAlternateCost(Identity.instance(parameters.get(Parameter.ALTERNATE_COST)));
+			cast.forceAlternateCost(Identity.fromCollection(parameters.get(Parameter.ALTERNATE_COST)));
 
 		boolean ret = cast.saveStateAndPerform();
 		event.setResult((ret ? Identity.instance(cast.played()) : Identity.instance()));

@@ -37,7 +37,7 @@ public class DoesntHaveType extends SetGenerator
 
 	public static SetGenerator instance(java.util.Collection<Type> what)
 	{
-		return new DoesntHaveType(Identity.instance(what));
+		return new DoesntHaveType(Identity.fromCollection(what));
 	}
 
 	public static DoesntHaveType instance(SetGenerator what)

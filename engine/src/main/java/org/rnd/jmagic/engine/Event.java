@@ -362,7 +362,7 @@ public class Event extends Identified implements Sanitizable
 			if(!this.damage.isEmpty())
 			{
 				Event damageEvent = new Event(this.game.physicalState, "Damage!", EventType.DEAL_DAMAGE_BATCHES);
-				damageEvent.parameters.put(EventType.Parameter.TARGET, Identity.instance(this.damage));
+				damageEvent.parameters.put(EventType.Parameter.TARGET, Identity.fromCollection(this.damage));
 				damageEvent.perform(this, false);
 			}
 
@@ -383,7 +383,7 @@ public class Event extends Identified implements Sanitizable
 					this.ensureValidZoneChanges();
 
 					java.util.Map<EventType.Parameter, Set> zoneChangeParameters = new java.util.HashMap<EventType.Parameter, Set>();
-					zoneChangeParameters.put(EventType.Parameter.TARGET, new Set(this.zoneChanges));
+					zoneChangeParameters.put(EventType.Parameter.TARGET, Set.fromCollection(this.zoneChanges));
 					EventType.createEvent(this.game, "Movements", EventType.MOVE_BATCH, zoneChangeParameters).perform(this, false);
 
 					for(ZoneChangeReplacementEffect effect: zcrEffectsUsed)
@@ -1140,7 +1140,7 @@ public class Event extends Identified implements Sanitizable
 		if(this.choices == null)
 			this.choices = new java.util.HashMap<Integer, Identity>();
 
-		this.choices.put(madeChoices.ID, Identity.instance(choices));
+		this.choices.put(madeChoices.ID, Identity.fromCollection(choices));
 	}
 
 	/**
@@ -1174,7 +1174,7 @@ public class Event extends Identified implements Sanitizable
 		if(!toRemoveFromCombat.isEmpty())
 		{
 			Event removeEvent = new Event(this.game.physicalState, "Remove " + toRemoveFromCombat + " from combat.", EventType.REMOVE_FROM_COMBAT);
-			removeEvent.parameters.put(EventType.Parameter.OBJECT, Identity.instance(toRemoveFromCombat));
+			removeEvent.parameters.put(EventType.Parameter.OBJECT, Identity.fromCollection(toRemoveFromCombat));
 			removeEvent.perform(this, false);
 		}
 	}
@@ -1459,7 +1459,7 @@ public class Event extends Identified implements Sanitizable
 	/** Tells this Event what result it has. */
 	public void setResult(Set result)
 	{
-		this.result = Identity.instance(result);
+		this.result = Identity.fromCollection(result);
 	}
 
 	/** Tells this Event what it came from. */
@@ -1539,7 +1539,7 @@ public class Event extends Identified implements Sanitizable
 					newParameter.removeAll(toRemove);
 				}
 			}
-			this.parametersNow.put(parameterName, Identity.instance(newParameter));
+			this.parametersNow.put(parameterName, Identity.fromCollection(newParameter));
 		}
 		return !removedGhost;
 	}

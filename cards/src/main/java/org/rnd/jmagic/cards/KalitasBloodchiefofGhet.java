@@ -70,7 +70,7 @@ public final class KalitasBloodchiefofGhet extends Card
 							makeToken.perform(event, false);
 							Set token = makeToken.getResult();
 
-							ContinuousEffect.Part part = setPowerAndToughness(Identity.instance(token), power, toughness);
+							ContinuousEffect.Part part = setPowerAndToughness(Identity.fromCollection(token), power, toughness);
 
 							java.util.Map<Parameter, Set> setPTParameters = new java.util.HashMap<Parameter, Set>();
 							setPTParameters.put(Parameter.CAUSE, cause);

@@ -92,7 +92,7 @@ public final class ChangeTargets extends EventType
 				ret = false;
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 
 		return ret;
 	}

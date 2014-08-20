@@ -22,7 +22,7 @@ public final class NicolBolas extends Card
 
 			EventFactory payMana = new EventFactory(EventType.PAY_MANA, "Pay (U)(B)(R)");
 			payMana.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			payMana.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(U)(B)(R)")));
+			payMana.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(U)(B)(R)")));
 			payMana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			this.addEffect(unless(You.instance(), sacrificeThis("Nicol Bolas"), payMana, "Sacrifice Nicol Bolas unless you pay (U)(B)(R)."));
 		}

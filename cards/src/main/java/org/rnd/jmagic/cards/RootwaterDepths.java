@@ -70,11 +70,11 @@ public final class RootwaterDepths extends Card
 			Event addMana = createEvent(game, "Add mana to your mana pool", ADD_MANA, manaParameters);
 			addMana.perform(event, true);
 
-			EventPattern untapping = new UntapDuringSpecificPlayersUntapStep(Identity.instance(land), player.getOne(Player.class));
+			EventPattern untapping = new UntapDuringSpecificPlayersUntapStep(Identity.fromCollection(land), player.getOne(Player.class));
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(untapping));
 
-			SetGenerator expires = Intersect.instance(PreviousStep.instance(), UntapStepOf.instance(Identity.instance(player)));
+			SetGenerator expires = Intersect.instance(PreviousStep.instance(), UntapStepOf.instance(Identity.fromCollection(player)));
 
 			Set ability = parameters.get(Parameter.CAUSE);
 
@@ -102,7 +102,7 @@ public final class RootwaterDepths extends Card
 			effect.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			effect.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			effect.parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			effect.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("(UB)")));
+			effect.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("(UB)")));
 			this.addEffect(effect);
 		}
 	}

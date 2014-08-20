@@ -134,7 +134,7 @@ public final class Miracle extends Keyword
 
 			EventFactory castThis = new EventFactory(EventType.PLAYER_MAY_CAST, "You may cast it by paying " + cost + " rather than its mana cost.");
 			castThis.parameters.put(EventType.Parameter.PLAYER, You.instance());
-			castThis.parameters.put(EventType.Parameter.ALTERNATE_COST, Identity.instance(cost.getSet()));
+			castThis.parameters.put(EventType.Parameter.ALTERNATE_COST, Identity.fromCollection(cost.getSet()));
 			castThis.parameters.put(EventType.Parameter.OBJECT, linked);
 			this.addEffect(castThis);
 

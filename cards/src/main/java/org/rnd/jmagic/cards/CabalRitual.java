@@ -18,7 +18,7 @@ public final class CabalRitual extends Card
 		// Add (B)(B)(B) to your mana pool.
 		// Add (B)(B)(B)(B)(B) to your mana pool instead if seven or more cards
 		// are in your graveyard.
-		SetGenerator mana = IfThenElse.instance(Threshold.instance(), Identity.instance(new ManaPool("BBBBB")), Identity.instance(new ManaPool("BBB")));
+		SetGenerator mana = IfThenElse.instance(Threshold.instance(), Identity.fromCollection(new ManaPool("BBBBB")), Identity.fromCollection(new ManaPool("BBB")));
 		this.addEffect(addManaToYourManaPoolFromSpell(mana, "Add (B)(B)(B) to your mana pool.\n\nAdd (B)(B)(B)(B)(B) to your mana pool instead if seven or more cards are in your graveyard."));
 	}
 }

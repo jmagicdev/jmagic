@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
@@ -75,7 +76,7 @@ public final class GauntletofPower extends Card
 
 				for(ManaSymbol m: ability.getManaAdded())
 				{
-					if(this.colors.match(state, thisObject, new Set(m.getColors())))
+					if(this.colors.match(state, thisObject, Set.fromCollection(m.getColors())))
 						return true;
 				}
 				return false;

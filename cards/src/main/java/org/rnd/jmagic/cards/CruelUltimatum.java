@@ -39,7 +39,7 @@ public final class CruelUltimatum extends Card
 			Zone hand = you.getHand(game.actualState);
 			java.util.Map<Parameter, Set> handParameters = new java.util.HashMap<Parameter, Set>();
 			handParameters.put(Parameter.CAUSE, ultimatum);
-			handParameters.put(Parameter.OBJECT, new Set(choice));
+			handParameters.put(Parameter.OBJECT, Set.fromCollection(choice));
 			handParameters.put(Parameter.TO, new Set(hand));
 			createEvent(game, "Return " + choice + " to " + hand + ".", EventType.MOVE_OBJECTS, handParameters).perform(event, false);
 

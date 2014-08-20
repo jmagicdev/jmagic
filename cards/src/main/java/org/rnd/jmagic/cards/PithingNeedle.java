@@ -37,7 +37,7 @@ public final class PithingNeedle extends Card
 				Linkable link = parameters.get(Parameter.SOURCE).getOne(Linkable.class).getPhysical();
 				for(Object object: named)
 					link.getLinkManager().addLinkInformation(object);
-				event.setResult(Identity.instance(named));
+				event.setResult(Identity.fromCollection(named));
 				return named.size() == 1;
 			}
 		};

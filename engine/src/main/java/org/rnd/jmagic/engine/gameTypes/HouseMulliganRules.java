@@ -93,7 +93,7 @@ public class HouseMulliganRules extends GameType.SimpleGameTypeRule
 				hasMulliganedForOneNonLand = ((mulligans & HouseMulliganTracker.ONE_NONLAND_MULLIGAN_USED) == HouseMulliganTracker.ONE_NONLAND_MULLIGAN_USED);
 			}
 
-			Set shuffleObjects = new Set(cardsInHand);
+			Set shuffleObjects = Set.fromCollection(cardsInHand);
 			shuffleObjects.add(player);
 
 			Zone library = player.getLibrary(game.actualState);

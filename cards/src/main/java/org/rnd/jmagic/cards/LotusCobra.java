@@ -23,7 +23,7 @@ public final class LotusCobra extends Card
 			EventFactory makeMana = new EventFactory(EventType.ADD_MANA, "Add one mana of any color to your mana pool");
 			makeMana.parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
 			makeMana.parameters.put(EventType.Parameter.PLAYER, You.instance());
-			makeMana.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("(WUBRG)")));
+			makeMana.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("(WUBRG)")));
 
 			this.addEffect(youMay(makeMana, "You may add one mana of any color to your mana pool."));
 		}

@@ -24,7 +24,7 @@ public final class Cloudpost extends Card
 
 			EventFactory addMana = new EventFactory(EventType.ADD_MANA, "Add (1) to your mana pool for each Locus on the battlefield.");
 			addMana.parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			addMana.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("1")));
+			addMana.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("1")));
 			addMana.parameters.put(EventType.Parameter.NUMBER, forEachLocusOnTheBattlefield);
 			addMana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			this.addEffect(addMana);

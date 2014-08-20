@@ -42,7 +42,7 @@ public final class TapOnePermanent extends EventType
 		else
 			status = false;
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return status;
 	}
 }

@@ -32,7 +32,7 @@ public final class CreateRegenerationShield extends EventType
 			destroyThis.put(Parameter.PERMANENT, thisObject);
 
 			EventFactory factory = new EventFactory(EventType.REGENERATE, ("Regenerate " + object.getName()));
-			factory.parameters.put(Parameter.CAUSE, Identity.instance(parameters.get(Parameter.CAUSE)));
+			factory.parameters.put(Parameter.CAUSE, Identity.fromCollection(parameters.get(Parameter.CAUSE)));
 			factory.parameters.put(Parameter.OBJECT, thisObject);
 
 			EventReplacementEffect regenerate = new EventReplacementEffect(game, "Regenerate " + object.getName(), destroyThis);

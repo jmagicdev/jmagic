@@ -1545,7 +1545,7 @@ public class Play
 			this.zones.put(p.name + "'s sideboard", p.sideboard);
 		}
 
-		zoneLoop: for(SanitizedZone zone: new Set(state.values()).getAll(SanitizedZone.class))
+		zoneLoop: for(SanitizedZone zone: Set.fromCollection(state.values()).getAll(SanitizedZone.class))
 			if(!this.zones.containsValue(zone.ID) && zone.ID != state.battlefield)
 			{
 				for(Integer i: state.players)

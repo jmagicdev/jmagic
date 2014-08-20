@@ -20,7 +20,7 @@ public final class ScarsSpellbomb extends EventTriggeredAbility
 
 		EventFactory mayPay = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay " + manaCost + ".");
 		mayPay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-		mayPay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool(manaCost)));
+		mayPay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool(manaCost)));
 		mayPay.parameters.put(EventType.Parameter.PLAYER, You.instance());
 
 		EventFactory effect = new EventFactory(EventType.IF_EVENT_THEN_ELSE, "You may pay " + manaCost + ". If you do, draw a card.");

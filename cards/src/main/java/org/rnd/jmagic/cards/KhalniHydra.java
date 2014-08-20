@@ -20,7 +20,7 @@ public final class KhalniHydra extends Card
 
 			ContinuousEffect.Part reduction = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 			reduction.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());
-			reduction.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("G")));
+			reduction.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("G")));
 			reduction.parameters.put(ContinuousEffectType.Parameter.NUMBER, Count.instance(Intersect.instance(CreaturePermanents.instance(), HasColor.instance(Color.GREEN), ControlledBy.instance(You.instance()))));
 			this.addEffectPart(reduction);
 

@@ -44,7 +44,7 @@ public final class TapPermanents extends EventType
 				allTapped = false;
 			result.addAll(tapOne.getResult());
 		}
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return allTapped;
 	}
 }

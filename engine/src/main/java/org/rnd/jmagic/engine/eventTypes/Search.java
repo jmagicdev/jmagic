@@ -103,7 +103,7 @@ public final class Search extends EventType
 			if(!zoneIsHidden(publicZones, hiddenZones, zone, player))
 				publicObjects.add(o);
 		}
-		Set result = new Set(zones);
+		Set result = Set.fromCollection(zones);
 
 		boolean multipleZones = (zones.size() > 1);
 
@@ -170,12 +170,12 @@ public final class Search extends EventType
 		if(searchRestricted)
 		{
 			java.util.Map<EventType.Parameter, Set> revealParameters = new java.util.HashMap<EventType.Parameter, Set>();
-			revealParameters.put(Parameter.CAUSE, new Set(cause));
-			revealParameters.put(Parameter.OBJECT, new Set(choices));
+			revealParameters.put(Parameter.CAUSE, Set.fromCollection(cause));
+			revealParameters.put(Parameter.OBJECT, Set.fromCollection(choices));
 			createEvent(game, "Reveal " + choices, EventType.REVEAL, revealParameters).perform(event, false);
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 
 		return true;
 	}

@@ -164,7 +164,7 @@ public abstract class JUnitTest
 				return ret;
 			}
 
-			JUnitTest.this.choices = new Set(parameterObject.choices);
+			JUnitTest.this.choices = Set.fromCollection(parameterObject.choices);
 			JUnitTest.this.choiceType = parameterObject.type;
 			JUnitTest.this.choosingPlayerID = JUnitTest.this.playerIDs[this.playerNum];
 			Object response = JUnitTest.this.getResponse();
@@ -219,7 +219,7 @@ public abstract class JUnitTest
 				return;
 			}
 
-			JUnitTest.this.choices = new Set(targets);
+			JUnitTest.this.choices = Set.fromCollection(targets);
 			JUnitTest.this.choosingPlayerID = JUnitTest.this.playerIDs[this.playerNum];
 			JUnitTest.this.<Object>getResponse();
 			JUnitTest.this.choices = null;

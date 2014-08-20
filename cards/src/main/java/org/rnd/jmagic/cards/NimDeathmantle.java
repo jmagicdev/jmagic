@@ -43,7 +43,7 @@ public final class NimDeathmantle extends Card
 
 			EventFactory mayPay = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay (4).");
 			mayPay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			mayPay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(4)")));
+			mayPay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(4)")));
 			mayPay.parameters.put(EventType.Parameter.PLAYER, You.instance());
 
 			SetGenerator thatCard = NewObjectOf.instance(TriggerZoneChange.instance(This.instance()));

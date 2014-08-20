@@ -14,7 +14,7 @@ public class RelativeComplement extends SetGenerator
 
 	static public Set get(Set a, Set b)
 	{
-		Set ret = new Set(a);
+		Set ret = Set.fromCollection(a);
 		ret.removeAll(b);
 		return ret;
 	}

@@ -86,7 +86,7 @@ public abstract class CumulativeUpkeep extends Keyword
 		{
 			EventFactory factory = new EventFactory(EventType.PAY_MANA, "Pay " + this.cumulativeUpkeep);
 			factory.parameters.put(EventType.Parameter.CAUSE, thisAbility);
-			factory.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool(this.cumulativeUpkeep)));
+			factory.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool(this.cumulativeUpkeep)));
 			factory.parameters.put(EventType.Parameter.PLAYER, ControllerOf.instance(thisAbility));
 			return factory;
 		}

@@ -26,7 +26,7 @@ public final class Realmwright extends Card
 
 			EventFactory factory = new EventFactory(EventType.PLAYER_CHOOSE, "Choose a land type.");
 			factory.parameters.put(EventType.Parameter.PLAYER, ControllerOf.instance(originalEvent));
-			factory.parameters.put(EventType.Parameter.CHOICE, Identity.instance(SubType.getBasicLandTypes()));
+			factory.parameters.put(EventType.Parameter.CHOICE, Identity.fromCollection(SubType.getBasicLandTypes()));
 			factory.parameters.put(EventType.Parameter.TYPE, Identity.instance(PlayerInterface.ChoiceType.ENUM, PlayerInterface.ChooseReason.CHOOSE_BASIC_LAND_TYPE));
 			factory.setLink(this);
 			replacement.addEffect(factory);

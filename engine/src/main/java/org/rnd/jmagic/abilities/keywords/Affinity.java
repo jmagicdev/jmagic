@@ -33,7 +33,7 @@ public abstract class Affinity extends Keyword
 
 			ContinuousEffect.Part reduction = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 			reduction.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());
-			reduction.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("1")));
+			reduction.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("1")));
 			reduction.parameters.put(ContinuousEffectType.Parameter.NUMBER, Count.instance(stuffYouControl));
 			this.addEffectPart(reduction);
 

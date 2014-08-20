@@ -16,7 +16,7 @@ public final class CostsYouLessToCast extends StaticAbility
 
 		ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 		part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Intersect.instance(what, ControlledBy.instance(You.instance(), Stack.instance())));
-		part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool(reduction)));
+		part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool(reduction)));
 		this.addEffectPart(part);
 	}
 
@@ -28,7 +28,7 @@ public final class CostsYouLessToCast extends StaticAbility
 
 		ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 		part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Intersect.instance(what, ControlledBy.instance(You.instance(), Stack.instance())));
-		part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool(reduction)));
+		part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool(reduction)));
 		part.parameters.put(ContinuousEffectType.Parameter.NUMBER, number);
 		this.addEffectPart(part);
 	}

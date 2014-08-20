@@ -31,7 +31,7 @@ public final class DiscardForce extends EventType
 		if(parameters.containsKey(Parameter.CHOICE))
 			cards = parameters.get(Parameter.CHOICE);
 		else
-			cards = new Set(player.getHand(game.actualState).objects);
+			cards = Set.fromCollection(player.getHand(game.actualState).objects);
 
 		successes = 0;
 		while(!cards.isEmpty())
@@ -84,7 +84,7 @@ public final class DiscardForce extends EventType
 		if(choices.size() != 0)
 		{
 			// build the Set of objects to discard
-			Set discardThese = new Set(choices);
+			Set discardThese = Set.fromCollection(choices);
 
 			// perform the discard event
 			java.util.Map<Parameter, Set> discardParameters = new java.util.HashMap<Parameter, Set>();

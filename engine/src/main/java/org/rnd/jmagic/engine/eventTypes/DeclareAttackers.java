@@ -32,7 +32,7 @@ public final class DeclareAttackers extends EventType
 		Set attackers = new Set();
 		for(int attackerID: declareAttackersAction.attackerIDs)
 			attackers.add(game.actualState.getByIDObject(attackerID));
-		event.setResult(Identity.instance(attackers));
+		event.setResult(Identity.fromCollection(attackers));
 
 		return true;
 	}

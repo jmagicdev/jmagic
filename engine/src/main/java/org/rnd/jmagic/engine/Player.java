@@ -725,7 +725,7 @@ public final class Player extends Identified implements AttachableTo, Attackable
 		newPile.addAll(objectsInNewPile);
 		ret.add(newPile);
 
-		Set theRest = new Set(objects);
+		Set theRest = Set.fromCollection(objects);
 		theRest.removeAll(objectsInNewPile);
 		ret.addAll(this.separateIntoPiles(numPiles - 1, theRest));
 		return ret;

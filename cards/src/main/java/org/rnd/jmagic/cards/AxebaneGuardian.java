@@ -23,7 +23,7 @@ public final class AxebaneGuardian extends Card
 
 			EventFactory mana = new EventFactory(EventType.ADD_MANA, "Add X mana in any combination of colors to your mana pool, where X is the number of creatures with defender you control.");
 			mana.parameters.put(EventType.Parameter.SOURCE, This.instance());
-			mana.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("(WUBRG)")));
+			mana.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("(WUBRG)")));
 			mana.parameters.put(EventType.Parameter.MULTIPLY, X);
 			mana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			this.addEffect(mana);

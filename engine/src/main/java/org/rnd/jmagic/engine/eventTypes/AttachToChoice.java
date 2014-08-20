@@ -101,7 +101,7 @@ public final class AttachToChoice extends EventType
 			result.addAll(attachEvent.getResult());
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return ret;
 	}
 }

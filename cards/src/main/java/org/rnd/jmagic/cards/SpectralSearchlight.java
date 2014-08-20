@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -45,7 +46,7 @@ public final class SpectralSearchlight extends Card
 
 				java.util.Map<EventType.Parameter, Set> addManaParameters = new java.util.HashMap<EventType.Parameter, Set>();
 				addManaParameters.put(EventType.Parameter.SOURCE, parameters.get(EventType.Parameter.SOURCE));
-				addManaParameters.put(EventType.Parameter.PLAYER, new Set(choice));
+				addManaParameters.put(EventType.Parameter.PLAYER, Set.fromCollection(choice));
 				addManaParameters.put(EventType.Parameter.MANA, parameters.get(EventType.Parameter.MANA));
 				Event addMana = createEvent(game, "That player adds one mana of any color he or she chooses to his or her mana pool.", EventType.ADD_MANA, addManaParameters);
 				boolean ret = addMana.perform(event, false);
@@ -64,7 +65,7 @@ public final class SpectralSearchlight extends Card
 			addManaParameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
 			addManaParameters.put(EventType.Parameter.PLAYER, You.instance());
 			addManaParameters.put(EventType.Parameter.CHOICE, Players.instance());
-			addManaParameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("(WUBRG)")));
+			addManaParameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("(WUBRG)")));
 			this.addEffect(new EventFactory(SPECTRAL_SEARCHLIGHT_EVENT, addManaParameters, "Choose a player. That player adds one mana of any color he or she chooses to his or her mana pool"));
 		}
 	}

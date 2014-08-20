@@ -53,7 +53,7 @@ public final class Morph extends Keyword
 			EventFactory castFactory = new EventFactory(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY, casting + " casts a face-down 2/2 creature for (3).");
 			castFactory.parameters.put(EventType.Parameter.PLAYER, Identity.instance(casting));
 			castFactory.parameters.put(EventType.Parameter.OBJECT, Identity.instance(toBePlayed));
-			castFactory.parameters.put(EventType.Parameter.ALTERNATE_COST, Identity.instance(new ManaPool("3")));
+			castFactory.parameters.put(EventType.Parameter.ALTERNATE_COST, Identity.fromCollection(new ManaPool("3")));
 			castFactory.parameters.put(EventType.Parameter.FACE_DOWN, Identity.instance(FaceDownCard.class));
 
 			Event castEvent = castFactory.createEvent(this.game, toBePlayed);
@@ -142,7 +142,7 @@ public final class Morph extends Keyword
 			{
 				EventFactory payManaFactory = new EventFactory(EventType.PAY_MANA, playerActing + " pays " + this.morphCost.manaCost);
 				payManaFactory.parameters.put(EventType.Parameter.CAUSE, This.instance());
-				payManaFactory.parameters.put(EventType.Parameter.COST, Identity.instance(this.morphCost.manaCost));
+				payManaFactory.parameters.put(EventType.Parameter.COST, Identity.fromCollection(this.morphCost.manaCost));
 				payManaFactory.parameters.put(EventType.Parameter.PLAYER, Identity.instance(playerActing));
 
 				Event payMana = payManaFactory.createEvent(this.game, object);

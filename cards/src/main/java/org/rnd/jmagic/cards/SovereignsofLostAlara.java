@@ -54,7 +54,7 @@ public final class SovereignsofLostAlara extends Card
 			searchParameters.put(EventType.Parameter.PLAYER, you);
 			searchParameters.put(EventType.Parameter.NUMBER, ONE);
 			searchParameters.put(EventType.Parameter.CARD, cardsInLibrary);
-			searchParameters.put(EventType.Parameter.TYPE, new Set(Identity.instance(choices)));
+			searchParameters.put(EventType.Parameter.TYPE, new Set(Identity.fromCollection(choices)));
 			Event search = createEvent(game, "Search your library for an Aura card that could enchant that creature", SEARCH, searchParameters);
 			search.perform(event, true);
 

@@ -78,12 +78,12 @@ public final class Entwine extends Keyword
 			this.costCollection = costs;
 			this.costName = costName;
 
-			Set newCosts = new Set(costs.manaCost);
+			Set newCosts = Set.fromCollection(costs.manaCost);
 			newCosts.addAll(costs.events);
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.COST_ADDITION);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(newCosts));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(newCosts));
 			this.addEffectPart(part);
 
 			// This only applies if you've chosen all of its modes

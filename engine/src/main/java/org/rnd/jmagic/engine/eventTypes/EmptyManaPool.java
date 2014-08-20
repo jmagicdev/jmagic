@@ -49,7 +49,7 @@ public final class EmptyManaPool extends EventType
 			}
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return true;
 	}
 }

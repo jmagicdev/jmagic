@@ -1799,7 +1799,7 @@ public abstract class EventType
 
 		if(parameters != null)
 			for(java.util.Map.Entry<Parameter, Set> parameter: parameters.entrySet())
-				newEvent.parameters.put(parameter.getKey(), Identity.instance(parameter.getValue()));
+				newEvent.parameters.put(parameter.getKey(), Identity.fromCollection(parameter.getValue()));
 
 		return newEvent;
 	}

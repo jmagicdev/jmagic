@@ -18,7 +18,7 @@ public final class PrismaticOmen extends Card
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.ADD_TYPES);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Intersect.instance(LandPermanents.instance(), ControlledBy.instance(You.instance())));
-			part.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.instance(SubType.getBasicLandTypes()));
+			part.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.fromCollection(SubType.getBasicLandTypes()));
 			this.addEffectPart(part);
 		}
 	}

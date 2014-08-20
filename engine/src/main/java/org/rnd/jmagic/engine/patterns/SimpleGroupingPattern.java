@@ -17,7 +17,7 @@ public class SimpleGroupingPattern implements GroupingPattern
 	{
 		java.util.Set<Set> ret = new java.util.HashSet<Set>();
 
-		for(Object object: Intersect.instance(this.generator, Identity.instance(set)).evaluate(state, thisObject))
+		for(Object object: Intersect.instance(this.generator, Identity.fromCollection(set)).evaluate(state, thisObject))
 			ret.add(new Set(object));
 
 		return ret;

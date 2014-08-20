@@ -95,7 +95,7 @@ public final class MoveObjects extends EventType
 			result.add(change);
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 
 		to = to.getActual();
 		if((game.currentAction != null) && !parameters.get(Parameter.OBJECT).isEmpty())

@@ -40,7 +40,7 @@ public final class PoolsofBecoming extends Card
 				moveParams.put(EventType.Parameter.CAUSE, cause);
 				moveParams.put(EventType.Parameter.TO, targetsLibrary);
 				moveParams.put(EventType.Parameter.INDEX, NEGATIVE_ONE);
-				moveParams.put(EventType.Parameter.OBJECT, new Set(targetsHand.objects));
+				moveParams.put(EventType.Parameter.OBJECT, Set.fromCollection(targetsHand.objects));
 				Event libraryEvent = createEvent(game, "Put the cards from your hand on the bottom of your library in any order.", EventType.MOVE_OBJECTS, moveParams);
 				boolean ret = libraryEvent.perform(event, true);
 
@@ -104,7 +104,7 @@ public final class PoolsofBecoming extends Card
 				for(GameObject object: objects.getAll(GameObject.class))
 				{
 					object = object.getActual();
-					for(EventTriggeredAbility ability: new Set(object.getNonStaticAbilities()).getAll(EventTriggeredAbility.class))
+					for(EventTriggeredAbility ability: Set.fromCollection(object.getNonStaticAbilities()).getAll(EventTriggeredAbility.class))
 					{
 						SetGenerator canTrigger = ability.canTrigger;
 						ability.canTrigger = NonEmpty.instance();

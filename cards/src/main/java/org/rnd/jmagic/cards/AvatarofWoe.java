@@ -20,7 +20,7 @@ public final class AvatarofWoe extends Card
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("(6)")));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("(6)")));
 
 			this.addEffectPart(part);
 

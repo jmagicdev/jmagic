@@ -23,7 +23,7 @@ public final class WindbornMuse extends Card
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.ATTACKING_COST);
 			part.parameters.put(ContinuousEffectType.Parameter.PLAYER, you);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, CreaturePermanents.instance());
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("2")));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("2")));
 			this.addEffectPart(part);
 		}
 	}

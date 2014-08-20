@@ -44,7 +44,7 @@ public final class Sleep extends Card
 			createEvent(game, "Tap all creatures that player controls.", TAP_PERMANENTS, tapParameters).perform(event, true);
 
 			// Those creatures don't untap during that player's next untap step.
-			EventPattern untapping = new UntapDuringControllersUntapStep(Identity.instance(thoseCreatures));
+			EventPattern untapping = new UntapDuringControllersUntapStep(Identity.fromCollection(thoseCreatures));
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(untapping));

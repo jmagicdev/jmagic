@@ -17,7 +17,7 @@ public final class NornsAnnex extends Card
 			super(state, "Creatures can't attack you or a planeswalker you control unless their controller pays (w/p) for each of those creatures.");
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.ATTACKING_COST);
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("(w/p)")));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("(w/p)")));
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, CreaturePermanents.instance());
 			part.parameters.put(ContinuousEffectType.Parameter.PLAYER, Union.instance(You.instance(), Intersect.instance(HasType.instance(Type.PLANESWALKER), ControlledBy.instance(You.instance()))));
 			this.addEffectPart(part);

@@ -27,7 +27,7 @@ public final class TabletoftheGuilds extends Card
 
 			EventFactory factory = new EventFactory(EventType.PLAYER_CHOOSE, "Choose two colors.");
 			factory.parameters.put(EventType.Parameter.PLAYER, ControllerOf.instance(originalEvent));
-			factory.parameters.put(EventType.Parameter.CHOICE, Identity.instance(Color.allColors()));
+			factory.parameters.put(EventType.Parameter.CHOICE, Identity.fromCollection(Color.allColors()));
 			factory.parameters.put(EventType.Parameter.NUMBER, numberGenerator(2));
 			factory.parameters.put(EventType.Parameter.TYPE, Identity.instance(PlayerInterface.ChoiceType.COLOR, REASON));
 			factory.setLink(this);

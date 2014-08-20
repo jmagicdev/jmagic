@@ -22,7 +22,7 @@ public final class EmptyAllManaPools extends EventType
 	{
 		java.util.Map<Parameter, Set> emptyPoolParameters = new java.util.HashMap<Parameter, Set>();
 		emptyPoolParameters.put(Parameter.CAUSE, new Set(game));
-		emptyPoolParameters.put(Parameter.PLAYER, new Set(game.actualState.players));
+		emptyPoolParameters.put(Parameter.PLAYER, Set.fromCollection(game.actualState.players));
 		Event emptyPools = createEvent(game, event.getName(), EMPTY_MANA_POOL, emptyPoolParameters);
 		emptyPools.perform(event, false);
 

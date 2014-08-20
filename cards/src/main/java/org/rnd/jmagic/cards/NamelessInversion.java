@@ -27,7 +27,7 @@ public final class NamelessInversion extends Card
 		ContinuousEffect.Part pt = modifyPowerAndToughness(targetedBy(target), +3, -3);
 		ContinuousEffect.Part types = new ContinuousEffect.Part(ContinuousEffectType.REMOVE_TYPES);
 		types.parameters.put(ContinuousEffectType.Parameter.OBJECT, targetedBy(target));
-		types.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.instance(SubType.getAllCreatureTypes()));
+		types.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.fromCollection(SubType.getAllCreatureTypes()));
 
 		this.addEffect(createFloatingEffect("Target creature gets +3/-3 and loses all creature types until end of turn.", pt, types));
 	}

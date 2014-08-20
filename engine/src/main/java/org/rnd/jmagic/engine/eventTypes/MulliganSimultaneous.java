@@ -85,7 +85,7 @@ public final class MulliganSimultaneous extends EventType
 		for(Player player: orderedPlayers)
 			game.physicalState.<Event>get(mulligans.get(player.ID)).perform(event, false);
 
-		event.setResult(Identity.instance(orderedPlayers));
+		event.setResult(Identity.fromCollection(orderedPlayers));
 		return ret;
 	}
 }

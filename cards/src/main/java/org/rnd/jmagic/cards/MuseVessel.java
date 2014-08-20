@@ -56,7 +56,7 @@ public final class MuseVessel extends Card
 			java.util.Collection<GameObject> chosen = you.sanitizeAndChoose(game.actualState, 1, objects.getAll(GameObject.class), PlayerInterface.ChoiceType.OBJECTS, REASON);
 
 			ContinuousEffect.Part permission = new ContinuousEffect.Part(ContinuousEffectType.MAY_PLAY_LOCATION);
-			permission.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.instance(chosen));
+			permission.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.fromCollection(chosen));
 			permission.parameters.put(ContinuousEffectType.Parameter.PERMISSION, Identity.instance(new PlayPermission(You.instance())));
 			createFloatingEffect("You may play the chosen card this turn.", permission).createEvent(game, event.getSource()).perform(event, true);
 

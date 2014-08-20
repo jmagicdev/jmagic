@@ -19,7 +19,7 @@ public final class StoicRebuttal extends Card
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("(1)")));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("(1)")));
 			this.addEffectPart(part);
 
 			this.canApply = Metalcraft.instance();

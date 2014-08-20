@@ -26,7 +26,7 @@ public final class PunishingFire extends Card
 
 			EventFactory youMayPayR = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay (R)");
 			youMayPayR.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			youMayPayR.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("R")));
+			youMayPayR.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("R")));
 			youMayPayR.parameters.put(EventType.Parameter.PLAYER, You.instance());
 
 			EventFactory moveToHand = new EventFactory(EventType.MOVE_OBJECTS, "Return Punishing Fire from your graveyard to your hand.");

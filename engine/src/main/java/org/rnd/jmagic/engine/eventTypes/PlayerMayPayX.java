@@ -71,7 +71,7 @@ public final class PlayerMayPayX extends EventType
 		java.util.Map<Parameter, Set> payParameters = new java.util.HashMap<Parameter, Set>();
 		payParameters.put(EventType.Parameter.CAUSE, causeParameter);
 		payParameters.put(EventType.Parameter.PLAYER, playerParameter);
-		payParameters.put(EventType.Parameter.COST, new Set(cost));
+		payParameters.put(EventType.Parameter.COST, Set.fromCollection(cost));
 		Event pay = createEvent(game, "Pay (X)", PAY_MANA, payParameters);
 		pay.perform(event, false);
 

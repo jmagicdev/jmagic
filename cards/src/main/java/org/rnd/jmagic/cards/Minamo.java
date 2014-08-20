@@ -57,7 +57,7 @@ public final class Minamo extends Card
 
 				for(Player player: parameters.get(EventType.Parameter.PLAYER).getAll(Player.class))
 				{
-					Set allowedCards = Intersect.get(filter, new Set(player.getGraveyard(game.actualState).objects));
+					Set allowedCards = Intersect.get(filter, Set.fromCollection(player.getGraveyard(game.actualState).objects));
 					if(allowedCards.isEmpty())
 					{
 						// They can't put a card onto the battlefield if they
@@ -87,7 +87,7 @@ public final class Minamo extends Card
 					java.util.Map<Parameter, Set> moveParameters = new java.util.HashMap<Parameter, Set>();
 					moveParameters.put(Parameter.CAUSE, parameters.get(Parameter.CAUSE));
 					moveParameters.put(Parameter.TO, new Set(player.getHand(game.actualState)));
-					moveParameters.put(Parameter.OBJECT, new Set(event.getChoices(player)));
+					moveParameters.put(Parameter.OBJECT, Set.fromCollection(event.getChoices(player)));
 					Event move = createEvent(game, "Put the chosen card into its owners' hand.", EventType.MOVE_OBJECTS, moveParameters);
 					move.perform(event, true);
 				}

@@ -2922,7 +2922,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		assertEquals(18, player(1).lifeTotal);
 		assertEquals(22, player(0).lifeTotal);
 		assertEquals("Brion Stoutarm", BrionStoutarm.getName());
-		assertEquals(2, new Set(BrionStoutarm.getKeywordAbilities()).getAll(org.rnd.jmagic.abilities.keywords.Lifelink.class).size());
+		assertEquals(2, Set.fromCollection(BrionStoutarm.getKeywordAbilities()).getAll(org.rnd.jmagic.abilities.keywords.Lifelink.class).size());
 	}
 
 	@Test

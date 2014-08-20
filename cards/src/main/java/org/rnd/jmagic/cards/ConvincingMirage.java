@@ -39,7 +39,7 @@ public final class ConvincingMirage extends Card
 				Linkable link = parameters.get(Parameter.SOURCE).getOne(Linkable.class).getPhysical();
 				for(Object object: chosen)
 					link.getLinkManager().addLinkInformation(object);
-				event.setResult(Identity.instance(chosen));
+				event.setResult(Identity.fromCollection(chosen));
 				return chosen.size() == 1;
 			}
 		};

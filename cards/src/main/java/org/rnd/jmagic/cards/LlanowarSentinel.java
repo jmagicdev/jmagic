@@ -23,7 +23,7 @@ public final class LlanowarSentinel extends Card
 
 			EventType.ParameterMap mayParameters = new EventType.ParameterMap();
 			mayParameters.put(EventType.Parameter.CAUSE, This.instance());
-			mayParameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("1G")));
+			mayParameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("1G")));
 			mayParameters.put(EventType.Parameter.PLAYER, You.instance());
 
 			EventType.ParameterMap searchParameters = new EventType.ParameterMap();

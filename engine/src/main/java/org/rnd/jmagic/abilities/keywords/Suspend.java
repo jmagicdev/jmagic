@@ -261,7 +261,7 @@ public final class Suspend extends Keyword
 
 			EventFactory payFactory = new EventFactory(EventType.PAY_MANA, "Pay " + cost + ".");
 			payFactory.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			payFactory.parameters.put(EventType.Parameter.COST, Identity.instance(cost));
+			payFactory.parameters.put(EventType.Parameter.COST, Identity.fromCollection(cost));
 			payFactory.parameters.put(EventType.Parameter.PLAYER, Identity.instance(who));
 			payFactory.parameters.put(EventType.Parameter.NUMBER, numberGenerator(1));
 

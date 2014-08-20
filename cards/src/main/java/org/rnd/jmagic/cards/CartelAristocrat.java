@@ -21,7 +21,7 @@ public final class CartelAristocrat extends Card
 			SetGenerator anotherCreature = RelativeComplement.instance(CreaturePermanents.instance(), ABILITY_SOURCE_OF_THIS);
 			this.addCost(sacrifice(You.instance(), 1, anotherCreature, "Sacrifice another creature"));
 
-			EventFactory chooseColor = playerChoose(You.instance(), 1, Identity.instance(Color.allColors()), PlayerInterface.ChoiceType.COLOR, PlayerInterface.ChooseReason.CHOOSE_COLOR, "");
+			EventFactory chooseColor = playerChoose(You.instance(), 1, Identity.fromCollection(Color.allColors()), PlayerInterface.ChoiceType.COLOR, PlayerInterface.ChooseReason.CHOOSE_COLOR, "");
 			this.addEffect(chooseColor);
 
 			SetGenerator color = EffectResult.instance(chooseColor);

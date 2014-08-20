@@ -18,7 +18,7 @@ public class NonTypePattern implements SetPattern
 	@Override
 	public void freeze(GameState state, Identified thisObject)
 	{
-		this.types = Identity.instance(this.types.evaluate(state, thisObject)).noTextChanges();
+		this.types = Identity.fromCollection(this.types.evaluate(state, thisObject)).noTextChanges();
 	}
 
 	@Override

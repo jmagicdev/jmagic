@@ -36,7 +36,7 @@ public final class WorldQueller extends Card
 			sacParameters.put(Parameter.CAUSE, cause);
 			sacParameters.put(Parameter.NUMBER, new Set(1));
 			sacParameters.put(Parameter.CHOICE, HasType.get(game.actualState, chosenType));
-			sacParameters.put(Parameter.PLAYER, new Set(game.actualState.players));
+			sacParameters.put(Parameter.PLAYER, Set.fromCollection(game.actualState.players));
 			Event sacrifice = createEvent(game, "Each player sacrifices a permanent of the chosen type", EventType.SACRIFICE_CHOICE, sacParameters);
 			sacrifice.perform(event, true);
 

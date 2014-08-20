@@ -39,7 +39,7 @@ public final class RemovePoisonCounters extends EventType
 				}
 			}
 		}
-		event.setResult(Identity.instance(counters));
+		event.setResult(Identity.fromCollection(counters));
 		if(counters.size() == players.size() * number)
 			return true;
 

@@ -36,7 +36,7 @@ public final class KothoftheHammer extends Card
 
 			EventFactory factory = new EventFactory(EventType.ADD_MANA, "Add (R) to your mana pool.");
 			factory.parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			factory.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("(R)")));
+			factory.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("(R)")));
 			factory.parameters.put(EventType.Parameter.NUMBER, Count.instance(Intersect.instance(HasSubType.instance(SubType.MOUNTAIN), ControlledBy.instance(You.instance()))));
 			factory.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			this.addEffect(factory);

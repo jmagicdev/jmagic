@@ -76,7 +76,7 @@ public final class CreateFloatingContinuousEffect extends EventType
 					ContinuousEffectType.Parameter parameterName = parameter.getKey();
 					Set evaluation = parameter.getValue().evaluate(game, cause);
 
-					SetGenerator newParameter = Identity.instance(evaluation);
+					SetGenerator newParameter = Identity.fromCollection(evaluation);
 					part.parameters.put(parameterName, newParameter);
 				}
 			}
@@ -89,7 +89,7 @@ public final class CreateFloatingContinuousEffect extends EventType
 			effect.turnCreated = game.physicalState.currentTurn();
 			game.physicalState.floatingEffects.add(effect);
 		}
-		event.setResult(Identity.instance(physicalEffects));
+		event.setResult(Identity.fromCollection(physicalEffects));
 		return true;
 	}
 }

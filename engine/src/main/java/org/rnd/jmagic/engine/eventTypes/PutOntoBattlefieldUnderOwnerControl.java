@@ -49,7 +49,7 @@ public final class PutOntoBattlefieldUnderOwnerControl extends EventType
 			result.addAll(putOntoBattlefield.getResult());
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return allMoved;
 	}
 }

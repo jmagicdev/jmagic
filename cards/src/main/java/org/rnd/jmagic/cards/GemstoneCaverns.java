@@ -41,7 +41,7 @@ public final class GemstoneCaverns extends Card
 			this.costsTap = true;
 
 			SetGenerator hasCounter = Intersect.instance(This.instance(), HasCounterOfType.instance(Counter.CounterType.LUCK));
-			SetGenerator mana = IfThenElse.instance(hasCounter, Identity.instance(new ManaPool("(WUBRG)")), Identity.instance(new ManaPool("(1)")));
+			SetGenerator mana = IfThenElse.instance(hasCounter, Identity.fromCollection(new ManaPool("(WUBRG)")), Identity.fromCollection(new ManaPool("(1)")));
 
 			EventFactory addMana = new EventFactory(EventType.ADD_MANA, "Add (1) to your mana pool. If Gemstone Caverns has a luck counter on it, instead add one mana of any color to your mana pool.");
 			addMana.parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);

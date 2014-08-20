@@ -30,7 +30,7 @@ public final class BrilliantUltimatum extends Card
 		@Override
 		public boolean perform(Game game, Event event, java.util.Map<Parameter, Set> parameters)
 		{
-			Event exile = exile(Identity.instance(parameters.get(Parameter.CARD)), "Exile the top five cards of your library").createEvent(game, event.getSource());
+			Event exile = exile(Identity.fromCollection(parameters.get(Parameter.CARD)), "Exile the top five cards of your library").createEvent(game, event.getSource());
 			exile.perform(event, true);
 
 			Player you = parameters.get(Parameter.PLAYER).getOne(Player.class).getActual();
@@ -45,7 +45,7 @@ public final class BrilliantUltimatum extends Card
 			java.util.Map<Parameter, Set> playParameters = new java.util.HashMap<Parameter, Set>();
 			playParameters.put(Parameter.CAUSE, parameters.get(Parameter.CAUSE));
 			playParameters.put(Parameter.PLAYER, new Set(you));
-			playParameters.put(Parameter.OBJECT, new Set(chosenPile));
+			playParameters.put(Parameter.OBJECT, Set.fromCollection(chosenPile));
 			Event playStuff = createEvent(game, "You may play any number of cards from one of those piles without paying their mana costs.", PLAY_WITHOUT_PAYING_MANA_COSTS, playParameters);
 			playStuff.perform(event, true);
 

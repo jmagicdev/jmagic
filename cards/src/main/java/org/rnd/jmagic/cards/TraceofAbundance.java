@@ -36,7 +36,7 @@ public final class TraceofAbundance extends Card
 
 			EventType.ParameterMap parameters = new EventType.ParameterMap();
 			parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("(WUBRG)")));
+			parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("(WUBRG)")));
 			parameters.put(EventType.Parameter.PLAYER, ControllerOf.instance(enchantedLand));
 			this.addEffect(new EventFactory(EventType.ADD_MANA, parameters, "Its controller adds one mana of any color to his or her mana pool."));
 		}

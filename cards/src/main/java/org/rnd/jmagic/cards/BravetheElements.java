@@ -63,7 +63,7 @@ public final class BravetheElements extends Card
 
 		EventFactory factory = new EventFactory(BRAVE_THE_ELEMENTS_EVENT, "Choose a color. White creatures you control gain protection from the chosen color until end of turn.");
 		factory.parameters.put(EventType.Parameter.CAUSE, This.instance());
-		factory.parameters.put(EventType.Parameter.CHOICE, Identity.instance(Color.allColors()));
+		factory.parameters.put(EventType.Parameter.CHOICE, Identity.fromCollection(Color.allColors()));
 		factory.parameters.put(EventType.Parameter.PLAYER, You.instance());
 		this.addEffect(factory);
 	}

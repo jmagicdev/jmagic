@@ -62,7 +62,7 @@ public final class HellkiteCharger extends Card
 			EventFactory mayPay = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay (5)(R)(R).");
 			mayPay.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			mayPay.parameters.put(EventType.Parameter.PLAYER, You.instance());
-			mayPay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("5RR")));
+			mayPay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("5RR")));
 
 			EventFactory moreFighting = new EventFactory(HELLKITE_CHARGER_EVENT, "Untap all attacking creatures and after this phase, there is an additional combat phase");
 			moreFighting.parameters.put(EventType.Parameter.CAUSE, This.instance());

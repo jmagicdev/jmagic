@@ -40,7 +40,7 @@ public final class ShuffleIntoLibrary extends EventType
 		// be player-ordered
 		if(!game.noRandom)
 			moveParameters.put(Parameter.RANDOM, Empty.set);
-		moveParameters.put(Parameter.OBJECT, new Set(cards));
+		moveParameters.put(Parameter.OBJECT, Set.fromCollection(cards));
 		Event move = createEvent(game, "Put " + cards + " into their owners' libraries.", PUT_INTO_LIBRARY, moveParameters);
 		boolean moveStatus = move.perform(event, true);
 
@@ -71,7 +71,7 @@ public final class ShuffleIntoLibrary extends EventType
 
 		java.util.Map<Parameter, Set> shuffleParameters = new java.util.HashMap<Parameter, Set>();
 		shuffleParameters.put(Parameter.CAUSE, cause);
-		shuffleParameters.put(Parameter.PLAYER, new Set(player));
+		shuffleParameters.put(Parameter.PLAYER, Set.fromCollection(player));
 		Event shuffle = createEvent(game, player + " shuffles their library.", SHUFFLE_LIBRARY, shuffleParameters);
 		boolean shuffleStatus = shuffle.perform(event, false);
 

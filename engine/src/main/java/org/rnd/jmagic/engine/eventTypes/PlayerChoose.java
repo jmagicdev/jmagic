@@ -39,7 +39,7 @@ public final class PlayerChoose extends EventType
 		else
 			result.addAll(choice);
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return true;
 	}
 }

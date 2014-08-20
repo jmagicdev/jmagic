@@ -30,7 +30,7 @@ public interface SetPattern
 		@Override
 		public boolean match(GameState state, Identified thisObject, Set set)
 		{
-			return (null != Identity.instance(set).evaluate(state, thisObject).getOne(Castable.class));
+			return (null != Identity.fromCollection(set).evaluate(state, thisObject).getOne(Castable.class));
 		}
 
 		@Override
@@ -75,7 +75,7 @@ public interface SetPattern
 		@Override
 		public boolean match(GameState state, Identified thisObject, Set set)
 		{
-			Set mostRecent = Identity.instance(set).evaluate(state, thisObject);
+			Set mostRecent = Identity.fromCollection(set).evaluate(state, thisObject);
 			for(ActivatedAbility object: mostRecent.getAll(ActivatedAbility.class))
 				if(!object.isManaAbility())
 					return true;

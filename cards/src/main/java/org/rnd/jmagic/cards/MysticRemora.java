@@ -30,7 +30,7 @@ public final class MysticRemora extends Card
 			EventFactory pay = new EventFactory(EventType.PAY_MANA, "Pay (4)");
 			pay.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			pay.parameters.put(EventType.Parameter.PLAYER, thatPlayer);
-			pay.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("4")));
+			pay.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("4")));
 			this.addEffect(unless(thatPlayer, mayDraw, pay, "You may draw a card unless that player pays (4)."));
 		}
 	}

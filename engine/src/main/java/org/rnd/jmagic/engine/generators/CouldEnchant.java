@@ -30,7 +30,7 @@ public class CouldEnchant extends SetGenerator
 				if(ability.isEnchant())
 				{
 					org.rnd.jmagic.abilities.keywords.Enchant e = (org.rnd.jmagic.abilities.keywords.Enchant)ability;
-					Set intermediate = new Set(what);
+					Set intermediate = Set.fromCollection(what);
 					intermediate.retainAll(e.filter.evaluate(state, aura));
 					for(GameObject o: intermediate.getAll(GameObject.class))
 						if(!o.cantBeAttachedBy().match(state, thisObject, new Set(aura)))

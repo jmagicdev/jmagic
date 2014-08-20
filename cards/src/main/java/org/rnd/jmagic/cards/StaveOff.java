@@ -19,7 +19,7 @@ public final class StaveOff extends Card
 		// end of turn.
 		SetGenerator target = targetedBy(this.addTarget(CreaturePermanents.instance(), "target creature"));
 
-		EventFactory chooseColor = playerChoose(You.instance(), 1, Identity.instance(Color.allColors()), PlayerInterface.ChoiceType.COLOR, PlayerInterface.ChooseReason.CHOOSE_COLOR, "");
+		EventFactory chooseColor = playerChoose(You.instance(), 1, Identity.fromCollection(Color.allColors()), PlayerInterface.ChoiceType.COLOR, PlayerInterface.ChooseReason.CHOOSE_COLOR, "");
 		this.addEffect(chooseColor);
 
 		SetGenerator color = EffectResult.instance(chooseColor);

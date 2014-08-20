@@ -19,7 +19,7 @@ public class CardNames extends SetGenerator
 	@Override
 	public Set evaluate(GameState state, Identified thisObject)
 	{
-		return new Set(state.game.gameType.getCardPool().keySet());
+		return Set.fromCollection(state.game.gameType.getCardPool().keySet());
 	}
 
 }

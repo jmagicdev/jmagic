@@ -1730,7 +1730,7 @@ public abstract class ContinuousEffectType
 			for(Identified object: parameters.get(Parameter.OBJECT).getAll(Identified.class))
 			{
 				if(!state.abilityExemptions.get(ability).containsKey(object.ID))
-					state.abilityExemptions.get(ability).put(object.ID, new Set(exemptions));
+					state.abilityExemptions.get(ability).put(object.ID, Set.fromCollection(exemptions));
 				else
 					state.abilityExemptions.get(ability).get(object.ID).add(exemptions);
 			}

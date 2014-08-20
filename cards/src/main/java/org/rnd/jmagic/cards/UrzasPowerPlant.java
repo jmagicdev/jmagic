@@ -22,7 +22,7 @@ public final class UrzasPowerPlant extends Card
 			SetGenerator youControlMine = Intersect.instance(ControlledBy.instance(You.instance()), mines);
 			SetGenerator towers = Intersect.instance(HasSubType.instance(SubType.URZAS), HasSubType.instance(SubType.TOWER));
 			SetGenerator youControlTower = Intersect.instance(ControlledBy.instance(You.instance()), towers);
-			SetGenerator mana = IfThenElse.instance(Both.instance(youControlMine, youControlTower), Identity.instance(new ManaPool("2")), Identity.instance(new ManaPool("1")));
+			SetGenerator mana = IfThenElse.instance(Both.instance(youControlMine, youControlTower), Identity.fromCollection(new ManaPool("2")), Identity.fromCollection(new ManaPool("1")));
 
 			EventFactory effect = new EventFactory(EventType.ADD_MANA, "Add (1) to your mana pool. If you control an Urza's Mine and an Urza's Tower, add (2) to your mana pool instead.");
 			effect.parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);

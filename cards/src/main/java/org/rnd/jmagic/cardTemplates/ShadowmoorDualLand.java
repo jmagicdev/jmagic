@@ -25,7 +25,7 @@ public abstract class ShadowmoorDualLand extends Card
 			EventFactory factory = new EventFactory(EventType.ADD_MANA, ("Add (" + mana1 + ")(" + mana1 + "), (" + mana1 + ")(" + mana2 + "), or (" + mana2 + ")(" + mana2 + ") to your mana pool."));
 			factory.parameters.put(EventType.Parameter.SOURCE, AbilitySource.instance(This.instance()));
 			factory.parameters.put(EventType.Parameter.PLAYER, You.instance());
-			factory.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool(mana)));
+			factory.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool(mana)));
 			this.addEffect(factory);
 		}
 

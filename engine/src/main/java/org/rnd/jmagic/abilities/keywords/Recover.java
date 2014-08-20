@@ -65,7 +65,7 @@ public abstract class Recover extends Keyword
 			{
 				mayCost = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay " + mana + ".");
 				mayCost.parameters.put(EventType.Parameter.CAUSE, This.instance());
-				mayCost.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool(mana)));
+				mayCost.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool(mana)));
 				mayCost.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			}
 

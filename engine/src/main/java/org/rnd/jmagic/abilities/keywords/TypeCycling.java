@@ -61,17 +61,17 @@ public abstract class TypeCycling extends CyclingBase
 				java.util.Set<SubType> subTypes = parent.filterTypes.getAll(SubType.class);
 
 				if(!superType.isEmpty())
-					filter = HasSuperType.instance(Identity.instance(superType));
+					filter = HasSuperType.instance(Identity.fromCollection(superType));
 				if(!type.isEmpty())
 					if(filter == null)
-						filter = HasType.instance(Identity.instance(type));
+						filter = HasType.instance(Identity.fromCollection(type));
 					else
-						filter = Intersect.instance(filter, HasType.instance(Identity.instance(type)));
+						filter = Intersect.instance(filter, HasType.instance(Identity.fromCollection(type)));
 				if(!subTypes.isEmpty())
 					if(filter == null)
-						filter = HasSubType.instance(Identity.instance(subTypes));
+						filter = HasSubType.instance(Identity.fromCollection(subTypes));
 					else
-						filter = Intersect.instance(filter, HasSubType.instance(Identity.instance(subTypes)));
+						filter = Intersect.instance(filter, HasSubType.instance(Identity.fromCollection(subTypes)));
 			}
 
 			EventType.ParameterMap searchParameters = new EventType.ParameterMap();

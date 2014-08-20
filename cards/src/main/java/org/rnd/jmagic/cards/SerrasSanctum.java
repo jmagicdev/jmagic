@@ -22,7 +22,7 @@ public final class SerrasSanctum extends Card
 
 			EventFactory effect = new EventFactory(EventType.ADD_MANA, "Add (W) to your mana pool for each enchantment you control.");
 			effect.parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			effect.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("W")));
+			effect.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("W")));
 			effect.parameters.put(EventType.Parameter.NUMBER, numControllersEnchantments);
 			effect.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			this.addEffect(effect);

@@ -22,7 +22,7 @@ public final class LionsEyeDiamond extends Card
 
 			EventFactory addMana = new EventFactory(EventType.ADD_MANA, "Add three mana of any one color to your mana pool.");
 			addMana.parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			addMana.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("(WUBRG)")));
+			addMana.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("(WUBRG)")));
 			addMana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			addMana.parameters.put(EventType.Parameter.NUMBER, numberGenerator(3));
 			this.addEffect(addMana);

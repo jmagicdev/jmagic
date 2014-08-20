@@ -18,7 +18,7 @@ public class Union extends SetGenerator
 
 	static public Set get(Set a, Set b)
 	{
-		Set ret = new Set(a);
+		Set ret = Set.fromCollection(a);
 		ret.addAll(b);
 		return ret;
 	}

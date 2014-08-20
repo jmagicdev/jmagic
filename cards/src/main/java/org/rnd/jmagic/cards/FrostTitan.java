@@ -27,7 +27,7 @@ public final class FrostTitan extends Card
 			SetGenerator controller = ControllerOf.instance(thatSpell);
 			EventFactory pay = new EventFactory(EventType.PAY_MANA, "Pay " + "(2)");
 			pay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			pay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(2)")));
+			pay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(2)")));
 			pay.parameters.put(EventType.Parameter.PLAYER, controller);
 
 			this.addEffect(unless(controller, counter, pay, "Counter that spell unless its controller pays (2)."));

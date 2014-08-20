@@ -23,7 +23,7 @@ public final class SpellRupture extends Card
 		SetGenerator controller = ControllerOf.instance(target);
 		EventFactory pay = new EventFactory(EventType.PAY_MANA, "Pay (X) where X is the greatest power among creatures you control.");
 		pay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-		pay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("1")));
+		pay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("1")));
 		pay.parameters.put(EventType.Parameter.NUMBER, Maximum.instance(PowerOf.instance(CREATURES_YOU_CONTROL)));
 		pay.parameters.put(EventType.Parameter.PLAYER, controller);
 		this.addEffect(unless(controller, counter, pay, "Counter target spell unless its controller pays (X), where X is the greatest power among creatures you control."));

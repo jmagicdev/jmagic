@@ -33,7 +33,7 @@ public interface Linkable
 				Manager ret = (Manager)super.clone();
 
 				if(this.linkInformation != null)
-					ret.linkInformation = new Set(this.linkInformation);
+					ret.linkInformation = Set.fromCollection(this.linkInformation);
 				ret.links = new java.util.HashMap<Class<? extends Linkable>, Integer>(this.links);
 
 				return ret;
@@ -72,7 +72,7 @@ public interface Linkable
 		{
 			if(this.linkInformation == null)
 				return null;
-			Set ret = org.rnd.jmagic.engine.generators.Identity.instance(this.linkInformation).evaluate(state, null);
+			Set ret = org.rnd.jmagic.engine.generators.Identity.fromCollection(this.linkInformation).evaluate(state, null);
 			for(GameObject go: ret.getAll(GameObject.class))
 				if(go.isGhost())
 					ret.remove(go);

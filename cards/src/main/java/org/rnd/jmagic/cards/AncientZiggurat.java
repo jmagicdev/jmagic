@@ -24,7 +24,7 @@ public final class AncientZiggurat extends Card
 			addCreatureMana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			addCreatureMana.parameters.put(EventType.Parameter.TYPE, Identity.instance(new TypePattern(Type.CREATURE)));
 			addCreatureMana.parameters.put(EventType.Parameter.PERMANENT, Empty.instance());
-			addCreatureMana.parameters.put(EventType.Parameter.MANA, Identity.instance(Color.allColors()));
+			addCreatureMana.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(Color.allColors()));
 			this.addEffect(addCreatureMana);
 		}
 	}

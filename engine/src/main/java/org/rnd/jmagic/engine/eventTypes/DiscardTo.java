@@ -50,7 +50,7 @@ public final class DiscardTo extends EventType
 			allDiscarded = false;
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return allDiscarded;
 	}
 }

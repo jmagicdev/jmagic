@@ -24,7 +24,7 @@ public final class KatakiWarsWage extends Card
 
 				EventFactory payMana = new EventFactory(EventType.PAY_MANA, "Pay (1).");
 				payMana.parameters.put(EventType.Parameter.CAUSE, This.instance());
-				payMana.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("1")));
+				payMana.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("1")));
 				payMana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 				payMana.parameters.put(EventType.Parameter.NUMBER, numberGenerator(1));
 				this.addEffect(unless(You.instance(), sacrificeThis("this artifact"), payMana, "Sacrifice this artifact unless you pay (1)."));

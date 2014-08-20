@@ -38,7 +38,7 @@ public final class HuntedWumpus extends Card
 
 				for(Player player: parameters.get(EventType.Parameter.PLAYER).getAll(Player.class))
 				{
-					Set allowedCards = Intersect.get(filter, new Set(player.getHand(game.actualState).objects));
+					Set allowedCards = Intersect.get(filter, Set.fromCollection(player.getHand(game.actualState).objects));
 					if(allowedCards.isEmpty())
 					{
 						// They can't put a card onto the battlefield if they

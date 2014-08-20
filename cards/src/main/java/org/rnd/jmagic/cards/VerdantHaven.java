@@ -34,7 +34,7 @@ public final class VerdantHaven extends Card
 
 			EventFactory addMana = new EventFactory(EventType.ADD_MANA, "Its controller adds one mana of any color to his or her mana pool.");
 			addMana.parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			addMana.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("(WUBRG)")));
+			addMana.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("(WUBRG)")));
 			addMana.parameters.put(EventType.Parameter.PLAYER, ControllerOf.instance(enchantedLand));
 			this.addEffect(addMana);
 		}

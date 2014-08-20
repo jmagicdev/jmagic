@@ -29,7 +29,7 @@ public final class Genesis extends Card
 
 			EventFactory mayPay = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay (2)(G)");
 			mayPay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			mayPay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(2)(G)")));
+			mayPay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(2)(G)")));
 			mayPay.parameters.put(EventType.Parameter.PLAYER, You.instance());
 
 			EventFactory move = new EventFactory(EventType.MOVE_OBJECTS, "Return target creature card from your graveyard to your hand");

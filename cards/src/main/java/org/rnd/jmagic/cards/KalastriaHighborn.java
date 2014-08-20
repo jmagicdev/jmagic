@@ -28,7 +28,7 @@ public final class KalastriaHighborn extends Card
 
 			EventFactory mayPay = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay (B)");
 			mayPay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			mayPay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("B")));
+			mayPay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("B")));
 			mayPay.parameters.put(EventType.Parameter.PLAYER, You.instance());
 
 			EventFactory lose = loseLife(target, 2, "Target player loses 2 life");

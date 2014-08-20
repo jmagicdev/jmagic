@@ -41,7 +41,7 @@ public class HasColor extends SetGenerator
 	{
 		Set colors = new Set();
 		colors.addAll(color);
-		this.colorGenerator = Identity.instance(colors);
+		this.colorGenerator = Identity.fromCollection(colors);
 	}
 
 	@Override

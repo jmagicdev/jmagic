@@ -51,12 +51,12 @@ public final class PutIntoZoneAsACopyOf extends EventType
 
 		ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.COPY_OBJECT);
 		part.parameters.put(ContinuousEffectType.Parameter.OBJECT, NewObjectOf.instance(Identity.instance(movement)));
-		part.parameters.put(ContinuousEffectType.Parameter.ORIGINAL, Identity.instance(source));
+		part.parameters.put(ContinuousEffectType.Parameter.ORIGINAL, Identity.fromCollection(source));
 		if(parameters.containsKey(Parameter.TYPE))
-			part.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.instance(parameters.get(Parameter.TYPE)));
+			part.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.fromCollection(parameters.get(Parameter.TYPE)));
 
 		EventFactory copy = new EventFactory(EventType.CREATE_FLOATING_CONTINUOUS_EFFECT, (object + " copies " + source));
-		copy.parameters.put(EventType.Parameter.CAUSE, Identity.instance(cause));
+		copy.parameters.put(EventType.Parameter.CAUSE, Identity.fromCollection(cause));
 		copy.parameters.put(EventType.Parameter.EFFECT, Identity.instance(part));
 		copy.parameters.put(EventType.Parameter.EXPIRES, Identity.instance(Empty.instance()));
 		movement.events.add(copy);

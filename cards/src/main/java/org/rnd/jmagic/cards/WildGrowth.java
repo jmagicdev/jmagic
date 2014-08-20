@@ -24,7 +24,7 @@ public final class WildGrowth extends Card
 
 			EventType.ParameterMap parameters = new EventType.ParameterMap();
 			parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("G")));
+			parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("G")));
 			parameters.put(EventType.Parameter.PLAYER, ControllerOf.instance(enchantedLand));
 			this.addEffect(new EventFactory(EventType.ADD_MANA, parameters, "Its controller adds (G) to his or her mana pool."));
 		}

@@ -42,7 +42,7 @@ public final class GiftsUngiven extends Card
 				// adding a redundant type parameter to keep the search
 				// "restricted"
 				// -- this means they can fail to find.
-				searchParameters.put(Parameter.TYPE, new Set(Identity.instance(library.objects)));
+				searchParameters.put(Parameter.TYPE, new Set(Identity.fromCollection(library.objects)));
 				Event search = createEvent(game, "Search your library for four cards with different names.", EventType.SEARCH, searchParameters);
 				search.perform(event, false);
 

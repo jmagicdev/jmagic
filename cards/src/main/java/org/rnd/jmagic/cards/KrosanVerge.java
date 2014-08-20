@@ -65,7 +65,7 @@ public final class KrosanVerge extends Card
 
 			boolean ret = putOntoBattlefieldTapped.perform(event, true);
 			Set movedObjects = NewObjectOf.instance(putOntoBattlefieldTapped.getResultGenerator()).evaluate(game, null);
-			event.setResult(Identity.instance(movedObjects));
+			event.setResult(Identity.fromCollection(movedObjects));
 			return ret;
 		}
 	};

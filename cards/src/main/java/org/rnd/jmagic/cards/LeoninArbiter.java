@@ -107,7 +107,7 @@ public final class LeoninArbiter extends Card
 			EventFactory pay = new EventFactory(EventType.PAY_MANA, "Pay (2)");
 			pay.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			pay.parameters.put(EventType.Parameter.PLAYER, Identity.instance(actor));
-			pay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("2")));
+			pay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("2")));
 			boolean result = pay.createEvent(this.game, this.game.actualState.getByIDObject(this.getSourceObjectID())).perform(null, true);
 
 			if(result)

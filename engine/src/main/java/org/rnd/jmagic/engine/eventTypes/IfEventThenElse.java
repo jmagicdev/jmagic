@@ -36,7 +36,7 @@ public final class IfEventThenElse extends EventType
 			Event thenEvent = parameters.get(Parameter.THEN).getOne(EventFactory.class).createEvent(game, event.getSource());
 			boolean status = thenEvent.perform(event, true);
 			Set result = thenEvent.getResult();
-			event.setResult(Identity.instance(result));
+			event.setResult(Identity.fromCollection(result));
 			return status;
 		}
 		// if there isn't an else event, return NONE
@@ -49,7 +49,7 @@ public final class IfEventThenElse extends EventType
 		Event elseEvent = parameters.get(Parameter.ELSE).getOne(EventFactory.class).createEvent(game, event.getSource());
 		boolean status = elseEvent.perform(event, true);
 		Set result = elseEvent.getResult();
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return status;
 	}
 }

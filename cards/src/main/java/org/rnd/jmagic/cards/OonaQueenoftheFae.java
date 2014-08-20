@@ -27,7 +27,7 @@ public final class OonaQueenoftheFae extends Card
 
 			EventFactory choose = new EventFactory(EventType.PLAYER_CHOOSE, "Choose a color.");
 			choose.parameters.put(EventType.Parameter.PLAYER, You.instance());
-			choose.parameters.put(EventType.Parameter.CHOICE, Identity.instance(Color.allColors()));
+			choose.parameters.put(EventType.Parameter.CHOICE, Identity.fromCollection(Color.allColors()));
 			choose.parameters.put(EventType.Parameter.TYPE, Identity.instance(PlayerInterface.ChoiceType.COLOR, PlayerInterface.ChooseReason.CHOOSE_COLOR));
 			choose.parameters.put(EventType.Parameter.OBJECT, This.instance());
 			this.addEffect(choose);

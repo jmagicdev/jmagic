@@ -36,7 +36,7 @@ public class HasType extends SetGenerator
 
 	public static SetGenerator instance(java.util.Collection<Type> what)
 	{
-		return new HasType(Identity.instance(what));
+		return new HasType(Identity.fromCollection(what));
 	}
 
 	public static HasType instance(SetGenerator what)

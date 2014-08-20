@@ -21,7 +21,7 @@ public final class FeedingGrounds extends Card
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Intersect.instance(HasColor.instance(Color.RED), Spells.instance()));
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("1")));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("1")));
 			this.addEffectPart(part);
 
 			this.canApply = Planechase.staticAbilityCanApply;
@@ -36,7 +36,7 @@ public final class FeedingGrounds extends Card
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Intersect.instance(HasColor.instance(Color.GREEN), Spells.instance()));
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("1")));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("1")));
 			this.addEffectPart(part);
 
 			this.canApply = Planechase.staticAbilityCanApply;

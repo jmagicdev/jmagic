@@ -24,7 +24,7 @@ public final class AuraofSilence extends Card
 			SetGenerator yourOpponents = OpponentsOf.instance(ControllerOf.instance(This.instance()));
 			SetGenerator spellsYourOpponentsCast = Intersect.instance(Spells.instance(), ControlledBy.instance(yourOpponents, Stack.instance()));
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Intersect.instance(spellsYourOpponentsCast, artifactsAndEnchantments));
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("2")));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("2")));
 			this.addEffectPart(part);
 		}
 

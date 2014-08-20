@@ -20,7 +20,7 @@ public final class NotofThisWorld extends Card
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("7")));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("7")));
 			this.addEffectPart(part);
 
 			SetGenerator targetOfThis = ChosenTargetsFor.instance(AllTargetsOf.instance(This.instance()), This.instance());

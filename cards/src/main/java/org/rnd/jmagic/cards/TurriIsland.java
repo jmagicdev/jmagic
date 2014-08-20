@@ -19,7 +19,7 @@ public final class TurriIsland extends Card
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Intersect.instance(Spells.instance(), HasType.instance(Type.CREATURE)));
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("2")));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("2")));
 			this.addEffectPart(part);
 
 			this.canApply = Planechase.staticAbilityCanApply;

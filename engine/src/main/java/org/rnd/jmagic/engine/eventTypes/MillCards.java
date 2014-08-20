@@ -57,7 +57,7 @@ public final class MillCards extends EventType
 			result.addAll(move.getResult());
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return allMilled;
 	}
 }

@@ -43,21 +43,21 @@ public final class DjinnofWishes extends Card
 				boolean ret = revealEvent.perform(event, true);
 
 				EventType.ParameterMap playParameters = new EventType.ParameterMap();
-				playParameters.put(EventType.Parameter.CAUSE, Identity.instance(cause));
-				playParameters.put(EventType.Parameter.PLAYER, Identity.instance(player));
-				playParameters.put(EventType.Parameter.OBJECT, Identity.instance(object));
+				playParameters.put(EventType.Parameter.CAUSE, Identity.fromCollection(cause));
+				playParameters.put(EventType.Parameter.PLAYER, Identity.fromCollection(player));
+				playParameters.put(EventType.Parameter.OBJECT, Identity.fromCollection(object));
 				playParameters.put(EventType.Parameter.ALTERNATE_COST, Empty.instance());
 				Set playEvent = new Set(new EventFactory(EventType.PLAY_CARD, playParameters, "Play that card without paying its mana cost."));
 
 				EventType.ParameterMap mayParameters = new EventType.ParameterMap();
-				mayParameters.put(EventType.Parameter.PLAYER, Identity.instance(player));
-				mayParameters.put(EventType.Parameter.EVENT, Identity.instance(playEvent));
+				mayParameters.put(EventType.Parameter.PLAYER, Identity.fromCollection(player));
+				mayParameters.put(EventType.Parameter.EVENT, Identity.fromCollection(playEvent));
 				Set mayEvent = new Set(new EventFactory(EventType.PLAYER_MAY, mayParameters, "You may play that card without paying its mana cost."));
 
 				EventFactory exileFactory = new EventFactory(EventType.MOVE_OBJECTS, "Exile it.");
-				exileFactory.parameters.put(EventType.Parameter.CAUSE, Identity.instance(cause));
+				exileFactory.parameters.put(EventType.Parameter.CAUSE, Identity.fromCollection(cause));
 				exileFactory.parameters.put(EventType.Parameter.TO, ExileZone.instance());
-				exileFactory.parameters.put(EventType.Parameter.OBJECT, Identity.instance(object));
+				exileFactory.parameters.put(EventType.Parameter.OBJECT, Identity.fromCollection(object));
 				Set exileEvent = new Set(exileFactory);
 
 				java.util.Map<EventType.Parameter, Set> ifParameters = new java.util.HashMap<EventType.Parameter, Set>();

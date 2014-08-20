@@ -28,7 +28,7 @@ public final class Condescend extends Card
 		SetGenerator controller = ControllerOf.instance(targetedBy(target));
 		EventFactory pay = new EventFactory(EventType.PAY_MANA, "Pay (X)");
 		pay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-		pay.parameters.put(EventType.Parameter.COST, Identity.instance(xPool));
+		pay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(xPool));
 		pay.parameters.put(EventType.Parameter.PLAYER, controller);
 		this.addEffect(unless(controller, counter, pay, "Counter target spell unless its controller pays (X)."));
 

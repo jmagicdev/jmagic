@@ -20,7 +20,7 @@ public abstract class Pact extends Card
 
 		EventFactory payFactory = new EventFactory(EventType.PAY_MANA, ("Pay " + upkeepCost + "."));
 		payFactory.parameters.put(EventType.Parameter.CAUSE, This.instance());
-		payFactory.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool(upkeepCost)));
+		payFactory.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool(upkeepCost)));
 		payFactory.parameters.put(EventType.Parameter.PLAYER, You.instance());
 		payFactory.parameters.put(EventType.Parameter.NUMBER, numberGenerator(1));
 

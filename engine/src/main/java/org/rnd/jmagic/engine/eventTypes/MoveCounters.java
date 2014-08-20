@@ -39,7 +39,7 @@ public final class MoveCounters extends EventType
 
 		if(number < 1)
 		{
-			event.setResult(Identity.instance(result));
+			event.setResult(Identity.fromCollection(result));
 			return true;
 		}
 
@@ -62,7 +62,7 @@ public final class MoveCounters extends EventType
 		result.addAll(removeEvent.getResult());
 		result.addAll(addEvent.getResult());
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 
 		return success;
 	}

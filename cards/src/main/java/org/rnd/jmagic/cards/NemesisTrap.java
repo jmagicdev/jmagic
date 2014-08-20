@@ -40,7 +40,7 @@ public final class NemesisTrap extends Card
 			game.snapshotSoon(targeted);
 			game.refreshActualState();
 
-			Event exile = exile(Identity.instance(target), "Exile target attacking creature.").createEvent(game, event.getSource());
+			Event exile = exile(Identity.fromCollection(target), "Exile target attacking creature.").createEvent(game, event.getSource());
 			exile.perform(event, true);
 
 			Set cause = parameters.get(Parameter.CAUSE);

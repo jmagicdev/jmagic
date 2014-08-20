@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -38,7 +39,7 @@ public final class HeadGames extends Card
 			moveParams.put(EventType.Parameter.CAUSE, cause);
 			moveParams.put(EventType.Parameter.TO, targetsLibrary);
 			moveParams.put(EventType.Parameter.INDEX, new Set(1));
-			moveParams.put(EventType.Parameter.OBJECT, new Set(targetsHand.objects));
+			moveParams.put(EventType.Parameter.OBJECT, Set.fromCollection(targetsHand.objects));
 			Event libraryEvent = createEvent(game, "Target opponent puts the cards from his or her hand on top of his or her library.", EventType.MOVE_OBJECTS, moveParams);
 			boolean ret = libraryEvent.perform(event, true);
 

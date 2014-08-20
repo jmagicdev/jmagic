@@ -29,7 +29,7 @@ public final class Unattach extends EventType
 			ret.add(previouslyAttachedTo);
 			o.getPhysical().setAttachedTo(-1);
 		}
-		event.setResult(Identity.instance(ret));
+		event.setResult(Identity.fromCollection(ret));
 		return true;
 	}
 }

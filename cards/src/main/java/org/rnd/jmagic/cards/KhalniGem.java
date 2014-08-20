@@ -39,7 +39,7 @@ public final class KhalniGem extends Card
 
 			EventType.ParameterMap manaParameters = new EventType.ParameterMap();
 			manaParameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			manaParameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("(WUBRG)")));
+			manaParameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("(WUBRG)")));
 			manaParameters.put(EventType.Parameter.NUMBER, numberGenerator(2));
 			manaParameters.put(EventType.Parameter.PLAYER, You.instance());
 			this.addEffect(new EventFactory(EventType.ADD_MANA, manaParameters, "Add two mana of any one color to your mana pool."));

@@ -18,7 +18,7 @@ public final class ArcaneMelee extends Card
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, HasType.instance(Type.INSTANT, Type.SORCERY));
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("(2)")));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("(2)")));
 			this.addEffectPart(part);
 		}
 	}

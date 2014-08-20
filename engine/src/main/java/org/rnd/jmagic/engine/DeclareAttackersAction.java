@@ -218,7 +218,7 @@ public class DeclareAttackersAction extends PlayerAction
 		// creatures, if any, are banded with which.
 
 		// 508.1f The active player taps the chosen creatures.
-		SetGenerator attackersWithoutVigilance = RelativeComplement.instance(Identity.instance(attackers), HasKeywordAbility.instance(Vigilance.class));
+		SetGenerator attackersWithoutVigilance = RelativeComplement.instance(Identity.fromCollection(attackers), HasKeywordAbility.instance(Vigilance.class));
 
 		Event tapEvent = new Event(this.game.physicalState, "Tap the creatures chosen to attack.", EventType.TAP_PERMANENTS);
 		tapEvent.parameters.put(EventType.Parameter.CAUSE, OwnerOf.instance(CurrentTurn.instance()));
@@ -247,7 +247,7 @@ public class DeclareAttackersAction extends PlayerAction
 					Event manaEvent = new Event(this.game.physicalState, "Pay " + manaCost, EventType.PAY_MANA);
 					manaEvent.parameters.put(EventType.Parameter.CAUSE, Identity.instance(this.game));
 					manaEvent.parameters.put(EventType.Parameter.PLAYER, this.activePlayerGenerator);
-					manaEvent.parameters.put(EventType.Parameter.COST, Identity.instance(manaCost));
+					manaEvent.parameters.put(EventType.Parameter.COST, Identity.fromCollection(manaCost));
 					totalCostToAttack.add(manaEvent);
 					costsRequireMana = true;
 				}

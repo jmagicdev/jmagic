@@ -29,7 +29,7 @@ public final class SoulTithe extends Card
 
 			EventFactory pay = new EventFactory(EventType.PAY_MANA, "He or she pays (X), where X is its converted mana cost");
 			pay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			pay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("1")));
+			pay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("1")));
 			pay.parameters.put(EventType.Parameter.PLAYER, enchantedPermanentsController);
 			pay.parameters.put(EventType.Parameter.NUMBER, ConvertedManaCostOf.instance(enchantedPermanent));
 

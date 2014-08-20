@@ -62,7 +62,7 @@ public final class RefractionTrap extends Card
 			int prevented = damageAssignments.size();
 			fce.damage -= prevented;
 			damageAssignments.clear();
-			return java.util.Collections.singletonList(spellDealDamage(prevented, Identity.instance(this.game.actualState.get(this.target)), "Refraction Trap deals that much damage to target creature or player."));
+			return java.util.Collections.singletonList(spellDealDamage(prevented, Identity.fromCollection(this.game.actualState.get(this.target)), "Refraction Trap deals that much damage to target creature or player."));
 		}
 
 		@Override

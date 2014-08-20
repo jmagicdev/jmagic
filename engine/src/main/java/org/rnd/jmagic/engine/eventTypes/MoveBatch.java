@@ -66,7 +66,7 @@ public final class MoveBatch extends EventType
 		if(game.hasStarted())
 		{
 			players.remove(null);
-			players = game.actualState.apnapOrder(new Set(players));
+			players = game.actualState.apnapOrder(Set.fromCollection(players));
 			if(controlledChanges.containsKey(null))
 				players.add(null);
 		}
@@ -308,7 +308,7 @@ public final class MoveBatch extends EventType
 					// was cast use information about the spell that became
 					// that permanent.
 					{
-						Set newAbilities = new Set(moveIn.getNonStaticAbilities());
+						Set newAbilities = Set.fromCollection(moveIn.getNonStaticAbilities());
 						for(NonStaticAbility ability: moveOut.getNonStaticAbilities())
 						{
 							Linkable.Manager originalManager = ability.getLinkManager();
@@ -328,7 +328,7 @@ public final class MoveBatch extends EventType
 							}
 						}
 
-						newAbilities = new Set(moveIn.getStaticAbilities());
+						newAbilities = Set.fromCollection(moveIn.getStaticAbilities());
 						for(StaticAbility ability: moveOut.getStaticAbilities())
 						{
 							Linkable.Manager originalManager = ability.getLinkManager();
@@ -359,7 +359,7 @@ public final class MoveBatch extends EventType
 			player.alert(sanitized);
 		}
 
-		event.setResult(Identity.instance(newObjects));
+		event.setResult(Identity.fromCollection(newObjects));
 		return true;
 	}
 }

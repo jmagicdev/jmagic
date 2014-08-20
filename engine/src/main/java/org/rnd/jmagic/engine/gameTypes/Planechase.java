@@ -504,7 +504,7 @@ public class Planechase extends GameType.SimpleGameTypeRule
 			revealParameters.put(Parameter.OBJECT, newPlane);
 			createEvent(game, "Move the top card of your planar deck off your planar deck and turn it face up.", EventType.REVEAL, revealParameters).perform(event, true);
 
-			event.setResult(Identity.instance(previousPlane));
+			event.setResult(Identity.fromCollection(previousPlane));
 			return true;
 		}
 	};
@@ -636,7 +636,7 @@ public class Planechase extends GameType.SimpleGameTypeRule
 
 				EventFactory cost = new EventFactory(EventType.PAY_MANA, "Pay (1) for every time you have rolled the planar die this turn.");
 				cost.parameters.put(EventType.Parameter.CAUSE, CurrentGame.instance());
-				cost.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("1")));
+				cost.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("1")));
 				cost.parameters.put(EventType.Parameter.PLAYER, Identity.instance(acting));
 				cost.parameters.put(EventType.Parameter.NUMBER, org.rnd.jmagic.Convenience.numberGenerator(this.cost));
 

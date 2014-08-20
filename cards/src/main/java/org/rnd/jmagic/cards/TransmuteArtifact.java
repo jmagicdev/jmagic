@@ -46,7 +46,7 @@ public final class TransmuteArtifact extends Card
 		// do, put it onto the battlefield.
 		EventFactory youMayPayX = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay (X), where X is the difference");
 		youMayPayX.parameters.put(EventType.Parameter.CAUSE, This.instance());
-		youMayPayX.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("1")));
+		youMayPayX.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("1")));
 		youMayPayX.parameters.put(EventType.Parameter.NUMBER, difference);
 		youMayPayX.parameters.put(EventType.Parameter.PLAYER, You.instance());
 

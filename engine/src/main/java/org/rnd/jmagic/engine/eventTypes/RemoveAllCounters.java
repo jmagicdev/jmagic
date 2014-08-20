@@ -46,7 +46,7 @@ public final class RemoveAllCounters extends EventType
 			}
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return true;
 	}
 }

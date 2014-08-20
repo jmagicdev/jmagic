@@ -20,7 +20,7 @@ public final class CreepingRenaissance extends Card
 		// your graveyard to your hand.
 		EventFactory choose = new EventFactory(EventType.PLAYER_CHOOSE, "Choose a permanent type.");
 		choose.parameters.put(EventType.Parameter.PLAYER, You.instance());
-		choose.parameters.put(EventType.Parameter.CHOICE, Identity.instance(Type.permanentTypes()));
+		choose.parameters.put(EventType.Parameter.CHOICE, Identity.fromCollection(Type.permanentTypes()));
 		choose.parameters.put(EventType.Parameter.TYPE, Identity.instance(PlayerInterface.ChoiceType.ENUM, CHOOSE_REASON));
 		this.addEffect(choose);
 

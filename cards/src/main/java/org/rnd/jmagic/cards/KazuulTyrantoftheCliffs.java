@@ -37,7 +37,7 @@ public final class KazuulTyrantoftheCliffs extends Card
 
 			EventFactory theyPay3 = new EventFactory(EventType.PAY_MANA, "That creature's controller may pay (3)");
 			theyPay3.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			theyPay3.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("3")));
+			theyPay3.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("3")));
 			theyPay3.parameters.put(EventType.Parameter.PLAYER, thatCreaturesController);
 
 			this.addEffect(unless(thatCreaturesController, token.getEventFactory(), theyPay3, "Put a 3/3 red Ogre creature token onto the battlefield unless that creature's controller pays (3)."));

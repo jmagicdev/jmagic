@@ -21,7 +21,7 @@ public final class SeersSundial extends Card
 			EventFactory mayPay2 = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay (2)");
 			mayPay2.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			mayPay2.parameters.put(EventType.Parameter.PLAYER, You.instance());
-			mayPay2.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(2)")));
+			mayPay2.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(2)")));
 
 			EventFactory drawACard = drawACard();
 

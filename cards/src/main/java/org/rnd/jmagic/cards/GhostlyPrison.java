@@ -17,7 +17,7 @@ public final class GhostlyPrison extends Card
 			super(state, "Creatures can't attack you unless their controller pays (2) for each creature he or she controls that's attacking you.");
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.ATTACKING_COST);
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("2")));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("2")));
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, CreaturePermanents.instance());
 			part.parameters.put(ContinuousEffectType.Parameter.PLAYER, You.instance());
 			this.addEffectPart(part);

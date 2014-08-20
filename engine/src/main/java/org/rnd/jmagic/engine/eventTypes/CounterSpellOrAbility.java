@@ -36,7 +36,7 @@ public final class CounterSpellOrAbility extends EventType
 			result.addAll(counterOne.getResult());
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 
 		return allCountered;
 	}

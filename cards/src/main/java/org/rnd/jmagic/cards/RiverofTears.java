@@ -18,7 +18,7 @@ public final class RiverofTears extends Card
 			this.costsTap = true;
 
 			state.ensureTracker(new PlayedALandThisTurn.Tracker());
-			SetGenerator mana = IfThenElse.instance(PlayedALandThisTurn.instance(You.instance()), Identity.instance(new ManaPool("B")), Identity.instance(new ManaPool("U")));
+			SetGenerator mana = IfThenElse.instance(PlayedALandThisTurn.instance(You.instance()), Identity.fromCollection(new ManaPool("B")), Identity.fromCollection(new ManaPool("U")));
 
 			EventType.ParameterMap parameters = new EventType.ParameterMap();
 			parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);

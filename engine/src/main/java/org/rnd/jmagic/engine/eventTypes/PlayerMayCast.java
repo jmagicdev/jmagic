@@ -26,7 +26,7 @@ public final class PlayerMayCast extends EventType
 		CastSpellAction action = new CastSpellAction(game, spell, player, spell.ID);
 
 		if(parameters.containsKey(Parameter.ALTERNATE_COST))
-			action.forceAlternateCost(Identity.instance(parameters.get(Parameter.ALTERNATE_COST)));
+			action.forceAlternateCost(Identity.fromCollection(parameters.get(Parameter.ALTERNATE_COST)));
 
 		PlayerInterface.ChooseParameters<Answer> chooseParameters = new PlayerInterface.ChooseParameters<Answer>(1, 1, new java.util.LinkedList<Answer>(Answer.mayChoices()), PlayerInterface.ChoiceType.ENUM, PlayerInterface.ChooseReason.MAY_CAST);
 		chooseParameters.thisID = spell.ID;

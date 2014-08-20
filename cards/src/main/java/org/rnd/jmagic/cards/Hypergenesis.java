@@ -39,9 +39,9 @@ public final class Hypergenesis extends Card
 							available.add(card);
 
 					EventFactory putOntoBattlefield = new EventFactory(PUT_ONTO_BATTLEFIELD_CHOICE, "Put an artifact, creature, enchantment, or land card from your hand onto the battlefield");
-					putOntoBattlefield.parameters.put(Parameter.CAUSE, Identity.instance(hypergenesis));
+					putOntoBattlefield.parameters.put(Parameter.CAUSE, Identity.fromCollection(hypergenesis));
 					putOntoBattlefield.parameters.put(Parameter.CONTROLLER, Identity.instance(player));
-					putOntoBattlefield.parameters.put(Parameter.OBJECT, Identity.instance(available));
+					putOntoBattlefield.parameters.put(Parameter.OBJECT, Identity.fromCollection(available));
 
 					java.util.Map<Parameter, Set> mayParameters = new java.util.HashMap<Parameter, Set>();
 					mayParameters.put(Parameter.PLAYER, new Set(player));

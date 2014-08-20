@@ -61,7 +61,7 @@ public final class Regenerate extends EventType
 			createEvent(game, "Remove " + removeFromCombat + " from combat", EventType.REMOVE_FROM_COMBAT, removeParameters).perform(event, false);
 		}
 
-		event.setResult(Identity.instance(ret));
+		event.setResult(Identity.fromCollection(ret));
 		return true;
 	}
 }

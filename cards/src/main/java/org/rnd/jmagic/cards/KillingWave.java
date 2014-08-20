@@ -42,7 +42,7 @@ public final class KillingWave extends Card
 			// life
 			java.util.Map<GameObject, EventFactory> choices = new java.util.HashMap<GameObject, EventFactory>();
 			int X = parameters.get(Parameter.NUMBER).getOne(Integer.class);
-			for(Player controller: game.actualState.apnapOrder(new Set(game.actualState.players)))
+			for(Player controller: game.actualState.apnapOrder(Set.fromCollection(game.actualState.players)))
 			{
 				Event payLife = payLife(Identity.instance(controller), X, "Pay " + X + " life").createEvent(game, event.getSource());
 				int lifePaymentSoFar = 0;

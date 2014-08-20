@@ -33,7 +33,7 @@ public final class LoseGame extends EventType
 		// 104.5. If a player loses the game, he or she leaves the game.
 		game.physicalState.removePlayers(players.getAll(Player.class));
 
-		event.setResult(Identity.instance(players));
+		event.setResult(Identity.fromCollection(players));
 		return true;
 	}
 }

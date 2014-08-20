@@ -28,7 +28,7 @@ public final class ClashWithAnOpponent extends EventType
 		java.util.Set<Player> choices = OpponentsOf.instance(Identity.instance(player)).evaluate(game, null).getAll(Player.class);
 		java.util.List<Player> choice = player.sanitizeAndChoose(game.actualState, 1, choices, PlayerInterface.ChoiceType.PLAYER, PlayerInterface.ChooseReason.CLASH);
 
-		Set players = new Set(choice);
+		Set players = Set.fromCollection(choice);
 		players.add(player);
 
 		java.util.Map<Parameter, Set> clashParameters = new java.util.HashMap<Parameter, Set>();

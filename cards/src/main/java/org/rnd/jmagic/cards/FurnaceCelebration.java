@@ -27,7 +27,7 @@ public final class FurnaceCelebration extends Card
 
 			EventFactory mayPay = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay (2).");
 			mayPay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			mayPay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("(2)")));
+			mayPay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(2)")));
 			mayPay.parameters.put(EventType.Parameter.PLAYER, You.instance());
 
 			EventFactory factory = new EventFactory(EventType.IF_EVENT_THEN_ELSE, "You may pay (2). If you do, Furnace Celebration deals 2 damage to target creature or player.");

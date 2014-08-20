@@ -27,7 +27,7 @@ public class ChosenFor extends SetGenerator
 				link = (((NonStaticAbility)i).getPrintedVersion(state));
 			Set linkInformation = link.getLinkManager().getLinkInformation(state);
 			if(linkInformation != null)
-				ret.addAll(Identity.instance(linkInformation).evaluate(state, null));
+				ret.addAll(Identity.fromCollection(linkInformation).evaluate(state, null));
 		}
 		return ret;
 	}
@@ -35,6 +35,6 @@ public class ChosenFor extends SetGenerator
 	@Override
 	public java.util.Set<ManaSymbol.ManaType> extractColors(Game game, GameObject thisObject, java.util.Set<SetGenerator> ignoreThese) throws NoSuchMethodException
 	{
-		return Identity.instance(this.evaluate(game, thisObject)).extractColors(game, thisObject, ignoreThese);
+		return Identity.fromCollection(this.evaluate(game, thisObject)).extractColors(game, thisObject, ignoreThese);
 	}
 }

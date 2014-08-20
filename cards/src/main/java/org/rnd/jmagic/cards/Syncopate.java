@@ -24,7 +24,7 @@ public final class Syncopate extends Card
 		SetGenerator controller = ControllerOf.instance(targetedBy(target));
 		EventFactory pay = new EventFactory(EventType.PAY_MANA, "Pay (X)");
 		pay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-		pay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("1")));
+		pay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("1")));
 		pay.parameters.put(EventType.Parameter.NUMBER, ValueOfX.instance(This.instance()));
 		pay.parameters.put(EventType.Parameter.PLAYER, controller);
 

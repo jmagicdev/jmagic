@@ -153,7 +153,7 @@ public final class AddMana extends EventType
 		if(source.isActivatedAbility())
 			((ActivatedAbility)source.getPhysical()).addedMana(result.getAll(ManaSymbol.class));
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return true;
 	}
 }

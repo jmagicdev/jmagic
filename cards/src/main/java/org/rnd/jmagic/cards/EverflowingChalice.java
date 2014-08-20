@@ -24,7 +24,7 @@ public final class EverflowingChalice extends Card
 			effect.parameters.put(EventType.Parameter.SOURCE, thisCard);
 			effect.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			effect.parameters.put(EventType.Parameter.NUMBER, Count.instance(CountersOn.instance(thisCard, Counter.CounterType.CHARGE)));
-			effect.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("1")));
+			effect.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("1")));
 			this.addEffect(effect);
 		}
 	}

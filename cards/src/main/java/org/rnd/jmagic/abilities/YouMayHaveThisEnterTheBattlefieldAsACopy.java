@@ -39,7 +39,7 @@ public final class YouMayHaveThisEnterTheBattlefieldAsACopy
 
 			java.util.List<?> choice = chooser.sanitizeAndChoose(game.actualState, parameters.get(Parameter.SOURCE), chooseParameters);
 
-			GameObject createCopyEffectFrom = new Set(choice).getOne(GameObject.class);
+			GameObject createCopyEffectFrom = Set.fromCollection(choice).getOne(GameObject.class);
 
 			if(createCopyEffectFrom != null)
 			{
@@ -55,11 +55,11 @@ public final class YouMayHaveThisEnterTheBattlefieldAsACopy
 				part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.instance(placeCopyEffectOn));
 				part.parameters.put(ContinuousEffectType.Parameter.ORIGINAL, IdentifiedWithID.instance(createCopyEffectFrom.ID));
 				if(parameters.containsKey(Parameter.ABILITY))
-					part.parameters.put(ContinuousEffectType.Parameter.ABILITY, Identity.instance(parameters.get(Parameter.ABILITY)));
+					part.parameters.put(ContinuousEffectType.Parameter.ABILITY, Identity.fromCollection(parameters.get(Parameter.ABILITY)));
 				if(parameters.containsKey(Parameter.TYPE))
-					part.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.instance(parameters.get(Parameter.TYPE)));
+					part.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.fromCollection(parameters.get(Parameter.TYPE)));
 				if(parameters.containsKey(Parameter.PREVENT))
-					part.parameters.put(ContinuousEffectType.Parameter.RETAIN, Identity.instance(parameters.get(Parameter.PREVENT)));
+					part.parameters.put(ContinuousEffectType.Parameter.RETAIN, Identity.fromCollection(parameters.get(Parameter.PREVENT)));
 
 				java.util.Map<Parameter, Set> effectParameters = new java.util.HashMap<Parameter, Set>();
 				effectParameters.put(EventType.Parameter.CAUSE, parameters.get(Parameter.CAUSE));
@@ -93,7 +93,7 @@ public final class YouMayHaveThisEnterTheBattlefieldAsACopy
 			if(factory.ability != null)
 				copy.parameters.put(EventType.Parameter.ABILITY, Identity.instance(new org.rnd.jmagic.engine.SimpleAbilityFactory(factory.ability)));
 			if(!(factory.retainedCharacteristics.isEmpty()))
-				copy.parameters.put(EventType.Parameter.PREVENT, Identity.instance(factory.retainedCharacteristics));
+				copy.parameters.put(EventType.Parameter.PREVENT, Identity.fromCollection(factory.retainedCharacteristics));
 			if(null != factory.subTypes)
 				copy.parameters.put(EventType.Parameter.TYPE, Identity.instance((Object[])factory.subTypes));
 			if(factory.tapped)

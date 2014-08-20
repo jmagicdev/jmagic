@@ -90,7 +90,7 @@ public final class DiscardRandom extends EventType
 			result.addAll(discard.getResult());
 		}
 
-		event.setResult(Identity.instance(result));
+		event.setResult(Identity.fromCollection(result));
 		return allDiscarded;
 	}
 }

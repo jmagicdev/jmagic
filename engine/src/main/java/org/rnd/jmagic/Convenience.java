@@ -222,15 +222,15 @@ public class Convenience
 			{
 				ContinuousEffect.Part colorPart = new ContinuousEffect.Part(ContinuousEffectType.SET_COLOR);
 				colorPart.parameters.put(ContinuousEffectType.Parameter.OBJECT, this.target);
-				colorPart.parameters.put(ContinuousEffectType.Parameter.COLOR, Identity.instance(this.colors));
+				colorPart.parameters.put(ContinuousEffectType.Parameter.COLOR, Identity.fromCollection(this.colors));
 				parts.add(colorPart);
 			}
 
-			Set types = new Set(this.types);
+			Set types = Set.fromCollection(this.types);
 			types.addAll(this.subTypes);
 			ContinuousEffect.Part typesPart = new ContinuousEffect.Part(this.animationMode);
 			typesPart.parameters.put(ContinuousEffectType.Parameter.OBJECT, this.target);
-			typesPart.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.instance(types));
+			typesPart.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.fromCollection(types));
 			parts.add(typesPart);
 
 			if(!this.abilities.isEmpty())
@@ -243,7 +243,7 @@ public class Convenience
 
 				ContinuousEffect.Part abilitiesPart = new ContinuousEffect.Part(ContinuousEffectType.ADD_ABILITY_TO_OBJECT);
 				abilitiesPart.parameters.put(ContinuousEffectType.Parameter.OBJECT, this.target);
-				abilitiesPart.parameters.put(ContinuousEffectType.Parameter.ABILITY, Identity.instance(factories));
+				abilitiesPart.parameters.put(ContinuousEffectType.Parameter.ABILITY, Identity.fromCollection(factories));
 				parts.add(abilitiesPart);
 			}
 			return parts.toArray(new ContinuousEffect.Part[0]);
@@ -289,7 +289,7 @@ public class Convenience
 			if(parameters.containsKey(Parameter.PLAYER))
 				players = parameters.get(Parameter.PLAYER);
 			else
-				players = new Set(game.physicalState.players);
+				players = Set.fromCollection(game.physicalState.players);
 			java.util.List<Player> playersInOrder;
 			// ew ew EEWWWWW...
 			// TODO : this is x-10 hackery. fix this when ticket 381 is done.
@@ -317,7 +317,7 @@ public class Convenience
 				{
 					if(e.perform(event, false))
 					{
-						resultMap.put(player.ID, Identity.instance(e.getResult()));
+						resultMap.put(player.ID, Identity.fromCollection(e.getResult()));
 						event.setResult(new Set(resultMap));
 						playerGenerator.setEvaluation(null);
 						return true;
@@ -701,7 +701,7 @@ public class Convenience
 		public Set evaluate(GameState state, Identified thisObject)
 		{
 			java.util.Map<Integer, Integer> flagValue = state.getTracker(Tracker.class).getValue(state);
-			return new Set(Sum.get(new Set(flagValue.values())));
+			return new Set(Sum.get(Set.fromCollection(flagValue.values())));
 		}
 	}
 
@@ -888,7 +888,7 @@ public class Convenience
 			if(parameters.containsKey(Parameter.PLAYER))
 				players = parameters.get(Parameter.PLAYER);
 			else
-				players = new Set(game.physicalState.players);
+				players = Set.fromCollection(game.physicalState.players);
 			java.util.List<Player> playersInOrder;
 			// ew ew EEWWWWW...
 			// TODO : this is x-10 hackery. fix this when ticket 381 is done.
@@ -922,7 +922,7 @@ public class Convenience
 				playerGenerator.setEvaluation(Identity.instance(player));
 				Event e = game.physicalState.get(events.get(player.ID));
 				status = e.perform(event, false) || status;
-				resultMap.put(player.ID, Identity.instance(e.getResult()));
+				resultMap.put(player.ID, Identity.fromCollection(e.getResult()));
 			}
 
 			playerGenerator.setEvaluation(null);
@@ -960,7 +960,7 @@ public class Convenience
 			if(parameters.containsKey(Parameter.OBJECT))
 				things = parameters.get(Parameter.OBJECT);
 			else
-				things = new Set(game.physicalState.players);
+				things = Set.fromCollection(game.physicalState.players);
 
 			DynamicEvaluation thingGenerator = parameters.get(Parameter.TARGET).getOne(DynamicEvaluation.class);
 			if(thingGenerator == null)
@@ -984,7 +984,7 @@ public class Convenience
 				thingGenerator.setEvaluation(Identity.instance(i));
 				Event e = game.physicalState.get(events.get(i.ID));
 				status = e.perform(event, false) || status;
-				resultMap.put(i.ID, Identity.instance(e.getResult()));
+				resultMap.put(i.ID, Identity.fromCollection(e.getResult()));
 			}
 
 			thingGenerator.setEvaluation(null);
@@ -1036,7 +1036,7 @@ public class Convenience
 
 				java.util.Map<Parameter, Set> lookParameters = new java.util.HashMap<Parameter, Set>();
 				lookParameters.put(Parameter.CAUSE, cause);
-				lookParameters.put(Parameter.OBJECT, new Set(objects));
+				lookParameters.put(Parameter.OBJECT, Set.fromCollection(objects));
 				lookParameters.put(Parameter.PLAYER, playerSet);
 				Event lookEvent = createEvent(game, "Look at the top X cards of your library.", EventType.LOOK, lookParameters);
 				lookEvent.perform(event, true);
@@ -1052,7 +1052,7 @@ public class Convenience
 				java.util.Map<Parameter, Set> handParameters = new java.util.HashMap<Parameter, Set>();
 				handParameters.put(Parameter.CAUSE, cause);
 				handParameters.put(Parameter.TO, new Set(player.getHand(game.actualState)));
-				handParameters.put(Parameter.OBJECT, new Set(choice));
+				handParameters.put(Parameter.OBJECT, Set.fromCollection(choice));
 				Event handEvent = createEvent(game, "Put one of them into your hand.", EventType.MOVE_OBJECTS, handParameters);
 				handEvent.perform(event, false);
 
@@ -1193,9 +1193,9 @@ public class Convenience
 					filteredCards.add(object);
 
 			EventType.ParameterMap revealParameters = new EventType.ParameterMap();
-			revealParameters.put(Parameter.CAUSE, Identity.instance(cause));
-			revealParameters.put(Parameter.PLAYER, Identity.instance(you));
-			revealParameters.put(Parameter.OBJECT, Identity.instance(filteredCards));
+			revealParameters.put(Parameter.CAUSE, Identity.fromCollection(cause));
+			revealParameters.put(Parameter.PLAYER, Identity.fromCollection(you));
+			revealParameters.put(Parameter.OBJECT, Identity.fromCollection(filteredCards));
 
 			java.util.Map<Parameter, Set> mayParameters = new java.util.HashMap<Parameter, Set>();
 			mayParameters.put(Parameter.PLAYER, you);
@@ -1216,7 +1216,7 @@ public class Convenience
 			moveParameters.put(Parameter.OBJECT, revealedCard);
 			createEvent(game, "Put that card into your hand", MOVE_OBJECTS, moveParameters).perform(event, true);
 
-			Set putOnBottom = new Set(cards);
+			Set putOnBottom = Set.fromCollection(cards);
 			putOnBottom.removeAll(revealedCard);
 
 			Set zone = parameters.containsKey(Parameter.TO) ? parameters.get(Parameter.TO) : new Set(player.getLibrary(game.actualState));
@@ -1266,7 +1266,7 @@ public class Convenience
 			java.util.List<GameObject> putTheseOnTop = player.sanitizeAndChoose(game.actualState, numberOfCards, hand.objects, PlayerInterface.ChoiceType.OBJECTS, reason);
 
 			// build the Set of objects to put back
-			Set moveThese = new Set(putTheseOnTop);
+			Set moveThese = Set.fromCollection(putTheseOnTop);
 
 			Set index = parameters.containsKey(Parameter.INDEX) ? parameters.get(Parameter.INDEX) : ONE;
 
@@ -1315,12 +1315,12 @@ public class Convenience
 
 			java.util.Map<Parameter, Set> revealParameters = new java.util.HashMap<Parameter, Set>();
 			revealParameters.put(Parameter.CAUSE, cause);
-			revealParameters.put(Parameter.OBJECT, new Set(revealedCards));
+			revealParameters.put(Parameter.OBJECT, Set.fromCollection(revealedCards));
 			Event reveal = createEvent(game, "Target player reveals a number of cards from his or her hand equal to the number of Allies you control", REVEAL, revealParameters);
 			reveal.perform(event, true);
 
 			Player you = parameters.get(Parameter.PLAYER).getOne(Player.class).getActual();
-			Set chosenCard = new Set(you.sanitizeAndChoose(game.actualState, 1, revealedCards, PlayerInterface.ChoiceType.OBJECTS, REVEAL_SOME_CARDS_AND_DISCARD_FORCE_REASON));
+			Set chosenCard = Set.fromCollection(you.sanitizeAndChoose(game.actualState, 1, revealedCards, PlayerInterface.ChoiceType.OBJECTS, REVEAL_SOME_CARDS_AND_DISCARD_FORCE_REASON));
 
 			java.util.Map<Parameter, Set> discardParameters = new java.util.HashMap<Parameter, Set>();
 			discardParameters.put(Parameter.CAUSE, new Set(cause.getOne(GameObject.class).getActual()));
@@ -1371,7 +1371,7 @@ public class Convenience
 
 			// Trigger effect
 			EventType.ParameterMap returnParameters = new EventType.ParameterMap();
-			returnParameters.put(EventType.Parameter.CAUSE, Identity.instance(cause));
+			returnParameters.put(EventType.Parameter.CAUSE, Identity.fromCollection(cause));
 			returnParameters.put(EventType.Parameter.CONTROLLER, Identity.instance(cardToReturn.getOwner(game.actualState)));
 			returnParameters.put(EventType.Parameter.OBJECT, Identity.instance(cardToReturn));
 
@@ -1449,7 +1449,7 @@ public class Convenience
 			Player player = parameters.get(Parameter.PLAYER).getOne(Player.class);
 			int number = parameters.get(Parameter.NUMBER).getOne(Integer.class);
 			Set cards = parameters.get(Parameter.CARD);
-			event.setResult(new Set(player.separateIntoPiles(number, cards)));
+			event.setResult(Set.fromCollection(player.separateIntoPiles(number, cards)));
 			return true;
 		}
 	};
@@ -1518,7 +1518,7 @@ public class Convenience
 
 		ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.ADD_ABILITY_TO_OBJECT);
 		part.parameters.put(ContinuousEffectType.Parameter.OBJECT, who);
-		part.parameters.put(ContinuousEffectType.Parameter.ABILITY, Identity.instance(factories));
+		part.parameters.put(ContinuousEffectType.Parameter.ABILITY, Identity.fromCollection(factories));
 		return part;
 	}
 
@@ -1542,7 +1542,7 @@ public class Convenience
 
 	public static EventFactory addManaToYourManaPoolFromAbility(String mana, String effectName)
 	{
-		return addManaToYourManaPoolFromAbility(Identity.instance(new ManaPool(mana)), effectName);
+		return addManaToYourManaPoolFromAbility(Identity.fromCollection(new ManaPool(mana)), effectName);
 	}
 
 	public static EventFactory addManaToYourManaPoolFromAbility(SetGenerator mana, String effectName)
@@ -1561,7 +1561,7 @@ public class Convenience
 
 	public static EventFactory addManaToYourManaPoolFromSpell(String mana, String effectName)
 	{
-		return addManaToYourManaPoolFromSpell(Identity.instance(new ManaPool(mana)), effectName);
+		return addManaToYourManaPoolFromSpell(Identity.fromCollection(new ManaPool(mana)), effectName);
 	}
 
 	public static EventFactory addManaToYourManaPoolFromSpell(SetGenerator mana, String effectName)
@@ -1816,7 +1816,7 @@ public class Convenience
 		SetGenerator controller = ControllerOf.instance(targetedBy(target));
 		EventFactory pay = new EventFactory(EventType.PAY_MANA, "Pay " + cost);
 		pay.parameters.put(EventType.Parameter.CAUSE, This.instance());
-		pay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool(cost)));
+		pay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool(cost)));
 		pay.parameters.put(EventType.Parameter.PLAYER, controller);
 
 		return unless(controller, counter, pay, "Counter " + target.name + " unless its controller pays " + cost + ".");
@@ -1921,7 +1921,7 @@ public class Convenience
 			}
 
 			factory.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			factory.parameters.put(EventType.Parameter.SUPERTYPE, Identity.instance(this.superTypes));
+			factory.parameters.put(EventType.Parameter.SUPERTYPE, Identity.fromCollection(this.superTypes));
 			if(this.types.contains(Type.CREATURE))
 			{
 				factory.parameters.put(EventType.Parameter.POWER, this.power);
@@ -1931,8 +1931,8 @@ public class Convenience
 			factory.parameters.put(EventType.Parameter.COLOR, Identity.instance((Object[])this.colors));
 			if(this.tokenName != null)
 				factory.parameters.put(EventType.Parameter.NAME, Identity.instance(this.tokenName));
-			factory.parameters.put(EventType.Parameter.TYPE, Identity.instance(this.types));
-			factory.parameters.put(EventType.Parameter.ABILITY, Identity.instance(this.abilities));
+			factory.parameters.put(EventType.Parameter.TYPE, Identity.fromCollection(this.types));
+			factory.parameters.put(EventType.Parameter.ABILITY, Identity.fromCollection(this.abilities));
 			factory.parameters.put(EventType.Parameter.CONTROLLER, this.newController);
 			factory.parameters.put(EventType.Parameter.SUBTYPE, Identity.instance((Object)(java.util.Arrays.asList(this.subTypes))));
 			return factory;
@@ -3693,7 +3693,7 @@ public class Convenience
 	{
 		EventFactory factory = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay " + cost + ".");
 		factory.parameters.put(EventType.Parameter.CAUSE, This.instance());
-		factory.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool(cost)));
+		factory.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool(cost)));
 		factory.parameters.put(EventType.Parameter.PLAYER, You.instance());
 		return factory;
 	}

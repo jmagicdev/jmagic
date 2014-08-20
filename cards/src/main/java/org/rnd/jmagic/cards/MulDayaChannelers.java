@@ -36,7 +36,7 @@ public final class MulDayaChannelers extends Card
 			mana.parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
 			mana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			mana.parameters.put(EventType.Parameter.NUMBER, numberGenerator(2));
-			mana.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("(WUBRG)")));
+			mana.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("(WUBRG)")));
 			this.addEffect(mana);
 		}
 	}

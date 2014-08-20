@@ -28,7 +28,7 @@ public final class Metalworker extends Card
 
 			EventFactory mana = new EventFactory(EventType.ADD_MANA, "Add (2) to your mana pool for each card revealed this way.");
 			mana.parameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-			mana.parameters.put(EventType.Parameter.MANA, Identity.instance(new ManaPool("(2)")));
+			mana.parameters.put(EventType.Parameter.MANA, Identity.fromCollection(new ManaPool("(2)")));
 			mana.parameters.put(EventType.Parameter.NUMBER, Count.instance(EffectResult.instance(reveal)));
 			mana.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			this.addEffect(mana);

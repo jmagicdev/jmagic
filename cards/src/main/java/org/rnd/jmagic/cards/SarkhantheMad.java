@@ -58,7 +58,7 @@ public final class SarkhantheMad extends Card
 			EventFactory token = new EventFactory(EventType.CREATE_TOKEN_ON_BATTLEFIELD, "then that player puts a 5/5 red Dragon creature token with flying onto the battlefield.");
 			token.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			token.parameters.put(EventType.Parameter.ABILITY, Identity.instance(org.rnd.jmagic.abilities.keywords.Flying.class));
-			token.parameters.put(EventType.Parameter.COLOR, Identity.instance(java.util.EnumSet.of(Color.RED)));
+			token.parameters.put(EventType.Parameter.COLOR, Identity.fromCollection(java.util.EnumSet.of(Color.RED)));
 			token.parameters.put(EventType.Parameter.CONTROLLER, thatCreaturesController);
 			token.parameters.put(EventType.Parameter.NUMBER, numberGenerator(1));
 			token.parameters.put(EventType.Parameter.POWER, numberGenerator(5));

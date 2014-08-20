@@ -40,7 +40,7 @@ public final class SilvergillAdept extends Card
 		EventFactory pay = new EventFactory(EventType.PAY_MANA, "Pay (3)");
 		pay.parameters.put(EventType.Parameter.CAUSE, This.instance());
 		pay.parameters.put(EventType.Parameter.OBJECT, This.instance());
-		pay.parameters.put(EventType.Parameter.COST, Identity.instance(new ManaPool("3")));
+		pay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("3")));
 		pay.parameters.put(EventType.Parameter.PLAYER, You.instance());
 
 		EventFactory additionalCost = new EventFactory(EventType.CHOOSE_AND_PERFORM, "reveal a Merfolk card from your hand or pay (3)");

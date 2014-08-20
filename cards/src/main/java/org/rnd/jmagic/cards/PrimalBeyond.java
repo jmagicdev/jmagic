@@ -23,7 +23,7 @@ public final class PrimalBeyond extends Card
 			manaParameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
 			manaParameters.put(EventType.Parameter.PLAYER, You.instance());
 			manaParameters.put(EventType.Parameter.TYPE, Identity.instance(new SubTypePattern(SubType.ELEMENTAL)));
-			manaParameters.put(EventType.Parameter.MANA, Identity.instance(Color.allColors()));
+			manaParameters.put(EventType.Parameter.MANA, Identity.fromCollection(Color.allColors()));
 			this.addEffect(new EventFactory(ADD_RESTRICTED_MANA, manaParameters, "Add one mana of any color to your mana pool. Spend this mana only to cast Elemental spells or activate abilities of Elementals."));
 		}
 	}

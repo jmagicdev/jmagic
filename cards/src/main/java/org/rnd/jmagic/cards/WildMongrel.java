@@ -39,9 +39,9 @@ public final class WildMongrel extends Card
 			Set object = parameters.get(Parameter.OBJECT);
 
 			ContinuousEffect.Part colorPart = new ContinuousEffect.Part(ContinuousEffectType.SET_COLOR);
-			colorPart.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.instance(object));
+			colorPart.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.fromCollection(object));
 			colorPart.parameters.put(ContinuousEffectType.Parameter.COLOR, Identity.instance(color));
-			Set effects = new Set(colorPart, modifyPowerAndToughness(Identity.instance(object), +1, +1));
+			Set effects = new Set(colorPart, modifyPowerAndToughness(Identity.fromCollection(object), +1, +1));
 
 			java.util.Map<Parameter, Set> fceParameters = new java.util.HashMap<Parameter, Set>();
 			fceParameters.put(Parameter.CAUSE, parameters.get(Parameter.CAUSE));

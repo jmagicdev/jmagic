@@ -33,7 +33,7 @@ public final class ElephantGrass extends Card
 			SetGenerator nonblackCreatures = RelativeComplement.instance(CreaturePermanents.instance(), HasColor.instance(Color.BLACK));
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.ATTACKING_COST);
-			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new ManaPool("2")));
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("2")));
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.instance(nonblackCreatures));
 			part.parameters.put(ContinuousEffectType.Parameter.PLAYER, You.instance());
 			this.addEffectPart(part);
