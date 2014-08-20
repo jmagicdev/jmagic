@@ -2763,6 +2763,36 @@ public class Convenience
 	}
 
 	/**
+	 * (2, -2) for example becomes "+2/-2".
+	 */
+	public static String ptChangeText(int power, int toughness)
+	{
+		if(power < 0)
+		{
+			if(toughness < 0)
+				return "" + power + "/" + toughness;
+			if(toughness == 0)
+				return "" + power + "/-0";
+			// toughness > 0
+			return "" + power + "/+" + toughness;
+		}
+		else if(power == 0)
+		{
+			if(toughness < 0)
+				return "-0/" + toughness;
+			// toughness >= 0
+			return "+0/+" + toughness;
+		}
+		else // power > 0
+		{
+			if(toughness < 0)
+				return "+" + power + "/" + toughness;
+			// toughness >= 0
+			return "+" + power + "/+" + toughness;
+		}
+	}
+	
+	/**
 	 * Create an effect putting counters on objects.
 	 * 
 	 * @param number How many counters to place.

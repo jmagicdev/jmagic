@@ -23,7 +23,7 @@ public final class LandfallForPump extends EventTriggeredAbility
 		this.addPattern(landfall());
 
 		// Plated Geopede gets +2/+2 until end of turn.
-		this.addEffect(ptChangeUntilEndOfTurn(ABILITY_SOURCE_OF_THIS, power, toughness, (cardName + " gets +2/+2 until end of turn.")));
+		this.addEffect(ptChangeUntilEndOfTurn(ABILITY_SOURCE_OF_THIS, power, toughness, (cardName + " gets " + ptChangeText(power, toughness) + " until end of turn.")));
 	}
 
 	@Override
