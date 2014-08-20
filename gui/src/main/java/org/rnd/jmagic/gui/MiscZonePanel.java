@@ -10,7 +10,7 @@ class MiscZonePanel extends javax.swing.JPanel
 	public int zoneFocus;
 
 	private javax.swing.JPanel zonePanel;
-	private javax.swing.JComboBox zoneChooser;
+	private javax.swing.JComboBox<String> zoneChooser;
 
 	public MiscZonePanel(Play play, String zoneName)
 	{
@@ -158,14 +158,13 @@ class MiscZonePanel extends javax.swing.JPanel
 
 		this.add(scroll);
 
-		this.zoneChooser = new javax.swing.JComboBox(MiscZonePanel.this.gui.zones.keySet().toArray());
+		this.zoneChooser = new javax.swing.JComboBox<String>(MiscZonePanel.this.gui.zones.keySet().toArray(new String[]{}));
 		this.zoneChooser.addActionListener(new java.awt.event.ActionListener()
 		{
 			@Override
 			public void actionPerformed(java.awt.event.ActionEvent e)
 			{
-				javax.swing.JComboBox source = (javax.swing.JComboBox)(e.getSource());
-				MiscZonePanel.this.zoneFocus = MiscZonePanel.this.gui.zones.get(source.getSelectedItem());
+				MiscZonePanel.this.zoneFocus = MiscZonePanel.this.gui.zones.get(MiscZonePanel.this.zoneChooser.getSelectedItem());
 				MiscZonePanel.this.update();
 			}
 		});

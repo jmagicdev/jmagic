@@ -805,7 +805,7 @@ public class Start
 
 	private org.rnd.jmagic.engine.GameType gameType;
 
-	private javax.swing.JComboBox gameTypeComboBox;
+	private javax.swing.JComboBox<Object> gameTypeComboBox;
 
 	private GameTypeDialog gameTypeDialog;
 
@@ -1022,7 +1022,7 @@ public class Start
 			connectPanel.add(findGames, c);
 		}
 
-		this.gameTypeComboBox = new javax.swing.JComboBox();
+		this.gameTypeComboBox = new javax.swing.JComboBox<Object>();
 		for(org.rnd.jmagic.engine.GameType gameType: org.rnd.jmagic.engine.GameTypes.values())
 			this.gameTypeComboBox.addItem(gameType);
 		this.gameTypeComboBox.addItem(CUSTOM_GAME_TYPE_VALUE);

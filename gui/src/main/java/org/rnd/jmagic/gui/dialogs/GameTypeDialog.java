@@ -194,7 +194,7 @@ public class GameTypeDialog extends javax.swing.JDialog
 	{
 		private static String COMBO_BOX_NO_VALUE = "Choose an implementation";
 
-		private javax.swing.JComboBox implementationCombo;
+		private javax.swing.JComboBox<Object> implementationCombo;
 		private java.util.Map<Class<?>, BeanConfiguration<Object>> implementationConfigurations;
 
 		public ComplexPropertyConfiguration(String propertyName, Class<?> propertyType)
@@ -204,7 +204,7 @@ public class GameTypeDialog extends javax.swing.JDialog
 
 			this.panel.setBorder(new javax.swing.border.TitledBorder(""));
 
-			this.implementationCombo = new javax.swing.JComboBox();
+			this.implementationCombo = new javax.swing.JComboBox<Object>();
 			java.awt.GridBagConstraints comboConstraints = new java.awt.GridBagConstraints();
 			comboConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 			comboConstraints.gridx = 0;
@@ -310,7 +310,7 @@ public class GameTypeDialog extends javax.swing.JDialog
 
 	private static class EnumerationPropertyConfiguration extends PropertyConfiguration
 	{
-		private javax.swing.JComboBox comboBox;
+		private javax.swing.JComboBox<Object> comboBox;
 
 		public EnumerationPropertyConfiguration(String propertyName, Class<?> propertyType)
 		{
@@ -319,7 +319,7 @@ public class GameTypeDialog extends javax.swing.JDialog
 
 			try
 			{
-				this.comboBox = new javax.swing.JComboBox((Object[])(enumType.getMethod("values").invoke(null)));
+				this.comboBox = new javax.swing.JComboBox<Object>((Object[])(enumType.getMethod("values").invoke(null)));
 				java.awt.GridBagConstraints textConstraints = new java.awt.GridBagConstraints();
 				textConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
 				textConstraints.gridx = 0;
@@ -822,7 +822,7 @@ public class GameTypeDialog extends javax.swing.JDialog
 
 	private java.util.Map<Class<? extends GameType.GameTypeRule>, RuleConfiguration> ruleConfiguration;
 
-	private javax.swing.JComboBox presetSelector;
+	private javax.swing.JComboBox<Object> presetSelector;
 
 	public GameTypeDialog(javax.swing.JFrame parent, java.util.Set<GameType> presets)
 	{
@@ -841,7 +841,7 @@ public class GameTypeDialog extends javax.swing.JDialog
 			}
 		});
 
-		this.presetSelector = new javax.swing.JComboBox();
+		this.presetSelector = new javax.swing.JComboBox<Object>();
 		this.presetSelector.addItem("");
 		for(GameType preset: presets)
 			this.presetSelector.addItem(preset);

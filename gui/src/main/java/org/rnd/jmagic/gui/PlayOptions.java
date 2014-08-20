@@ -99,8 +99,8 @@ final class PlayOptions extends ConfigurationFrame.OptionPanel
 
 	private JCheckBox highlight;
 	private final String[] MISC_ZONES = new String[] {"Stack", "Exile zone", "Your library", "Your graveyard", "Opponent's library", "Opponent's graveyard"};
-	private JComboBox miscL;
-	private JComboBox miscR;
+	private JComboBox<String> miscL;
+	private JComboBox<String> miscR;
 	private JCheckBox renderDmg;
 	private JCheckBox renderCtrs;
 	private JCheckBox rotate;
@@ -143,8 +143,8 @@ final class PlayOptions extends ConfigurationFrame.OptionPanel
 		layout.putConstraint(SpringLayout.NORTH, this.highlight, 5, SpringLayout.SOUTH, this.renderCtrs);
 		layout.putConstraint(SpringLayout.WEST, this.highlight, 5, SpringLayout.WEST, this);
 
-		this.miscL = new JComboBox(this.MISC_ZONES);
-		this.miscR = new JComboBox(this.MISC_ZONES);
+		this.miscL = new JComboBox<String>(this.MISC_ZONES);
+		this.miscR = new JComboBox<String>(this.MISC_ZONES);
 
 		JPanel innerPanel = new JPanel();
 		innerPanel.setLayout(layout);
