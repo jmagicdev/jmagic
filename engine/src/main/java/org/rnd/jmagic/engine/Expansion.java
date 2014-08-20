@@ -6,6 +6,8 @@ package org.rnd.jmagic.engine;
  */
 public enum Expansion
 {
+	PROMO("Promo card", "PRM"), // we are putting this first so that "originally printed in" effects don't conflict with reprints of Arabian Nights cards
+
 	GATECRASH("Gatecrash", "GTC"), // February '13
 	RETURN_TO_RAVNICA("Return to Ravnica", "RTR"), // October '12
 	MAGIC_2013("Magic 2013", "M13"), // July '12
@@ -23,7 +25,8 @@ public enum Expansion
 	MAGIC_2011("Magic 2011", "M11"), // July '10
 	RISE_OF_THE_ELDRAZI("Rise of the Eldrazi", "ROE"), // April '10
 	WORLDWAKE("Worldwake", "WWK"), // February '10
-	ZENDIKAR("Zendikar", "ZEN"), // September '09
+	ZENDIKAR("Zendikar", "ZEN"), // October '09
+	PLANECHASE("Planechase", "PLC"), // September '09
 	MAGIC_2010("Magic 2010", "M10"), // July '09
 	ALARA_REBORN("Alara Reborn", "ARB"), // April '09
 	CONFLUX("Conflux", "CON"), // February '09
@@ -73,7 +76,6 @@ public enum Expansion
 	PORTAL_SECOND_AGE("Portal Second Age", "P2"), // June '98
 	STRONGHOLD("Stronghold", "ST"), // March '98
 	TEMPEST("Tempest", "TE"), // October '97
-	// TODO : Should Weatherlight and Portal be switched?
 	WEATHERLIGHT("Weatherlight", "WL"), // June '97
 	PORTAL("Portal", "P1"), // June '97
 	FIFTH_EDITION("Fifth Edition", "5E"), // March '97
@@ -93,8 +95,6 @@ public enum Expansion
 	BETA("Limited Edition Beta", "B"), // October '93
 	ALPHA("Limited Edition Alpha", "A"), // August '93
 
-	PROMO("Promo card", "PRM"), //
-	PLANECHASE("Planechase", "PLC"), //
 	TEST("jMagic Test Cards", "JMK");
 
 	private final String fullName;
