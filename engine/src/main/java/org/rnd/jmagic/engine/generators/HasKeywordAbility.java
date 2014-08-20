@@ -21,6 +21,7 @@ public class HasKeywordAbility extends SetGenerator
 
 	private final Class<? extends Keyword>[] abilities;
 
+	@SafeVarargs
 	private HasKeywordAbility(Class<? extends Keyword>... abilities)
 	{
 		this.abilities = abilities;

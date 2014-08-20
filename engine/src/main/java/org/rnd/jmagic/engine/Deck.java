@@ -29,6 +29,7 @@ public class Deck implements java.io.Serializable
 		this.cards.get(SIDEBOARD).addAll(sideboard);
 	}
 
+	@SafeVarargs
 	public Deck(Class<? extends Card>... mainDeck)
 	{
 		this();
