@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class AttachToChoice extends EventType
-{	public static final EventType INSTANCE = new AttachToChoice();
+{
+	public static final EventType INSTANCE = new AttachToChoice();
 
-	 private AttachToChoice()
+	private AttachToChoice()
 	{
 		super("ATTACH_TO_CHOICE");
 	}

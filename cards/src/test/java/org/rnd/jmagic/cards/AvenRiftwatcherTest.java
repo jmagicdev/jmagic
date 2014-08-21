@@ -8,7 +8,8 @@ import org.rnd.jmagic.engine.Phase;
 import org.rnd.jmagic.testing.JUnitTest;
 
 @RunWith(JUnit4.class)
-public class AvenRiftwatcherTest extends JUnitTest {
+public class AvenRiftwatcherTest extends JUnitTest
+{
 	/**
 	 * At one point, triggered abilities with both enters-the-battlefield and
 	 * leaves-the-battlefield trigger conditions were crashing the game when
@@ -16,11 +17,10 @@ public class AvenRiftwatcherTest extends JUnitTest {
 	 * battlefield.
 	 */
 	@Test
-	public void avenRiftwatcher() {
-		this.addDeck(AvenRiftwatcher.class, Plains.class, Plains.class,
-				Plains.class, Plains.class, Plains.class, Plains.class);
-		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class,
-				Plains.class, Plains.class, Plains.class);
+	public void avenRiftwatcher()
+	{
+		this.addDeck(AvenRiftwatcher.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
+		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
 		this.startGame(GameTypes.OPEN);
 

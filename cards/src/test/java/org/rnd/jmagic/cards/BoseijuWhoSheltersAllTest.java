@@ -11,7 +11,8 @@ import org.rnd.jmagic.engine.Phase;
 import org.rnd.jmagic.testing.JUnitTest;
 
 @RunWith(JUnit4.class)
-public class BoseijuWhoSheltersAllTest extends JUnitTest {
+public class BoseijuWhoSheltersAllTest extends JUnitTest
+{
 	@Test
 	public void boseiju()
 	{

@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class CounterOne extends EventType
-{	public static final EventType INSTANCE = new CounterOne();
+{
+	public static final EventType INSTANCE = new CounterOne();
 
-	 private CounterOne()
+	private CounterOne()
 	{
 		super("COUNTER_ONE");
 	}

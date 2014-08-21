@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class Regenerate extends EventType
-{	public static final EventType INSTANCE = new Regenerate();
+{
+	public static final EventType INSTANCE = new Regenerate();
 
-	 private Regenerate()
+	private Regenerate()
 	{
 		super("REGENERATE");
 	}

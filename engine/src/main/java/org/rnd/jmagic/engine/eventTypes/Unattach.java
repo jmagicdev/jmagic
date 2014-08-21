@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class Unattach extends EventType
-{	public static final EventType INSTANCE = new Unattach();
+{
+	public static final EventType INSTANCE = new Unattach();
 
-	 private Unattach()
+	private Unattach()
 	{
 		super("UNATTACH");
 	}

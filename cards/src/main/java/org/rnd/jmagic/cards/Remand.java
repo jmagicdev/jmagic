@@ -16,7 +16,7 @@ public final class Remand extends Card
 	{
 		super(state);
 
-		Target target = this.addTarget(Spells.instance(),"target spell");
+		Target target = this.addTarget(Spells.instance(), "target spell");
 
 		EventType.ParameterMap parameters = new EventType.ParameterMap();
 		parameters.put(EventType.Parameter.CAUSE, This.instance());

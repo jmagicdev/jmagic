@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class DestroyPermanents extends EventType
-{	public static final EventType INSTANCE = new DestroyPermanents();
+{
+	public static final EventType INSTANCE = new DestroyPermanents();
 
-	 private DestroyPermanents()
+	private DestroyPermanents()
 	{
 		super("DESTROY_PERMANENTS");
 	}

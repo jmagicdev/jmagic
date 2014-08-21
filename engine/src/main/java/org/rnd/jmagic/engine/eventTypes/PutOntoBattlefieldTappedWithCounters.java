@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class PutOntoBattlefieldTappedWithCounters extends EventType
-{	public static final EventType INSTANCE = new PutOntoBattlefieldTappedWithCounters();
+{
+	public static final EventType INSTANCE = new PutOntoBattlefieldTappedWithCounters();
 
-	 private PutOntoBattlefieldTappedWithCounters()
+	private PutOntoBattlefieldTappedWithCounters()
 	{
 		super("PUT_ONTO_BATTLEFIELD_TAPPED_WITH_COUNTERS");
 	}

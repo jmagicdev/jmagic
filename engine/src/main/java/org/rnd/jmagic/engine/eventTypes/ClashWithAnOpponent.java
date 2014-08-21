@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class ClashWithAnOpponent extends EventType
-{	public static final EventType INSTANCE = new ClashWithAnOpponent();
+{
+	public static final EventType INSTANCE = new ClashWithAnOpponent();
 
-	 private ClashWithAnOpponent()
+	private ClashWithAnOpponent()
 	{
 		super("CLASH_WITH_AN_OPPONENT");
 	}

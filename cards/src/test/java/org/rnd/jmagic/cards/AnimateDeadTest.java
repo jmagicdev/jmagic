@@ -10,13 +10,13 @@ import org.rnd.jmagic.engine.Phase;
 import org.rnd.jmagic.testing.JUnitTest;
 
 @RunWith(JUnit4.class)
-public class AnimateDeadTest extends JUnitTest {
+public class AnimateDeadTest extends JUnitTest
+{
 	@Test
-	public void animateDead() {
-		this.addDeck(AnimateDead.class, SleeperAgent.class, Disenchant.class,
-				CabalTherapy.class, Plains.class, Plains.class, Plains.class);
-		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class,
-				Plains.class, Plains.class, Plains.class);
+	public void animateDead()
+	{
+		this.addDeck(AnimateDead.class, SleeperAgent.class, Disenchant.class, CabalTherapy.class, Plains.class, Plains.class, Plains.class);
+		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
 		this.startGame(GameTypes.OPEN);
 

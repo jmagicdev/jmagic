@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class MulliganSimultaneous extends EventType
-{	public static final EventType INSTANCE = new MulliganSimultaneous();
+{
+	public static final EventType INSTANCE = new MulliganSimultaneous();
 
-	 private MulliganSimultaneous()
+	private MulliganSimultaneous()
 	{
 		super("MULLIGAN_SIMULTANEOUS");
 	}

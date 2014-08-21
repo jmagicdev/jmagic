@@ -11,13 +11,13 @@ import org.rnd.jmagic.engine.Phase;
 import org.rnd.jmagic.testing.JUnitTest;
 
 @RunWith(JUnit4.class)
-public class BlazingTorchTest extends JUnitTest {
+public class BlazingTorchTest extends JUnitTest
+{
 	@Test
-	public void blazingTorch() {
-		this.addDeck(BlazingTorch.class, RagingGoblin.class, Plains.class,
-				Plains.class, Plains.class, Plains.class, Plains.class);
-		this.addDeck(BlazingTorch.class, RagingGoblin.class, Plains.class,
-				Plains.class, Plains.class, Plains.class, Plains.class);
+	public void blazingTorch()
+	{
+		this.addDeck(BlazingTorch.class, RagingGoblin.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
+		this.addDeck(BlazingTorch.class, RagingGoblin.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
 		this.startGame(GameTypes.OPEN);
 
@@ -30,8 +30,7 @@ public class BlazingTorchTest extends JUnitTest {
 		this.castAndResolveSpell(RagingGoblin.class, "R");
 		this.castAndResolveSpell(BlazingTorch.class, "1");
 
-		this.respondWith(this
-				.getAbilityAction(org.rnd.jmagic.abilities.keywords.Equip.EquipAbility.class));
+		this.respondWith(this.getAbilityAction(org.rnd.jmagic.abilities.keywords.Equip.EquipAbility.class));
 		// auto-target goblin
 		this.addMana("1");
 		this.donePlayingManaAbilities();
@@ -41,10 +40,8 @@ public class BlazingTorchTest extends JUnitTest {
 		this.respondWith(this.getAbilityAction(BlazingTorch.ThrowTorch.class));
 		this.respondWith(this.getTarget(RagingGoblin.class));
 		assertEquals(1, this.getGraveyard(0).objects.size());
-		assertEquals("Blazing Torch", this.getGraveyard(0).objects.get(0)
-				.getName());
-		assertTrue(this.game.actualState.battlefield().objects.get(0)
-				.isTapped());
+		assertEquals("Blazing Torch", this.getGraveyard(0).objects.get(0).getName());
+		assertTrue(this.game.actualState.battlefield().objects.get(0).isTapped());
 
 		this.pass();
 		this.pass();

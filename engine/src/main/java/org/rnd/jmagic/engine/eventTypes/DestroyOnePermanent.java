@@ -3,9 +3,10 @@ package org.rnd.jmagic.engine.eventTypes;
 import org.rnd.jmagic.engine.*;
 
 public final class DestroyOnePermanent extends EventType
-{	public static final EventType INSTANCE = new DestroyOnePermanent();
+{
+	public static final EventType INSTANCE = new DestroyOnePermanent();
 
-	 private DestroyOnePermanent()
+	private DestroyOnePermanent()
 	{
 		super("DESTROY_ONE_PERMANENT");
 	}

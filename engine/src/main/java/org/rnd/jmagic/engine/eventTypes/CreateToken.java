@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class CreateToken extends EventType
-{	public static final EventType INSTANCE = new CreateToken();
+{
+	public static final EventType INSTANCE = new CreateToken();
 
-	 private CreateToken()
+	private CreateToken()
 	{
 		super("CREATE_TOKEN");
 	}

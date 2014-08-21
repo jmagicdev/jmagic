@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class BeginPhase extends EventType
-{	public static final EventType INSTANCE = new BeginPhase();
+{
+	public static final EventType INSTANCE = new BeginPhase();
 
-	 private BeginPhase()
+	private BeginPhase()
 	{
 		super("BEGIN_PHASE");
 	}

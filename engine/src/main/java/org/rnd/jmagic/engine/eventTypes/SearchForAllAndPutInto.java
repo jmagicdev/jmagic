@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class SearchForAllAndPutInto extends EventType
-{	public static final EventType INSTANCE = new SearchForAllAndPutInto();
+{
+	public static final EventType INSTANCE = new SearchForAllAndPutInto();
 
-	 private SearchForAllAndPutInto()
+	private SearchForAllAndPutInto()
 	{
 		super("SEARCH_FOR_ALL_AND_PUT_INTO");
 	}

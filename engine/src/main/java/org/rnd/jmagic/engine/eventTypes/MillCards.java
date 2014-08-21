@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class MillCards extends EventType
-{	public static final EventType INSTANCE = new MillCards();
+{
+	public static final EventType INSTANCE = new MillCards();
 
-	 private MillCards()
+	private MillCards()
 	{
 		super("MILL_CARDS");
 	}

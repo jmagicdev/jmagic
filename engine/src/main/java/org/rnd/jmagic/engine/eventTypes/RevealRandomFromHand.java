@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class RevealRandomFromHand extends EventType
-{	public static final EventType INSTANCE = new RevealRandomFromHand();
+{
+	public static final EventType INSTANCE = new RevealRandomFromHand();
 
-	 private RevealRandomFromHand()
+	private RevealRandomFromHand()
 	{
 		super("REVEAL_RANDOM_FROM_HAND");
 	}

@@ -11,14 +11,13 @@ import org.rnd.jmagic.engine.Zone;
 import org.rnd.jmagic.testing.JUnitTest;
 
 @RunWith(JUnit4.class)
-public class AgonizingMemoriesTest extends JUnitTest {
+public class AgonizingMemoriesTest extends JUnitTest
+{
 	@Test
-	public void agonizingMemories() {
-		this.addDeck(AgonizingMemories.class, AgonizingMemories.class,
-				Plains.class, Plains.class, Plains.class, Plains.class,
-				Plains.class);
-		this.addDeck(Forest.class, Swamp.class, Swamp.class, Island.class,
-				Mountain.class, Plains.class, Plains.class);
+	public void agonizingMemories()
+	{
+		this.addDeck(AgonizingMemories.class, AgonizingMemories.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
+		this.addDeck(Forest.class, Swamp.class, Swamp.class, Island.class, Mountain.class, Plains.class, Plains.class);
 		this.startGame(GameTypes.OPEN);
 
 		this.respondWith(this.getPlayer(0));
@@ -35,12 +34,10 @@ public class AgonizingMemoriesTest extends JUnitTest {
 		this.pass();
 
 		// Choose the two cards
-		this.respondWith(this.pullChoice(Swamp.class),
-				this.pullChoice(Forest.class));
+		this.respondWith(this.pullChoice(Swamp.class), this.pullChoice(Forest.class));
 
 		// Order them
-		this.respondWith(this.pullChoice(Forest.class),
-				this.pullChoice(Swamp.class));
+		this.respondWith(this.pullChoice(Forest.class), this.pullChoice(Swamp.class));
 
 		{
 			Zone library = getLibrary(1);
@@ -58,8 +55,7 @@ public class AgonizingMemoriesTest extends JUnitTest {
 		this.pass();
 
 		// Choose the two cards
-		this.respondWith(this.pullChoice(Plains.class),
-				this.pullChoice(Plains.class));
+		this.respondWith(this.pullChoice(Plains.class), this.pullChoice(Plains.class));
 
 		// Order them
 		this.respondArbitrarily();

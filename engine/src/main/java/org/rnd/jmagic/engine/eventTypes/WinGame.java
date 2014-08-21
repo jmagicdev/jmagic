@@ -3,9 +3,10 @@ package org.rnd.jmagic.engine.eventTypes;
 import org.rnd.jmagic.engine.*;
 
 public final class WinGame extends EventType
-{	public static final EventType INSTANCE = new WinGame();
+{
+	public static final EventType INSTANCE = new WinGame();
 
-	 private WinGame()
+	private WinGame()
 	{
 		super("WIN_GAME");
 	}

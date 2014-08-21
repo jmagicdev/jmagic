@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class CreateTokenOnBattlefield extends EventType
-{	public static final EventType INSTANCE = new CreateTokenOnBattlefield();
+{
+	public static final EventType INSTANCE = new CreateTokenOnBattlefield();
 
-	 private CreateTokenOnBattlefield()
+	private CreateTokenOnBattlefield()
 	{
 		super("CREATE_TOKEN_ON_BATTLEFIELD");
 	}

@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class Reveal extends EventType
-{	public static final EventType INSTANCE = new Reveal();
+{
+	public static final EventType INSTANCE = new Reveal();
 
-	 private Reveal()
+	private Reveal()
 	{
 		super("REVEAL");
 	}

@@ -3,9 +3,10 @@ package org.rnd.jmagic.engine.eventTypes;
 import org.rnd.jmagic.engine.*;
 
 public final class PutCounterOnChoice extends EventType
-{	public static final EventType INSTANCE = new PutCounterOnChoice();
+{
+	public static final EventType INSTANCE = new PutCounterOnChoice();
 
-	 private PutCounterOnChoice()
+	private PutCounterOnChoice()
 	{
 		super("PUT_COUNTER_ON_CHOICE");
 	}

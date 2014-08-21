@@ -7,7 +7,6 @@ import org.rnd.jmagic.engine.*;
 @SubTypes({SubType.WALL})
 @ManaCost("1W")
 @Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.ODYSSEY, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.PORTAL_SECOND_AGE, r = Rarity.COMMON)})
-
 @ColorIdentity({Color.WHITE})
 public final class AngelicWall extends Card
 {

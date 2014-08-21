@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class BecomesUnblocked extends EventType
-{	public static final EventType INSTANCE = new BecomesUnblocked();
+{
+	public static final EventType INSTANCE = new BecomesUnblocked();
 
-	 private BecomesUnblocked()
+	private BecomesUnblocked()
 	{
 		super("BECOMES_UNBLOCKED");
 	}

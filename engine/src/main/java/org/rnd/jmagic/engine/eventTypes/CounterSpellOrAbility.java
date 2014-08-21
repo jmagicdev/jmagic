@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class CounterSpellOrAbility extends EventType
-{	public static final EventType INSTANCE = new CounterSpellOrAbility();
+{
+	public static final EventType INSTANCE = new CounterSpellOrAbility();
 
-	 private CounterSpellOrAbility()
+	private CounterSpellOrAbility()
 	{
 		super("COUNTER_SPELL_OR_ABILITY");
 	}

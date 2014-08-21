@@ -7,9 +7,10 @@ import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 public final class CreateRegenerationShield extends EventType
-{	public static final EventType INSTANCE = new CreateRegenerationShield();
+{
+	public static final EventType INSTANCE = new CreateRegenerationShield();
 
-	 private CreateRegenerationShield()
+	private CreateRegenerationShield()
 	{
 		super("CREATE_REGENERATION_SHIELD");
 	}

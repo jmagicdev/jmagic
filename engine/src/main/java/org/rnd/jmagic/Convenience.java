@@ -2783,7 +2783,8 @@ public class Convenience
 			// toughness >= 0
 			return "+0/+" + toughness;
 		}
-		else // power > 0
+		else
+		// power > 0
 		{
 			if(toughness < 0)
 				return "+" + power + "/" + toughness;
@@ -2791,7 +2792,7 @@ public class Convenience
 			return "+" + power + "/+" + toughness;
 		}
 	}
-	
+
 	/**
 	 * Create an effect putting counters on objects.
 	 * 

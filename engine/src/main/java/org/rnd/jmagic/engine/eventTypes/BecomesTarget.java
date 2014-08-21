@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class BecomesTarget extends EventType
-{	public static final EventType INSTANCE = new BecomesTarget();
+{
+	public static final EventType INSTANCE = new BecomesTarget();
 
-	 private BecomesTarget()
+	private BecomesTarget()
 	{
 		super("BECOMES_TARGET");
 	}

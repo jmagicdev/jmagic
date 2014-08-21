@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class Attach extends EventType
-{	public static final EventType INSTANCE = new Attach();
+{
+	public static final EventType INSTANCE = new Attach();
 
-	 private Attach()
+	private Attach()
 	{
 		super("ATTACH");
 	}

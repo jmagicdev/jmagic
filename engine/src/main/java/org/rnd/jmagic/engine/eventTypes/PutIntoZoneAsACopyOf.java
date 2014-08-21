@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class PutIntoZoneAsACopyOf extends EventType
-{	public static final EventType INSTANCE = new PutIntoZoneAsACopyOf();
+{
+	public static final EventType INSTANCE = new PutIntoZoneAsACopyOf();
 
-	 private PutIntoZoneAsACopyOf()
+	private PutIntoZoneAsACopyOf()
 	{
 		super("PUT_INTO_ZONE_AS_A_COPY_OF");
 	}

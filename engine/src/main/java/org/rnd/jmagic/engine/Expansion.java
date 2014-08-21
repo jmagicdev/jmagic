@@ -6,7 +6,10 @@ package org.rnd.jmagic.engine;
  */
 public enum Expansion
 {
-	PROMO("Promo card", "PRM"), // we are putting this first so that "originally printed in" effects don't conflict with reprints of Arabian Nights cards
+	PROMO("Promo card", "PRM"), // we are putting this first so that
+								// "originally printed in" effects don't
+								// conflict with reprints of Arabian Nights
+								// cards
 
 	GATECRASH("Gatecrash", "GTC"), // February '13
 	RETURN_TO_RAVNICA("Return to Ravnica", "RTR"), // October '12

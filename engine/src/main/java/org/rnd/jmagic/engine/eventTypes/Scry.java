@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class Scry extends EventType
-{	public static final EventType INSTANCE = new Scry();
+{
+	public static final EventType INSTANCE = new Scry();
 
-	 private Scry()
+	private Scry()
 	{
 		super("SCRY");
 	}

@@ -3,9 +3,10 @@ package org.rnd.jmagic.engine.eventTypes;
 import org.rnd.jmagic.engine.*;
 
 public final class TapChoice extends EventType
-{	public static final EventType INSTANCE = new TapChoice();
+{
+	public static final EventType INSTANCE = new TapChoice();
 
-	 private TapChoice()
+	private TapChoice()
 	{
 		super("TAP_CHOICE");
 	}

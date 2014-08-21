@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class DrawCards extends EventType
-{	public static final EventType INSTANCE = new DrawCards();
+{
+	public static final EventType INSTANCE = new DrawCards();
 
-	 private DrawCards()
+	private DrawCards()
 	{
 		super("DRAW_CARDS");
 	}

@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class CreateDelayedTrigger extends EventType
-{	public static final EventType INSTANCE = new CreateDelayedTrigger();
+{
+	public static final EventType INSTANCE = new CreateDelayedTrigger();
 
-	 private CreateDelayedTrigger()
+	private CreateDelayedTrigger()
 	{
 		super("CREATE_DELAYED_TRIGGER");
 	}

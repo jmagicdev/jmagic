@@ -7,9 +7,10 @@ import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 public final class TakeExtraTurn extends EventType
-{	public static final EventType INSTANCE = new TakeExtraTurn();
+{
+	public static final EventType INSTANCE = new TakeExtraTurn();
 
-	 private TakeExtraTurn()
+	private TakeExtraTurn()
 	{
 		super("TAKE_EXTRA_TURN");
 	}

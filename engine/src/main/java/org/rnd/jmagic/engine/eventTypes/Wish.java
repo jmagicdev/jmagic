@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class Wish extends EventType
-{	public static final EventType INSTANCE = new Wish();
+{
+	public static final EventType INSTANCE = new Wish();
 
-	 private Wish()
+	private Wish()
 	{
 		super("WISH");
 	}

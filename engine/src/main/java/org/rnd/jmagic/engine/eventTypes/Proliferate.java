@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class Proliferate extends EventType
-{	public static final EventType INSTANCE = new Proliferate();
+{
+	public static final EventType INSTANCE = new Proliferate();
 
-	 private Proliferate()
+	private Proliferate()
 	{
 		super("PROLIFERATE");
 	}

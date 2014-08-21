@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class PlayCard extends EventType
-{	public static final EventType INSTANCE = new PlayCard();
+{
+	public static final EventType INSTANCE = new PlayCard();
 
-	 private PlayCard()
+	private PlayCard()
 	{
 		super("PLAY_CARD");
 	}

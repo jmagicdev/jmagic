@@ -6,9 +6,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class DistributeCounters extends EventType
-{	public static final EventType INSTANCE = new DistributeCounters();
+{
+	public static final EventType INSTANCE = new DistributeCounters();
 
-	 private DistributeCounters()
+	private DistributeCounters()
 	{
 		super("DISTRIBUTE_COUNTERS");
 	}

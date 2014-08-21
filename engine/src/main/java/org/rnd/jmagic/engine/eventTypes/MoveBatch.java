@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class MoveBatch extends EventType
-{	public static final EventType INSTANCE = new MoveBatch();
+{
+	public static final EventType INSTANCE = new MoveBatch();
 
-	 private MoveBatch()
+	private MoveBatch()
 	{
 		super("MOVE_BATCH");
 	}

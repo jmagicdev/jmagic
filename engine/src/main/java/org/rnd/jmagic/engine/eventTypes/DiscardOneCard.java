@@ -3,9 +3,10 @@ package org.rnd.jmagic.engine.eventTypes;
 import org.rnd.jmagic.engine.*;
 
 public final class DiscardOneCard extends EventType
-{	public static final EventType INSTANCE = new DiscardOneCard();
+{
+	public static final EventType INSTANCE = new DiscardOneCard();
 
-	 private DiscardOneCard()
+	private DiscardOneCard()
 	{
 		super("DISCARD_ONE_CARD");
 	}

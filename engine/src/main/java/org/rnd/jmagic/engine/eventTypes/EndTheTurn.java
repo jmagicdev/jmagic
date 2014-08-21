@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class EndTheTurn extends EventType
-{	public static final EventType INSTANCE = new EndTheTurn();
+{
+	public static final EventType INSTANCE = new EndTheTurn();
 
-	 private EndTheTurn()
+	private EndTheTurn()
 	{
 		super("END_THE_TURN");
 	}

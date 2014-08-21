@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class MoveCounters extends EventType
-{	public static final EventType INSTANCE = new MoveCounters();
+{
+	public static final EventType INSTANCE = new MoveCounters();
 
-	 private MoveCounters()
+	private MoveCounters()
 	{
 		super("MOVE_COUNTERS");
 	}

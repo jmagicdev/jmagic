@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class PutOntoBattlefieldTappedAndAttacking extends EventType
-{	public static final EventType INSTANCE = new PutOntoBattlefieldTappedAndAttacking();
+{
+	public static final EventType INSTANCE = new PutOntoBattlefieldTappedAndAttacking();
 
-	 private PutOntoBattlefieldTappedAndAttacking()
+	private PutOntoBattlefieldTappedAndAttacking()
 	{
 		super("PUT_ONTO_BATTLEFIELD_TAPPED_AND_ATTACKING");
 	}

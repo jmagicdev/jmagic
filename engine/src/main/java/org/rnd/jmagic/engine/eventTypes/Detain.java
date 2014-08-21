@@ -5,9 +5,10 @@ import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 public final class Detain extends EventType
-{	public static final EventType INSTANCE = new Detain();
+{
+	public static final EventType INSTANCE = new Detain();
 
-	 private Detain()
+	private Detain()
 	{
 		super("DETAIN");
 	}

@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class UntapOnePermanent extends EventType
-{	public static final EventType INSTANCE = new UntapOnePermanent();
+{
+	public static final EventType INSTANCE = new UntapOnePermanent();
 
-	 private UntapOnePermanent()
+	private UntapOnePermanent()
 	{
 		super("UNTAP_ONE_PERMANENT");
 	}

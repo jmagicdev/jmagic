@@ -5,9 +5,10 @@ import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 public final class DealDamageEvenlyCantBeRegenerated extends EventType
-{	public static final EventType INSTANCE = new DealDamageEvenlyCantBeRegenerated();
+{
+	public static final EventType INSTANCE = new DealDamageEvenlyCantBeRegenerated();
 
-	 private DealDamageEvenlyCantBeRegenerated()
+	private DealDamageEvenlyCantBeRegenerated()
 	{
 		super("DEAL_DAMAGE_EVENLY_CANT_BE_REGENERATED");
 	}

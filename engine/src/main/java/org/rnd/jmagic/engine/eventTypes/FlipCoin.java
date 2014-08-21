@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class FlipCoin extends EventType
-{	public static final EventType INSTANCE = new FlipCoin();
+{
+	public static final EventType INSTANCE = new FlipCoin();
 
-	 private FlipCoin()
+	private FlipCoin()
 	{
 		super("FLIP_COIN");
 	}

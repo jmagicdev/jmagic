@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class RestartTheGame extends EventType
-{	public static final EventType INSTANCE = new RestartTheGame();
+{
+	public static final EventType INSTANCE = new RestartTheGame();
 
-	 private RestartTheGame()
+	private RestartTheGame()
 	{
 		super("RESTART_THE_GAME");
 	}

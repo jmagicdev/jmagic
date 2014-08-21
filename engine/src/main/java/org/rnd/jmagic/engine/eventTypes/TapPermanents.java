@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class TapPermanents extends EventType
-{	public static final EventType INSTANCE = new TapPermanents();
+{
+	public static final EventType INSTANCE = new TapPermanents();
 
-	 private TapPermanents()
+	private TapPermanents()
 	{
 		super("TAP_PERMANENTS");
 	}

@@ -8,7 +8,6 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.SORCERY})
 @ManaCost("2BB")
 @Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.MIRRODIN, r = Rarity.UNCOMMON)})
-
 @ColorIdentity({Color.BLACK})
 public final class BarterinBlood extends Card
 {

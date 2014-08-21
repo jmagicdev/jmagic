@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class FlipCard extends EventType
-{	public static final EventType INSTANCE = new FlipCard();
+{
+	public static final EventType INSTANCE = new FlipCard();
 
-	 private FlipCard()
+	private FlipCard()
 	{
 		super("FLIP_CARD");
 	}

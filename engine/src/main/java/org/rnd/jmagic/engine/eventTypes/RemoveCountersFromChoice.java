@@ -6,9 +6,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class RemoveCountersFromChoice extends EventType
-{	public static final EventType INSTANCE = new RemoveCountersFromChoice();
+{
+	public static final EventType INSTANCE = new RemoveCountersFromChoice();
 
-	 private RemoveCountersFromChoice()
+	private RemoveCountersFromChoice()
 	{
 		super("REMOVE_COUNTERS_FROM_CHOICE");
 	}

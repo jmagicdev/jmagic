@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class PutOneCounter extends EventType
-{	public static final EventType INSTANCE = new PutOneCounter();
+{
+	public static final EventType INSTANCE = new PutOneCounter();
 
-	 private PutOneCounter()
+	private PutOneCounter()
 	{
 		super("PUT_ONE_COUNTER");
 	}

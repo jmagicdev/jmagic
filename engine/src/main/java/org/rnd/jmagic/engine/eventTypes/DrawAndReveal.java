@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class DrawAndReveal extends EventType
-{	public static final EventType INSTANCE = new DrawAndReveal();
+{
+	public static final EventType INSTANCE = new DrawAndReveal();
 
-	 private DrawAndReveal()
+	private DrawAndReveal()
 	{
 		super("DRAW_AND_REVEAL");
 	}

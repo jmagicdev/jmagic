@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class CastSpellOrActivateAbility extends EventType
-{	public static final EventType INSTANCE = new CastSpellOrActivateAbility();
+{
+	public static final EventType INSTANCE = new CastSpellOrActivateAbility();
 
-	 private CastSpellOrActivateAbility()
+	private CastSpellOrActivateAbility()
 	{
 		super("CAST_SPELL_OR_ACTIVATE_ABILITY");
 	}

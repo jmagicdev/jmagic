@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class ChangeTargets extends EventType
-{	public static final EventType INSTANCE = new ChangeTargets();
+{
+	public static final EventType INSTANCE = new ChangeTargets();
 
-	 private ChangeTargets()
+	private ChangeTargets()
 	{
 		super("CHANGE_TARGETS");
 	}

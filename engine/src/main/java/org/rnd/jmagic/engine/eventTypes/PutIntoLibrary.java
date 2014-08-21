@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class PutIntoLibrary extends EventType
-{	public static final EventType INSTANCE = new PutIntoLibrary();
+{
+	public static final EventType INSTANCE = new PutIntoLibrary();
 
-	 private PutIntoLibrary()
+	private PutIntoLibrary()
 	{
 		super("PUT_INTO_LIBRARY");
 	}

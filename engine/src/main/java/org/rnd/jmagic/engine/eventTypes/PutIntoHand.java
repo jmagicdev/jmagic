@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class PutIntoHand extends EventType
-{	public static final EventType INSTANCE = new PutIntoHand();
+{
+	public static final EventType INSTANCE = new PutIntoHand();
 
-	 private PutIntoHand()
+	private PutIntoHand()
 	{
 		super("PUT_INTO_HAND");
 	}

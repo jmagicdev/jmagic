@@ -46,66 +46,66 @@ public class DynamicEvaluationTest extends JUnitTest
 		this.addDeck(BlackLotus.class, Fear.class, ViridianShaman.class, ChandraNalaar.class, WarpWorld.class, Sprout.class, Sprout.class, SleeperAgent.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		startGame(GameTypes.STACKED);
-	
+
 		respondWith(getPlayer(0));
 		keep();
 		keep();
-	
+
 		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
-	
+
 		respondWith(getLandAction(Plains.class));
-	
+
 		respondWith(getSpellAction(Sprout.class));
 		addMana("G");
 		donePlayingManaAbilities();
 		pass();
 		pass();
-	
+
 		respondWith(getSpellAction(Sprout.class));
 		addMana("G");
 		donePlayingManaAbilities();
 		pass();
 		pass();
-	
+
 		respondWith(getSpellAction(SleeperAgent.class));
 		addMana("B");
 		donePlayingManaAbilities();
 		pass();
 		pass();
-	
+
 		// Auto-target Player 1 with Sleeper Agent's come-into-play effect
 		pass();
 		pass();
-	
+
 		respondWith(getSpellAction(WarpWorld.class));
 		addMana("5RRR");
 		donePlayingManaAbilities();
 		pass();
 		pass();
-	
+
 		// Player 1 puts nothing into his library and shuffles. Since this is
 		// stacked, we order the empty set of cards anyway.
 		respondArbitrarily();
-	
+
 		assertEquals(3, this.game.actualState.battlefield().objects.size());
-	
+
 		assertEquals(3, getGraveyard(0).objects.size());
 		assertEquals("Warp World", getGraveyard(0).objects.get(0).getName());
 		assertEquals("Sprout", getGraveyard(0).objects.get(1).getName());
 		assertEquals("Sprout", getGraveyard(0).objects.get(2).getName());
-	
+
 		assertEquals(3, getLibrary(0).objects.size());
 		String cardOne = getLibrary(0).objects.get(0).getName();
 		assertTrue(cardOne.equals("Plains") || cardOne.equals("Sleeper Agent"));
 		String cardTwo = getLibrary(0).objects.get(1).getName();
 		assertTrue(cardTwo.equals("Sleeper Agent") || cardTwo.equals("Plains"));
 		assertEquals("Chandra Nalaar", getLibrary(0).objects.get(2).getName());
-	
+
 		// Viridian Shaman's triggered ability should automatically target the
 		// Black Lotus
 		pass();
 		pass();
-	
+
 		assertEquals(4, getGraveyard(0).objects.size());
 		assertEquals("Black Lotus", getGraveyard(0).objects.get(0).getName());
 	}

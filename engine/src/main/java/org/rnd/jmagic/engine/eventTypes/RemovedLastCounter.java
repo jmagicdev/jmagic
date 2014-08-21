@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class RemovedLastCounter extends EventType
-{	public static final EventType INSTANCE = new RemovedLastCounter();
+{
+	public static final EventType INSTANCE = new RemovedLastCounter();
 
-	 private RemovedLastCounter()
+	private RemovedLastCounter()
 	{
 		super("REMOVED_LAST_COUNTER");
 	}

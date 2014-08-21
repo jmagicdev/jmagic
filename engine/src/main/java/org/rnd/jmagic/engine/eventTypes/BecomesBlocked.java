@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class BecomesBlocked extends EventType
-{	public static final EventType INSTANCE = new BecomesBlocked();
+{
+	public static final EventType INSTANCE = new BecomesBlocked();
 
-	 private BecomesBlocked()
+	private BecomesBlocked()
 	{
 		super("BECOMES_BLOCKED");
 	}

@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class BeginTurn extends EventType
-{	public static final EventType INSTANCE = new BeginTurn();
+{
+	public static final EventType INSTANCE = new BeginTurn();
 
-	 private BeginTurn()
+	private BeginTurn()
 	{
 		super("BEGIN_TURN");
 	}

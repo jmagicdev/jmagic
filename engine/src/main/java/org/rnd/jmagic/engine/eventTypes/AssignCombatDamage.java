@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class AssignCombatDamage extends EventType
-{	public static final EventType INSTANCE = new AssignCombatDamage();
+{
+	public static final EventType INSTANCE = new AssignCombatDamage();
 
-	 private AssignCombatDamage()
+	private AssignCombatDamage()
 	{
 		super("ASSIGN_COMBAT_DAMAGE");
 	}

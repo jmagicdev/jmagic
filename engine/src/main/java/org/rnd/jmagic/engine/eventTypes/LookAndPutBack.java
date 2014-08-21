@@ -6,9 +6,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class LookAndPutBack extends EventType
-{	public static final EventType INSTANCE = new LookAndPutBack();
+{
+	public static final EventType INSTANCE = new LookAndPutBack();
 
-	 private LookAndPutBack()
+	private LookAndPutBack()
 	{
 		super("LOOK_AND_PUT_BACK");
 	}

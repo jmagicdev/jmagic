@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class GameOver extends EventType
-{	public static final EventType INSTANCE = new GameOver();
+{
+	public static final EventType INSTANCE = new GameOver();
 
-	 private GameOver()
+	private GameOver()
 	{
 		super("GAME_OVER");
 	}

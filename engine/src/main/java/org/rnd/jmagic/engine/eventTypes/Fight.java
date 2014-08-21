@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class Fight extends EventType
-{	public static final EventType INSTANCE = new Fight();
+{
+	public static final EventType INSTANCE = new Fight();
 
-	 private Fight()
+	private Fight()
 	{
 		super("FIGHT");
 	}

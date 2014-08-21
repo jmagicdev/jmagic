@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class RemovePoisonCounters extends EventType
-{	public static final EventType INSTANCE = new RemovePoisonCounters();
+{
+	public static final EventType INSTANCE = new RemovePoisonCounters();
 
-	 private RemovePoisonCounters()
+	private RemovePoisonCounters()
 	{
 		super("REMOVE_POISON_COUNTERS");
 	}

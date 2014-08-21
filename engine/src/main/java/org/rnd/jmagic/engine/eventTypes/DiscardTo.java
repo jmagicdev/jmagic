@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class DiscardTo extends EventType
-{	public static final EventType INSTANCE = new DiscardTo();
+{
+	public static final EventType INSTANCE = new DiscardTo();
 
-	 private DiscardTo()
+	private DiscardTo()
 	{
 		super("DISCARD_TO");
 	}

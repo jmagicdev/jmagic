@@ -9,7 +9,6 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.SORCERY})
 @ManaCost("B")
 @Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.COMMON)})
-
 @ColorIdentity({Color.BLACK})
 public final class BoneSplinters extends Card
 {

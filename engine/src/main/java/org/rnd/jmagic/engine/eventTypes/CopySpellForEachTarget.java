@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class CopySpellForEachTarget extends EventType
-{	public static final EventType INSTANCE = new CopySpellForEachTarget();
+{
+	public static final EventType INSTANCE = new CopySpellForEachTarget();
 
-	 private CopySpellForEachTarget()
+	private CopySpellForEachTarget()
 	{
 		super("COPY_SPELL_FOR_EACH_TARGET");
 	}

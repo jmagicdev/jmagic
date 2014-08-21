@@ -6,9 +6,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class SearchLibraryAndPutOnTop extends EventType
-{	public static final EventType INSTANCE = new SearchLibraryAndPutOnTop();
+{
+	public static final EventType INSTANCE = new SearchLibraryAndPutOnTop();
 
-	 private SearchLibraryAndPutOnTop()
+	private SearchLibraryAndPutOnTop()
 	{
 		super("SEARCH_LIBRARY_AND_PUT_ON_TOP");
 	}

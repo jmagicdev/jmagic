@@ -10,7 +10,6 @@ import org.rnd.jmagic.engine.generators.*;
 @SubTypes({SubType.HUMAN, SubType.SCOUT})
 @ManaCost("2G")
 @Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.MAGIC_2010, r = Rarity.COMMON)})
-
 @ColorIdentity({Color.GREEN})
 public final class BorderlandRanger extends Card
 {

@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class EmptyAllManaPools extends EventType
-{	public static final EventType INSTANCE = new EmptyAllManaPools();
+{
+	public static final EventType INSTANCE = new EmptyAllManaPools();
 
-	 private EmptyAllManaPools()
+	private EmptyAllManaPools()
 	{
 		super("EMPTY_ALL_MANA_POOLS");
 	}

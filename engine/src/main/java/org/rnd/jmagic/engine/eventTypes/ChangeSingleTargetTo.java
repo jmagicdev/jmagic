@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class ChangeSingleTargetTo extends EventType
-{	public static final EventType INSTANCE = new ChangeSingleTargetTo();
+{
+	public static final EventType INSTANCE = new ChangeSingleTargetTo();
 
-	 private ChangeSingleTargetTo()
+	private ChangeSingleTargetTo()
 	{
 		super("CHANGE_SINGLE_TARGET_TO");
 	}

@@ -6,9 +6,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class PayCumulativeUpkeep extends EventType
-{	public static final EventType INSTANCE = new PayCumulativeUpkeep();
+{
+	public static final EventType INSTANCE = new PayCumulativeUpkeep();
 
-	 private PayCumulativeUpkeep()
+	private PayCumulativeUpkeep()
 	{
 		super("PAY_CUMULATIVE_UPKEEP");
 	}

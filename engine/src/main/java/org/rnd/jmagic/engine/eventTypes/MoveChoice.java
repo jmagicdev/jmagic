@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class MoveChoice extends EventType
-{	public static final EventType INSTANCE = new MoveChoice();
+{
+	public static final EventType INSTANCE = new MoveChoice();
 
-	 private MoveChoice()
+	private MoveChoice()
 	{
 		super("MOVE_CHOICE");
 	}

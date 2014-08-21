@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class MoveObjects extends EventType
-{	public static final EventType INSTANCE = new MoveObjects();
+{
+	public static final EventType INSTANCE = new MoveObjects();
 
-	 private MoveObjects()
+	private MoveObjects()
 	{
 		super("MOVE_OBJECTS");
 	}

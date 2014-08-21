@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class Search extends EventType
-{	public static final EventType INSTANCE = new Search();
+{
+	public static final EventType INSTANCE = new Search();
 
-	 private Search()
+	private Search()
 	{
 		super("SEARCH");
 	}

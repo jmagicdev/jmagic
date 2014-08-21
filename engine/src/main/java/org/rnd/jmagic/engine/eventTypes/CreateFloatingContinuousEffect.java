@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class CreateFloatingContinuousEffect extends EventType
-{	public static final EventType INSTANCE = new CreateFloatingContinuousEffect();
+{
+	public static final EventType INSTANCE = new CreateFloatingContinuousEffect();
 
-	 private CreateFloatingContinuousEffect()
+	private CreateFloatingContinuousEffect()
 	{
 		super("CREATE_FLOATING_CONTINUOUS_EFFECT");
 	}

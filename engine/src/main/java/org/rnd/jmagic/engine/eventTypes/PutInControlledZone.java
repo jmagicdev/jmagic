@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class PutInControlledZone extends EventType
-{	public static final EventType INSTANCE = new PutInControlledZone();
+{
+	public static final EventType INSTANCE = new PutInControlledZone();
 
-	 private PutInControlledZone()
+	private PutInControlledZone()
 	{
 		super("PUT_IN_CONTROLLED_ZONE");
 	}

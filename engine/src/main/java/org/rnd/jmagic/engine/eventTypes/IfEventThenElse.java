@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class IfEventThenElse extends EventType
-{	public static final EventType INSTANCE = new IfEventThenElse();
+{
+	public static final EventType INSTANCE = new IfEventThenElse();
 
-	 private IfEventThenElse()
+	private IfEventThenElse()
 	{
 		super("IF_EVENT_THEN_ELSE");
 	}

@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class PlayerMayPayX extends EventType
-{	public static final EventType INSTANCE = new PlayerMayPayX();
+{
+	public static final EventType INSTANCE = new PlayerMayPayX();
 
-	 private PlayerMayPayX()
+	private PlayerMayPayX()
 	{
 		super("PLAYER_MAY_PAY_X");
 	}

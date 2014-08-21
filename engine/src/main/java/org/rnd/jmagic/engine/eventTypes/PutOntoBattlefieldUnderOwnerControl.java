@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class PutOntoBattlefieldUnderOwnerControl extends EventType
-{	public static final EventType INSTANCE = new PutOntoBattlefieldUnderOwnerControl();
+{
+	public static final EventType INSTANCE = new PutOntoBattlefieldUnderOwnerControl();
 
-	 private PutOntoBattlefieldUnderOwnerControl()
+	private PutOntoBattlefieldUnderOwnerControl()
 	{
 		super("PUT_ONTO_BATTLEFIELD_UNDER_OWNER_CONTROL");
 	}

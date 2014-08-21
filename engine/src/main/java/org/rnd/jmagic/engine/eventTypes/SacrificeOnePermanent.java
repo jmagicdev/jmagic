@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class SacrificeOnePermanent extends EventType
-{	public static final EventType INSTANCE = new SacrificeOnePermanent();
+{
+	public static final EventType INSTANCE = new SacrificeOnePermanent();
 
-	 private SacrificeOnePermanent()
+	private SacrificeOnePermanent()
 	{
 		super("SACRIFICE_ONE_PERMANENT");
 	}

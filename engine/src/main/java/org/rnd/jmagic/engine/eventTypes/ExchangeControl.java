@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class ExchangeControl extends EventType
-{	public static final EventType INSTANCE = new ExchangeControl();
+{
+	public static final EventType INSTANCE = new ExchangeControl();
 
-	 private ExchangeControl()
+	private ExchangeControl()
 	{
 		super("EXCHANGE_CONTROL");
 	}

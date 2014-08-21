@@ -18,7 +18,7 @@ public final class WeldingJar extends Card
 		{
 			super(state, "Sacrifice Welding Jar: Regenerate target artifact.");
 			this.addCost(sacrificeThis("Welding Jar"));
-			
+
 			Target target = this.addTarget(ArtifactPermanents.instance(), "target artifact");
 			this.addEffect(regenerate(targetedBy(target), "Regenerate target artifact."));
 		}
@@ -27,7 +27,6 @@ public final class WeldingJar extends Card
 	public WeldingJar(GameState state)
 	{
 		super(state);
-
 
 		// Sacrifice Welding Jar: Regenerate target artifact.
 		this.addAbility(new WeldingJarAbility0(state));

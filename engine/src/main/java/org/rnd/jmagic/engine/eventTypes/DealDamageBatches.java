@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class DealDamageBatches extends EventType
-{	public static final EventType INSTANCE = new DealDamageBatches();
+{
+	public static final EventType INSTANCE = new DealDamageBatches();
 
-	 private DealDamageBatches()
+	private DealDamageBatches()
 	{
 		super("DEAL_DAMAGE_BATCHES");
 	}

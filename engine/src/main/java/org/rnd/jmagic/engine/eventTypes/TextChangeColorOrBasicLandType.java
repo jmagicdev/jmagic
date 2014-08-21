@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class TextChangeColorOrBasicLandType extends EventType
-{	public static final EventType INSTANCE = new TextChangeColorOrBasicLandType();
+{
+	public static final EventType INSTANCE = new TextChangeColorOrBasicLandType();
 
-	 private TextChangeColorOrBasicLandType()
+	private TextChangeColorOrBasicLandType()
 	{
 		super("TEXT_CHANGE_COLOR_OR_BASIC_LAND_TYPE");
 	}

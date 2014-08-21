@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class PutIntoGraveyard extends EventType
-{	public static final EventType INSTANCE = new PutIntoGraveyard();
+{
+	public static final EventType INSTANCE = new PutIntoGraveyard();
 
-	 private PutIntoGraveyard()
+	private PutIntoGraveyard()
 	{
 		super("PUT_INTO_GRAVEYARD");
 	}

@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class CreateEmblem extends EventType
-{	public static final EventType INSTANCE = new CreateEmblem();
+{
+	public static final EventType INSTANCE = new CreateEmblem();
 
-	 private CreateEmblem()
+	private CreateEmblem()
 	{
 		super("CREATE_EMBLEM");
 	}

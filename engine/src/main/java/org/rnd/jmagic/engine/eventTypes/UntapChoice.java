@@ -3,9 +3,10 @@ package org.rnd.jmagic.engine.eventTypes;
 import org.rnd.jmagic.engine.*;
 
 public final class UntapChoice extends EventType
-{	public static final EventType INSTANCE = new UntapChoice();
+{
+	public static final EventType INSTANCE = new UntapChoice();
 
-	 private UntapChoice()
+	private UntapChoice()
 	{
 		super("UNTAP_CHOICE");
 	}

@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class DoubleMana extends EventType
-{	public static final EventType INSTANCE = new DoubleMana();
+{
+	public static final EventType INSTANCE = new DoubleMana();
 
-	 private DoubleMana()
+	private DoubleMana()
 	{
 		super("DOUBLE_MANA");
 	}

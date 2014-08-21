@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class TurnPermanentFaceUp extends EventType
-{	public static final EventType INSTANCE = new TurnPermanentFaceUp();
+{
+	public static final EventType INSTANCE = new TurnPermanentFaceUp();
 
-	 private TurnPermanentFaceUp()
+	private TurnPermanentFaceUp()
 	{
 		super("TURN_PERMANENT_FACE_UP");
 	}

@@ -18,10 +18,12 @@ public class ManaAbilitiesAdapter extends SimplePlayerInterface
 	{
 		ignores = java.util.EnumSet.of( //
 		PlayerInterface.ChoiceType.COLOR, // e.g. black lotus
-		PlayerInterface.ChoiceType.COSTS, // mana ability with multiple costs
-		PlayerInterface.ChoiceType.MANA_EXPLOSION, // e.g. filterlands
-		PlayerInterface.ChoiceType.MANA_PAYMENT, // e.g. filterlands
-		PlayerInterface.ChoiceType.MOVEMENT_GRAVEYARD // e.g. black lotus
+				PlayerInterface.ChoiceType.COSTS, // mana ability with multiple
+													// costs
+				PlayerInterface.ChoiceType.MANA_EXPLOSION, // e.g. filterlands
+				PlayerInterface.ChoiceType.MANA_PAYMENT, // e.g. filterlands
+				PlayerInterface.ChoiceType.MOVEMENT_GRAVEYARD // e.g. black
+																// lotus
 		);
 	}
 

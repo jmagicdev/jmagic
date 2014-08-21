@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.generators.*;
 
 @Name("Tinder Wall")
 @Types({Type.CREATURE})
-@SubTypes({SubType.PLANT,SubType.WALL})
+@SubTypes({SubType.PLANT, SubType.WALL})
 @ManaCost("G")
 @Printings({@Printings.Printed(ex = Expansion.ICE_AGE, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN, Color.RED})
@@ -29,8 +29,8 @@ public final class TinderWall extends Card
 			super(state, "(R), Sacrifice Tinder Wall: Tinder Wall deals 2 damage to target creature it's blocking.");
 			this.setManaCost(new ManaPool("(R)"));
 			this.addCost(sacrificeThis("Tinder Wall"));
-			
-			Target target = this.addTarget(Intersect.instance(CreaturePermanents.instance(),BlockedBy.instance(ABILITY_SOURCE_OF_THIS)), "target creature it's blocking.");
+
+			Target target = this.addTarget(Intersect.instance(CreaturePermanents.instance(), BlockedBy.instance(ABILITY_SOURCE_OF_THIS)), "target creature it's blocking.");
 			permanentDealDamage(numberGenerator(2), targetedBy(target), "Tinder Wall deals 2 damage to target creature it's blocking.");
 		}
 	}
@@ -48,7 +48,8 @@ public final class TinderWall extends Card
 		// Sacrifice Tinder Wall: Add (R)(R) to your mana pool.
 		this.addAbility(new TinderWallAbility1(state));
 
-		// (R), Sacrifice Tinder Wall: Tinder Wall deals 2 damage to target creature it's blocking.
+		// (R), Sacrifice Tinder Wall: Tinder Wall deals 2 damage to target
+		// creature it's blocking.
 		this.addAbility(new TinderWallAbility2(state));
 	}
 }

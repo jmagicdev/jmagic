@@ -10,14 +10,13 @@ import org.rnd.jmagic.engine.Phase;
 import org.rnd.jmagic.testing.JUnitTest;
 
 @RunWith(JUnit4.class)
-public class BackfromtheBrinkTest extends JUnitTest {
+public class BackfromtheBrinkTest extends JUnitTest
+{
 	@Test
-	public void backFromTheBrink() {
-		this.addDeck(BackfromtheBrink.class, RagingGoblin.class,
-				OnewithNothing.class, Plains.class, Plains.class, Plains.class,
-				Plains.class);
-		this.addDeck(BackfromtheBrink.class, RagingGoblin.class, Plains.class,
-				Plains.class, Plains.class, Plains.class, Plains.class);
+	public void backFromTheBrink()
+	{
+		this.addDeck(BackfromtheBrink.class, RagingGoblin.class, OnewithNothing.class, Plains.class, Plains.class, Plains.class, Plains.class);
+		this.addDeck(BackfromtheBrink.class, RagingGoblin.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
 		this.startGame(GameTypes.OPEN);
 
@@ -40,7 +39,6 @@ public class BackfromtheBrinkTest extends JUnitTest {
 		pass();
 		pass();
 
-		assertEquals("Raging Goblin",
-				this.game.actualState.battlefield().objects.get(0).getName());
+		assertEquals("Raging Goblin", this.game.actualState.battlefield().objects.get(0).getName());
 	}
 }

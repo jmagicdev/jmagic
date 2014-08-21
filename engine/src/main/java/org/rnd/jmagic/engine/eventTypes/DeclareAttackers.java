@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class DeclareAttackers extends EventType
-{	public static final EventType INSTANCE = new DeclareAttackers();
+{
+	public static final EventType INSTANCE = new DeclareAttackers();
 
-	 private DeclareAttackers()
+	private DeclareAttackers()
 	{
 		super("DECLARE_ATTACKERS");
 	}

@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class PutOntoBattlefieldChoiceAttachedTo extends EventType
-{	public static final EventType INSTANCE = new PutOntoBattlefieldChoiceAttachedTo();
+{
+	public static final EventType INSTANCE = new PutOntoBattlefieldChoiceAttachedTo();
 
-	 private PutOntoBattlefieldChoiceAttachedTo()
+	private PutOntoBattlefieldChoiceAttachedTo()
 	{
 		super("PUT_ONTO_BATTLEFIELD_CHOICE_ATTACHED_TO");
 	}

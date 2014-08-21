@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class ChooseAndPerform extends EventType
-{	public static final EventType INSTANCE = new ChooseAndPerform();
+{
+	public static final EventType INSTANCE = new ChooseAndPerform();
 
-	 private ChooseAndPerform()
+	private ChooseAndPerform()
 	{
 		super("CHOOSE_AND_PERFORM");
 	}

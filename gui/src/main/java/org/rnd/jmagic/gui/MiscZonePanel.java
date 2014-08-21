@@ -158,7 +158,7 @@ class MiscZonePanel extends javax.swing.JPanel
 
 		this.add(scroll);
 
-		this.zoneChooser = new javax.swing.JComboBox<String>(MiscZonePanel.this.gui.zones.keySet().toArray(new String[]{}));
+		this.zoneChooser = new javax.swing.JComboBox<String>(MiscZonePanel.this.gui.zones.keySet().toArray(new String[] {}));
 		this.zoneChooser.addActionListener(new java.awt.event.ActionListener()
 		{
 			@Override

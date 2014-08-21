@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class Look extends EventType
-{	public static final EventType INSTANCE = new Look();
+{
+	public static final EventType INSTANCE = new Look();
 
-	 private Look()
+	private Look()
 	{
 		super("LOOK");
 	}

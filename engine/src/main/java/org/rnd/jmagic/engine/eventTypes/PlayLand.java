@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class PlayLand extends EventType
-{	public static final EventType INSTANCE = new PlayLand();
+{
+	public static final EventType INSTANCE = new PlayLand();
 
-	 private PlayLand()
+	private PlayLand()
 	{
 		super("PLAY_LAND");
 	}

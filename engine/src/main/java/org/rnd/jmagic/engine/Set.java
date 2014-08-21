@@ -195,7 +195,7 @@ public class Set implements java.util.Set<Object>, java.io.Serializable
 	{
 		this.store = new java.util.HashSet<Object>();
 	}
-	
+
 	/**
 	 * Constructs a Set containing all the elements in a given array.
 	 * 

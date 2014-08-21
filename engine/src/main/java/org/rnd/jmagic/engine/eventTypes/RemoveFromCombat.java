@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class RemoveFromCombat extends EventType
-{	public static final EventType INSTANCE = new RemoveFromCombat();
+{
+	public static final EventType INSTANCE = new RemoveFromCombat();
 
-	 private RemoveFromCombat()
+	private RemoveFromCombat()
 	{
 		super("REMOVE_FROM_COMBAT");
 	}

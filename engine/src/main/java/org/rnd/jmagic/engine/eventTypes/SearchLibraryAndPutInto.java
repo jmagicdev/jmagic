@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class SearchLibraryAndPutInto extends EventType
-{	public static final EventType INSTANCE = new SearchLibraryAndPutInto();
+{
+	public static final EventType INSTANCE = new SearchLibraryAndPutInto();
 
-	 private SearchLibraryAndPutInto()
+	private SearchLibraryAndPutInto()
 	{
 		super("SEARCH_LIBRARY_AND_PUT_INTO");
 	}

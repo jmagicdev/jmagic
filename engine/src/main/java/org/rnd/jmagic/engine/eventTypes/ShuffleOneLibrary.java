@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class ShuffleOneLibrary extends EventType
-{	public static final EventType INSTANCE = new ShuffleOneLibrary();
+{
+	public static final EventType INSTANCE = new ShuffleOneLibrary();
 
-	 private ShuffleOneLibrary()
+	private ShuffleOneLibrary()
 	{
 		super("SHUFFLE_ONE_LIBRARY");
 	}

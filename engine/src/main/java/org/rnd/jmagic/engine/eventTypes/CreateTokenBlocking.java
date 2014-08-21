@@ -3,9 +3,10 @@ package org.rnd.jmagic.engine.eventTypes;
 import org.rnd.jmagic.engine.*;
 
 public final class CreateTokenBlocking extends EventType
-{	public static final EventType INSTANCE = new CreateTokenBlocking();
+{
+	public static final EventType INSTANCE = new CreateTokenBlocking();
 
-	 private CreateTokenBlocking()
+	private CreateTokenBlocking()
 	{
 		super("CREATE_TOKEN_BLOCKING");
 	}

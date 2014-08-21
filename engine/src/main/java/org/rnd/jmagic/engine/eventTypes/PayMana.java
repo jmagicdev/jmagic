@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class PayMana extends EventType
-{	public static final EventType INSTANCE = new PayMana();
+{
+	public static final EventType INSTANCE = new PayMana();
 
-	 private PayMana()
+	private PayMana()
 	{
 		super("PAY_MANA");
 	}

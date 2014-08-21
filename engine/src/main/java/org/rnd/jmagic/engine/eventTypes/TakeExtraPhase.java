@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class TakeExtraPhase extends EventType
-{	public static final EventType INSTANCE = new TakeExtraPhase();
+{
+	public static final EventType INSTANCE = new TakeExtraPhase();
 
-	 private TakeExtraPhase()
+	private TakeExtraPhase()
 	{
 		super("TAKE_EXTRA_PHASE");
 	}

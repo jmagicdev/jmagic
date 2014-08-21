@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class Populate extends EventType
-{	public static final EventType INSTANCE = new Populate();
+{
+	public static final EventType INSTANCE = new Populate();
 
-	 private Populate()
+	private Populate()
 	{
 		super("POPULATE");
 	}

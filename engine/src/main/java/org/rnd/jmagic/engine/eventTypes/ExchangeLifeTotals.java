@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class ExchangeLifeTotals extends EventType
-{	public static final EventType INSTANCE = new ExchangeLifeTotals();
+{
+	public static final EventType INSTANCE = new ExchangeLifeTotals();
 
-	 private ExchangeLifeTotals()
+	private ExchangeLifeTotals()
 	{
 		super("EXCHANGE_LIFE_TOTALS");
 	}

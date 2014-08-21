@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class BeginStep extends EventType
-{	public static final EventType INSTANCE = new BeginStep();
+{
+	public static final EventType INSTANCE = new BeginStep();
 
-	 private BeginStep()
+	private BeginStep()
 	{
 		super("BEGIN_STEP");
 	}

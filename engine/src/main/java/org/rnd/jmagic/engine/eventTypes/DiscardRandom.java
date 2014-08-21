@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class DiscardRandom extends EventType
-{	public static final EventType INSTANCE = new DiscardRandom();
+{
+	public static final EventType INSTANCE = new DiscardRandom();
 
-	 private DiscardRandom()
+	private DiscardRandom()
 	{
 		super("DISCARD_RANDOM");
 	}

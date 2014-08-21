@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class DistributeDamage extends EventType
-{	public static final EventType INSTANCE = new DistributeDamage();
+{
+	public static final EventType INSTANCE = new DistributeDamage();
 
-	 private DistributeDamage()
+	private DistributeDamage()
 	{
 		super("DISTRIBUTE_DAMAGE");
 	}

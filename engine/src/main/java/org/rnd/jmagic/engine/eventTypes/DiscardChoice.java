@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class DiscardChoice extends EventType
-{	public static final EventType INSTANCE = new DiscardChoice();
+{
+	public static final EventType INSTANCE = new DiscardChoice();
 
-	 private DiscardChoice()
+	private DiscardChoice()
 	{
 		super("DISCARD_CHOICE");
 	}

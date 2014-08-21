@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class SetLife extends EventType
-{	public static final EventType INSTANCE = new SetLife();
+{
+	public static final EventType INSTANCE = new SetLife();
 
-	 private SetLife()
+	private SetLife()
 	{
 		super("SET_LIFE");
 	}

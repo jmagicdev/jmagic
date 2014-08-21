@@ -5,9 +5,10 @@ import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 public final class TapHard extends EventType
-{	public static final EventType INSTANCE = new TapHard();
+{
+	public static final EventType INSTANCE = new TapHard();
 
-	 private TapHard()
+	private TapHard()
 	{
 		super("TAP_HARD");
 	}

@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class LoseGame extends EventType
-{	public static final EventType INSTANCE = new LoseGame();
+{
+	public static final EventType INSTANCE = new LoseGame();
 
-	 private LoseGame()
+	private LoseGame()
 	{
 		super("LOSE_GAME");
 	}

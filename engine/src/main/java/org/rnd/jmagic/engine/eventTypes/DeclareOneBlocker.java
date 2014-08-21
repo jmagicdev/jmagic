@@ -4,9 +4,10 @@ import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 public final class DeclareOneBlocker extends EventType
-{	public static final EventType INSTANCE = new DeclareOneBlocker();
+{
+	public static final EventType INSTANCE = new DeclareOneBlocker();
 
-	 private DeclareOneBlocker()
+	private DeclareOneBlocker()
 	{
 		super("DECLARE_ONE_BLOCKER");
 	}
