@@ -14,7 +14,7 @@ public final class DarksteelCitadel extends Card
 
 		// Darksteel Citadel is indestructible. ("Destroy" effects and lethal
 		// damage don't destroy it.)
-		this.addAbility(new org.rnd.jmagic.abilities.Indestructible(state, this.getName()));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Indestructible(state));
 
 		// (T): Add (1) to your mana pool.
 		this.addAbility(new org.rnd.jmagic.abilities.TapFor1(state));

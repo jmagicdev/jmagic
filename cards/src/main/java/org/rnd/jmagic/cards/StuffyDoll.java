@@ -72,11 +72,11 @@ public final class StuffyDoll extends Card
 		this.setPower(0);
 		this.setToughness(1);
 
+		// Indestructible
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Indestructible(state));
+
 		// As Stuffy Doll enters the battlefield, choose a player.
 		this.addAbility(new StuffyDollAbility0(state));
-
-		// Stuffy Doll is indestructible.
-		this.addAbility(new org.rnd.jmagic.abilities.Indestructible(state, this.getName()));
 
 		// Whenever Stuffy Doll is dealt damage, it deals that much damage to
 		// the chosen player.

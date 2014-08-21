@@ -20,8 +20,8 @@ public final class DarksteelColossus extends Card
 		// Trample
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Trample(state));
 
-		// Darksteel Colossus is indestructible.
-		this.addAbility(new org.rnd.jmagic.abilities.Indestructible(state, this.getName()));
+		// Indestructible
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Indestructible(state));
 
 		this.addAbility(new org.rnd.jmagic.abilities.ColossusShuffle(state, this.getName()));
 	}

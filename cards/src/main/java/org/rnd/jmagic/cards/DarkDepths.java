@@ -25,7 +25,7 @@ public final class DarkDepths extends Card
 	{
 		public MakeMaritLage(GameState state)
 		{
-			super(state, "When Dark Depths has no ice counters on it, sacrifice it. If you do, put a legendary 20/20 black Avatar creature token with flying and \"This creature is indestructible\" named Marit Lage onto the battlefield.");
+			super(state, "When Dark Depths has no ice counters on it, sacrifice it. If you do, put a legendary 20/20 black Avatar creature token with flying and indestructible named Marit Lage onto the battlefield.");
 
 			SetGenerator thisCard = ABILITY_SOURCE_OF_THIS;
 
@@ -36,12 +36,12 @@ public final class DarkDepths extends Card
 
 			EventFactory sacrifice = sacrificeThis("Dark Depths");
 
-			CreateTokensFactory token = new CreateTokensFactory(1, 20, 20, "put an indestructible legendary 20/20 black Avatar creature token with flying named Marit Lage onto the battlefield");
-			token.addAbility(org.rnd.jmagic.abilities.Indestructible.class);
+			CreateTokensFactory token = new CreateTokensFactory(1, 20, 20, "put an legendary 20/20 black Avatar creature token with flying and indestructible named Marit Lage onto the battlefield");
 			token.setLegendary();
 			token.setColors(Color.BLACK);
 			token.setSubTypes(SubType.AVATAR);
 			token.addAbility(org.rnd.jmagic.abilities.keywords.Flying.class);
+			token.addAbility(org.rnd.jmagic.abilities.keywords.Indestructible.class);
 			token.setName("Marit Lage");
 
 			EventFactory ifThenElse = new EventFactory(EventType.IF_EVENT_THEN_ELSE, "Sacrifice Dark Depths.  If you do, put an indestructible legendary 20/20 black Avatar creature token with flying named Marit Lage onto the battlefield.");

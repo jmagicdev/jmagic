@@ -17,9 +17,8 @@ public final class DarksteelMyr extends Card
 		this.setPower(0);
 		this.setToughness(1);
 
-		// Darksteel Myr is indestructible. (Lethal damage and effects that say
-		// "destroy" don't destroy it. If its toughness is 0 or less, it's still
-		// put into its owner's graveyard.)
-		this.addAbility(new org.rnd.jmagic.abilities.Indestructible(state, this.getName()));
+		// Indestructible
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Indestructible(state));
+
 	}
 }

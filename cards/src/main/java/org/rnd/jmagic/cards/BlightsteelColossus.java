@@ -17,12 +17,10 @@ public final class BlightsteelColossus extends Card
 		this.setPower(11);
 		this.setToughness(11);
 
-		// Trample, infect
+		// Trample, infect, indestructible
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Trample(state));
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Infect(state));
-
-		// Blightsteel Colossus is indestructible.
-		this.addAbility(new org.rnd.jmagic.abilities.Indestructible(state, this.getName()));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Indestructible(state));
 
 		// If Blightsteel Colossus would be put into a graveyard from anywhere,
 		// reveal Blightsteel Colossus and shuffle it into its owner's library

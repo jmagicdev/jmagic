@@ -16,8 +16,8 @@ public final class DarksteelPlate extends Card
 	{
 		public DarksteelPlateAbility1(GameState state)
 		{
-			super(state, "Equipped creature is indestructible.");
-			this.addEffectPart(indestructible(EquippedBy.instance(This.instance())));
+			super(state, "Equipped creature has indestructible.");
+			this.addEffectPart(addAbilityToObject(EquippedBy.instance(This.instance()), org.rnd.jmagic.abilities.keywords.Indestructible.class));
 		}
 	}
 
@@ -25,10 +25,10 @@ public final class DarksteelPlate extends Card
 	{
 		super(state);
 
-		// Darksteel Plate is indestructible.
-		this.addAbility(new org.rnd.jmagic.abilities.Indestructible(state, this.getName()));
+		// Indestructible
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Indestructible(state));
 
-		// Equipped creature is indestructible.
+		// Equipped creature has indestructible.
 		this.addAbility(new DarksteelPlateAbility1(state));
 
 		// Equip (2)
