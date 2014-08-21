@@ -37,7 +37,7 @@ public final class DarkDepths extends Card
 			EventFactory sacrifice = sacrificeThis("Dark Depths");
 
 			CreateTokensFactory token = new CreateTokensFactory(1, 20, 20, "put an indestructible legendary 20/20 black Avatar creature token with flying named Marit Lage onto the battlefield");
-			token.addAbility(org.rnd.jmagic.abilities.ThisCreatureIsIndestructible.class);
+			token.addAbility(org.rnd.jmagic.abilities.Indestructible.class);
 			token.setLegendary();
 			token.setColors(Color.BLACK);
 			token.setSubTypes(SubType.AVATAR);

@@ -349,7 +349,6 @@ public class CardShell
 		// Not really keywords
 		newKeywords.put("This enters the battlefield tapped.", withThisNameInstantiation(EntersTheBattlefieldTapped.class));
 		newKeywords.put("This can't block.", withThisNameInstantiation(CantBlock.class));
-		newKeywords.put("This is indestructible.", withThisNameInstantiation(Indestructible.class));
 		newKeywords.put("This is unblockable.", withThisNameInstantiation(Unblockable.class));
 		/* This doesn't work because it has a comma */
 		// keywords.put("If this is in your opening hand, you may begin the game with it on the battlefield.",
