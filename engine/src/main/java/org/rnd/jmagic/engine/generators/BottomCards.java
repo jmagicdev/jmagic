@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 /**
  * Evaluates to the bottom number of {@link Card}s of each given {@link Zone}.
  * If no number is specified (for instance if an {@link IndexOf} took an empty
- * set (see {@link org.rnd.jmagic.cards.Polymorph})) return all the cards in all
+ * set (see Polymorph)) return all the cards in all
  * the given zones. {@link GameObject}s that are not {@link Card}s will not
  * count.
  */

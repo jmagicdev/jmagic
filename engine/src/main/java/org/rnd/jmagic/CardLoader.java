@@ -59,6 +59,8 @@ public class CardLoader extends java.net.URLClassLoader
 
 	static
 	{
+		// If you add new patterns here, you should probably change
+		// CardShell.NON_ASCII_REPLACE over in development to match
 		NON_ASCII_REPLACE = new java.util.HashMap<String, String>();
 		// Upper-case combined a-e
 		NON_ASCII_REPLACE.put("\u00C6", "AE");
@@ -133,7 +135,6 @@ public class CardLoader extends java.net.URLClassLoader
 	 * @param sets The sets to get cards from
 	 * @return A set containing the class object of every card printed in at
 	 * least one of the given sets
-	 * @throws CardLoaderException
 	 */
 	public static java.util.Set<Class<? extends Card>> getCards(java.util.Collection<Expansion> sets)
 	{

@@ -4,8 +4,8 @@ package org.rnd.jmagic.comms;
  * <p>
  * A reference implementation for playing jMagic over a socket. After
  * constructing the object, call
- * {@link #addLocalPlayer(org.rnd.jmagic.engine.PlayerInterface)} for each
- * player which will be playing within the same VM as the server.
+ * {@link #addLocalPlayer(org.rnd.jmagic.engine.PlayerInterface, org.rnd.jmagic.comms.ChatManager.Callback)}
+ * for each player which will be playing within the same VM as the server.
  * </p>
  * <p>
  * For players connecting via socket, all communication is via serialized

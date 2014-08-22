@@ -15,7 +15,7 @@ public class GameTypeDialog extends javax.swing.JDialog
 		 * Create a new configuration for a Java bean with an optional
 		 * {@link Description} annotation.
 		 * 
-		 * @param beanClass The bean class extending {@link T}
+		 * @param beanClass The bean class extending T
 		 */
 		public BeanConfiguration(Class<? extends T> beanClass)
 		{

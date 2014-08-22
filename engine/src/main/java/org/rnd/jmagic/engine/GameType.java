@@ -1,7 +1,5 @@
 package org.rnd.jmagic.engine;
 
-import org.rnd.jmagic.CardLoader.*;
-
 /** Represents deck construction rules. */
 public final class GameType
 {
@@ -26,7 +24,7 @@ public final class GameType
 		public boolean checkCard(Class<? extends Card> card);
 
 		/**
-		 * @param expansion The expansion to check
+		 * @param ex The expansion to check
 		 * @return Whether cards from the expansion are allowed.
 		 */
 		public boolean checkExpansion(Expansion ex);
@@ -34,7 +32,6 @@ public final class GameType
 		/**
 		 * @param deck The deck to check
 		 * @return Whether the deck as a whole is allowed to be played with.
-		 * @throws CardLoaderException
 		 */
 		public boolean checkDeck(java.util.Map<String, java.util.List<Class<? extends Card>>> deck);
 
@@ -87,8 +84,6 @@ public final class GameType
 
 		/**
 		 * @return true. See {@link GameTypeRule#checkDeck(java.util.Map)}.
-		 * 
-		 * @throws CardLoaderException
 		 */
 		@Override
 		public boolean checkDeck(java.util.Map<String, java.util.List<Class<? extends Card>>> deck)

@@ -1,6 +1,6 @@
 package org.rnd.jmagic.engine;
 
-import org.rnd.jmagic.engine.PlayerInterface.*;
+import org.rnd.jmagic.engine.PlayerInterface.ChooseParameters;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
 
@@ -224,7 +224,6 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 * Constructs a game object that is blank (except for its name.)
 	 * 
 	 * @param state The game state in which this object exists.
-	 * @param name The object's name.
 	 */
 	GameObject(GameState state)
 	{
@@ -455,14 +454,13 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 * Adds a target to this object.
 	 * 
 	 * @param filter Describes the legal objects, players, or zones that can be
-	 * targetted by this target.
+	 * targeted by this target.
 	 * @param name The name of this target, including the word 'target', the
 	 * targeting restriction, and the number of objects that must be targeted.
 	 * Example: "six target creatures". If this spell or ability has multiple
 	 * targets, those targets can target the same kinds of objects, and does
 	 * different things to those targets, include what it will do to that
-	 * target. Example: "target creature to get -3/-0" (
-	 * {@link org.rnd.jmagic.cards.AgonyWarp})
+	 * target. Example: "target creature to get -3/-0" (see Agony Warp)
 	 * @return The Target object that got added.
 	 */
 	public final Target addTarget(SetGenerator filter, String name)
@@ -1857,8 +1855,8 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 * the player has selected the specified mode.
 	 * 
 	 * @param modeNum The mode.
-	 * @param divisionAmount A set generator representing what the player
-	 * playing this object will be dividing.
+	 * @param division A set generator representing what the player playing this
+	 * object will be dividing.
 	 */
 	public void setDivision(int modeNum, SetGenerator division)
 	{
@@ -1869,8 +1867,8 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 * Tells this object what it should ask the player playing it to divide. Use
 	 * this method only on objects that "have no modes".
 	 * 
-	 * @param divisionAmount A set generator representing what the player
-	 * playing this object will be dividing.
+	 * @param division A set generator representing what the player playing this
+	 * object will be dividing.
 	 */
 	public void setDivision(SetGenerator division)
 	{

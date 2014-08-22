@@ -243,9 +243,9 @@ public abstract class DamageReplacementEffect extends ReplacementEffect
 	 * either a permanent (if it's dealing combat damage) or spell, or will
 	 * <i>most likely</i> be referred to by an ability causing that object to
 	 * deal damage. One example where this method must be overridden is
-	 * {@link org.rnd.jmagic.cards.RefractionTrap} -- the replacement effect
-	 * itself deals damage, and thus the Refraction Trap that effect refers to
-	 * isn't covered by any of the other categories in rule 609.7a.
+	 * Refraction Trap -- the replacement effect itself deals damage, and thus
+	 * the Refraction Trap that effect refers to isn't covered by any of the
+	 * other categories in rule 609.7a.
 	 */
 	@Override
 	public java.util.Collection<GameObject> refersTo(GameState state)

@@ -23,9 +23,8 @@ public final class PlayLandAction extends PlayerAction
 
 	/**
 	 * There's no rule to quote about not being to play lands that are
-	 * prohibited, but cards like {@link org.rnd.jmagic.cards.PardicMiner Pardic
-	 * Miner} prohibit playing lands, so mirror the same structure for casting
-	 * spells and activating abilities.
+	 * prohibited, but cards like Pardic Miner prohibit playing lands, so mirror
+	 * the same structure for casting spells and activating abilities.
 	 */
 	public boolean attempt()
 	{

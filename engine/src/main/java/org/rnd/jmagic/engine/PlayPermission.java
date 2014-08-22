@@ -34,8 +34,6 @@ public class PlayPermission
 	 * {@link PlayableAsLand} (and whatever interface casting a spell will use).
 	 * 
 	 * @param state What {@link GameState} to evaluate this permission in
-	 * @param source The source of the continuous effect adding this permission
-	 * (or the {@link GameObject} itself for default permissions}
 	 * @param whoFor The {@link Player} instance this permission is being
 	 * evaluated for
 	 * @return True if the evaluated permission contains {@code whoFor}. False

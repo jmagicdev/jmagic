@@ -609,9 +609,8 @@ public class Start
 	private static final java.util.logging.Logger LOG = java.util.logging.Logger.getLogger("org.rnd.jmagic.gui.Start");
 
 	/**
-	 * What log file to write to under the directory set by
-	 * {@link #setDirectory(String)} where "%d" will be replaced with the log
-	 * number
+	 * What log file to write to under the directory set where "%d" will be
+	 * replaced with the log number
 	 */
 	private static final String LOG_FILE_PATTERN = "log%d.xml";
 

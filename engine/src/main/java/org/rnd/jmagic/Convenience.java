@@ -2584,7 +2584,7 @@ public class Convenience
 	/**
 	 * Note that the {@link EventType#PLAYER_CHOOSE} {@link EventFactory}
 	 * returned always specifies {@link This#instance()} for
-	 * {@link EventType.Parameter#OBJECT}.
+	 * {@link org.rnd.jmagic.engine.EventType.Parameter#OBJECT}.
 	 */
 	public static EventFactory playerChoose(SetGenerator choosing, SetGenerator number, SetGenerator choices, PlayerInterface.ChoiceType choiceType, PlayerInterface.ChooseReason reason, String name)
 	{
@@ -2626,10 +2626,6 @@ public class Convenience
 	/**
 	 * [Player] may play [n] additional land(s) this turn.
 	 * 
-	 * @param game The game in which this effect is created; required to create
-	 * the action factories.
-	 * @param creator The resolving spell/ability creating the effect. Typically
-	 * <code>this</code>.
 	 * @param who SetGenerator describing who can play the lands.
 	 * @param number How many additional lands can be played.
 	 * @param effectName Text of the effect.

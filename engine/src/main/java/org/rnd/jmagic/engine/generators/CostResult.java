@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.*;
  * referencing a cost result in a targeting restriction, you are Doing It Wrong!
  * You almost certainly want {@link CostChoice}, as costs have not been paid
  * when targets are declared (but cards are often worded as though they have
- * been). See {@link org.rnd.jmagic.cards.SimicManipulator}.
+ * been).
  */
 public class CostResult extends SetGenerator
 {
