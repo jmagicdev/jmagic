@@ -8,36 +8,36 @@ import org.rnd.jmagic.engine.*;
 @DependsOn(SideboardAsWishboard.class)
 public class SideboardSize extends GameType.SimpleGameTypeRule
 {
-	private int size;
+	private int maximumSize;
 
 	public SideboardSize()
 	{
-		this.size = 0;
+		this.maximumSize = 0;
 	}
 
 	/**
 	 * Constructs a new deck construction rule stating that the sideboard must
-	 * either be zero cards or the specified number of cards.
+	 * be at maximum the specified number of cards.
 	 */
 	public SideboardSize(int size)
 	{
-		this.size = size;
+		this.maximumSize = size;
 	}
 
 	@Override
 	public boolean checkDeck(java.util.Map<String, java.util.List<Class<? extends Card>>> deck)
 	{
 		int sideboardSize = deck.get(Deck.SIDEBOARD).size();
-		return sideboardSize == 0 || sideboardSize == this.size;
+		return sideboardSize <= this.maximumSize;
 	}
 
 	public int getSize()
 	{
-		return this.size;
+		return this.maximumSize;
 	}
 
 	public void setSize(int size)
 	{
-		this.size = size;
+		this.maximumSize = size;
 	}
 }
