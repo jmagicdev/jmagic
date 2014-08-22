@@ -33,7 +33,6 @@ public class FaceDownTest extends JUnitTest
 		assertEquals(1, moggFanatic.getTypes().size());
 		assertEquals(Type.CREATURE, moggFanatic.getTypes().iterator().next());
 		assertTrue(moggFanatic.getSubTypes().isEmpty());
-		assertNull(moggFanatic.getExpansionSymbol());
 		assertTrue(moggFanatic.getAbilityIDsInOrder().isEmpty());
 		assertEquals(2, moggFanatic.getPower());
 		assertEquals(2, moggFanatic.getToughness());
@@ -55,7 +54,6 @@ public class FaceDownTest extends JUnitTest
 		assertEquals(1, clone.getTypes().size());
 		assertEquals(Type.CREATURE, clone.getTypes().iterator().next());
 		assertTrue(clone.getSubTypes().isEmpty());
-		assertNull(clone.getExpansionSymbol());
 		assertTrue(clone.getAbilityIDsInOrder().isEmpty());
 		assertEquals(2, clone.getPower());
 		assertEquals(2, clone.getToughness());

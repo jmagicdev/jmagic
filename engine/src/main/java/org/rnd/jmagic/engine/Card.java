@@ -85,10 +85,6 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 	public final GameObject create(Game game)
 	{
 		GameObject newObject = super.create(game);
-
-		if(newObject != null)
-			newObject.setExpansionSymbol(this.getExpansionSymbol());
-
 		return newObject;
 	}
 

@@ -274,7 +274,6 @@ public class Planechase extends GameType.SimpleGameTypeRule
 				continue;
 			}
 			GameObject plane = org.rnd.util.Constructor.construct(card, parameterClasses, parameterObjects);
-			plane.setExpansionSymbol(org.rnd.jmagic.CardLoader.getPrintings(card).firstKey());
 			plane.controllerID = firstPlayerID;
 			commandZone.addToTop(plane);
 			this.planeIDs.add(plane.ID);

@@ -6,7 +6,7 @@ public class Characteristics implements Sanitizable, Cloneable
 	{
 		// name, mana cost, card type, subtype, supertype, expansion symbol,
 		// rules text, power, toughness, and/or loyalty
-		NAME, MANA_COST, TYPES, EXPANSION, RULES_TEXT, POWER, TOUGHNESS, LOYALTY, CHOICES_MADE_WHEN_PLAYING, COLOR
+		NAME, MANA_COST, TYPES, RULES_TEXT, POWER, TOUGHNESS, LOYALTY, CHOICES_MADE_WHEN_PLAYING, COLOR
 	}
 
 	/**
@@ -58,7 +58,6 @@ public class Characteristics implements Sanitizable, Cloneable
 	public int toughness;
 	public int loyalty;
 	public int minimumX;
-	protected Expansion symbol;
 	public ManaPool manaCost;
 	public java.util.List<Integer> abilityIDsInOrder;
 	protected java.util.List<Integer> nonStaticAbilities;
@@ -98,7 +97,6 @@ public class Characteristics implements Sanitizable, Cloneable
 		this.toughness = 0;
 		this.loyalty = 0;
 		this.minimumX = 0;
-		this.symbol = null;
 		this.manaCost = null;
 		this.abilityIDsInOrder = new java.util.LinkedList<Integer>();
 		this.nonStaticAbilities = new java.util.LinkedList<Integer>();
@@ -131,7 +129,6 @@ public class Characteristics implements Sanitizable, Cloneable
 		ret.toughness = this.toughness;
 		ret.loyalty = this.loyalty;
 		ret.minimumX = this.minimumX;
-		ret.symbol = this.symbol;
 
 		if(this.manaCost == null)
 			ret.manaCost = null;

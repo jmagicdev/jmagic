@@ -45,7 +45,6 @@ public class FlipCardsTest extends JUnitTest
 		assertEquals("Ichiga, Who Topples Oaks", ichiga.getName());
 		assertNotNull(ichiga.getManaCost());
 		assertEquals(3, ichiga.getManaCost().converted());
-		assertEquals(Expansion.BETRAYERS_OF_KAMIGAWA, ichiga.getExpansionSymbol());
 
 		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
 

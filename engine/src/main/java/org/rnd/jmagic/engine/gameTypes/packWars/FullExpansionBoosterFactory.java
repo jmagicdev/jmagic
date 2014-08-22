@@ -28,7 +28,6 @@ public class FullExpansionBoosterFactory implements BoosterFactory
 			for(Class<? extends Card> cardClass: CardLoader.getCards(java.util.Arrays.asList(expansion)))
 			{
 				Card card = org.rnd.util.Constructor.construct(cardClass, new Class<?>[] {GameState.class}, new Object[] {state});
-				card.setExpansionSymbol(expansion);
 				ret.add(card);
 			}
 

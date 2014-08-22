@@ -275,7 +275,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 		BottomHalf bottomHalf = clazz.getAnnotation(BottomHalf.class);
 		if(bottomHalf != null && bottomHalf.value() != null && this.game.actualState != null)
-			this.setBottomHalf(Characteristics.createFromClass(this.game, bottomHalf.value(), this, false, Characteristics.Characteristic.COLOR, Characteristics.Characteristic.MANA_COST, Characteristics.Characteristic.EXPANSION));
+			this.setBottomHalf(Characteristics.createFromClass(this.game, bottomHalf.value(), this, false, Characteristics.Characteristic.COLOR, Characteristics.Characteristic.MANA_COST));
 		else
 			this.setBottomHalf(null);
 
@@ -1028,11 +1028,6 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		if((null != this.effectsGenerated) && this.effectsGenerated.containsKey(factory))
 			return state.get(this.effectsGenerated.get(factory));
 		return null;
-	}
-
-	public Expansion getExpansionSymbol()
-	{
-		return this.characteristics.symbol;
 	}
 
 	public Characteristics getBottomHalf()
@@ -1873,11 +1868,6 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	public void setDivision(SetGenerator division)
 	{
 		this.setDivision(1, division);
-	}
-
-	public void setExpansionSymbol(Expansion expansionSymbol)
-	{
-		this.characteristics.symbol = expansionSymbol;
 	}
 
 	public void setFlipped(boolean flipped)

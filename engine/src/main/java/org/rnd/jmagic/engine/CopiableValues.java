@@ -68,7 +68,6 @@ public class CopiableValues
 			this.bottomHalf = flipped.create(target);
 			this.bottomHalf.colors = this.characteristics.colors;
 			this.bottomHalf.manaCost = this.characteristics.manaCost;
-			this.bottomHalf.symbol = this.characteristics.symbol;
 		}
 		this.originalWasOnStack = (original.zoneID == game.physicalState.stack().ID);
 	}
@@ -93,9 +92,6 @@ public class CopiableValues
 
 		if(this.toCopy.contains(Characteristics.Characteristic.LOYALTY))
 			object.setPrintedLoyalty(toApply.loyalty);
-
-		if(this.toCopy.contains(Characteristics.Characteristic.EXPANSION))
-			object.setExpansionSymbol(toApply.symbol);
 
 		if(this.toCopy.contains(Characteristics.Characteristic.MANA_COST))
 		{

@@ -32,7 +32,6 @@ public class LandBoosterFactory implements BoosterFactory
 			for(int i = 0; i < this.landsOfEachBasicLandType; ++i)
 			{
 				Card instance = org.rnd.util.Constructor.construct((Class<? extends Card>)clazz, new Class<?>[] {GameState.class}, new Object[] {state});
-				instance.setExpansionSymbol(Expansion.MAGIC_2011);
 				ret.add(instance);
 			}
 

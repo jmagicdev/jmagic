@@ -1232,17 +1232,8 @@ public class Game
 		{
 			GameObject newCard = org.rnd.util.Constructor.construct(i, new Class<?>[] {GameState.class}, new Object[] {this.physicalState});
 
-			try
-			{
-				// This line will throw a no such element exception if the
-				// card has no expansions; useful for remembering to put
-				// them in
-				newCard.setExpansionSymbol(org.rnd.jmagic.CardLoader.getPrintings(i).entrySet().iterator().next().getKey());
-			}
-			catch(java.util.NoSuchElementException ex)
-			{
+			if(org.rnd.jmagic.CardLoader.getPrintings(i).isEmpty())
 				throw new IllegalStateException("No printings specified for card: " + i.getSimpleName());
-			}
 
 			// The players' decks become their libraries.
 			newCard.setOwner(owner);
@@ -1276,13 +1267,11 @@ public class Game
 			{
 				ManaPool newManaCost = new ManaPool(o.getManaCost());
 				java.util.Set<Color> newColors = java.util.EnumSet.copyOf(o.getColors());
-				Expansion newExpansionSymbol = o.getExpansionSymbol();
 
 				GameObject newO = this.actualState.copyForEditing(o);
 				newO.setCharacteristics(bottomHalf);
 				newO.setManaCost(newManaCost);
 				newO.setColors(newColors);
-				newO.setExpansionSymbol(newExpansionSymbol);
 			}
 
 			if(o.isTransformed())

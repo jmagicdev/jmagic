@@ -1,40 +1,20 @@
 package org.rnd.jmagic.engine.gameTypes.packWars;
 
 import org.rnd.jmagic.*;
-import org.rnd.jmagic.CardLoader.CardLoaderException;
 import org.rnd.jmagic.engine.*;
 
 @Name("Expansion booster")
 public class ExpansionBoosterFactory implements BoosterFactory
 {
-	private static class CardClassWithExpansion
-	{
-		public final Class<? extends Card> cardClass;
-		public final Expansion expansion;
-
-		public CardClassWithExpansion(String name, Expansion expansion) throws CardLoaderException
-		{
-			this.cardClass = CardLoader.getCard(name);
-			this.expansion = expansion;
-		}
-
-		public CardClassWithExpansion(Class<? extends Card> cardClass, Expansion expansion)
-		{
-			this.cardClass = cardClass;
-			this.expansion = expansion;
-		}
-	}
-
-	private static int addRandomCards(java.util.Collection<Card> cards, java.util.List<CardClassWithExpansion> possible, int num, GameState state)
+	private static int addRandomCards(java.util.Collection<Card> cards, java.util.List<Class<? extends Card>> possible, int num, GameState state)
 	{
 		int added = 0;
 		java.util.Collections.shuffle(possible);
 
 		for(int i = 0; (i < num) && (i < possible.size()); ++i)
 		{
-			CardClassWithExpansion cardClassWithExpansion = possible.remove(0);
-			Card card = org.rnd.util.Constructor.construct(cardClassWithExpansion.cardClass, new Class<?>[] {GameState.class}, new Object[] {state});
-			card.setExpansionSymbol(cardClassWithExpansion.expansion);
+			Class<? extends Card> cardClass = possible.remove(0);
+			Card card = org.rnd.util.Constructor.construct(cardClass, new Class<?>[] {GameState.class}, new Object[] {state});
 			cards.add(card);
 			++added;
 		}
@@ -65,25 +45,25 @@ public class ExpansionBoosterFactory implements BoosterFactory
 
 		if(this.rarityIgnored)
 		{
-			java.util.List<CardClassWithExpansion> allCards = new java.util.LinkedList<CardClassWithExpansion>();
+			java.util.List<Class<? extends Card>> allCards = new java.util.LinkedList<Class<? extends Card>>();
 			for(Expansion expansion: this.expansions)
 				for(Class<? extends Card> cardClass: CardLoader.getCards(java.util.Arrays.asList(expansion)))
-					allCards.add(new CardClassWithExpansion(cardClass, expansion));
+					allCards.add(cardClass);
 			addRandomCards(ret, allCards, 14, state);
 		}
 		else
 		{
-			java.util.Map<Rarity, java.util.List<CardClassWithExpansion>> allCards = new java.util.HashMap<Rarity, java.util.List<CardClassWithExpansion>>();
+			java.util.Map<Rarity, java.util.List<Class<? extends Card>>> allCards = new java.util.HashMap<Rarity, java.util.List<Class<? extends Card>>>();
 			for(Rarity rarity: Rarity.values())
-				allCards.put(rarity, new java.util.LinkedList<CardClassWithExpansion>());
+				allCards.put(rarity, new java.util.LinkedList<Class<? extends Card>>());
 
 			for(Expansion expansion: this.expansions)
 			{
 				for(java.util.Map.Entry<Rarity, java.util.Set<Class<? extends Card>>> e: CardLoader.getRarityMap(expansion).entrySet())
 				{
-					java.util.List<CardClassWithExpansion> rarityCards = allCards.get(e.getKey());
+					java.util.List<Class<? extends Card>> rarityCards = allCards.get(e.getKey());
 					for(Class<? extends Card> cardClass: e.getValue())
-						rarityCards.add(new CardClassWithExpansion(cardClass, expansion));
+						rarityCards.add(cardClass);
 				}
 			}
 
@@ -105,12 +85,12 @@ public class ExpansionBoosterFactory implements BoosterFactory
 
 		// Always include one land (not all sets have lands, so always take it
 		// from the latest base set)
-		java.util.List<CardClassWithExpansion> lands = new java.util.LinkedList<CardClassWithExpansion>();
-		lands.add(new CardClassWithExpansion("Plains", Expansion.MAGIC_2011));
-		lands.add(new CardClassWithExpansion("Island", Expansion.MAGIC_2011));
-		lands.add(new CardClassWithExpansion("Swamp", Expansion.MAGIC_2011));
-		lands.add(new CardClassWithExpansion("Mountain", Expansion.MAGIC_2011));
-		lands.add(new CardClassWithExpansion("Forest", Expansion.MAGIC_2011));
+		java.util.List<Class<? extends Card>> lands = new java.util.LinkedList<Class<? extends Card>>();
+		lands.add(CardLoader.getCard("Plains"));
+		lands.add(CardLoader.getCard("Island"));
+		lands.add(CardLoader.getCard("Swamp"));
+		lands.add(CardLoader.getCard("Mountain"));
+		lands.add(CardLoader.getCard("Forest"));
 		addRandomCards(ret, lands, 1, state);
 
 		return ret;

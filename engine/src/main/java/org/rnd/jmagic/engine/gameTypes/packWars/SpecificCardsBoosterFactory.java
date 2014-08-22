@@ -50,7 +50,6 @@ public class SpecificCardsBoosterFactory implements BoosterFactory
 		{
 			Class<? extends Card> clazz = org.rnd.jmagic.CardLoader.getCard(name);
 			Card instance = org.rnd.util.Constructor.construct((Class<? extends Card>)clazz, new Class<?>[] {GameState.class}, new Object[] {state});
-			instance.setExpansionSymbol(clazz.getAnnotation(Printings.class).value()[0].ex());
 			ret.add(instance);
 		}
 
