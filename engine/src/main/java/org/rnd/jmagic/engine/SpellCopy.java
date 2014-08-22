@@ -1,6 +1,7 @@
 package org.rnd.jmagic.engine;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.generators.*;
 
 /** Represents a copy of a spell. */
@@ -10,7 +11,7 @@ public final class SpellCopy extends GameObject implements Castable
 
 	/**
 	 * @param state The state to create this spell copy in.
-	 * @param original The spell it's copying.
+	 * @param name What name to give to the copy
 	 */
 	public SpellCopy(GameState state, String name)
 	{

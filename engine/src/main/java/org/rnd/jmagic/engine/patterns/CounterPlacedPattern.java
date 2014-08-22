@@ -19,9 +19,6 @@ public class CounterPlacedPattern implements EventPattern
 	 * @param type The type of counter to match against (null for "any").
 	 * @param objectFilter what objects to match against (null for "any"). Don't
 	 * require that these objects be permanents!
-	 * 
-	 * @param triggerObject A generator evaluating to a single
-	 * {@link GameObject}.
 	 */
 	public CounterPlacedPattern(Counter.CounterType type, SetGenerator objectFilter)
 	{
@@ -40,9 +37,6 @@ public class CounterPlacedPattern implements EventPattern
 	 * @param type The type of counter to match against (null for "any").
 	 * @param objectFilter what objects to match against (null for "any"). Don't
 	 * require that these objects be permanents!
-	 * 
-	 * @param triggerObject A generator evaluating to a single
-	 * {@link GameObject}.
 	 */
 	public CounterPlacedPattern(Counter.CounterType type, SetPattern objectFilter)
 	{

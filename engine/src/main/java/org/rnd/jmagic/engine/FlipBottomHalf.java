@@ -14,8 +14,8 @@ package org.rnd.jmagic.engine;
  * permanent is on the battlefield and only if the permanent is flipped.
  * 
  * Extend this class when you want to write the other half of a flip card. The
- * top half should be the card's "normal" characteristics, and set
- * {@link GameObject#flippedClass} to represent that card's alternative
+ * top half should be the card's "normal" characteristics, and use the
+ * {@link BottomHalf} annotation to represent that card's alternative
  * characteristics. Annotate the instance of this class with a {@link Flipped}
  * annotation, setting the value to the top half of the flip card.
  */

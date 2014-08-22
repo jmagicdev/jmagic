@@ -157,8 +157,6 @@ class CardInfoPanel extends javax.swing.JPanel
 	 * new focus
 	 * @param state What {@link SanitizedGameState} to use when determining
 	 * which {@link SanitizedIdentified} is the focus
-	 * @param forceUpdate Whether to force an update regardless of what is
-	 * already being focused on (useful for when the state changes)
 	 */
 	private void setFocus(int focusID, SanitizedGameState state)
 	{

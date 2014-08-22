@@ -30,7 +30,6 @@ abstract public class Identified implements Cloneable, Comparable<Identified>
 
 	/**
 	 * @param state The game state in which this identified should be put
-	 * @param name The name of this thing
 	 */
 	Identified(GameState state)
 	{

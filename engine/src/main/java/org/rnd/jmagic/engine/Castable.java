@@ -92,7 +92,7 @@ public interface Castable
 		 * This class needs some information from the object delegating to it,
 		 * so calling this method will throw a
 		 * {@link UnsupportedOperationException}. Instead, call the
-		 * {@link #isCastableBy(GameState, Player, GameObject)} version.
+		 * {@link #getCastActions(GameState, Player, GameObject)} version.
 		 */
 		@Deprecated
 		@Override

@@ -2,9 +2,9 @@ package org.rnd.jmagic.util;
 
 import java.io.*;
 
-import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.abilities.*;
 import org.rnd.jmagic.abilities.keywords.*;
+import org.rnd.jmagic.engine.*;
 
 public class CardShell
 {
@@ -13,16 +13,16 @@ public class CardShell
 	private static final java.util.Map<String, Expansion> expansionNames = new java.util.HashMap<String, Expansion>();
 	private static final java.util.Map<String, Rarity> rarityNames = new java.util.HashMap<String, Rarity>();
 
-	/**
-	 * This should be kept up to date with {@link CardLoader#NON_ASCII_REPLACE}.
-	 */
 	private static final java.util.Map<String, String> NON_ASCII_REPLACE;
 
 	static
 	{
+		// Keep these values up to date with CardLoader.NON_ASCII_REPLACE
 		NON_ASCII_REPLACE = new java.util.HashMap<String, String>();
 		// Upper-case combined a-e
 		NON_ASCII_REPLACE.put("\u00C6", "\\u00C6");
+		// Lower-case e with an accent
+		NON_ASCII_REPLACE.put("\u00E9", "\\u00E9");
 		// Lower-case o with umlaut
 		NON_ASCII_REPLACE.put("\u00F6", "\\u00F6");
 	}

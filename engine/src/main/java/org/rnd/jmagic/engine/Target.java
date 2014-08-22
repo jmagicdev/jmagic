@@ -193,8 +193,7 @@ public class Target implements Cloneable, Sanitizable
 	 * the {@link #restrictFromLaterTargets} flag. If those things are not
 	 * sufficient, you may override this method on your target.
 	 * 
-	 * See {@link org.rnd.jmagic.cards.DiluvianPrimordial} for an example of
-	 * this.
+	 * See Diluvian Primordial for an example of this.
 	 * 
 	 * @param state The game state to check the choices in
 	 * @param choices The potential list of objects/players/zones chosen for
@@ -208,7 +207,8 @@ public class Target implements Cloneable, Sanitizable
 
 	/**
 	 * If you think you need to override this method, you probably want to
-	 * override {@link #checkSpecialRestrictions(java.util.List)} instead.
+	 * override {@link #checkSpecialRestrictions(GameState, java.util.List)}
+	 * instead.
 	 * 
 	 * @param game The game in which to check.
 	 * @param thisObject The object that should be used for any This generators.

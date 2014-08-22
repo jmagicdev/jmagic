@@ -2,8 +2,8 @@ package org.rnd.jmagic.engine;
 
 import static org.rnd.jmagic.Convenience.*;
 
-import org.rnd.jmagic.CardLoader.*;
-import org.rnd.jmagic.engine.PlayerInterface.*;
+import org.rnd.jmagic.CardLoader.CardLoaderException;
+import org.rnd.jmagic.engine.PlayerInterface.ErrorParameters;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
 

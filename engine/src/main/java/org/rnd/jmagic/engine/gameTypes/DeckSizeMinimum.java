@@ -1,6 +1,5 @@
 package org.rnd.jmagic.engine.gameTypes;
 
-import org.rnd.jmagic.CardLoader.*;
 import org.rnd.jmagic.engine.*;
 
 /**
@@ -29,7 +28,6 @@ public class DeckSizeMinimum extends GameType.SimpleGameTypeRule
 	/**
 	 * @return Whether the given deck conforms to the rules for constructed
 	 * play.
-	 * @throws CardLoaderException
 	 */
 	@Override
 	public boolean checkDeck(java.util.Map<String, java.util.List<Class<? extends Card>>> deck)

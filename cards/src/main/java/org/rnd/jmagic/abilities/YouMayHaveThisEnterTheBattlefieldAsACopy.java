@@ -13,7 +13,7 @@ public final class YouMayHaveThisEnterTheBattlefieldAsACopy
 	 * @eparam PLAYER: the player who will make the choice
 	 * @eparam SOURCE: the objects to choose from for the copy
 	 * @eparam ABILITY: abilities to add as part of the copy effect (if any)
-	 * @eparam PREVENT: {@link Characteristics#Characteristic}s to not copy
+	 * @eparam PREVENT: {@link org.rnd.jmagic.engine.Characteristics.Characteristic}s to not copy
 	 * (optional parameter; default is none)
 	 * @eparam TAPPED: if this is present, the permanent will be tapped
 	 * @eparam TYPE: types/supertypes/subtypes to add as part of the copy effect

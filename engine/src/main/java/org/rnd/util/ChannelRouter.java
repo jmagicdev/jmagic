@@ -7,12 +7,11 @@ import java.nio.channels.*;
  * Route data from channels to channels using only a single thread.
  * </p>
  * <p>
- * Use this class by calling
- * {@link #addRoute(SelectableChannel, SelectableChannel)} for each route, then
- * call {@link #run()} (either directly or in a {@link Thread}) to start the
- * routing. Route can be added while this is running, but it can only be run
- * once; the behavior of calling {@link #run()} again after it returns the first
- * time is undefined.
+ * Use this class by calling {@link #addRoute} for each route, then call
+ * {@link #run()} (either directly or in a {@link Thread}) to start the routing.
+ * Route can be added while this is running, but it can only be run once; the
+ * behavior of calling {@link #run()} again after it returns the first time is
+ * undefined.
  * </p>
  * <p>
  * The motivation behind this class is behavior when using
@@ -222,11 +221,11 @@ public class ChannelRouter implements Runnable
 	 * 
 	 * <pre>
 	 * {@link Pipe} inputToOutput = {@link Pipe#open()};
-	 * {@link Pipe.SourceChannel} source = {@link Pipe#source() inputToOutput.source()};
+	 * {@link java.nio.channels.Pipe.SourceChannel} source = {@link Pipe#source() inputToOutput.source()};
 	 * {@link SelectableChannel#configureBlocking(boolean) source.configureBlocking(false)};
-	 * {@link #addRoute(SelectableChannel, SelectableChannel) addRoute(source, output)};
+	 * {@link #addRoute addRoute(source, output)};
 	 * 
-	 * {@link Pipe.SinkChannel} sink = {@link Pipe#sink() inputToOutput.sink()};
+	 * {@link java.nio.channels.Pipe.SinkChannel} sink = {@link Pipe#sink() inputToOutput.sink()};
 	 * return {@link #wrapChannelInObjectOutputStream(WritableByteChannel) wrapChannelInObjectOutputStream(sink)};
 	 * </pre>
 	 * 
@@ -253,11 +252,11 @@ public class ChannelRouter implements Runnable
 	 * 
 	 * <pre>
 	 * {@link Pipe} inputToOutput = {@link Pipe#open()};
-	 * {@link Pipe.SinkChannel} sink = {@link Pipe#sink() inputToOutput.sink()};
+	 * {@link java.nio.channels.Pipe.SinkChannel} sink = {@link Pipe#sink() inputToOutput.sink()};
 	 * {@link SelectableChannel#configureBlocking(boolean) sink.configureBlocking(false)};
-	 * {@link #addRoute(SelectableChannel, SelectableChannel) addRoute(input, sink)};
+	 * {@link #addRoute addRoute(input, sink)};
 	 * 
-	 * {@link Pipe.SourceChannel} source = {@link Pipe#source() inputToOutput.source()};
+	 * {@link java.nio.channels.Pipe.SourceChannel} source = {@link Pipe#source() inputToOutput.source()};
 	 * return {@link #wrapChannelInObjectInputStream(ReadableByteChannel) wrapChannelInObjectInputStream(source)};
 	 * </pre>
 	 * 

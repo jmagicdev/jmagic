@@ -1,13 +1,14 @@
 package org.rnd.jmagic.engine.generators;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 
 /**
  * Evaluates to the top number of {@link Card}s of each given {@link Zone}. If
  * no number is specified (for instance if an {@link IndexOf} took an empty set
- * (see {@link org.rnd.jmagic.cards.Polymorph})) return all the cards in all the
- * given zones. {@link GameObject}s that are not {@link Card}s will not count.
+ * (see Polymorph) return all the cards in all the given zones.
+ * {@link GameObject}s that are not {@link Card}s will not count.
  */
 public class TopCards extends SetGenerator
 {

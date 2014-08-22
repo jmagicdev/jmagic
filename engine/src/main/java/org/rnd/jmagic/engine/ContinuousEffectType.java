@@ -927,7 +927,7 @@ public abstract class ContinuousEffectType
 	 * @eparam EVENT: An event putting the object onto the battlefield.
 	 * [optional -- By default, a simple PUT_ONTO_BATTLEFIELD event will be
 	 * generated; you'll need to specify this if it's something more complex,
-	 * e.g. {@link org.rnd.jmagic.cards.GemstoneCaverns}'s luck counter event.]
+	 * e.g. Gemstone Caverns's luck counter event.]
 	 * @eparam ACTION: An event to be performed "if you do" begin the game with
 	 * the object on the battlefield. [optional; default = no event]
 	 */
