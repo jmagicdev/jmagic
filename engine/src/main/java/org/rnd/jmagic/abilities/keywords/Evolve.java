@@ -1,6 +1,7 @@
 package org.rnd.jmagic.abilities.keywords;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
@@ -21,6 +22,21 @@ public final class Evolve extends Keyword
 		return ret;
 	}
 
+	public static final EventType EVOLVE_EVENT = new EventType("EVOLVE_EVENT")
+	{
+		@Override
+		public Parameter affects()
+		{
+			return null;
+		}
+
+		@Override
+		public boolean perform(Game game, Event event, java.util.Map<Parameter, Set> parameters)
+		{
+			return true;
+		}
+	};
+	
 	public static final class EvolveAbility extends EventTriggeredAbility
 	{
 		public EvolveAbility(GameState state)
@@ -37,6 +53,10 @@ public final class Evolve extends Keyword
 			this.interveningIf = Union.instance(greaterPower, greaterToughness);
 
 			this.addEffect(putCounters(1, Counter.CounterType.PLUS_ONE_PLUS_ONE, ABILITY_SOURCE_OF_THIS, "Put a +1/+1 counter on this creature."));
+
+			EventFactory triggerEvolve = new EventFactory(EVOLVE_EVENT, "This creature evolved.");
+			triggerEvolve.parameters.put(EventType.Parameter.CAUSE, This.instance());
+			this.addEffect(triggerEvolve);
 		}
 	}
 }
