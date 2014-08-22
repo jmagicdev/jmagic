@@ -1279,7 +1279,8 @@ public class Game
 				if(o.getBackFace() == null)
 					throw new IllegalStateException("A single-faced card has transformed: " + o);
 
-				this.actualState.copyForEditing(o).setCharacteristics(o.getBackFace());
+				GameObject newO = this.actualState.copyForEditing(o);
+				newO.setCharacteristics(newO.getBackFace());
 			}
 		}
 

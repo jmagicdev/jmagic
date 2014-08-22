@@ -665,6 +665,11 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		GameObject ret = (GameObject)super.clone(state);
 		ret.characteristics = this.characteristics.clone();
 
+		if(this.backFace != null)
+			ret.backFace = this.backFace.clone();
+		if(this.bottomHalf != null)
+			ret.bottomHalf = this.bottomHalf.clone();
+
 		ret.alternateCosts = null;
 		ret.attachments = new java.util.HashSet<Integer>(this.attachments);
 		if(null != this.battlefieldProperties)

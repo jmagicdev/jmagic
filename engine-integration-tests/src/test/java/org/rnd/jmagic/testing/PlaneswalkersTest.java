@@ -1,7 +1,9 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
 
@@ -354,6 +356,68 @@ public class PlaneswalkersTest extends JUnitTest
 
 		assertEquals(0, this.game.actualState.battlefield().objects.size());
 		assertEquals(8, player(1).lifeTotal);
+	}
+
+	/**
+	 * This test is to ensure transformed planeswalkers only get one copy of the
+	 * ability that causes them to enter the battlefield with loyalty counters.
+	 */
+	@Test
+	public void loyaltyCounterSanity()
+	{
+		this.addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GarrukRelentless.class);
+		this.addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, Shock.class);
+		startGame(GameTypes.STACKED);
+
+		respondWith(getPlayer(0));
+		GameObject garruk = player(0).getHand(this.game.actualState).objects.get(6);
+
+		String garrukName = "Garruk Relentless";
+		assertEquals(garrukName, garruk.getName());
+		assertEquals(1, garruk.getStaticAbilities().size());
+
+		keep();
+		keep();
+		garruk = player(0).getHand(this.game.actualState).objects.get(6);
+		assertEquals(garrukName, garruk.getName());
+		assertEquals(1, garruk.getStaticAbilities().size());
+
+		pass();
+		pass();
+		garruk = player(0).getHand(this.game.actualState).objects.get(6);
+		assertEquals(garrukName, garruk.getName());
+		assertEquals(1, garruk.getStaticAbilities().size());
+
+		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
+		garruk = player(0).getHand(this.game.actualState).objects.get(6);
+		assertEquals(garrukName, garruk.getName());
+		assertEquals(1, garruk.getStaticAbilities().size());
+
+		goToPhase(Phase.PhaseType.POSTCOMBAT_MAIN);
+		garruk = player(0).getHand(this.game.actualState).objects.get(6);
+		assertEquals(garrukName, garruk.getName());
+		assertEquals(1, garruk.getStaticAbilities().size());
+
+		castAndResolveSpell(GarrukRelentless.class);
+		garruk = this.game.actualState.battlefield().objects.get(0);
+		assertEquals(garrukName, garruk.getName());
+		assertEquals(1, garruk.getStaticAbilities().size());
+
+		pass();
+		castAndResolveSpell(Shock.class, "R", player(0));
+		// WHY YES, I WOULD LOVE TO REDIRECT THIS SHOCK TO YOU, MISTER GARRUK.
+		respondWith(Answer.YES);
+
+		// garruk transform on the stack
+		assertEquals(1, this.game.actualState.stack().objects.size());
+		pass();
+		pass();
+
+		// garruk has transformed
+		garruk = this.game.actualState.battlefield().objects.get(0);
+		garrukName = "Garruk, the Veil-Cursed";
+		assertEquals(garrukName, garruk.getName());
+		assertEquals(1, garruk.getStaticAbilities().size());
 	}
 
 	@Test
