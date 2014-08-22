@@ -422,7 +422,7 @@ public class GameState implements Cloneable
 	 * 
 	 * @param i The Identified to clone. It must have been cloned from the
 	 * GameState which cloned this GameState.
-	 * @return The new Identitifed
+	 * @return The new Identified
 	 */
 	public <T extends Identified> T copyForEditing(T i)
 	{

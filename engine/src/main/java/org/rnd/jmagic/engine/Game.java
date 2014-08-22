@@ -1257,44 +1257,49 @@ public class Game
 			if(trigger.expired(this.actualState))
 				this.physicalState.delayedTriggers.remove(trigger);
 
-		// Handle the new copiable values of cards that are flipped/transformed
-		// and have
-		// flippedValues/transformedValues
-		for(GameObject o: this.actualState.getAllObjects())
 		{
-			Characteristics bottomHalf = o.getBottomHalf();
-			if(o.isFlipped() && bottomHalf != null)
+			// handle the new copiable values of cards that are
+			// flipped/transformed/face-down.
+			java.util.List<GameObject> flipped = new java.util.LinkedList<GameObject>();
+			java.util.List<GameObject> transformed = new java.util.LinkedList<GameObject>();
+			java.util.List<GameObject> faceDown = new java.util.LinkedList<GameObject>();
+
+			for(GameObject o: this.actualState.battlefield().objects)
+			{
+				// a permanent without a bottom half can flip; nothing happens
+				if(o.isFlipped() && o.getBottomHalf() != null)
+					flipped.add(this.actualState.copyForEditing(o));
+				// a permanent without a back face can't transform; the
+				// transform event handles this (but we check later anyway)
+				if(o.isTransformed())
+					transformed.add(this.actualState.copyForEditing(o));
+				if(o.faceDownValues != null)
+					faceDown.add(this.actualState.copyForEditing(o));
+			}
+
+			// spells can also be face-down.
+			for(GameObject o: this.actualState.stack().objects)
+				if(o.faceDownValues != null)
+					faceDown.add(this.actualState.copyForEditing(o));
+
+			// now that we've copied off and collected all the relevant objects,
+			// apply the new values:
+
+			for(GameObject o: flipped)
 			{
 				ManaPool newManaCost = new ManaPool(o.getManaCost());
 				java.util.Set<Color> newColors = java.util.EnumSet.copyOf(o.getColors());
 
-				GameObject newO = this.actualState.copyForEditing(o);
-				newO.setCharacteristics(bottomHalf);
-				newO.setManaCost(newManaCost);
-				newO.setColors(newColors);
+				o.setCharacteristics(o.getBottomHalf());
+				o.setManaCost(newManaCost);
+				o.setColors(newColors);
 			}
-
-			if(o.isTransformed())
+			for(GameObject o: transformed)
 			{
 				if(o.getBackFace() == null)
 					throw new IllegalStateException("A single-faced card has transformed: " + o);
-
-				GameObject newO = this.actualState.copyForEditing(o);
-				newO.setCharacteristics(newO.getBackFace());
+				o.setCharacteristics(o.getBackFace());
 			}
-		}
-
-		{
-			java.util.List<GameObject> faceDown = new java.util.LinkedList<GameObject>();
-			for(GameObject o: this.actualState.getAllObjects())
-				if(null != o.faceDownValues)
-					faceDown.add(this.actualState.copyForEditing(o));
-
-			// 707.2. Face-down spells and face-down permanents have no
-			// characteristics other than those listed by the ability or rules
-			// that allowed the spell or permanent to be face down. Any listed
-			// characteristics are the copiable values of that object's
-			// characteristics.
 			for(GameObject o: faceDown)
 				o.setCharacteristics(o.faceDownValues);
 		}
