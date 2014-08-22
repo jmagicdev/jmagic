@@ -26,7 +26,7 @@ public final class WayoftheThief extends Card
 	{
 		public WayoftheThiefAbility2(GameState state)
 		{
-			super(state, "Enchanted creature is unblockable as long as you control a Gate.");
+			super(state, "Enchanted creature can't be blocked as long as you control a Gate.");
 
 			SetGenerator enchantedCreature = EnchantedBy.instance(This.instance());
 			this.addEffectPart(unblockable(enchantedCreature));

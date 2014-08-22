@@ -18,6 +18,6 @@ public final class Ghostform extends Card
 		// Up to two target creatures are unblockable this turn.
 		Target target = this.addTarget(CreaturePermanents.instance(), "up to two target creatures");
 		target.setNumber(0, 2);
-		this.addEffect(createFloatingEffect("Up to two target creatures are unblockable this turn.", unblockable(targetedBy(target))));
+		this.addEffect(createFloatingEffect("Up to two target creatures can't be blocked this turn.", unblockable(targetedBy(target))));
 	}
 }

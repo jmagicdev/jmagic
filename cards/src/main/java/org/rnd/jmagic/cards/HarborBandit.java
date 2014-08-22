@@ -27,10 +27,10 @@ public final class HarborBandit extends Card
 	{
 		public HarborBanditAbility1(GameState state)
 		{
-			super(state, "(1)(U): Harbor Bandit is unblockable this turn.");
+			super(state, "(1)(U): Harbor Bandit can't be blocked this turn.");
 			this.setManaCost(new ManaPool("(1)(U)"));
 
-			this.addEffect(createFloatingEffect("Harbor Bandit is unblockable this turn.", unblockable(ABILITY_SOURCE_OF_THIS)));
+			this.addEffect(createFloatingEffect("Harbor Bandit can't be blocked this turn.", unblockable(ABILITY_SOURCE_OF_THIS)));
 		}
 	}
 

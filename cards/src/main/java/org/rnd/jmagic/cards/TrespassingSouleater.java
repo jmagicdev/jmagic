@@ -15,10 +15,10 @@ public final class TrespassingSouleater extends Card
 	{
 		public TrespassingSouleaterAbility0(GameState state)
 		{
-			super(state, "(u/p): Trespassing Souleater is unblockable this turn.");
+			super(state, "(u/p): Trespassing Souleater can't be blocked this turn.");
 			this.setManaCost(new ManaPool("(u/p)"));
 
-			this.addEffect(createFloatingEffect("Trespassing Souleater is unblockable this turn.", unblockable(ABILITY_SOURCE_OF_THIS)));
+			this.addEffect(createFloatingEffect("Trespassing Souleater can't be blocked this turn.", unblockable(ABILITY_SOURCE_OF_THIS)));
 		}
 	}
 

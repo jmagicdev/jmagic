@@ -18,7 +18,7 @@ public final class Teleportal extends Card
 		// unblockable this turn.
 		SetGenerator target = targetedBy(this.addTarget(CREATURES_YOU_CONTROL, "target creature you control"));
 		this.addEffect(ptChangeUntilEndOfTurn(target, +1, +0, "Target creature you control gets +1/+0 until end of turn"));
-		this.addEffect(createFloatingEffect("and is unblockable this turn.", unblockable(target)));
+		this.addEffect(createFloatingEffect("and can't be blocked this turn.", unblockable(target)));
 
 		// Overload (3)(U)(R) (You may cast this spell for its overload cost. If
 		// you do, change its text by replacing all instances of "target" with

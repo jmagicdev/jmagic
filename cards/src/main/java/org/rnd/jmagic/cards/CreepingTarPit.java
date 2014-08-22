@@ -14,7 +14,7 @@ public final class CreepingTarPit extends Card
 	{
 		public Animate(GameState state)
 		{
-			super(state, "(1)(U)(B): Until end of turn, Creeping Tar Pit becomes a 3/2 blue and black Elemental creature and is unblockable. It's still a land.");
+			super(state, "(1)(U)(B): Creeping Tar Pit becomes a 3/2 blue and black Elemental creature until end of turn and can't be blocked this turn. It's still a land.");
 			this.setManaCost(new ManaPool("1UB"));
 
 			Animator animator = new Animator(ABILITY_SOURCE_OF_THIS, 3, 2);

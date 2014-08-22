@@ -14,7 +14,7 @@ public final class DimirKeyrune extends Card
 	{
 		public DimirKeyruneAbility1(GameState state)
 		{
-			super(state, "(U)(B): Dimir Keyrune becomes a 2/2 blue and black Horror artifact creature until end of turn and is unblockable this turn.");
+			super(state, "(U)(B): Dimir Keyrune becomes a 2/2 blue and black Horror artifact creature until end of turn and can't be blocked this turn.");
 			this.setManaCost(new ManaPool("(U)(B)"));
 
 			Animator animate = new Animator(ABILITY_SOURCE_OF_THIS, 2, 2);

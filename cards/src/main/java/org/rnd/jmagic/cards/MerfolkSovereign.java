@@ -29,13 +29,13 @@ public final class MerfolkSovereign extends Card
 	{
 		public Cloak(GameState state)
 		{
-			super(state, "(T): Target Merfolk creature is unblockable this turn.");
+			super(state, "(T): Target Merfolk creature can't be blocked this turn.");
 
 			this.costsTap = true;
 
 			Target target = this.addTarget(Intersect.instance(CreaturePermanents.instance(), HasSubType.instance(SubType.MERFOLK)), "target Merfolk creature");
 
-			this.addEffect(createFloatingEffect("Target Merfolk creature is unblockable this turn.", unblockable(targetedBy(target))));
+			this.addEffect(createFloatingEffect("Target Merfolk creature can't be blocked this turn.", unblockable(targetedBy(target))));
 		}
 	}
 

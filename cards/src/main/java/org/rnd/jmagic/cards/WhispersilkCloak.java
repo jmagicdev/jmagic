@@ -17,7 +17,7 @@ public final class WhispersilkCloak extends Card
 	{
 		public Untouchable(GameState state)
 		{
-			super(state, "Equipped creature is unblockable and has shroud.");
+			super(state, "Equipped creature can't be blocked and has shroud.");
 
 			SetGenerator equippedCreature = EquippedBy.instance(This.instance());
 

@@ -14,12 +14,12 @@ public final class RoguesPassage extends Card
 	{
 		public RoguesPassageAbility1(GameState state)
 		{
-			super(state, "(4), (T): Target creature is unblockable this turn.");
+			super(state, "(4), (T): Target creature can't be blocked this turn.");
 			this.setManaCost(new ManaPool("(4)"));
 			this.costsTap = true;
 
 			SetGenerator target = targetedBy(this.addTarget(CreaturePermanents.instance(), "target creature"));
-			this.addEffect(createFloatingEffect("Target creature is unblockable this turn.", unblockable(target)));
+			this.addEffect(createFloatingEffect("Target creature can't be blocked this turn.", unblockable(target)));
 		}
 	}
 

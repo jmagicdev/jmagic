@@ -29,11 +29,11 @@ public final class GlaringSpotlight extends Card
 	{
 		public GlaringSpotlightAbility1(GameState state)
 		{
-			super(state, "(3), Sacrifice Glaring Spotlight: Creatures you control gain hexproof until end of turn and are unblockable this turn.");
+			super(state, "(3), Sacrifice Glaring Spotlight: Creatures you control gain hexproof until end of turn and can't be blocked this turn.");
 			this.setManaCost(new ManaPool("(3)"));
 			this.addCost(sacrificeThis("Glaring Spotlight"));
 
-			this.addEffect(createFloatingEffect("Creatures you control gain hexproof until end of turn and are unblockable this turn.", addAbilityToObject(CREATURES_YOU_CONTROL, org.rnd.jmagic.abilities.keywords.Hexproof.class), unblockable(CREATURES_YOU_CONTROL)));
+			this.addEffect(createFloatingEffect("Creatures you control gain hexproof until end of turn and can't be blocked this turn.", addAbilityToObject(CREATURES_YOU_CONTROL, org.rnd.jmagic.abilities.keywords.Hexproof.class), unblockable(CREATURES_YOU_CONTROL)));
 		}
 	}
 

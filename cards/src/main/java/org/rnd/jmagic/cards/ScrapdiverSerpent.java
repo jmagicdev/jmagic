@@ -16,7 +16,7 @@ public final class ScrapdiverSerpent extends Card
 	{
 		public ScrapdiverSerpentAbility0(GameState state)
 		{
-			super(state, "Scrapdiver Serpent is unblockable as long as defending player controls an artifact.");
+			super(state, "Scrapdiver Serpent can't be blocked as long as defending player controls an artifact.");
 			this.addEffectPart(unblockable(This.instance()));
 			this.canApply = Intersect.instance(ControlledBy.instance(DefendingPlayer.instance(This.instance())), ArtifactPermanents.instance());
 		}

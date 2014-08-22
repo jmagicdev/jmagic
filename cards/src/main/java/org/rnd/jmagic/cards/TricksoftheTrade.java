@@ -16,7 +16,7 @@ public final class TricksoftheTrade extends Card
 	{
 		public TricksoftheTradeAbility1(GameState state)
 		{
-			super(state, "Enchanted creature gets +2/+0 and is unblockable.");
+			super(state, "Enchanted creature gets +2/+0 and can't be blocked.");
 
 			SetGenerator enchanted = EnchantedBy.instance(This.instance());
 			this.addEffectPart(modifyPowerAndToughness(enchanted, +2, +0));

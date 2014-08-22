@@ -16,7 +16,7 @@ public final class CloakofMists extends Card
 	{
 		public MakeUnblockable(GameState state)
 		{
-			super(state, "Enchanted creature is unblockable.");
+			super(state, "Enchanted creature can't be blocked.");
 			this.addEffectPart(unblockable(EnchantedBy.instance(This.instance())));
 		}
 	}

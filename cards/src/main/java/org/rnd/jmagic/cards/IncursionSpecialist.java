@@ -100,11 +100,11 @@ public final class IncursionSpecialist extends Card
 	{
 		public IncursionSpecialistAbility0(GameState state)
 		{
-			super(state, "Whenever you cast your second spell each turn, Incursion Specialist gets +2/+0 until end of turn and is unblockable this turn.");
+			super(state, "Whenever you cast your second spell each turn, Incursion Specialist gets +2/+0 until end of turn and can't be blocked this turn.");
 
 			state.ensureTracker(new CastTracker());
 			this.addPattern(new CastYourSecondSpell());
-			this.addEffect(createFloatingEffect("Incursion Specialist gets +2/+0 until end of turn and is unblockable this turn.", modifyPowerAndToughness(ABILITY_SOURCE_OF_THIS, +2, +0), unblockable(ABILITY_SOURCE_OF_THIS)));
+			this.addEffect(createFloatingEffect("Incursion Specialist gets +2/+0 until end of turn and can't be blocked this turn.", modifyPowerAndToughness(ABILITY_SOURCE_OF_THIS, +2, +0), unblockable(ABILITY_SOURCE_OF_THIS)));
 		}
 	}
 

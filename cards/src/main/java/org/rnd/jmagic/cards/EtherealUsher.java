@@ -16,7 +16,7 @@ public final class EtherealUsher extends Card
 	{
 		public NoOnePlaysThisGuyForThisAbility(GameState state)
 		{
-			super(state, "(U), (T): Target creature is unblockable this turn.");
+			super(state, "(U), (T): Target creature can't be blocked this turn.");
 			this.setManaCost(new ManaPool("U"));
 			this.costsTap = true;
 
@@ -24,7 +24,7 @@ public final class EtherealUsher extends Card
 
 			ContinuousEffect.Part part = unblockable(targetedBy(target));
 
-			this.addEffect(createFloatingEffect("Target creature is unblockable this turn.", part));
+			this.addEffect(createFloatingEffect("Target creature can't be blocked this turn.", part));
 		}
 	}
 

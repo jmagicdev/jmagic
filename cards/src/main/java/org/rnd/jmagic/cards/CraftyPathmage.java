@@ -17,13 +17,13 @@ public final class CraftyPathmage extends Card
 	{
 		public Cloak(GameState state)
 		{
-			super(state, "(T): Target creature with power 2 or less is unblockable this turn.");
+			super(state, "(T): Target creature with power 2 or less can't be blocked this turn.");
 
 			this.costsTap = true;
 
 			Target target = this.addTarget(Intersect.instance(CreaturePermanents.instance(), HasPower.instance(Between.instance(null, 2))), "target creature with power 2 or less");
 
-			this.addEffect(createFloatingEffect("Target creature with power 2 or less is unblockable this turn", unblockable(targetedBy(target))));
+			this.addEffect(createFloatingEffect("Target creature with power 2 or less can't be blocked this turn", unblockable(targetedBy(target))));
 		}
 	}
 

@@ -17,13 +17,13 @@ public final class GlassdustHulk extends Card
 	{
 		public ArtifactEqualsPump(GameState state)
 		{
-			super(state, "Whenever another artifact enters the battlefield under your control, Glassdust Hulk gets +1/+1 until end of turn and is unblockable this turn.");
+			super(state, "Whenever another artifact enters the battlefield under your control, Glassdust Hulk gets +1/+1 until end of turn and can't be blocked this turn.");
 
 			SetGenerator thisCard = ABILITY_SOURCE_OF_THIS;
 
 			this.addPattern(new SimpleZoneChangePattern(null, Battlefield.instance(), RelativeComplement.instance(HasType.instance(Type.ARTIFACT), thisCard), You.instance(), false));
 
-			this.addEffect(createFloatingEffect("Glassdust Hulk gets +1/+1 until end of turn and is unblockable this turn.", modifyPowerAndToughness(thisCard, +1, +1), unblockable(This.instance())));
+			this.addEffect(createFloatingEffect("Glassdust Hulk gets +1/+1 until end of turn and can't be blocked this turn.", modifyPowerAndToughness(thisCard, +1, +1), unblockable(This.instance())));
 		}
 	}
 

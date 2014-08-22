@@ -31,9 +31,9 @@ public final class VensertheSojourner extends Card
 	{
 		public VensertheSojournerAbility1(GameState state)
 		{
-			super(state, -1, "Creatures are unblockable this turn.");
+			super(state, -1, "Creatures can't be blocked this turn.");
 
-			this.addEffect(createFloatingEffect("Target creature with power 2 or less is unblockable this turn", unblockable(CreaturePermanents.instance())));
+			this.addEffect(createFloatingEffect("Creatures can't be blocked this turn.", unblockable(CreaturePermanents.instance())));
 		}
 	}
 

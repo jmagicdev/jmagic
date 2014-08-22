@@ -11,7 +11,7 @@ public final class Unblockable extends StaticAbility
 
 	public Unblockable(GameState state, String thisName)
 	{
-		super(state, thisName + " is unblockable.");
+		super(state, thisName + " can't be blocked.");
 
 		this.thisName = thisName;
 

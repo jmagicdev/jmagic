@@ -17,7 +17,7 @@ public final class ArtfulDodge extends Card
 
 		// Target creature is unblockable this turn.
 		SetGenerator target = targetedBy(this.addTarget(CreaturePermanents.instance(), "target creature"));
-		this.addEffect(createFloatingEffect("Target creature is unblockable this turn.", unblockable(target)));
+		this.addEffect(createFloatingEffect("Target creature can't be blocked this turn.", unblockable(target)));
 
 		// Flashback (U)
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Flashback(state, "(U)"));

@@ -17,7 +17,7 @@ public final class NeurokInvisimancer extends Card
 	{
 		public NeurokInvisimancerAbility0(GameState state)
 		{
-			super(state, "Neurok Invisimancer is unblockable.");
+			super(state, "Neurok Invisimancer can't be blocked.");
 			this.addEffectPart(unblockable(This.instance()));
 		}
 	}
@@ -26,10 +26,10 @@ public final class NeurokInvisimancer extends Card
 	{
 		public NeurokInvisimancerAbility1(GameState state)
 		{
-			super(state, "When Neurok Invisimancer enters the battlefield, target creature is unblockable this turn.");
+			super(state, "When Neurok Invisimancer enters the battlefield, target creature can't be blocked this turn.");
 			this.addPattern(whenThisEntersTheBattlefield());
 			SetGenerator target = targetedBy(this.addTarget(CreaturePermanents.instance(), "target creature"));
-			this.addEffect(createFloatingEffect("Target creature is unblockable this turn.", unblockable(target)));
+			this.addEffect(createFloatingEffect("Target creature can't be blocked this turn.", unblockable(target)));
 		}
 	}
 

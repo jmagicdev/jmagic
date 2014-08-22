@@ -16,7 +16,7 @@ public final class HadaSpyPatrol extends Card
 	{
 		public HadaSpyPatrolIsUnblockable(GameState state)
 		{
-			super(state, "Hada Spy Patrol is unblockable.");
+			super(state, "Hada Spy Patrol can't be blocked.");
 
 			this.addEffectPart(unblockable(This.instance()));
 		}
@@ -35,12 +35,12 @@ public final class HadaSpyPatrol extends Card
 		// LEVEL 1-2
 		// 2/2
 		// Hada Spy Patrol is unblockable.
-		this.addAbility(new org.rnd.jmagic.abilities.keywords.Level(state, 1, 2, 2, 2, "Hada Spy Patrol is unblockable.", HadaSpyPatrolIsUnblockable.class));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Level(state, 1, 2, 2, 2, "Hada Spy Patrol can't be blocked.", HadaSpyPatrolIsUnblockable.class));
 
 		// LEVEL 3+
 		// 3/3
 		// Shroud
 		// Hada Spy Patrol is unblockable.
-		this.addAbility(new org.rnd.jmagic.abilities.keywords.Level(state, 3, 3, 3, "Shroud; Hada Spy Patrol is unblockable.", org.rnd.jmagic.abilities.keywords.Shroud.class, HadaSpyPatrolIsUnblockable.class));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Level(state, 3, 3, 3, "Shroud; Hada Spy Patrol can't be blocked.", org.rnd.jmagic.abilities.keywords.Shroud.class, HadaSpyPatrolIsUnblockable.class));
 	}
 }
