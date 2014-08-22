@@ -3039,6 +3039,49 @@ public class KeywordsNonCombatTest extends JUnitTest
 	}
 
 	@Test
+	public void morph()
+	{
+		addDeck(BatteringCraghorn.class, Jump.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
+		addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
+		startGame(GameTypes.STACKED);
+
+		respondWith(getPlayer(0));
+		keep();
+		keep();
+
+		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
+		for(SanitizedPlayerAction choice: this.choices.getAll(SanitizedPlayerAction.class))
+			if(choice.name.contains("face down"))
+			{
+				respondWith(choice);
+				break;
+			}
+
+		addMana("3");
+		donePlayingManaAbilities();
+		pass();
+		pass();
+
+		assertEquals("", this.game.actualState.battlefield().objects.get(0).getName());
+
+		// we had a bug once where granting an ability to a face-down creature
+		// caused a crash
+		castAndResolveSpell(Jump.class);
+
+		for(SanitizedPlayerAction choice: this.choices.getAll(SanitizedPlayerAction.class))
+			if(choice.name.contains("face up"))
+			{
+				respondWith(choice);
+				break;
+			}
+		addMana("1RR");
+		donePlayingManaAbilities();
+
+		// first strike, morph, flying
+		assertEquals(3, this.game.actualState.battlefield().objects.get(0).getKeywordAbilities().size());
+	}
+
+	@Test
 	public void overload()
 	{
 		addDeck(Electrickery.class, Electrickery.class, SleeperAgent.class, RuneclawBear.class, AshcoatBear.class, Plains.class, Plains.class);
