@@ -1119,7 +1119,7 @@ public class Event extends Identified implements Sanitizable
 				storeIn.getLinkManager().addLinkInformation(o);
 		}
 
-		if(this.topLevel)
+		if(parent == null)
 			this.clearParameters();
 		return ret;
 	}
