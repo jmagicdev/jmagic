@@ -681,6 +681,27 @@ public abstract class EventType
 	public static final EventType EXILE_CHOICE = ExileChoice.INSTANCE;
 
 	/**
+	 * Exiles a permanent from the battlefield, returning it when a specified
+	 * event occurs. The way this actually works is that it looks at a
+	 * generator, and returns the object when that generator is nonempty. The
+	 * generator shouldn't simply refer to (e.g.) the Banisher Priest not being
+	 * on the battlefield, but rather should refer to a tracker that explicitly
+	 * tracks objects (e.g.) leaving the battlefield. The rules are pretty
+	 * explicit that the return happens after a specified *event*, not under a
+	 * certain *condition*, but trackers are our only way of looking for events.
+	 * 
+	 * @eparam CAUSE: what is causing the exile
+	 * @eparam OBJECT: what is being exiled
+	 * @eparam HIDDEN: if present, the cards should be exiled "face down"
+	 * (hidden).
+	 * @eparam EXPIRES: a setgenerator describing when to return the object
+	 * (object returns when this generator is nonempty). This must be a
+	 * SetGenerator (use the double-generator idiom).
+	 * @eparam RESULT: results of the MOVE_OBJECTS event
+	 */
+	public static final EventType EXILE_UNTIL = ExileUntil.INSTANCE;
+
+	/**
 	 * IMPORTANT NOTE: The OBJECT parameter takes two objects that can either be
 	 * 2 Targets, 1 Target and 1 GameObject, or 2 GameObjects. If there is a
 	 * possibility that both objects could represent the same creature, they are

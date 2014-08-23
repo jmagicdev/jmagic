@@ -321,10 +321,12 @@ public class Event extends Identified implements Sanitizable
 		// 3. deal damage
 		// 4. order any cards put into ordered zones by this event
 		// 5. refresh the game state
-		// 6. search for stuff that should be removed from combat and remove it
-		// 7. check for triggered abilities.
+		// 6. check for delayed one-shot effects that should perform now
+		// 7. search for stuff that should be removed from combat and remove it
+		// 8. check for triggered abilities.
 		// We only check for triggered abilities after top level events because
-		// the game state needs to have actually changed.
+		// the game state needs to have actually changed. same with delayed
+		// one-shots.
 		if(this.topLevel)
 		{
 			this.ensureValidZoneChanges();
@@ -402,8 +404,8 @@ public class Event extends Identified implements Sanitizable
 
 			// refresh the actual state before checking for triggered abilities
 			this.game.refreshActualState();
-			// for(Player p: this.game.actualState.players)
-			// p.alert(this.game.actualState);
+
+			this.game.actualState.fireDelayedOneShots();
 
 			Event newThis = this.game.actualState.get(this.ID);
 			newThis.removeFromCombat(previousGameState);

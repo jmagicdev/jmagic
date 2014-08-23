@@ -11,6 +11,8 @@ public enum Expansion
 								// conflict with reprints of Arabian Nights
 								// cards
 
+	MAGIC_2014("Magic 2014", "M14"), //
+	DRAGONS_MAZE("Dragon's Maze", "DGM"), //
 	GATECRASH("Gatecrash", "GTC"), // February '13
 	RETURN_TO_RAVNICA("Return to Ravnica", "RTR"), // October '12
 	MAGIC_2013("Magic 2013", "M13"), // July '12

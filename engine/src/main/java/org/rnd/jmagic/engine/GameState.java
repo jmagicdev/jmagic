@@ -5,6 +5,50 @@ import org.rnd.jmagic.engine.patterns.*;
 /** Represents the game state. */
 public class GameState implements Cloneable
 {
+	/**
+	 * Represents a delayed one-shot effect, used in "exile until" and similar
+	 * effects. Consists of an ID, a SetGenerator and an EventFactory, so this
+	 * is freely copiable between states.
+	 */
+	private static class DelayedOneShot
+	{
+		private static int nextDosID = 0;
+		
+		public int dosID;
+		public int sourceID;
+		public SetGenerator condition;
+		public EventFactory effect;
+		
+		public DelayedOneShot(int sourceID, SetGenerator condition, EventFactory effect)
+		{
+			this.dosID = nextDosID++;
+			this.sourceID = sourceID;
+			this.condition = condition;
+			this.effect = effect;
+		}
+
+		@Override
+		public int hashCode()
+		{
+			return dosID;
+		}
+
+		@Override
+		public boolean equals(Object obj)
+		{
+			if(this == obj)
+				return true;
+			if(obj == null)
+				return false;
+			if(getClass() != obj.getClass())
+				return false;
+			DelayedOneShot other = (DelayedOneShot)obj;
+			if(dosID != other.dosID)
+				return false;
+			return true;
+		}
+	}
+
 	public java.util.Map<String, java.util.Map<Integer, Set>> abilityExemptions;
 
 	/** The Doran flag. */
@@ -53,6 +97,12 @@ public class GameState implements Cloneable
 	public int declareBlockersPlayerOverride;
 
 	public java.util.Collection<DelayedTrigger> delayedTriggers;
+
+	/**
+	 * delayed one shots waiting to occur. directly copiable (see
+	 * {@link DelayedOneShot})
+	 */
+	public java.util.Collection<DelayedOneShot> delayedOneShots;
 
 	public java.util.Collection<EventReplacementEffect> eventReplacementEffects;
 
@@ -166,6 +216,7 @@ public class GameState implements Cloneable
 		this.damageReplacementEffects = new java.util.LinkedList<DamageReplacementEffect>();
 		this.dealDamageAsThoughHasAbility = new java.util.HashMap<Integer, ContinuousEffectType.DamageAbility>();
 		this.delayedTriggers = new java.util.LinkedList<DelayedTrigger>();
+		this.delayedOneShots = new java.util.LinkedList<DelayedOneShot>();
 		this.declareAttackersPlayerOverride = -1;
 		this.declareBlockersPlayerOverride = -1;
 		this.eventReplacementEffects = new java.util.LinkedList<EventReplacementEffect>();
@@ -200,6 +251,23 @@ public class GameState implements Cloneable
 		// The set of Trackers that the game always needs
 		this.ensureTracker(new SuccessfullyAttacked());
 		this.ensureTracker(new org.rnd.jmagic.engine.generators.LandsPlayedThisTurn.LandsPlayedTracker());
+	}
+
+	/**
+	 * Adds a delayed one-shot effect (like those used in "exile until" effects)
+	 * to this game state.
+	 * 
+	 * @param source The source of the effect, which is the same as the source
+	 * of the original effect.
+	 * @param condition The "event" after which we perform the delayed effect --
+	 * this is a set generator because our only way of tracking past events is
+	 * via trackers, and we need to track past events because of a quirk in the
+	 * delayed-one-shot rules.
+	 * @param effect The effect to perform.
+	 */
+	public void addDelayedOneShot(GameObject source, SetGenerator condition, EventFactory effect)
+	{
+		this.delayedOneShots.add(new DelayedOneShot(source.ID, condition, effect));
 	}
 
 	/**
@@ -337,6 +405,7 @@ public class GameState implements Cloneable
 			ret.currentPhase = this.currentPhase;
 			ret.currentStep = this.currentStep;
 			ret.currentTurn = this.currentTurn;
+			ret.delayedOneShots = new java.util.LinkedList<DelayedOneShot>(this.delayedOneShots);
 			ret.delayedTriggers = new IDList<DelayedTrigger>(ret, this.delayedTriggers);
 			ret.exileZoneID = this.exileZoneID;
 			ret.flags = new java.util.HashMap<Class<? extends Tracker<?>>, Tracker<?>>();
@@ -462,6 +531,37 @@ public class GameState implements Cloneable
 	public Zone exileZone()
 	{
 		return this.get(this.exileZoneID);
+	}
+
+	/**
+	 * fires waiting delayed one-shot effects (like those created by
+	 * "exile until" effects)
+	 */
+	public void fireDelayedOneShots()
+	{
+		// we are directly grabbing the physical state's DOSs here. this is not
+		// a mistake.
+
+		// we need to remove the DOS from the state *before* it fires, and that
+		// change must propagate down, else firing this event will cause the
+		// resulting eventually-recursive call of this method to fire it again.
+
+		// we could do a little more work here, to use the delayedOneShots from
+		// the actual state but remove them from the physical when they fire,
+		// but WotC hasn't gone batshit enough to have an effect modify
+		// waiting one-shot effects (*shudder*).
+
+		java.util.Iterator<DelayedOneShot> iterator = this.game.physicalState.delayedOneShots.iterator();
+		while(iterator.hasNext())
+		{
+			DelayedOneShot effect = iterator.next();
+			GameObject source = this.get(effect.sourceID);
+			if(effect.condition.evaluate(this, source).isEmpty())
+				continue;
+
+			iterator.remove();
+			effect.effect.createEvent(this.game, source).perform(null, true);
+		}
 	}
 
 	/**
