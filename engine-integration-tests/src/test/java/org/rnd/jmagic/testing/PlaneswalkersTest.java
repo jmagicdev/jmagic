@@ -542,7 +542,7 @@ public class PlaneswalkersTest extends JUnitTest
 	@Test
 	public void planeswalkerUniquenessRule()
 	{
-		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class);
+		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class);
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class);
 		startGame(GameTypes.OPEN);
 
@@ -562,8 +562,19 @@ public class PlaneswalkersTest extends JUnitTest
 		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
 
 		castAndResolveSpell(ChandraNalaar.class);
-		// both chandras dead
+
+		// in M14, both Chandras live since they are controlled by different
+		// players:
 		assertEquals(0, this.game.actualState.stack().objects.size());
-		assertEquals(0, this.game.actualState.battlefield().objects.size());
+		assertEquals(2, this.game.actualState.battlefield().objects.size());
+		goToPhase(Phase.PhaseType.ENDING);
+
+		// cast one more Chandra
+		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
+		castAndResolveSpell(ChandraNalaar.class);
+
+		// in M14, you choose which one to keep:
+		respondWith(getChoice(this.game.actualState.battlefield().objects.get(0)));
+		assertEquals(2, this.game.actualState.battlefield().objects.size());
 	}
 }

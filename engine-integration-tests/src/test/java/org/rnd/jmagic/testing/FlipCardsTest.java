@@ -48,12 +48,15 @@ public class FlipCardsTest extends JUnitTest
 
 		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
 
+		// cast clone
 		castAndResolveSpell(Clone.class, "3U");
+		// choose to copy a creature
 		respondWith(Answer.YES);
 		// auto-choose Ichiga
 
-		// Clone will become Ichiga, legendary rule will kick in, both will die.
-		assertEquals(0, this.game.actualState.battlefield().objects.size());
+		// Clone will become Ichiga, the legend rule will not kick in since they are controlled by different players (M14 update).
+		ichiga = this.game.actualState.battlefield().objects.get(0);
+		assertEquals("Ichiga, Who Topples Oaks", ichiga.getName());
 	}
 
 	@Test

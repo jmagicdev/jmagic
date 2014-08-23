@@ -18,14 +18,15 @@ public class DamageTriggeredAbilitiesTest extends JUnitTest
 		keep();
 		keep();
 
+		// player 0 casts wall of air and passes the turn
 		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
-
 		castAndResolveSpell(WallofAir.class, "1UU");
-
 		goToPhase(Phase.PhaseType.ENDING);
 
+		// player 1's turn:
 		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
 
+		// cast phage, it shouldn't trigger
 		castAndResolveSpell(PhagetheUntouchable.class, "3BBBB");
 
 		// Make sure phage didn't trigger
@@ -34,6 +35,7 @@ public class DamageTriggeredAbilitiesTest extends JUnitTest
 		GameObject phage = this.game.actualState.battlefield().objects.get(0);
 		assertEquals(3, phage.getNonStaticAbilities().size());
 
+		// give phage haste
 		respondWith(getSpellAction(ChaosCharm.class));
 		respondWith(getMode(EventType.CREATE_FLOATING_CONTINUOUS_EFFECT));
 		respondWith(getTarget(PhagetheUntouchable.class));
@@ -42,6 +44,7 @@ public class DamageTriggeredAbilitiesTest extends JUnitTest
 		pass();
 		pass();
 
+		// attack with phage, wall of air blocks
 		goToStep(Step.StepType.DECLARE_ATTACKERS);
 		respondWith(pullChoice(PhagetheUntouchable.class));
 
@@ -60,13 +63,17 @@ public class DamageTriggeredAbilitiesTest extends JUnitTest
 
 		goToPhase(Phase.PhaseType.POSTCOMBAT_MAIN);
 
+		// get another combat phase
 		castAndResolveSpell(RelentlessAssault.class, "2RR");
 
+		// get ready to put another phage down
 		castAndResolveSpell(ElvishPiper.class, "3G");
 
+		// attack with phage
 		goToStep(Step.StepType.DECLARE_ATTACKERS);
 		respondWith(pullChoice(PhagetheUntouchable.class));
 
+		// no blockers
 		goToStep(Step.StepType.COMBAT_DAMAGE);
 
 		// The trigger for the opponent to lose the game should be on the stack
@@ -74,6 +81,7 @@ public class DamageTriggeredAbilitiesTest extends JUnitTest
 		assertEquals(1, stack.size());
 		assertEquals(EventType.LOSE_GAME, stack.get(0).getModes().get(0).effects.get(0).type);
 
+		// haste the piper
 		respondWith(getSpellAction(ChaosCharm.class));
 		respondWith(getMode(EventType.CREATE_FLOATING_CONTINUOUS_EFFECT));
 		respondWith(getTarget(ElvishPiper.class));
@@ -82,6 +90,7 @@ public class DamageTriggeredAbilitiesTest extends JUnitTest
 		pass();
 		pass();
 
+		// drop a second phage
 		respondWith(getAbilityAction(ElvishPiper.Pipe.class));
 		addMana("G");
 		donePlayingManaAbilities();
@@ -89,10 +98,12 @@ public class DamageTriggeredAbilitiesTest extends JUnitTest
 		pass();
 		respondWith(Answer.YES);
 
-		// Only the Elvish Piper should be left on the battlefield
+		// choose which phage lives
+		respondWith(getChoice(this.game.actualState.battlefield().objects.get(0)));
+
+		// Elvish Piper and one Phage should be left
 		java.util.List<GameObject> battlefield = this.game.actualState.battlefield().objects;
-		assertEquals(1, battlefield.size());
-		assertEquals("Elvish Piper", battlefield.get(0).getName());
+		assertEquals(2, battlefield.size());
 
 		// Two triggers should be on the stack for players losing
 		stack = this.game.actualState.stack().objects;
@@ -100,6 +111,7 @@ public class DamageTriggeredAbilitiesTest extends JUnitTest
 		assertEquals(EventType.LOSE_GAME, stack.get(0).getModes().get(0).effects.get(0).type);
 		assertEquals(EventType.LOSE_GAME, stack.get(1).getModes().get(0).effects.get(0).type);
 
+		// resolve one of the triggers, player 0 wins
 		pass();
 		pass();
 		assertEquals(this.winner, player(0));

@@ -558,8 +558,8 @@ public class Game
 				}
 			}
 
-			java.util.Map<String, GameObject> legends = new java.util.HashMap<String, GameObject>();
-			java.util.Map<SubType, GameObject> planeswalkers = new java.util.HashMap<SubType, GameObject>();
+			java.util.Map<Player, java.util.Map<String, Set>> legends = new java.util.HashMap<>();
+			java.util.Map<Player, java.util.Map<SubType, Set>> planeswalkers = new java.util.HashMap<>();
 			GameObject newestWorld = null;
 			int newestWorldTime = -1;
 
@@ -580,23 +580,29 @@ public class Game
 						moveToGraveyard.add(object);
 				}
 
-				// 704.5k If two or more legendary permanents with the same name
-				// are on the battlefield, all are put into their owners'
-				// graveyards. This is called the "legend rule." If only one of
-				// those permanents is legendary, this rule doesn't apply.
+				// If a player controls two or more legendary permanents with
+				// the same name, that player chooses one of them, and the rest
+				// are put into their owners' graveyards.
 				if(object.getSuperTypes().contains(SuperType.LEGENDARY))
 				{
-					if(legends.containsKey(object.getName()))
+					// just build the map for now, we need to get the player to
+					// choose one after this is all done.
+					Player controller = object.getController(game.actualState);
+					String name = object.getName();
+					if(legends.containsKey(controller))
 					{
-						moveToGraveyard.add(object);
-						if(legends.get(object.getName()) != null)
-						{
-							moveToGraveyard.add(legends.get(object.getName()));
-							legends.put(object.getName(), null);
-						}
+						java.util.Map<String, Set> playerMap = legends.get(controller);
+						if(playerMap.containsKey(name))
+							playerMap.get(name).add(object);
+						else
+							playerMap.put(name, new Set(object));
 					}
 					else
-						legends.put(object.getName(), object);
+					{
+						java.util.Map<String, Set> playerMap = new java.util.HashMap<>();
+						playerMap.put(object.getName(), new Set(object));
+						legends.put(controller, playerMap);
+					}
 				}
 				// 704.5m If two or more permanents have the supertype world,
 				// all except the one that has been a permanent with the world
@@ -642,28 +648,31 @@ public class Game
 				if(object.getAttachedTo() != -1 && !object.getSubTypes().contains(SubType.AURA) && !object.getSubTypes().contains(SubType.EQUIPMENT) && !object.getSubTypes().contains(SubType.FORTIFICATION))
 					detach.add(object);
 
-				// 704.5j If two or more planeswalkers that share a planeswalker
-				// type are on the battlefield, all are put into their owners'
-				// graveyards. This is called the "planeswalker uniqueness
-				// rule."
+				// If a player controls two or more planeswalkers with the same
+				// planeswalker type, that player chooses one and puts the rest
+				// into their owners' graveyards.
 				if(object.getTypes().contains(Type.PLANESWALKER))
 				{
+					Player controller = object.getController(game.actualState);
 					for(SubType pwType: SubType.getAllSubTypesFor(Type.PLANESWALKER))
 					{
 						if(!object.getSubTypes().contains(pwType))
 							continue;
 
-						if(planeswalkers.containsKey(pwType))
+						if(planeswalkers.containsKey(controller))
 						{
-							moveToGraveyard.add(object);
-							if(planeswalkers.get(pwType) != null)
-							{
-								moveToGraveyard.add(planeswalkers.get(pwType));
-								planeswalkers.put(pwType, null);
-							}
+							java.util.Map<SubType, Set> playerMap = planeswalkers.get(controller);
+							if(playerMap.containsKey(pwType))
+								playerMap.get(pwType).add(object);
+							else
+								playerMap.put(pwType, new Set(object));
 						}
 						else
-							planeswalkers.put(pwType, object);
+						{
+							java.util.Map<SubType, Set> playerMap = new java.util.HashMap<>();
+							playerMap.put(pwType, new Set(object));
+							planeswalkers.put(controller, playerMap);
+						}
 					}
 				}
 			}
@@ -677,6 +686,44 @@ public class Game
 					loseGame.parameters.put(EventType.Parameter.PLAYER, Identity.instance(entry.getKey()));
 
 					stateBasedActions.add(loseGame);
+				}
+			}
+
+			// now, for anyone that isn't losing, have them choose which
+			// legends/pws to keep
+			for(Player p: game.actualState.getPlayerCycle(game.actualState.currentTurn().getOwner(game.actualState)))
+			{
+				if(playersLosing.containsKey(p))
+					continue;
+
+				if(legends.containsKey(p))
+				{
+					java.util.Map<String, Set> legendMap = legends.get(p);
+					for(java.util.Map.Entry<String, Set> entry: legendMap.entrySet())
+					{
+						if(entry.getValue().size() == 1)
+							continue;
+
+						PlayerInterface.ChooseReason reason = new PlayerInterface.ChooseReason(null, "Choose which " + entry.getKey() + " to keep.", true);
+						java.util.List<GameObject> choice = p.sanitizeAndChoose(game.actualState, 1, entry.getValue().getAll(GameObject.class), PlayerInterface.ChoiceType.OBJECTS, reason);
+						moveToGraveyard.addAll(entry.getValue());
+						moveToGraveyard.removeAll(choice);
+					}
+				}
+
+				if(planeswalkers.containsKey(p))
+				{
+					java.util.Map<SubType, Set> pwMap = planeswalkers.get(p);
+					for(java.util.Map.Entry<SubType, Set> entry: pwMap.entrySet())
+					{
+						if(entry.getValue().size() == 1)
+							continue;
+
+						PlayerInterface.ChooseReason reason = new PlayerInterface.ChooseReason(null, "Choose which " + entry.getKey() + " to keep.", true);
+						java.util.List<GameObject> choice = p.sanitizeAndChoose(game.actualState, 1, entry.getValue().getAll(GameObject.class), PlayerInterface.ChoiceType.OBJECTS, reason);
+						moveToGraveyard.addAll(entry.getValue());
+						moveToGraveyard.removeAll(choice);
+					}
 				}
 			}
 
