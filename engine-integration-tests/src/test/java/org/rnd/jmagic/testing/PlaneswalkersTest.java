@@ -550,83 +550,19 @@ public class PlaneswalkersTest extends JUnitTest
 		keep();
 		keep();
 
-		// pass upkeep
-		pass();
-		pass();
+		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
 
-		respondWith(getSpellAction(BlackLotus.class));
-		pass();
-		pass();
-
-		respondWith(getSpellAction(BlackLotus.class));
-		pass();
-		pass();
-
-		respondWith(getSpellAction(ChandraNalaar.class));
-		respondWith(getAbilityAction(BlackLotus.BlackLotusMana.class));
-		respondWith(Color.RED);
-		respondWith(getAbilityAction(BlackLotus.BlackLotusMana.class));
-		respondWith(Color.RED);
-		donePlayingManaAbilities();
-		respondWith(getMana(Color.RED, Color.RED, Color.RED, Color.RED, Color.RED));
-		pass();
-		pass();
-
+		castAndResolveSpell(ChandraNalaar.class);
 		assertEquals(1, this.game.actualState.battlefield().objects.size());
 		assertTrue(this.game.actualState.battlefield().objects.get(0).getName().equals("Chandra Nalaar"));
 
-		// main
-		pass();
-		pass();
-		// bgn combat
-		pass();
-		pass();
-		// attackers
-		pass();
-		pass();
-		// end combat
-		pass();
-		pass();
-		// main
-		pass();
-		pass();
-		// eot
-		pass();
-		pass();
+		goToPhase(Phase.PhaseType.ENDING);
 
 		// player 1's turn
-		// upkeep
-		pass();
-		pass();
-		// draw
-		pass();
-		pass();
+		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
 
-		respondWith(getSpellAction(BlackLotus.class));
-		pass();
-		pass();
-
-		respondWith(getSpellAction(BlackLotus.class));
-		pass();
-		pass();
-
-		assertEquals(0, this.game.actualState.stack().objects.size());
-
-		respondWith(getSpellAction(ChandraNalaar.class));
-		respondWith(getAbilityAction(BlackLotus.BlackLotusMana.class));
-		respondWith(Color.RED);
-		respondWith(getAbilityAction(BlackLotus.BlackLotusMana.class));
-		respondWith(Color.RED);
-		donePlayingManaAbilities();
-		respondWith(getMana(Color.RED, Color.RED, Color.RED, Color.RED, Color.RED));
-
-		assertEquals(1, this.game.actualState.battlefield().objects.size());
-		assertEquals("Chandra Nalaar", this.game.actualState.battlefield().objects.get(0).getName());
-
-		// Resolve Chandra
-		pass();
-		pass();
-
+		castAndResolveSpell(ChandraNalaar.class);
+		// both chandras dead
 		assertEquals(0, this.game.actualState.stack().objects.size());
 		assertEquals(0, this.game.actualState.battlefield().objects.size());
 	}
