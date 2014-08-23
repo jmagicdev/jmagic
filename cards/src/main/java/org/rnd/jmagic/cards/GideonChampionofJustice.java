@@ -58,7 +58,7 @@ public final class GideonChampionofJustice extends Card
 
 		public GideonChampionofJusticeAbility1(GameState state)
 		{
-			super(state, 0, "Until end of turn, Gideon, Champion of Justice becomes an indestructible Human Soldier creature with power and toughness each equal to the number of loyalty counters on him. He's still a planeswalker. Prevent all damage that would be dealt to him this turn.");
+			super(state, 0, "Until end of turn, Gideon, Champion of Justice becomes Human Soldier creature with power and toughness each equal to the number of loyalty counters on him and gains indestructible. He's still a planeswalker. Prevent all damage that would be dealt to him this turn.");
 
 			SetGenerator num = Count.instance(CountersOn.instance(ABILITY_SOURCE_OF_THIS, Counter.CounterType.LOYALTY));
 			ContinuousEffect.Part ptPart = setPowerAndToughness(ABILITY_SOURCE_OF_THIS, num, num);
@@ -67,10 +67,12 @@ public final class GideonChampionofJustice extends Card
 			typesPart.parameters.put(ContinuousEffectType.Parameter.OBJECT, ABILITY_SOURCE_OF_THIS);
 			typesPart.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.instance(Type.CREATURE, SubType.HUMAN, SubType.SOLDIER));
 
+			ContinuousEffect.Part indestructiblePart = addAbilityToObject(ABILITY_SOURCE_OF_THIS, org.rnd.jmagic.abilities.keywords.Indestructible.class);
+
 			ContinuousEffect.Part preventPart = new ContinuousEffect.Part(ContinuousEffectType.REPLACEMENT_EFFECT);
 			preventPart.parameters.put(ContinuousEffectType.Parameter.OBJECT, Identity.instance(new PreventToGideon(state.game, "Prevent all damage that would be dealt to Gideon Jura")));
 
-			this.addEffect(createFloatingEffect("Until end of turn, Gideon Jura becomes a 6/6 Human Soldier creature that's still a planeswalker. Prevent all damage that would be dealt to him this turn.", ptPart, typesPart, preventPart));
+			this.addEffect(createFloatingEffect("Until end of turn, Gideon Jura becomes a 6/6 Human Soldier creature that's still a planeswalker. Prevent all damage that would be dealt to him this turn.", ptPart, typesPart, indestructiblePart, preventPart));
 		}
 	}
 

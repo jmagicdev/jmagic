@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -28,18 +29,45 @@ public final class Duplicant extends Card
 		}
 	}
 
+	private static final class Newest extends SetGenerator
+	{
+		public static Newest instance(SetGenerator what)
+		{
+			return new Newest(what);
+		}
+
+		private SetGenerator what;
+
+		private Newest(SetGenerator what)
+		{
+			this.what = what;
+		}
+
+		@Override
+		public Set evaluate(GameState state, Identified thisObject)
+		{
+			GameObject newest = null;
+			for(GameObject o: this.what.evaluate(state, thisObject).getAll(GameObject.class))
+				if(newest == null || newest.getTimestamp() < o.getTimestamp())
+					newest = o;
+
+			return new Set(newest);
+		}
+	}
+
 	public static final class DuplicantAbility1 extends StaticAbility
 	{
 		public DuplicantAbility1(GameState state)
 		{
-			super(state, "As long as the exiled card is a creature card, Duplicant has that card's power, toughness, and creature types. It's still a Shapeshifter.");
+			super(state, "As long as a card exiled with Duplicant is a creature card, Duplicant has the power, toughness, and creature types of the last creature card exiled with Duplicant. It's still a Shapeshifter.");
 			this.getLinkManager().addLinkClass(DuplicantAbility0.class);
 
 			SetGenerator exiledCard = ChosenFor.instance(LinkedTo.instance(Identity.instance(this)));
 			SetGenerator isACreature = Intersect.instance(exiledCard, HasType.instance(Type.CREATURE));
 			this.canApply = Both.instance(this.canApply, isACreature);
 
-			this.addEffectPart(setPowerAndToughness(This.instance(), PowerOf.instance(exiledCard), ToughnessOf.instance(exiledCard)));
+			SetGenerator lastCreatureExiled = Newest.instance(isACreature);
+			this.addEffectPart(setPowerAndToughness(This.instance(), PowerOf.instance(lastCreatureExiled), ToughnessOf.instance(lastCreatureExiled)));
 			this.addEffectPart(addType(This.instance(), SubTypesOf.instance(exiledCard, Type.CREATURE)));
 		}
 	}

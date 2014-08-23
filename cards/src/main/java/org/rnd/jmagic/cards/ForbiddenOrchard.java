@@ -15,12 +15,12 @@ public final class ForbiddenOrchard extends Card
 	{
 		public EvilSpirits(GameState state)
 		{
-			super(state, "Whenever you tap Forbidden Orchard for mana, put a 1/1 colorless Spirit creature token onto the battlefield under target opponent's control.");
+			super(state, "Whenever you tap Forbidden Orchard for mana, target opponent puts a 1/1 colorless Spirit creature token onto the battlefield.");
 			this.addPattern(tappedForMana(You.instance(), new SimpleSetPattern(ABILITY_SOURCE_OF_THIS)));
 
 			Target t = this.addTarget(OpponentsOf.instance(You.instance()), "target opponent");
 
-			EventFactory effect = new EventFactory(EventType.CREATE_TOKEN_ON_BATTLEFIELD, "Put a 1/1 colorless Spirit creature token onto the battlefield under target opponent's control.");
+			EventFactory effect = new EventFactory(EventType.CREATE_TOKEN_ON_BATTLEFIELD, "Target opponent puts a 1/1 colorless Spirit creature token onto the battlefield.");
 			effect.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			effect.parameters.put(EventType.Parameter.CONTROLLER, targetedBy(t));
 			effect.parameters.put(EventType.Parameter.NUMBER, numberGenerator(1));

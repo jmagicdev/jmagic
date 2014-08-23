@@ -17,9 +17,10 @@ public final class AvacynAngelofHope extends Card
 	{
 		public AvacynAngelofHopeAbility1(GameState state)
 		{
-			super(state, "Avacyn, Angel of Hope and other permanents you control are indestructible.");
+			super(state, "Other permanents you control have indestructible.");
 
-			this.addEffectPart(indestructible(ControlledBy.instance(You.instance())));
+			SetGenerator otherPermanentsYouControl = RelativeComplement.instance(ControlledBy.instance(You.instance()), This.instance());
+			this.addEffectPart(addAbilityToObject(otherPermanentsYouControl, org.rnd.jmagic.abilities.keywords.Indestructible.class));
 		}
 	}
 
@@ -30,12 +31,12 @@ public final class AvacynAngelofHope extends Card
 		this.setPower(8);
 		this.setToughness(8);
 
-		// Flying, vigilance
+		// Flying, vigilance, indestructible
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Flying(state));
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Vigilance(state));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Indestructible(state));
 
-		// Avacyn, Angel of Hope and other permanents you control are
-		// indestructible.
+		// Other permanents you control have indestructible.
 		this.addAbility(new AvacynAngelofHopeAbility1(state));
 	}
 }

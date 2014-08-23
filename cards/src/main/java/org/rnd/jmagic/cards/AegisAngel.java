@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -16,7 +17,7 @@ public final class AegisAngel extends Card
 	{
 		public AegisAngelAbility1(GameState state)
 		{
-			super(state, "When Aegis Angel enters the battlefield, another target permanent is indestructible for as long as you control Aegis Angel.");
+			super(state, "When Aegis Angel enters the battlefield, another target permanent has indestructible for as long as you control Aegis Angel.");
 			this.addPattern(whenThisEntersTheBattlefield());
 
 			SetGenerator legal = RelativeComplement.instance(Permanents.instance(), ABILITY_SOURCE_OF_THIS);
@@ -24,7 +25,8 @@ public final class AegisAngel extends Card
 
 			SetGenerator youControlThis = Intersect.instance(ABILITY_SOURCE_OF_THIS, ControlledBy.instance(You.instance()));
 
-			EventFactory effect = createFloatingEffect("Another target permanent is indestructible for as long as you control Aegis Angel.", indestructible(target));
+			ContinuousEffect.Part indestructible = addAbilityToObject(target, org.rnd.jmagic.abilities.keywords.Indestructible.class);
+			EventFactory effect = createFloatingEffect("Another target permanent has indestructible for as long as you control Aegis Angel.", indestructible);
 			effect.parameters.put(EventType.Parameter.EXPIRES, Not.instance(youControlThis));
 			this.addEffect(effect);
 		}

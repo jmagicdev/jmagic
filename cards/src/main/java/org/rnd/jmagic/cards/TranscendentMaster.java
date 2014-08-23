@@ -1,8 +1,6 @@
 package org.rnd.jmagic.cards;
 
-import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.generators.*;
 
 @Name("Transcendent Master")
 @Types({Type.CREATURE})
@@ -12,15 +10,6 @@ import org.rnd.jmagic.engine.generators.*;
 @ColorIdentity({Color.WHITE})
 public final class TranscendentMaster extends Card
 {
-	public static final class ThisIsIndestructible extends StaticAbility
-	{
-		public ThisIsIndestructible(GameState state)
-		{
-			super(state, "Transcendent Master is indestructible.");
-			this.addEffectPart(indestructible(This.instance()));
-		}
-	}
-
 	public TranscendentMaster(GameState state)
 	{
 		super(state);
@@ -40,6 +29,6 @@ public final class TranscendentMaster extends Card
 		// 9/9
 		// Lifelink
 		// Transcendent Master is indestructible.
-		this.addAbility(new org.rnd.jmagic.abilities.keywords.Level(state, 12, 9, 9, "Lifelink; Transcendent Master is indestructible.", org.rnd.jmagic.abilities.keywords.Lifelink.class, ThisIsIndestructible.class));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Level(state, 12, 9, 9, "Lifelink, indestructible.", org.rnd.jmagic.abilities.keywords.Lifelink.class, org.rnd.jmagic.abilities.keywords.Indestructible.class));
 	}
 }

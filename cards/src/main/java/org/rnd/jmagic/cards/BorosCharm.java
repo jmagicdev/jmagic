@@ -23,9 +23,9 @@ public final class BorosCharm extends Card
 			this.addEffect(1, spellDealDamage(4, target, "Boros Charm deals 4 damage to target player"));
 		}
 
-		// permanents you control are indestructible this turn
+		// permanents you control gain indestructible until end of turn
 		{
-			this.addEffect(2, createFloatingEffect("Creatures you control are indestructible this turn.", indestructible(ControlledBy.instance(You.instance()))));
+			this.addEffect(2, createFloatingEffect("Creatures you control gain indestructible until end of turn.", addAbilityToObject(ControlledBy.instance(You.instance()), org.rnd.jmagic.abilities.keywords.Indestructible.class)));
 		}
 
 		// target creature gains double strike until end of turn.

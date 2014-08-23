@@ -16,7 +16,7 @@ public final class EldraziMonument extends Card
 	{
 		public Pump(GameState state)
 		{
-			super(state, "Creatures you control get +1/+1, have flying, and are indestructible.");
+			super(state, "Creatures you control get +1/+1 and have flying and indestructible.");
 
 			SetGenerator yourCreatures = Intersect.instance(HasType.instance(Type.CREATURE), ControlledBy.instance(You.instance()));
 
@@ -24,7 +24,7 @@ public final class EldraziMonument extends Card
 
 			this.addEffectPart(addAbilityToObject(yourCreatures, org.rnd.jmagic.abilities.keywords.Flying.class));
 
-			this.addEffectPart(indestructible(yourCreatures));
+			this.addEffectPart(addAbilityToObject(yourCreatures, org.rnd.jmagic.abilities.keywords.Indestructible.class));
 		}
 	}
 

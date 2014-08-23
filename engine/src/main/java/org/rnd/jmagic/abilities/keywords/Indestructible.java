@@ -2,8 +2,7 @@ package org.rnd.jmagic.abilities.keywords;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-
-import static org.rnd.jmagic.Convenience.*;
+import org.rnd.jmagic.engine.patterns.SimpleEventPattern;
 
 @Name("Indestructible")
 public final class Indestructible extends Keyword
@@ -26,7 +25,12 @@ public final class Indestructible extends Keyword
 		public IndestructibleStatic(GameState state)
 		{
 			super(state, "This permanent can't be destroyed.");
-			this.addEffectPart(indestructible(This.instance()));
+			SimpleEventPattern destroy = new SimpleEventPattern(EventType.DESTROY_ONE_PERMANENT);
+			destroy.put(EventType.Parameter.PERMANENT, This.instance());
+			
+			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
+			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(destroy));
+			this.addEffectPart(part);
 		}
 	}
 

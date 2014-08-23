@@ -18,14 +18,8 @@ public final class DarksteelGarrison extends Card
 	{
 		public Defense(GameState state)
 		{
-			super(state, "Fortified land is indestructible.");
-
-			SimpleEventPattern destroyFortifiedLand = new SimpleEventPattern(EventType.DESTROY_ONE_PERMANENT);
-			destroyFortifiedLand.put(EventType.Parameter.PERMANENT, FortifiedBy.instance(This.instance()));
-
-			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
-			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(destroyFortifiedLand));
-			this.addEffectPart(part);
+			super(state, "Fortified land has indestructible.");
+			this.addEffectPart(addAbilityToObject(FortifiedBy.instance(This.instance()), org.rnd.jmagic.abilities.keywords.Indestructible.class));
 		}
 	}
 

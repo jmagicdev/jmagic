@@ -16,12 +16,12 @@ public final class KnightExemplar extends Card
 	{
 		public LordExemplar(GameState state)
 		{
-			super(state, "Other Knight creatures you control get +1/+1 and are indestructible.");
+			super(state, "Other Knight creatures you control get +1/+1 and have indestructible.");
 
 			SetGenerator otherKnights = RelativeComplement.instance(Intersect.instance(CREATURES_YOU_CONTROL, HasSubType.instance(SubType.KNIGHT)), This.instance());
 
 			this.addEffectPart(modifyPowerAndToughness(otherKnights, 1, 1));
-			this.addEffectPart(indestructible(otherKnights));
+			this.addEffectPart(addAbilityToObject(otherKnights, org.rnd.jmagic.abilities.keywords.Indestructible.class));
 		}
 	}
 

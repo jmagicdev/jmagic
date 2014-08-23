@@ -17,12 +17,12 @@ public final class FalkenrathAristocrat extends Card
 	{
 		public FalkenrathAristocratAbility1(GameState state)
 		{
-			super(state, "Sacrifice a creature: Falkenrath Aristocrat is indestructible this turn. If the sacrificed creature was a Human, put a +1/+1 counter on Falkenrath Aristocrat.");
+			super(state, "Sacrifice a creature: Falkenrath Aristocrat gains indestructible until end of turn. If the sacrificed creature was a Human, put a +1/+1 counter on Falkenrath Aristocrat.");
 
 			EventFactory sacrifice = sacrificeACreature();
 			this.addCost(sacrifice);
 
-			this.addEffect(createFloatingEffect("Falkenrath Aristocrat is indestructible this turn.", indestructible(ABILITY_SOURCE_OF_THIS)));
+			this.addEffect(createFloatingEffect("Falkenrath Aristocrat gains indestructible until end of turn.", addAbilityToObject(ABILITY_SOURCE_OF_THIS, org.rnd.jmagic.abilities.keywords.Indestructible.class)));
 
 			SetGenerator deadCreature = OldObjectOf.instance(EffectResult.instance(sacrifice));
 			SetGenerator itWasAHuman = EvaluatePattern.instance(new SubTypePattern(SubType.HUMAN), deadCreature);

@@ -16,9 +16,9 @@ public final class ManorGargoyle extends Card
 	{
 		public ManorGargoyleAbility1(GameState state)
 		{
-			super(state, "Manor Gargoyle is indestructible as long as it has defender.");
+			super(state, "Manor Gargoyle has indestructible as long as it has defender.");
 
-			this.addEffectPart(indestructible(This.instance()));
+			this.addEffectPart(addAbilityToObject(This.instance(), org.rnd.jmagic.abilities.keywords.Indestructible.class));
 
 			this.canApply = Both.instance(this.canApply, Intersect.instance(HasKeywordAbility.instance(org.rnd.jmagic.abilities.keywords.Defender.class), This.instance()));
 		}

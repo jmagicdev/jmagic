@@ -16,12 +16,12 @@ public final class AngelicOverseer extends Card
 	{
 		public AngelicOverseerAbility1(GameState state)
 		{
-			super(state, "As long as you control a Human, Angelic Overseer has hexproof and is indestructible.");
+			super(state, "As long as you control a Human, Angelic Overseer has hexproof and indestructible.");
 			SetGenerator youControl = ControlledBy.instance(You.instance());
 			SetGenerator youControlAHuman = Intersect.instance(youControl, HasSubType.instance(SubType.HUMAN));
 			this.canApply = Both.instance(this.canApply, youControlAHuman);
 
-			this.addEffectPart(addAbilityToObject(This.instance(), org.rnd.jmagic.abilities.keywords.Hexproof.class), indestructible(This.instance()));
+			this.addEffectPart(addAbilityToObject(This.instance(), org.rnd.jmagic.abilities.keywords.Hexproof.class, org.rnd.jmagic.abilities.keywords.Indestructible.class));
 		}
 	}
 

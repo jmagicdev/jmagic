@@ -18,6 +18,6 @@ public final class WithstandDeath extends Card
 		SetGenerator target = targetedBy(this.addTarget(CreaturePermanents.instance(), "target creature"));
 
 		// Target creature is indestructible this turn.
-		this.addEffect(createFloatingEffect("Target creature is indestructible this turn.", indestructible(target)));
+		this.addEffect(createFloatingEffect("Target creature gains indestructible this turn.", addAbilityToObject(target, org.rnd.jmagic.abilities.keywords.Indestructible.class)));
 	}
 }

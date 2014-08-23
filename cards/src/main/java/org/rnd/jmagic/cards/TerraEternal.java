@@ -15,8 +15,8 @@ public final class TerraEternal extends Card
 	{
 		public TerraEternalAbility0(GameState state)
 		{
-			super(state, "All lands are indestructible.");
-			this.addEffectPart(indestructible(LandPermanents.instance()));
+			super(state, "All lands have indestructible.");
+			this.addEffectPart(addAbilityToObject(LandPermanents.instance(), org.rnd.jmagic.abilities.keywords.Indestructible.class));
 		}
 	}
 

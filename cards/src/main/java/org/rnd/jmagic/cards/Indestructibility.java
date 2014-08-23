@@ -17,9 +17,9 @@ public final class Indestructibility extends Card
 	{
 		public EnchantedPermanentIsIndestructible(GameState state)
 		{
-			super(state, "Enchanted permanent is indestructible.");
+			super(state, "Enchanted permanent has indestructible.");
 
-			this.addEffectPart(indestructible(EnchantedBy.instance(This.instance())));
+			this.addEffectPart(addAbilityToObject(EnchantedBy.instance(This.instance()), org.rnd.jmagic.abilities.keywords.Indestructible.class));
 		}
 	}
 

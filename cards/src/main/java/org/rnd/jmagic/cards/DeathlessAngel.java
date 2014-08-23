@@ -16,13 +16,13 @@ public final class DeathlessAngel extends Card
 	{
 		public DeathlessAngelAbility1(GameState state)
 		{
-			super(state, "(W)(W): Target creature is indestructible this turn.");
+			super(state, "(W)(W): Target creature gains indestructible until end of turn.");
 
 			this.setManaCost(new ManaPool("(W)(W)"));
 
 			Target target = this.addTarget(CreaturePermanents.instance(), "target creature");
 
-			this.addEffect(createFloatingEffect("Target creature is indestructible this turn.", indestructible(targetedBy(target))));
+			this.addEffect(createFloatingEffect("Target creature gains indestructible until end of turn.", addAbilityToObject(targetedBy(target), org.rnd.jmagic.abilities.keywords.Indestructible.class)));
 		}
 	}
 

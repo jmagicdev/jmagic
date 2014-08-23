@@ -16,11 +16,11 @@ public final class DauntlessEscort extends Card
 	{
 		public ProtWrath(GameState state)
 		{
-			super(state, "Sacrifice Dauntless Escort: Creatures you control are indestructible this turn.");
+			super(state, "Sacrifice Dauntless Escort: Creatures you control gain indestructible until end of turn.");
 
 			this.addCost(sacrificeThis("Dauntless Escort"));
 
-			this.addEffect(createFloatingEffect("Creatures you control are indestructible this turn.", indestructible(CREATURES_YOU_CONTROL)));
+			this.addEffect(createFloatingEffect("Creatures you control gain indestructible until end of turn.", addAbilityToObject(CREATURES_YOU_CONTROL, org.rnd.jmagic.abilities.keywords.Indestructible.class)));
 		}
 	}
 

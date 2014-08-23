@@ -29,13 +29,13 @@ public final class Bant extends Card
 	{
 		public IndestructibleChaos(GameState state)
 		{
-			super(state, "Whenever you roll (C), put a divinity counter on target green, white, or blue creature. That creature is indestructible as long as it has a divinity counter on it.");
+			super(state, "Whenever you roll (C), put a divinity counter on target green, white, or blue creature. That creature has indestructible as long as it has a divinity counter on it.");
 
 			this.addPattern(Planechase.wheneverYouRollChaos());
 
 			Target target = this.addTarget(Intersect.instance(CreaturePermanents.instance(), HasColor.instance(Color.GREEN, Color.WHITE, Color.BLUE)), "target green, white, or blue creature");
 			this.addEffect(putCounters(1, Counter.CounterType.DIVINITY, targetedBy(target), "Put a divinity counter on target green, white, or blue creature."));
-			this.addEffect(createFloatingEffect(CountersOn.instance(targetedBy(target), Counter.CounterType.DIVINITY), "That creature is indestructible as long as it has a divinity counter on it.", indestructible(targetedBy(target))));
+			this.addEffect(createFloatingEffect(CountersOn.instance(targetedBy(target), Counter.CounterType.DIVINITY), "That creature has indestructible as long as it has a divinity counter on it.", addAbilityToObject(targetedBy(target), org.rnd.jmagic.abilities.keywords.Indestructible.class)));
 
 			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
 		}

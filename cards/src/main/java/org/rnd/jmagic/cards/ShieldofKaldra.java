@@ -18,13 +18,13 @@ public final class ShieldofKaldra extends Card
 	{
 		public KaldraEquipmentAreIndestructible(GameState state)
 		{
-			super(state, "Equipment named Sword of Kaldra, Shield of Kaldra, and Helm of Kaldra are indestructible.");
+			super(state, "Equipment named Sword of Kaldra, Shield of Kaldra, and Helm of Kaldra have indestructible.");
 
 			SetGenerator equipment = HasSubType.instance(SubType.EQUIPMENT);
 			SetGenerator sword = Intersect.instance(equipment, HasName.instance("Sword of Kaldra"));
 			SetGenerator shield = Intersect.instance(equipment, HasName.instance("Shield of Kaldra"));
 			SetGenerator helm = Intersect.instance(equipment, HasName.instance("Helm of Kaldra"));
-			this.addEffectPart(indestructible(Union.instance(sword, shield, helm)));
+			this.addEffectPart(addAbilityToObject(Union.instance(sword, shield, helm), org.rnd.jmagic.abilities.keywords.Indestructible.class));
 		}
 	}
 
@@ -32,8 +32,8 @@ public final class ShieldofKaldra extends Card
 	{
 		public EquippedCreatureIsIndestructible(GameState state)
 		{
-			super(state, "Equipped creature is indestructible.");
-			this.addEffectPart(indestructible(EquippedBy.instance(This.instance())));
+			super(state, "Equipped creature has indestructible.");
+			this.addEffectPart(addAbilityToObject(EquippedBy.instance(This.instance()), org.rnd.jmagic.abilities.keywords.Indestructible.class));
 		}
 	}
 

@@ -16,9 +16,9 @@ public final class FrontlineMedic extends Card
 	{
 		public FrontlineMedicAbility0(GameState state)
 		{
-			super(state, "Whenever Frontline Medic and at least two other creatures attack, creatures you control are indestructible this turn.");
+			super(state, "Whenever Frontline Medic and at least two other creatures attack, creatures you control gain indestructible until end of turn.");
 			this.addPattern(battalion());
-			this.addEffect(createFloatingEffect("Creatures you control are indestructible this turn.", indestructible(ControlledBy.instance(You.instance()))));
+			this.addEffect(createFloatingEffect("Creatures you control gain indestructible until end of turn.", addAbilityToObject(ControlledBy.instance(You.instance()), org.rnd.jmagic.abilities.keywords.Indestructible.class)));
 		}
 	}
 

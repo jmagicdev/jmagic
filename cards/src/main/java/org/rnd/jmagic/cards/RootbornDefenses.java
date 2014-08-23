@@ -18,6 +18,6 @@ public final class RootbornDefenses extends Card
 		this.addEffect(populate());
 
 		// Creatures you control are indestructible this turn.
-		this.addEffect(createFloatingEffect("Creatures you control are indestructible this turn.", indestructible(CREATURES_YOU_CONTROL)));
+		this.addEffect(createFloatingEffect("Creatures you control gain indestructible until end of turn.", addAbilityToObject(CREATURES_YOU_CONTROL, org.rnd.jmagic.abilities.keywords.Indestructible.class)));
 	}
 }

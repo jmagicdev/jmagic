@@ -45,7 +45,7 @@ public final class Thornling extends Card
 
 			this.setManaCost(new ManaPool("G"));
 
-			this.addEffect(createFloatingEffect("Thornling is indestructible this turn.", indestructible(ABILITY_SOURCE_OF_THIS)));
+			this.addEffect(createFloatingEffect("Thornling is indestructible this turn.", addAbilityToObject(ABILITY_SOURCE_OF_THIS, org.rnd.jmagic.abilities.keywords.Indestructible.class)));
 		}
 	}
 
@@ -90,8 +90,8 @@ public final class Thornling extends Card
 		// (G): Thornling gains trample until end of turn.
 		this.addAbility(new GainAbility(state, org.rnd.jmagic.abilities.keywords.Trample.class));
 
-		// (G): Thornling is indestructible this turn.
-		this.addAbility(new BecomeIndestructible(state));
+		// (G): Thornling gains indestructible until end of turn.
+		this.addAbility(new GainAbility(state, org.rnd.jmagic.abilities.keywords.Indestructible.class));
 
 		// (1): Thornling gets +1/-1 until end of turn.
 		this.addAbility(new PTChange(state, +1, -1));

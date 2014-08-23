@@ -41,18 +41,18 @@ public final class ElspethKnightErrant extends Card
 		{
 			public NotQuiteAsDeepAsBefore(GameState state)
 			{
-				super(state, "Artifacts, creatures, enchantments, and lands you control are indestructible.");
+				super(state, "Artifacts, creatures, enchantments, and lands you control have indestructible.");
 
 				SetGenerator stuff = Union.instance(ArtifactPermanents.instance(), CreaturePermanents.instance(), EnchantmentPermanents.instance(), LandPermanents.instance());
-				this.addEffectPart(indestructible(Intersect.instance(stuff, ControlledBy.instance(You.instance()))));
+				this.addEffectPart(addAbilityToObject(Intersect.instance(stuff, ControlledBy.instance(You.instance())), org.rnd.jmagic.abilities.keywords.Indestructible.class));
 			}
 		}
 
 		public AntiObliterate(GameState state)
 		{
-			super(state, -8, "You get an emblem with \"Artifacts, creatures, enchantments, and lands you control are indestructible.\"");
+			super(state, -8, "You get an emblem with \"Artifacts, creatures, enchantments, and lands you control have indestructible.\"");
 
-			EventFactory makeEmblem = new EventFactory(EventType.CREATE_EMBLEM, "You get an emblem with \"Artifacts, creatures, enchantments, and lands you control are indestructible.\"");
+			EventFactory makeEmblem = new EventFactory(EventType.CREATE_EMBLEM, "You get an emblem with \"Artifacts, creatures, enchantments, and lands you control have indestructible.\"");
 			makeEmblem.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			makeEmblem.parameters.put(EventType.Parameter.ABILITY, Identity.instance(NotQuiteAsDeepAsBefore.class));
 			makeEmblem.parameters.put(EventType.Parameter.CONTROLLER, You.instance());
