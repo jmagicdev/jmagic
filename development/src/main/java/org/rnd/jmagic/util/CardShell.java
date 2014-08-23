@@ -201,10 +201,14 @@ public class CardShell
 		addExpansion("Duel Decks: Elspeth vs. Tezzeret", null);
 		addExpansion("Duel Decks: Elves vs. Goblins", null);
 		addExpansion("Duel Decks: Garruk vs. Liliana", null);
+		addExpansion("Duel Decks: Heroes vs. Monsters", null);
 		addExpansion("Duel Decks: Izzet vs. Golgari", null);
 		addExpansion("Duel Decks: Jace vs. Chandra", null);
+		addExpansion("Duel Decks: Jace vs. Vraska", null);
 		addExpansion("Duel Decks: Knights vs. Dragons", null);
 		addExpansion("Duel Decks: Phyrexia vs. The Coalition", null);
+		addExpansion("Duel Decks: Sorin vs. Tibalt", null);
+		addExpansion("Duel Decks: Speed vs. Cunning", null);
 		addExpansion("Duel Decks: Venser vs. Koth", null);
 		addExpansion("Elves vs Goblins box set", null);
 		addExpansion("From the Vault: Exiled", null);
@@ -213,12 +217,14 @@ public class CardShell
 		addExpansion("Masters Edition II (Magic Online only)", null);
 		addExpansion("Masters Edition III", null);
 		addExpansion("Masters Edition IV", null);
-		addExpansion("Planechase", null);
+		addExpansion("Masters Edition V", null);
+		addExpansion("Modern Masters", null);
 		addExpansion("Premium Deck Series: Fire and Lightning", null);
 		addExpansion("Premium Deck Series: Graveborn", null);
 		addExpansion("Premium Deck Series: Slivers", null);
 		addExpansion("Unhinged", null);
 		addExpansion("Unglued", null);
+		addExpansion("Vintage Masters", null);
 	}
 
 	private static String simpleInstantiation(Class<? extends Keyword> k)

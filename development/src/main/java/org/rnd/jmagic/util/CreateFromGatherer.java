@@ -90,7 +90,7 @@ public class CreateFromGatherer
 			while(i.hasNext())
 			{
 				String cardName = i.next();
-				if(new java.io.File("src/org/rnd/jmagic/cards/" + org.rnd.jmagic.CardLoader.formatName(cardName) + ".java").exists())
+				if(new java.io.File("../cards/src/main/java/org/rnd/jmagic/cards/" + org.rnd.jmagic.CardLoader.formatName(cardName) + ".java").exists())
 				{
 					cardsSkipped.put(cardName, null);
 					i.remove();
