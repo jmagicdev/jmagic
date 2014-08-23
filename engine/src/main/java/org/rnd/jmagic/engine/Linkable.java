@@ -78,9 +78,12 @@ public interface Linkable
 					ret.remove(go);
 			for(ZoneChange change: ret.getAll(ZoneChange.class))
 			{
-				GameObject object = state.<GameObject>get(change.newObjectID);
-				if(!object.isGhost())
-					ret.add(object);
+				if(change.newObjectID != -1)
+				{
+					GameObject object = state.<GameObject>get(change.newObjectID);
+					if(!object.isGhost())
+						ret.add(object);
+				}
 				ret.remove(change);
 			}
 			return ret;
