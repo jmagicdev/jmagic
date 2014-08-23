@@ -117,7 +117,7 @@ public class ZoneChange implements Sanitizable
 	/**
 	 * The replacement effects that replaced this zone change, if any.
 	 */
-	public java.util.Collection<ZoneChangeReplacementEffect> replacedBy = new java.util.LinkedList<ZoneChangeReplacementEffect>();
+	public java.util.Collection<ReplacementEffect> replacedBy = new java.util.LinkedList<ReplacementEffect>();
 
 	/**
 	 * The ID of the Zone the old GameObject will be removed from.

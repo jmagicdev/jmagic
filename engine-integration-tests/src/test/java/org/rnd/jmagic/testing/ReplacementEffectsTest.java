@@ -263,6 +263,29 @@ public class ReplacementEffectsTest extends JUnitTest
 		assertEquals(2, getGraveyard(1).objects.size());
 	}
 
+	@Test
+	public void zoneChangeToEventToZoneChange()
+	{
+		this.addDeck(MoxDiamond.class, Plains.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
+		this.addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
+		startGame(GameTypes.OPEN);
+
+		respondWith(getPlayer(0));
+		keep();
+		keep();
+
+		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
+		castAndResolveSpell(MoxDiamond.class);
+
+		// mox diamond's etb replacement goes off, choose to discard a land card
+		respondWith(Answer.YES);
+		// plains automatically chosen since it's the only land
+		// mox diamond should be on the battlefield now
+
+		assertEquals(1, this.game.actualState.battlefield().objects.size());
+		assertEquals("Mox Diamond", this.game.actualState.battlefield().objects.get(0).getName());
+	}
+
 	/*
 	@Test
 	public void doublingSeason_Tokens()

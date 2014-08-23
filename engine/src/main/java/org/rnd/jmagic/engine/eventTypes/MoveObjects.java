@@ -90,6 +90,7 @@ public final class MoveObjects extends EventType
 			change.isSpellResolution = isSpellResolution;
 			change.oldObjectID = moveMe.ID;
 			change.random = random;
+			change.replacedBy.addAll(event.replacedBy);
 			change.sourceZoneID = from.ID;
 			event.addZoneChange(change);
 

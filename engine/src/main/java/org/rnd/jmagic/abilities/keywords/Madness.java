@@ -109,7 +109,7 @@ public final class Madness extends Keyword
 				if(!newObject.getAbilityIDsInOrder().contains(this.parentID))
 					return false;
 
-				for(ZoneChangeReplacementEffect replacement: zoneChange.replacedBy)
+				for(ReplacementEffect replacement: zoneChange.replacedBy)
 					if(replacement instanceof MadnessStatic.MadnessZoneChangeReplacementEffect)
 						return true;
 				return false;
