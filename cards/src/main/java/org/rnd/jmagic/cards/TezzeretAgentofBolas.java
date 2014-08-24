@@ -31,14 +31,14 @@ public final class TezzeretAgentofBolas extends Card
 	{
 		public TezzeretAgentofBolasAbility1(GameState state)
 		{
-			super(state, -1, "Target artifact becomes a 5/5 artifact creature.");
+			super(state, -1, "Target artifact becomes an artifact creature with base power and toughness 5/5.");
 
 			SetGenerator target = targetedBy(this.addTarget(ArtifactPermanents.instance(), "target artifact"));
 
 			Animator animate = new Animator(target, 5, 5);
 			animate.addType(Type.ARTIFACT);
 			animate.removeOldTypes();
-			this.addEffect(createFloatingEffect(Empty.instance(), "Target artifact becomes a 5/5 artifact creature.", animate.getParts()));
+			this.addEffect(createFloatingEffect(Empty.instance(), "Target artifact becomes an artifact creature with base power and toughness 5/5.", animate.getParts()));
 		}
 	}
 

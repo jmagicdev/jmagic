@@ -25,6 +25,6 @@ public final class Humble extends Card
 		// becomes a 0/1
 		ContinuousEffect.Part setPT = setPowerAndToughness(targetedBy(target), 0, 1);
 
-		this.addEffect(createFloatingEffect("Target creature loses all abilities and becomes 0/1 until end of turn", loseAbilities, setPT));
+		this.addEffect(createFloatingEffect("Target creature loses all abilities and has base power and toughness 0/1 until end of turn", loseAbilities, setPT));
 	}
 }

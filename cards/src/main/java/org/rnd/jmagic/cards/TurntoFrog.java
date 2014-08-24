@@ -32,6 +32,6 @@ public final class TurntoFrog extends Card
 		setFrog.parameters.put(ContinuousEffectType.Parameter.OBJECT, target);
 		setFrog.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.instance(SubType.FROG));
 
-		this.addEffect(createFloatingEffect("Target creature loses all abilities and becomes a 1/1 blue Frog until end of turn.", loseAbilities, setPT, setColor, setFrog));
+		this.addEffect(createFloatingEffect("Target creature loses all abilities and becomes a blue Frog with base power and toughness 1/1 until end of turn.", loseAbilities, setPT, setColor, setFrog));
 	}
 }

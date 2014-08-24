@@ -16,13 +16,13 @@ public final class FigureofDestiny extends Card
 	{
 		public FigureofDestinyAbility0(GameState state)
 		{
-			super(state, "(RW): Figure of Destiny becomes a 2/2 Kithkin Spirit.");
+			super(state, "(RW): Figure of Destiny becomes a Kithkin Spirit with base power and toughness 2/2.");
 			this.setManaCost(new ManaPool("(RW)"));
 
 			Animator animator = new Animator(ABILITY_SOURCE_OF_THIS, 2, 2);
 			animator.addSubType(SubType.KITHKIN);
 			animator.addSubType(SubType.SPIRIT);
-			EventFactory big = createFloatingEffect("Figure of Destiny becomes a 2/2 Kithkin Spirit.", animator.getParts());
+			EventFactory big = createFloatingEffect("Figure of Destiny becomes a Kithkin Spirit with base power and toughness 2/2.", animator.getParts());
 			big.parameters.put(EventType.Parameter.EXPIRES, Identity.instance(Empty.instance()));
 			this.addEffect(big);
 		}
@@ -32,7 +32,7 @@ public final class FigureofDestiny extends Card
 	{
 		public FigureofDestinyAbility1(GameState state)
 		{
-			super(state, "(RW)(RW)(RW): If Figure of Destiny is a Spirit, it becomes a 4/4 Kithkin Spirit Warrior.");
+			super(state, "(RW)(RW)(RW): If Figure of Destiny is a Spirit, it becomes a Kithkin Spirit Warrior with base power and toughness 4/4.");
 			this.setManaCost(new ManaPool("(RW)(RW)(RW)"));
 
 			Animator animator = new Animator(ABILITY_SOURCE_OF_THIS, 4, 4);
@@ -53,7 +53,7 @@ public final class FigureofDestiny extends Card
 	{
 		public FigureofDestinyAbility2(GameState state)
 		{
-			super(state, "(RW)(RW)(RW)(RW)(RW)(RW): If Figure of Destiny is a Warrior, it becomes an 8/8 Kithkin Spirit Warrior Avatar with flying and first strike.");
+			super(state, "(RW)(RW)(RW)(RW)(RW)(RW): If Figure of Destiny is a Warrior, it becomes a Kithkin Spirit Warrior Avatar with base power and toughness 8/8 flying and first strike.");
 			this.setManaCost(new ManaPool("(RW)(RW)(RW)(RW)(RW)(RW)"));
 
 			Animator animator = new Animator(ABILITY_SOURCE_OF_THIS, 8, 8);

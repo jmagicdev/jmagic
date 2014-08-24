@@ -16,8 +16,8 @@ public final class WheelofFortune extends Card
 	{
 		super(state);
 
-		this.addEffect(discardHand(Players.instance(), "Each player discards his or her hand"));
+		this.addEffect(discardHand(Players.instance(), "Each player discards his or her hand,"));
 
-		this.addEffect(drawCards(Players.instance(), 7, "and draws seven cards"));
+		this.addEffect(drawCards(Players.instance(), 7, "then draws seven cards"));
 	}
 }

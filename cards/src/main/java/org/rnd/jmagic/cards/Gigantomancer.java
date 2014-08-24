@@ -16,12 +16,12 @@ public final class Gigantomancer extends Card
 	{
 		public GigantomancerAbility0(GameState state)
 		{
-			super(state, "(1): Target creature you control becomes 7/7 until end of turn.");
+			super(state, "(1): Target creature you control has base power and toughness 7/7 until end of turn.");
 			this.setManaCost(new ManaPool("(1)"));
 
 			Target target = this.addTarget(CreaturePermanents.instance(), "target creature");
 
-			this.addEffect(createFloatingEffect("Target creature you control becomes 7/7 until end of turn.", setPowerAndToughness(targetedBy(target), 7, 7)));
+			this.addEffect(createFloatingEffect("Target creature you control has base power and toughness 7/7 until end of turn.", setPowerAndToughness(targetedBy(target), 7, 7)));
 		}
 	}
 

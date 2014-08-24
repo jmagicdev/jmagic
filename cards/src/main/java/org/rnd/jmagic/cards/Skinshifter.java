@@ -15,25 +15,25 @@ public final class Skinshifter extends Card
 	{
 		public SkinshifterAbility0(GameState state)
 		{
-			super(state, "(G): Choose one \u2014 Until end of turn, Skinshifter becomes a 4/4 Rhino and gains trample; or until end of turn, Skinshifter becomes a 2/2 Bird and gains flying; or until end of turn, Skinshifter becomes a 0/8 Plant. Activate this ability only once each turn.");
+			super(state, "(G): Choose one \u2014 Until end of turn, Skinshifter becomes a Rhino with base power and toughness 4/4 and gains trample; or until end of turn, Skinshifter becomes a Bird base power and toughness 2/2 and gains flying; or until end of turn, Skinshifter becomes a Plant with base power and toughness 0/8. Activate this ability only once each turn.");
 			this.setManaCost(new ManaPool("(G)"));
 
 			Animator rhino = new Animator(ABILITY_SOURCE_OF_THIS, 4, 4);
 			rhino.addSubType(SubType.RHINO);
 			rhino.addAbility(org.rnd.jmagic.abilities.keywords.Trample.class);
 			rhino.removeOldTypes();
-			this.addEffect(1, createFloatingEffect("Until end of turn, Skinshifter becomes a 4/4 Rhino and gains trample", rhino.getParts()));
+			this.addEffect(1, createFloatingEffect("Until end of turn, Skinshifter becomes a Rhino with base power and toughness 4/4 and gains trample.", rhino.getParts()));
 
 			Animator bird = new Animator(ABILITY_SOURCE_OF_THIS, 2, 2);
 			bird.addSubType(SubType.BIRD);
 			bird.addAbility(org.rnd.jmagic.abilities.keywords.Flying.class);
 			bird.removeOldTypes();
-			this.addEffect(2, createFloatingEffect("until end of turn, Skinshifter becomes a 2/2 Bird and gains flying", bird.getParts()));
+			this.addEffect(2, createFloatingEffect("Until end of turn, Skinshifter becomes a Bird with base power and toughness 2/2 and gains flying.", bird.getParts()));
 
 			Animator plant = new Animator(ABILITY_SOURCE_OF_THIS, 0, 8);
 			plant.addSubType(SubType.PLANT);
 			plant.removeOldTypes();
-			this.addEffect(3, createFloatingEffect("until end of turn, Skinshifter becomes a 2/2 Bird and gains flying; or until end of turn, Skinshifter becomes a 0/8 Plant.", plant.getParts()));
+			this.addEffect(3, createFloatingEffect("Until end of turn, Skinshifter becomes a Plant with base power and toughness 0/8.", plant.getParts()));
 
 			this.perTurnLimit(1);
 		}

@@ -56,7 +56,7 @@ public final class TezzerettheSeeker extends Card
 	{
 		public T_X(GameState state)
 		{
-			super(state, -5, "Artifacts you control become 5/5 artifact creatures until end of turn.");
+			super(state, -5, "Artifacts you control become artifact creatures with base power and toughness 5/5 until end of turn.");
 
 			SetGenerator artifactsYouControl = Intersect.instance(ArtifactPermanents.instance(), ControlledBy.instance(You.instance()));
 			SetGenerator five = numberGenerator(5);
@@ -67,7 +67,7 @@ public final class TezzerettheSeeker extends Card
 			typePart.parameters.put(ContinuousEffectType.Parameter.OBJECT, artifactsYouControl);
 			typePart.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.instance(Type.ARTIFACT, Type.CREATURE));
 
-			this.addEffect(createFloatingEffect("Artifacts you control become 5/5 artifact creatures until end of turn.", ptPart, typePart));
+			this.addEffect(createFloatingEffect("Artifacts you control become artifact creatures with base power and toughness 5/5 until end of turn.", ptPart, typePart));
 		}
 	}
 

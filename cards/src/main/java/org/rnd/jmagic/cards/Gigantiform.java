@@ -18,7 +18,7 @@ public final class Gigantiform extends Card
 	{
 		public GigantiformStatic(GameState state)
 		{
-			super(state, "Enchanted creature is 8/8 and has trample.");
+			super(state, "Enchanted creature has base power and toughness 8/8 and has trample.");
 
 			SetGenerator enchantedCreature = EnchantedBy.instance(This.instance());
 			SetGenerator eight = numberGenerator(8);

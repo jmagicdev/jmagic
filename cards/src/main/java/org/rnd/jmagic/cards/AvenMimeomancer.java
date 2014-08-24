@@ -17,7 +17,7 @@ public final class AvenMimeomancer extends Card
 	{
 		public AvianFlu(GameState state)
 		{
-			super(state, "At the beginning of your upkeep, you may put a feather counter on target creature. If you do, that creature is 3/1 and has flying for as long as it has a feather counter on it.");
+			super(state, "At the beginning of your upkeep, you may put a feather counter on target creature. If you do, that creature has base power and toughness 3/1 and has flying for as long as it has a feather counter on it.");
 
 			this.addPattern(atTheBeginningOfYourUpkeep());
 
@@ -27,9 +27,9 @@ public final class AvenMimeomancer extends Card
 
 			ContinuousEffect.Part part2 = addAbilityToObject(targetedBy(target), org.rnd.jmagic.abilities.keywords.Flying.class);
 
-			EventFactory fceFactory = createFloatingEffect(Not.instance(CountersOn.instance(targetedBy(target), Counter.CounterType.FEATHER)), "That creature is 3/1 and has flying for as long as it has a feather counter on it.", part1, part2);
+			EventFactory fceFactory = createFloatingEffect(Not.instance(CountersOn.instance(targetedBy(target), Counter.CounterType.FEATHER)), "That creature has base power and toughness 3/1 and has flying for as long as it has a feather counter on it.", part1, part2);
 
-			EventFactory factory = new EventFactory(EventType.IF_EVENT_THEN_ELSE, "You may put a feather counter on target creature. If you do, that creature is 3/1 and has flying for as long as it has a feather counter on it.");
+			EventFactory factory = new EventFactory(EventType.IF_EVENT_THEN_ELSE, "You may put a feather counter on target creature. If you do, that creature has base power and toughness 3/1 and has flying for as long as it has a feather counter on it.");
 			factory.parameters.put(EventType.Parameter.IF, Identity.instance(youMay(putCounters(1, Counter.CounterType.FEATHER, targetedBy(target), "Put a feather counter on target creature."), "You may put a feather counter on target creature.")));
 			factory.parameters.put(EventType.Parameter.THEN, Identity.instance(fceFactory));
 			this.addEffect(factory);
