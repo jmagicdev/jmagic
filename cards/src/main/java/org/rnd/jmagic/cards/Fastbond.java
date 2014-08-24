@@ -111,7 +111,7 @@ public final class Fastbond extends Card
 		super(state);
 
 		// You may play any number of additional lands on each of your turns.
-		this.addAbility(new org.rnd.jmagic.abilities.PlayExtraLands.Final(this.state, null, "You may play any number of additional lands on each of your turns."));
+		this.addAbility(new org.rnd.jmagic.abilities.PlayExtraLands.Final(this.state, null, "You may play any number of lands on each of your turns."));
 
 		// Whenever you play a land, if it wasn't the first land you played this
 		// turn, Fastbond deals 1 damage to you.

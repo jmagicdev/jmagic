@@ -17,7 +17,7 @@ public final class Naya extends Card
 	{
 		public EverBloom(GameState state)
 		{
-			super(state, null, "You may play any number of additional lands on each of your turns.");
+			super(state, null, "You may play any number of lands on each of your turns.");
 
 			setCanApply(Planechase.staticAbilityCanApply);
 		}

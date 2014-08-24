@@ -44,7 +44,7 @@ public final class Scapeshift extends Card
 			searchParameters.put(Parameter.TO, new Set(game.actualState.battlefield()));
 			searchParameters.put(Parameter.TAPPED, Empty.set);
 			searchParameters.put(Parameter.TYPE, new Set(HasType.instance(Type.LAND)));
-			Event searchEvent = createEvent(game, "Search your library for that many land cards, put them onto the battlefield tapped, then shuffle your library.", EventType.SEARCH_LIBRARY_AND_PUT_INTO, searchParameters);
+			Event searchEvent = createEvent(game, "Search your library for up to that many land cards, put them onto the battlefield tapped, then shuffle your library.", EventType.SEARCH_LIBRARY_AND_PUT_INTO, searchParameters);
 			searchEvent.perform(event, true);
 
 			event.setResult(Empty.set);
@@ -57,7 +57,7 @@ public final class Scapeshift extends Card
 	{
 		super(state);
 
-		EventFactory factory = new EventFactory(SCAPESHIFT_EVENT, "Sacrifice any number of lands. Search your library for that many land cards, put them onto the battlefield tapped, then shuffle your library.");
+		EventFactory factory = new EventFactory(SCAPESHIFT_EVENT, "Sacrifice any number of lands. Search your library for up to that many land cards, put them onto the battlefield tapped, then shuffle your library.");
 		factory.parameters.put(EventType.Parameter.CAUSE, This.instance());
 		factory.parameters.put(EventType.Parameter.PLAYER, You.instance());
 		this.addEffect(factory);
