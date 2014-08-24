@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 
 @Name("Highway Robber")
 @Types({Type.CREATURE})
-@SubTypes({SubType.ROGUE, SubType.HUMAN, SubType.MERCENARY})
+@SubTypes({SubType.HUMAN, SubType.MERCENARY})
 @ManaCost("2BB")
 @Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.NINTH_EDITION, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.MERCADIAN_MASQUES, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})

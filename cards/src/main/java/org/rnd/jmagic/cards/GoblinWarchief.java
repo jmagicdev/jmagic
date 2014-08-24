@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.generators.*;
 
 @Name("Goblin Warchief")
 @Types({Type.CREATURE})
-@SubTypes({SubType.GOBLIN})
+@SubTypes({SubType.GOBLIN, SubType.WARRIOR})
 @ManaCost("1RR")
 @Printings({@Printings.Printed(ex = Expansion.SCOURGE, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
