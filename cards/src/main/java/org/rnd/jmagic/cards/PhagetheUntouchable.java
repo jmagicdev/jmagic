@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Phage the Untouchable")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
-@SubTypes({SubType.ZOMBIE, SubType.MINION})
+@SubTypes({SubType.AVATAR, SubType.MINION})
 @ManaCost("3BBBB")
 @Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.LEGIONS, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
