@@ -1566,6 +1566,30 @@ public class KeywordsNonCombatTest extends JUnitTest
 	}
 
 	@Test
+	public void devotion()
+	{
+		addDeck(NyleasDisciple.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
+		addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
+		startGame(GameTypes.OPEN);
+
+		respondWith(getPlayer(0));
+		keep();
+		keep();
+
+		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
+
+		castAndResolveSpell(GrizzlyBears.class); // G
+		castAndResolveSpell(NyleasDisciple.class); // GG
+
+		// trigger on the stack, resolve it:
+		pass();
+		pass();
+
+		// GGG makes 3:
+		assertEquals(23, player(0).lifeTotal);
+	}
+
+	@Test
 	public void devour()
 	{
 		addDeck(GluttonousSlime.class, MoggFanatic.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);

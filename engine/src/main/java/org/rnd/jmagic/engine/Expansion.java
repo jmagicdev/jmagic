@@ -11,6 +11,7 @@ public enum Expansion
 								// conflict with reprints of Arabian Nights
 								// cards
 
+	THEROS("Theros", "THS"), //
 	MAGIC_2014("Magic 2014", "M14"), //
 	DRAGONS_MAZE("Dragon's Maze", "DGM"), //
 	GATECRASH("Gatecrash", "GTC"), // February '13
