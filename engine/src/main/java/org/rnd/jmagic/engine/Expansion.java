@@ -11,9 +11,15 @@ public enum Expansion
 								// conflict with reprints of Arabian Nights
 								// cards
 
-	THEROS("Theros", "THS"), //
-	MAGIC_2014("Magic 2014", "M14"), //
-	DRAGONS_MAZE("Dragon's Maze", "DGM"), //
+	KHANS_OF_TARKIR("Khans of Tarkir", "KTK"), // September '14
+	MAGIC_2015("Magic 2015 Core Set", "M15"), // July '14
+	JOURNEY_INTO_NYX("Journey into Nyx", "JOU"), // May '14
+	BORN_OF_THE_GODS("Born of the Gods", "BNG"), // February '14
+	COMMANDER_2013("Commander 2013 Edition", "C13"), // November '13
+	THEROS("Theros", "THS"), // September '13
+	MAGIC_2014("Magic 2014 Core Set", "M14"), // July '13
+	MODERN_MASTERS("Modern Masters", "MMA"), // June '13
+	DRAGONS_MAZE("Dragon's Maze", "DGM"), // May '13
 	GATECRASH("Gatecrash", "GTC"), // February '13
 	RETURN_TO_RAVNICA("Return to Ravnica", "RTR"), // October '12
 	MAGIC_2013("Magic 2013", "M13"), // July '12

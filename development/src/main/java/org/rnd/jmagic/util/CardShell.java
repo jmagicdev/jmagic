@@ -185,6 +185,7 @@ public class CardShell
 
 		// Timeshifted cards have a unique string
 		addExpansion("Time Spiral \"Timeshifted\"", Expansion.TIME_SPIRAL);
+		addExpansion("Time Spiral \\\"Timeshifted\\\"", Expansion.TIME_SPIRAL);
 
 		// The expansion name for promo cards is different
 		addExpansion("Promo set for Gatherer", Expansion.PROMO);
@@ -212,6 +213,7 @@ public class CardShell
 		addExpansion("Duel Decks: Venser vs. Koth", null);
 		addExpansion("Elves vs Goblins box set", null);
 		addExpansion("From the Vault: Exiled", null);
+		addExpansion("From the Vault: Realms", null);
 		addExpansion("Masters Edition", null);
 		addExpansion("Masters Edition II", null);
 		addExpansion("Masters Edition II (Magic Online only)", null);
@@ -225,6 +227,26 @@ public class CardShell
 		addExpansion("Unhinged", null);
 		addExpansion("Unglued", null);
 		addExpansion("Vintage Masters", null);
+
+		// mtgjson-specific printings
+		addExpansion("Asia Pacific Land Program", null);
+		addExpansion("Anthologies", null);
+		addExpansion("Arena League", null);
+		addExpansion("Deckmasters", null);
+		addExpansion("Duels of the Planeswalkers", null);
+		addExpansion("European Land Program", null);
+		addExpansion("Friday Night Magic", null);
+		addExpansion("Guru", null);
+		addExpansion("Introductory Two-Player Set", null);
+		addExpansion("Magic Player Rewards", null);
+		addExpansion("Magic: The Gathering—Conspiracy", null);
+		addExpansion("Media Inserts", null);
+		addExpansion("Modern Event Deck 2014", null);
+		addExpansion("Prerelease Events", null);
+		addExpansion("Release Events", null);
+		addExpansion("Rivals Quick Start Set", null);
+		addExpansion("Wizards of the Coast Online Store", null);
+		addExpansion("WPN and Gateway", null);
 	}
 
 	private static String simpleInstantiation(Class<? extends Keyword> k)
@@ -367,6 +389,7 @@ public class CardShell
 	private static void populateRarities()
 	{
 		rarityNames.put("Land", Rarity.LAND);
+		rarityNames.put("Basic Land", Rarity.LAND);
 		rarityNames.put("Common", Rarity.COMMON);
 		rarityNames.put("Uncommon", Rarity.UNCOMMON);
 		rarityNames.put("Rare", Rarity.RARE);
@@ -439,16 +462,21 @@ public class CardShell
 
 	public java.util.LinkedList<String> abilities = new java.util.LinkedList<String>();
 	public java.util.Set<String> colorIndicator = new java.util.HashSet<String>();
+	public java.util.Set<String> colors = null;
 	public String loyalty = null;
 	public String manaCost = null;
 	public String name = null;
 	public String power = null;
 	public String printings = null;
+	public java.util.Map<String, String> expansions = null;
 	public String toughness = null;
 	public String types = null;
 
 	private java.util.Set<String> colorIdentity()
 	{
+		if(null != this.colors)
+			return this.colors;
+
 		java.util.Set<String> ret = new java.util.HashSet<String>();
 
 		if(this.manaCost != null)
@@ -496,7 +524,7 @@ public class CardShell
 
 	/**
 	 * Write this CardShell to the correct Java source file.
-	 * 
+	 *
 	 * @return Whether or not the card already existed
 	 */
 	@SuppressWarnings("unchecked")
@@ -507,20 +535,33 @@ public class CardShell
 		String nameInFile = replaceIllegalCharacters(this.name);
 
 		java.util.Map<Expansion, Rarity> expansions = new java.util.EnumMap<Expansion, Rarity>(Expansion.class);
-		for(String printing: this.printings.trim().split(", "))
+		if(null != this.expansions)
 		{
-			String expansionText = printing.replace(" Mythic Rare", "").replace(" Rare", "").replace(" Uncommon", "").replace(" Common", "").replace(" Land", "").replace(" Special", "");
-			Expansion ex = getExpansion(expansionText);
-			if(ex != null)
+			for(java.util.Map.Entry<String, String> entry: this.expansions.entrySet())
 			{
-				Rarity rarity = getRarity(printing.replace(expansionText, ""));
-				if(rarity != null)
+				Expansion ex = getExpansion(entry.getKey());
+				Rarity rarity = getRarity(entry.getValue());
+				if(ex != null && rarity != null)
 					expansions.put(ex, rarity);
+			}
+		}
+		else
+		{
+			for(String printing: this.printings.trim().split(", "))
+			{
+				String expansionText = printing.replace(" Mythic Rare", "").replace(" Rare", "").replace(" Uncommon", "").replace(" Common", "").replace(" Land", "").replace(" Special", "");
+				Expansion ex = getExpansion(expansionText);
+				if(ex != null)
+				{
+					Rarity rarity = getRarity(printing.replace(expansionText, ""));
+					if(rarity != null)
+						expansions.put(ex, rarity);
+				}
 			}
 		}
 
 		String className = org.rnd.jmagic.CardLoader.formatName(this.name);
-		java.io.File card = new java.io.File("src/org/rnd/jmagic/cards/" + className + ".java");
+		java.io.File card = new java.io.File("../cards/src/main/java/org/rnd/jmagic/cards/" + className + ".java");
 		if(card.exists())
 		{
 			if(updatePrintings)
