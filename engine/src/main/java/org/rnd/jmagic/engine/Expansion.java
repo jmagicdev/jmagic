@@ -13,6 +13,7 @@ public enum Expansion
 
 	KHANS_OF_TARKIR("Khans of Tarkir", "KTK"), // September '14
 	MAGIC_2015("Magic 2015 Core Set", "M15"), // July '14
+	CONSPIRACY("Magic: The Gathering-Conspiracy", "CNS"), // June '14
 	JOURNEY_INTO_NYX("Journey into Nyx", "JOU"), // May '14
 	BORN_OF_THE_GODS("Born of the Gods", "BNG"), // February '14
 	COMMANDER_2013("Commander 2013 Edition", "C13"), // November '13
