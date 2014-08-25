@@ -187,6 +187,9 @@ public class CardShell
 		addExpansion("Time Spiral \"Timeshifted\"", Expansion.TIME_SPIRAL);
 		addExpansion("Time Spiral \\\"Timeshifted\\\"", Expansion.TIME_SPIRAL);
 
+		// MtgJson has a strange string for Conspiracy
+		addExpansion("Magic: The Gathering—Conspiracy", Expansion.CONSPIRACY);
+
 		// The expansion name for promo cards is different
 		addExpansion("Promo set for Gatherer", Expansion.PROMO);
 		addExpansion("Promo set for Gatherer Special", Expansion.PROMO);
@@ -239,7 +242,6 @@ public class CardShell
 		addExpansion("Guru", null);
 		addExpansion("Introductory Two-Player Set", null);
 		addExpansion("Magic Player Rewards", null);
-		addExpansion("Magic: The Gathering—Conspiracy", null);
 		addExpansion("Media Inserts", null);
 		addExpansion("Modern Event Deck 2014", null);
 		addExpansion("Prerelease Events", null);

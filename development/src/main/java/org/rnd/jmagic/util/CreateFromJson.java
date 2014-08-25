@@ -45,11 +45,20 @@ public class CreateFromJson
 		JsonObject expansionDetails = root.getJsonObject(expansion);
 		JsonArray cards = expansionDetails.getJsonArray("cards");
 
-		cards.forEach(new JsonConsumer());
+		cards.forEach(new JsonConsumer(root));
 	}
 
 	public static class JsonConsumer implements Consumer<JsonValue>
 	{
+		private JsonObject root;
+		private Map<String, List<JsonObject>> expansions;
+
+		public JsonConsumer(JsonObject root)
+		{
+			this.root = root;
+			this.expansions = new java.util.HashMap<String, List<JsonObject>>();
+		}
+
 		@Override
 		public void accept(JsonValue jsonValue)
 		{
@@ -58,66 +67,81 @@ public class CreateFromJson
 
 			card.name = json.getString("name");
 
-			JsonValue manaCost = json.getOrDefault("manaCost", JsonValue.NULL);
-			if(!manaCost.equals(JsonValue.NULL))
-			{
-				card.manaCost = manaCost.toString().replace('{', '(').replace('}', ')').replaceAll("\\((.)\\)", "$1");
-				card.manaCost = card.manaCost.substring(1, card.manaCost.length() - 1);
-			}
+			String manaCost = json.getString("manaCost", null);
+			if(null != manaCost)
+				card.manaCost = manaCost.replace('{', '(').replace('}', ')').replaceAll("\\((.)\\)", "$1");
 
-			JsonValue type = json.getOrDefault("type", JsonValue.NULL);
-			if(!type.equals(JsonValue.NULL))
-			{
+			String type = json.getString("type", null);
+			if(null != type)
 				card.types = type.toString();
-				card.types = card.types.substring(1, card.types.length() - 1);
-			}
 
-			JsonValue text = json.getOrDefault("text", JsonValue.NULL);
-			if(!text.equals(JsonValue.NULL))
+			String text = json.getString("text", null);
+			if(null != text)
 			{
-				String abilityText = text.toString().replace("\\\"", "\"").replace("−", "-");
-				// Remove quotes
-				abilityText = abilityText.substring(1, abilityText.length() - 1);
+				String abilityText = text.replace("\\\"", "\"").replace("−", "-");
 				for(String abilityLine: abilityText.split("(\\\\[rn])+"))
 					card.abilities.add(abilityLine);
 			}
 
-			JsonValue power = json.getOrDefault("power", JsonValue.NULL);
-			if(!power.equals(JsonValue.NULL))
-			{
+			String power = json.getString("power", null);
+			if(null != power)
 				card.power = power.toString().replace("−", "-");
-				card.power = card.power.substring(1, card.power.length() - 1);
-			}
 
-			JsonValue toughness = json.getOrDefault("toughness", JsonValue.NULL);
-			if(!toughness.equals(JsonValue.NULL))
-			{
+			String toughness = json.getString("toughness", null);
+			if(null != toughness)
 				card.toughness = toughness.toString().replace("−", "-");
-				card.toughness = card.toughness.substring(1, card.toughness.length() - 1);
-			}
 
-			JsonValue loyalty = json.getOrDefault("loyalty", JsonValue.NULL);
-			if(!loyalty.equals(JsonValue.NULL))
-				card.loyalty = loyalty.toString().replace("−", "-");
+			int loyalty = json.getInt("loyalty", Integer.MIN_VALUE);
+			if(Integer.MIN_VALUE != loyalty)
+				card.loyalty = Integer.toString(loyalty);
 
 			card.expansions = new HashMap<String, String>();
-			String rarity = json.getString("rarity");
-			for(JsonValue value: json.getJsonArray("printings"))
+			for(JsonString printing: json.getJsonArray("printings").getValuesAs(JsonString.class))
 			{
-				String ex = value.toString();
-				card.expansions.put(ex.substring(1, ex.length() - 1), rarity);
+				String expansion = printing.getString();
+				String rarity = this.getRarity(expansion, card.name);
+				if(null != rarity)
+					card.expansions.put(expansion, rarity);
 			}
 
 			card.colors = new HashSet<String>();
 			if(json.containsKey("colors"))
-				for(JsonValue color: json.getJsonArray("colors"))
-				{
-					String c = color.toString();
-					c = c.substring(1, c.length() - 1);
-					card.colors.add(c.toUpperCase());
-				}
+				for(JsonString color: json.getJsonArray("colors").getValuesAs(JsonString.class))
+					card.colors.add(color.getString().toUpperCase());
 
 			card.write(true);
+		}
+
+		private List<JsonObject> getExpansionCards(String ex)
+		{
+
+			if(this.expansions.containsKey(ex))
+				return this.expansions.get(ex);
+
+			List<JsonObject> found = null;
+			for(JsonValue expansionValue: this.root.values())
+			{
+				JsonObject expansion = (JsonObject)expansionValue;
+				if(expansion.getString("name", "").equals(ex))
+				{
+					found = expansion.getJsonArray("cards").getValuesAs(JsonObject.class);
+					break;
+				}
+			}
+
+			this.expansions.put(ex, found);
+			return found;
+		}
+
+		private String getRarity(String ex, String name)
+		{
+			List<JsonObject> cards = getExpansionCards(ex);
+			if(null != cards)
+				for(JsonObject card: cards)
+					if(card.getString("name", "").equals(name))
+						return card.getString("rarity", null);
+
+			return null;
 		}
 	}
 }
