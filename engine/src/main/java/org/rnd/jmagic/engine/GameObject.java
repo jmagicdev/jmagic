@@ -128,6 +128,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	private java.util.Map<Integer, Boolean> actualVisibility;
 
 	public java.util.Set<AlternateCost> alternateCosts;
+	public java.util.Set<AlternateManaPayment> alternatePayments;
 
 	// This can't be moved into BattlefieldProperties because of Animate Dead
 	// and friends
@@ -233,6 +234,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		this.characteristics.numModes = new Set(new org.rnd.util.NumberRange(1, 1));
 
 		this.alternateCosts = null;
+		this.alternatePayments = null;
 		this.attachments = new java.util.HashSet<Integer>();
 		this.battlefieldProperties = null;
 		this.beginTheGameEffect = null;
@@ -671,6 +673,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 			ret.faceDownValues = this.faceDownValues.clone();
 
 		ret.alternateCosts = null;
+		ret.alternatePayments = null;
 		ret.attachments = new java.util.HashSet<Integer>(this.attachments);
 		if(null != this.battlefieldProperties)
 			ret.battlefieldProperties = this.battlefieldProperties.clone();

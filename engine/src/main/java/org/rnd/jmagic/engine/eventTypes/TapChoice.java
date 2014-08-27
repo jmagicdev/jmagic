@@ -48,10 +48,13 @@ public final class TapChoice extends EventType
 		tappable.removeAll(toRemove);
 
 		org.rnd.util.NumberRange range = getRange(parameters.get(Parameter.NUMBER));
-
+		PlayerInterface.ChooseReason reason = PlayerInterface.ChooseReason.TAP;
+		if(parameters.containsKey(Parameter.REASON))
+			reason = parameters.get(Parameter.REASON).getOne(PlayerInterface.ChooseReason.class);
+		
 		if(range.getLower(0) > tappable.size())
 			event.allChoicesMade = false;
-		java.util.List<GameObject> chosen = player.sanitizeAndChoose(game.actualState, range.getLower(0), range.getUpper(tappable.size()), tappable, PlayerInterface.ChoiceType.OBJECTS, PlayerInterface.ChooseReason.TAP);
+		java.util.List<GameObject> chosen = player.sanitizeAndChoose(game.actualState, range.getLower(0), range.getUpper(tappable.size()), tappable, PlayerInterface.ChoiceType.OBJECTS, reason);
 
 		event.putChoices(player, chosen);
 	}

@@ -753,6 +753,38 @@ public abstract class ContinuousEffectType
 	};
 
 	/**
+	 * @eparam COST this isn't actually a cost :-P an instance of a class
+	 * extending {@link AlternateManaPayment}
+	 * @eparam OBJECT the object (singular!) that can be paid for via the alternate payment
+	 */
+	public static final ContinuousEffectType ALTERNATE_PAYMENT = new ContinuousEffectType("ALTERNATE_PAYMENT")
+	{
+		@Override
+		public Parameter affects()
+		{
+			return Parameter.OBJECT;
+		}
+
+		@Override
+		public void apply(GameState state, ContinuousEffect effect, java.util.Map<Parameter, Set> parameters)
+		{
+			GameObject object = parameters.get(Parameter.OBJECT).getOne(GameObject.class);
+			for(AlternateManaPayment amp: parameters.get(Parameter.COST).getAll(AlternateManaPayment.class))
+			{
+				if(object.alternatePayments == null)
+					object.alternatePayments = new java.util.HashSet<>();
+				object.alternatePayments.add(amp);
+			}
+		}
+
+		@Override
+		public Layer layer()
+		{
+			return Layer.RULE_CHANGE;
+		}
+	};
+	
+	/**
 	 * @eparam OBJECT: the object to be modified
 	 */
 	public static final ContinuousEffectType ATTACK_AS_THOUGH_DOESNT_HAVE_DEFENDER = new ContinuousEffectType("ATTACK_AS_THOUGH_DOESNT_HAVE_DEFENDER")

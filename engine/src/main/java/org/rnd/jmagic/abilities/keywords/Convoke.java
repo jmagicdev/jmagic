@@ -1,54 +1,13 @@
 package org.rnd.jmagic.abilities.keywords;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
 @Name("Convoke")
 public final class Convoke extends Keyword
 {
-	public static class ConvokeCostType implements java.io.Serializable
-	{
-		private static final long serialVersionUID = 1L;
-
-		private final int convokeID;
-
-		public ConvokeCostType(int convokeID)
-		{
-			this.convokeID = convokeID;
-		}
-
-		@Override
-		public boolean equals(Object obj)
-		{
-			if(this == obj)
-				return true;
-			if(obj == null)
-				return false;
-			if(getClass() != obj.getClass())
-				return false;
-			ConvokeCostType other = (ConvokeCostType)obj;
-			if(this.convokeID != other.convokeID)
-				return false;
-			return true;
-		}
-
-		@Override
-		public int hashCode()
-		{
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + this.convokeID;
-			return result;
-		}
-
-		@Override
-		public java.lang.String toString()
-		{
-			return "Convoke";
-		}
-	}
-
 	public Convoke(GameState state)
 	{
 		super(state, "Convoke");
@@ -60,91 +19,108 @@ public final class Convoke extends Keyword
 		return java.util.Collections.<StaticAbility>singletonList(new ConvokeAbility(this.state));
 	}
 
-	/**
-	 * @eparam OBJECT: The object with Convoke
-	 * @eparam COST: The CostCollection for tapping creatures for this specific
-	 * instance of Convoke (required for 702.48b - Multiple instances of convoke
-	 * on the same spell are redundant.)
-	 */
-	public static final ContinuousEffectType CONVOKE_REDUCED_COST = new ContinuousEffectType("CONVOKE_REDUCED_COST")
-	{
-		@Override
-		public Parameter affects()
-		{
-			return Parameter.OBJECT;
-		}
-
-		@Override
-		public void apply(GameState state, ContinuousEffect effect, java.util.Map<Parameter, Set> parameters)
-		{
-			GameObject object = parameters.get(Parameter.OBJECT).getOne(GameObject.class);
-			CostCollection costCollection = parameters.get(Parameter.COST).getOne(CostCollection.class);
-
-			for(CostCollection cost: object.getOptionalAdditionalCostsChosen())
-			{
-				if(cost.equals(costCollection))
-				{
-					EventFactory tapCreaturesCost = cost.events.iterator().next();
-					Event tapCost = object.getCostGenerated(state, tapCreaturesCost);
-
-					// If it hasn't created an event, the spell either wasn't
-					// convoked or hasn't been cast yet.
-					if(tapCost == null)
-						continue;
-
-					// Technically, convoke's rules text says "each creature
-					// tapped this way"... but at the time that cost reductions
-					// are applied, there are no creatures tapped, just
-					// creatures chosen.
-					Set chosenCreatures = tapCost.getChoices(object.getController(state));
-					ManaPool costReduction = new ManaPool();
-					for(GameObject tapped: chosenCreatures.getAll(GameObject.class))
-					{
-						ManaSymbol forThisCreature = new ManaSymbol("");
-						forThisCreature.colorless = 1;
-						forThisCreature.colors.addAll(tapped.getColors());
-						costReduction.add(forThisCreature);
-					}
-
-					state.manaCostReductions.put(new Set(object), costReduction);
-				}
-			}
-		}
-
-		@Override
-		public Layer layer()
-		{
-			return Layer.RULE_CHANGE;
-		}
-	};
-
 	public static final class ConvokeAbility extends StaticAbility
 	{
 		public ConvokeAbility(GameState state)
 		{
-			super(state, "Each creature you tap while casting this spell reduces its cost by (1) or by one mana of that creature's color.");
+			super(state, "Each creature you tap while casting this spell pays for (1) or by one mana of that creature's color.");
 
-			SetGenerator yourUntappedCreatures = Intersect.instance(Untapped.instance(), CREATURES_YOU_CONTROL);
-
-			EventFactory tapCreatures = new EventFactory(EventType.TAP_CHOICE, "Tap any number of untapped creatures you control");
-			tapCreatures.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			tapCreatures.parameters.put(EventType.Parameter.PLAYER, You.instance());
-			tapCreatures.parameters.put(EventType.Parameter.CHOICE, yourUntappedCreatures);
-			tapCreatures.parameters.put(EventType.Parameter.NUMBER, Between.instance(0, null));
-
-			CostCollection convokeCost = new CostCollection(new ConvokeCostType(this.ID), tapCreatures);
-
-			ContinuousEffect.Part additionalCost = new ContinuousEffect.Part(ContinuousEffectType.OPTIONAL_ADDITIONAL_COST);
-			additionalCost.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());
-			additionalCost.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(convokeCost));
-			this.addEffectPart(additionalCost);
-
-			ContinuousEffect.Part costReduction = new ContinuousEffect.Part(CONVOKE_REDUCED_COST);
-			costReduction.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());
-			costReduction.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(convokeCost));
-			this.addEffectPart(costReduction);
+			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.ALTERNATE_PAYMENT);
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(CONVOKE_PAYMENT));
+			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());
+			this.addEffectPart(part);
 
 			this.canApply = THIS_IS_ON_THE_STACK;
+		}
+	}
+
+	public static PlayerInterface.ChooseReason CONVOKE_WHITE_REASON = new PlayerInterface.ChooseReason("Convoke", "Tap white creatures to pay white mana with convoke.", true);
+	public static PlayerInterface.ChooseReason CONVOKE_BLUE_REASON = new PlayerInterface.ChooseReason("Convoke", "Tap blue creatures to pay blue mana with convoke.", true);
+	public static PlayerInterface.ChooseReason CONVOKE_BLACK_REASON = new PlayerInterface.ChooseReason("Convoke", "Tap black creatures to pay black mana with convoke.", true);
+	public static PlayerInterface.ChooseReason CONVOKE_RED_REASON = new PlayerInterface.ChooseReason("Convoke", "Tap red creatures to pay red mana with convoke.", true);
+	public static PlayerInterface.ChooseReason CONVOKE_GREEN_REASON = new PlayerInterface.ChooseReason("Convoke", "Tap green creatures to pay green mana with convoke.", true);
+	public static PlayerInterface.ChooseReason CONVOKE_GENERIC_REASON = new PlayerInterface.ChooseReason("Convoke", "Tap any creatures to pay generic mana with convoke.", true);
+
+	public static java.util.Map<Color, PlayerInterface.ChooseReason> REASONS;
+	static
+	{
+		REASONS = new java.util.HashMap<>();
+		REASONS.put(Color.WHITE, CONVOKE_WHITE_REASON);
+		REASONS.put(Color.BLUE, CONVOKE_BLUE_REASON);
+		REASONS.put(Color.BLACK, CONVOKE_BLACK_REASON);
+		REASONS.put(Color.RED, CONVOKE_RED_REASON);
+		REASONS.put(Color.GREEN, CONVOKE_GREEN_REASON);
+	}
+
+	private static AlternateManaPayment CONVOKE_PAYMENT = new ConvokePayment();
+
+	private static final class ConvokePayment extends AlternateManaPayment
+	{
+		@Override
+		public int hashCode()
+		{
+			return 1;
+		}
+
+		@Override
+		public boolean equals(Object obj)
+		{
+			return obj instanceof AlternateManaPayment;
+		}
+
+		private static int manaOfType(ManaSymbol.ManaType type, ManaPool cost)
+		{
+			int ret = 0;
+			if(type == ManaSymbol.ManaType.COLORLESS)
+				for(ManaSymbol m: cost)
+					ret += m.colorless;
+			else
+				for(ManaSymbol m: cost)
+					if(m.colors.contains(type.getColor()))
+						ret++;
+			return ret;
+		}
+
+		@Override
+		public void pay(ManaPool cost, GameObject source)
+		{
+			ManaPool paid = new ManaPool();
+			for(Color color: Color.allColors())
+			{
+				int quantity = manaOfType(color.getManaType(), cost);
+				if(quantity == 0)
+					continue;
+
+				EventFactory tapCreatures = new EventFactory(EventType.TAP_CHOICE, "Tap up to " + org.rnd.util.NumberNames.get(quantity) + " " + color + " creatures you control.");
+				tapCreatures.parameters.put(EventType.Parameter.CAUSE, This.instance());
+				tapCreatures.parameters.put(EventType.Parameter.PLAYER, You.instance());
+				tapCreatures.parameters.put(EventType.Parameter.CHOICE, Intersect.instance(HasColor.instance(color), CREATURES_YOU_CONTROL));
+				tapCreatures.parameters.put(EventType.Parameter.NUMBER, Between.instance(0, quantity));
+				tapCreatures.parameters.put(EventType.Parameter.REASON, Identity.instance(REASONS.get(color)));
+				Event tapEvent = tapCreatures.createEvent(source.game, source);
+				tapEvent.perform(null, true);
+
+				Set tapped = tapEvent.getChoices(source.getController(source.game.actualState));
+				for(int i = 0; i < tapped.size(); i++)
+					paid.add(new ManaSymbol(color));
+			}
+			// colorless
+			int quantity = manaOfType(ManaSymbol.ManaType.COLORLESS, cost);
+			if(quantity > 0)
+			{
+				EventFactory tapCreatures = new EventFactory(EventType.TAP_CHOICE, "Tap up to " + org.rnd.util.NumberNames.get(quantity) + " creatures you control (to pay the generic cost).");
+				tapCreatures.parameters.put(EventType.Parameter.CAUSE, This.instance());
+				tapCreatures.parameters.put(EventType.Parameter.PLAYER, You.instance());
+				tapCreatures.parameters.put(EventType.Parameter.CHOICE, CREATURES_YOU_CONTROL);
+				tapCreatures.parameters.put(EventType.Parameter.NUMBER, Between.instance(0, quantity));
+				tapCreatures.parameters.put(EventType.Parameter.REASON, Identity.instance(CONVOKE_GENERIC_REASON));
+				Event tapEvent = tapCreatures.createEvent(source.game, source);
+				tapEvent.perform(null, true);
+
+				Set tapped = tapEvent.getChoices(source.getController(source.game.actualState));
+				paid.addAll(new ManaPool("" + tapped.size()));
+			}
+			cost.reduce(paid);
 		}
 	}
 }

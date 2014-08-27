@@ -48,7 +48,7 @@ public final class PayMana extends EventType
 	@Override
 	public boolean perform(Game game, Event event, java.util.Map<Parameter, Set> parameters)
 	{
-		GameObject object = parameters.get(Parameter.CAUSE).getOne(GameObject.class);
+		GameObject cause = parameters.get(Parameter.CAUSE).getOne(GameObject.class);
 		ManaPool cost = new ManaPool(parameters.get(Parameter.COST).getAll(ManaSymbol.class));
 		if(cost.usesX())
 		{
@@ -60,7 +60,7 @@ public final class PayMana extends EventType
 					break;
 				}
 			if(expand)
-				cost = cost.expandX(object.getValueOfX(), object.xRestriction);
+				cost = cost.expandX(cause.getValueOfX(), cause.xRestriction);
 		}
 
 		event.setResult(Empty.set);
@@ -74,10 +74,10 @@ public final class PayMana extends EventType
 		}
 
 		cost = cost.duplicate(number);
-		if(object != null)
+		if(cause != null)
 			for(ManaSymbol m: cost)
 				if(m.sourceID == -1)
-					m.sourceID = object.ID;
+					m.sourceID = cause.ID;
 
 		int convertedCost = cost.converted();
 		if(0 == convertedCost)
@@ -91,33 +91,57 @@ public final class PayMana extends EventType
 		// description in 608.2f (above). However, if the parent of this
 		// event is a PLAYER_MAY, then they've already been given the
 		// opportunity to activate mana abilities.
-		if(null != object && (event.parent == null || (event.parent.type != PLAYER_MAY && event.parent.type != PLAYER_MAY_PAY_X)))
+		if(null != cause && (event.parent == null || (event.parent.type != PLAYER_MAY && event.parent.type != PLAYER_MAY_PAY_X)))
 			paying.mayActivateManaAbilities();
 
-		if((paying.pool.size() < convertedCost) || !paying.pool.pays(game.actualState, cost))
-			return false;
+		GameObject costOf = null;
+		if(parameters.containsKey(Parameter.OBJECT))
+			costOf = parameters.get(Parameter.OBJECT).getOne(GameObject.class);
+		boolean alternatePayment = (costOf != null && costOf.alternatePayments != null);
+		if(!alternatePayment)
+			if((paying.pool.size() < convertedCost) || !paying.pool.pays(game.actualState, cost))
+				return false;
 
 		// The player can pay the mana, so keep asking them to choose
 		// until they choose a set that can pay for it
 		while(true)
 		{
+			// we need to resolve effects that pay part of the cost in a
+			// different way (like convoke) -- those effects will directly
+			// modify the cost, so make a copy in case the player messes up
+			ManaPool costCopy = new ManaPool(cost);
+			if(costOf != null && costOf.alternatePayments != null)
+				for(AlternateManaPayment amp: costOf.alternatePayments)
+					amp.pay(costCopy, costOf);
+
+			convertedCost = costCopy.converted();
 			PlayerInterface.ChooseParameters<ManaSymbol> chooseParameters = new PlayerInterface.ChooseParameters<ManaSymbol>(convertedCost, convertedCost, new java.util.LinkedList<ManaSymbol>(paying.pool), PlayerInterface.ChoiceType.MANA_PAYMENT, PlayerInterface.ChooseReason.PAY_MANA);
-			chooseParameters.replacement = cost.toString();
+			// ManaPool's toString doesn't represent deleted symbols correctly,
+			// so we reconstruct the whole string after the convoke/delve
+			// reduction.
+			ManaPool costCopyString = new ManaPool();
+			costCopyString.addAll(costCopy);
+			chooseParameters.replacement = costCopyString.toString();
 			ManaPool choice = new ManaPool(paying.choose(chooseParameters));
-			if(choice.pays(game.actualState, cost))
+			if(choice.pays(game.actualState, costCopy))
 			{
 				paying.pool.removeAll(choice);
 
 				// resolving spells and abilities abilities that ask you
-				// to
-				// pay mana aren't part of a PlayerAction being
-				// performed
+				// to pay mana aren't part of a PlayerAction being performed
 				if(null != game.currentAction)
 					game.currentAction.manaPaid.addAll(choice);
 
 				event.setResult(Identity.fromCollection(choice));
 				return true;
 			}
+
+			// we've failed, but if there was an alternate payment method we are
+			// clueless as to whether their current mana pool is actually
+			// sufficient, so just fail out
+			if(alternatePayment)
+				return false;
+
 			// TODO: Else, let the player know that the choice was
 			// invalid and they should choose again?
 		}

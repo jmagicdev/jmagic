@@ -810,35 +810,33 @@ public class KeywordsNonCombatTest extends JUnitTest
 		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
 
 		respondWith(getSpellAction(ScattertheSeeds.class));
-		// no convoke:
-		respondWith();
+		// we are paying full price so make enough mana to pay it all:
 		addMana("3GG");
 		donePlayingManaAbilities();
+		// we will tap no creatures, but we won't even be asked because we have
+		// none to tap.
 		pass();
 		pass();
 
 		respondWith(getSpellAction(ScattertheSeeds.class));
-		// convoke:
-		respondWith((java.io.Serializable)this.choices.iterator().next());
-		// tap two saprolings:
-		respondWith(pullChoice(Token.class), pullChoice(Token.class));
-		// reduce the cost by 1G:
-		respondWith(getCostCollection(CostCollection.TYPE_REDUCE_COST, "(1)(G)"));
-		// total cost is now 2G, attempt to pay it with all colorless:
+		// we are going to reduce the cost to 2G and fail to pay it, so make
+		// enough mana but not enough green:
 		addMana("3");
 		donePlayingManaAbilities();
+		// tap one green creature:
+		respondWith(pullChoice(Token.class));
+		// tap one "other" creature:
+		respondWith(pullChoice(Token.class));
 
 		// game state will reverse, allowing me to cast the scatter again:
 		respondWith(getSpellAction(ScattertheSeeds.class));
-		// convoke:
-		respondWith((java.io.Serializable)this.choices.iterator().next());
-		// tap two saprolings:
-		respondWith(pullChoice(Token.class), pullChoice(Token.class));
-		// reduce the cost by 1G:
-		respondWith(getCostCollection(CostCollection.TYPE_REDUCE_COST, "(1)(G)"));
-		// total cost is now 2G, pay it correctly:
+		// total cost will be 2G, pay it correctly:
 		addMana("2G");
 		donePlayingManaAbilities();
+		// pay G with a creature:
+		respondWith(pullChoice(Token.class));
+		// pay 1 with a creature:
+		respondWith(pullChoice(Token.class));
 		pass();
 		pass();
 
