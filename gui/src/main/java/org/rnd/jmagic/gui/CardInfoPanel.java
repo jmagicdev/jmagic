@@ -188,7 +188,7 @@ class CardInfoPanel extends javax.swing.JPanel
 			if(!(o.characteristics.containsKey(this.displayType)))
 				this.displayType = SanitizedGameObject.CharacteristicSet.ACTUAL;
 
-			this.textbox.setText(o, state, this.displayType);
+			this.gui.setHelpText(this.textbox.setText(o, state, this.displayType));
 			if(!sameFocus)
 				this.textbox.scrollRectToVisible(TOP_LEFT_PIXEL);
 		}

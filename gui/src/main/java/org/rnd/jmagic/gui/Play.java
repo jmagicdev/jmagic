@@ -2126,6 +2126,15 @@ public class Play
 		this.indicated.remove((Object)ID);
 	}
 
+	public void setHelpText(String helpText)
+	{
+		if(helpText.equals(""))
+			return;
+		else
+			for(String line: helpText.split("\n"))
+				this.logPanel.addLine(line);
+	}
+
 	public void setMessagePoster(org.rnd.jmagic.comms.ChatManager.MessagePoster messagePoster)
 	{
 		this.messagePoster = messagePoster;
