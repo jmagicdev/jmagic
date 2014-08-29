@@ -68,6 +68,20 @@ public enum Type
 			return "Sorcery";
 		}
 	},
+	VANGUARD
+	{
+		@Override
+		public boolean isTraditional()
+		{
+			return false;
+		}
+
+		@Override
+		public String toString()
+		{
+			return "Vanguard";
+		}
+	},
 	PLANE
 	{
 		@Override
@@ -81,7 +95,50 @@ public enum Type
 		{
 			return "Plane";
 		}
+	},
+	PHENOMENON
+	{
+		@Override
+		public boolean isTraditional()
+		{
+			return false;
+		}
+
+		@Override
+		public String toString()
+		{
+			return "Phenomenon";
+		}
+	},
+	SCHEME
+	{
+		@Override
+		public boolean isTraditional()
+		{
+			return false;
+		}
+
+		@Override
+		public String toString()
+		{
+			return "Scheme";
+		}
+	},
+	CONSPIRACY
+	{
+		@Override
+		public boolean isTraditional()
+		{
+			return false;
+		}
+
+		@Override
+		public String toString()
+		{
+			return "Conspiracy";
+		}
 	};
+
 
 	public static java.util.Set<Type> permanentTypes()
 	{
