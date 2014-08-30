@@ -1870,7 +1870,7 @@ public class Play
 
 	/**
 	 * Causes the user to divide a quantity across objects or players.
-	 * 
+	 *
 	 * @param quantity What quantity is being divided
 	 * @param minimum The minimum that each object or player must receive
 	 * @param whatFrom ID of an object that is causing the division (creature in
@@ -2057,7 +2057,7 @@ public class Play
 	/**
 	 * Graphically "indicates" the object with the specified ID, in addition to
 	 * the other objects already indicated.
-	 * 
+	 *
 	 * @param ID The ID of the object to indicate.
 	 */
 	public void indicateObject(int ID)
@@ -2128,11 +2128,7 @@ public class Play
 
 	public void setHelpText(String helpText)
 	{
-		if(helpText.equals(""))
-			return;
-		else
-			for(String line: helpText.split("\n"))
-				this.logPanel.addLine(line);
+		this.cardInfoPanel.setToolTipText(helpText);
 	}
 
 	public void setMessagePoster(org.rnd.jmagic.comms.ChatManager.MessagePoster messagePoster)
@@ -2178,7 +2174,7 @@ public class Play
 
 	/**
 	 * Alert the GUI to an error in the engine.
-	 * 
+	 *
 	 * @param parameters Not currently used, but would hold additional
 	 * information if any were available
 	 */

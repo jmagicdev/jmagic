@@ -140,6 +140,8 @@ public class JMagicTextPane extends javax.swing.JTextPane
 
 		javax.swing.text.DefaultCaret caret = (javax.swing.text.DefaultCaret)(this.getCaret());
 		caret.setUpdatePolicy(javax.swing.text.DefaultCaret.NEVER_UPDATE);
+
+		this.setOpaque(false);
 	}
 
 	public static String getModeChoiceText(org.rnd.jmagic.engine.Set number)
@@ -160,28 +162,22 @@ public class JMagicTextPane extends javax.swing.JTextPane
 	}
 
 	@Override
-	public boolean isOpaque()
-	{
-		return false;
-	}
-
-	@Override
 	public void setText(java.lang.String text)
 	{
-		this.setText(text, null, false);
+		this.setText(text, null);
 	}
 
 	/**
 	 * Sets the text of this text pane to the specified text, and optionally
 	 * returns text intended to help the player figure out what keywords do.
-	 * 
+	 *
 	 * @param text The text to set.
 	 * @param bolds A map of start->end indicating what portion of the text
 	 * should be bold.
 	 * @param help Whether to return help text for the keywords in the text.
 	 * @return
 	 */
-	public String setText(java.lang.String text, java.util.Map<Integer, Integer> bolds, boolean help)
+	public void setText(java.lang.String text, java.util.Map<Integer, Integer> bolds)
 	{
 		super.setText(text);
 
@@ -230,42 +226,17 @@ public class JMagicTextPane extends javax.swing.JTextPane
 			document.setCharacterAttributes(doubleLineBreak, 2, halfSize, true);
 			doubleLineBreak = text.indexOf("\n\n", doubleLineBreak + 1);
 		}
-		
-		if(!help)
-			return "";
-
-		// find all instances of keywords so we can display their reminder text.
-		// we don't just do this while building the text because it's possible
-		// that some of these instances are mentions of the keyword in other
-		// abilities rather than the card actually having the keyword (like
-		// 'enchanted creature has flying')
-		java.util.List<String> keywordsFound = new java.util.LinkedList<>();
-		for(String keyword: ALL_KEYWORDS.keySet())
-		{
-			java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("\\b" + keyword + "\\b", java.util.regex.Pattern.CASE_INSENSITIVE);
-			if(pattern.matcher(text).find())
-				keywordsFound.add(keyword);
-		}
-
-		if(keywordsFound.isEmpty())
-			return "";
-
-		java.util.List<String> helpTextList = new java.util.LinkedList<>();
-		for(String keyword: keywordsFound)
-			helpTextList.add(keyword + ":  " + ALL_KEYWORDS.get(keyword));
-		return org.rnd.util.SeparatedList.get("\n", "\n", helpTextList).toString();
 	}
 
 	/**
 	 * Sets the text of this text pane to the text of the specified object, and
 	 * returns help text describing the keywords on that object.
-	 * 
+	 *
 	 * @param o The object whose text box to use.
 	 * @param state The state in which o exists.
 	 * @param displayOption Which set of characteristics to use.
-	 * @return Help text describing the keyword names on o.
 	 */
-	public String setText(SanitizedGameObject o, SanitizedGameState state, SanitizedGameObject.CharacteristicSet displayOption)
+	public void setText(SanitizedGameObject o, SanitizedGameState state, SanitizedGameObject.CharacteristicSet displayOption)
 	{
 		StringBuilder textBuilder = new StringBuilder();
 		boolean firstLine = true;
@@ -460,6 +431,36 @@ public class JMagicTextPane extends javax.swing.JTextPane
 			keywordStrings.clear();
 		}
 
-		return this.setText(textBuilder.toString().trim(), bolds, true);
+		this.setText(textBuilder.toString().trim(), bolds);
+	}
+
+	/**
+	 * @return Help text describing the keyword names in this text pane.
+	 */
+	public String getHelpText()
+	{
+		String text = super.getText();
+
+		// find all instances of keywords so we can display their reminder text.
+		// we don't just do this while building the text because it's possible
+		// that some of these instances are mentions of the keyword in other
+		// abilities rather than the card actually having the keyword (like
+		// 'enchanted creature has flying')
+		java.util.List<String> keywordsFound = new java.util.LinkedList<>();
+		for(String keyword: ALL_KEYWORDS.keySet())
+		{
+			java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("\\b" + keyword + "\\b", java.util.regex.Pattern.CASE_INSENSITIVE);
+			if(pattern.matcher(text).find())
+				keywordsFound.add(keyword);
+		}
+
+		if(keywordsFound.isEmpty())
+			return null;
+
+		java.util.List<String> helpTextList = new java.util.LinkedList<>();
+		for(String keyword: keywordsFound)
+			helpTextList.add(keyword + ": " + ALL_KEYWORDS.get(keyword));
+
+		return org.rnd.util.SeparatedList.get("\n\n", "", helpTextList).toString();
 	}
 }
