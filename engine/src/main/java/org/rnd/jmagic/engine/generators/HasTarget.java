@@ -29,9 +29,9 @@ public class HasTarget extends SetGenerator
 			ids.add(id.ID);
 		java.util.Set<Integer> retIDs = new java.util.HashSet<Integer>();
 		for(GameObject object: state.getAll(GameObject.class))
-			for(Mode mode: object.getModes())
-				if(object.getSelectedModes().contains(mode))
-					for(Target possibleTarget: mode.targets)
+			for(int modeNumber = 1; modeNumber <= object.getModes().size(); modeNumber++)
+				if(object.getSelectedModeNumbers().contains(modeNumber))
+					for(Target possibleTarget: object.getMode(modeNumber).targets)
 						if(object.getChosenTargets().containsKey(possibleTarget))
 							for(Target chosenTarget: object.getChosenTargets().get(possibleTarget))
 								if(ids.contains(chosenTarget.targetID))

@@ -150,20 +150,21 @@ public abstract class TriggeredAbility extends NonStaticAbility
 		Integer minimum = Minimum.get(this.getNumModes());
 		if(minimum == null || this.getModes().size() > minimum)
 		{
-			this.setSelectedModes(this.selectModes());
-			physicalAbility.setSelectedModes(new java.util.LinkedList<Mode>(this.getSelectedModes()));
+			this.setSelectedModeNumbers(this.selectModes());
+			physicalAbility.setSelectedModeNumbers(new java.util.LinkedList<Integer>(this.getSelectedModeNumbers()));
 		}
 		// ...or choose all of them
 		else
 			for(GameObject o: this.andPhysical())
-				for(Mode mode: this.getModes())
-					o.getSelectedModes().add(mode);
+				for(int n = 1; n <= o.getModes().size(); n++)
+					o.getSelectedModeNumbers().add(n);
 
 		// select targets
 		this.selectTargets();
+		int modeNumber = 1;
 		for(Mode mode: this.getModes())
 		{
-			if(!this.getSelectedModes().contains(mode))
+			if(!this.getSelectedModeNumbers().contains(modeNumber))
 				continue;
 			for(Target possible: mode.targets)
 			{
@@ -173,12 +174,13 @@ public abstract class TriggeredAbility extends NonStaticAbility
 					if(null == chosen)
 						return null;
 			}
+			modeNumber++;
 		}
 
 		for(int i = 1; i <= this.getModes().size(); i++)
 		{
 			Mode mode = this.getMode(i);
-			if(!this.getSelectedModes().contains(mode))
+			if(!this.getSelectedModeNumbers().contains(i))
 				continue;
 
 			Set division = mode.division.evaluate(this.game, this);

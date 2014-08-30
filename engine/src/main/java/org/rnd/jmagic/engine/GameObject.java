@@ -793,7 +793,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		boolean needRefresh = false;
 
 		GameObject physicalThis = this.getPhysical();
-		for(Mode mode: physicalThis.getSelectedModes())
+		for(Mode mode: this.getSelectedModes())
 		{
 			// Don't check modes with no targets
 			if(mode.targets.isEmpty())
@@ -1005,7 +1005,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 */
 	public final SetGenerator getDivisionAmount()
 	{
-		if(this.getSelectedModes().size() > 1)
+		if(this.getSelectedModeNumbers().size() > 1)
 			throw new UnsupportedOperationException("Objects with multiple modes should explicitly declare which modes division amount they want");
 		return getDivision(1);
 	}
@@ -1156,9 +1156,17 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		return this.characteristics.loyalty;
 	}
 
+	public java.util.List<Integer> getSelectedModeNumbers()
+	{
+		return this.characteristics.selectedModeNumbers;
+	}
+
 	public java.util.List<Mode> getSelectedModes()
 	{
-		return this.characteristics.selectedModes;
+		java.util.List<Mode> ret = new java.util.LinkedList<>();
+		for(int n: this.characteristics.selectedModeNumbers)
+			ret.add(this.getModes().get(n - 1));
+		return ret;
 	}
 
 	@Override
@@ -1607,10 +1615,9 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	/**
 	 * Causes the player playing this object to select modes.
 	 * 
-	 * @return The Mode instances selected in the order they appear in the list
-	 * of modes to pick from
+	 * @return The 1-based mode indices selected, in ascending order
 	 */
-	public java.util.List<Mode> selectModes()
+	public java.util.List<Integer> selectModes()
 	{
 		Player controller = this.getController(this.state);
 
@@ -1626,11 +1633,16 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		chooseParameters.thisID = this.ID;
 		java.util.Collection<Mode> choices = controller.sanitizeAndChoose(this.state, chooseFrom, chooseParameters);
 
-		this.setSelectedModes(new java.util.LinkedList<Mode>());
-		for(Mode mode: choices)
-			this.getSelectedModes().add(mode);
+		this.setSelectedModeNumbers(new java.util.LinkedList<Integer>());
+		int n = 1;
+		for(Mode mode: this.getModes())
+		{
+			if(choices.contains(mode))
+				this.getSelectedModeNumbers().add(n);
+			n++;
+		}
 
-		return this.getSelectedModes();
+		return this.getSelectedModeNumbers();
 	}
 
 	/**
@@ -1967,9 +1979,9 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		this.characteristics.loyalty = loyalty;
 	}
 
-	public void setSelectedModes(java.util.List<Mode> selectedModes)
+	public void setSelectedModeNumbers(java.util.List<Integer> selectedModeNumbers)
 	{
-		this.characteristics.selectedModes = selectedModes;
+		this.characteristics.selectedModeNumbers = selectedModeNumbers;
 	}
 
 	public void setTapped(boolean tapped)

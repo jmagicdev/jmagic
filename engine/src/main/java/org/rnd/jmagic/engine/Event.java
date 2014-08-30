@@ -533,7 +533,11 @@ public class Event extends Identified implements Sanitizable
 
 			if(trigger != null)
 			{
-				trigger.getSelectedModes().addAll(trigger.getModes());
+				// this whole loop is just for triggered mana abilities, don't
+				// panic. (unless there's a modal triggered mana ability, in
+				// which case you should panic, but not because of this code...)
+				for(int i = 0; i < trigger.getModes().size(); i++)
+					trigger.getSelectedModeNumbers().add(i + 1);
 				trigger.clone(this.game.actualState);
 
 				// Add it to the currently resolving mana abilities list so that

@@ -23,7 +23,10 @@ public class SanitizedCharacteristics implements java.io.Serializable
 	public java.util.List<Integer> hiddenAbilities;
 
 	public java.util.List<SanitizedMode> modes;
-	public java.util.List<SanitizedMode> selectedModes;
+	/**
+	 * 1-based indices into the modes list
+	 */
+	public java.util.List<Integer> selectedModes;
 	public Set numModes;
 	public final java.util.Map<SanitizedTarget, java.util.List<SanitizedTarget>> chosenTargets;
 
@@ -65,7 +68,7 @@ public class SanitizedCharacteristics implements java.io.Serializable
 		}
 
 		this.modes = new java.util.LinkedList<SanitizedMode>();
-		this.selectedModes = new java.util.LinkedList<SanitizedMode>();
+		this.selectedModes = new java.util.LinkedList<Integer>();
 		this.chosenTargets = new java.util.HashMap<SanitizedTarget, java.util.List<SanitizedTarget>>();
 		int index = 0;
 		for(Mode m: c.modes)
@@ -73,9 +76,9 @@ public class SanitizedCharacteristics implements java.io.Serializable
 			SanitizedMode sanitizedMode = new SanitizedMode(m, m.sourceID, index);
 			this.modes.add(sanitizedMode);
 
-			if(c.selectedModes.contains(m))
+			if(c.selectedModeNumbers.contains(index + 1))
 			{
-				this.selectedModes.add(sanitizedMode);
+				this.selectedModes.add(index + 1);
 
 				for(int targetIndex = 0; targetIndex < m.targets.size(); ++targetIndex)
 				{

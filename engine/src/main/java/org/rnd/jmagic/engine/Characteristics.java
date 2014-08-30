@@ -84,7 +84,10 @@ public class Characteristics implements Sanitizable, Cloneable
 	// stack stuff
 	protected CostCollection alternateCost;
 	protected java.util.Collection<CostCollection> optionalAdditionalCostsChosen;
-	public java.util.List<Mode> selectedModes;
+	/**
+	 * 1-based indices into the modes list.
+	 */
+	public java.util.List<Integer> selectedModeNumbers;
 	public Set numModes;
 	protected int valueOfX;
 	protected int sourceID;
@@ -113,7 +116,7 @@ public class Characteristics implements Sanitizable, Cloneable
 		// stack stuff
 		this.alternateCost = null;
 		this.optionalAdditionalCostsChosen = new java.util.LinkedList<CostCollection>();
-		this.selectedModes = new java.util.LinkedList<Mode>();
+		this.selectedModeNumbers = new java.util.LinkedList<Integer>();
 		this.numModes = new Set(new org.rnd.util.NumberRange(1, 1));
 		this.valueOfX = -1;
 		this.sourceID = 0;
@@ -140,12 +143,14 @@ public class Characteristics implements Sanitizable, Cloneable
 
 		// Copying modes should also copy the selected targets, as well as
 		// divisions of damage
+		int n = 1;
 		for(Mode mode: this.modes)
 		{
 			Mode newMode = new Mode(mode, target.ID);
 			ret.modes.add(newMode);
-			if(this.selectedModes.contains(mode))
-				ret.selectedModes.add(newMode);
+			if(this.selectedModeNumbers.contains(n))
+				ret.selectedModeNumbers.add(n);
+			n++;
 		}
 
 		ret.colors = java.util.EnumSet.copyOf(this.colors);
@@ -278,7 +283,7 @@ public class Characteristics implements Sanitizable, Cloneable
 		ret.subTypes = java.util.EnumSet.copyOf(this.subTypes);
 		ret.alternateCost = this.alternateCost;
 		ret.optionalAdditionalCostsChosen = new java.util.LinkedList<CostCollection>(this.optionalAdditionalCostsChosen);
-		ret.selectedModes = new java.util.LinkedList<Mode>(this.selectedModes);
+		ret.selectedModeNumbers = new java.util.LinkedList<>(this.selectedModeNumbers);
 		ret.numModes = Set.fromCollection(this.numModes);
 
 		ret.chosenTargets = new java.util.HashMap<Target, java.util.List<Target>>(this.chosenTargets);

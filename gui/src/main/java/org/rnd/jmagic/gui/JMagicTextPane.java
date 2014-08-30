@@ -420,7 +420,7 @@ public class JMagicTextPane extends javax.swing.JTextPane
 					}
 
 					int boldStart = -1;
-					if(c.modes.size() > 1 && c.selectedModes.contains(mode))
+					if(c.modes.size() > 1 && c.selectedModes.contains(modesCounted + 1))
 						boldStart = textBuilder.length();
 					textBuilder.append(effects);
 					if(-1 != boldStart)

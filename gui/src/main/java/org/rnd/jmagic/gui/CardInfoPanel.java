@@ -236,8 +236,8 @@ class CardInfoPanel extends javax.swing.JPanel
 			{
 				SanitizedGameObject card = (SanitizedGameObject)id;
 				SanitizedCharacteristics characteristics = card.characteristics.get(SanitizedGameObject.CharacteristicSet.ACTUAL);
-				for(SanitizedMode mode: characteristics.selectedModes)
-					for(SanitizedTarget possibleTarget: mode.targets)
+				for(int modeIndex: characteristics.selectedModes)
+					for(SanitizedTarget possibleTarget: characteristics.modes.get(modeIndex - 1).targets)
 						if(characteristics.chosenTargets.containsKey(possibleTarget))
 							for(SanitizedTarget chosenTarget: characteristics.chosenTargets.get(possibleTarget))
 								if(chosenTarget != null && chosenTarget.targetID != -1)

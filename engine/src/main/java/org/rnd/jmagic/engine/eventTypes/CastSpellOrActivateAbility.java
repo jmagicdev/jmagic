@@ -369,22 +369,26 @@ public final class CastSpellOrActivateAbility extends EventType
 
 			// It's possible that not enough modes were chosen, for example,
 			// if Branching Bolt is cast with no creatures in play
-			if(Intersect.get(onStack.getNumModes(), new Set(physicalOnStack.getSelectedModes().size())).isEmpty())
+			if(Intersect.get(onStack.getNumModes(), new Set(physicalOnStack.getSelectedModeNumbers().size())).isEmpty())
 				return false;
 		}
 		// Otherwise, choose all the modes
 		else
+		{
+			int n = 1;
 			for(Mode mode: onStack.getModes())
 			{
 				// If we have to choose all the modes, and even one can't be
 				// chosen, fail.
 				if(!mode.canBeChosen(game, onStack))
 					return false;
-				physicalOnStack.getSelectedModes().add(mode);
+				physicalOnStack.getSelectedModeNumbers().add(n);
+				n++;
 			}
+		}
 
 		// Copy the selected modes to the actual version
-		onStack.setSelectedModes(physicalOnStack.getSelectedModes());
+		onStack.setSelectedModeNumbers(physicalOnStack.getSelectedModeNumbers());
 
 		// 601.2c -- Choose targets
 		game.refreshActualState();
@@ -393,9 +397,10 @@ public final class CastSpellOrActivateAbility extends EventType
 		if(!onStack.selectTargets())
 			return false;
 
+		int modeNumber = 1;
 		for(Mode mode: onStack.getModes())
 		{
-			if(!onStack.getSelectedModes().contains(mode))
+			if(!onStack.getSelectedModeNumbers().contains(modeNumber))
 				continue;
 			if(null == mode.targets)
 				return false;
@@ -406,6 +411,7 @@ public final class CastSpellOrActivateAbility extends EventType
 				java.util.List<Target> chosenTargets = new java.util.LinkedList<Target>(onStack.getChosenTargets().get(target));
 				onStack.getPhysical().getChosenTargets().put(target, chosenTargets);
 			}
+			modeNumber++;
 		}
 
 		game.refreshActualState();

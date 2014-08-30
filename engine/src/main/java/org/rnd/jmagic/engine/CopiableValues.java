@@ -165,8 +165,8 @@ public class CopiableValues
 				for(CostCollection cost: toApply.optionalAdditionalCostsChosen)
 					object.getOptionalAdditionalCostsChosen().add(cost);
 
-				object.getSelectedModes().clear();
-				object.getSelectedModes().addAll(toApply.selectedModes);
+				object.getSelectedModeNumbers().clear();
+				object.getSelectedModeNumbers().addAll(toApply.selectedModeNumbers);
 
 				object.setValueOfX(toApply.valueOfX);
 
