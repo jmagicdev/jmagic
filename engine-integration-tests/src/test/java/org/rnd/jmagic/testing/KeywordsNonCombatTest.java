@@ -1942,6 +1942,79 @@ public class KeywordsNonCombatTest extends JUnitTest
 	}
 
 	@Test
+	public void entwine()
+	{
+		addDeck(
+		// in library at start of game:
+		GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class,
+		// in hand at start of game:
+		ToothandNail.class, ToothandNail.class, ToothandNail.class, ToothandNail.class, ToothandNail.class, ToothandNail.class, ToothandNail.class);
+
+		addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
+		startGame(GameTypes.STACKED);
+
+		respondWith(getPlayer(0));
+		keep();
+		keep();
+
+		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
+
+		// cast T&N, just the first mode
+		respondWith(getSpellAction(ToothandNail.class));
+		respondWith(getMode(EventType.SEARCH_LIBRARY_AND_PUT_INTO));
+		addMana("5GG");
+		donePlayingManaAbilities();
+		pass();
+		pass();
+
+		// get some creatures
+		respondWith(pullChoice(GrizzlyBears.class), pullChoice(GrizzlyBears.class));
+
+		// hand was 7 cards, then we cast T&N, then we added 2 bears:
+		assertEquals(7 - 1 + 2, player(0).getHand(this.game.actualState).objects.size());
+
+		// cast T&N, just the second mode
+		respondWith(getSpellAction(ToothandNail.class));
+		respondWith(getMode(EventType.PUT_ONTO_BATTLEFIELD_CHOICE));
+		addMana("5GG");
+		donePlayingManaAbilities();
+		pass();
+		pass();
+
+		// put the bears into play
+		respondWith(pullChoice(GrizzlyBears.class), pullChoice(GrizzlyBears.class));
+		assertEquals(2, this.game.actualState.battlefield().objects.size());
+
+		// attempt to entwine T&N paying only its mana cost
+		// cast T&N, just the second mode
+		respondWith(getSpellAction(ToothandNail.class));
+		respondArbitrarily(); // both modes, ordered arbitrarily
+		addMana("5GG");
+		donePlayingManaAbilities();
+
+		// should have failed:
+		assertEquals(0, this.game.actualState.stack().objects.size());
+
+		// 7 cards, minus first T&N, plus bears, minus second T&N, minus bears:
+		assertEquals(7 - 1 + 2 - 1 - 2, player(0).getHand(this.game.actualState).objects.size());
+
+		// successfully entwine T&N:
+		respondWith(getSpellAction(ToothandNail.class));
+		respondArbitrarily(); // both modes, ordered arbitrarily
+		addMana("7GG");
+		donePlayingManaAbilities();
+		pass();
+		pass();
+
+		// two bears out of the deck, then two bears from the hand
+		respondWith(pullChoice(GrizzlyBears.class), pullChoice(GrizzlyBears.class));
+		respondWith(pullChoice(GrizzlyBears.class), pullChoice(GrizzlyBears.class));
+
+		// 4 bears on the field and we're good
+		assertEquals(4, this.game.actualState.battlefield().objects.size());
+	}
+
+	@Test
 	public void equip()
 	{
 		addDeck(LeoninScimitar.class, RagingGoblin.class, RagingGoblin.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);

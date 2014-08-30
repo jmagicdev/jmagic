@@ -1622,7 +1622,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 			if(!it.next().canBeChosen(this.game, this))
 				it.remove();
 
-		final ChooseParameters<java.io.Serializable> chooseParameters = new ChooseParameters<java.io.Serializable>(this.getNumModes(), PlayerInterface.ChoiceType.MODE, PlayerInterface.ChooseReason.SELECT_MODE);
+		final ChooseParameters<java.io.Serializable> chooseParameters = new ChooseParameters<java.io.Serializable>(this.getActual().getNumModes(), PlayerInterface.ChoiceType.MODE, PlayerInterface.ChooseReason.SELECT_MODE);
 		chooseParameters.thisID = this.ID;
 		java.util.Collection<Mode> choices = controller.sanitizeAndChoose(this.state, chooseFrom, chooseParameters);
 
