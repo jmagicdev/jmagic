@@ -83,7 +83,16 @@ class CardInfoPanel extends javax.swing.JPanel
 		this.gui = play;
 		this.largeImageCache = new java.util.HashMap<ImageCacheKey, java.awt.Image>();
 
-		this.textbox = new JMagicTextPane();
+		this.textbox = new JMagicTextPane()
+		{
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public javax.swing.JToolTip createToolTip()
+			{
+				return new JMagicToolTip();
+			}
+		};
 
 		this.scroll = new javax.swing.JScrollPane(this.textbox, javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		this.scroll.setBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0));
@@ -95,6 +104,10 @@ class CardInfoPanel extends javax.swing.JPanel
 		this.setMinimumSize(CardGraphics.LARGE_CARD);
 		this.setPreferredSize(CardGraphics.LARGE_CARD);
 		this.add(this.scroll);
+
+		javax.swing.ToolTipManager ttm = javax.swing.ToolTipManager.sharedInstance();
+		ttm.setInitialDelay(200);
+		ttm.setDismissDelay(10000);
 	}
 
 	private void addArrow(Arrow arrow)
@@ -111,6 +124,12 @@ class CardInfoPanel extends javax.swing.JPanel
 	{
 		this.displayArrows = false;
 		this.gui.mainWindow.repaint();
+	}
+
+	@Override
+	public javax.swing.JToolTip createToolTip()
+	{
+		return new JMagicToolTip();
 	}
 
 	public void forceUpdate()
@@ -152,7 +171,7 @@ class CardInfoPanel extends javax.swing.JPanel
 
 	/**
 	 * Set the focus to be shown
-	 * 
+	 *
 	 * @param focusID The ID of the {@link SanitizedIdentified} to become the
 	 * new focus
 	 * @param state What {@link SanitizedGameState} to use when determining
@@ -188,7 +207,8 @@ class CardInfoPanel extends javax.swing.JPanel
 			if(!(o.characteristics.containsKey(this.displayType)))
 				this.displayType = SanitizedGameObject.CharacteristicSet.ACTUAL;
 
-			this.gui.setHelpText(this.textbox.setText(o, state, this.displayType));
+			this.textbox.setText(o, state, this.displayType);
+			this.gui.setHelpText(this.textbox.getHelpText());
 			if(!sameFocus)
 				this.textbox.scrollRectToVisible(TOP_LEFT_PIXEL);
 		}
@@ -223,6 +243,13 @@ class CardInfoPanel extends javax.swing.JPanel
 			this.forceUpdate();
 		}
 		this.setFocus(ID, state);
+	}
+
+	@Override
+	public void setToolTipText(String text)
+	{
+		super.setToolTipText(text);
+		this.textbox.setToolTipText(text);
 	}
 
 	public void update()
