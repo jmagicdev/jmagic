@@ -101,6 +101,96 @@ public class KeywordsNonCombatTest extends JUnitTest
 	}
 
 	@Test
+	public void bestow()
+	{
+		addDeck(NyxbornEidolon.class, NyxbornEidolon.class, Terminate.class, Terminate.class, Terminate.class, GrizzlyBears.class, GrizzlyBears.class);
+		addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
+		startGame(GameTypes.OPEN);
+
+		respondWith(getPlayer(0));
+		keep();
+		keep();
+
+		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
+		castAndResolveSpell(GrizzlyBears.class);
+
+		// bestow the eidolon onto the bears
+		java.io.Serializable choice = null;
+		for(java.io.Serializable c: this.choices.getAll(java.io.Serializable.class))
+		{
+			if(c.toString().contains("bestow"))
+			{
+				choice = c;
+				break;
+			}
+		}
+		if(choice == null)
+			fail("Couldn't find bestow cast action");
+		respondWith(choice);
+		addMana("4B");
+		donePlayingManaAbilities();
+		pass();
+		pass();
+
+		assertEquals(2, this.game.actualState.battlefield().objects.size());
+
+		GameObject eidolon = this.game.actualState.battlefield().objects.get(0);
+		assertEquals("Nyxborn Eidolon", eidolon.getName());
+		assertTrue(eidolon.getSubTypes().contains(SubType.AURA));
+
+		GameObject daBears = this.game.actualState.battlefield().objects.get(1);
+		assertEquals("Grizzly Bears", daBears.getName());
+		assertEquals(4, daBears.getPower());
+		assertEquals(3, daBears.getToughness());
+
+		// kill the bears, the eidolon should become a creature instantly
+		// only one legal target for terminate
+		castAndResolveSpell(Terminate.class);
+
+		eidolon = this.game.actualState.battlefield().objects.get(0);
+		assertEquals("Nyxborn Eidolon", eidolon.getName());
+
+		// ... if this ISN'T true, we've got bigger problems!
+		assertTrue(eidolon.getTypes().contains(Type.CREATURE));
+
+		// now kill the eidolon too, just to clean up the board.
+		castAndResolveSpell(Terminate.class);
+
+		// do it all again, except this time cast terminate in response to the
+		// eidolon
+		castAndResolveSpell(GrizzlyBears.class);
+
+		// bestow the eidolon onto the bears
+		choice = null;
+		for(java.io.Serializable c: this.choices.getAll(java.io.Serializable.class))
+		{
+			if(c.toString().contains("bestow"))
+			{
+				choice = c;
+				break;
+			}
+		}
+		if(choice == null)
+			fail("Couldn't find bestow cast action");
+		respondWith(choice);
+		addMana("4B");
+		donePlayingManaAbilities();
+
+		// here's the fun part: eidolon on the stack, kill the bears
+		castAndResolveSpell(Terminate.class);
+
+		// resolve eidolon
+		pass();
+		pass();
+
+		// it should be a creature on the battlefield
+		assertEquals(1, this.game.actualState.battlefield().objects.size());
+		eidolon = this.game.actualState.battlefield().objects.get(0);
+		// again, if we fail this, what the hell type is the eidolon?
+		assertTrue(eidolon.getTypes().contains(Type.CREATURE));
+	}
+
+	@Test
 	public void bloodthirstNoDamageDoesntTriggerCombatDamageDoesTrigger()
 	{
 		// Make sure no damage doesn't cause bloodthirst, and that combat damage

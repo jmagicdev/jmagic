@@ -103,11 +103,12 @@ public abstract class Enchant extends Keyword
 	 * its enchant abilities.
 	 * 
 	 * I think the right way to do this is to put code in Card.selectTargets.
+	 * -RulesGuru
 	 */
 	@Override
 	public void applyHook(GameObject source)
 	{
-		source.addTarget(this.filter, "target " + this.filterName);
+		source.addTarget(this.game.getGrantedTarget(this.ID, this.filter, "target " + this.filterName));
 	}
 
 	/** @return True. */

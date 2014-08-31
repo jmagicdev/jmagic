@@ -59,15 +59,25 @@ public final class Attach extends EventType
 					detachables.add(o);
 			}
 
-		java.util.Iterator<GameObject> iter = attachments.iterator();
-		while(iter.hasNext())
+		// here we check to make sure the given object(s) can attach to their
+		// targets. however if the object is a resolving Aura spell, it's not up
+		// to us to say that -- it's already been determined before we enter
+		// this function. this is important because the Aura is still in the
+		// void when this event is performed, and if it's being granted an
+		// enchant keyword by an effect (like Bestow), that effect won't be
+		// applying to the Aura yet.
+		if(!parameters.containsKey(Parameter.RESOLVING))
 		{
-			GameObject o = iter.next();
-			if(!o.canAttachTo(game, target))
+			java.util.Iterator<GameObject> iter = attachments.iterator();
+			while(iter.hasNext())
 			{
-				detachables.remove(o);
-				iter.remove();
-				attachedAll = false;
+				GameObject o = iter.next();
+				if(!o.canAttachTo(game, target))
+				{
+					detachables.remove(o);
+					iter.remove();
+					attachedAll = false;
+				}
 			}
 		}
 

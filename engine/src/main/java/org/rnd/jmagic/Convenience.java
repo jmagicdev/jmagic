@@ -1355,6 +1355,8 @@ public class Convenience
 	 */
 	public static final SetGenerator THIS_IS_IN_A_GRAVEYARD = Intersect.instance(This.instance(), InZone.instance(GraveyardOf.instance(Players.instance())));
 
+	public static final SetGenerator THIS_IS_ON_THE_BATTLEFIELD = Intersect.instance(This.instance(), Permanents.instance());
+
 	public static final SetGenerator THIS_IS_ON_THE_STACK = Intersect.instance(This.instance(), InZone.instance(Stack.instance()));
 
 	private static ZoneChangePattern whenAnotherCreatureIsPutIntoAGraveyardFromTheBattlefieldPattern = null;

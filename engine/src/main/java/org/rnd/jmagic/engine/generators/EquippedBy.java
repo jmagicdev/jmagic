@@ -5,28 +5,15 @@ import org.rnd.jmagic.engine.*;
 /**
  * Evaluates to everything any of the specified objects, if they're equipments,
  * are equipped by.
+ * 
+ * As of Theros, this gets anything this object is attached to, even if it was
+ * attached via enchanting or fortifying. (This makes it exactly equivalent to
+ * EnchantedBy, so that's what you get!)
  */
-public class EquippedBy extends SetGenerator
+public class EquippedBy
 {
-	public static EquippedBy instance(SetGenerator what)
+	public static SetGenerator instance(SetGenerator what)
 	{
-		return new EquippedBy(what);
-	}
-
-	private final SetGenerator what;
-
-	private EquippedBy(SetGenerator what)
-	{
-		this.what = what;
-	}
-
-	@Override
-	public Set evaluate(GameState state, Identified thisObject)
-	{
-		java.util.Set<Integer> attachments = new java.util.HashSet<Integer>();
-		for(GameObject o: this.what.evaluate(state, thisObject).getAll(GameObject.class))
-			if(o.getSubTypes().contains(SubType.EQUIPMENT) && (-1 != o.getAttachedTo()))
-				attachments.add(o.getAttachedTo());
-		return IdentifiedWithID.instance(attachments).evaluate(state, thisObject);
+		return EnchantedBy.instance(what);
 	}
 }

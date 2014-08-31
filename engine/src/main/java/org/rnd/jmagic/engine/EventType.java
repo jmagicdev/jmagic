@@ -56,7 +56,7 @@ public abstract class EventType
 	 * @eparam NUMBER: the amount of damage to assign, if that amount would be
 	 * different from the amount the creature would normally assign (for
 	 * example, if there is an effect telling the creature to assign no combat
-	 * damage this turn). don't set this parameter at all if the creture is to
+	 * damage this turn). don't set this parameter at all if the creature is to
 	 * assign its normal amount of combat damage.
 	 * @eparam RESULT: empty
 	 */
@@ -65,6 +65,9 @@ public abstract class EventType
 	/**
 	 * @eparam OBJECT: the GameObject instances attaching by
 	 * @eparam TARGET: the AttachableTo which will become attached to
+	 * @eparam RESOLVING: if this parameter is present, it signifies that this
+	 * attachment event is part of an Aura spell resolving. (card writers, this
+	 * isn't for you!)
 	 * @eparam RESULT: the AttachableBy instances which are now attached to
 	 */
 	public static final EventType ATTACH = Attach.INSTANCE;

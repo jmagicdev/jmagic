@@ -40,6 +40,7 @@ public final class PutOntoBattlefieldAttachedTo extends EventType
 	@Override
 	public boolean perform(Game game, Event event, java.util.Map<Parameter, Set> parameters)
 	{
+		boolean auraResolving = parameters.containsKey(Parameter.RESOLVING);
 		for(GameObject attachment: parameters.get(Parameter.OBJECT).getAll(GameObject.class))
 		{
 			AttachableTo attachTo = parameters.get(Parameter.TARGET).getOne(AttachableTo.class);
@@ -53,6 +54,8 @@ public final class PutOntoBattlefieldAttachedTo extends EventType
 				EventFactory attach = new EventFactory(ATTACH, "Attach to target");
 				attach.parameters.put(Parameter.OBJECT, NewObjectOf.instance(Identity.instance(zoneChange)));
 				attach.parameters.put(Parameter.TARGET, Identity.fromCollection(parameters.get(Parameter.TARGET)));
+				if(auraResolving)
+					attach.parameters.put(Parameter.RESOLVING, Empty.instance());
 
 				zoneChange.events.add(attach);
 				event.setResult(putOntoBattlefield.getResultGenerator());

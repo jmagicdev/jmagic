@@ -175,6 +175,12 @@ public class GameState implements Cloneable
 	public java.util.Collection<EventPattern> eventProhibitions;
 	public java.util.Collection<ZoneChangePattern> zoneChangeProhibitions;
 
+	/**
+	 * The object that is currently resolving. ... If you aren't writing the
+	 * resolve() method of a child of GameObject, please don't touch this.
+	 */
+	public int resolvingID;
+
 	public java.util.Collection<GameObject> sourcesOfUnpreventableDamage;
 
 	public java.util.Map<SpecialActionFactory, GameObject> specialActionFactories;
@@ -240,6 +246,7 @@ public class GameState implements Cloneable
 		this.playingFirstID = -1;
 		this.previousStep = null;
 		this.eventProhibitions = new java.util.LinkedList<EventPattern>();
+		this.resolvingID = -1;
 		this.sourcesOfUnpreventableDamage = new java.util.LinkedList<GameObject>();
 		this.specialActionFactories = new java.util.HashMap<SpecialActionFactory, GameObject>();
 		this.stackID = new Zone(this, "The Stack").ID;
@@ -417,6 +424,7 @@ public class GameState implements Cloneable
 			ret.nextTimestamp = this.nextTimestamp;
 			ret.previousStep = this.previousStep;
 			ret.players = new IDList<Player>(ret, this.players);
+			ret.resolvingID = this.resolvingID;
 			ret.stackID = this.stackID;
 			ret.summoningSick = new java.util.HashMap<Integer, java.util.Collection<Integer>>();
 			for(Integer i: this.summoningSick.keySet())

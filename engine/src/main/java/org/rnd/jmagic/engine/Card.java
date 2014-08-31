@@ -176,6 +176,27 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 	@Override
 	public final void resolve()
 	{
+		// for effects that want to know when something is about to resolve:
+		this.game.physicalState.resolvingID = this.ID;
+		this.game.refreshActualState();
+		// *cough* thanks, bestow. you're wonderful.
+
+		// need to re-get the card from the actual state, because it could have
+		// changed (thanks, bestow!)
+		this.game.actualState.<Card>get(this.ID).resolveForReal();
+		
+		this.game.physicalState.resolvingID = -1;
+		this.game.refreshActualState();
+		// thanks again, bestow.
+		// TODO : is this second refresh needed? i'm doing it just to clear
+		// the resolvingID field, but surely one of the many imminent
+		// refreshes should take care of that in time? perhaps we can move
+		// the resolvingID clearing into MOVE_BATCH, and the refresh that
+		// happens after events are performed will take care of it?
+	}
+	
+	private final void resolveForReal()
+	{
 		SetGenerator thisObject = IdentifiedWithID.instance(this.ID);
 		SetGenerator you = ControllerOf.instance(thisObject);
 
@@ -196,10 +217,12 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 			putIntoGraveyard.perform(null, true);
 		}
 		else
-		{
-			// 608.3. If the object that's resolving is a permanent spell, its
+				{
+			// 608.3. If the object that's resolving is a permanent spell,
+			// its
 			// resolution involves a single step (unless it's an Aura). The
-			// spell card becomes a permanent and is put onto the battlefield
+			// spell card becomes a permanent and is put onto the
+			// battlefield
 			// under the control of the spell's controller.
 
 			// 608.3a If the object that's resolving is an Aura spell, its
@@ -207,12 +230,14 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 
 			EventFactory factory = new EventFactory(EventType.PUT_ONTO_BATTLEFIELD, "Put " + this + " onto the battlefield.");
 			if(this.getSubTypes().contains(SubType.AURA))
-			{
+					{
 				// ... First, it checks whether the target specified by its
-				// enchant ability is still legal, as described in rule 608.2b.
+				// enchant ability is still legal, as described in rule
+				// 608.2b.
 				// ...
 				// This assumes that the only mode of an Aura is the mode
-				// declaring what to target and that only the first target in
+				// declaring what to target and that only the first target
+				// in
 				// that mode is relevant
 				Target target = this.getChosenTargets().get(this.getMode(1).targets.iterator().next()).get(0);
 				if(!target.isLegal(this.game, this))
@@ -224,12 +249,14 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 					return;
 				}
 
-				// ... If so, the spell card becomes a permanent and is put onto
-				// the battlefield under the control of the spell's controller
+				// ... If so, the spell card becomes a permanent and is put
+				// onto
+				// the battlefield under the control of the spell's
+				// controller
 				// attached to the object it was targeting.
 				factory = new EventFactory(EventType.PUT_ONTO_BATTLEFIELD_ATTACHED_TO, "Put " + this + " onto the battlefield attached to the object it was targeting.");
 				factory.parameters.put(EventType.Parameter.TARGET, ExtractTargets.instance(Identity.instance(target)));
-			}
+					}
 			factory.parameters.put(EventType.Parameter.CAUSE, CurrentGame.instance());
 			factory.parameters.put(EventType.Parameter.CONTROLLER, you);
 			factory.parameters.put(EventType.Parameter.OBJECT, thisObject);
@@ -237,8 +264,9 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 
 			Event putOntoBattlefield = factory.createEvent(this.game, this);
 			putOntoBattlefield.perform(null, true);
-		}
-	}
+				}
+			}
+
 
 	@Override
 	void setManaCost(ManaPool manaCost)

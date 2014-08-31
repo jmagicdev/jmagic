@@ -841,6 +841,18 @@ public class Game
 	 */
 	public java.util.Map<GrantedAbilityKey, Integer> grantedAbilities;
 
+	/**
+	 * Targets that exist only because an effect is creating them. For example,
+	 * Bestow causes a spell on the stack to become an Aura with enchant
+	 * creature, which causes the spell to have a target when it otherwise
+	 * wouldn't.
+	 * 
+	 * Key: ID of the ability granting the Target
+	 * 
+	 * Value: the granted Target
+	 */
+	private java.util.Map<Integer, Target> grantedTargets;
+
 	private int nextAvailableID;
 
 	public boolean noRandom;
@@ -880,6 +892,7 @@ public class Game
 		this.decks = new java.util.HashMap<Player, java.util.Map<String, java.util.List<Class<? extends Card>>>>();
 
 		this.grantedAbilities = new java.util.HashMap<GrantedAbilityKey, Integer>();
+		this.grantedTargets = new java.util.HashMap<>();
 
 		this.restarted = false;
 		this.started = false;
@@ -1128,6 +1141,27 @@ public class Game
 	public CopiableValues getCachedSnapshot(GameObject of)
 	{
 		return this.snapshotCache.remove(of.ID);
+	}
+
+	/**
+	 * If we have already stored a Target for the given ability, return that
+	 * target. If not, generate a new Target with the given filter and name,
+	 * store it for the given ability, and return it.
+	 * 
+	 * @param abilityID the ID of the ability you want to know about
+	 * @param filter the legal choices for the target to generate
+	 * @param targetName the name of the target to generate
+	 * @return the cached target or a newly generated (and subsequently cached)
+	 * target, as appropriate
+	 */
+	public Target getGrantedTarget(int abilityID, SetGenerator filter, String targetName)
+	{
+		if(this.grantedTargets.containsKey(abilityID))
+			return this.grantedTargets.get(abilityID);
+
+		Target newTarget = new Target(filter, targetName);
+		this.grantedTargets.put(abilityID, newTarget);
+		return newTarget;
 	}
 
 	public IntrinsicManaAbility getIntrinsic(SubType type, int abilityHolderID)

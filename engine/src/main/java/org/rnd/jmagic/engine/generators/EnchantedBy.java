@@ -5,6 +5,9 @@ import org.rnd.jmagic.engine.*;
 /**
  * Evaluates to everything any of the specified objects, if they're auras, are
  * enchanted by.
+ * 
+ * As of Theros, this gets anything the object is attached to, even if it was
+ * attached via enchanting or fortifying. (We don't check for the Aura subtype.)
  */
 public class EnchantedBy extends SetGenerator
 {
@@ -25,8 +28,11 @@ public class EnchantedBy extends SetGenerator
 	{
 		java.util.Set<Integer> attachments = new java.util.HashSet<Integer>();
 		for(GameObject o: this.what.evaluate(state, thisObject).getAll(GameObject.class))
-			if(o.getSubTypes().contains(SubType.AURA) && (-1 != o.getAttachedTo()))
-				attachments.add(o.getAttachedTo());
+		{
+			int attachedID = o.getAttachedTo();
+			if(-1 != attachedID)
+				attachments.add(attachedID);
+		}
 		return IdentifiedWithID.instance(attachments).evaluate(state, thisObject);
 	}
 }
