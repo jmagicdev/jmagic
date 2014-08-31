@@ -762,9 +762,10 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 * than being chosen by the player playing it, use this method to define
 	 * that value.
 	 * 
-	 * @param X The definition of X. This parameter should evaluate to a single
-	 * number (or no numbers, in which case {@link GameObject#getDefinedX()}
-	 * will return zero). It will be evaluated with respect to this object.
+	 * @param X The definition of X. If this parameter evaluates to a single
+	 * number, X is that number. If it evaluates to no numbers, X is undefined.
+	 * If it evaluates to multiple numbers, X is the sum of those numbers. It
+	 * will be evaluated with respect to this object.
 	 */
 	public void defineX(SetGenerator X)
 	{
@@ -986,11 +987,18 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		return this.battlefieldProperties.defendingIDs;
 	}
 
+	/**
+	 * If this object doesn't define X to be a specific value, return -1. If it
+	 * does, return that value. If the value is undefined (for example, if
+	 * Prototype Portal has no cards exiled), return -2.
+	 */
 	public int getDefinedX()
 	{
 		if(this.definedX == null)
 			return -1;
 		Set Xset = this.definedX.evaluate(this.game, this);
+		if(Xset.isEmpty())
+			return -2;
 		return Sum.get(Xset);
 	}
 

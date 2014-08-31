@@ -318,6 +318,10 @@ public final class CastSpellOrActivateAbility extends EventType
 		if(usesX)
 		{
 			int newX = onStack.getDefinedX();
+			// if X is locked to 'undefined' (like prototype portal with no
+			// exiled card), the cost is undefined can't be paid:
+			if(newX == -2)
+				return false;
 			if(newX == -1)
 				newX = playerActing.chooseNumber(new org.rnd.util.NumberRange(onStack.getMinimumX(), null), "Choose a value for X.");
 			else if(newX < onStack.getMinimumX())
