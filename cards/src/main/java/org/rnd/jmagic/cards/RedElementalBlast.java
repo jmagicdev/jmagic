@@ -19,10 +19,10 @@ public final class RedElementalBlast extends Card
 		// permanent.
 		SetGenerator blueSpells = Intersect.instance(HasColor.instance(Color.BLUE), Spells.instance());
 		SetGenerator target1 = targetedBy(this.addTarget(1, blueSpells, "target blue spell"));
-		this.addEffect(1, counter(target1, "Counter target blue spell"));
+		this.addEffect(1, counter(target1, "Counter target blue spell."));
 
 		SetGenerator bluePermanents = Intersect.instance(HasColor.instance(Color.BLUE), Permanents.instance());
 		SetGenerator target2 = targetedBy(this.addTarget(2, bluePermanents, "target blue permanent"));
-		this.addEffect(2, destroy(target2, "destroy target blue permanent"));
+		this.addEffect(2, destroy(target2, "Destroy target blue permanent."));
 	}
 }

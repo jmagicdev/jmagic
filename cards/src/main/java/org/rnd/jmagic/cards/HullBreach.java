@@ -19,16 +19,16 @@ public final class HullBreach extends Card
 		// enchantment; or destroy target artifact and target enchantment.
 		{
 			SetGenerator target = targetedBy(this.addTarget(1, ArtifactPermanents.instance(), "target artifact"));
-			this.addEffect(1, destroy(target, "Destroy target artifact"));
+			this.addEffect(1, destroy(target, "Destroy target artifact."));
 		}
 		{
 			SetGenerator target = targetedBy(this.addTarget(2, EnchantmentPermanents.instance(), "target enchantment"));
-			this.addEffect(2, destroy(target, "Destroy target enchantment"));
+			this.addEffect(2, destroy(target, "Destroy target enchantment."));
 		}
 		{
 			SetGenerator targetArtifact = targetedBy(this.addTarget(3, ArtifactPermanents.instance(), "target artifact"));
 			SetGenerator targetEnchantment = targetedBy(this.addTarget(3, EnchantmentPermanents.instance(), "target enchantment"));
-			this.addEffect(3, destroy(Union.instance(targetArtifact, targetEnchantment), "Destroy target artifact and target enchantment"));
+			this.addEffect(3, destroy(Union.instance(targetArtifact, targetEnchantment), "Destroy target artifact and target enchantment."));
 		}
 	}
 }

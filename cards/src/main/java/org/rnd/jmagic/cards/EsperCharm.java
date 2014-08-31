@@ -19,18 +19,18 @@ public final class EsperCharm extends Card
 		// Destroy target enchantment;
 		{
 			Target target = this.addTarget(1, EnchantmentPermanents.instance(), "target enchantment");
-			this.addEffect(1, destroy(targetedBy(target), "Destroy target enchantment"));
+			this.addEffect(1, destroy(targetedBy(target), "Destroy target enchantment."));
 		}
 
 		// or draw two cards;
 		{
-			this.addEffect(2, drawCards(You.instance(), 2, "draw two cards"));
+			this.addEffect(2, drawCards(You.instance(), 2, "Draw two cards."));
 		}
 
 		// or target player discards two cards.
 		{
 			Target target = this.addTarget(3, Players.instance(), "target player");
-			this.addEffect(3, discardCards(targetedBy(target), 2, "target player discards two cards."));
+			this.addEffect(3, discardCards(targetedBy(target), 2, "Target player discards two cards."));
 		}
 	}
 }

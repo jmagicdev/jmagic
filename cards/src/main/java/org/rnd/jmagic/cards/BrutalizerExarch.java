@@ -16,13 +16,13 @@ public final class BrutalizerExarch extends Card
 	{
 		public BrutalizerExarchAbility0(GameState state)
 		{
-			super(state, "When Brutalizer Exarch enters the battlefield, choose one \u2014 Search your library for a creature card, reveal it, then shuffle your library and put that card on top of it; or put target noncreature permanent on the bottom of its owner's library.");
+			super(state, "When Brutalizer Exarch enters the battlefield, choose one \u2014\n\u2022 Search your library for a creature card, reveal it, then shuffle your library and put that card on top of it.\n\u2022 Put target noncreature permanent on the bottom of its owner's library.");
 			this.addPattern(whenThisEntersTheBattlefield());
 
 			// Search your library for a creature card, reveal it, then shuffle
 			// your library and put that card on top of it
 			{
-				EventFactory effect = new EventFactory(EventType.SEARCH_LIBRARY_AND_PUT_ON_TOP, "Search your library for a creature card, reveal it, then shuffle your library and put that card on top of it");
+				EventFactory effect = new EventFactory(EventType.SEARCH_LIBRARY_AND_PUT_ON_TOP, "Search your library for a creature card, reveal it, then shuffle your library and put that card on top of it.");
 				effect.parameters.put(EventType.Parameter.CAUSE, This.instance());
 				effect.parameters.put(EventType.Parameter.PLAYER, You.instance());
 				effect.parameters.put(EventType.Parameter.TYPE, Identity.instance(HasType.instance(Type.CREATURE)));
@@ -34,7 +34,7 @@ public final class BrutalizerExarch extends Card
 			{
 				SetGenerator target = targetedBy(this.addTarget(2, RelativeComplement.instance(Permanents.instance(), CreaturePermanents.instance()), "target noncreature permanent"));
 
-				EventFactory effect = new EventFactory(EventType.PUT_INTO_LIBRARY, "put target noncreature permanent on the bottom of its owner's library");
+				EventFactory effect = new EventFactory(EventType.PUT_INTO_LIBRARY, "Put target noncreature permanent on the bottom of its owner's library.");
 				effect.parameters.put(EventType.Parameter.CAUSE, This.instance());
 				effect.parameters.put(EventType.Parameter.INDEX, numberGenerator(-1));
 				effect.parameters.put(EventType.Parameter.OBJECT, target);

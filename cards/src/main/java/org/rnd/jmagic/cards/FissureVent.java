@@ -21,13 +21,13 @@ public final class FissureVent extends Card
 		// Destroy target artifact;
 		{
 			Target target = this.addTarget(1, ArtifactPermanents.instance(), "target artifact");
-			this.addEffect(1, destroy(targetedBy(target), "Destroy target artifact"));
+			this.addEffect(1, destroy(targetedBy(target), "Destroy target artifact."));
 		}
 
 		// destroy target nonbasic land.
 		{
 			Target target = this.addTarget(2, RelativeComplement.instance(LandPermanents.instance(), HasSuperType.instance(SuperType.BASIC)), "target nonbasic land");
-			this.addEffect(2, destroy(targetedBy(target), "destroy target nonbasic land."));
+			this.addEffect(2, destroy(targetedBy(target), "Destroy target nonbasic land."));
 		}
 	}
 }

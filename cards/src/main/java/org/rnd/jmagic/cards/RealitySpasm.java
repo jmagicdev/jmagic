@@ -20,13 +20,13 @@ public final class RealitySpasm extends Card
 		{
 			Target xTargetPermanents = this.addTarget(1, Permanents.instance(), "X target permanents");
 			xTargetPermanents.setSingleNumber(ValueOfX.instance(This.instance()));
-			this.addEffect(1, tap(targetedBy(xTargetPermanents), "Tap X target permanents"));
+			this.addEffect(1, tap(targetedBy(xTargetPermanents), "Tap X target permanents."));
 		}
 
 		{
 			Target xTargetPermanents = this.addTarget(2, Permanents.instance(), "X target permanents");
 			xTargetPermanents.setSingleNumber(ValueOfX.instance(This.instance()));
-			this.addEffect(2, untap(targetedBy(xTargetPermanents), "untap X target permanents."));
+			this.addEffect(2, untap(targetedBy(xTargetPermanents), "Untap X target permanents."));
 		}
 	}
 }

@@ -16,7 +16,7 @@ public final class InquisitorExarch extends Card
 	{
 		public InquisitorExarchAbility0(GameState state)
 		{
-			super(state, "When Inquisitor Exarch enters the battlefield, choose one \u2014 You gain 2 life; or target opponent loses 2 life.");
+			super(state, "When Inquisitor Exarch enters the battlefield, choose one \u2014\n\u2022 You gain 2 life.\n\u2022 Target opponent loses 2 life.");
 			this.addPattern(whenThisEntersTheBattlefield());
 			this.addEffect(1, gainLife(You.instance(), 2, "You gain 2 life"));
 			this.addEffect(2, loseLife(targetedBy(this.addTarget(2, OpponentsOf.instance(You.instance()), "target opponent")), 2, "target opponent loses 2 life"));

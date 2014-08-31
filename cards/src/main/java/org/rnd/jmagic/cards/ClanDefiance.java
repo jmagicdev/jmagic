@@ -24,13 +24,13 @@ public final class ClanDefiance extends Card
 		// Clan Defiance deals X damage to target creature with flying
 		{
 			SetGenerator target = targetedBy(this.addTarget(1, Intersect.instance(CreaturePermanents.instance(), hasFlying), "target creature with flying"));
-			this.addEffect(1, spellDealDamage(X, target, "Clan Defiance deals X damage to target creature with flying"));
+			this.addEffect(1, spellDealDamage(X, target, "Clan Defiance deals X damage to target creature with flying."));
 		}
 
 		// Clan Defiance deals X damage to target creature without flying
 		{
 			SetGenerator target = targetedBy(this.addTarget(2, RelativeComplement.instance(CreaturePermanents.instance(), hasFlying), "target creature with flying"));
-			this.addEffect(2, spellDealDamage(X, target, "Clan Defiance deals X damage to target creature without flying"));
+			this.addEffect(2, spellDealDamage(X, target, "Clan Defiance deals X damage to target creature without flying."));
 		}
 
 		// Clan Defiance deals X damage to target player.

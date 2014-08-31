@@ -21,7 +21,7 @@ public final class ToothandNail extends Card
 		SetGenerator creatures = HasType.instance(Type.CREATURE);
 		SetGenerator yourHand = HandOf.instance(You.instance());
 
-		EventFactory search = new EventFactory(EventType.SEARCH_LIBRARY_AND_PUT_INTO, "Search your library for up to two creature cards, reveal them, put them into your hand, then shuffle your library");
+		EventFactory search = new EventFactory(EventType.SEARCH_LIBRARY_AND_PUT_INTO, "Search your library for up to two creature cards, reveal them, put them into your hand, then shuffle your library.");
 		search.parameters.put(EventType.Parameter.CAUSE, This.instance());
 		search.parameters.put(EventType.Parameter.PLAYER, You.instance());
 		search.parameters.put(EventType.Parameter.NUMBER, Between.instance(0, 2));
@@ -29,7 +29,7 @@ public final class ToothandNail extends Card
 		search.parameters.put(EventType.Parameter.TYPE, Identity.instance(creatures));
 		this.addEffect(1, search);
 
-		EventFactory put = new EventFactory(EventType.PUT_ONTO_BATTLEFIELD_CHOICE, "put up to two creature cards from your hand onto the battlefield.");
+		EventFactory put = new EventFactory(EventType.PUT_ONTO_BATTLEFIELD_CHOICE, "Put up to two creature cards from your hand onto the battlefield.");
 		put.parameters.put(EventType.Parameter.CAUSE, This.instance());
 		put.parameters.put(EventType.Parameter.CONTROLLER, You.instance());
 		put.parameters.put(EventType.Parameter.OBJECT, Intersect.instance(creatures, InZone.instance(yourHand)));

@@ -19,7 +19,7 @@ public final class Thunderbolt extends Card
 		// Thunderbolt deals 4 damage to target creature with flying.
 		{
 			SetGenerator target = targetedBy(this.addTarget(1, Players.instance(), "target player"));
-			this.addEffect(1, spellDealDamage(3, target, "Thunderbolt deals 3 damage to target player"));
+			this.addEffect(1, spellDealDamage(3, target, "Thunderbolt deals 3 damage to target player."));
 		}
 		{
 			SetGenerator legal = Intersect.instance(CreaturePermanents.instance(), HasKeywordAbility.instance(org.rnd.jmagic.abilities.keywords.Flying.class));

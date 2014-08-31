@@ -17,7 +17,7 @@ public final class EntomberExarch extends Card
 	{
 		public EntomberExarchAbility0(GameState state)
 		{
-			super(state, "When Entomber Exarch enters the battlefield, choose one \u2014 Return target creature card from your graveyard to your hand; or target opponent reveals his or her hand, you choose a noncreature card from it, then that player discards that card.");
+			super(state, "When Entomber Exarch enters the battlefield, choose one \u2014\n\u2022 Return target creature card from your graveyard to your hand.\n\u2022 Target opponent reveals his or her hand, you choose a noncreature card from it, then that player discards that card.");
 			this.addPattern(whenThisEntersTheBattlefield());
 
 			// Return target creature card from your graveyard to your hand

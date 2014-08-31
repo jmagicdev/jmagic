@@ -20,7 +20,7 @@ public final class BorosCharm extends Card
 		// Boros Charm deals 4 damage to target player
 		{
 			SetGenerator target = targetedBy(this.addTarget(1, Players.instance(), "target player"));
-			this.addEffect(1, spellDealDamage(4, target, "Boros Charm deals 4 damage to target player"));
+			this.addEffect(1, spellDealDamage(4, target, "Boros Charm deals 4 damage to target player."));
 		}
 
 		// permanents you control gain indestructible until end of turn
@@ -31,7 +31,7 @@ public final class BorosCharm extends Card
 		// target creature gains double strike until end of turn.
 		{
 			SetGenerator target = targetedBy(this.addTarget(3, CreaturePermanents.instance(), "target creature"));
-			this.addEffect(3, addAbilityUntilEndOfTurn(target, org.rnd.jmagic.abilities.keywords.DoubleStrike.class, "target creature gains double strike until end of turn."));
+			this.addEffect(3, addAbilityUntilEndOfTurn(target, org.rnd.jmagic.abilities.keywords.DoubleStrike.class, "Target creature gains double strike until end of turn."));
 		}
 	}
 }

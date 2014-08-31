@@ -32,7 +32,7 @@ public final class UmezawasJitte extends Card
 	{
 		public SwissArmyKnife(GameState state)
 		{
-			super(state, "Remove a charge counter from Umezawa's Jitte: Choose one \u2014 Equipped creature gets +2/+2 until end of turn; or target creature gets -1/-1 until end of turn; or you gain 2 life.");
+			super(state, "Remove a charge counter from Umezawa's Jitte: Choose one \u2014\n\u2022 Equipped creature gets +2/+2 until end of turn.\n\u2022 Target creature gets -1/-1 until end of turn.\n\u2022 You gain 2 life.");
 
 			this.addCost(removeCountersFromThis(1, Counter.CounterType.CHARGE, "Umezawa's Jitte"));
 

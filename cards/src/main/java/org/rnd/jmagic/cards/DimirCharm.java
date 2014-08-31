@@ -22,20 +22,20 @@ public final class DimirCharm extends Card
 		// Counter target sorcery spell
 		{
 			SetGenerator target = targetedBy(this.addTarget(1, Intersect.instance(HasType.instance(Type.SORCERY), Spells.instance()), "target sorcery spell"));
-			this.addEffect(1, counter(target, "Counter target sorcery spell"));
+			this.addEffect(1, counter(target, "Counter target sorcery spell."));
 		}
 
 		// destroy target creature with power 2 or less
 		{
 			SetGenerator target = targetedBy(this.addTarget(2, Intersect.instance(CreaturePermanents.instance(), HasPower.instance(Between.instance(null, 2))), "target creature with power 2 or less"));
-			this.addEffect(2, destroy(target, "destroy target creature with power 2 or less"));
+			this.addEffect(2, destroy(target, "Destroy target creature with power 2 or less."));
 		}
 
 		// look at the top three cards of target player's library, then put one
 		// back and the rest into that player's graveyard.
 		{
 			SetGenerator target = targetedBy(this.addTarget(3, Players.instance(), "target player"));
-			EventFactory look = look(You.instance(), TopCards.instance(3, LibraryOf.instance(target)), "look at the top three cards of target player's library,");
+			EventFactory look = look(You.instance(), TopCards.instance(3, LibraryOf.instance(target)), "Look at the top three cards of target player's library,");
 			this.addEffect(3, look);
 
 			SetGenerator revealed = EffectResult.instance(look);

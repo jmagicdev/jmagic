@@ -26,7 +26,7 @@ public final class RemembertheFallen extends Card
 		{
 			SetGenerator targeting = Intersect.instance(HasType.instance(Type.CREATURE), Cards.instance(), inYourGraveyard);
 			SetGenerator target = targetedBy(this.addTarget(1, targeting, "target creature card from your graveyard"));
-			EventFactory returnToHand = new EventFactory(EventType.MOVE_OBJECTS, "Return target creature card from your graveyard to your hand");
+			EventFactory returnToHand = new EventFactory(EventType.MOVE_OBJECTS, "Return target creature card from your graveyard to your hand.");
 			returnToHand.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			returnToHand.parameters.put(EventType.Parameter.TO, yourHand);
 			returnToHand.parameters.put(EventType.Parameter.OBJECT, target);
@@ -35,7 +35,7 @@ public final class RemembertheFallen extends Card
 		{
 			SetGenerator targeting = Intersect.instance(HasType.instance(Type.ARTIFACT), Cards.instance(), inYourGraveyard);
 			SetGenerator target = targetedBy(this.addTarget(2, targeting, "target artifact card from your graveyard"));
-			EventFactory returnToHand = new EventFactory(EventType.MOVE_OBJECTS, "and/or return target artifact card from your graveyard to your hand.");
+			EventFactory returnToHand = new EventFactory(EventType.MOVE_OBJECTS, "Return target artifact card from your graveyard to your hand.");
 			returnToHand.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			returnToHand.parameters.put(EventType.Parameter.TO, yourHand);
 			returnToHand.parameters.put(EventType.Parameter.OBJECT, target);

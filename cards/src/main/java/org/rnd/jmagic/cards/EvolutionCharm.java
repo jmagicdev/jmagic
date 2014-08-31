@@ -27,7 +27,7 @@ public final class EvolutionCharm extends Card
 			searchParameters.put(EventType.Parameter.NUMBER, numberGenerator(1));
 			searchParameters.put(EventType.Parameter.TYPE, Identity.instance(Intersect.instance(HasSuperType.instance(SuperType.BASIC), HasType.instance(Type.LAND))));
 			searchParameters.put(EventType.Parameter.TO, HandOf.instance(You.instance()));
-			this.addEffect(1, new EventFactory(EventType.SEARCH_LIBRARY_AND_PUT_INTO, searchParameters, "Search your library for a basic land card, reveal it, put it into your hand, then shuffle your library"));
+			this.addEffect(1, new EventFactory(EventType.SEARCH_LIBRARY_AND_PUT_INTO, searchParameters, "Search your library for a basic land card, reveal it, put it into your hand, then shuffle your library."));
 		}
 
 		// Return target creature card from your graveyard to your hand
@@ -39,13 +39,13 @@ public final class EvolutionCharm extends Card
 			moveParameters.put(EventType.Parameter.CAUSE, This.instance());
 			moveParameters.put(EventType.Parameter.TO, HandOf.instance(You.instance()));
 			moveParameters.put(EventType.Parameter.OBJECT, targetedBy(target));
-			this.addEffect(2, new EventFactory(EventType.MOVE_OBJECTS, moveParameters, "return target creature card from your graveyard to your hand"));
+			this.addEffect(2, new EventFactory(EventType.MOVE_OBJECTS, moveParameters, "Return target creature card from your graveyard to your hand."));
 		}
 
 		// Target creature gains flying until end of turn.
 		{
 			Target target = this.addTarget(3, CreaturePermanents.instance(), "target creature");
-			this.addEffect(3, addAbilityUntilEndOfTurn(targetedBy(target), org.rnd.jmagic.abilities.keywords.Flying.class, "target creature gains flying until end of turn."));
+			this.addEffect(3, addAbilityUntilEndOfTurn(targetedBy(target), org.rnd.jmagic.abilities.keywords.Flying.class, "Target creature gains flying until end of turn."));
 		}
 	}
 }

@@ -20,11 +20,11 @@ public final class CrushingVines extends Card
 		{
 			SetGenerator creatures = Intersect.instance(CreaturePermanents.instance(), HasKeywordAbility.instance(org.rnd.jmagic.abilities.keywords.Flying.class));
 			SetGenerator target = targetedBy(this.addTarget(1, creatures, "target creature with flying"));
-			this.addEffect(1, destroy(target, "Destroy target creature with flying"));
+			this.addEffect(1, destroy(target, "Destroy target creature with flying."));
 		}
 		{
 			SetGenerator target = targetedBy(this.addTarget(2, ArtifactPermanents.instance(), "target artifact"));
-			this.addEffect(2, destroy(target, "destroy target artifact."));
+			this.addEffect(2, destroy(target, "Destroy target artifact."));
 		}
 	}
 }

@@ -19,13 +19,13 @@ public final class ConsulttheNecrosages extends Card
 		// Mode 1
 		{
 			Target target = this.addTarget(1, Players.instance(), "target player");
-			this.addEffect(1, drawCards(targetedBy(target), 2, "Target player draws two cards"));
+			this.addEffect(1, drawCards(targetedBy(target), 2, "Target player draws two cards."));
 		}
 
 		// Mode 2
 		{
 			Target target = this.addTarget(2, Players.instance(), "target player");
-			this.addEffect(2, drawCards(targetedBy(target), 2, "target player discards two cards."));
+			this.addEffect(2, drawCards(targetedBy(target), 2, "Target player discards two cards."));
 		}
 	}
 }

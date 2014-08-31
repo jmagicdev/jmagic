@@ -16,7 +16,7 @@ public final class ShivanSandMage extends Card
 	{
 		public ShivanSandMageAbility0(GameState state)
 		{
-			super(state, "When Shivan Sand-Mage enters the battlefield, choose one \u2014 Remove two time counters from target permanent or suspended card; or put two time counters on target permanent with a time counter on it or suspended card.");
+			super(state, "When Shivan Sand-Mage enters the battlefield, choose one \u2014\n\u2022 Remove two time counters from target permanent or suspended card.\n\u2022 Put two time counters on target permanent with a time counter on it or suspended card.");
 			this.addPattern(whenThisEntersTheBattlefield());
 
 			SetGenerator targetOne = targetedBy(this.addTarget(1, Union.instance(Permanents.instance(), Suspended.instance()), "target permanent or suspended card"));

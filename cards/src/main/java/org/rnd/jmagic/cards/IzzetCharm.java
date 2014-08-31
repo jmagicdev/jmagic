@@ -28,18 +28,18 @@ public final class IzzetCharm extends Card
 			pay.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("(2)")));
 			pay.parameters.put(EventType.Parameter.PLAYER, controller);
 
-			this.addEffect(1, unless(controller, counter, pay, "Counter target noncreature spell unless its controller pays (2)"));
+			this.addEffect(1, unless(controller, counter, pay, "Counter target noncreature spell unless its controller pays (2)."));
 		}
 
 		{
 			// or Izzet Charm deals 2 damage to target creature;
 			SetGenerator target = targetedBy(this.addTarget(2, CreaturePermanents.instance(), "target creature"));
-			this.addEffect(2, spellDealDamage(2, target, "Izzet Charm deals 2 damage to target creature"));
+			this.addEffect(2, spellDealDamage(2, target, "Izzet Charm deals 2 damage to target creature."));
 		}
 
 		{
 			// or draw two cards, then discard two cards.
-			this.addEffect(3, drawCards(You.instance(), 2, "draw two cards,"));
+			this.addEffect(3, drawCards(You.instance(), 2, "Draw two cards,"));
 			this.addEffect(3, discardCards(You.instance(), 2, "then discard two cards."));
 		}
 	}

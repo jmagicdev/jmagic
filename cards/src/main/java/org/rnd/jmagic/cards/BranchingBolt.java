@@ -23,7 +23,7 @@ public final class BranchingBolt extends Card
 		// creature without flying.
 		{
 			Target target = this.addTarget(1, Intersect.instance(CreaturePermanents.instance(), HasKeywordAbility.instance(org.rnd.jmagic.abilities.keywords.Flying.class)), "target creature with flying");
-			this.addEffect(1, spellDealDamage(3, targetedBy(target), "Branching Bolt deals 3 damage to target creature with flying"));
+			this.addEffect(1, spellDealDamage(3, targetedBy(target), "Branching Bolt deals 3 damage to target creature with flying."));
 		}
 
 		{

@@ -27,7 +27,7 @@ public final class GhoulcallersChant extends Card
 		{
 			SetGenerator creatureCardsInYourYard = Intersect.instance(HasType.instance(Type.CREATURE), Cards.instance(), inYourYard);
 			SetGenerator target = targetedBy(this.addTarget(1, creatureCardsInYourYard, "target creature card from your graveyard"));
-			EventFactory retOne = new EventFactory(EventType.MOVE_OBJECTS, "Return target creature card from your graveyard to your hand");
+			EventFactory retOne = new EventFactory(EventType.MOVE_OBJECTS, "Return target creature card from your graveyard to your hand.");
 			retOne.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			retOne.parameters.put(EventType.Parameter.TO, hand);
 			retOne.parameters.put(EventType.Parameter.OBJECT, target);
@@ -40,7 +40,7 @@ public final class GhoulcallersChant extends Card
 			zombies.setNumber(2, 2);
 
 			SetGenerator target = targetedBy(zombies);
-			EventFactory retTwo = new EventFactory(EventType.MOVE_OBJECTS, "return two target Zombie cards from your graveyard to your hand.");
+			EventFactory retTwo = new EventFactory(EventType.MOVE_OBJECTS, "Return two target Zombie cards from your graveyard to your hand.");
 			retTwo.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			retTwo.parameters.put(EventType.Parameter.TO, hand);
 			retTwo.parameters.put(EventType.Parameter.OBJECT, target);

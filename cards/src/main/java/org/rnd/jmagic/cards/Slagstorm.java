@@ -18,7 +18,7 @@ public final class Slagstorm extends Card
 		// Choose one \u2014 Slagstorm deals 3 damage to each creature; or
 		// Slagstorm deals 3 damage to each player.
 
-		this.addEffect(1, spellDealDamage(3, CreaturePermanents.instance(), "Slagstorm deals 3 damage to each creature"));
+		this.addEffect(1, spellDealDamage(3, CreaturePermanents.instance(), "Slagstorm deals 3 damage to each creature."));
 		this.addEffect(2, spellDealDamage(3, Players.instance(), "Slagstorm deals 3 damage to each player."));
 	}
 }

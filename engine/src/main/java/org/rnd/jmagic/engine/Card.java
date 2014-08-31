@@ -188,11 +188,6 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 		this.game.physicalState.resolvingID = -1;
 		this.game.refreshActualState();
 		// thanks again, bestow.
-		// TODO : is this second refresh needed? i'm doing it just to clear
-		// the resolvingID field, but surely one of the many imminent
-		// refreshes should take care of that in time? perhaps we can move
-		// the resolvingID clearing into MOVE_BATCH, and the refresh that
-		// happens after events are performed will take care of it?
 	}
 	
 	private final void resolveForReal()

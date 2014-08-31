@@ -17,7 +17,7 @@ public final class Pyroblast extends Card
 
 		{
 			Target target = this.addTarget(1, Spells.instance(), "target spell");
-			EventFactory counter = new EventFactory(EventType.IF_CONDITION_THEN_ELSE, "Counter target spell if it's blue");
+			EventFactory counter = new EventFactory(EventType.IF_CONDITION_THEN_ELSE, "Counter target spell if it's blue.");
 			counter.parameters.put(EventType.Parameter.IF, Intersect.instance(targetedBy(target), HasColor.instance(Color.BLUE)));
 			counter.parameters.put(EventType.Parameter.THEN, Identity.instance(counter(targetedBy(target), "Counter target spell.")));
 			this.addEffect(1, counter);
@@ -25,7 +25,7 @@ public final class Pyroblast extends Card
 
 		{
 			Target target = this.addTarget(2, Permanents.instance(), "target permanent");
-			EventFactory destroy = new EventFactory(EventType.IF_CONDITION_THEN_ELSE, "destroy target permanent if it's blue.");
+			EventFactory destroy = new EventFactory(EventType.IF_CONDITION_THEN_ELSE, "Destroy target permanent if it's blue.");
 			destroy.parameters.put(EventType.Parameter.IF, Intersect.instance(targetedBy(target), HasColor.instance(Color.BLUE)));
 			destroy.parameters.put(EventType.Parameter.THEN, Identity.instance(destroy(targetedBy(target), "Destroy target permanent.")));
 			this.addEffect(2, destroy);

@@ -15,7 +15,7 @@ public final class Skinshifter extends Card
 	{
 		public SkinshifterAbility0(GameState state)
 		{
-			super(state, "(G): Choose one \u2014 Until end of turn, Skinshifter becomes a Rhino with base power and toughness 4/4 and gains trample; or until end of turn, Skinshifter becomes a Bird base power and toughness 2/2 and gains flying; or until end of turn, Skinshifter becomes a Plant with base power and toughness 0/8. Activate this ability only once each turn.");
+			super(state, "(G): Choose one \u2014\n\u2022 Until end of turn, Skinshifter becomes a Rhino with base power and toughness 4/4 and gains trample.\n\u2022 Until end of turn, Skinshifter becomes a Bird base power and toughness 2/2 and gains flying.\n\u2022 Until end of turn, Skinshifter becomes a Plant with base power and toughness 0/8.\nActivate this ability only once each turn.");
 			this.setManaCost(new ManaPool("(G)"));
 
 			Animator rhino = new Animator(ABILITY_SOURCE_OF_THIS, 4, 4);

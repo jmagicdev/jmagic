@@ -23,7 +23,7 @@ public final class GruulCharm extends Card
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.BLOCKING_RESTRICTION);
 			part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(Intersect.instance(Blocking.instance(), withoutFlying)));
-			this.addEffect(1, createFloatingEffect("Creatures without flying can't block this turn", part));
+			this.addEffect(1, createFloatingEffect("Creatures without flying can't block this turn.", part));
 		}
 
 		// gain control of all permanents you own
@@ -31,7 +31,7 @@ public final class GruulCharm extends Card
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.CHANGE_CONTROL);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Intersect.instance(Permanents.instance(), OwnedBy.instance(You.instance())));
 			part.parameters.put(ContinuousEffectType.Parameter.PLAYER, You.instance());
-			this.addEffect(2, createFloatingEffect("gain control of all permanents you own", part));
+			this.addEffect(2, createFloatingEffect("Gain control of all permanents you own.", part));
 		}
 
 		// Gruul Charm deals 3 damage to each creature with flying.

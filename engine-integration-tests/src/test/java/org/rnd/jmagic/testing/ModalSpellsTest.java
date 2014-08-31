@@ -85,7 +85,7 @@ public class ModalSpellsTest extends JUnitTest
 		pass();
 
 		respondWith(getSpellAction(BranchingBolt.class));
-		respondWith(getModeByName("Branching Bolt deals 3 damage to target creature with flying"));
+		respondWith(getModeByName("Branching Bolt deals 3 damage to target creature with flying."));
 		respondWith(getTarget(Ornithopter.class));
 		addMana("1RG");
 		donePlayingManaAbilities();
@@ -120,7 +120,7 @@ public class ModalSpellsTest extends JUnitTest
 		pass();
 
 		respondWith(getSpellAction(BranchingBolt.class));
-		respondWith(getModeByName("Branching Bolt deals 3 damage to target creature with flying"), getModeByName("Branching Bolt deals 3 damage to target creature without flying."));
+		respondWith(getModeByName("Branching Bolt deals 3 damage to target creature with flying."), getModeByName("Branching Bolt deals 3 damage to target creature without flying."));
 		respondWith(getTarget(Ornithopter.class));
 		respondWith(getTarget(RagingGoblin.class));
 		addMana("1RG");

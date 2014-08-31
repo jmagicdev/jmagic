@@ -16,7 +16,7 @@ public final class TormentorExarch extends Card
 	{
 		public TormentorExarchAbility0(GameState state)
 		{
-			super(state, "When Tormentor Exarch enters the battlefield, choose one \u2014 Target creature gets +2/+0 until end of turn; or target creature gets -0/-2 until end of turn.");
+			super(state, "When Tormentor Exarch enters the battlefield, choose one \u2014\n\u2022 Target creature gets +2/+0 until end of turn.\n\u2022 Target creature gets -0/-2 until end of turn.");
 			this.addPattern(whenThisEntersTheBattlefield());
 			{
 				SetGenerator target = targetedBy(this.addTarget(1, CreaturePermanents.instance(), "target creature"));

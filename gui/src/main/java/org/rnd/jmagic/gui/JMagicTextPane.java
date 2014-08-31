@@ -350,34 +350,17 @@ public class JMagicTextPane extends javax.swing.JTextPane
 				firstLine = false;
 
 				String betweenModes = "\n\n";
-				String preceedingFinalMode = "";
 				if(c.modes.size() != 1 && c.modes.size() != c.selectedModes.size())
 				{
-					textBuilder.append(getModeChoiceText(c.numModes) + " \u2014 ");
-
-					Integer maximum = Maximum.get(c.numModes);
-					if((null == maximum) || (maximum == c.modes.size()))
-					{
-						betweenModes = "; ";
-						preceedingFinalMode = "; and/or ";
-					}
-					else
-					{
-						betweenModes = "; or ";
-						preceedingFinalMode = "; or ";
-					}
+					textBuilder.append(getModeChoiceText(c.numModes) + " \u2014\n\u2022 ");
+					betweenModes = "\n\u2022 ";
 				}
 
 				int modesCounted = 0;
 				for(SanitizedMode mode: c.modes)
 				{
 					if(modesCounted != 0)
-					{
-						if(modesCounted == c.modes.size() - 1)
-							textBuilder.append(preceedingFinalMode);
-						else
-							textBuilder.append(betweenModes);
-					}
+						textBuilder.append(betweenModes);
 
 					StringBuffer effects = new StringBuffer();
 					for(String effect: mode.effects)

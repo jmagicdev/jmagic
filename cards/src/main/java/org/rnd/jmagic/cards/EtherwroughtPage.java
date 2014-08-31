@@ -16,7 +16,7 @@ public final class EtherwroughtPage extends Card
 	{
 		public DullSwissArmyKnife(GameState state)
 		{
-			super(state, "At the beginning of your upkeep, choose one \u2014 You gain 2 life; or look at the top card of your library, then you may put that card into your graveyard; or each opponent loses 1 life.");
+			super(state, "At the beginning of your upkeep, choose one \u2014\n\u2022 You gain 2 life.\n\u2022 Look at the top card of your library, then you may put that card into your graveyard.\n\u2022 Each opponent loses 1 life.");
 
 			// At the beginning of your upkeep,
 			this.addPattern(atTheBeginningOfYourUpkeep());

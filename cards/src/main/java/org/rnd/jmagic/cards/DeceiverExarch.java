@@ -16,19 +16,19 @@ public final class DeceiverExarch extends Card
 	{
 		public DeceiverExarchAbility1(GameState state)
 		{
-			super(state, "When Deceiver Exarch enters the battlefield, choose one \u2014 Untap target permanent you control; or tap target permanent an opponent controls.");
+			super(state, "When Deceiver Exarch enters the battlefield, choose one \u2014\n\u2022 Untap target permanent you control.\n\u2022 Tap target permanent an opponent controls.");
 			this.addPattern(whenThisEntersTheBattlefield());
 
 			// Untap target permanent you control
 			{
 				SetGenerator target = targetedBy(this.addTarget(1, Intersect.instance(Permanents.instance(), ControlledBy.instance(You.instance())), "target permanent you control"));
-				this.addEffect(1, untap(target, "Untap target permanent you control"));
+				this.addEffect(1, untap(target, "Untap target permanent you control."));
 			}
 
 			// tap target permanent an opponent controls.
 			{
 				SetGenerator target = targetedBy(this.addTarget(2, Intersect.instance(Permanents.instance(), ControlledBy.instance(OpponentsOf.instance(You.instance()))), "target permanent an opponent controls"));
-				this.addEffect(2, tap(target, "tap target permanent an opponent controls."));
+				this.addEffect(2, tap(target, "Tap target permanent an opponent controls."));
 			}
 		}
 	}
