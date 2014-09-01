@@ -4888,6 +4888,44 @@ public class KeywordsNonCombatTest extends JUnitTest
 	}
 
 	@Test
+	public void tribute()
+	{
+		addDeck(ThunderBrute.class, ThunderBrute.class, ThunderBrute.class, ThunderBrute.class, ThunderBrute.class, ThunderBrute.class, ThunderBrute.class);
+		addDeck(ThunderBrute.class, ThunderBrute.class, ThunderBrute.class, ThunderBrute.class, ThunderBrute.class, ThunderBrute.class, ThunderBrute.class);
+		startGame(GameTypes.OPEN);
+
+		respondWith(getPlayer(0));
+		keep();
+		keep();
+
+		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
+
+		castAndResolveSpell(ThunderBrute.class);
+		// tribute begins to apply, auto-choose the only opponent
+		// that opponent chooses to add +1/+1 counters:
+		respondWith(Answer.YES);
+
+		GameObject brute = this.game.actualState.battlefield().objects.get(0);
+		assertEquals(8, brute.getPower());
+		// trample, tribute
+		assertEquals(2, brute.getKeywordAbilities().size());
+
+		castAndResolveSpell(ThunderBrute.class);
+		// this time no counters
+		respondWith(Answer.NO);
+
+		// tribute-not-paid ability on the stack
+		assertEquals(1, this.game.actualState.stack().objects.size());
+		pass();
+		pass();
+
+		brute = this.game.actualState.battlefield().objects.get(0);
+		assertEquals(5, brute.getPower());
+		// trample, tribute, haste
+		assertEquals(3, brute.getKeywordAbilities().size());
+	}
+
+	@Test
 	public void typeCycling()
 	{
 		addDeck(RelentlessRats.class, ReflectingPool.class, Island.class, Island.class, Island.class, Island.class, Island.class, Island.class, IndomitableAncients.class, FieryFall.class, FieryFall.class);

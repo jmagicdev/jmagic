@@ -1018,8 +1018,7 @@ public abstract class EventType
 	 * @eparam TYPE: a {@link PlayerInterface.ChoiceType} and a
 	 * {@link PlayerInterface.ChooseReason}
 	 * @eparam OBJECT: what object is causing the choice [required when the
-	 * {@link PlayerInterface.ChooseReason} in TYPE contains a "~", prohibited
-	 * otherwise]
+	 * {@link PlayerInterface.ChooseReason} in TYPE contains a "~"]
 	 * @eparam RESULT: what was chosen
 	 */
 	public static final EventType PLAYER_CHOOSE = PlayerChoose.INSTANCE;
@@ -1759,6 +1758,16 @@ public abstract class EventType
 	 * @eparam RESULT: empty
 	 */
 	public static final EventType TRANSFORM_PERMANENT = TransformPermanent.INSTANCE;
+
+	/**
+	 * Marker event for when an opponent chooses to have a creature with Tribute
+	 * enter the battlefield with counters.
+	 * 
+	 * @eparam OBJECT: the object whose tribute is being paid
+	 * @eparam RESULT: the object whose tribute is being paid (for ease of use
+	 * in the tribute tracker)
+	 */
+	public static final EventType TRIBUTE_PAID = TributePaid.INSTANCE;
 
 	/**
 	 * Note that this only operates on a single GameObject. This is allowed to

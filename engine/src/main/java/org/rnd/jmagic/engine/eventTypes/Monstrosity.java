@@ -89,7 +89,7 @@ public final class Monstrosity extends EventType
 		newParameters.put(Parameter.OBJECT, objectParameter);
 		newParameters.put(Parameter.COUNTER, new Set(Counter.CounterType.PLUS_ONE_PLUS_ONE));
 		newParameters.put(Parameter.NUMBER, new Set(N));
-		createEvent(game, "Put " + N + " +1/+1 counters on " + object + ".", EventType.PUT_COUNTERS, newParameters).perform(event, false);
+		createEvent(game, "Put " + org.rnd.util.NumberNames.get(N) + " +1/+1 counter" + (N == 1 ? "" : "s") + " on " + object + ".", EventType.PUT_COUNTERS, newParameters).perform(event, false);
 
 		createEvent(game, "" + object + " becomes monstrous.", EventType.BECOMES_MONSTROUS, java.util.Collections.singletonMap(Parameter.OBJECT, objectParameter)).perform(event, false);
 
