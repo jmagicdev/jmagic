@@ -30,7 +30,7 @@ public final class Monstrosity extends EventType
 		@Override
 		protected void reset()
 		{
-			this.values.clear();
+			// purposefully non-functional. permanents do not unmonstrous.
 		}
 
 		@Override
