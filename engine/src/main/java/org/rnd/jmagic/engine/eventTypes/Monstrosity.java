@@ -72,6 +72,11 @@ public final class Monstrosity extends EventType
 		event.setResult(Empty.set);
 
 		GameObject object = parameters.get(Parameter.OBJECT).getOne(GameObject.class);
+		if(object == null)
+			// this will happen if the object is killed in response to the
+			// monstrous ability
+			return false;
+
 		java.util.Set<Integer> monstrousThings = game.actualState.getTracker(MonstrousTracker.class).getValue(game.actualState);
 		if(monstrousThings.contains(object.ID))
 			return true;
