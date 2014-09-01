@@ -21,7 +21,6 @@ public class JMagicToolTip extends JToolTip
 		this.textPane.setMaximumSize(new Dimension(200, 800));
 		this.textPane.setSize(new Dimension(200, Integer.MAX_VALUE));
 		this.textPane.setPreferredSize(new Dimension(200, 5 * this.textPane.getPreferredSize().height));
-		System.out.println(this.textPane.getPreferredSize());
 	}
 
 	@Override

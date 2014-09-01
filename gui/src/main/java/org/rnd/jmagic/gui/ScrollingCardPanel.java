@@ -149,11 +149,13 @@ public class ScrollingCardPanel extends javax.swing.JComponent
 							java.awt.Point cardStart = new java.awt.Point(index * (CardGraphics.SMALL_CARD.width + InnerCardPanel.this.cardSpacing), 0);
 							SanitizedGameObject.CharacteristicSet displayOption = CardGraphics.getLargeCardDisplayOption(e, cardStart, display, false);
 							InnerCardPanel.this.gui.cardInfoPanel.setFocusToGameObject(display, InnerCardPanel.this.gui.state, displayOption);
+							InnerCardPanel.this.setToolTipText(InnerCardPanel.this.gui.getHelpText());
 							return;
 						}
 					}
 
 					InnerCardPanel.this.gui.cardInfoPanel.clearArrows();
+					InnerCardPanel.this.setToolTipText(null);
 				}
 
 				/**
@@ -197,6 +199,12 @@ public class ScrollingCardPanel extends javax.swing.JComponent
 			};
 			this.addMouseMotionListener(mouseInputListener);
 			this.addMouseListener(mouseInputListener);
+		}
+
+		@Override
+		public javax.swing.JToolTip createToolTip()
+		{
+			return new JMagicToolTip();
 		}
 
 		public java.util.List<T> getObjects()
