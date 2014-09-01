@@ -333,8 +333,8 @@ public class Convenience
 
 	/**
 	 * A SetGenerator that can change at game time what it evaluates to.
-	 * Currently used by {@link Convenience#FOR_EACH_PLAYER} to change which
-	 * player is being referenced.
+	 * Currently used by {@link Convenience#FOR_EACH_PLAYER} and
+	 * {@link Convenience#FOR_EACH} to change which player is being referenced.
 	 */
 	public static class DynamicEvaluation extends SetGenerator
 	{
@@ -1364,6 +1364,8 @@ public class Convenience
 	private static ZoneChangePattern whenAPlayerCyclesACardPattern = null;
 
 	private static EventPattern whenThisAttacksPattern = null;
+
+	private static EventPattern whenThisBecomesMonstrosPattern = null;
 
 	private static EventPattern whenThisBlocksPattern = null;
 
@@ -3452,6 +3454,17 @@ public class Convenience
 			whenThisAttacksPattern = new ImmutableEventPattern(pattern);
 		}
 		return whenThisAttacksPattern;
+	}
+
+	public static EventPattern whenThisBecomesMonstrous()
+	{
+		if(whenThisBecomesMonstrosPattern == null)
+		{
+			SimpleEventPattern pattern = new SimpleEventPattern(EventType.BECOMES_MONSTROUS);
+			pattern.put(EventType.Parameter.OBJECT, ABILITY_SOURCE_OF_THIS);
+			whenThisBecomesMonstrosPattern = new ImmutableEventPattern(pattern);
+		}
+		return whenThisBecomesMonstrosPattern;
 	}
 
 	public static EventPattern whenThisBlocks()
