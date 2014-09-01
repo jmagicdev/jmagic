@@ -305,6 +305,7 @@ public class CardShell
 		newKeywords.put("Exalted", simpleInstantiation(Exalted.class));
 		newKeywords.put("Extort", simpleInstantiation(Extort.class));
 		newKeywords.put("Fear", simpleInstantiation(Fear.class));
+		// newKeywords.put("Fuse", simpleInstantiation(Fuse.class));
 		newKeywords.put("First strike", simpleInstantiation(FirstStrike.class));
 		newKeywords.put("Flanking", simpleInstantiation(Flanking.class));
 		newKeywords.put("Flash", simpleInstantiation(Flash.class));
@@ -342,6 +343,7 @@ public class CardShell
 		// Complex keywords
 		newKeywords.put(keywordAndNumber("Absorb"), complexInstantiation(Absorb.class));
 		newKeywords.put(keywordAndNumber("Annihilator"), complexInstantiation(Annihilator.class));
+		newKeywords.put(keywordAndManaCost("Bestow"), complexInstantiation(Bestow.class));
 		newKeywords.put(keywordAndNumber("Bloodthirst"), complexInstantiation(Bloodthirst.Final.class));
 		newKeywords.put(keywordAndNumber("Bushido"), complexInstantiation(Bushido.class));
 		newKeywords.put(keywordAndManaCost("Cumulative upkeep"), complexInstantiation(CumulativeUpkeep.ForMana.class, true));
@@ -374,6 +376,7 @@ public class CardShell
 		newKeywords.put(keywordAndManaCost("Scavenge"), complexInstantiation(Scavenge.class, true));
 		newKeywords.put(keywordAndNumber("Soulshift"), complexInstantiation(Soulshift.class));
 		newKeywords.put(keywordAndManaCost("Transmute"), complexInstantiation(Transmute.class, true));
+		newKeywords.put(keywordAndNumber("Tribute"), complexInstantiation(Tribute.class));
 		newKeywords.put(keywordAndManaCost("Unearth"), complexInstantiation(Unearth.class, true));
 
 		// Not really keywords

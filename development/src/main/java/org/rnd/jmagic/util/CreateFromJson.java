@@ -52,6 +52,7 @@ public class CreateFromJson
 
 			System.out.println("Writing card shells...");
 			cardsToWrite.build().forEach(new JsonConsumer(root));
+			System.out.println("Done.");
 			return;
 		}
 
@@ -88,6 +89,7 @@ public class CreateFromJson
 
 		System.out.println("Writing card shells...");
 		cards.forEach(new JsonConsumer(root));
+		System.out.println("Done.");
 	}
 
 	public static class JsonConsumer implements Consumer<JsonValue>
@@ -121,7 +123,7 @@ public class CreateFromJson
 			if(null != text)
 			{
 				String abilityText = text.replace("\\\"", "\"").replace("−", "-");
-				for(String abilityLine: abilityText.split("(\\\\[rn])+"))
+				for(String abilityLine: abilityText.split("\n"))
 					card.abilities.add(abilityLine);
 			}
 
