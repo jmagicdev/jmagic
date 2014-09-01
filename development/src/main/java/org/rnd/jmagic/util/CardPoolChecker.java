@@ -68,8 +68,6 @@ public class CardPoolChecker
 				type = GameTypes.BLOCK;
 			else if(potentialPool.equals("Standard"))
 				type = GameTypes.STANDARD;
-			else if(potentialPool.equals("Extended"))
-				type = GameTypes.EXTENDED;
 			else if(potentialPool.equals("Modern"))
 				type = GameTypes.MODERN;
 			else if(potentialPool.equals("Legacy"))

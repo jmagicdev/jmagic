@@ -7,7 +7,6 @@ public class GameTypes
 {
 	public static final GameType BLOCK = new GameType("ISD Block Constructed");
 	public static final GameType STANDARD = new GameType("Standard");
-	public static final GameType EXTENDED = new GameType("Extended");
 	public static final GameType MODERN = new GameType("Modern");
 	public static final GameType LEGACY = new GameType("Legacy");
 	public static final GameType VINTAGE = new GameType("Vintage");
@@ -15,7 +14,7 @@ public class GameTypes
 	public static final GameType PACK_WARS = new GameType("Pack Wars (M13)");
 	public static final GameType STACKED = new GameType("Stacked (cheater!)");
 	public static final GameType VINTAGE_PACK_WARS = new GameType("Vintage Pack Wars");
-	private static final GameType[] oldValues = {BLOCK, STANDARD, EXTENDED, MODERN, LEGACY, VINTAGE, OPEN, STACKED, PACK_WARS, VINTAGE_PACK_WARS};
+	private static final GameType[] oldValues = {BLOCK, STANDARD, MODERN, LEGACY, VINTAGE, OPEN, STACKED, PACK_WARS, VINTAGE_PACK_WARS};
 
 	static
 	{
@@ -30,12 +29,6 @@ public class GameTypes
 		STANDARD.addRule(new SideboardSize(15));
 		STANDARD.addRule(new SideboardAsWishboard());
 		STANDARD.addRule(new CardPool.Standard());
-
-		EXTENDED.addRule(new DeckSizeMinimum(60));
-		EXTENDED.addRule(new MaximumCardCount(4));
-		EXTENDED.addRule(new SideboardSize(15));
-		EXTENDED.addRule(new SideboardAsWishboard());
-		EXTENDED.addRule(new CardPool.Extended());
 
 		MODERN.addRule(new DeckSizeMinimum(60));
 		MODERN.addRule(new MaximumCardCount(4));

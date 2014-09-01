@@ -600,7 +600,6 @@ public class Start
 	{
 		FORMAT_STRINGS.add(org.rnd.jmagic.engine.GameTypes.BLOCK.getName());
 		FORMAT_STRINGS.add(org.rnd.jmagic.engine.GameTypes.STANDARD.getName());
-		FORMAT_STRINGS.add(org.rnd.jmagic.engine.GameTypes.EXTENDED.getName());
 		FORMAT_STRINGS.add(org.rnd.jmagic.engine.GameTypes.MODERN.getName());
 		FORMAT_STRINGS.add(org.rnd.jmagic.engine.GameTypes.LEGACY.getName());
 		FORMAT_STRINGS.add(org.rnd.jmagic.engine.GameTypes.VINTAGE.getName());

@@ -94,8 +94,8 @@ public abstract class CardPool implements GameTypeRule
 		// Card pools don't modify the game state.
 	}
 
-	@Name("ISD Block Constructed")
-	@Description("Innistrad Block Constructed, as of 2012 June 20 (Innistrad through Avacyn Restored)")
+	@Name("THS Block Constructed")
+	@Description("Theros Block Constructed, as of 2014 September 1 (Theros through Journey Into Nyx)")
 	public static class Block extends CardPool
 	{
 		public Block()
@@ -112,53 +112,26 @@ public abstract class CardPool implements GameTypeRule
 	}
 
 	@Name("Standard")
-	@Description("Standard, as of 2012 September 20 (Innistrad through Return to Ravnica)")
+	@Description("Standard, as of 2014 September 1 (Return to Ravnica through Magic 2015)")
 	public static class Standard extends CardPool
 	{
 		public Standard()
 		{
 			super(false);
 
-			this.allowSet(Expansion.INNISTRAD);
-			this.allowSet(Expansion.DARK_ASCENSION);
-			this.allowSet(Expansion.AVACYN_RESTORED);
-			this.allowSet(Expansion.MAGIC_2013);
 			this.allowSet(Expansion.RETURN_TO_RAVNICA);
-		}
-	}
-
-	@Name("Extended")
-	@Description("Extended, as of 2012 September 20 (Zendikar through Return to Ravnica)")
-	public static class Extended extends CardPool
-	{
-		public Extended()
-		{
-			super(false);
-
-			this.allowSet(Expansion.ZENDIKAR);
-			this.allowSet(Expansion.WORLDWAKE);
-			this.allowSet(Expansion.RISE_OF_THE_ELDRAZI);
-			this.allowSet(Expansion.MAGIC_2011);
-			this.allowSet(Expansion.SCARS_OF_MIRRODIN);
-			this.allowSet(Expansion.MIRRODIN_BESIEGED);
-			this.allowSet(Expansion.NEW_PHYREXIA);
-			this.allowSet(Expansion.MAGIC_2012);
-			this.allowSet(Expansion.INNISTRAD);
-			this.allowSet(Expansion.DARK_ASCENSION);
-			this.allowSet(Expansion.AVACYN_RESTORED);
-			this.allowSet(Expansion.MAGIC_2013);
-			this.allowSet(Expansion.RETURN_TO_RAVNICA);
-
-			this.banCard("Jace, the Mind Sculptor");
-			this.banCard("Mental Misstep");
-			this.banCard("Ponder");
-			this.banCard("Preordain");
-			this.banCard("Stoneforge Mystic");
+			this.allowSet(Expansion.GATECRASH);
+			this.allowSet(Expansion.DRAGONS_MAZE);
+			this.allowSet(Expansion.MAGIC_2014);
+			this.allowSet(Expansion.THEROS);
+			this.allowSet(Expansion.BORN_OF_THE_GODS);
+			this.allowSet(Expansion.JOURNEY_INTO_NYX);
+			this.allowSet(Expansion.MAGIC_2015);
 		}
 	}
 
 	@Name("Modern")
-	@Description("Modern, as of 2012 September 20 (Eighth Edition through Return to Ravnica)")
+	@Description("Modern, as of 2014 September 1 (Eighth Edition through Magic 2015)")
 	public static class Modern extends CardPool
 	{
 		public Modern()
@@ -202,14 +175,22 @@ public abstract class CardPool implements GameTypeRule
 			this.allowSet(Expansion.AVACYN_RESTORED);
 			this.allowSet(Expansion.MAGIC_2013);
 			this.allowSet(Expansion.RETURN_TO_RAVNICA);
+			this.allowSet(Expansion.GATECRASH);
+			this.allowSet(Expansion.DRAGONS_MAZE);
+			this.allowSet(Expansion.MAGIC_2014);
+			this.allowSet(Expansion.THEROS);
+			this.allowSet(Expansion.BORN_OF_THE_GODS);
+			this.allowSet(Expansion.JOURNEY_INTO_NYX);
+			this.allowSet(Expansion.MAGIC_2015);
 
 			this.banCard("Ancestral Vision");
 			this.banCard("Ancient Den");
-			this.banCard("Bitterblossom");
 			this.banCard("Blazing Shoal");
+			this.banCard("Bloodbraid Elf");
 			this.banCard("Chrome Mox");
 			this.banCard("Cloudpost");
 			this.banCard("Dark Depths");
+			this.banCard("Deathrite Shaman");
 			this.banCard("Dread Return");
 			this.banCard("Glimpse of Nature");
 			this.banCard("Golgari Grave Troll");
@@ -223,6 +204,8 @@ public abstract class CardPool implements GameTypeRule
 			this.banCard("Punishing Fire");
 			this.banCard("Rite of Flame");
 			this.banCard("Seat of the Synod");
+			this.banCard("Second Sunrise");
+			this.banCard("Seething Song");
 			this.banCard("Sensei's Divining Top");
 			this.banCard("Stoneforge Mystic");
 			this.banCard("Skullclamp");
@@ -230,24 +213,26 @@ public abstract class CardPool implements GameTypeRule
 			this.banCard("Tree of Tales");
 			this.banCard("Umezawa's Jitte");
 			this.banCard("Vault of Whispers");
-			this.banCard("Wild Nacatl");
 		}
 	}
 
 	@Name("Legacy")
-	@Description("Legacy, as of 2012 September 20")
+	@Description("Legacy, as of 2014 September 1")
 	public static class Legacy extends CardPool
 	{
 		public Legacy()
 		{
 			super(true);
 
+			this.banCard("Advantageous Proclamation");
 			this.banCard("Amulet of Quoz"); // Will never implement
 			this.banCard("Ancestrall Recall");
+			this.banCard("Backup Plan");
 			this.banCard("Balance");
 			this.banCard("Bazaar of Baghdad");
 			this.banCard("Black Lotus");
 			this.banCard("Black Vise");
+			this.banCard("Brago's Favor");
 			this.banCard("Bronze Tablet"); // Will never implement
 			this.banCard("Channel");
 			this.banCard("Chaos Orb"); // Will never implement
@@ -256,6 +241,7 @@ public abstract class CardPool implements GameTypeRule
 			this.banCard("Demonic Attorney"); // Will never implement
 			this.banCard("Demonic Consultation");
 			this.banCard("Demonic Tutor");
+			this.banCard("Double Stroke");
 			this.banCard("Earthcraft");
 			this.banCard("Falling Star"); // Will never implement
 			this.banCard("Fastbond");
@@ -264,7 +250,9 @@ public abstract class CardPool implements GameTypeRule
 			this.banCard("Goblin Recruiter");
 			this.banCard("Gush");
 			this.banCard("Hermit Druid");
+			this.banCard("Immediate Action");
 			this.banCard("Imperial Seal");
+			this.banCard("Iterative Analysis");
 			this.banCard("Jeweled Bird"); // Will never implement
 			this.banCard("Library of Alexandria");
 			this.banCard("Mana Crypt");
@@ -280,10 +268,15 @@ public abstract class CardPool implements GameTypeRule
 			this.banCard("Mox Pearl");
 			this.banCard("Mox Ruby");
 			this.banCard("Mox Sapphire");
+			this.banCard("Muzzio's Preparations");
 			this.banCard("Mystical Tutor");
 			this.banCard("Necropotence");
 			this.banCard("Oath of Druids");
+			this.banCard("Power Play");
 			this.banCard("Rebirth"); // Will never implement
+			this.banCard("Secret Summoning");
+			this.banCard("Secrets of Paradise");
+			this.banCard("Sentinel Dispatch");
 			this.banCard("Shahrazad");
 			this.banCard("Skullclamp");
 			this.banCard("Sol Ring");
@@ -296,41 +289,55 @@ public abstract class CardPool implements GameTypeRule
 			this.banCard("Timmerian Fiends"); // Will never implement
 			this.banCard("Tinker");
 			this.banCard("Tolarian Academy");
+			this.banCard("Unexpected Potential");
 			this.banCard("Vampiric Tutor");
 			this.banCard("Wheel of Fortune");
 			this.banCard("Windfall");
 			this.banCard("Worldgorger Dragon");
+			this.banCard("Worldknit");
 			this.banCard("Yawgmoth's Bargain");
 			this.banCard("Yawgmoth's Will");
 		}
 	}
 
 	@Name("Vintage")
-	@Description("Vintage, as of 2012 September 20")
+	@Description("Vintage, as of 2014 September 1")
 	public static class Vintage extends CardPool
 	{
 		public Vintage()
 		{
 			super(true);
 
+			this.banCard("Advantageous Proclamation");
 			this.banCard("Amulet of Quoz"); // Will never implement
+			this.banCard("Backup Plan");
+			this.banCard("Brago's Favor");
 			this.banCard("Bronze Tablet"); // Will never implement
 			this.banCard("Chaos Orb"); // Will never implement
 			this.banCard("Contract from Below"); // Will never implement
 			this.banCard("Darkpact"); // Will never implement
 			this.banCard("Demonic Attorney"); // Will never implement
+			this.banCard("Double Stroke");
 			this.banCard("Falling Star"); // Will never implement
+			this.banCard("Immediate Action");
+			this.banCard("Iterative Analysis");
 			this.banCard("Jeweled Bird"); // Will never implement
+			this.banCard("Muzzio's Preparations");
+			this.banCard("Power Play");
 			this.banCard("Rebirth"); // Will never implement
+			this.banCard("Secret Summoning");
+			this.banCard("Secrets of Paradise");
+			this.banCard("Sentinel Dispatch");
 			this.banCard("Shahrazad");
 			this.banCard("Tempest Efreet"); // Will never implement
 			this.banCard("Timmerian Fiends"); // Will never implement
+			this.banCard("Unexpected Potential");
+			this.banCard("Worldknit");
 
 			this.restrictCard("Ancestral Recall");
 			this.restrictCard("Balance");
 			this.restrictCard("Black Lotus");
 			this.restrictCard("Brainstorm");
-			this.restrictCard("Burning Wish");
 			this.restrictCard("Channel");
 			this.restrictCard("Demonic Consultation");
 			this.restrictCard("Demonic Tutor");
@@ -354,7 +361,6 @@ public abstract class CardPool implements GameTypeRule
 			this.restrictCard("Mystical Tutor");
 			this.restrictCard("Necropotence");
 			this.restrictCard("Ponder");
-			this.restrictCard("Regrowth");
 			this.restrictCard("Sol Ring");
 			this.restrictCard("Strip Mine");
 			this.restrictCard("Thirst for Knowledge");
