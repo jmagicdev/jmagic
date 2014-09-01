@@ -2464,6 +2464,20 @@ public class Convenience
 	}
 
 	/**
+	 * Requires
+	 * {@link org.rnd.jmagic.engine.eventTypes.Monstrosity.MonstrousTracker} !!
+	 * Don't forget!
+	 */
+	public static EventFactory monstrosity(int N)
+	{
+		EventFactory ret = new EventFactory(EventType.MONSTROSITY, "Monstrosity " + N + ".");
+		ret.parameters.put(EventType.Parameter.CAUSE, This.instance());
+		ret.parameters.put(EventType.Parameter.OBJECT, ABILITY_SOURCE_OF_THIS);
+		ret.parameters.put(EventType.Parameter.NUMBER, numberGenerator(N));
+		return ret;
+	}
+
+	/**
 	 * Provides a SetGenerator that evaluates to the given number. This will
 	 * usually be an Identity, but if a "specific" generator is available (Zero,
 	 * for instance) it will be returned instead.

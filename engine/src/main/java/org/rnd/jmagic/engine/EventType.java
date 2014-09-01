@@ -97,6 +97,14 @@ public abstract class EventType
 	public static final EventType BECOMES_BLOCKED_BY_ONE = BecomesBlockedByOne.INSTANCE;
 
 	/**
+	 * Marker event for a permanent becoming monstrous.
+	 * 
+	 * @eparam OBJECT: the permanent
+	 * @eparam RESULT: empty
+	 */
+	public static final EventType BECOMES_MONSTROUS = BecomesMonstrous.INSTANCE;
+
+	/**
 	 * This is a marker event for the moment at which a spell or ability becomes
 	 * played. Mana abilities resolve here.
 	 * 
@@ -851,6 +859,19 @@ public abstract class EventType
 	 * @eparam RESULT: results of the MOVE_OBJECTS event(s)
 	 */
 	public static final EventType MILL_CARDS = MillCards.INSTANCE;
+
+	/**
+	 * Requires the
+	 * {@link org.rnd.jmagic.engine.eventTypes.Monstrosity.MonstrousTracker} !!
+	 * Don't forget!
+	 * 
+	 * @eparam CAUSE: the ability causing this permanent to become monstrous
+	 * @eparam OBJECT: the thing becoming monstrous (not redundant, only because
+	 * it needs to be returned by {@link EventType#affects()})
+	 * @eparam NUMBER: the monstrosity number
+	 * @eparam RESULT: empty
+	 */
+	public static final EventType MONSTROSITY = Monstrosity.INSTANCE;
 
 	/**
 	 * This event ACTUALLY MOVES OBJECTS. This event should only be created or
