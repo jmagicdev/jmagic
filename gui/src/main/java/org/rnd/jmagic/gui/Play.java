@@ -465,6 +465,8 @@ public class Play
 	// the same
 	private java.util.Map<Integer, java.awt.Image> smallImageCache;
 
+	private String helpText;
+
 	private java.util.List<Integer> indicated;
 
 	private LogPanel logPanel;
@@ -556,6 +558,8 @@ public class Play
 		this.dividingOn = -1;
 
 		this.smallImageCache = new java.util.HashMap<Integer, java.awt.Image>();
+
+		this.helpText = null;
 
 		this.indicated = new java.util.LinkedList<Integer>();
 
@@ -2121,6 +2125,12 @@ public class Play
 		return Boolean.parseBoolean(this.properties.getProperty(PropertyKeys.BEEP_ON_YOUR_TURN));
 	}
 
+	public String getHelpText()
+	{
+		// System.out.println("getHelpText");
+		return this.helpText;
+	}
+
 	public void removeIndication(int ID)
 	{
 		this.indicated.remove((Object)ID);
@@ -2128,6 +2138,8 @@ public class Play
 
 	public void setHelpText(String helpText)
 	{
+		// System.out.println("setHelpText");
+		this.helpText = helpText;
 		this.cardInfoPanel.setToolTipText(helpText);
 	}
 

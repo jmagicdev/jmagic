@@ -348,9 +348,13 @@ class BattlefieldPanel extends javax.swing.JPanel
 
 					SanitizedGameObject.CharacteristicSet displayOption = CardGraphics.getLargeCardDisplayOption(e, cardStart, hoveredCard, flipped);
 					BattlefieldPanel.this.gui.cardInfoPanel.setFocusToGameObject(hoveredCard, BattlefieldPanel.this.gui.state, displayOption);
+					BattlefieldPanel.this.setToolTipText(BattlefieldPanel.this.gui.getHelpText());
 				}
 				else
+				{
 					BattlefieldPanel.this.gui.cardInfoPanel.clearArrows();
+					BattlefieldPanel.this.setToolTipText(null);
+				}
 			}
 
 			@Override
@@ -478,6 +482,13 @@ class BattlefieldPanel extends javax.swing.JPanel
 		// This method should only be called from the event-handler thread, but
 		// since this panel hasn't been realized yet, this should be fine.
 		this.update();
+	}
+
+	@Override
+	public javax.swing.JToolTip createToolTip()
+	{
+		// System.out.println("BattlefieldPanel createToolTip");
+		return new JMagicToolTip();
 	}
 
 	public void update()

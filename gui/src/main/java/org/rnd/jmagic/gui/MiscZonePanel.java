@@ -117,9 +117,13 @@ class MiscZonePanel extends javax.swing.JPanel
 					java.awt.Point cardStart = new java.awt.Point(0, reverseIndex * CardGraphics.SMALL_CARD_PADDING.height);
 					SanitizedGameObject.CharacteristicSet displayOption = CardGraphics.getLargeCardDisplayOption(e, cardStart, hoveredCard, false);
 					MiscZonePanel.this.gui.cardInfoPanel.setFocusToGameObject(hoveredCard, MiscZonePanel.this.gui.state, displayOption);
+					MiscZonePanel.this.setToolTipText(MiscZonePanel.this.gui.getHelpText());
 				}
 				else
+				{
 					MiscZonePanel.this.gui.cardInfoPanel.clearArrows();
+					MiscZonePanel.this.setToolTipText(null);
+				}
 			}
 
 			@Override
@@ -180,6 +184,13 @@ class MiscZonePanel extends javax.swing.JPanel
 		this.add(this.zoneChooser, java.awt.BorderLayout.PAGE_START);
 
 		this.update();
+	}
+
+	@Override
+	public javax.swing.JToolTip createToolTip()
+	{
+		// System.out.println("MiscZonePanel createToolTip");
+		return new JMagicToolTip();
 	}
 
 	public void setSelectedItem(Object item)
