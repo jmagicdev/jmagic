@@ -1,3 +1,13 @@
+IDEA:  class SplitCard extends Card { private Card left; private Card right; }
+with some way of denoting which side is "active" at any given time, as well as
+some way of causing the characteristics inherited from Card to change to the
+side being played when it's on the stack (probably with the clone method). 
+
+Why this is bad:  Now that GameObject has a Characteristics field we should be
+doing something with that instead.  Also, having a card with two sub-Cards means
+that you have this third set of characteristics lying around (from the Card it's
+extending) ...
+
 ================================================================================
 Things to think about -- are these good ideas?  If they are good ideas, then
 TODO them, Trac them, or implement them.  If they are bad ideas, then put them
@@ -75,9 +85,3 @@ if there are no objects left in the "being played" collection.
 
 
 ============= I really think everything above this line should be in Trac.
-
-
-IDEA:  class SplitCard extends Card { private Card left; private Card right; }
-with some way of denoting which side is "active" at any given time, as well as
-some way of causing the characteristics inherited from Card to change to the
-side being played when it's on the stack (probably with the clone method). 

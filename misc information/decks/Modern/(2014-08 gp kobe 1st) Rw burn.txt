@@ -1,0 +1,24 @@
+4 Eidolon of the Great Revel
+4 Goblin Guide
+3 Grim Lavamancer
+4 Vexing Devil
+
+3 Boros Charm
+4 Lava Spike
+4 Lightning Bolt
+4 Rift Bolt
+3 Searing Blood
+3 Shard Volley
+4 Skullcrack
+
+4 Arid Mesa
+4 Battlefield Forge
+8 Mountain
+4 Sacred Foundry
+
+SB: 4 Leyline of Sanctity
+SB: 4 Molten Rain
+SB: 1 Shatterstorm
+SB: 4 Stony Silence
+## this card should be Wear // Tear but we don't support split cards.
+SB: 2 Shatter

@@ -1,0 +1,26 @@
+3 Eidolon of the Great Revel
+4 Goblin Guide
+3 Hellspark Elemental
+
+4 Boros Charm
+1 Flames of the Blood Hand
+4 Lava Spike
+4 Lightning Bolt
+4 Lightning Helix
+4 Rift Bolt
+3 Searing Blaze
+2 Shard Volley
+4 Skullcrack
+
+4 Arid Mesa
+9 Mountain
+3 Sacred Foundry
+4 Scalding Tarn
+
+SB: 2 Combust
+SB: 4 Leyline of Sanctity
+SB: 2 Molten Rain
+SB: 2 Relic of Progenitus
+SB: 2 Searing Blood
+## this card should be Wear // Tear but we don't support split cards
+SB: 3 Shatter

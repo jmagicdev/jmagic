@@ -184,6 +184,10 @@ public class Convenience
 			this.abilities.add(ability);
 		}
 
+		/**
+		 * Calling this will cause the object to lose colors it already had (if
+		 * any).
+		 */
 		public void addColor(Color color)
 		{
 			this.colors.add(color);
@@ -250,8 +254,8 @@ public class Convenience
 		}
 
 		/**
-		 * Call this method if "It's still a land" (for example) is NOT in the
-		 * effect.
+		 * Call this method if `It's still a land` or `in addition to its other
+		 * types` (for example) is NOT in the effect.
 		 */
 		public void removeOldTypes()
 		{

@@ -1,0 +1,37 @@
+3 Deceiver Exarch
+2 Huntmaster of the Fells
+3 Pestermite
+4 Snapcaster Mage
+4 Tarmogoyf
+
+2 Cryptic Command
+1 Electrolyze
+1 Flame Slash
+4 Lightning Bolt
+4 Remand
+4 Serum Visions
+4 Splinter Twin
+1 Twisted Image
+
+1 Breeding Pool
+1 Forest
+2 Hinterland Harbor
+3 Island
+4 Misty Rainforest
+1 Mountain
+4 Scalding Tarn
+2 Steam Vents
+1 Stomping Ground
+3 Sulfur Falls
+1 Tectonic Edge
+
+SB: 2 Ancient Grudge
+SB: 2 Batterskull
+SB: 1 Blood Moon
+SB: 1 Dispel
+SB: 2 Engineered Explosives
+SB: 1 Izzet Staticaster
+SB: 2 Relic of Progenitus
+SB: 1 Seal of Primordium
+SB: 2 Threads of Disloyalty
+SB: 1 Unravel the AEther
