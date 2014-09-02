@@ -87,7 +87,7 @@ public class CardPoolChecker
 		System.out.println("Done loading cards");
 		System.out.println();
 		System.out.println("Checking decks");
-		checkPath(new java.io.File("./misc information/decks/"), null, args.length > 0 && args[0].equals("delete"));
+		checkPath(new java.io.File("../misc information/decks/"), null, args.length > 0 && args[0].equals("delete"));
 		System.out.println("Done checking decks");
 	}
 }
