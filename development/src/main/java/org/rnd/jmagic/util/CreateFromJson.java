@@ -122,7 +122,7 @@ public class CreateFromJson
 			String text = json.getString("text", null);
 			if(null != text)
 			{
-				String abilityText = text.replace("\\\"", "\"").replace("−", "-");
+				String abilityText = text.replace("\\\"", "\"").replace("−", "-").replace("{", "(").replace("}", ")");
 				for(String abilityLine: abilityText.split("\n"))
 					card.abilities.add(abilityLine);
 			}
