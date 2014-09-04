@@ -316,6 +316,7 @@ public class CardShell
 		newKeywords.put("Hideaway", simpleInstantiation(Hideaway.class));
 		newKeywords.put("Horsemanship", simpleInstantiation(Horsemanship.class));
 		newKeywords.put("Infect", simpleInstantiation(Infect.class));
+		newKeywords.put("Indestructible", simpleInstantiation(Indestructible.class));
 		newKeywords.put("Intimidate", simpleInstantiation(Intimidate.class));
 		newKeywords.put("Islandwalk", simpleInstantiation(Landwalk.Islandwalk.class));
 		newKeywords.put("Lifelink", simpleInstantiation(Lifelink.class));
