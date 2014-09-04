@@ -1,9 +1,12 @@
 package org.rnd.jmagic.util;
 
+
 import org.rnd.jmagic.engine.*;
 
 public class CardPoolChecker
 {
+	public static java.util.Set<String> missingCards = new java.util.HashSet<>();
+	
 	private static void checkFile(final java.io.File file, GameType type, final boolean delete) throws java.io.IOException
 	{
 		Game game = new Game(type);
@@ -17,7 +20,11 @@ public class CardPoolChecker
 				// This is where we should get information about whether the
 				// deck is legal or not
 				if(parameters instanceof PlayerInterface.ErrorParameters.CardLoadingError)
-					System.err.println(file + " could not load cards " + ((PlayerInterface.ErrorParameters.CardLoadingError)parameters).cardNames);
+				{
+					java.util.Set<String> cardNames = ((PlayerInterface.ErrorParameters.CardLoadingError)parameters).cardNames;
+					System.err.println(file + " could not load cards " + cardNames);
+					CardPoolChecker.missingCards.addAll(cardNames);
+				}
 				else if(parameters instanceof PlayerInterface.ErrorParameters.DeckCheckError)
 					System.err.println(file + " failed deck check: " + ((PlayerInterface.ErrorParameters.DeckCheckError)parameters).rule);
 				else if(parameters instanceof PlayerInterface.ErrorParameters.CardCheckError)
@@ -89,5 +96,8 @@ public class CardPoolChecker
 		System.out.println("Checking decks");
 		checkPath(new java.io.File("../misc information/decks/"), null, args.length > 0 && args[0].equals("delete"));
 		System.out.println("Done checking decks");
+		System.out.println("");
+		System.out.println("Missing cards list:");
+		System.out.println(String.join("\n", missingCards));
 	}
 }
