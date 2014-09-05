@@ -1573,6 +1573,8 @@ public abstract class ContinuousEffectType
 	 * @eparam COST: Set of ManaSymbols that is the additional cost, or an
 	 * amount of colorless mana to add, or EventFactories to add to the object's
 	 * costs
+	 * @eparam NUMBER: How many times to add the cost [optional; default 1 --
+	 * does nothing for EventFactory costs, only for ManaPool costs.]
 	 */
 	public static final ContinuousEffectType COST_ADDITION = new ContinuousEffectType("COST_ADDITION")
 	{
@@ -1593,6 +1595,8 @@ public abstract class ContinuousEffectType
 				cost = new ManaPool(parameters.get(Parameter.COST).getAll(ManaSymbol.class));
 			else
 				cost = new ManaPool(colorlessAmount.toString());
+			if(parameters.containsKey(Parameter.NUMBER))
+				cost = cost.duplicate(parameters.get(Parameter.NUMBER).getOne(Integer.class));
 
 			if(state.manaCostAdditions.containsKey(objects))
 				state.manaCostAdditions.get(objects).addAll(cost);
