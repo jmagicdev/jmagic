@@ -15,7 +15,7 @@ public final class Counterspell extends Card
 	{
 		super(state);
 
-		Target target = this.addTarget(Spells.instance(), "target spells");
+		Target target = this.addTarget(Spells.instance(), "target spell");
 
 		this.addEffect(counter(targetedBy(target), "Counter target spell."));
 	}
