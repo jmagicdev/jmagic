@@ -1,0 +1,27 @@
+4 Chandra's Phoenix
+1 Eidolon of the Great Revel
+4 Young Pyromancer
+
+4 Boros Charm
+4 Lightning Strike
+4 Searing Blood
+4 Shock
+3 Skullcrack
+4 Stoke the Flames
+4 Warleader's Helix
+
+4 Battlefield Forge
+9 Mountain
+4 Mutavault
+3 Sacred Foundry
+4 Temple of Triumph
+
+SB: 1 Banishing Light
+SB: 3 Chained to the Rocks
+SB: 2 Chandra, Pyromaster
+SB: 1 Eidolon of the Great Revel
+SB: 2 Glare of Heresy
+SB: 4 Satyr Firedancer
+SB: 1 Skullcrack
+// this card should be wear // tear, but we don't support split cards
+SB: 1 Smelt

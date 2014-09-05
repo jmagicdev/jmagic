@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Smelt")
 @Types({Type.INSTANT})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2013, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Expansion.MAGIC_2014, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.MAGIC_2013, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class Smelt extends Card
 {

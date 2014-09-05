@@ -1,0 +1,32 @@
+4 Courser of Kruphix
+3 Elvish Mystic
+4 Sylvan Caryatid
+
+1 Abrupt Decay
+2 Dreadbore
+2 Golgari Charm
+1 Hero's Downfall
+3 Mizzium Mortars
+2 Putrefy
+2 Rakdos's Return
+4 Read the Bones
+
+2 Blood Crypt
+1 Forest
+4 Llanowar Wastes
+1 Mutavault
+2 Overgrown Tomb
+4 Stomping Ground
+3 Temple of Abandon
+2 Temple of Malady
+4 Temple of Malice
+
+SB: 1 Abrupt Decay
+SB: 2 Duress
+SB: 1 Golgari Charm
+SB: 4 Magma Spray
+SB: 1 Mizzium Mortars
+SB: 1 Pithing Needle
+SB: 1 Rakdos's Return
+SB: 2 Slaughter Games
+SB: 2 Thoughtseize
