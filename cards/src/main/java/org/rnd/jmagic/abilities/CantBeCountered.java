@@ -18,7 +18,7 @@ public final class CantBeCountered extends StaticAbility
 
 	public CantBeCountered(GameState state, String spellName, boolean bySpellsOrAbilities)
 	{
-		super(state, spellName + " can't be countered.");
+		super(state, spellName + " can't be countered" + (bySpellsOrAbilities ? " by spells or abilities" : "") + ".");
 		this.spellName = spellName;
 		this.bySpellsOrAbilities = bySpellsOrAbilities;
 
