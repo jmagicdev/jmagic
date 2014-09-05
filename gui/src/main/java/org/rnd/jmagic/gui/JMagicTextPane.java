@@ -188,7 +188,7 @@ public class JMagicTextPane extends javax.swing.JTextPane
 		// have been applied
 		javax.swing.text.Style defaultStyle = document.getLogicalStyle(0);
 		javax.swing.text.Style halfSize = document.addStyle("half-size", defaultStyle);
-		javax.swing.text.StyleConstants.setFontSize(halfSize, javax.swing.text.StyleConstants.getFontSize(defaultStyle) / 2);
+		javax.swing.text.StyleConstants.setFontSize(halfSize, javax.swing.text.StyleConstants.getFontSize(defaultStyle) / 6);
 
 		int leftParenthesis = text.indexOf('(');
 		while(-1 != leftParenthesis)
