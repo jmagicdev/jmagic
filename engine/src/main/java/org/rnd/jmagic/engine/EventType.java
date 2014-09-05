@@ -219,6 +219,18 @@ public abstract class EventType
 	public static final EventType CLASH_WITH_AN_OPPONENT = ClashWithAnOpponent.INSTANCE;
 
 	/**
+	 * This is the event you want to use when an effect has a player copy an
+	 * exiled card and 'cast the copy', rather than copying a spell on the
+	 * stack.
+	 * 
+	 * @eparam CAUSE: what is copying the card
+	 * @eparam OBJECT: what is being copied (singular)
+	 * @eparam NUMBER: how many copies to make [optional; default 1]
+	 * @eparam RESULT: the copies created
+	 */
+	public static final EventType COPY_SPELL_CARD = CopySpellCard.INSTANCE;
+
+	/**
 	 * @eparam CAUSE: what is copying the spell
 	 * @eparam OBJECT: the spell to copy for each possible target
 	 * @eparam TARGET: a subset of the targets to limit it to
@@ -375,11 +387,13 @@ public abstract class EventType
 	 * @eparam TYPE: the types of the token (if CREATURE is included, POWER and
 	 * TOUGHNESS are required)
 	 * @eparam EVENT: the EventType by which to put the token on the battlefield
-	 * [optional; default is PUT_ONTO_BATTLEFIELD. PUT_ONTO_BATTIEFIELD_TAPPED
-	 * and PUT_ONTO_BATTLEFIELD_TAPPED_AND_ATTACKING are also acceptable]
-	 * @eparam ATTACKER: if EVENT is PUT_ONTO_BATTLEFIELD_TAPPED_AND_ATTACKING,
-	 * the attackingID to pass to that event [optional, default is none;
-	 * prohibited when EVENT is something else]
+	 * [optional; default is PUT_ONTO_BATTLEFIELD.
+	 * PUT_ONTO_BATTLEFIELD_ATTACKING, PUT_ONTO_BATTLEFIELD_TAPPED,
+	 * PUT_ONTO_BATTLEFIELD_TAPPED_AND_ATTACKING and
+	 * PUT_ONTO_BATTLEFIELD_BLOCKING are also acceptable]
+	 * @eparam ATTACKER: if EVENT is something that puts the token onto the
+	 * battlefield attacking, the attackingID to pass to that event [optional,
+	 * default is none; prohibited when EVENT is something else]
 	 * @eparam RESULT: the tokens as they exist on the battlefield
 	 */
 	public static final EventType CREATE_TOKEN_ON_BATTLEFIELD = CreateTokenOnBattlefield.INSTANCE;
@@ -1260,6 +1274,17 @@ public abstract class EventType
 	 * @eparam RESULT: result of the PUT_ONTO_BATTLEFIELD event
 	 */
 	public static final EventType PUT_ONTO_BATTLEFIELD_ATTACHED_TO_CHOICE = PutOntoBattlefieldAttachedToChoice.INSTANCE;
+
+	/**
+	 * @eparam ATTACKER: the attackingID to assign it [optional; default = the
+	 * player chooses when this event performs]
+	 * @eparam CAUSE: what is putting it onto the battlefield
+	 * @eparam CONTROLLER: player who controls it after it's put onto the
+	 * battlefield
+	 * @eparam OBJECT: the thing being put onto the battlefield
+	 * @eparam RESULT: result of the PUT_ONTO_BATTLEFIELD event
+	 */
+	public static final EventType PUT_ONTO_BATTLEFIELD_ATTACKING = PutOntoBattlefieldAttacking.INSTANCE;
 
 	/**
 	 * @eparam CAUSE: what is putting it onto the battlefield

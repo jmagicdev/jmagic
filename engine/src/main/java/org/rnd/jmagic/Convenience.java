@@ -144,6 +144,7 @@ public class Convenience
 
 		private final java.util.Set<Class<?>> abilities;
 		private final java.util.Set<Color> colors;
+		private boolean loseAllAbilities;
 		private boolean setColor;
 		private final java.util.Set<SubType> subTypes;
 		private final java.util.Set<Type> types;
@@ -174,6 +175,7 @@ public class Convenience
 			this.animationMode = ContinuousEffectType.ADD_TYPES;
 			this.abilities = new java.util.HashSet<Class<?>>();
 			this.colors = java.util.EnumSet.noneOf(Color.class);
+			this.loseAllAbilities = false;
 			this.setColor = false;
 			this.subTypes = java.util.EnumSet.noneOf(SubType.class);
 			this.types = java.util.EnumSet.of(Type.CREATURE);
@@ -250,7 +252,20 @@ public class Convenience
 				abilitiesPart.parameters.put(ContinuousEffectType.Parameter.ABILITY, Identity.fromCollection(factories));
 				parts.add(abilitiesPart);
 			}
+
+			if(this.loseAllAbilities)
+			{
+				ContinuousEffect.Part humblePart = new ContinuousEffect.Part(ContinuousEffectType.REMOVE_ABILITY_FROM_OBJECT);
+				humblePart.parameters.put(ContinuousEffectType.Parameter.OBJECT, this.target);
+				parts.add(humblePart);
+			}
+
 			return parts.toArray(new ContinuousEffect.Part[0]);
+		}
+
+		public void losesAllAbilities()
+		{
+			this.loseAllAbilities = true;
 		}
 
 		/**
@@ -1822,6 +1837,7 @@ public class Convenience
 	public static final class CreateTokensFactory
 	{
 		private String effectName;
+		private EventType effectType;
 		private String tokenName;
 		private SetGenerator number;
 		private SetGenerator power;
@@ -1839,6 +1855,7 @@ public class Convenience
 		private CreateTokensFactory()
 		{
 			this.effectName = "";
+			this.effectType = EventType.CREATE_TOKEN_ON_BATTLEFIELD;
 			this.tokenName = null;
 			this.colors = new Color[0];
 			this.number = numberGenerator(1);
@@ -1875,12 +1892,11 @@ public class Convenience
 		 */
 		public EventFactory getEventFactory()
 		{
-			EventFactory factory = new EventFactory(EventType.CREATE_TOKEN_ON_BATTLEFIELD, this.effectName);
+			EventFactory factory = new EventFactory(this.effectType, this.effectName);
 			if(this.moveType != null)
-			{
 				factory.parameters.put(EventType.Parameter.EVENT, Identity.instance(this.moveType));
-				factory.parameters.putAll(this.additionalParameters);
-			}
+
+			factory.parameters.putAll(this.additionalParameters);
 
 			factory.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			factory.parameters.put(EventType.Parameter.SUPERTYPE, Identity.fromCollection(this.superTypes));
@@ -1950,6 +1966,24 @@ public class Convenience
 		public void setArtifact()
 		{
 			this.types.add(Type.ARTIFACT);
+		}
+
+		/**
+		 * @param defenders Who the token should be attacking, or null if the
+		 * controller gets to choose. If the token should come into play tapped,
+		 * you want setTappedAndAttacking!
+		 */
+		public void setAttacking(SetGenerator defenders)
+		{
+			this.moveType = EventType.PUT_ONTO_BATTLEFIELD_ATTACKING;
+			if(defenders != null)
+				this.additionalParameters.put(EventType.Parameter.ATTACKER, defenders);
+		}
+
+		public void setBlocking(SetGenerator attackers)
+		{
+			this.effectType = EventType.CREATE_TOKEN_BLOCKING;
+			this.additionalParameters.put(EventType.Parameter.ATTACKER, attackers);
 		}
 
 		public void setColors(Color... colors)
