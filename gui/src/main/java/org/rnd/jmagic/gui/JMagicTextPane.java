@@ -16,7 +16,7 @@ public class JMagicTextPane extends javax.swing.JTextPane
 		ALL_KEYWORDS.put("deathtouch", "Any amount of damage this creature deals to a creature is enough to destroy it.");
 		ALL_KEYWORDS.put("defender", "This creature can't attack.");
 		ALL_KEYWORDS.put("double strike", "This creature deals both first strike and regular combat damage.");
-		ALL_KEYWORDS.put("first strike", "This creature strike deals combat damage before creatures without first strike.");
+		ALL_KEYWORDS.put("first strike", "This creature strike deals combat damage before creatures without first strike or double strike.");
 		ALL_KEYWORDS.put("flash", "You may cast a spell with flash any time you could cast an instant.");
 		ALL_KEYWORDS.put("flying", "This creature can't be blocked except by creatures with flying or reach.");
 		ALL_KEYWORDS.put("haste", "This creature can attack and (T) as soon as it comes under your control.");
