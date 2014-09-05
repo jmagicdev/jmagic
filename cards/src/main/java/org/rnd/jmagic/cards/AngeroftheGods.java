@@ -19,6 +19,7 @@ public final class AngeroftheGods extends Card
 
 		// Anger of the Gods deals 3 damage to each creature.
 		EventFactory damage = spellDealDamage(3, CreaturePermanents.instance(), "Anger of the Gods deals 3 damage to each creature.");
+		this.addEffect(damage);
 
 		// If a creature dealt damage this way would die this turn, exile it
 		// instead.
