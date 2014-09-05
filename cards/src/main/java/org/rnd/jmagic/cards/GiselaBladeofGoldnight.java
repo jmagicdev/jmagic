@@ -101,21 +101,32 @@ public final class GiselaBladeofGoldnight extends Card
 			@Override
 			public java.util.List<EventFactory> prevent(DamageAssignment.Batch damageAssignments)
 			{
-				java.util.Map<Integer, DamageAssignment.Batch> sortedAssignments = new java.util.HashMap<Integer, DamageAssignment.Batch>();
+				java.util.Map<Integer, DamageAssignment.Batch> sortedBySource = new java.util.HashMap<>();
 				for(DamageAssignment damage: damageAssignments)
 				{
-					if(!sortedAssignments.containsKey(damage.sourceID))
-						sortedAssignments.put(damage.sourceID, new DamageAssignment.Batch());
-					sortedAssignments.get(damage.sourceID).add(damage);
+					if(!sortedBySource.containsKey(damage.sourceID))
+						sortedBySource.put(damage.sourceID, new DamageAssignment.Batch());
+					sortedBySource.get(damage.sourceID).add(damage);
 				}
 
-				for(java.util.Map.Entry<Integer, DamageAssignment.Batch> entry: sortedAssignments.entrySet())
+				for(java.util.Map.Entry<Integer, DamageAssignment.Batch> sourceEntry: sortedBySource.entrySet())
 				{
-					int size = entry.getValue().size();
-					int remove = size / 2 + size % 2;
-					java.util.Iterator<DamageAssignment> iter = entry.getValue().iterator();
-					for(int i = 0; i < remove; i++)
-						damageAssignments.remove(iter.next());
+					java.util.Map<Integer, DamageAssignment.Batch> sortedByTaker = new java.util.HashMap<>();
+					for(DamageAssignment damage: sourceEntry.getValue())
+					{
+						if(!sortedByTaker.containsKey(damage.takerID))
+							sortedByTaker.put(damage.takerID, new DamageAssignment.Batch());
+						sortedByTaker.get(damage.takerID).add(damage);
+					}
+
+					for(java.util.Map.Entry<Integer, DamageAssignment.Batch> takerEntry: sortedByTaker.entrySet())
+					{
+						int size = takerEntry.getValue().size();
+						int remove = size / 2 + size % 2;
+						java.util.Iterator<DamageAssignment> iter = takerEntry.getValue().iterator();
+						for(int i = 0; i < remove; i++)
+							damageAssignments.remove(iter.next());
+					}
 				}
 
 				return new java.util.LinkedList<EventFactory>();
