@@ -344,7 +344,7 @@ public class CardShell
 		// Complex keywords
 		newKeywords.put(keywordAndNumber("Absorb"), complexInstantiation(Absorb.class));
 		newKeywords.put(keywordAndNumber("Annihilator"), complexInstantiation(Annihilator.class));
-		newKeywords.put(keywordAndManaCost("Bestow"), complexInstantiation(Bestow.class));
+		newKeywords.put(keywordAndManaCost("Bestow"), complexInstantiation(Bestow.class, true));
 		newKeywords.put(keywordAndNumber("Bloodthirst"), complexInstantiation(Bloodthirst.Final.class));
 		newKeywords.put(keywordAndNumber("Bushido"), complexInstantiation(Bushido.class));
 		newKeywords.put(keywordAndManaCost("Cumulative upkeep"), complexInstantiation(CumulativeUpkeep.ForMana.class, true));
