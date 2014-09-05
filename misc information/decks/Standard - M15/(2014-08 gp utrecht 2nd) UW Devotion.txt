@@ -1,0 +1,25 @@
+4 Cloudfin Raptor
+4 Frostburn Weird
+4 Judge's Familiar
+4 Master of Waves
+4 Nightveil Specter
+4 Thassa, God of the Sea
+4 Tidebinder Mage
+
+2 Bident of Thassa
+4 Detention Sphere
+2 Rapid Hybridization
+
+4 Hallowed Fountain
+10 Island
+2 Mana Confluence
+4 Mutavault
+4 Temple of Enlightenment
+
+SB: 2 AEtherling
+SB: 2 Claustrophobia
+SB: 1 Deicide
+SB: 3 Dispel
+SB: 1 Gainsay
+SB: 4 Negate
+SB: 2 Reprisal

@@ -1,0 +1,33 @@
+
+3 Azorius Charm
+4 Detention Sphere
+4 Dissolve
+2 Divination
+1 Elixir of Immortality
+1 Fated Retribution
+1 Font of Fortunes
+1 Jace's Ingenuity
+2 Last Breath
+2 Quicken
+4 Sphinx's Revelation
+4 Supreme Verdict
+2 Syncopate
+
+1 Azorius Guildgate
+4 Hallowed Fountain
+5 Island
+3 Mutavault
+5 Plains
+4 Temple of Enlightenment
+2 Temple of Epiphany
+2 Temple of Silence
+
+SB: 2 Archangel of Thune
+SB: 1 Blind Obedience
+SB: 2 Brimaz, King of Oreskos
+SB: 1 Deicide
+SB: 1 Gainsay
+SB: 1 Jace, Memory Adept
+SB: 2 Negate
+SB: 4 Nyx-Fleece Ram
+SB: 1 Pithing Needle
