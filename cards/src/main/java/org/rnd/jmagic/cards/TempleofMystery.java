@@ -2,10 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Temple of Mystery")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.THEROS, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class TempleofMystery extends Card
 {
@@ -23,11 +24,12 @@ public final class TempleofMystery extends Card
 	{
 		super(state);
 
-
 		// Temple of Mystery enters the battlefield tapped.
 		this.addAbility(new org.rnd.jmagic.abilities.EntersTheBattlefieldTapped(state, this.getName()));
 
-		// When Temple of Mystery enters the battlefield, scry 1. (Look at the top card of your library. You may put that card on the bottom of your library.)
+		// When Temple of Mystery enters the battlefield, scry 1. (Look at the
+		// top card of your library. You may put that card on the bottom of your
+		// library.)
 		this.addAbility(new TempleofMysteryAbility1(state));
 
 		// {T}: Add {G} or {U} to your mana pool.

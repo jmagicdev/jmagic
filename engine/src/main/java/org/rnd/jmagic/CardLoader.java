@@ -218,9 +218,9 @@ public class CardLoader
 		return c.getAnnotation(Printings.class).value();
 	}
 
-	public static java.util.SortedMap<Class<? extends Expansion>, Rarity> getPrintings(Class<? extends Card> c)
+	public static java.util.Map<Class<? extends Expansion>, Rarity> getPrintings(Class<? extends Card> c)
 	{
-		java.util.SortedMap<Class<? extends Expansion>, Rarity> ret = new java.util.TreeMap<Class<? extends Expansion>, Rarity>();
+		java.util.Map<Class<? extends Expansion>, Rarity> ret = new java.util.HashMap<Class<? extends Expansion>, Rarity>();
 
 		Printings.Printed[] printings = getPrintedAnnotation(c);
 		for(Printings.Printed print: printings)

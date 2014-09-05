@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Chandra, Pyromaster")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.CHANDRA})
 @ManaCost("2RR")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2015, r = Rarity.MYTHIC), @Printings.Printed(ex = Expansion.MAGIC_2014, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Magic2015CoreSet.class, r = Rarity.MYTHIC), @Printings.Printed(ex = Magic2014CoreSet.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.RED})
 public final class ChandraPyromaster extends Card
 {
@@ -102,13 +103,17 @@ public final class ChandraPyromaster extends Card
 
 		this.setPrintedLoyalty(4);
 
-		// +1: Chandra, Pyromaster deals 1 damage to target player and 1 damage to up to one target creature that player controls. That creature can't block this turn.
+		// +1: Chandra, Pyromaster deals 1 damage to target player and 1 damage
+		// to up to one target creature that player controls. That creature
+		// can't block this turn.
 		this.addAbility(new ChandraPyromasterAbility0(state));
 
 		// 0: Exile the top card of your library. You may play it this turn.
 		this.addAbility(new ChandraPyromasterAbility1(state));
 
-		// -7: Exile the top ten cards of your library. Choose an instant or sorcery card exiled this way and copy it three times. You may cast the copies without paying their mana costs.
+		// -7: Exile the top ten cards of your library. Choose an instant or
+		// sorcery card exiled this way and copy it three times. You may cast
+		// the copies without paying their mana costs.
 		this.addAbility(new ChandraPyromasterAbility2(state));
 	}
 }

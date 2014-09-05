@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Thassa, God of the Sea")
 @SuperTypes({SuperType.LEGENDARY})
-@Types({Type.ENCHANTMENT,Type.CREATURE})
+@Types({Type.ENCHANTMENT, Type.CREATURE})
 @SubTypes({SubType.GOD})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Expansion.THEROS, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE})
 public final class ThassaGodoftheSea extends Card
 {
@@ -60,7 +61,9 @@ public final class ThassaGodoftheSea extends Card
 		// Indestructible
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Indestructible(state));
 
-		// As long as your devotion to blue is less than five, Thassa isn't a creature. (Each {U} in the mana costs of permanents you control counts toward your devotion to blue.)
+		// As long as your devotion to blue is less than five, Thassa isn't a
+		// creature. (Each {U} in the mana costs of permanents you control
+		// counts toward your devotion to blue.)
 		this.addAbility(new ThassaGodoftheSeaAbility1(state));
 
 		// At the beginning of your upkeep, scry 1.

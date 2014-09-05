@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Elspeth, Sun's Champion")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.ELSPETH})
 @ManaCost("4WW")
-@Printings({@Printings.Printed(ex = Expansion.THEROS, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE})
 public final class ElspethSunsChampion extends Card
 {
@@ -71,7 +72,8 @@ public final class ElspethSunsChampion extends Card
 		// -3: Destroy all creatures with power 4 or greater.
 		this.addAbility(new ElspethSunsChampionAbility1(state));
 
-		// -7: You get an emblem with "Creatures you control get +2/+2 and have flying."
+		// -7: You get an emblem with
+		// "Creatures you control get +2/+2 and have flying."
 		this.addAbility(new ElspethSunsChampionAbility2(state));
 	}
 }

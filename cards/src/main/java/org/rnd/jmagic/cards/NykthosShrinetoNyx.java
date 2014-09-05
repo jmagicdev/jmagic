@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Nykthos, Shrine to Nyx")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.THEROS, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class NykthosShrinetoNyx extends Card
 {
@@ -37,11 +38,13 @@ public final class NykthosShrinetoNyx extends Card
 	{
 		super(state);
 
-
 		// {T}: Add {1} to your mana pool.
 		this.addAbility(new org.rnd.jmagic.abilities.TapFor1(state));
 
-		// {2}, {T}: Choose a color. Add to your mana pool an amount of mana of that color equal to your devotion to that color. (Your devotion to a color is the number of mana symbols of that color in the mana costs of permanents you control.)
+		// {2}, {T}: Choose a color. Add to your mana pool an amount of mana of
+		// that color equal to your devotion to that color. (Your devotion to a
+		// color is the number of mana symbols of that color in the mana costs
+		// of permanents you control.)
 		this.addAbility(new NykthosShrinetoNyxAbility1(state));
 	}
 }

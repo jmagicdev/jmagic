@@ -5,12 +5,13 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Goblin Rabblemaster")
 @Types({Type.CREATURE})
-@SubTypes({SubType.WARRIOR,SubType.GOBLIN})
+@SubTypes({SubType.WARRIOR, SubType.GOBLIN})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2015, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2015CoreSet.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class GoblinRabblemaster extends Card
 {
@@ -52,7 +53,7 @@ public final class GoblinRabblemaster extends Card
 		{
 			super(state, "Whenever Goblin Rabblemaster attacks, it gets +1/+0 until end of turn for each other attacking Goblin.");
 			this.addPattern(whenThisAttacks());
-			
+
 			SetGenerator otherGoblinCreatures = RelativeComplement.instance(Intersect.instance(CreaturePermanents.instance(), HasSubType.instance(SubType.GOBLIN)), This.instance());
 			SetGenerator otherAttackingGoblins = Intersect.instance(otherGoblinCreatures, Attacking.instance());
 			this.addEffect(ptChangeUntilEndOfTurn(ABILITY_SOURCE_OF_THIS, Count.instance(otherAttackingGoblins), numberGenerator(0), "Goblin Rabblemaster gets +1/+0 until end of turn for each other attacking Goblin."));
@@ -69,10 +70,12 @@ public final class GoblinRabblemaster extends Card
 		// Other Goblin creatures you control attack each turn if able.
 		this.addAbility(new GoblinRabblemasterAbility0(state));
 
-		// At the beginning of combat on your turn, put a 1/1 red Goblin creature token with haste onto the battlefield.
+		// At the beginning of combat on your turn, put a 1/1 red Goblin
+		// creature token with haste onto the battlefield.
 		this.addAbility(new GoblinRabblemasterAbility1(state));
 
-		// Whenever Goblin Rabblemaster attacks, it gets +1/+0 until end of turn for each other attacking Goblin.
+		// Whenever Goblin Rabblemaster attacks, it gets +1/+0 until end of turn
+		// for each other attacking Goblin.
 		this.addAbility(new GoblinRabblemasterAbility2(state));
 	}
 }

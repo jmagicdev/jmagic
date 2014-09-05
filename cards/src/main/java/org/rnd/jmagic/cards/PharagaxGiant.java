@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Pharagax Giant")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GIANT})
 @ManaCost("4R")
-@Printings({@Printings.Printed(ex = Expansion.BORN_OF_THE_GODS, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = BornOfTheGods.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class PharagaxGiant extends Card
 {
@@ -30,10 +31,12 @@ public final class PharagaxGiant extends Card
 		this.setPower(3);
 		this.setToughness(3);
 
-		// Tribute 2 (As this creature enters the battlefield, an opponent of your choice may place two +1/+1 counters on it.)
+		// Tribute 2 (As this creature enters the battlefield, an opponent of
+		// your choice may place two +1/+1 counters on it.)
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Tribute(state, 2));
 
-		// When Pharagax Giant enters the battlefield, if tribute wasn't paid, Pharagax Giant deals 5 damage to each opponent.
+		// When Pharagax Giant enters the battlefield, if tribute wasn't paid,
+		// Pharagax Giant deals 5 damage to each opponent.
 		this.addAbility(new PharagaxGiantAbility1(state));
 	}
 }

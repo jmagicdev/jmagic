@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Skylasher")
 @Types({Type.CREATURE})
 @SubTypes({SubType.INSECT})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.DRAGONS_MAZE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = DragonsMaze.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class Skylasher extends Card
 {

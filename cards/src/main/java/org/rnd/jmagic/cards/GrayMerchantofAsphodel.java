@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Gray Merchant of Asphodel")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE})
 @ManaCost("3BB")
-@Printings({@Printings.Printed(ex = Expansion.THEROS, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class GrayMerchantofAsphodel extends Card
 {
@@ -34,7 +35,10 @@ public final class GrayMerchantofAsphodel extends Card
 		this.setPower(2);
 		this.setToughness(4);
 
-		// When Gray Merchant of Asphodel enters the battlefield, each opponent loses X life, where X is your devotion to black. You gain life equal to the life lost this way. (Each {B} in the mana costs of permanents you control counts toward your devotion to black.)
+		// When Gray Merchant of Asphodel enters the battlefield, each opponent
+		// loses X life, where X is your devotion to black. You gain life equal
+		// to the life lost this way. (Each {B} in the mana costs of permanents
+		// you control counts toward your devotion to black.)
 		this.addAbility(new GrayMerchantofAsphodelAbility0(state));
 	}
 }

@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Advent of the Wurm")
 @Types({Type.INSTANT})
 @ManaCost("1GGW")
-@Printings({@Printings.Printed(ex = Expansion.DRAGONS_MAZE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = DragonsMaze.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class AdventoftheWurm extends Card
 {
@@ -14,8 +15,8 @@ public final class AdventoftheWurm extends Card
 	{
 		super(state);
 
-
-		// Put a 5/5 green Wurm creature token with trample onto the battlefield.
+		// Put a 5/5 green Wurm creature token with trample onto the
+		// battlefield.
 		CreateTokensFactory wurm = new CreateTokensFactory(1, 5, 5, "Put a 5/5 green Wurm creature token with trample onto the battlefield.");
 		wurm.setColors(Color.GREEN);
 		wurm.setSubTypes(SubType.WURM);

@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Setessan Tactics")
 @Types({Type.INSTANT})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.JOURNEY_INTO_NYX, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = JourneyIntoNyx.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class SetessanTactics extends Card
 {
@@ -36,12 +37,12 @@ public final class SetessanTactics extends Card
 	{
 		super(state);
 
-
 		// Strive — Setessan Tactics costs (G) more to cast for each target
 		// beyond the first.
 		this.addAbility(new Strive(state));
 
-		// Until end of turn, any number of target creatures each get +1/+1 and gain "(T): This creature fights another target creature."
+		// Until end of turn, any number of target creatures each get +1/+1 and
+		// gain "(T): This creature fights another target creature."
 		Target t = this.addTarget(CreaturePermanents.instance(), "any number of target creatures");
 		t.setNumber(0, null);
 		this.addEffect(ptChangeAndAbilityUntilEndOfTurn(targetedBy(t), +1, +1, "Until end of turn, any number of target creatures each get +1/+1 and gain \"(T): This creature fights another target creature.\"", CanFight.class));

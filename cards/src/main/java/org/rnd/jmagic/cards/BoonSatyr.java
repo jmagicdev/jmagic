@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Boon Satyr")
-@Types({Type.CREATURE,Type.ENCHANTMENT})
+@Types({Type.CREATURE, Type.ENCHANTMENT})
 @SubTypes({SubType.SATYR})
 @ManaCost("1GG")
-@Printings({@Printings.Printed(ex = Expansion.THEROS, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class BoonSatyr extends Card
 {
@@ -31,7 +32,9 @@ public final class BoonSatyr extends Card
 		// Flash
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Flash(state));
 
-		// Bestow (3)(G)(G) (If you cast this card for its bestow cost, it's an Aura spell with enchant creature. It becomes a creature again if it's not attached to a creature.)
+		// Bestow (3)(G)(G) (If you cast this card for its bestow cost, it's an
+		// Aura spell with enchant creature. It becomes a creature again if it's
+		// not attached to a creature.)
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Bestow(state, "(3)(G)(G)"));
 
 		// Enchanted creature gets +4/+2.

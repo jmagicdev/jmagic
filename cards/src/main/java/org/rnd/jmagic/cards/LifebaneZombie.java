@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Lifebane Zombie")
 @Types({Type.CREATURE})
-@SubTypes({SubType.WARRIOR,SubType.ZOMBIE})
+@SubTypes({SubType.WARRIOR, SubType.ZOMBIE})
 @ManaCost("1BB")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2014, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2014CoreSet.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class LifebaneZombie extends Card
 {
@@ -36,10 +37,13 @@ public final class LifebaneZombie extends Card
 		this.setPower(3);
 		this.setToughness(1);
 
-		// Intimidate (This creature can't be blocked except by artifact creatures and/or creatures that share a color with it.)
+		// Intimidate (This creature can't be blocked except by artifact
+		// creatures and/or creatures that share a color with it.)
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Intimidate(state));
 
-		// When Lifebane Zombie enters the battlefield, target opponent reveals his or her hand. You choose a green or white creature card from it and exile that card.
+		// When Lifebane Zombie enters the battlefield, target opponent reveals
+		// his or her hand. You choose a green or white creature card from it
+		// and exile that card.
 		this.addAbility(new LifebaneZombieAbility1(state));
 	}
 }

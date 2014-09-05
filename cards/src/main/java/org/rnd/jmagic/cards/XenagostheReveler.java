@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Xenagos, the Reveler")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.XENAGOS})
 @ManaCost("2RG")
-@Printings({@Printings.Printed(ex = Expansion.THEROS, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.RED, Color.GREEN})
 public final class XenagostheReveler extends Card
 {
@@ -70,13 +71,16 @@ public final class XenagostheReveler extends Card
 
 		this.setPrintedLoyalty(3);
 
-		// +1: Add X mana in any combination of (R) and/or (G) to your mana pool, where X is the number of creatures you control.
+		// +1: Add X mana in any combination of (R) and/or (G) to your mana
+		// pool, where X is the number of creatures you control.
 		this.addAbility(new XenagostheRevelerAbility0(state));
 
-		// 0: Put a 2/2 red and green Satyr creature token with haste onto the battlefield.
+		// 0: Put a 2/2 red and green Satyr creature token with haste onto the
+		// battlefield.
 		this.addAbility(new XenagostheRevelerAbility1(state));
 
-		// -6: Exile the top seven cards of your library. You may put any number of creature and/or land cards from among them onto the battlefield.
+		// -6: Exile the top seven cards of your library. You may put any number
+		// of creature and/or land cards from among them onto the battlefield.
 		this.addAbility(new XenagostheRevelerAbility2(state));
 	}
 }

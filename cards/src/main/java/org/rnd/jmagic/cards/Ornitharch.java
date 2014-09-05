@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ornitharch")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ARCHON})
 @ManaCost("3WW")
-@Printings({@Printings.Printed(ex = Expansion.BORN_OF_THE_GODS, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = BornOfTheGods.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class Ornitharch extends Card
 {
@@ -37,10 +38,12 @@ public final class Ornitharch extends Card
 		// Flying
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Flying(state));
 
-		// Tribute 2 (As this creature enters the battlefield, an opponent of your choice may place two +1/+1 counters on it.)
+		// Tribute 2 (As this creature enters the battlefield, an opponent of
+		// your choice may place two +1/+1 counters on it.)
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Tribute(state, 2));
 
-		// When Ornitharch enters the battlefield, if tribute wasn't paid, put two 1/1 white Bird creature tokens with flying onto the battlefield.
+		// When Ornitharch enters the battlefield, if tribute wasn't paid, put
+		// two 1/1 white Bird creature tokens with flying onto the battlefield.
 		this.addAbility(new OrnitharchAbility2(state));
 	}
 }

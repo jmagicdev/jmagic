@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Blood Baron of Vizkopa")
 @Types({Type.CREATURE})
 @SubTypes({SubType.VAMPIRE})
 @ManaCost("3WB")
-@Printings({@Printings.Printed(ex = Expansion.DRAGONS_MAZE, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = DragonsMaze.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE, Color.BLACK})
 public final class BloodBaronofVizkopa extends Card
 {
@@ -38,7 +39,8 @@ public final class BloodBaronofVizkopa extends Card
 		// Lifelink, protection from white and from black
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Lifelink(state));
 
-		// As long as you have 30 or more life and an opponent has 10 or less life, Blood Baron of Vizkopa gets +6/+6 and has flying.
+		// As long as you have 30 or more life and an opponent has 10 or less
+		// life, Blood Baron of Vizkopa gets +6/+6 and has flying.
 		this.addAbility(new BloodBaronofVizkopaAbility1(state));
 	}
 }

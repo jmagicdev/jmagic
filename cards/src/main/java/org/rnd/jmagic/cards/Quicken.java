@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Quicken")
 @Types({Type.INSTANT})
 @ManaCost("U")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2014, r = Rarity.RARE), @Printings.Printed(ex = Expansion.GUILDPACT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2014CoreSet.class, r = Rarity.RARE), @Printings.Printed(ex = Guildpact.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class Quicken extends Card
 {
@@ -94,7 +95,6 @@ public final class Quicken extends Card
 	public Quicken(GameState state)
 	{
 		super(state);
-
 
 		// The next sorcery card you cast this turn can be cast as though it had
 		// flash.

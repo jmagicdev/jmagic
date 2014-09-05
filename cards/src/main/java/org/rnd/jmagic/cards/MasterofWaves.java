@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Master of Waves")
 @Types({Type.CREATURE})
-@SubTypes({SubType.WIZARD,SubType.MERFOLK})
+@SubTypes({SubType.WIZARD, SubType.MERFOLK})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = Expansion.THEROS, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE})
 public final class MasterofWaves extends Card
 {
@@ -51,7 +52,10 @@ public final class MasterofWaves extends Card
 		// Elemental creatures you control get +1/+1.
 		this.addAbility(new MasterofWavesAbility1(state));
 
-		// When Master of Waves enters the battlefield, put a number of 1/0 blue Elemental creature tokens onto the battlefield equal to your devotion to blue. (Each {U} in the mana costs of permanents you control counts toward your devotion to blue.)
+		// When Master of Waves enters the battlefield, put a number of 1/0 blue
+		// Elemental creature tokens onto the battlefield equal to your devotion
+		// to blue. (Each {U} in the mana costs of permanents you control counts
+		// toward your devotion to blue.)
 		this.addAbility(new MasterofWavesAbility2(state));
 	}
 }

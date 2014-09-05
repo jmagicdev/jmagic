@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Stoke the Flames")
 @Types({Type.INSTANT})
 @ManaCost("2RR")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2015, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Magic2015CoreSet.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class StoketheFlames extends Card
 {
@@ -15,8 +16,9 @@ public final class StoketheFlames extends Card
 	{
 		super(state);
 
-
-		// Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)
+		// Convoke (Your creatures can help cast this spell. Each creature you
+		// tap while casting this spell pays for {1} or one mana of that
+		// creature's color.)
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Convoke(state));
 
 		// Stoke the Flames deals 4 damage to target creature or player.

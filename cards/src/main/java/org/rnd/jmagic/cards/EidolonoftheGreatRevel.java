@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Eidolon of the Great Revel")
-@Types({Type.CREATURE,Type.ENCHANTMENT})
+@Types({Type.CREATURE, Type.ENCHANTMENT})
 @SubTypes({SubType.SPIRIT})
 @ManaCost("RR")
-@Printings({@Printings.Printed(ex = Expansion.JOURNEY_INTO_NYX, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = JourneyIntoNyx.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class EidolonoftheGreatRevel extends Card
 {
@@ -36,7 +37,8 @@ public final class EidolonoftheGreatRevel extends Card
 		this.setPower(2);
 		this.setToughness(2);
 
-		// Whenever a player casts a spell with converted mana cost 3 or less, Eidolon of the Great Revel deals 2 damage to that player.
+		// Whenever a player casts a spell with converted mana cost 3 or less,
+		// Eidolon of the Great Revel deals 2 damage to that player.
 		this.addAbility(new EidolonoftheGreatRevelAbility0(state));
 	}
 }

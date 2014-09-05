@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Unflinching Courage")
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.AURA})
 @ManaCost("1GW")
-@Printings({@Printings.Printed(ex = Expansion.DRAGONS_MAZE, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = DragonsMaze.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class UnflinchingCourage extends Card
 {
@@ -25,7 +26,6 @@ public final class UnflinchingCourage extends Card
 	public UnflinchingCourage(GameState state)
 	{
 		super(state);
-
 
 		// Enchant creature
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Enchant.Creature(state));

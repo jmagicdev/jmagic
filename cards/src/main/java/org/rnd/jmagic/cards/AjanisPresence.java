@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ajani's Presence")
 @Types({Type.INSTANT})
 @ManaCost("W")
-@Printings({@Printings.Printed(ex = Expansion.JOURNEY_INTO_NYX, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = JourneyIntoNyx.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class AjanisPresence extends Card
 {
@@ -22,7 +23,6 @@ public final class AjanisPresence extends Card
 	public AjanisPresence(GameState state)
 	{
 		super(state);
-
 
 		// Strive — Ajani's Presence costs (2)(W) more to cast for each target
 		// beyond the first.

@@ -3,18 +3,18 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Read the Bones")
 @Types({Type.SORCERY})
 @ManaCost("2B")
-@Printings({@Printings.Printed(ex = Expansion.THEROS, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class ReadtheBones extends Card
 {
 	public ReadtheBones(GameState state)
 	{
 		super(state);
-
 
 		// Scry 2,
 		this.addEffect(scry(2, "Scry 2,"));

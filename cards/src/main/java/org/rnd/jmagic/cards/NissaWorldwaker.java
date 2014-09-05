@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Nissa, Worldwaker")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.NISSA})
 @ManaCost("3GG")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2015, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Magic2015CoreSet.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.GREEN})
 public final class NissaWorldwaker extends Card
 {
@@ -73,13 +74,16 @@ public final class NissaWorldwaker extends Card
 
 		this.setPrintedLoyalty(3);
 
-		// +1: Target land you control becomes a 4/4 Elemental creature with trample. It's still a land.
+		// +1: Target land you control becomes a 4/4 Elemental creature with
+		// trample. It's still a land.
 		this.addAbility(new NissaWorldwakerAbility0(state));
 
 		// +1: Untap up to four target Forests.
 		this.addAbility(new NissaWorldwakerAbility1(state));
 
-		// -7: Search your library for any number of basic land cards, put them onto the battlefield, then shuffle your library. Those lands become 4/4 Elemental creatures with trample. They're still lands.
+		// -7: Search your library for any number of basic land cards, put them
+		// onto the battlefield, then shuffle your library. Those lands become
+		// 4/4 Elemental creatures with trample. They're still lands.
 		this.addAbility(new NissaWorldwakerAbility2(state));
 	}
 }

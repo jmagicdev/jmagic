@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Nyx-Fleece Ram")
-@Types({Type.ENCHANTMENT,Type.CREATURE})
+@Types({Type.ENCHANTMENT, Type.CREATURE})
 @SubTypes({SubType.SHEEP})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = Expansion.JOURNEY_INTO_NYX, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = JourneyIntoNyx.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class NyxFleeceRam extends Card
 {

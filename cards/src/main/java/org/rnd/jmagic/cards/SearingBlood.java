@@ -4,18 +4,18 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Searing Blood")
 @Types({Type.INSTANT})
 @ManaCost("RR")
-@Printings({@Printings.Printed(ex = Expansion.BORN_OF_THE_GODS, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = BornOfTheGods.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class SearingBlood extends Card
 {
 	public SearingBlood(GameState state)
 	{
 		super(state);
-
 
 		// Searing Blood deals 2 damage to target creature.
 		SetGenerator target = targetedBy(this.addTarget(CreaturePermanents.instance(), "target creature"));

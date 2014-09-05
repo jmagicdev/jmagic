@@ -4,18 +4,18 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Flames of the Blood Hand")
 @Types({Type.INSTANT})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Expansion.BETRAYERS_OF_KAMIGAWA, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = BetrayersOfKamigawa.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class FlamesoftheBloodHand extends Card
 {
 	public FlamesoftheBloodHand(GameState state)
 	{
 		super(state);
-
 
 		// Flames of the Blood Hand deals 4 damage to target player. The damage
 		// can't be prevented.

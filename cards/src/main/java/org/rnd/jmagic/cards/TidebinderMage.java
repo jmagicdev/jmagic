@@ -5,12 +5,13 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Tidebinder Mage")
 @Types({Type.CREATURE})
-@SubTypes({SubType.WIZARD,SubType.MERFOLK})
+@SubTypes({SubType.WIZARD, SubType.MERFOLK})
 @ManaCost("UU")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2014, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2014CoreSet.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class TidebinderMage extends Card
 {
@@ -27,7 +28,7 @@ public final class TidebinderMage extends Card
 			SetGenerator legal = Intersect.instance(redOrGreen, creatures, opponentControls);
 			SetGenerator target = targetedBy(this.addTarget(legal, "target red or green creature an opponent controls"));
 			this.addEffect(tap(target, "Tap target red or green creature an opponent controls."));
-			
+
 			EventPattern untap = new UntapDuringControllersUntapStep(target);
 
 			SetGenerator youDontControlThis = Not.instance(Intersect.instance(ABILITY_SOURCE_OF_THIS, ControlledBy.instance(You.instance())));
@@ -45,7 +46,9 @@ public final class TidebinderMage extends Card
 		this.setPower(2);
 		this.setToughness(2);
 
-		// When Tidebinder Mage enters the battlefield, tap target red or green creature an opponent controls. That creature doesn't untap during its controller's untap step for as long as you control Tidebinder Mage.
+		// When Tidebinder Mage enters the battlefield, tap target red or green
+		// creature an opponent controls. That creature doesn't untap during its
+		// controller's untap step for as long as you control Tidebinder Mage.
 		this.addAbility(new TidebinderMageAbility0(state));
 	}
 }

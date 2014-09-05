@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mistcutter Hydra")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HYDRA})
 @ManaCost("XG")
-@Printings({@Printings.Printed(ex = Expansion.THEROS, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class MistcutterHydra extends Card
 {

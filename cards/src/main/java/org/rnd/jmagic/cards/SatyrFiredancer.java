@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Satyr Firedancer")
-@Types({Type.ENCHANTMENT,Type.CREATURE})
+@Types({Type.ENCHANTMENT, Type.CREATURE})
 @SubTypes({SubType.SATYR})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = Expansion.BORN_OF_THE_GODS, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = BornOfTheGods.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class SatyrFiredancer extends Card
 {
@@ -38,7 +39,9 @@ public final class SatyrFiredancer extends Card
 		this.setPower(1);
 		this.setToughness(1);
 
-		// Whenever an instant or sorcery spell you control deals damage to an opponent, Satyr Firedancer deals that much damage to target creature that player controls.
+		// Whenever an instant or sorcery spell you control deals damage to an
+		// opponent, Satyr Firedancer deals that much damage to target creature
+		// that player controls.
 		this.addAbility(new SatyrFiredancerAbility0(state));
 	}
 }

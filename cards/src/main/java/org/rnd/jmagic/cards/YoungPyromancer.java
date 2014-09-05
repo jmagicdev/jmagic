@@ -5,12 +5,13 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Young Pyromancer")
 @Types({Type.CREATURE})
-@SubTypes({SubType.HUMAN,SubType.SHAMAN})
+@SubTypes({SubType.HUMAN, SubType.SHAMAN})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2014, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Magic2014CoreSet.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class YoungPyromancer extends Card
 {
@@ -40,7 +41,8 @@ public final class YoungPyromancer extends Card
 		this.setPower(2);
 		this.setToughness(1);
 
-		// Whenever you cast an instant or sorcery spell, put a 1/1 red Elemental creature token onto the battlefield.
+		// Whenever you cast an instant or sorcery spell, put a 1/1 red
+		// Elemental creature token onto the battlefield.
 		this.addAbility(new YoungPyromancerAbility0(state));
 	}
 }

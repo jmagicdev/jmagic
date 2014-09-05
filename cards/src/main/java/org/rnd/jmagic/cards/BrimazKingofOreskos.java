@@ -4,13 +4,14 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Brimaz, King of Oreskos")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
-@SubTypes({SubType.CAT,SubType.SOLDIER})
+@SubTypes({SubType.CAT, SubType.SOLDIER})
 @ManaCost("1WW")
-@Printings({@Printings.Printed(ex = Expansion.BORN_OF_THE_GODS, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = BornOfTheGods.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE})
 public final class BrimazKingofOreskos extends Card
 {
@@ -61,10 +62,13 @@ public final class BrimazKingofOreskos extends Card
 		// Vigilance
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Vigilance(state));
 
-		// Whenever Brimaz, King of Oreskos attacks, put a 1/1 white Cat Soldier creature token with vigilance onto the battlefield attacking.
+		// Whenever Brimaz, King of Oreskos attacks, put a 1/1 white Cat Soldier
+		// creature token with vigilance onto the battlefield attacking.
 		this.addAbility(new BrimazKingofOreskosAbility1(state));
 
-		// Whenever Brimaz blocks a creature, put a 1/1 white Cat Soldier creature token with vigilance onto the battlefield blocking that creature.
+		// Whenever Brimaz blocks a creature, put a 1/1 white Cat Soldier
+		// creature token with vigilance onto the battlefield blocking that
+		// creature.
 		this.addAbility(new BrimazKingofOreskosAbility2(state));
 	}
 }

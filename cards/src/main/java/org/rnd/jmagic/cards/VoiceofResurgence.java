@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Voice of Resurgence")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL})
 @ManaCost("GW")
-@Printings({@Printings.Printed(ex = Expansion.DRAGONS_MAZE, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = DragonsMaze.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class VoiceofResurgence extends Card
 {
@@ -78,7 +79,10 @@ public final class VoiceofResurgence extends Card
 		this.setPower(2);
 		this.setToughness(2);
 
-		// Whenever an opponent casts a spell during your turn or when Voice of Resurgence dies, put a green and white Elemental creature token onto the battlefield with "This creature's power and toughness are each equal to the number of creatures you control."
+		// Whenever an opponent casts a spell during your turn or when Voice of
+		// Resurgence dies, put a green and white Elemental creature token onto
+		// the battlefield with
+		// "This creature's power and toughness are each equal to the number of creatures you control."
 		this.addAbility(new VoiceofResurgenceAbility0(state));
 	}
 }

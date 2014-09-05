@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.testing.*;
 
 public class ChandraPyromasterTest extends JUnitTest
@@ -15,7 +16,7 @@ public class ChandraPyromasterTest extends JUnitTest
 				ChandraPyromaster.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
 		this.addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
 
-		this.startGame(GameTypes.STACKED);
+		this.startGame(new Stacked());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

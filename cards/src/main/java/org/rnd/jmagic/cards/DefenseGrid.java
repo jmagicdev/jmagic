@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Defense Grid")
 @Types({Type.ARTIFACT})
 @ManaCost("2")
-@Printings({@Printings.Printed(ex = Expansion.NINTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.EIGHTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.URZAS_LEGACY, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = NinthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = EighthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = UrzasLegacy.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class DefenseGrid extends Card
 {
@@ -31,8 +32,8 @@ public final class DefenseGrid extends Card
 	{
 		super(state);
 
-
-		// Each spell costs {3} more to cast except during its controller's turn.
+		// Each spell costs {3} more to cast except during its controller's
+		// turn.
 		this.addAbility(new DefenseGridAbility0(state));
 	}
 }

@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Firedrinker Satyr")
 @Types({Type.CREATURE})
-@SubTypes({SubType.SATYR,SubType.SHAMAN})
+@SubTypes({SubType.SATYR, SubType.SHAMAN})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Expansion.THEROS, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class FiredrinkerSatyr extends Card
 {
@@ -42,10 +43,12 @@ public final class FiredrinkerSatyr extends Card
 		this.setPower(2);
 		this.setToughness(1);
 
-		// Whenever Firedrinker Satyr is dealt damage, it deals that much damage to you.
+		// Whenever Firedrinker Satyr is dealt damage, it deals that much damage
+		// to you.
 		this.addAbility(new FiredrinkerSatyrAbility0(state));
 
-		// {1}{R}: Firedrinker Satyr gets +1/+0 until end of turn and deals 1 damage to you.
+		// {1}{R}: Firedrinker Satyr gets +1/+0 until end of turn and deals 1
+		// damage to you.
 		this.addAbility(new FiredrinkerSatyrAbility1(state));
 	}
 }

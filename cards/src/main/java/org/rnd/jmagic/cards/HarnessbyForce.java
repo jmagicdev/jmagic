@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Harness by Force")
 @Types({Type.SORCERY})
 @ManaCost("1RR")
-@Printings({@Printings.Printed(ex = Expansion.JOURNEY_INTO_NYX, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = JourneyIntoNyx.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class HarnessbyForce extends Card
 {

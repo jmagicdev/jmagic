@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ajani Steadfast")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.AJANI})
 @ManaCost("3W")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2015, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Magic2015CoreSet.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE})
 public final class AjaniSteadfast extends Card
 {
@@ -33,13 +34,13 @@ public final class AjaniSteadfast extends Card
 		public AjaniSteadfastAbility1(GameState state)
 		{
 			super(state, -2, "Put a +1/+1 counter on each creature you control and a loyalty counter on each other planeswalker you control.");
-			
+
 			EventFactory ptCounters = putCounters(1, Counter.CounterType.PLUS_ONE_PLUS_ONE, CREATURES_YOU_CONTROL, "Put a +1/+1 counter on each creature you control");
-			
+
 			SetGenerator yourPWs = Intersect.instance(HasType.instance(Type.PLANESWALKER), ControlledBy.instance(You.instance()));
 			SetGenerator otherPWs = RelativeComplement.instance(yourPWs, ABILITY_SOURCE_OF_THIS);
 			EventFactory loyaltyCounters = putCounters(1, Counter.CounterType.LOYALTY, otherPWs, "and a loyalty counter on each other planeswalker you control.");
-			
+
 			this.addEffect(simultaneous(ptCounters, loyaltyCounters));
 		}
 	}
@@ -76,7 +77,7 @@ public final class AjaniSteadfast extends Card
 						batch.add(damage);
 				}
 			}
-			
+
 			return batch;
 		}
 
@@ -144,13 +145,16 @@ public final class AjaniSteadfast extends Card
 
 		this.setPrintedLoyalty(4);
 
-		// +1: Until end of turn, up to one target creature gets +1/+1 and gains first strike, vigilance, and lifelink.
+		// +1: Until end of turn, up to one target creature gets +1/+1 and gains
+		// first strike, vigilance, and lifelink.
 		this.addAbility(new AjaniSteadfastAbility0(state));
 
-		// -2: Put a +1/+1 counter on each creature you control and a loyalty counter on each other planeswalker you control.
+		// -2: Put a +1/+1 counter on each creature you control and a loyalty
+		// counter on each other planeswalker you control.
 		this.addAbility(new AjaniSteadfastAbility1(state));
 
-		// -7: You get an emblem with "If a source would deal damage to you or a planeswalker you control, prevent all but 1 of that damage."
+		// -7: You get an emblem with
+		// "If a source would deal damage to you or a planeswalker you control, prevent all but 1 of that damage."
 		this.addAbility(new AjaniSteadfastAbility2(state));
 	}
 }

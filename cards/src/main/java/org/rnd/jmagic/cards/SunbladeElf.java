@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Sunblade Elf")
 @Types({Type.CREATURE})
-@SubTypes({SubType.ELF,SubType.WARRIOR})
+@SubTypes({SubType.ELF, SubType.WARRIOR})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2015, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Magic2015CoreSet.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class SunbladeElf extends Card
 {

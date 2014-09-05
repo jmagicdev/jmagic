@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Chained to the Rocks")
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.AURA})
 @ManaCost("W")
-@Printings({@Printings.Printed(ex = Expansion.THEROS, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class ChainedtotheRocks extends Card
 {
@@ -38,12 +39,13 @@ public final class ChainedtotheRocks extends Card
 	{
 		super(state);
 
-
 		// Enchant Mountain you control
 		SetGenerator mountainsYouControl = Intersect.instance(HasSubType.instance(SubType.MOUNTAIN), ControlledBy.instance(You.instance()));
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Enchant.Final(state, "Mountain you control", mountainsYouControl));
 
-		// When Chained to the Rocks enters the battlefield, exile target creature an opponent controls until Chained to the Rocks leaves the battlefield. (That creature returns under its owner's control.)
+		// When Chained to the Rocks enters the battlefield, exile target
+		// creature an opponent controls until Chained to the Rocks leaves the
+		// battlefield. (That creature returns under its owner's control.)
 		this.addAbility(new ChainedtotheRocksAbility1(state));
 	}
 }

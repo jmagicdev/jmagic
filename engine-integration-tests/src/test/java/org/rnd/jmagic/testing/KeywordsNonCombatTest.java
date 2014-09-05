@@ -4893,7 +4893,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(ThunderBrute.class, ThunderBrute.class, ThunderBrute.class, ThunderBrute.class, ThunderBrute.class, ThunderBrute.class, ThunderBrute.class);
 		addDeck(ThunderBrute.class, ThunderBrute.class, ThunderBrute.class, ThunderBrute.class, ThunderBrute.class, ThunderBrute.class, ThunderBrute.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Sin Collector")
 @Types({Type.CREATURE})
-@SubTypes({SubType.HUMAN,SubType.CLERIC})
+@SubTypes({SubType.HUMAN, SubType.CLERIC})
 @ManaCost("1WB")
-@Printings({@Printings.Printed(ex = Expansion.DRAGONS_MAZE, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = DragonsMaze.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE, Color.BLACK})
 public final class SinCollector extends Card
 {
@@ -37,7 +38,9 @@ public final class SinCollector extends Card
 		this.setPower(2);
 		this.setToughness(1);
 
-		// When Sin Collector enters the battlefield, target opponent reveals his or her hand. You choose an instant or sorcery card from it and exile that card.
+		// When Sin Collector enters the battlefield, target opponent reveals
+		// his or her hand. You choose an instant or sorcery card from it and
+		// exile that card.
 		this.addAbility(new SinCollectorAbility0(state));
 	}
 }

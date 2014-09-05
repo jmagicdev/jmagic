@@ -4,18 +4,18 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Titan's Strength")
 @Types({Type.INSTANT})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Expansion.THEROS, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class TitansStrength extends Card
 {
 	public TitansStrength(GameState state)
 	{
 		super(state);
-
 
 		// Target creature gets +3/+1 until end of turn.
 		Target target = this.addTarget(CreaturePermanents.instance(), "target creature");

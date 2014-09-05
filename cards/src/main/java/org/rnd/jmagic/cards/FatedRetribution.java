@@ -3,18 +3,18 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Fated Retribution")
 @Types({Type.INSTANT})
 @ManaCost("4WWW")
-@Printings({@Printings.Printed(ex = Expansion.BORN_OF_THE_GODS, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = BornOfTheGods.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class FatedRetribution extends Card
 {
 	public FatedRetribution(GameState state)
 	{
 		super(state);
-
 
 		// Destroy all creatures and planeswalkers.
 		this.addEffect(destroy(Intersect.instance(Permanents.instance(), HasType.instance(Type.CREATURE, Type.PLANESWALKER)), "Destroy all creatures and planeswalkers."));

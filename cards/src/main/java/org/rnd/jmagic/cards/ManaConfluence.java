@@ -3,10 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mana Confluence")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.JOURNEY_INTO_NYX, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = JourneyIntoNyx.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class ManaConfluence extends Card
 {
@@ -24,7 +25,6 @@ public final class ManaConfluence extends Card
 	public ManaConfluence(GameState state)
 	{
 		super(state);
-
 
 		// {T}, Pay 1 life: Add one mana of any color to your mana pool.
 		this.addAbility(new ManaConfluenceAbility0(state));

@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Bident of Thassa")
 @SuperTypes({SuperType.LEGENDARY})
-@Types({Type.ARTIFACT,Type.ENCHANTMENT})
+@Types({Type.ARTIFACT, Type.ENCHANTMENT})
 @ManaCost("2UU")
-@Printings({@Printings.Printed(ex = Expansion.THEROS, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class BidentofThassa extends Card
 {
@@ -33,7 +34,7 @@ public final class BidentofThassa extends Card
 			this.costsTap = true;
 
 			SetGenerator requirement = Intersect.instance(CreaturePermanents.instance(), ControlledBy.instance(OpponentsOf.instance(You.instance())));
-			
+
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.ATTACKING_REQUIREMENT);
 			part.parameters.put(ContinuousEffectType.Parameter.ATTACKING, Identity.instance(requirement));
 			this.addEffect(createFloatingEffect("Creatures your opponents control attack this turn if able.", part));
@@ -44,11 +45,12 @@ public final class BidentofThassa extends Card
 	{
 		super(state);
 
-
-		// Whenever a creature you control deals combat damage to a player, you may draw a card.
+		// Whenever a creature you control deals combat damage to a player, you
+		// may draw a card.
 		this.addAbility(new BidentofThassaAbility0(state));
 
-		// {1}{U}, {T}: Creatures your opponents control attack this turn if able.
+		// {1}{U}, {T}: Creatures your opponents control attack this turn if
+		// able.
 		this.addAbility(new BidentofThassaAbility1(state));
 	}
 }

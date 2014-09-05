@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ensoul Artifact")
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.AURA})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2015, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Magic2015CoreSet.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class EnsoulArtifact extends Card
 {
@@ -27,11 +28,11 @@ public final class EnsoulArtifact extends Card
 	{
 		super(state);
 
-
 		// Enchant artifact
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Enchant.Artifact(state));
 
-		// Enchanted artifact is a creature with base power and toughness 5/5 in addition to its other types.
+		// Enchanted artifact is a creature with base power and toughness 5/5 in
+		// addition to its other types.
 		this.addAbility(new EnsoulArtifactAbility1(state));
 	}
 }

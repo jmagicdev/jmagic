@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Banishing Light")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = Expansion.JOURNEY_INTO_NYX, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = JourneyIntoNyx.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class BanishingLight extends Card
 {
@@ -37,8 +38,9 @@ public final class BanishingLight extends Card
 	{
 		super(state);
 
-
-		// When Banishing Light enters the battlefield, exile target nonland permanent an opponent controls until Banishing Light leaves the battlefield. (That permanent returns under its owner's control.)
+		// When Banishing Light enters the battlefield, exile target nonland
+		// permanent an opponent controls until Banishing Light leaves the
+		// battlefield. (That permanent returns under its owner's control.)
 		this.addAbility(new BanishingLightAbility0(state));
 	}
 }
