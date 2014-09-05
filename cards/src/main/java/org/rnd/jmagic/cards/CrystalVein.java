@@ -2,10 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Crystal Vein")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.SIXTH_EDITION, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.MIRAGE, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = ClassicSixthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Mirage.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class CrystalVein extends Card
 {

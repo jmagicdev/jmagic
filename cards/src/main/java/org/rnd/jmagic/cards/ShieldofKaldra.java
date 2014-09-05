@@ -4,13 +4,14 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Shield of Kaldra")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.ARTIFACT})
 @SubTypes({SubType.EQUIPMENT})
 @ManaCost("4")
-@Printings({@Printings.Printed(ex = Expansion.DARKSTEEL, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Darksteel.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class ShieldofKaldra extends Card
 {

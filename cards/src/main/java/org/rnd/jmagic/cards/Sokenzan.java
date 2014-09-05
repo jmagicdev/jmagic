@@ -3,13 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Sokenzan")
 @Types({Type.PLANE})
 @SubTypes({SubType.KAMIGAWA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Sokenzan extends Card
 {
@@ -23,7 +23,7 @@ public final class Sokenzan extends Card
 
 			this.addEffectPart(addAbilityToObject(CreaturePermanents.instance(), org.rnd.jmagic.abilities.keywords.Haste.class));
 
-			this.canApply = Planechase.staticAbilityCanApply;
+			this.canApply = PlanechaseGameRules.staticAbilityCanApply;
 		}
 	}
 
@@ -33,7 +33,7 @@ public final class Sokenzan extends Card
 		{
 			super(state, "Whenever you roll (C), untap all creatures that attacked this turn. After this main phase, there is an additional combat phase followed by an additional main phase.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			// Copied from Relentless Assault
 			{
@@ -55,7 +55,7 @@ public final class Sokenzan extends Card
 				this.addEffect(new EventFactory(EventType.TAKE_EXTRA_PHASE, mainPhaseParameters, "After this main phase, there is an additional combat phase followed by an additional main phase."));
 			}
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Scavenging Ooze")
 @Types({Type.CREATURE})
 @SubTypes({SubType.OOZE})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.COMMANDER, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class ScavengingOoze extends Card
 {

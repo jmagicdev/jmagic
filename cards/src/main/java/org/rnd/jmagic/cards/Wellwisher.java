@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Wellwisher")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.ONSLAUGHT, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Onslaught.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class Wellwisher extends Card
 {

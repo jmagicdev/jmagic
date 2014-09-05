@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mark of Mutiny")
 @Types({Type.SORCERY})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2013, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.PLANECHASE_2012, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Planechase2012Edition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Zendikar.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class MarkofMutiny extends Card
 {

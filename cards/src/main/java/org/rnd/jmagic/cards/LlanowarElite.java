@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Llanowar Elite")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Expansion.INVASION, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Invasion.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class LlanowarElite extends Card
 {

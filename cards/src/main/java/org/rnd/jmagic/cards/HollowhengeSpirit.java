@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Hollowhenge Spirit")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT})
 @ManaCost("3W")
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class HollowhengeSpirit extends Card
 {

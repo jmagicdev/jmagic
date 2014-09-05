@@ -5,12 +5,13 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.Convenience;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Lullmage Mentor")
 @Types({Type.CREATURE})
 @SubTypes({SubType.MERFOLK, SubType.WIZARD})
 @ManaCost("1UU")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class LullmageMentor extends Card
 {

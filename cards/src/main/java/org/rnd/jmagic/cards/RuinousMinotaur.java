@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ruinous Minotaur")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.MINOTAUR})
 @ManaCost("1RR")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class RuinousMinotaur extends Card
 {

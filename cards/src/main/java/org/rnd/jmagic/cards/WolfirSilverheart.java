@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Wolfir Silverheart")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.WOLF})
 @ManaCost("3GG")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class WolfirSilverheart extends Card
 {

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Goblin Mountaineer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GOBLIN, SubType.SCOUT})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.NINTH_EDITION, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.STARTER, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.PORTAL_SECOND_AGE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.COMMON), @Printings.Printed(ex = NinthEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = Starter1999.class, r = Rarity.COMMON), @Printings.Printed(ex = PortalSecondAge.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class GoblinMountaineer extends Card
 {

@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Primeval Titan")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GIANT})
 @ManaCost("4GG")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.MYTHIC), @Printings.Printed(ex = Expansion.MAGIC_2011, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.MYTHIC), @Printings.Printed(ex = Magic2011.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.GREEN})
 public final class PrimevalTitan extends Card
 {

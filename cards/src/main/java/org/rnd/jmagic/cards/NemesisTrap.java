@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Nemesis Trap")
 @Types({Type.INSTANT})
 @SubTypes({SubType.TRAP})
 @ManaCost("4BB")
-@Printings({@Printings.Printed(ex = Expansion.COMMANDER, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Worldwake.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class NemesisTrap extends Card
 {

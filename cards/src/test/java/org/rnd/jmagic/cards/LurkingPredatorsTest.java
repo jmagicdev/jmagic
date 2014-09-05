@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.testing.*;
 
 public class LurkingPredatorsTest extends JUnitTest
@@ -19,7 +20,7 @@ public class LurkingPredatorsTest extends JUnitTest
 
 		this.addDeck(LightningBolt.class, LightningBolt.class, LightningBolt.class, LightningBolt.class, LightningBolt.class, LightningBolt.class, LightningBolt.class);
 
-		this.startGame(GameTypes.STACKED);
+		this.startGame(new Stacked());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

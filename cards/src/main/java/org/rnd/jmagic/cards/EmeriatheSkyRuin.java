@@ -4,10 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Emeria, the Sky Ruin")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class EmeriatheSkyRuin extends Card
 {

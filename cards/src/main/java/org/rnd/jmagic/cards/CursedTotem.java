@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Cursed Totem")
 @Types({Type.ARTIFACT})
 @ManaCost("2")
-@Printings({@Printings.Printed(ex = Expansion.SIXTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.MIRAGE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = ClassicSixthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Mirage.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class CursedTotem extends Card
 {

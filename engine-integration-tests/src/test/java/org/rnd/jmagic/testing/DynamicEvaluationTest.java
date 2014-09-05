@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 /**
  * For testing concepts and cards that use
@@ -17,7 +18,7 @@ public class DynamicEvaluationTest extends JUnitTest
 	{
 		this.addDeck(Plains.class, ConundrumSphinx.class, GoblinWarPaint.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -45,7 +46,7 @@ public class DynamicEvaluationTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, Fear.class, ViridianShaman.class, ChandraNalaar.class, WarpWorld.class, Sprout.class, Sprout.class, SleeperAgent.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();

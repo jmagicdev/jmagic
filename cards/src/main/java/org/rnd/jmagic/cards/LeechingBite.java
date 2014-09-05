@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Leeching Bite")
 @Types({Type.INSTANT})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.NEW_PHYREXIA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class LeechingBite extends Card
 {

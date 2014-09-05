@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Khalni Heart Expedition")
 @Types({Type.ENCHANTMENT})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class KhalniHeartExpedition extends Card
 {

@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Thornling")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAPESHIFTER, SubType.ELEMENTAL})
 @ManaCost("3GG")
-@Printings({@Printings.Printed(ex = Expansion.CONFLUX, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Conflux.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.GREEN})
 public final class Thornling extends Card
 {

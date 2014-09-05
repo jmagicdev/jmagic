@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Hellkite Igniter")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAGON})
 @ManaCost("5RR")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN_BESIEGED, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class HellkiteIgniter extends Card
 {

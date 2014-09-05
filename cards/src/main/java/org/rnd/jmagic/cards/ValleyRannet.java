@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Valley Rannet")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("4RG")
-@Printings({@Printings.Printed(ex = Expansion.COMMANDER, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.ALARA_REBORN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.COMMON), @Printings.Printed(ex = AlaraReborn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN, Color.RED})
 public final class ValleyRannet extends Card
 {

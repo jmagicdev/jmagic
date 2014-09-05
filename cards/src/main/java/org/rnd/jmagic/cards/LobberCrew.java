@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Lobber Crew")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GOBLIN, SubType.WARRIOR})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Expansion.RETURN_TO_RAVNICA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class LobberCrew extends Card
 {

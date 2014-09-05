@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Obelisk of Alara")
 @Types({Type.ARTIFACT})
 @ManaCost("6")
-@Printings({@Printings.Printed(ex = Expansion.CONFLUX, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Conflux.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN, Color.BLACK, Color.RED})
 public final class ObeliskofAlara extends Card
 {

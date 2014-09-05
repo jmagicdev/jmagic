@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Selfless Cathar")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CLERIC, SubType.HUMAN})
 @ManaCost("W")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class SelflessCathar extends Card
 {

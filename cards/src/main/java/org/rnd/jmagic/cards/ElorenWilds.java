@@ -3,14 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Eloren Wilds")
 @Types({Type.PLANE})
 @SubTypes({SubType.SHANDALAR})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class ElorenWilds extends Card
 {
@@ -32,7 +32,7 @@ public final class ElorenWilds extends Card
 			factory.parameters.put(EventType.Parameter.PLAYER, thatPlayer);
 			this.addEffect(factory);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -42,9 +42,9 @@ public final class ElorenWilds extends Card
 		{
 			super(state, "Whenever you roll (C), target player can't cast spells until a player planeswalks.");
 
-			state.ensureTracker(new Planechase.UntilAPlayerPlaneswalks());
+			state.ensureTracker(new PlanechaseGameRules.UntilAPlayerPlaneswalks());
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			Target target = this.addTarget(Players.instance(), "target player");
 
@@ -57,9 +57,9 @@ public final class ElorenWilds extends Card
 			EventType.ParameterMap effectParameters = new EventType.ParameterMap();
 			effectParameters.put(EventType.Parameter.CAUSE, This.instance());
 			effectParameters.put(EventType.Parameter.EFFECT, Identity.instance(part));
-			this.addEffect(new EventFactory(Planechase.CREATE_FCE_UNTIL_A_PLAYER_PLANESWALKS, effectParameters, "Target player can't cast spells until a player planeswalks."));
+			this.addEffect(new EventFactory(PlanechaseGameRules.CREATE_FCE_UNTIL_A_PLAYER_PLANESWALKS, effectParameters, "Target player can't cast spells until a player planeswalks."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class LinkedAbilitiesTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class LinkedAbilitiesTest extends JUnitTest
 	{
 		this.addDeck(ChromeMox.class, GrizzlyBears.class, PullfromEternity.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -74,7 +77,7 @@ public class LinkedAbilitiesTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, HoardingDragon.class, Terminate.class, GrizzlyBears.class, Shock.class, Shock.class, Shock.class, Shock.class);
 		this.addDeck(Shock.class, Shock.class, Shock.class, Shock.class, Shock.class, Shock.class, Shock.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -106,7 +109,7 @@ public class LinkedAbilitiesTest extends JUnitTest
 	{
 		this.addDeck(GauntletofPower.class, Plains.class, Forest.class, Overgrowth.class, LlanowarElves.class, MoggFanatic.class, AzusaLostbutSeeking.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -156,7 +159,7 @@ public class LinkedAbilitiesTest extends JUnitTest
 	{
 		this.addDeck(VoiceofAll.class, GrizzlyBears.class, GrizzlyBears.class, Shock.class, Shock.class, Shock.class, Shock.class);
 		this.addDeck(Shock.class, Shock.class, Shock.class, Shock.class, Shock.class, Shock.class, Shock.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

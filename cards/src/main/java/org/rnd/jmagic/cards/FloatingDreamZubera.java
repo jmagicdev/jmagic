@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Floating-Dream Zubera")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT, SubType.ZUBERA})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = Expansion.CHAMPIONS_OF_KAMIGAWA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ChampionsOfKamigawa.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class FloatingDreamZubera extends Card
 {

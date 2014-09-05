@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Manabond")
 @Types({Type.ENCHANTMENT})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Expansion.EXODUS, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Exodus.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class Manabond extends Card
 {

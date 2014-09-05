@@ -1,14 +1,14 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Celestine Reef")
 @Types({Type.PLANE})
 @SubTypes({SubType.LUVION})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.SPECIAL)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.SPECIAL)})
 @ColorIdentity({})
 public final class CelestineReef extends Card
 {
@@ -24,7 +24,7 @@ public final class CelestineReef extends Card
 			part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(restriction));
 			this.addEffectPart(part);
 
-			this.canApply = Planechase.staticAbilityCanApply;
+			this.canApply = PlanechaseGameRules.staticAbilityCanApply;
 		}
 	}
 
@@ -34,7 +34,7 @@ public final class CelestineReef extends Card
 		{
 			super(state, "Whenever you roll (C), until a player planeswalks, you can't lose the game and your opponents can't win the game.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			SimpleEventPattern loseEvent = new SimpleEventPattern(EventType.LOSE_GAME);
 			loseEvent.put(EventType.Parameter.PLAYER, You.instance());
@@ -45,12 +45,12 @@ public final class CelestineReef extends Card
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(winEvent, loseEvent));
 
-			EventFactory factory = new EventFactory(Planechase.CREATE_FCE_UNTIL_A_PLAYER_PLANESWALKS, "You can't lose the game and your opponents can't win the game.");
+			EventFactory factory = new EventFactory(PlanechaseGameRules.CREATE_FCE_UNTIL_A_PLAYER_PLANESWALKS, "You can't lose the game and your opponents can't win the game.");
 			factory.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			factory.parameters.put(EventType.Parameter.EFFECT, Identity.instance(part));
 			this.addEffect(factory);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Cavern Thoctar")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("5G")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN, Color.RED})
 public final class CavernThoctar extends Card
 {

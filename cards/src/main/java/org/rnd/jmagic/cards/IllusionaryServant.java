@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Illusionary Servant")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ILLUSION})
 @ManaCost("1UU")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2010, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class IllusionaryServant extends Card
 {

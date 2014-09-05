@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Trinket Mage")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.WIZARD})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.FIFTH_DAWN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = FifthDawn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class TrinketMage extends Card
 {

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ronin Houndmaster")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.SAMURAI})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Expansion.CHAMPIONS_OF_KAMIGAWA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ChampionsOfKamigawa.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class RoninHoundmaster extends Card
 {

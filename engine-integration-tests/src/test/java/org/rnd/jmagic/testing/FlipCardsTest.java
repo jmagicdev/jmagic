@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class FlipCardsTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class FlipCardsTest extends JUnitTest
 	{
 		this.addDeck(BudokaPupil.class, LavaSpike.class, LavaSpike.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Clone.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -54,7 +57,8 @@ public class FlipCardsTest extends JUnitTest
 		respondWith(Answer.YES);
 		// auto-choose Ichiga
 
-		// Clone will become Ichiga, the legend rule will not kick in since they are controlled by different players (M14 update).
+		// Clone will become Ichiga, the legend rule will not kick in since they
+		// are controlled by different players (M14 update).
 		ichiga = this.game.actualState.battlefield().objects.get(0);
 		assertEquals("Ichiga, Who Topples Oaks", ichiga.getName());
 	}
@@ -64,7 +68,7 @@ public class FlipCardsTest extends JUnitTest
 	{
 		this.addDeck(BudokaPupil.class, CunningBandit.class, RuneclawBear.class, LavaSpike.class, LavaSpike.class, TomeScour.class, Plains.class, Plains.class, Plains.class, DimirDoppelganger.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -129,6 +133,6 @@ public class FlipCardsTest extends JUnitTest
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
 		// We'll get an assertion error when player 0's deck is validated.
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 	}
 }

@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Shapesharer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAPESHIFTER})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = Expansion.LORWYN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class Shapesharer extends Card
 {

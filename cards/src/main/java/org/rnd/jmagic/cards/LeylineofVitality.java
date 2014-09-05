@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Leyline of Vitality")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2GG")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2011, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class LeylineofVitality extends Card
 {

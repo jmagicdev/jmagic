@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Verdant Embrace")
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.AURA})
 @ManaCost("3GG")
-@Printings({@Printings.Printed(ex = Expansion.TIME_SPIRAL, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class VerdantEmbrace extends Card
 {

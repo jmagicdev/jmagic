@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Curtain of Light")
 @Types({Type.INSTANT})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = Expansion.SAVIORS_OF_KAMIGAWA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = SaviorsOfKamigawa.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class CurtainofLight extends Card
 {

@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Shivan Sand-Mage")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.VIASHINO})
 @ManaCost("2RR")
-@Printings({@Printings.Printed(ex = Expansion.FUTURE_SIGHT, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class ShivanSandMage extends Card
 {

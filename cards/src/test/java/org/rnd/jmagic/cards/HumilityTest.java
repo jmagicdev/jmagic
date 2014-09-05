@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.testing.*;
 
 public class HumilityTest extends JUnitTest
@@ -13,7 +14,7 @@ public class HumilityTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, SoulWarden.class, SoulWarden.class, Humility.class);
 		this.addDeck(Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class);
-		this.startGame(GameTypes.OPEN);
+		this.startGame(new Open());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Repay in Kind")
 @Types({Type.SORCERY})
 @ManaCost("5BB")
-@Printings({@Printings.Printed(ex = Expansion.RISE_OF_THE_ELDRAZI, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class RepayinKind extends Card
 {

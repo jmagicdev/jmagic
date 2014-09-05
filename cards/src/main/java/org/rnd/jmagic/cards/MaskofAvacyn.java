@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mask of Avacyn")
 @Types({Type.ARTIFACT})
 @SubTypes({SubType.EQUIPMENT})
 @ManaCost("2")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class MaskofAvacyn extends Card
 {

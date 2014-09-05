@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Carrion Call")
 @Types({Type.INSTANT})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class CarrionCall extends Card
 {

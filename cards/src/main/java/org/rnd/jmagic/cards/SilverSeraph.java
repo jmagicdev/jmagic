@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Silver Seraph")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("5WWW")
-@Printings({@Printings.Printed(ex = Expansion.JUDGMENT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Judgment.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class SilverSeraph extends Card
 {

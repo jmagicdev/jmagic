@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Heartless Summoning")
 @Types({Type.ENCHANTMENT})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class HeartlessSummoning extends Card
 {

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Markov Patrician")
 @Types({Type.CREATURE})
 @SubTypes({SubType.VAMPIRE})
 @ManaCost("2B")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class MarkovPatrician extends Card
 {

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Sigiled Paladin")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.KNIGHT})
 @ManaCost("WW")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class SigiledPaladin extends Card
 {

@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Kukemssa Pirates")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.PIRATE})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = Expansion.MIRAGE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Mirage.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class KukemssaPirates extends Card
 {

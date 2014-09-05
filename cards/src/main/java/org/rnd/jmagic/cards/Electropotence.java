@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Electropotence")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class Electropotence extends Card
 {

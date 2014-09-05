@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Death-Hood Cobra")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SNAKE})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.NEW_PHYREXIA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class DeathHoodCobra extends Card
 {

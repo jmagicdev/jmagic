@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Nimbus Wings")
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.AURA})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class NimbusWings extends Card
 {

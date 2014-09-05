@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Primal Bellow")
 @Types({Type.INSTANT})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class PrimalBellow extends Card
 {

@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("March of the Machines")
 @Types({Type.ENCHANTMENT})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.MIRRODIN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Mirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class MarchoftheMachines extends Card
 {

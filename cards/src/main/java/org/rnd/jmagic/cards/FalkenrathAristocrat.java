@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Falkenrath Aristocrat")
 @Types({Type.CREATURE})
 @SubTypes({SubType.VAMPIRE})
 @ManaCost("2BR")
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLACK, Color.RED})
 public final class FalkenrathAristocrat extends Card
 {

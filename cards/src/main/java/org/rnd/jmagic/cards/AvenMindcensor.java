@@ -4,13 +4,14 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Aven Mindcensor")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.BIRD})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = Expansion.FUTURE_SIGHT, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class AvenMindcensor extends Card
 {

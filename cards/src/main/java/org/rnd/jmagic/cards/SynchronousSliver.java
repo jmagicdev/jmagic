@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Synchronous Sliver")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SLIVER})
 @ManaCost("4U")
-@Printings({@Printings.Printed(ex = Expansion.PLANAR_CHAOS, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = PlanarChaos.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class SynchronousSliver extends Card
 {

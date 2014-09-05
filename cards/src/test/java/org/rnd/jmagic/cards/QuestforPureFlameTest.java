@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.testing.*;
 
 public class QuestforPureFlameTest extends JUnitTest
@@ -13,7 +14,7 @@ public class QuestforPureFlameTest extends JUnitTest
 	{
 		this.addDeck(QuestforPureFlame.class, QuestforPureFlame.class, QuestforPureFlame.class, QuestforPureFlame.class, QuestforPureFlame.class, QuestforPureFlame.class, MoggFanatic.class);
 		this.addDeck(Shock.class, QuestforPureFlame.class, QuestforPureFlame.class, QuestforPureFlame.class, QuestforPureFlame.class, QuestforPureFlame.class, MoggFanatic.class);
-		this.startGame(GameTypes.OPEN);
+		this.startGame(new Open());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

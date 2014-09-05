@@ -1,11 +1,12 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Darksteel Relic")
 @Types({Type.ARTIFACT})
 @ManaCost("0")
-@Printings({@Printings.Printed(ex = Expansion.NEW_PHYREXIA, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class DarksteelRelic extends Card
 {

@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Corrupted Harvester")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HORROR})
 @ManaCost("4BB")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class CorruptedHarvester extends Card
 {

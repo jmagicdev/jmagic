@@ -4,13 +4,14 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Sharuum the Hegemon")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.SPHINX})
 @ManaCost("3WUB")
-@Printings({@Printings.Printed(ex = Expansion.FTV_LEGENDS, r = Rarity.MYTHIC), @Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = FromTheVaultLegends.class, r = Rarity.MYTHIC), @Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE, Color.WHITE, Color.BLACK})
 public final class SharuumtheHegemon extends Card
 {

@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("True Conviction")
 @Types({Type.ENCHANTMENT})
 @ManaCost("3WWW")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class TrueConviction extends Card
 {

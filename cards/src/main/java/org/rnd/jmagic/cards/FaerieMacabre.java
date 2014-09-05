@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Faerie Macabre")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ROGUE, SubType.FAERIE})
 @ManaCost("1BB")
-@Printings({@Printings.Printed(ex = Expansion.SHADOWMOOR, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class FaerieMacabre extends Card
 {

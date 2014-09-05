@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Hell's Thunder")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL})
 @ManaCost("1RR")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class HellsThunder extends Card
 {

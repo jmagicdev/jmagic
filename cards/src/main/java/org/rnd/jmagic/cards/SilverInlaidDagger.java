@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Silver-Inlaid Dagger")
 @Types({Type.ARTIFACT})
 @SubTypes({SubType.EQUIPMENT})
 @ManaCost("1")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class SilverInlaidDagger extends Card
 {

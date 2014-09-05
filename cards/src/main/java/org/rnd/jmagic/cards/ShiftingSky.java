@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Shifting Sky")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Expansion.EIGHTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.PLANESHIFT, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = EighthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Planeshift.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class ShiftingSky extends Card
 {

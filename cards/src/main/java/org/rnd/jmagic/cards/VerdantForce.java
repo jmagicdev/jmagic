@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Verdant Force")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL})
 @ManaCost("5GGG")
-@Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.NINTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.TEMPEST, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = NinthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Tempest.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class VerdantForce extends Card
 {

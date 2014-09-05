@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Grim Lavamancer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.HUMAN})
 @ManaCost("R  ")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.RARE), @Printings.Printed(ex = Expansion.TORMENT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.RARE), @Printings.Printed(ex = Torment.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class GrimLavamancer extends Card
 {

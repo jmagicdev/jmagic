@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Furyborn Hellkite")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAGON})
 @ManaCost("4RRR")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.RED})
 public final class FurybornHellkite extends Card
 {

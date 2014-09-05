@@ -1,11 +1,12 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Dryad Arbor")
 @Types({Type.LAND, Type.CREATURE})
 @SubTypes({SubType.FOREST, SubType.DRYAD})
-@Printings({@Printings.Printed(ex = Expansion.FUTURE_SIGHT, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class DryadArbor extends Card
 {

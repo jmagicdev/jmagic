@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Counterbalance")
 @Types({Type.ENCHANTMENT})
 @ManaCost("UU")
-@Printings({@Printings.Printed(ex = Expansion.COLDSNAP, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Coldsnap.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class Counterbalance extends Card
 {

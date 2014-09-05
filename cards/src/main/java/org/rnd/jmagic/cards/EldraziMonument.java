@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Eldrazi Monument")
 @Types({Type.ARTIFACT})
 @ManaCost("5")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.MYTHIC)})
 @ColorIdentity({})
 public final class EldraziMonument extends Card
 {

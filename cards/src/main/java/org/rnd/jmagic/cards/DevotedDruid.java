@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Devoted Druid")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRUID, SubType.ELF})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.SHADOWMOOR, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class DevotedDruid extends Card
 {

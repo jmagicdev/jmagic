@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Cystbearer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class Cystbearer extends Card
 {

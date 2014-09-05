@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Elgaud Inquisitor")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.CLERIC})
 @ManaCost("3W")
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class ElgaudInquisitor extends Card
 {

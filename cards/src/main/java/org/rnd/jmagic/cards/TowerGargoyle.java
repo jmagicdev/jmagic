@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Tower Gargoyle")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.GARGOYLE})
 @ManaCost("1WUB")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE, Color.WHITE, Color.BLACK})
 public final class TowerGargoyle extends Card
 {

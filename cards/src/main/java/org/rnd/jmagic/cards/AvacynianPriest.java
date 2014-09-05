@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Avacynian Priest")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CLERIC, SubType.HUMAN})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class AvacynianPriest extends Card
 {

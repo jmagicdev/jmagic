@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Kitchen Finks")
 @Types({Type.CREATURE})
 @SubTypes({SubType.OUPHE})
 @ManaCost("1(G/W)(G/W)")
-@Printings({@Printings.Printed(ex = Expansion.SHADOWMOOR, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class KitchenFinks extends Card
 {

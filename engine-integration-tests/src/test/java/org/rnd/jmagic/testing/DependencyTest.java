@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class DependencyTest extends JUnitTest
 {
@@ -19,7 +20,7 @@ public class DependencyTest extends JUnitTest
 		Plains.class, Plains.class, TurntoFrog.class, TurntoFrog.class, ZulaportEnforcer.class, PossessedNomad.class, Traumatize.class);
 
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -88,7 +89,7 @@ public class DependencyTest extends JUnitTest
 		// of effects to debug
 		this.addDeck(TimeVault.class, BludgeonBrawl.class, MarchoftheMachines.class, Naturalize.class, Clone.class, OpentheVaults.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -137,7 +138,7 @@ public class DependencyTest extends JUnitTest
 		// the "confiscate ball" -- this forms a dependency loop
 		this.addDeck(SimicGuildmage.class, Confiscate.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Confiscate.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -212,7 +213,7 @@ public class DependencyTest extends JUnitTest
 	{
 		this.addDeck(MeliraSylvokOutcast.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Phyresis.class, RagingGoblin.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -242,7 +243,7 @@ public class DependencyTest extends JUnitTest
 	{
 		this.addDeck(UrborgTombofYawgmoth.class, UrborgTombofYawgmoth.class, UrborgTombofYawgmoth.class, UrborgTombofYawgmoth.class, UrborgTombofYawgmoth.class, UrborgTombofYawgmoth.class, UrborgTombofYawgmoth.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -261,7 +262,7 @@ public class DependencyTest extends JUnitTest
 	{
 		this.addDeck(Swamp.class, SeasClaim.class, LushGrowth.class, AnHavvaTownship.class, ConvincingMirage.class, BloodMoon.class, AzusaLostbutSeeking.class);
 		this.addDeck(Swamp.class, SeasClaim.class, LushGrowth.class, AnHavvaTownship.class, ConvincingMirage.class, BloodMoon.class, AzusaLostbutSeeking.class, DoomBlade.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -303,7 +304,7 @@ public class DependencyTest extends JUnitTest
 		// test where dependency order is opposite timestamp order
 		this.addDeck(AzusaLostbutSeeking.class, UrborgTombofYawgmoth.class, BloodMoon.class, AdarkarWastes.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -343,7 +344,7 @@ public class DependencyTest extends JUnitTest
 		// timestamp order
 		this.addDeck(AzusaLostbutSeeking.class, UrborgTombofYawgmoth.class, BloodMoon.class, AdarkarWastes.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -381,7 +382,7 @@ public class DependencyTest extends JUnitTest
 		// LOOK MA, NO TYPES
 		this.addDeck(NeurokTransmuter.class, MarchoftheMachines.class, PhyrexianVault.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

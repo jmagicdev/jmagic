@@ -4,13 +4,14 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Meddling Mage")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.WIZARD})
 @ManaCost("WU")
-@Printings({@Printings.Printed(ex = Expansion.ALARA_REBORN, r = Rarity.RARE), @Printings.Printed(ex = Expansion.PLANESHIFT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.RARE), @Printings.Printed(ex = Planeshift.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.WHITE})
 public final class MeddlingMage extends Card
 {

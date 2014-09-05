@@ -5,12 +5,13 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.ContinuousEffectType.Parameter;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Neurok Transmuter")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.HUMAN})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Expansion.DARKSTEEL, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Darksteel.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class NeurokTransmuter extends Card
 {

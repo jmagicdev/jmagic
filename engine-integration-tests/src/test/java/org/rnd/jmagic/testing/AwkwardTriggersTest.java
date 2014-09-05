@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 // hawkward
 public class AwkwardTriggersTest extends JUnitTest
@@ -14,7 +15,7 @@ public class AwkwardTriggersTest extends JUnitTest
 	{
 		this.addDeck(MindRot.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(GuerrillaTactics.class, GuerrillaTactics.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -43,7 +44,7 @@ public class AwkwardTriggersTest extends JUnitTest
 	{
 		this.addDeck(VastwoodZendikon.class, Terminate.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

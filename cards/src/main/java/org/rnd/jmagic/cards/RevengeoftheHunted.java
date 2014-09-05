@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Revenge of the Hunted")
 @Types({Type.SORCERY})
 @ManaCost("4GG")
 @ColorIdentity({Color.GREEN})
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.RARE)})
 public final class RevengeoftheHunted extends Card
 {
 	public RevengeoftheHunted(GameState state)

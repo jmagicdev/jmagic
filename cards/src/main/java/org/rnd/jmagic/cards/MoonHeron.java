@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Moon Heron")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT, SubType.BIRD})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class MoonHeron extends Card
 {

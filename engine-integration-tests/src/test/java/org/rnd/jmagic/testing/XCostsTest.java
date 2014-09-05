@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class XCostsTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class XCostsTest extends JUnitTest
 	{
 		this.addDeck(BelbesArmor.class, MoggFanatic.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -64,7 +67,7 @@ public class XCostsTest extends JUnitTest
 		this.addDeck(RubyMedallion.class, RubyMedallion.class, RubyMedallion.class, Blaze.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -94,7 +97,7 @@ public class XCostsTest extends JUnitTest
 
 		this.addDeck(ConsumeSpirit.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -166,7 +169,7 @@ public class XCostsTest extends JUnitTest
 	{
 		this.addDeck(ConsumeSpirit.class, JetMedallion.class, JetMedallion.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -193,7 +196,7 @@ public class XCostsTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, Blaze.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -246,7 +249,7 @@ public class XCostsTest extends JUnitTest
 
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, Blaze.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -323,7 +326,7 @@ public class XCostsTest extends JUnitTest
 		this.addDeck(Blaze.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

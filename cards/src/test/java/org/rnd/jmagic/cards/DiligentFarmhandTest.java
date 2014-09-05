@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.testing.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class DiligentFarmhandTest extends JUnitTest
 {
@@ -13,7 +14,7 @@ public class DiligentFarmhandTest extends JUnitTest
 	{
 		this.addDeck(DiligentFarmhand.class, DiligentFarmhand.class, DiligentFarmhand.class, MuscleBurst.class, MuscleBurst.class, MuscleBurst.class, TomeScour.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, RuneclawBear.class, RuneclawBear.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		this.startGame(GameTypes.STACKED);
+		this.startGame(new Stacked());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

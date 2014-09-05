@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Blightsteel Colossus")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.GOLEM})
 @ManaCost("(12)")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN_BESIEGED, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.MYTHIC)})
 @ColorIdentity({})
 public final class BlightsteelColossus extends Card
 {

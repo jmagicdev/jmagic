@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Scryb Ranger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.FAERIE})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.TIME_SPIRAL, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class ScrybRanger extends Card
 {

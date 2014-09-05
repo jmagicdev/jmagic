@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Auriok Salvagers")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.HUMAN})
 @ManaCost("3W")
-@Printings({@Printings.Printed(ex = Expansion.FIFTH_DAWN, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = FifthDawn.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class AuriokSalvagers extends Card
 {

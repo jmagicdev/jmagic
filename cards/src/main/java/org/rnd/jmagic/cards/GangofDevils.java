@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Gang of Devils")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DEVIL})
 @ManaCost("5R")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class GangofDevils extends Card
 {

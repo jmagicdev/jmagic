@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Gemstone Caverns")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.TIME_SPIRAL, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class GemstoneCaverns extends Card
 {

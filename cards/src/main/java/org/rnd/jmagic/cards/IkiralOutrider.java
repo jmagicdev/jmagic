@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ikiral Outrider")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.SOLDIER})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = Expansion.RISE_OF_THE_ELDRAZI, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class IkiralOutrider extends Card
 {

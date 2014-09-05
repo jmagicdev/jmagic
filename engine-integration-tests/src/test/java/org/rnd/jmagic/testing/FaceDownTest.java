@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class FaceDownTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class FaceDownTest extends JUnitTest
 	{
 		this.addDeck(MoggFanatic.class, Ixidron.class, Clone.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -67,7 +70,7 @@ public class FaceDownTest extends JUnitTest
 	{
 		this.addDeck(OnewithNothing.class, BatteringCraghorn.class, BatteringCraghorn.class, BatteringCraghorn.class, BatteringCraghorn.class, BatteringCraghorn.class, BatteringCraghorn.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -126,7 +129,7 @@ public class FaceDownTest extends JUnitTest
 	{
 		this.addDeck(BatteringCraghorn.class, KrosanColossus.class, RuneclawBear.class, Mirrorweave.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

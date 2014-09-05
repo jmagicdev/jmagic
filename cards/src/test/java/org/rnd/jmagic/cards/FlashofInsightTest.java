@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.testing.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class FlashofInsightTest extends JUnitTest
 {
@@ -13,7 +14,7 @@ public class FlashofInsightTest extends JUnitTest
 	{
 		this.addDeck(Plains.class, Plains.class, Plains.class, Mountain.class, Swamp.class, Island.class, OnewithNothing.class, Opt.class, Opt.class, Opt.class, Opt.class, Opt.class, FlashofInsight.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		this.startGame(GameTypes.STACKED);
+		this.startGame(new Stacked());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

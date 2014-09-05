@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class CoinFlippingTest extends JUnitTest
 {
@@ -13,7 +16,7 @@ public class CoinFlippingTest extends JUnitTest
 		// make sure games that aren't stacked don't allow flip manipulation :-P
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, ScoriaWurm.class, ScoriaWurm.class, ScoriaWurm.class, ScoriaWurm.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -120,7 +123,7 @@ public class CoinFlippingTest extends JUnitTest
 		// stacked game type allows manipulation of coin flips
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, ScoriaWurm.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();

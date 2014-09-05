@@ -4,10 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Bojuka Bog")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.COMMANDER, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.COMMON), @Printings.Printed(ex = Worldwake.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class BojukaBog extends Card
 {

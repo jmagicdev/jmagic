@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class ManaSomethingCouldProduceTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class ManaSomethingCouldProduceTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, AzusaLostbutSeeking.class, AzusaLostbutSeeking.class, BlackLotus.class, TolarianAcademy.class, AnHavvaTownship.class, AnHavvaTownship.class);
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, FellwarStone.class, FellwarStone.class, FellwarStone.class, FellwarStone.class, FellwarStone.class, FellwarStone.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -92,7 +95,7 @@ public class ManaSomethingCouldProduceTest extends JUnitTest
 
 		this.addDeck(ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, Forest.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -171,7 +174,7 @@ public class ManaSomethingCouldProduceTest extends JUnitTest
 
 		this.addDeck(ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, NimbusMaze.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -249,7 +252,7 @@ public class ManaSomethingCouldProduceTest extends JUnitTest
 	{
 		this.addDeck(ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, SpringjackPasture.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -328,7 +331,7 @@ public class ManaSomethingCouldProduceTest extends JUnitTest
 
 		this.addDeck(ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, ReflectingPool.class, TolarianAcademy.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

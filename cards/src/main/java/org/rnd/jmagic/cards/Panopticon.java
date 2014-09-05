@@ -3,14 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Panopticon")
 @Types({Type.PLANE})
 @SubTypes({SubType.MIRRODIN})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Panopticon extends Card
 {
@@ -20,14 +20,14 @@ public final class Panopticon extends Card
 		{
 			super(state, "When you planeswalk to Panopticon, draw a card.");
 
-			SimpleEventPattern pattern = new SimpleEventPattern(Planechase.PLANESWALK);
+			SimpleEventPattern pattern = new SimpleEventPattern(PlanechaseGameRules.PLANESWALK);
 			pattern.put(EventType.Parameter.PLAYER, You.instance());
 			pattern.put(EventType.Parameter.TO, ABILITY_SOURCE_OF_THIS);
 			this.addPattern(pattern);
 
 			this.addEffect(drawACard());
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -43,7 +43,7 @@ public final class Panopticon extends Card
 
 			this.addEffect(drawCards(You.instance(), 1, "Draw an additional card."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -53,11 +53,11 @@ public final class Panopticon extends Card
 		{
 			super(state, "Whenever you roll (C), draw a card.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			this.addEffect(drawACard());
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

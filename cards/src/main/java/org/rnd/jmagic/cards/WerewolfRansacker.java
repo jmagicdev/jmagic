@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Werewolf Ransacker")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WEREWOLF})
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class WerewolfRansacker extends AlternateCard
 {

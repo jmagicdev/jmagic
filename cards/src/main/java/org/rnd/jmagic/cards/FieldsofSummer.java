@@ -3,14 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Fields of Summer")
 @Types({Type.PLANE})
 @SubTypes({SubType.MOAG})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class FieldsofSummer extends Card
 {
@@ -28,7 +28,7 @@ public final class FieldsofSummer extends Card
 
 			this.addEffect(playerMay(thatPlayer, gainLife(thatPlayer, 2, "That player gains 2 life."), "That player may gain 2 life."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -38,11 +38,11 @@ public final class FieldsofSummer extends Card
 		{
 			super(state, "Whenever you roll (C), you may gain 10 life.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			this.addEffect(youMay(gainLife(You.instance(), 10, "You gain 10 life."), "You may gain 10 life."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

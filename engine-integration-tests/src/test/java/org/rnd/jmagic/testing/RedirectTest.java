@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.sanitized.*;
 
 public class RedirectTest extends JUnitTest
@@ -13,7 +16,7 @@ public class RedirectTest extends JUnitTest
 	{
 		this.addDeck(LightningBolt.class, LightningBolt.class, LightningBolt.class, Shunt.class, Shunt.class, Cancel.class, Cancel.class);
 		this.addDeck(LightningBolt.class, LightningBolt.class, LightningBolt.class, Shunt.class, Shunt.class, Cancel.class, Cancel.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -86,7 +89,7 @@ public class RedirectTest extends JUnitTest
 	{
 		this.addDeck(SoulWarden.class, Terror.class, Shunt.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -124,7 +127,7 @@ public class RedirectTest extends JUnitTest
 	{
 		this.addDeck(Spellskite.class, RagingGoblin.class, Swelter.class, StaveOff.class, AgonyWarp.class, GiantGrowth.class, GiantGrowth.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

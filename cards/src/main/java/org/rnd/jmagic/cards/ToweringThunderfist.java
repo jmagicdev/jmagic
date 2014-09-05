@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Towering Thunderfist")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GIANT, SubType.SOLDIER})
 @ManaCost("4R")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.RED})
 public final class ToweringThunderfist extends Card
 {

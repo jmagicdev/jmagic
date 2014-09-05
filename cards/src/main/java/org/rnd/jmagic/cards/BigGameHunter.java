@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Big Game Hunter")
 @Types({Type.CREATURE})
 @SubTypes({SubType.REBEL, SubType.ASSASSIN, SubType.HUMAN})
 @ManaCost("1BB")
-@Printings({@Printings.Printed(ex = Expansion.PLANAR_CHAOS, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = PlanarChaos.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class BigGameHunter extends Card
 {

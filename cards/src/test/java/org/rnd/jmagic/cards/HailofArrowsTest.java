@@ -6,6 +6,7 @@ import org.junit.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.sanitized.*;
 import org.rnd.jmagic.testing.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class HailofArrowsTest extends JUnitTest
 {
@@ -14,7 +15,7 @@ public class HailofArrowsTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, HailofArrows.class);
 		this.addDeck(BlackLotus.class, BlackLotus.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class);
-		this.startGame(GameTypes.OPEN);
+		this.startGame(new Open());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

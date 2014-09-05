@@ -14,7 +14,7 @@ public class GameTypeDialog extends javax.swing.JDialog
 		/**
 		 * Create a new configuration for a Java bean with an optional
 		 * {@link Description} annotation.
-		 * 
+		 *
 		 * @param beanClass The bean class extending T
 		 */
 		public BeanConfiguration(Class<? extends T> beanClass)
@@ -647,7 +647,7 @@ public class GameTypeDialog extends javax.swing.JDialog
 		/**
 		 * Get the value of this property based on the state of the controls on
 		 * the panel returned by {@link #getPanel()}.
-		 * 
+		 *
 		 * @return Non-{@code null} for a valid value, {@code null} if an error
 		 * occurred and a value can't be returned
 		 */
@@ -780,6 +780,7 @@ public class GameTypeDialog extends javax.swing.JDialog
 		return findImplementations(rootType, pkg, null);
 	}
 
+	@SuppressWarnings("unchecked")
 	private static <T> java.util.SortedSet<Class<? extends T>> findImplementations(Class<T> rootType, String pkg, Class<? extends java.lang.annotation.Annotation> ignoreAnnotation)
 	{
 		java.util.SortedSet<Class<? extends T>> ret = new java.util.TreeSet<Class<? extends T>>(new java.util.Comparator<Class<? extends T>>()
@@ -791,27 +792,11 @@ public class GameTypeDialog extends javax.swing.JDialog
 			}
 		});
 
-		org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider scanner = new org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider(false);
-		scanner.addIncludeFilter(new org.springframework.core.type.filter.AssignableTypeFilter(rootType));
-		if(ignoreAnnotation != null)
-			scanner.addExcludeFilter(new org.springframework.core.type.filter.AnnotationTypeFilter(ignoreAnnotation));
+		java.util.ServiceLoader<T> loader = java.util.ServiceLoader.load(rootType);
 
-		for(org.springframework.beans.factory.config.BeanDefinition bean: scanner.findCandidateComponents(pkg))
-		{
-			if((bean instanceof org.springframework.context.annotation.ScannedGenericBeanDefinition) //
-					&& ((org.springframework.context.annotation.ScannedGenericBeanDefinition)bean).getMetadata().isConcrete())
-			{
-				try
-				{
-					@SuppressWarnings("unchecked") Class<? extends T> c = (Class<? extends T>)(Class.forName(bean.getBeanClassName()));
-					ret.add(c);
-				}
-				catch(ClassNotFoundException e)
-				{
-					LOG.log(java.util.logging.Level.SEVERE, "Error loading class from scanned game-type rules", e);
-				}
-			}
-		}
+		for(T item: loader)
+			if(null == ignoreAnnotation || null == item.getClass().getAnnotation(ignoreAnnotation))
+				ret.add((Class<? extends T>)item.getClass());
 
 		return ret;
 	}

@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("The Unspeakable")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT})
 @ManaCost("6UUU")
-@Printings({@Printings.Printed(ex = Expansion.CHAMPIONS_OF_KAMIGAWA, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = ChampionsOfKamigawa.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class TheUnspeakable extends Card
 {

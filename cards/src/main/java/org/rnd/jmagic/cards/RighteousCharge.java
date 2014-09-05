@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Righteous Charge")
 @Types({Type.SORCERY})
 @ManaCost("1WW")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.STARTER, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.PORTAL_SECOND_AGE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Starter1999.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = PortalSecondAge.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class RighteousCharge extends Card
 {

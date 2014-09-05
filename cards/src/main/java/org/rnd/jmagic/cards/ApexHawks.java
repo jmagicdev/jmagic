@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Apex Hawks")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BIRD})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class ApexHawks extends Card
 {

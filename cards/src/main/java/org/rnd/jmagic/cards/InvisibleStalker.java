@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Invisible Stalker")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.ROGUE})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class InvisibleStalker extends Card
 {

@@ -3,14 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Skybreen")
 @Types({Type.PLANE})
 @SubTypes({SubType.KALDHEIM})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Skybreen extends Card
 {
@@ -27,7 +27,7 @@ public final class Skybreen extends Card
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, topCardOfLibrary);
 			this.addEffectPart(part);
 
-			this.canApply = Planechase.staticAbilityCanApply;
+			this.canApply = PlanechaseGameRules.staticAbilityCanApply;
 		}
 	}
 
@@ -77,7 +77,7 @@ public final class Skybreen extends Card
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(prohibitPattern));
 			this.addEffectPart(part);
 
-			this.canApply = Planechase.staticAbilityCanApply;
+			this.canApply = PlanechaseGameRules.staticAbilityCanApply;
 		}
 	}
 
@@ -87,13 +87,13 @@ public final class Skybreen extends Card
 		{
 			super(state, "Whenever you roll (C), target player loses life equal to the number of cards in his or her hand.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			Target target = this.addTarget(Players.instance(), "target player");
 
 			this.addEffect(loseLife(targetedBy(target), Count.instance(InZone.instance(HandOf.instance(targetedBy(target)))), "Target player loses life equal to the number of cards in his or her hand."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

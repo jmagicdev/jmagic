@@ -4,13 +4,14 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ob Nixilis, the Fallen")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.DEMON})
 @ManaCost("3BB")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLACK})
 public final class ObNixilistheFallen extends Card
 {

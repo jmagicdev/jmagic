@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Farbog Explorer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SCOUT, SubType.HUMAN})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class FarbogExplorer extends Card
 {

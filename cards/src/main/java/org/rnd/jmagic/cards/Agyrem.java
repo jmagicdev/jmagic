@@ -3,14 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Agyrem")
 @Types({Type.PLANE})
 @SubTypes({SubType.RAVNICA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Agyrem extends Card
 {
@@ -37,7 +37,7 @@ public final class Agyrem extends Card
 			factory.parameters.put(EventType.Parameter.EFFECT, Identity.instance(returnFactory));
 			this.addEffect(factory);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -64,7 +64,7 @@ public final class Agyrem extends Card
 			factory.parameters.put(EventType.Parameter.EFFECT, Identity.instance(returnFactory));
 			this.addEffect(factory);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -74,19 +74,19 @@ public final class Agyrem extends Card
 		{
 			super(state, "Whenever you roll (C), creatures can't attack you until a player planeswalks.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
-			state.ensureTracker(new Planechase.UntilAPlayerPlaneswalks());
+			state.ensureTracker(new PlanechaseGameRules.UntilAPlayerPlaneswalks());
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.ATTACKING_RESTRICTION);
 			part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(Attacking.instance(ControllerOf.instance(This.instance()))));
 
-			EventFactory factory = new EventFactory(Planechase.CREATE_FCE_UNTIL_A_PLAYER_PLANESWALKS, "Creatures can't attack you until a player planeswalks.");
+			EventFactory factory = new EventFactory(PlanechaseGameRules.CREATE_FCE_UNTIL_A_PLAYER_PLANESWALKS, "Creatures can't attack you until a player planeswalks.");
 			factory.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			factory.parameters.put(EventType.Parameter.EFFECT, Identity.instance(part));
 			this.addEffect(factory);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

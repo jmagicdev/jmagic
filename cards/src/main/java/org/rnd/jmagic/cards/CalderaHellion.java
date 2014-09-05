@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Caldera Hellion")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HELLION})
 @ManaCost("3RR")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class CalderaHellion extends Card
 {

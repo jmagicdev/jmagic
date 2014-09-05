@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Delver of Secrets")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.HUMAN})
 @ManaCost("U")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 @BackFace(InsectileAberration.class)
 public final class DelverofSecrets extends Card

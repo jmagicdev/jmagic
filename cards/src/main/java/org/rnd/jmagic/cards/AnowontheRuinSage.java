@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Anowon, the Ruin Sage")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.VAMPIRE})
 @ManaCost("3BB")
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class AnowontheRuinSage extends Card
 {

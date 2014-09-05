@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Bitterblossom")
 @Types({Type.ENCHANTMENT, Type.TRIBAL})
 @SubTypes({SubType.FAERIE})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Expansion.MORNINGTIDE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Morningtide.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class Bitterblossom extends Card
 {

@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Leap of Faith")
 @Types({Type.INSTANT})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class LeapofFaith extends Card
 {

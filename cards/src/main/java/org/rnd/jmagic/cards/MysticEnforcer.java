@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mystic Enforcer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.MYSTIC, SubType.NOMAD})
 @ManaCost("2GW")
-@Printings({@Printings.Printed(ex = Expansion.TIME_SPIRAL, r = Rarity.SPECIAL), @Printings.Printed(ex = Expansion.ODYSSEY, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.SPECIAL), @Printings.Printed(ex = Odyssey.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class MysticEnforcer extends Card
 {

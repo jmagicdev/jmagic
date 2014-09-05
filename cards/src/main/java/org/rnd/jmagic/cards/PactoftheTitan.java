@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Pact of the Titan")
 @ManaCost("0")
 @Types({Type.INSTANT})
-@Printings({@Printings.Printed(ex = Expansion.FUTURE_SIGHT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class PactoftheTitan extends org.rnd.jmagic.cardTemplates.Pact
 {

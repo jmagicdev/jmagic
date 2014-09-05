@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class DrawDuringManaAbilityTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class DrawDuringManaAbilityTest extends JUnitTest
 	{
 		this.addDeck(ChromaticSphere.class, ChromaticSphere.class, ChromaticSphere.class, ChromaticSphere.class, ChromaticSphere.class, ChromaticSphere.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

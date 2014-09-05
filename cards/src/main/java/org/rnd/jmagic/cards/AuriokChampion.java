@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Auriok Champion")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CLERIC, SubType.HUMAN})
 @ManaCost("WW")
-@Printings({@Printings.Printed(ex = Expansion.FIFTH_DAWN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = FifthDawn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class AuriokChampion extends Card
 {

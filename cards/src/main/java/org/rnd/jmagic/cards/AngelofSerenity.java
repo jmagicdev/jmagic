@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Angel of Serenity")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("4WWW")
-@Printings({@Printings.Printed(ex = Expansion.RETURN_TO_RAVNICA, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE})
 public final class AngelofSerenity extends Card
 {

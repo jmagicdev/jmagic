@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Balefire Dragon")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAGON})
 @ManaCost("5RR")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.RED})
 public final class BalefireDragon extends Card
 {

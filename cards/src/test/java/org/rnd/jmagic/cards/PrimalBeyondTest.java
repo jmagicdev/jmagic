@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.testing.*;
 
 public class PrimalBeyondTest extends JUnitTest
@@ -13,7 +14,7 @@ public class PrimalBeyondTest extends JUnitTest
 	{
 		this.addDeck(PrimalBeyond.class, CharRumbler.class, CharRumbler.class, BlackLotus.class, BlackLotus.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		this.startGame(GameTypes.OPEN);
+		this.startGame(new Open());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();
@@ -83,7 +84,7 @@ public class PrimalBeyondTest extends JUnitTest
 	{
 		this.addDeck(Plains.class, Plains.class, Plains.class, PrimalBeyond.class, SparkElemental.class, Shock.class, Twitch.class, BlackLotus.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		this.startGame(GameTypes.STACKED);
+		this.startGame(new Stacked());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

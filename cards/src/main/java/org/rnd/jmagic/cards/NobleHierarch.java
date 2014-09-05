@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Noble Hierarch")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.DRUID})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Expansion.CONFLUX, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Conflux.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN})
 public final class NobleHierarch extends Card
 {

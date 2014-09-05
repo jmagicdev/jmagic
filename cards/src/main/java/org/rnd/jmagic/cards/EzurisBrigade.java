@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ezuri's Brigade")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.WARRIOR})
 @ManaCost("2GG")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class EzurisBrigade extends Card
 {

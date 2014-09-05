@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Refraction Trap")
 @Types({Type.INSTANT})
 @SubTypes({SubType.TRAP})
 @ManaCost("3W")
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class RefractionTrap extends Card
 {

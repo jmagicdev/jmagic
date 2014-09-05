@@ -1,11 +1,12 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Phyrexian Walker")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @ManaCost("0")
-@Printings({@Printings.Printed(ex = Expansion.VISIONS, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Visions.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class PhyrexianWalker extends Card
 {

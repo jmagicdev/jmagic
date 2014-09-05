@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Chromatic Sphere")
 @Types({Type.ARTIFACT})
 @ManaCost("1")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.INVASION, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Mirrodin.class, r = Rarity.COMMON), @Printings.Printed(ex = Invasion.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class ChromaticSphere extends Card
 {

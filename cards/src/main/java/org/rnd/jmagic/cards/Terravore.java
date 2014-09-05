@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Terravore")
 @Types({Type.CREATURE})
 @SubTypes({SubType.LHURGOYF})
 @ManaCost("1GG")
-@Printings({@Printings.Printed(ex = Expansion.ODYSSEY, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Odyssey.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class Terravore extends Card
 {

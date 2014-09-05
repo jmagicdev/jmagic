@@ -1,10 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
 
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.sanitized.*;
 
 public class PreventionEffectsTest extends JUnitTest
@@ -14,7 +16,7 @@ public class PreventionEffectsTest extends JUnitTest
 	{
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, ChaosCharm.class, RagingGoblin.class, HolyDay.class, MoggFanatic.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -80,7 +82,7 @@ public class PreventionEffectsTest extends JUnitTest
 	{
 		this.addDeck(MendingHands.class, Twincast.class, BloodfireColossus.class, RagingGoblin.class, GrizzlyBears.class, AmbassadorLaquatus.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -153,7 +155,7 @@ public class PreventionEffectsTest extends JUnitTest
 	{
 		this.addDeck(StoryCircle.class, Shock.class, Shock.class, MoggFanatic.class, MoggFanatic.class, Banefire.class, Shock.class);
 		this.addDeck(RagingGoblin.class, RagingGoblin.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -237,7 +239,7 @@ public class PreventionEffectsTest extends JUnitTest
 	{
 		this.addDeck(BazaarTrader.class, Thunderstaff.class, AkromaAngelofWrath.class, ChaosCharm.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -282,7 +284,7 @@ public class PreventionEffectsTest extends JUnitTest
 	{
 		this.addDeck(VengefulArchon.class, LightningBolt.class, Shock.class, Shock.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -339,7 +341,7 @@ public class PreventionEffectsTest extends JUnitTest
 	{
 		this.addDeck(Excruciator.class, ArcaneTeachings.class, ChaosCharm.class, Twiddle.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(AweStrike.class, Humble.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

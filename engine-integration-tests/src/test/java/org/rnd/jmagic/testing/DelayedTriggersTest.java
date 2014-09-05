@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class DelayedTriggersTest extends JUnitTest
 {
@@ -13,7 +14,7 @@ public class DelayedTriggersTest extends JUnitTest
 	{
 		this.addDeck(ObzedatGhostCouncil.class, ObzedatGhostCouncil.class, ObzedatGhostCouncil.class, ObzedatGhostCouncil.class, ObzedatGhostCouncil.class, ObzedatGhostCouncil.class, ObzedatGhostCouncil.class, ObzedatGhostCouncil.class);
 		this.addDeck(OnewithNothing.class, ObzedatGhostCouncil.class, ObzedatGhostCouncil.class, ObzedatGhostCouncil.class, ObzedatGhostCouncil.class, ObzedatGhostCouncil.class, ObzedatGhostCouncil.class, ObzedatGhostCouncil.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -78,7 +79,7 @@ public class DelayedTriggersTest extends JUnitTest
 	{
 		this.addDeck(PactoftheTitan.class, PactoftheTitan.class, PactoftheTitan.class, PactoftheTitan.class, PactoftheTitan.class, PactoftheTitan.class, PactoftheTitan.class, PactoftheTitan.class);
 		this.addDeck(PactoftheTitan.class, PactoftheTitan.class, PactoftheTitan.class, PactoftheTitan.class, PactoftheTitan.class, PactoftheTitan.class, PactoftheTitan.class, PactoftheTitan.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -138,7 +139,7 @@ public class DelayedTriggersTest extends JUnitTest
 	{
 		this.addDeck(StoneGiant.class, GrizzlyBears.class, Sprout.class, RuneclawBear.class, GiantGrowth.class, ChaosCharm.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -194,7 +195,7 @@ public class DelayedTriggersTest extends JUnitTest
 	{
 		addDeck(StoneIdolTrap.class, StoneIdolTrap.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -235,7 +236,7 @@ public class DelayedTriggersTest extends JUnitTest
 		// combat still causes the game to enter the declare blockers step
 		this.addDeck(Mountain.class, Mountain.class, Mountain.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class);
 		this.addDeck(Mountain.class, RagingGoblin.class, TurntoMist.class, BlackLotus.class, Swamp.class, Swamp.class, Swamp.class, Swamp.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -337,7 +338,7 @@ public class DelayedTriggersTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, TurntoMist.class, TurntoMist.class, TurntoMist.class, SoulWarden.class, SoulWarden.class, SoulWarden.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -419,7 +420,7 @@ public class DelayedTriggersTest extends JUnitTest
 		// times accomplishes the correct damage assignments.
 		this.addDeck(RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, TurntoMist.class, TurntoMist.class, TurntoMist.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, Meditate.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -538,7 +539,7 @@ public class DelayedTriggersTest extends JUnitTest
 		// This test makes sure that a token doesn't come back from being Mist'd
 		this.addDeck(Sprout.class, Sprout.class, Sprout.class, BlackLotus.class, BlackLotus.class, TurntoMist.class, TurntoMist.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

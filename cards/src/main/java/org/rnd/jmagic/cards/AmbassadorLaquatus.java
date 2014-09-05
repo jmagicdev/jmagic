@@ -4,13 +4,14 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ambassador Laquatus")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.MERFOLK, SubType.WIZARD})
 @ManaCost("1UU")
-@Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.TORMENT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Torment.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class AmbassadorLaquatus extends Card
 {

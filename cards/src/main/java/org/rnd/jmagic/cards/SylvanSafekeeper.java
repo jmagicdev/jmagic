@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Sylvan Safekeeper")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.HUMAN})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Expansion.JUDGMENT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Judgment.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class SylvanSafekeeper extends Card
 {

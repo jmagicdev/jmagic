@@ -2,13 +2,14 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Leonin Arbiter")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CLERIC, SubType.CAT})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class LeoninArbiter extends Card
 {

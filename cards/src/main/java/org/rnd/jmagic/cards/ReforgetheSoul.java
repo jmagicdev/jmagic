@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Reforge the Soul")
 @Types({Type.SORCERY})
 @ManaCost("3RR")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class ReforgetheSoul extends Card
 {

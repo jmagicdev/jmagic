@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Blood Reckoning")
 @Types({Type.ENCHANTMENT})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2013, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class BloodReckoning extends Card
 {

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Guardian Lions")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CAT})
 @ManaCost("4W")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2013, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class GuardianLions extends Card
 {

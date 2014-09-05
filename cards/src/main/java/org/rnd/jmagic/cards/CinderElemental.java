@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Cinder Elemental")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL})
 @ManaCost("3R")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.MERCADIAN_MASQUES, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = MercadianMasques.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class CinderElemental extends Card
 {

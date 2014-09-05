@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Goblin Charbelcher")
 @Types({Type.ARTIFACT})
 @ManaCost("4")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Mirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class GoblinCharbelcher extends Card
 {

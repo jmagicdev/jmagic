@@ -7,11 +7,12 @@ import java.util.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.Set;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Doubling Chant")
 @Types({Type.SORCERY})
 @ManaCost("5G")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class DoublingChant extends Card
 {

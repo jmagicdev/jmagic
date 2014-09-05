@@ -3,13 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Pools of Becoming")
 @Types({Type.PLANE})
 @SubTypes({SubType.BOLASS_MEDITATION_REALM})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class PoolsofBecoming extends Card
 {
@@ -67,7 +67,7 @@ public final class PoolsofBecoming extends Card
 			factory.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			this.addEffect(factory);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -132,9 +132,9 @@ public final class PoolsofBecoming extends Card
 		{
 			super(state, "Whenever you roll (C), reveal the top three cards of your planar deck. Each of the revealed cards' (C) abilities triggers. Then put the revealed cards on the bottom of your planar deck in any order.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
-			SetGenerator planarDeck = Planechase.planarDeck();
+			SetGenerator planarDeck = PlanechaseGameRules.planarDeck();
 			SetGenerator toReveal = TopMost.instance(CommandZone.instance(), numberGenerator(3), planarDeck);
 
 			EventFactory factory = new EventFactory(POOLS_OF_BECOMING_CHAOS_EVENT, "Reveal the top three cards of your planar deck. Each of the revealed cards' (C) abilities triggers. Then put the revealed cards on the bottom of your planar deck in any order.");
@@ -143,7 +143,7 @@ public final class PoolsofBecoming extends Card
 			factory.parameters.put(EventType.Parameter.OBJECT, toReveal);
 			this.addEffect(factory);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

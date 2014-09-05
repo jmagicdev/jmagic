@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Hindering Light")
 @Types({Type.INSTANT})
 @ManaCost("WU")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.WHITE})
 public final class HinderingLight extends Card
 {

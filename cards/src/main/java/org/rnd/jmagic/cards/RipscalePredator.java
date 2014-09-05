@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ripscale Predator")
 @Types({Type.CREATURE})
 @SubTypes({SubType.LIZARD})
 @ManaCost("4RR")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class RipscalePredator extends Card
 {

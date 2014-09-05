@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Aeon Chronicler")
 @Types({Type.CREATURE})
 @SubTypes({SubType.AVATAR})
 @ManaCost("3UU")
-@Printings({@Printings.Printed(ex = Expansion.PLANAR_CHAOS, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = PlanarChaos.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class AeonChronicler extends Card
 {

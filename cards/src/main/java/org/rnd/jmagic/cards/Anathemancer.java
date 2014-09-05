@@ -2,6 +2,7 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 import static org.rnd.jmagic.Convenience.*;
 
@@ -9,7 +10,7 @@ import static org.rnd.jmagic.Convenience.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE, SubType.WIZARD})
 @ManaCost("1BR")
-@Printings({@Printings.Printed(ex = Expansion.ALARA_REBORN, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK, Color.RED})
 public final class Anathemancer extends Card
 {

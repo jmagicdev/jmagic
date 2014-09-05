@@ -1,13 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Turri Island")
 @Types({Type.PLANE})
 @SubTypes({SubType.IR})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class TurriIsland extends Card
 {
@@ -22,7 +22,7 @@ public final class TurriIsland extends Card
 			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("2")));
 			this.addEffectPart(part);
 
-			this.canApply = Planechase.staticAbilityCanApply;
+			this.canApply = PlanechaseGameRules.staticAbilityCanApply;
 		}
 	}
 
@@ -32,7 +32,7 @@ public final class TurriIsland extends Card
 		{
 			super(state, "Whenever you roll (C), reveal the top three cards of your library. Put all creature cards revealed this way into your hand and the rest into your graveyard.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			// Reveal the top three cards of your library.
 			SetGenerator topThree = TopCards.instance(3, LibraryOf.instance(You.instance()));
@@ -49,7 +49,7 @@ public final class TurriIsland extends Card
 			moveCards.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			this.addEffect(moveCards);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

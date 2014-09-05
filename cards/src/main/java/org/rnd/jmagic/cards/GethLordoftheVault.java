@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Geth, Lord of the Vault")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE})
 @ManaCost("4BB")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLACK})
 public final class GethLordoftheVault extends Card
 {

@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class PlaneswalkersTest extends JUnitTest
 {
@@ -14,7 +15,7 @@ public class PlaneswalkersTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class);
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, ArcanistheOmnipotent.class, ArcanistheOmnipotent.class, ArcanistheOmnipotent.class, ArcanistheOmnipotent.class, ArcanistheOmnipotent.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -146,7 +147,7 @@ public class PlaneswalkersTest extends JUnitTest
 	{
 		this.addDeck(LightningBolt.class, ChandraNalaar.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -172,7 +173,7 @@ public class PlaneswalkersTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class);
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, ArcanistheOmnipotent.class, ArcanistheOmnipotent.class, ArcanistheOmnipotent.class, ArcanistheOmnipotent.class, ArcanistheOmnipotent.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -367,7 +368,7 @@ public class PlaneswalkersTest extends JUnitTest
 	{
 		this.addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GarrukRelentless.class);
 		this.addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, Shock.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		GameObject garruk = player(0).getHand(this.game.actualState).objects.get(6);
@@ -425,7 +426,7 @@ public class PlaneswalkersTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class);
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, Shock.class, Shock.class, Shock.class, Shock.class, Shock.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -544,7 +545,7 @@ public class PlaneswalkersTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class);
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class, ChandraNalaar.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

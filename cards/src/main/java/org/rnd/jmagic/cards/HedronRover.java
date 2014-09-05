@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Hedron Rover")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.CONSTRUCT})
 @ManaCost("4")
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class HedronRover extends Card
 {

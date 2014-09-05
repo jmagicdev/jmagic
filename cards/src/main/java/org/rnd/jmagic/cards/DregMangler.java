@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Dreg Mangler")
 @Types({Type.CREATURE})
 @SubTypes({SubType.PLANT, SubType.ZOMBIE})
 @ManaCost("1BG")
-@Printings({@Printings.Printed(ex = Expansion.RETURN_TO_RAVNICA, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN, Color.BLACK})
 public final class DregMangler extends Card
 {

@@ -4,13 +4,14 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Razormane Masticore")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.MASTICORE})
 @ManaCost("5")
-@Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.FIFTH_DAWN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = FifthDawn.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class RazormaneMasticore extends Card
 {

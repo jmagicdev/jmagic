@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ulamog's Crusher")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELDRAZI})
 @ManaCost("8")
-@Printings({@Printings.Printed(ex = Expansion.RISE_OF_THE_ELDRAZI, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class UlamogsCrusher extends Card
 {

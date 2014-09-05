@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Chain Lightning")
 @Types({Type.SORCERY})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Expansion.LEGENDS, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Legends.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class ChainLightning extends Card
 {

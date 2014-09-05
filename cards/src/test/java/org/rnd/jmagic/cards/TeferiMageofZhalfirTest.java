@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.testing.*;
 
 public class TeferiMageofZhalfirTest extends JUnitTest
@@ -13,7 +14,7 @@ public class TeferiMageofZhalfirTest extends JUnitTest
 	{
 		this.addDeck(TeferiMageofZhalfir.class, GrizzlyBears.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, ElvishWarrior.class, BenalishKnight.class, LightningBolt.class, LightningBolt.class, Plains.class, Plains.class, Plains.class);
-		this.startGame(GameTypes.STACKED);
+		this.startGame(new Stacked());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

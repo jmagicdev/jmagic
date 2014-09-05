@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Spark Elemental")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.FIFTH_DAWN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = FifthDawn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class SparkElemental extends Card
 {

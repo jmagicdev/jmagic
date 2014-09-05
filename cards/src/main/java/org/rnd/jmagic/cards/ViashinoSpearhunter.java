@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Viashino Spearhunter")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.VIASHINO})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2010, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class ViashinoSpearhunter extends Card
 {

@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Glittering Wish")
 @Types({Type.SORCERY})
 @ManaCost("GW")
-@Printings({@Printings.Printed(ex = Expansion.FUTURE_SIGHT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class GlitteringWish extends Card
 {

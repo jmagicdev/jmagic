@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Tolarian Academy")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.URZAS_SAGA, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = UrzasSaga.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class TolarianAcademy extends Card
 {

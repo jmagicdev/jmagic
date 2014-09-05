@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mystic Penitent")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.MYSTIC, SubType.NOMAD})
 @ManaCost("W")
-@Printings({@Printings.Printed(ex = Expansion.ODYSSEY, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Odyssey.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class MysticPenitent extends Card
 {

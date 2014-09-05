@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Rootrunner")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT})
 @ManaCost("2GG")
-@Printings({@Printings.Printed(ex = Expansion.CHAMPIONS_OF_KAMIGAWA, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = ChampionsOfKamigawa.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class Rootrunner extends Card
 {

@@ -4,13 +4,14 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Trace of Abundance")
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.AURA})
 @ManaCost("(R/W)G")
-@Printings({@Printings.Printed(ex = Expansion.ALARA_REBORN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.GREEN, Color.RED})
 public final class TraceofAbundance extends Card
 {

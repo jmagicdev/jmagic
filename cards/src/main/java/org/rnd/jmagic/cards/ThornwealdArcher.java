@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Thornweald Archer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.ARCHER})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.FUTURE_SIGHT, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class ThornwealdArcher extends Card
 {

@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Moan of the Unhallowed")
 @Types({Type.SORCERY})
 @ManaCost("2BB")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class MoanoftheUnhallowed extends Card
 {

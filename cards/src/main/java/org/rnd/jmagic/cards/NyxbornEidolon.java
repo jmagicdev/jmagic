@@ -2,13 +2,14 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 
 @Name("Nyxborn Eidolon")
 @Types({Type.ENCHANTMENT, Type.CREATURE})
 @SubTypes({SubType.SPIRIT})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Expansion.THEROS, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class NyxbornEidolon extends Card
 {

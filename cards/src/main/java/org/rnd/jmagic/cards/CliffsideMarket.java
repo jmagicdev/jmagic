@@ -3,14 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Cliffside Market")
 @Types({Type.PLANE})
 @SubTypes({SubType.MERCADIA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class CliffsideMarket extends Card
 {
@@ -68,7 +68,7 @@ public final class CliffsideMarket extends Card
 		{
 			super(state, "When you planeswalk to Cliffside Market or at the beginning of your upkeep, you may exchange life totals with target player.");
 
-			SimpleEventPattern pattern = new SimpleEventPattern(Planechase.PLANESWALK);
+			SimpleEventPattern pattern = new SimpleEventPattern(PlanechaseGameRules.PLANESWALK);
 			pattern.put(EventType.Parameter.PLAYER, You.instance());
 			pattern.put(EventType.Parameter.TO, ABILITY_SOURCE_OF_THIS);
 			this.addPattern(pattern);
@@ -81,7 +81,7 @@ public final class CliffsideMarket extends Card
 			factory.parameters.put(EventType.Parameter.PLAYER, Union.instance(targetedBy(target), You.instance()));
 			this.addEffect(youMay(factory, "You may exchange life totals with target player."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -91,7 +91,7 @@ public final class CliffsideMarket extends Card
 		{
 			super(state, "Whenever you roll (C), exchange control of two target permanents that share a card type.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			Target target1 = this.addTarget(PermanentsThatShareAType.instance(), "target permanent");
 
@@ -103,7 +103,7 @@ public final class CliffsideMarket extends Card
 			factory.parameters.put(EventType.Parameter.OBJECT, targetedBy(target1, target2));
 			this.addEffect(factory);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

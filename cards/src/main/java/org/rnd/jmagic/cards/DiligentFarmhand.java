@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Diligent Farmhand")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.DRUID})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Expansion.ODYSSEY, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Odyssey.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class DiligentFarmhand extends Card
 {

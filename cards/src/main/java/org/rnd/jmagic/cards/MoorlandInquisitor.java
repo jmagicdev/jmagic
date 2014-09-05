@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Moorland Inquisitor")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.HUMAN})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class MoorlandInquisitor extends Card
 {

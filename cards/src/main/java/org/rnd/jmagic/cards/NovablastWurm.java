@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Novablast Wurm")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WURM})
 @ManaCost("3GGWW")
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class NovablastWurm extends Card
 {

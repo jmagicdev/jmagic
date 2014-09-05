@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mausoleum Guard")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.SCOUT})
 @ManaCost("3W")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class MausoleumGuard extends Card
 {

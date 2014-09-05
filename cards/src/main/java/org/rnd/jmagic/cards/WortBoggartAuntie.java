@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Wort, Boggart Auntie")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.GOBLIN})
 @ManaCost("2BR")
-@Printings({@Printings.Printed(ex = Expansion.LORWYN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK, Color.RED})
 public final class WortBoggartAuntie extends Card
 {

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Nimana Sell-Sword")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ALLY, SubType.WARRIOR, SubType.HUMAN})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class NimanaSellSword extends Card
 {

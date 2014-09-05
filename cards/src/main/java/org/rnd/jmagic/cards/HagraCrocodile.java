@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Hagra Crocodile")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CROCODILE})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class HagraCrocodile extends Card
 {

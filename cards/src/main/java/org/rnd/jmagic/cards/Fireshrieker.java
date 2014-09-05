@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Fireshrieker")
 @Types({Type.ARTIFACT})
 @SubTypes({SubType.EQUIPMENT})
 @ManaCost("3")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Mirrodin.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class Fireshrieker extends Card
 {

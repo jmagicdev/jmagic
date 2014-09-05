@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Elephant Grass")
 @Types({Type.ENCHANTMENT})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Expansion.VISIONS, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Visions.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class ElephantGrass extends Card
 {

@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Blood Moon")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Expansion.NINTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.EIGHTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.THE_DARK, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = NinthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = EighthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = TheDark.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class BloodMoon extends Card
 {

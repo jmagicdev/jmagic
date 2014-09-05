@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Peregrine Griffin")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GRIFFIN})
 @ManaCost("4W")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class PeregrineGriffin extends Card
 {

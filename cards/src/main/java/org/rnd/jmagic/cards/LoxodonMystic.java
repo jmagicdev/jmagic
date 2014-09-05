@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Loxodon Mystic")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEPHANT, SubType.CLERIC})
 @ManaCost("3WW")
-@Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.DARKSTEEL, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = Darksteel.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class LoxodonMystic extends Card
 {

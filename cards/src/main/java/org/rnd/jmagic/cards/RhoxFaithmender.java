@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Rhox Faithmender")
 @Types({Type.CREATURE})
 @SubTypes({SubType.MONK, SubType.RHINO})
 @ManaCost("3W")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2013, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class RhoxFaithmender extends Card
 {

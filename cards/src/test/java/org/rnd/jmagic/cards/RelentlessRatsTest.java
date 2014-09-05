@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.testing.*;
 
 public class RelentlessRatsTest extends JUnitTest
@@ -13,7 +14,7 @@ public class RelentlessRatsTest extends JUnitTest
 	{
 		this.addDeck(RelentlessRats.class, RelentlessRats.class, RelentlessRats.class, RelentlessRats.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		this.startGame(GameTypes.OPEN);
+		this.startGame(new Open());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

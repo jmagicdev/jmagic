@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.testing.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class HeadGamesTest extends JUnitTest
 {
@@ -13,7 +14,7 @@ public class HeadGamesTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, HeadGames.class, HeadGames.class, HeadGames.class);
 		this.addDeck(Island.class, Island.class, Swamp.class, Swamp.class, Mountain.class, Mountain.class, Forest.class, Forest.class);
-		this.startGame(GameTypes.STACKED);
+		this.startGame(new Stacked());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

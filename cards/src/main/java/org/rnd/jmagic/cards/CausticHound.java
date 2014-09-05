@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Caustic Hound")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HOUND})
 @ManaCost("5B")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN_BESIEGED, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class CausticHound extends Card
 {

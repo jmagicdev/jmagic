@@ -8,10 +8,9 @@ public @interface Printings
 	@java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
 	public static @interface Printed
 	{
-		Expansion ex();
+		Class<? extends Expansion> ex();
 
 		Rarity r();
-
 	}
 
 	Printed[] value();

@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Falkenrath Marauders")
 @Types({Type.CREATURE})
 @SubTypes({SubType.VAMPIRE, SubType.WARRIOR})
 @ManaCost("3RR")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class FalkenrathMarauders extends Card
 {

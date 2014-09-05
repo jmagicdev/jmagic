@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Chancellor of the Forge")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GIANT})
 @ManaCost("4RRR")
-@Printings({@Printings.Printed(ex = Expansion.NEW_PHYREXIA, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class ChancelloroftheForge extends Card
 {

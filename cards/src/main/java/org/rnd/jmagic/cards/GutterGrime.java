@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Gutter Grime")
 @Types({Type.ENCHANTMENT})
 @ManaCost("4G")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class GutterGrime extends Card
 {

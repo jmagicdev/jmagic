@@ -1,11 +1,12 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Dimir Guildgate")
 @Types({Type.LAND})
 @SubTypes({SubType.GATE})
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.BLACK})
 public final class DimirGuildgate extends Card
 {

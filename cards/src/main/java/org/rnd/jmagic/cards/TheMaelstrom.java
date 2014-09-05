@@ -3,14 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("The Maelstrom")
 @Types({Type.PLANE})
 @SubTypes({SubType.ALARA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class TheMaelstrom extends Card
 {
@@ -20,7 +20,7 @@ public final class TheMaelstrom extends Card
 		{
 			super(state, "When you planeswalk to The Maelstrom or at the beginning of your upkeep, you may reveal the top card of your library. If it's a permanent card, you may put it onto the battlefield. If you revealed a card but didn't put it onto the battlefield, put it on the bottom of your library.");
 
-			SimpleEventPattern pattern = new SimpleEventPattern(Planechase.PLANESWALK);
+			SimpleEventPattern pattern = new SimpleEventPattern(PlanechaseGameRules.PLANESWALK);
 			pattern.put(EventType.Parameter.PLAYER, You.instance());
 			pattern.put(EventType.Parameter.TO, ABILITY_SOURCE_OF_THIS);
 			this.addPattern(pattern);
@@ -57,7 +57,7 @@ public final class TheMaelstrom extends Card
 
 			this.addEffect(ifReveal);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -67,7 +67,7 @@ public final class TheMaelstrom extends Card
 		{
 			super(state, "Whenever you roll (C), return target permanent card from your graveyard to the battlefield.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			Target target = this.addTarget(Intersect.instance(InZone.instance(GraveyardOf.instance(You.instance())), HasType.instance(Type.permanentTypes())), "target permanent card from your graveyard");
 
@@ -77,7 +77,7 @@ public final class TheMaelstrom extends Card
 			putOnBattlefield.parameters.put(EventType.Parameter.OBJECT, targetedBy(target));
 			this.addEffect(putOnBattlefield);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

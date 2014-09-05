@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Blight Mamba")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SNAKE})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class BlightMamba extends Card
 {

@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Architects of Will")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.WIZARD, SubType.HUMAN})
 @ManaCost("2UB")
-@Printings({@Printings.Printed(ex = Expansion.ALARA_REBORN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.BLACK})
 public final class ArchitectsofWill extends Card
 {

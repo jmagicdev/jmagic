@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Molten Primordial")
 @Types({Type.CREATURE})
 @SubTypes({SubType.AVATAR})
 @ManaCost("5RR")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class MoltenPrimordial extends Card
 {

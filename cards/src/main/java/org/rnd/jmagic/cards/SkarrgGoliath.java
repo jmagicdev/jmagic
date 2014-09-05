@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Skarrg Goliath")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("6GG")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class SkarrgGoliath extends Card
 {

@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Rite of Consumption")
 @Types({Type.SORCERY})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Expansion.SHADOWMOOR, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class RiteofConsumption extends Card
 {

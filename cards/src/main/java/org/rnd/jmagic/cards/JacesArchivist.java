@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Jace's Archivist")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.VEDALKEN})
 @ManaCost("1UU")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class JacesArchivist extends Card
 {

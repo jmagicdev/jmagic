@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Cryptborn Horror")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HORROR})
 @ManaCost("1(B/R)(B/R)")
-@Printings({@Printings.Printed(ex = Expansion.RETURN_TO_RAVNICA, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK, Color.RED})
 public final class CryptbornHorror extends Card
 {

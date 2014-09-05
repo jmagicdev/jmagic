@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Crown of Empires")
 @Types({Type.ARTIFACT})
 @ManaCost("2")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class CrownofEmpires extends Card
 {

@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.sanitized.*;
 import org.rnd.jmagic.testing.*;
 
@@ -14,7 +15,7 @@ public class HighTideTest extends JUnitTest
 	{
 		this.addDeck(AzusaLostbutSeeking.class, HighTide.class, HighTide.class, HighTide.class, Island.class, Island.class, Island.class);
 		this.addDeck(Plains.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class);
-		this.startGame(GameTypes.OPEN);
+		this.startGame(new Open());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

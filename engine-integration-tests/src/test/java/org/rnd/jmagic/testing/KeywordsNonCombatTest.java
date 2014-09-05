@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.sanitized.*;
 
 public class KeywordsNonCombatTest extends JUnitTest
@@ -14,7 +15,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, LymphSliver.class, LightningBolt.class, VirulentSliver.class, ChaosCharm.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -105,7 +106,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(NyxbornEidolon.class, NyxbornEidolon.class, Terminate.class, Terminate.class, Terminate.class, GrizzlyBears.class, GrizzlyBears.class);
 		addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -197,7 +198,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		// _does_ cause bloodthirst
 		addDeck(BogardanLancer.class, BogardanLancer.class, BlackLotus.class, BlackLotus.class, ChaosCharm.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -295,7 +296,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		// to an opponent
 		addDeck(BogardanLancer.class, BogardanLancer.class, BlackLotus.class, BlackLotus.class, Shock.class, Shock.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -372,7 +373,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		BloodbraidElf.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -402,7 +403,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 
 		addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, LightningCrafter.class, LightningCrafter.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -475,7 +476,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		// Clone/Champion
 		addDeck(Clone.class, ChangelingHero.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, Terror.class, Terror.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -566,7 +567,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(ChangelingHero.class, ChangelingHero.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, Terror.class, Terror.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -627,7 +628,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 
 		addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, LightningCrafter.class, LightningCrafter.class, LightningCrafter.class, LightningCrafter.class, LightningCrafter.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -690,7 +691,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, LightningCrafter.class, LightningCrafter.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -776,7 +777,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(LastThoughts.class, LastThoughts.class, LastThoughts.class, LastThoughts.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, Terminate.class);
 		addDeck(LastThoughts.class, LastThoughts.class, LastThoughts.class, LastThoughts.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -811,7 +812,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(Mountain.class, Forest.class, Ringskipper.class, Ringskipper.class, Ringskipper.class, Ringskipper.class, Terminate.class, Terminate.class, Terminate.class, Plains.class);
 		addDeck(Swamp.class, Island.class, MoggFanatic.class, Ringskipper.class, Ringskipper.class, Ringskipper.class, Terminate.class, Terminate.class, Terminate.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -891,7 +892,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(ScattertheSeeds.class, ScattertheSeeds.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(ScattertheSeeds.class, ScattertheSeeds.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -938,7 +939,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(PhyrexianEtchings.class, PhyrexianEtchings.class, PhyrexianEtchings.class, PhyrexianEtchings.class, PhyrexianEtchings.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -1126,7 +1127,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(PhyrexianEtchings.class, PhyrexianEtchings.class, PhyrexianEtchings.class, PhyrexianEtchings.class, PhyrexianEtchings.class, PhyrexianEtchings.class, PhyrexianEtchings.class, PhyrexianEtchings.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -1180,7 +1181,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		// Make sure Stoic Champion triggers and pumps correctly
 		addDeck(Plains.class, Plains.class, Plains.class, StoicChampion.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlastedLandscape.class, BlastedLandscape.class, BlastedLandscape.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -1427,7 +1428,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		// Make sure cycling resounding thunder triggers itself
 		addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, ResoundingThunder.class, ResoundingThunder.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -1536,7 +1537,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(Plains.class, Plains.class, Plains.class, LeylineofAnticipation.class, InactionInjunction.class, InactionInjunction.class, RuneclawBear.class, SleeperAgent.class, GrizzlyBears.class, BurstofSpeed.class, CylianElf.class);
 		addDeck(Plains.class, Plains.class, Plains.class, MoggFanatic.class, InactionInjunction.class, InactionInjunction.class, RuneclawBear.class, SleeperAgent.class, GrizzlyBears.class, BurstofSpeed.class, CylianElf.class, LeylineofAnticipation.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -1658,7 +1659,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(NyleasDisciple.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
 		addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -1682,7 +1683,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(GluttonousSlime.class, MoggFanatic.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -1706,7 +1707,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		// plains.
 		addDeck(Plains.class, Plains.class, GolgariBrownscale.class, Swamp.class, Swamp.class, Swamp.class, OnewithNothing.class, OnewithNothing.class, OnewithNothing.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -1823,7 +1824,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(BlackLotus.class, BlackLotus.class, GraveShellScarab.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -1873,7 +1874,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, MoggWarMarshal.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, MoggWarMarshal.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -1944,7 +1945,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, RavenousRats.class, RavenousRats.class, UnholyStrength.class, UnholyStrength.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -1990,7 +1991,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		// opening seven:
 		Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 		respondWith(getPlayer(0));
 		keep();
 		keep();
@@ -2041,7 +2042,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		ToothandNail.class, ToothandNail.class, ToothandNail.class, ToothandNail.class, ToothandNail.class, ToothandNail.class, ToothandNail.class);
 
 		addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -2109,7 +2110,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(LeoninScimitar.class, RagingGoblin.class, RagingGoblin.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -2217,7 +2218,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(Mulldrifter.class, Mulldrifter.class, Mulldrifter.class, Mulldrifter.class, Mulldrifter.class, Mulldrifter.class, Mulldrifter.class, Mulldrifter.class, Mulldrifter.class, Mulldrifter.class, Mulldrifter.class);
 		addDeck(Mulldrifter.class, Mulldrifter.class, Mulldrifter.class, Mulldrifter.class, Mulldrifter.class, Mulldrifter.class, Mulldrifter.class, Mulldrifter.class, Mulldrifter.class, Mulldrifter.class, Mulldrifter.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -2306,7 +2307,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(CloudfinRaptor.class, CloudfinRaptor.class, MoggFanatic.class, CloudfinRaptor.class, IzzetStaticaster.class, WorldspineWurm.class, CloudfinRaptor.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -2388,7 +2389,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		addDeck(PlatinumEmperion.class, PlatinumEmperion.class, BasilicaScreecher.class, BasilicaScreecher.class, BasilicaScreecher.class, BasilicaScreecher.class, BasilicaScreecher.class, BasilicaScreecher.class);
 		addDeck(PlatinumEmperion.class, PlatinumEmperion.class, BasilicaScreecher.class, BasilicaScreecher.class, BasilicaScreecher.class, BasilicaScreecher.class, BasilicaScreecher.class, BasilicaScreecher.class);
 		addDeck(PlatinumEmperion.class, PlatinumEmperion.class, BasilicaScreecher.class, BasilicaScreecher.class, BasilicaScreecher.class, BasilicaScreecher.class, BasilicaScreecher.class, BasilicaScreecher.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 
@@ -2431,7 +2432,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(ParallaxDementia.class, ParallaxDementia.class, ParallaxDementia.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Island.class, Island.class, Island.class, Island.class, Island.class, Island.class, Island.class, Island.class, Island.class, Island.class, Island.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -2468,7 +2469,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(ZealousGuardian.class, Island.class, Island.class, Island.class, Island.class, Island.class, Island.class, Island.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, ZealousGuardian.class, ZealousGuardian.class, ZealousGuardian.class, ZealousGuardian.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -2578,7 +2579,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(OnewithNothing.class, Firebolt.class, Firebolt.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -2608,7 +2609,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(SnapcasterMage.class, DoomBlade.class, WildMongrel.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -2638,7 +2639,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(DryadArbor.class, BlackLotus.class, BlackLotus.class, Shock.class, Shock.class, DarksteelGarrison.class, DarksteelGarrison.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -2694,7 +2695,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		// cipt is applied first
 		addDeck(LlanowarReborn.class, LlanowarReborn.class, LlanowarReborn.class, LlanowarReborn.class, LlanowarReborn.class, LlanowarReborn.class, LlanowarReborn.class);
 		addDeck(Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -2732,7 +2733,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		// graft is applied first
 		addDeck(LlanowarReborn.class, LlanowarReborn.class, LlanowarReborn.class, LlanowarReborn.class, LlanowarReborn.class, LlanowarReborn.class, LlanowarReborn.class);
 		addDeck(Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -2768,7 +2769,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		// This test case makes sure graft is working
 		addDeck(BlackLotus.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, LlanowarReborn.class);
 		addDeck(Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -2846,7 +2847,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(Plains.class, Plains.class, AbsorbVis.class, Plains.class, Plains.class, Plains.class, Boomerang.class, DarksteelColossus.class, Twiddle.class, Twiddle.class, MosswortBridge.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -2917,7 +2918,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(BlackcleaveGoblin.class, BlackcleaveGoblin.class, GiantGrowth.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -2955,7 +2956,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(GatekeeperofMalakir.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -2979,7 +2980,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(BurstLightning.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -3008,7 +3009,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(RumblingAftershocks.class, EverflowingChalice.class, EverflowingChalice.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -3046,7 +3047,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		// make sure lifelink works right after m10 rules change
 		addDeck(BrionStoutarm.class, LoxodonWarhammer.class, GrizzlyBears.class, ChaosCharm.class, GrizzlyBears.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -3115,7 +3116,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(FieryTemper.class, OnewithNothing.class, FieryTemper.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(FieryTemper.class, OnewithNothing.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -3177,7 +3178,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		addDeck(RevengeoftheHunted.class, RevengeoftheHunted.class, BirdsofParadise.class, VisionsofBeyond.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(RevengeoftheHunted.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -3228,7 +3229,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(BatteringCraghorn.class, Jump.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
 		addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -3271,7 +3272,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(Electrickery.class, Electrickery.class, SleeperAgent.class, RuneclawBear.class, AshcoatBear.class, Plains.class, Plains.class);
 		addDeck(Electrickery.class, Electrickery.class, SleeperAgent.class, RuneclawBear.class, AshcoatBear.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -3338,7 +3339,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		addDeck(Progenitus.class, Dynacharge.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -3366,7 +3367,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, SafeholdElite.class, Shock.class, Shock.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -3443,7 +3444,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(CoursersAccord.class, CoursersAccord.class, RuneclawBear.class, Sprout.class, Plains.class, Plains.class, Plains.class);
 		addDeck(CoursersAccord.class, CoursersAccord.class, RuneclawBear.class, Sprout.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -3533,7 +3534,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(ContagionClasp.class, AvenRiftwatcher.class, BlackcleaveGoblin.class, AncestralVision.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -3593,7 +3594,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(UnholyStrength.class, SimicGuildmage.class, PaladinenVec.class, Disenchant.class, ShiftingSky.class, Replenish.class, Plains.class);
 		addDeck(PaintersServant.class, Replenish.class, OnewithNothing.class, BlanchwoodArmor.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -3697,7 +3698,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(MoggFanatic.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class);
 		addDeck(Plains.class, Plains.class, Plains.class, PaladinenVec.class, Shock.class, Pyroclasm.class, GrizzlyBears.class, ChaosCharm.class, UnholyStrength.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -3855,7 +3856,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(SehtsTiger.class, GrizzlyBears.class, ChaosCharm.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(SehtsTiger.class, LightningBolt.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -3936,7 +3937,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(Staggershock.class, Staggershock.class, Staggershock.class, Staggershock.class, Staggershock.class, Staggershock.class, Staggershock.class, Staggershock.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -3985,7 +3986,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, GrimHarvest.class, MoggFanatic.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -4210,7 +4211,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(MoggFanatic.class, HuntingTriad.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -4255,7 +4256,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(RagingGoblin.class, OnewithNothing.class, ZanikevLocust.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -4299,7 +4300,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(DreadStatuary.class, Wingcrafter.class, Wingcrafter.class, GrizzlyBears.class, DoomBlade.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -4400,7 +4401,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(Rootrunner.class, Frostling.class, Frostling.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, Island.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -4493,7 +4494,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		this.addDeck(LavaSpike.class, GlacialRay.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -4522,7 +4523,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BrainFreeze.class, BrainFreeze.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -4597,7 +4598,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(SuntouchedMyr.class, SuntouchedMyr.class, SculptingSteel.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -4631,7 +4632,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(EngineeredExplosives.class, Ornithopter.class, Plains.class, EngineeredExplosives.class, AngelsFeather.class, MarchoftheMachines.class, EngineeredExplosives.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -4707,7 +4708,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(KeldonHalberdier.class, FuryCharm.class, FuryCharm.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(ActofTreason.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -4814,7 +4815,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(AncestralVision.class, AncestralVision.class, AncestralVision.class, AncestralVision.class, AncestralVision.class, AncestralVision.class, AncestralVision.class);
 		addDeck(AncestralVision.class, AncestralVision.class, AncestralVision.class, AncestralVision.class, AncestralVision.class, AncestralVision.class, AncestralVision.class, AncestralVision.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -4930,7 +4931,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(RelentlessRats.class, ReflectingPool.class, Island.class, Island.class, Island.class, Island.class, Island.class, Island.class, IndomitableAncients.class, FieryFall.class, FieryFall.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -4980,7 +4981,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		// Make sure triggers looking for Cycling find TypeCycling
 		addDeck(StoicChampion.class, StoicChampion.class, StoicChampion.class, FieryFall.class, FieryFall.class, FieryFall.class, FieryFall.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -5027,7 +5028,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		// eot
 		addDeck(VisceraDragger.class, VisceraDragger.class, VisceraDragger.class, Swamp.class, Swamp.class, Swamp.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -5129,7 +5130,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 
 		addDeck(VisceraDragger.class, VisceraDragger.class, LightningBolt.class, LightningBolt.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -5193,7 +5194,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 
 		addDeck(VisceraDragger.class, VisceraDragger.class, TurntoMist.class, TurntoMist.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -5286,7 +5287,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, PunctureBlast.class, PunctureBlast.class, PunctureBlast.class, PunctureBlast.class, PunctureBlast.class, PunctureBlast.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -5316,7 +5317,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(Plains.class, Plains.class, Plains.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, IndomitableAncients.class, IndomitableAncients.class, IndomitableAncients.class);
 		addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BoggartRamGang.class, BoggartRamGang.class, BoggartRamGang.class, BoggartRamGang.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -5473,7 +5474,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 	{
 		addDeck(Plains.class, Plains.class, Plains.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, IndomitableAncients.class, IndomitableAncients.class, IndomitableAncients.class);
 		addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, PunctureBlast.class, PunctureBlast.class, PunctureBlast.class, PunctureBlast.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Skaab Ruinator")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HORROR, SubType.ZOMBIE})
 @ManaCost("1UU")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE})
 public final class SkaabRuinator extends Card
 {

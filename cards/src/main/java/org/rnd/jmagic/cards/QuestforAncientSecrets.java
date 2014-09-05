@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Quest for Ancient Secrets")
 @Types({Type.ENCHANTMENT})
 @ManaCost("U")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class QuestforAncientSecrets extends Card
 {

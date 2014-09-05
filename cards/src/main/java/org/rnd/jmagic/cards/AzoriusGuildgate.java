@@ -1,11 +1,12 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Azorius Guildgate")
 @Types({Type.LAND})
 @SubTypes({SubType.GATE})
-@Printings({@Printings.Printed(ex = Expansion.RETURN_TO_RAVNICA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.WHITE})
 public final class AzoriusGuildgate extends Card
 {

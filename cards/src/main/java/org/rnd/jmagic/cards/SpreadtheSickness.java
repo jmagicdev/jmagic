@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Spread the Sickness")
 @Types({Type.SORCERY})
 @ManaCost("4B")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN_BESIEGED, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class SpreadtheSickness extends Card
 {

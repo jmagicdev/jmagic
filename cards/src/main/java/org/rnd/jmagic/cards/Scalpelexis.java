@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Scalpelexis")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("4U")
-@Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.JUDGMENT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Judgment.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class Scalpelexis extends Card
 {

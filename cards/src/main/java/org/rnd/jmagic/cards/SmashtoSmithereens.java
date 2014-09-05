@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Smash to Smithereens")
 @Types({Type.INSTANT})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = Expansion.SHADOWMOOR, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class SmashtoSmithereens extends Card
 {

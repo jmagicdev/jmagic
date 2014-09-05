@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Temporal Mastery")
 @Types({Type.SORCERY})
 @ManaCost("5UU")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE})
 public final class TemporalMastery extends Card
 {

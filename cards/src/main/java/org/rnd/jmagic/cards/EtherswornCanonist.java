@@ -2,13 +2,14 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Ethersworn Canonist")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.HUMAN, SubType.CLERIC})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class EtherswornCanonist extends Card
 {

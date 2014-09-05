@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Nomad Mythmaker")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.NOMAD, SubType.CLERIC})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.JUDGMENT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Judgment.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class NomadMythmaker extends Card
 {

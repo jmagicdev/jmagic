@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mindslaver")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.ARTIFACT})
 @ManaCost("6")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.MYTHIC), @Printings.Printed(ex = Expansion.MIRRODIN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.MYTHIC), @Printings.Printed(ex = Mirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class Mindslaver extends Card
 {

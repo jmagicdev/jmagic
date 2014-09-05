@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Chord of Calling")
 @Types({Type.INSTANT})
 @ManaCost("XGGG")
-@Printings({@Printings.Printed(ex = Expansion.RAVNICA, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = RavnicaCityOfGuilds.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class ChordofCalling extends Card
 {

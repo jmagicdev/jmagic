@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mirrorworks")
 @Types({Type.ARTIFACT})
 @ManaCost("5")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN_BESIEGED, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class Mirrorworks extends Card
 {

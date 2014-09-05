@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Vulshok Berserker")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.BERSERKER})
 @ManaCost("3R")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2011, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.MIRRODIN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.COMMON), @Printings.Printed(ex = Mirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class VulshokBerserker extends Card
 {

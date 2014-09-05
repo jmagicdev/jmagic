@@ -2,13 +2,14 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Serra Avenger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("WW")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2013, r = Rarity.RARE), @Printings.Printed(ex = Expansion.TIME_SPIRAL, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.RARE), @Printings.Printed(ex = TimeSpiral.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class SerraAvenger extends Card
 {

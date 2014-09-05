@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Trailblazer's Boots")
 @Types({Type.ARTIFACT})
 @SubTypes({SubType.EQUIPMENT})
 @ManaCost("2")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class TrailblazersBoots extends Card
 {

@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Saving Grasp")
 @Types({Type.INSTANT})
 @ManaCost("U")
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.BLUE})
 public final class SavingGrasp extends Card
 {

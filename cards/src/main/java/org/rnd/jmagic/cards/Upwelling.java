@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.patterns.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Upwelling")
 @Types({Type.ENCHANTMENT})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.SCOURGE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Scourge.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class Upwelling extends Card
 {

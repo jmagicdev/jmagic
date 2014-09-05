@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mystic Retrieval")
 @Types({Type.SORCERY})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE, Color.RED})
 public final class MysticRetrieval extends Card
 {

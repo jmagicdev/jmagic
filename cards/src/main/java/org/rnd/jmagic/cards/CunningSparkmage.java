@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Cunning Sparkmage")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.SHAMAN})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class CunningSparkmage extends Card
 {

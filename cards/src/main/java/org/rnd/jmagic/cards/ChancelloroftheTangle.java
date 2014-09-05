@@ -4,13 +4,14 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Chancellor of the Tangle")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("4GGG")
-@Printings({@Printings.Printed(ex = Expansion.NEW_PHYREXIA, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class ChancelloroftheTangle extends Card
 {

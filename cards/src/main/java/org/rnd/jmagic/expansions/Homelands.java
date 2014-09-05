@@ -1,0 +1,12 @@
+package org.rnd.jmagic.expansions;
+
+import org.rnd.jmagic.engine.*;
+
+@Name("Homelands")
+public final class Homelands extends SimpleExpansion
+{
+	public Homelands()
+	{
+		super(new String[] {"Abbey Gargoyles", "Abbey Matron", "Abbey Matron", "Æther Storm", "Aliban's Tower", "Aliban's Tower", "Ambush", "Ambush Party", "Ambush Party", "An-Havva Constable", "An-Havva Inn", "An-Havva Township", "An-Zerrin Ruins", "Anaba Ancestor", "Anaba Bodyguard", "Anaba Bodyguard", "Anaba Shaman", "Anaba Shaman", "Anaba Spirit Crafter", "Apocalypse Chime", "Autumn Willow", "Aysen Abbey", "Aysen Bureaucrats", "Aysen Bureaucrats", "Aysen Crusader", "Aysen Highway", "Baki's Curse", "Baron Sengir", "Beast Walkers", "Black Carriage", "Broken Visage", "Carapace", "Carapace", "Castle Sengir", "Cemetery Gate", "Cemetery Gate", "Chain Stasis", "Chandler", "Clockwork Gnomes", "Clockwork Steed", "Clockwork Swarm", "Coral Reef", "Dark Maze", "Dark Maze", "Daughter of Autumn", "Death Speakers", "Didgeridoo", "Drudge Spell", "Dry Spell", "Dry Spell", "Dwarven Pony", "Dwarven Sea Clan", "Dwarven Trader", "Dwarven Trader", "Ebony Rhino", "Eron the Relentless", "Evaporate", "Faerie Noble", "Feast of the Unicorn", "Feast of the Unicorn", "Feroz's Ban", "Folk of An-Havva", "Folk of An-Havva", "Forget", "Funeral March", "Ghost Hounds", "Giant Albatross", "Giant Albatross", "Giant Oyster", "Grandmother Sengir", "Greater Werewolf", "Hazduhr the Abbot", "Headstone", "Heart Wolf", "Hungry Mist", "Hungry Mist", "Ihsan's Shade", "Irini Sengir", "Ironclaw Curse", "Jinx", "Joven", "Joven's Ferrets", "Joven's Tools", "Koskun Falls", "Koskun Keep", "Labyrinth Minotaur", "Labyrinth Minotaur", "Leaping Lizard", "Leeches", "Mammoth Harness", "Marjhan", "Memory Lapse", "Memory Lapse", "Merchant Scroll", "Mesa Falcon", "Mesa Falcon", "Mystic Decree", "Narwhal", "Orcish Mine", "Primal Order", "Prophecy", "Rashka the Slayer", "Reef Pirates", "Reef Pirates", "Renewal", "Retribution", "Reveka, Wizard Savant", "Root Spider", "Roots", "Roterothopter", "Rysorian Badger", "Samite Alchemist", "Samite Alchemist", "Sea Sprite", "Sea Troll", "Sengir Autocrat", "Sengir Bats", "Sengir Bats", "Serra Aviary", "Serra Bestiary", "Serra Inquisitors", "Serra Paladin", "Serrated Arrows", "Shrink", "Shrink", "Soraya the Falconer", "Spectral Bears", "Timmerian Fiends", "Torture", "Torture", "Trade Caravan", "Trade Caravan", "Truce", "Veldrane of Sengir", "Wall of Kelp", "Willow Faerie", "Willow Faerie", "Willow Priestess", "Winter Sky", "Wizards' School"});
+	}
+}

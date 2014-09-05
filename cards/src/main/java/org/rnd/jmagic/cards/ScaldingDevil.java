@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Scalding Devil")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DEVIL})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class ScaldingDevil extends Card
 {

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Village Ironsmith")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.WEREWOLF})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 @BackFace(Ironfang.class)
 public final class VillageIronsmith extends Card

@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Craterhoof Behemoth")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("5GGG")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.GREEN})
 public final class CraterhoofBehemoth extends Card
 {

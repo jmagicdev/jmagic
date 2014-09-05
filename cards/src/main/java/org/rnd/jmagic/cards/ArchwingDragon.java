@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Archwing Dragon")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAGON})
 @ManaCost("2RR")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class ArchwingDragon extends Card
 {

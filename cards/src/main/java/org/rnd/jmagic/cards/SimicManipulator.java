@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Simic Manipulator")
 @Types({Type.CREATURE})
 @SubTypes({SubType.MUTANT, SubType.WIZARD})
 @ManaCost("1UU")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class SimicManipulator extends Card
 {

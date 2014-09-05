@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Hanweir Watchkeep")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.HUMAN, SubType.WEREWOLF})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 @BackFace(BaneofHanweir.class)
 public final class HanweirWatchkeep extends Card

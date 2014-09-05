@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Trained Caracal")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CAT})
 @ManaCost("W")
-@Printings({@Printings.Printed(ex = Expansion.RETURN_TO_RAVNICA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class TrainedCaracal extends Card
 {

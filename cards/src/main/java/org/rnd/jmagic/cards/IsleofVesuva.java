@@ -3,14 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Isle of Vesuva")
 @Types({Type.PLANE})
 @SubTypes({SubType.DOMINARIA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class IsleofVesuva extends Card
 {
@@ -31,7 +31,7 @@ public final class IsleofVesuva extends Card
 			factory.parameters.put(EventType.Parameter.OBJECT, it);
 			this.addEffect(factory);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -41,13 +41,13 @@ public final class IsleofVesuva extends Card
 		{
 			super(state, "Whenever you roll (C), destroy target creature and all other creatures with the same name as that creature.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			Target target = this.addTarget(CreaturePermanents.instance(), "target creature");
 
 			this.addEffect(destroy(Union.instance(targetedBy(target), Intersect.instance(CreaturePermanents.instance(), HasName.instance(NameOf.instance(targetedBy(target))))), "Destroy target creature and all other creatures with the same name as that creature."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

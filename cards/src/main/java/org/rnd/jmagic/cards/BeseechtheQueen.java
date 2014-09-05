@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Beseech the Queen")
 @Types({Type.SORCERY})
 @ManaCost("(2/B)(2/B)(2/B)")
-@Printings({@Printings.Printed(ex = Expansion.SHADOWMOOR, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class BeseechtheQueen extends Card
 {

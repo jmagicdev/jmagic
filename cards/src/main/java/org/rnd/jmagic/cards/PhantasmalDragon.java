@@ -2,13 +2,14 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Phantasmal Dragon")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ILLUSION, SubType.DRAGON})
 @ManaCost("2UU")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class PhantasmalDragon extends Card
 {

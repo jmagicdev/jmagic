@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Elspeth Tirel")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.ELSPETH})
 @ManaCost("3WW")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE})
 public final class ElspethTirel extends Card
 {

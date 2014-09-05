@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Sanctum Gargoyle")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.GARGOYLE})
 @ManaCost("3W")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class SanctumGargoyle extends Card
 {

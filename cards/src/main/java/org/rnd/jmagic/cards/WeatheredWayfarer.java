@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Weathered Wayfarer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.CLERIC, SubType.NOMAD})
 @ManaCost("W")
-@Printings({@Printings.Printed(ex = Expansion.NINTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.ONSLAUGHT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = NinthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Onslaught.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class WeatheredWayfarer extends Card
 {

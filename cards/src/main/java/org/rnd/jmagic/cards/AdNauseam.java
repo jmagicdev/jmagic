@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ad Nauseam")
 @Types({Type.INSTANT})
 @ManaCost("3BB")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class AdNauseam extends Card
 {

@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Evolution Charm")
 @Types({Type.INSTANT})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.PLANAR_CHAOS, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = PlanarChaos.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class EvolutionCharm extends Card
 {

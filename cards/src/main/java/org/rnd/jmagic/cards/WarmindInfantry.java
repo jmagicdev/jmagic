@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Warmind Infantry")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL, SubType.SOLDIER})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class WarmindInfantry extends Card
 {

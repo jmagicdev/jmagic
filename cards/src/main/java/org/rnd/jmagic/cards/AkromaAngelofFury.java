@@ -2,13 +2,14 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Akroma, Angel of Fury")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("5RRR")
-@Printings({@Printings.Printed(ex = Expansion.COMMANDER, r = Rarity.RARE), @Printings.Printed(ex = Expansion.PLANAR_CHAOS, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.RARE), @Printings.Printed(ex = PlanarChaos.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class AkromaAngelofFury extends Card
 {

@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Vraska the Unseen")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.VRASKA})
 @ManaCost("3BG")
-@Printings({@Printings.Printed(ex = Expansion.RETURN_TO_RAVNICA, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.GREEN, Color.BLACK})
 public final class VraskatheUnseen extends Card
 {

@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Liliana's Caress")
 @Types({Type.ENCHANTMENT})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2011, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class LilianasCaress extends Card
 {

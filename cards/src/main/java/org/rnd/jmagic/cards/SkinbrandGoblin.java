@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Skinbrand Goblin")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.GOBLIN})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class SkinbrandGoblin extends Card
 {

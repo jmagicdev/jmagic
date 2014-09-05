@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Nearheath Pilgrim")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CLERIC, SubType.HUMAN})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class NearheathPilgrim extends Card
 {

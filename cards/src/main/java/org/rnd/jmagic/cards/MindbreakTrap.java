@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mindbreak Trap")
 @Types({Type.INSTANT})
 @SubTypes({SubType.TRAP})
 @ManaCost("2UU")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE})
 public final class MindbreakTrap extends Card
 {

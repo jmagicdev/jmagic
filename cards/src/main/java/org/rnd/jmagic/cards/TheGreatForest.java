@@ -3,12 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("The Great Forest")
 @Types({Type.PLANE})
 @SubTypes({SubType.LORWYN})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class TheGreatForest extends Card
 {
@@ -20,7 +20,7 @@ public final class TheGreatForest extends Card
 
 			this.addEffectPart(new ContinuousEffect.Part(ContinuousEffectType.ASSIGN_COMBAT_DAMAGE_USING_TOUGHNESS));
 
-			this.canApply = Planechase.staticAbilityCanApply;
+			this.canApply = PlanechaseGameRules.staticAbilityCanApply;
 		}
 	}
 
@@ -30,11 +30,11 @@ public final class TheGreatForest extends Card
 		{
 			super(state, "Whenever you roll (C), creatures you control get +0/+2 and gain trample until end of turn.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			this.addEffect(createFloatingEffect("Creatures you control get +0/+2 and gain trample until end of turn.", modifyPowerAndToughness(CREATURES_YOU_CONTROL, 0, 2), addAbilityToObject(CREATURES_YOU_CONTROL, org.rnd.jmagic.abilities.keywords.Trample.class)));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

@@ -4,13 +4,14 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Brion Stoutarm")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.GIANT, SubType.WARRIOR})
 @ManaCost("2RW")
-@Printings({@Printings.Printed(ex = Expansion.COMMANDER, r = Rarity.RARE), @Printings.Printed(ex = Expansion.LORWYN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.RARE), @Printings.Printed(ex = Lorwyn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.RED})
 public final class BrionStoutarm extends Card
 {

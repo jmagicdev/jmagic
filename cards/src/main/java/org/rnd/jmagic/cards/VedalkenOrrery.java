@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Vedalken Orrery")
 @Types({Type.ARTIFACT})
 @ManaCost("4")
-@Printings({@Printings.Printed(ex = Expansion.FIFTH_DAWN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = FifthDawn.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class VedalkenOrrery extends Card
 {

@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Bloodflow Connoisseur")
 @Types({Type.CREATURE})
 @SubTypes({SubType.VAMPIRE})
 @ManaCost("2B")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class BloodflowConnoisseur extends Card
 {

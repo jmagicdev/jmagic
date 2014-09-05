@@ -4,13 +4,14 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.abilities.keywords.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Helm of Kaldra")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.ARTIFACT})
 @SubTypes({SubType.EQUIPMENT})
 @ManaCost("3")
-@Printings({@Printings.Printed(ex = Expansion.FIFTH_DAWN, r = Rarity.RARE), @Printings.Printed(ex = Expansion.PROMO, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = FifthDawn.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class HelmofKaldra extends Card
 {

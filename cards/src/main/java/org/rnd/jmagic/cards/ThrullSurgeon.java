@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Thrull Surgeon")
 @Types({Type.CREATURE})
 @SubTypes({SubType.THRULL})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.EXODUS, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Exodus.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class ThrullSurgeon extends Card
 {

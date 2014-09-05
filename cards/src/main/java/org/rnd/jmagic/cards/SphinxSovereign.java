@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Sphinx Sovereign")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.SPHINX})
 @ManaCost("4WUUB")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE, Color.WHITE, Color.BLACK})
 public final class SphinxSovereign extends Card
 {

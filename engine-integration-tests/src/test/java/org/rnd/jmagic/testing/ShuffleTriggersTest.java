@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class ShuffleTriggersTest extends JUnitTest
 {
@@ -15,7 +16,7 @@ public class ShuffleTriggersTest extends JUnitTest
 		this.addDeck(CosisTrickster.class, MnemonicNexus.class, BlackLotus.class, BlackLotus.class, TomeScour.class, TomeScour.class, ScaldingTarn.class, ScaldingTarn.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -70,7 +71,7 @@ public class ShuffleTriggersTest extends JUnitTest
 
 		this.addDeck(CosisTrickster.class, MnemonicNexus.class, Plains.class, Shadowfeed.class, TomeScour.class, TomeScour.class, ScaldingTarn.class);
 		this.addDeck(Vigor.class, Vigor.class, Vigor.class, Vigor.class, Vigor.class, Vigor.class, Vigor.class, Vigor.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -113,7 +114,7 @@ public class ShuffleTriggersTest extends JUnitTest
 		this.addDeck(CosisTrickster.class, MnemonicNexus.class, BlackLotus.class, BlackLotus.class, TomeScour.class, TomeScour.class, ScaldingTarn.class, ScaldingTarn.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

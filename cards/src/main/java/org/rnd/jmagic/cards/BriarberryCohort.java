@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Briarberry Cohort")
 @Types({Type.CREATURE})
 @SubTypes({SubType.FAERIE, SubType.SOLDIER})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = Expansion.SHADOWMOOR, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class BriarberryCohort extends Card
 {

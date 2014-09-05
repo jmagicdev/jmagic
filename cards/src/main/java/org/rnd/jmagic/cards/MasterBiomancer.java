@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Master Biomancer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.WIZARD})
 @ManaCost("2GU")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE, Color.GREEN})
 public final class MasterBiomancer extends Card
 {

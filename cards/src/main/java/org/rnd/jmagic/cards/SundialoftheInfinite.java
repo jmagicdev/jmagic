@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Sundial of the Infinite")
 @Types({Type.ARTIFACT})
 @ManaCost("2")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class SundialoftheInfinite extends Card
 {

@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Sphinx of Magosi")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPHINX})
 @ManaCost("3UUU")
-@Printings({@Printings.Printed(ex = Expansion.RISE_OF_THE_ELDRAZI, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class SphinxofMagosi extends Card
 {

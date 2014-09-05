@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Bruna, Light of Alabaster")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("3WWU")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE, Color.WHITE})
 public final class BrunaLightofAlabaster extends Card
 {

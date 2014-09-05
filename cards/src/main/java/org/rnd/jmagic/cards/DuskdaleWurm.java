@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Duskdale Wurm")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WURM})
 @ManaCost("5GG")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2013, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.MAGIC_2011, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.EVENTIDE, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Magic2011.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Eventide.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class DuskdaleWurm extends Card
 {

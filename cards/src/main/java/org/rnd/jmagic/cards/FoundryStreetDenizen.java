@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Foundry Street Denizen")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GOBLIN, SubType.WARRIOR})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class FoundryStreetDenizen extends Card
 {

@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Stormblood Berserker")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BERSERKER, SubType.HUMAN})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class StormbloodBerserker extends Card
 {

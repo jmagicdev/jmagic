@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Palladium Myr")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.MYR})
 @ManaCost("3")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class PalladiumMyr extends Card
 {

@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Kozilek's Predator")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELDRAZI, SubType.DRONE})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = Expansion.RISE_OF_THE_ELDRAZI, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class KozileksPredator extends Card
 {

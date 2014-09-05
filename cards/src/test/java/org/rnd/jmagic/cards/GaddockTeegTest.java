@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.testing.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class GaddockTeegTest extends JUnitTest
 {
@@ -13,7 +14,7 @@ public class GaddockTeegTest extends JUnitTest
 	{
 		this.addDeck(GaddockTeeg.class, BlackLotus.class, WrathofGod.class, Fireball.class, AntQueen.class, ProteanHydra.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		this.startGame(GameTypes.OPEN);
+		this.startGame(new Open());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

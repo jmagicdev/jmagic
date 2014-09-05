@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Cruel Revival")
 @Types({Type.INSTANT})
 @ManaCost("4B")
-@Printings({@Printings.Printed(ex = Expansion.ONSLAUGHT, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Onslaught.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class CruelRevival extends Card
 {

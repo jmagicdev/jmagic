@@ -3,14 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Murasa")
 @Types({Type.PLANE})
 @SubTypes({SubType.ZENDIKAR})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Murasa extends Card
 {
@@ -34,7 +34,7 @@ public final class Murasa extends Card
 			factory.parameters.put(EventType.Parameter.TYPE, Intersect.instance(HasSuperType.instance(SuperType.BASIC), HasType.instance(Type.LAND)));
 			this.addEffect(playerMay(controller, factory, "Its controller may search his or her library for a basic land card, put it onto the battlefield tapped, then shuffle his or her library."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -44,7 +44,7 @@ public final class Murasa extends Card
 		{
 			super(state, "Whenever you roll (C), target land becomes a 4/4 creature that's still a land.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			Target target = this.addTarget(LandPermanents.instance(), "target land");
 
@@ -58,7 +58,7 @@ public final class Murasa extends Card
 
 			this.addEffect(createFloatingEffect(expiration, "Target land becomes a 4/4 creature that's still a land.", ptPart, creaturePart));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

@@ -8,6 +8,7 @@ import org.junit.*;
 import org.rnd.jmagic.abilities.keywords.*;
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.sanitized.*;
 
 public class CopyTest extends JUnitTest
@@ -17,7 +18,7 @@ public class CopyTest extends JUnitTest
 	{
 		this.addDeck(Clone.class, IonaShieldofEmeria.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Shock.class, ReachThroughMists.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -50,7 +51,7 @@ public class CopyTest extends JUnitTest
 	{
 		this.addDeck(Clone.class, VoiceofAll.class, Boomerang.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -96,7 +97,7 @@ public class CopyTest extends JUnitTest
 	{
 		this.addDeck(Clone.class, RavenousRats.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -164,7 +165,7 @@ public class CopyTest extends JUnitTest
 		// cloning a briarberry cohort means both are 2/2
 		this.addDeck(Clone.class, BriarberryCohort.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -204,7 +205,7 @@ public class CopyTest extends JUnitTest
 	{
 		this.addDeck(Clone.class, PrimalClay.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -229,7 +230,7 @@ public class CopyTest extends JUnitTest
 	{
 		this.addDeck(Clone.class, VirulentSliver.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class);
 		this.addDeck(Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -269,7 +270,7 @@ public class CopyTest extends JUnitTest
 	{
 		this.addDeck(Clone.class, ScarwoodTreefolk.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -297,7 +298,7 @@ public class CopyTest extends JUnitTest
 	{
 		this.addDeck(RingsofBrighthearth.class, CraftyPathmage.class, Sprout.class, Sprout.class, BurstofSpeed.class, Plains.class, Plains.class);
 		this.addDeck(Sprout.class, Sprout.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -378,7 +379,7 @@ public class CopyTest extends JUnitTest
 	{
 		this.addDeck(Twincast.class, BurstLightning.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		this.startGame(GameTypes.OPEN);
+		this.startGame(new Open());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();
@@ -421,7 +422,7 @@ public class CopyTest extends JUnitTest
 	{
 		this.addDeck(Tarmogoyf.class, QuicksilverGargantuan.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -444,7 +445,7 @@ public class CopyTest extends JUnitTest
 	{
 		this.addDeck(RingsofBrighthearth.class, MoggFanatic.class, MoggFanatic.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -526,7 +527,7 @@ public class CopyTest extends JUnitTest
 	{
 		this.addDeck(WurmsTooth.class, SculptingSteel.class, BlackLotus.class, AngelsFeather.class, BottleGnomes.class, PlatinumAngel.class, TreasureHunter.class, TolarianAcademy.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -637,7 +638,7 @@ public class CopyTest extends JUnitTest
 	{
 		this.addDeck(Shapesharer.class, RagingGoblin.class, GiantGrowth.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -703,7 +704,7 @@ public class CopyTest extends JUnitTest
 	{
 		this.addDeck(Forest.class, Forest.class, Spelltwine.class, Spelltwine.class, Inspiration.class, OnewithNothing.class, WitsEnd.class, LightningBolt.class, VeilbornGhoul.class, TouchoftheEternal.class, GiantGrowth.class);
 		this.addDeck(Spelltwine.class, Spelltwine.class, Inspiration.class, OnewithNothing.class, WitsEnd.class, LightningBolt.class, VeilbornGhoul.class, TouchoftheEternal.class, GiantGrowth.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -783,7 +784,7 @@ public class CopyTest extends JUnitTest
 	{
 		this.addDeck(Twincast.class, Hellfire.class, ZealousGuardian.class, GrizzlyBears.class, GrizzlyBears.class, Plains.class, Plains.class);
 		this.addDeck(Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -835,7 +836,7 @@ public class CopyTest extends JUnitTest
 	{
 		this.addDeck(Twincast.class, LightningBolt.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -870,7 +871,7 @@ public class CopyTest extends JUnitTest
 	{
 		this.addDeck(PaintersServant.class, Twincast.class, LightningBolt.class, Shatter.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

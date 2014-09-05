@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Simian Spirit Guide")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT, SubType.APE})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Expansion.PLANAR_CHAOS, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = PlanarChaos.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class SimianSpiritGuide extends Card
 {

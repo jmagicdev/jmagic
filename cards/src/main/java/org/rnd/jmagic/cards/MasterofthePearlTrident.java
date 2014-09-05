@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Master of the Pearl Trident")
 @Types({Type.CREATURE})
 @SubTypes({SubType.MERFOLK})
 @ManaCost("UU")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2013, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class MasterofthePearlTrident extends Card
 {

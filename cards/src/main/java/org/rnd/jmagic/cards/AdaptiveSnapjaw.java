@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Adaptive Snapjaw")
 @Types({Type.CREATURE})
 @SubTypes({SubType.LIZARD, SubType.BEAST})
 @ManaCost("4G")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class AdaptiveSnapjaw extends Card
 {

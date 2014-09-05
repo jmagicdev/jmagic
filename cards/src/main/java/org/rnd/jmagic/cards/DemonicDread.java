@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Demonic Dread")
 @Types({Type.SORCERY})
 @ManaCost("1BR")
-@Printings({@Printings.Printed(ex = Expansion.ALARA_REBORN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK, Color.RED})
 public final class DemonicDread extends Card
 {

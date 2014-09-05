@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Cloak of Mists")
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.AURA})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = Expansion.URZAS_SAGA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = UrzasSaga.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class CloakofMists extends Card
 {

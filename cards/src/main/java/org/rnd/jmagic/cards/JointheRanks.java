@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Join the Ranks")
 @Types({Type.INSTANT})
 @ManaCost("3W")
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class JointheRanks extends Card
 {

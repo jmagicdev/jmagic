@@ -2,6 +2,7 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Sigarda, Host of Herons")
@@ -9,7 +10,7 @@ import org.rnd.jmagic.engine.patterns.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("2GWW")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class SigardaHostofHerons extends Card
 {

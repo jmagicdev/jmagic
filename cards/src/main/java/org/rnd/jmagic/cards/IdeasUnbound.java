@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ideas Unbound")
 @Types({Type.SORCERY})
 @SubTypes({SubType.ARCANE})
 @ManaCost("UU")
-@Printings({@Printings.Printed(ex = Expansion.SAVIORS_OF_KAMIGAWA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = SaviorsOfKamigawa.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class IdeasUnbound extends Card
 {

@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Felidar Sovereign")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST, SubType.CAT})
 @ManaCost("4WW")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE})
 public final class FelidarSovereign extends Card
 {

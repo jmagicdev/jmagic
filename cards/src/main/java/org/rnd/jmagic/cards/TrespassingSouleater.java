@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Trespassing Souleater")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.CONSTRUCT})
 @ManaCost("3")
-@Printings({@Printings.Printed(ex = Expansion.NEW_PHYREXIA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class TrespassingSouleater extends Card
 {

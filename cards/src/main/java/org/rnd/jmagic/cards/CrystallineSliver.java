@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Crystalline Sliver")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SLIVER})
 @ManaCost("WU")
-@Printings({@Printings.Printed(ex = Expansion.STRONGHOLD, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Stronghold.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE, Color.WHITE})
 public final class CrystallineSliver extends Card
 {

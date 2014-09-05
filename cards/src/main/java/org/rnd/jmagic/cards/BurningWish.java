@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Burning Wish")
 @Types({Type.SORCERY})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = Expansion.JUDGMENT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Judgment.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class BurningWish extends Card
 {

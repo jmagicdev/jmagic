@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Omniscience")
 @Types({Type.ENCHANTMENT})
 @ManaCost("7UUU")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2013, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE})
 public final class Omniscience extends Card
 {

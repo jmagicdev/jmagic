@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Runed Halo")
 @Types({Type.ENCHANTMENT})
 @ManaCost("WW")
-@Printings({@Printings.Printed(ex = Expansion.SHADOWMOOR, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class RunedHalo extends Card
 {

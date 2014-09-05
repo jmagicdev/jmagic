@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Druid's Familiar")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAR})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class DruidsFamiliar extends Card
 {

@@ -2,13 +2,14 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Platinum Angel")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("7")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2011, r = Rarity.MYTHIC), @Printings.Printed(ex = Expansion.MAGIC_2010, r = Rarity.MYTHIC), @Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.MIRRODIN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.MYTHIC), @Printings.Printed(ex = Magic2010.class, r = Rarity.MYTHIC), @Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Mirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class PlatinumAngel extends Card
 {

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Reckless Brute")
 @Types({Type.CREATURE})
 @SubTypes({SubType.OGRE, SubType.WARRIOR})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2013, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class RecklessBrute extends Card
 {

@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Kabira Evangel")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ALLY, SubType.HUMAN, SubType.CLERIC})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class KabiraEvangel extends Card
 {

@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class TargetsTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class TargetsTest extends JUnitTest
 	{
 		this.addDeck(Gravepurge.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -36,7 +39,7 @@ public class TargetsTest extends JUnitTest
 		this.addDeck(GlaringSpotlight.class, GlaringSpotlight.class, GlaringSpotlight.class, InvisibleStalker.class, InvisibleStalker.class, InvisibleStalker.class, LightningBolt.class, LightningBolt.class, LightningBolt.class);
 		this.addDeck(GlaringSpotlight.class, GlaringSpotlight.class, GlaringSpotlight.class, InvisibleStalker.class, InvisibleStalker.class, InvisibleStalker.class, LightningBolt.class, LightningBolt.class, LightningBolt.class);
 		this.addDeck(GlaringSpotlight.class, GlaringSpotlight.class, GlaringSpotlight.class, InvisibleStalker.class, InvisibleStalker.class, InvisibleStalker.class, LightningBolt.class, LightningBolt.class, LightningBolt.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -121,7 +124,7 @@ public class TargetsTest extends JUnitTest
 
 		this.addDeck(KarplusanStrider.class, KarplusanStrider.class, Cancel.class, Terror.class, MoggFanatic.class, LightningBolt.class, Evacuation.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -193,7 +196,7 @@ public class TargetsTest extends JUnitTest
 
 		this.addDeck(TrueBeliever.class, TrueBeliever.class, TrueBeliever.class, LightningBolt.class, LightningBolt.class, LightningBolt.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -257,7 +260,7 @@ public class TargetsTest extends JUnitTest
 	{
 		this.addDeck(PincherBeetles.class, Clone.class, WrathofGod.class, Terror.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -303,7 +306,7 @@ public class TargetsTest extends JUnitTest
 	{
 		this.addDeck(TrollAscetic.class, GiantGrowth.class, ChaosCharm.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(LightningBolt.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Beckon Apparition")
 @Types({Type.INSTANT})
 @ManaCost("(W/B)")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.EVENTIDE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON), @Printings.Printed(ex = Eventide.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.BLACK})
 public final class BeckonApparition extends Card
 {

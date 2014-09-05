@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class AnimatedLandsTest extends JUnitTest
 {
@@ -13,7 +14,7 @@ public class AnimatedLandsTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, AzusaLostbutSeeking.class, Mountain.class, Mountain.class, Mutavault.class, Mutavault.class, ChaosCharm.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

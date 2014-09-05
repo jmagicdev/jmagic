@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class PowerAndToughnessChangingEffectsTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class PowerAndToughnessChangingEffectsTest extends JUnitTest
 	{
 		addDeck(AngelicChorus.class, Tarmogoyf.class, GiantGrowth.class, SimicInitiate.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -88,7 +91,7 @@ public class PowerAndToughnessChangingEffectsTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, InsideOut.class, InsideOut.class, AmbassadorLaquatus.class, AmbassadorLaquatus.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -172,7 +175,7 @@ public class PowerAndToughnessChangingEffectsTest extends JUnitTest
 	{
 		addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BrionStoutarm.class, MoggFanatic.class, Mountain.class, ChaosCharm.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -233,7 +236,7 @@ public class PowerAndToughnessChangingEffectsTest extends JUnitTest
 	{
 		addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BrionStoutarm.class, IronshellBeetle.class, ChaosCharm.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -304,7 +307,7 @@ public class PowerAndToughnessChangingEffectsTest extends JUnitTest
 	{
 		addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BrionStoutarm.class, IronshellBeetle.class, GiantGrowth.class, ChaosCharm.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -406,7 +409,7 @@ public class PowerAndToughnessChangingEffectsTest extends JUnitTest
 	{
 		addDeck(CaptainoftheWatch.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -435,7 +438,7 @@ public class PowerAndToughnessChangingEffectsTest extends JUnitTest
 	{
 		addDeck(ChaosCharm.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BrionStoutarm.class, AmbassadorLaquatus.class, InsideOut.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();

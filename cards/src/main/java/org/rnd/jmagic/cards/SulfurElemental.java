@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Sulfur Elemental")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Expansion.PLANAR_CHAOS, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = PlanarChaos.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class SulfurElemental extends Card
 {

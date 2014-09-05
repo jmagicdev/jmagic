@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Springleaf Drum")
 @Types({Type.ARTIFACT})
 @ManaCost("1")
-@Printings({@Printings.Printed(ex = Expansion.LORWYN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class SpringleafDrum extends Card
 {

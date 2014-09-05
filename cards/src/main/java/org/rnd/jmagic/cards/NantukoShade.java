@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Nantuko Shade")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHADE, SubType.INSECT})
 @ManaCost("BB")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2011, r = Rarity.RARE), @Printings.Printed(ex = Expansion.TORMENT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.RARE), @Printings.Printed(ex = Torment.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class NantukoShade extends Card
 {

@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Extirpate")
 @Types({Type.INSTANT})
 @ManaCost("B")
-@Printings({@Printings.Printed(ex = Expansion.PLANAR_CHAOS, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = PlanarChaos.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class Extirpate extends Card
 {

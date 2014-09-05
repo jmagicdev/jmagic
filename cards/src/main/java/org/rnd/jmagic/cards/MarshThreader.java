@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Marsh Threader")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SCOUT, SubType.KOR})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class MarshThreader extends Card
 {

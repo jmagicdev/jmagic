@@ -3,8 +3,10 @@ package org.rnd.jmagic.testing;
 import org.junit.*;
 
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class ProhibitionsTest extends JUnitTest
 {
@@ -13,7 +15,7 @@ public class ProhibitionsTest extends JUnitTest
 	{
 		this.addDeck(AngelofJubilation.class, AngelofJubilation.class, AngelofJubilation.class, AngelofJubilation.class, AngelofJubilation.class, DemonlordofAshmouth.class, Fling.class);
 		this.addDeck(AngelofJubilation.class, AngelofJubilation.class, AngelofJubilation.class, AngelofJubilation.class, AngelofJubilation.class, DemonlordofAshmouth.class, Fling.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -52,7 +54,7 @@ public class ProhibitionsTest extends JUnitTest
 	{
 		this.addDeck(DarksteelGargoyle.class, LightningBolt.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -108,7 +110,7 @@ public class ProhibitionsTest extends JUnitTest
 	{
 		this.addDeck(PardicMiner.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -137,7 +139,7 @@ public class ProhibitionsTest extends JUnitTest
 	{
 		this.addDeck(PlatinumAngel.class, Concentrate.class, Shatterstorm.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -175,7 +177,7 @@ public class ProhibitionsTest extends JUnitTest
 	{
 		this.addDeck(RuleofLaw.class, RuleofLaw.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Sprout.class, Sprout.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -209,7 +211,7 @@ public class ProhibitionsTest extends JUnitTest
 	{
 		this.addDeck(RuneclawBear.class, RuneclawBear.class, RuneclawBear.class, RuneclawBear.class, RuneclawBear.class, RuneclawBear.class, RuneclawBear.class);
 		this.addDeck(Silence.class, Shock.class, Shock.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -268,7 +270,7 @@ public class ProhibitionsTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, SteelGolem.class, SteelGolem.class, SteelGolem.class, SteelGolem.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

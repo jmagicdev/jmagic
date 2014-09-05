@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Stream of Unconsciousness")
 @Types({Type.INSTANT})
 @ManaCost("U")
-@Printings({@Printings.Printed(ex = Expansion.MORNINGTIDE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Morningtide.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class StreamofUnconsciousness extends Card
 {

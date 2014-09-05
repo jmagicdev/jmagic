@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ghor-Clan Rampager")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("2RG")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN, Color.RED})
 public final class GhorClanRampager extends Card
 {

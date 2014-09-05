@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Artisan of Kozilek")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELDRAZI})
 @ManaCost("(9)")
-@Printings({@Printings.Printed(ex = Expansion.COMMANDER, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.RISE_OF_THE_ELDRAZI, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class ArtisanofKozilek extends Card
 {

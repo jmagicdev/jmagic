@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Goblin Grenade")
 @Types({Type.SORCERY})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.FALLEN_EMPIRES, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = FallenEmpires.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class GoblinGrenade extends Card
 {

@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Boros Charm")
 @Types({Type.INSTANT})
 @ManaCost("RW")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE, Color.RED})
 public final class BorosCharm extends Card
 {

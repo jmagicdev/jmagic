@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Aven Trailblazer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.BIRD})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = Expansion.CONFLUX, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Conflux.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class AvenTrailblazer extends Card
 {

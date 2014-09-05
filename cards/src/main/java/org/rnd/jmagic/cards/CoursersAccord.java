@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Coursers' Accord")
 @Types({Type.SORCERY})
 @ManaCost("4GW")
-@Printings({@Printings.Printed(ex = Expansion.RETURN_TO_RAVNICA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class CoursersAccord extends Card
 {

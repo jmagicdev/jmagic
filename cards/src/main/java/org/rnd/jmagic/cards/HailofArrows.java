@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Hail of Arrows")
 @Types({Type.INSTANT})
 @ManaCost("XW")
-@Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.SAVIORS_OF_KAMIGAWA, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = SaviorsOfKamigawa.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class HailofArrows extends Card
 {

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Scab-Clan Charger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.CENTAUR})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class ScabClanCharger extends Card
 {

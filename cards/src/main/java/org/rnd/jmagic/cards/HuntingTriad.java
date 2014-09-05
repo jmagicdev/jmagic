@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Hunting Triad")
 @Types({Type.SORCERY, Type.TRIBAL})
 @SubTypes({SubType.ELF})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = Expansion.MORNINGTIDE, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Morningtide.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class HuntingTriad extends Card
 {

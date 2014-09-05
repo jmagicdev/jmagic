@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Nissa Revane")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.NISSA})
 @ManaCost("2GG")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.GREEN})
 public final class NissaRevane extends Card
 {

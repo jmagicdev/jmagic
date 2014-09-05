@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Pestilent Souleater")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.INSECT})
 @ManaCost("5")
-@Printings({@Printings.Printed(ex = Expansion.NEW_PHYREXIA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class PestilentSouleater extends Card
 {

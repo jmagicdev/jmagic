@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Fire-Field Ogre")
 @Types({Type.CREATURE})
 @SubTypes({SubType.MUTANT, SubType.OGRE})
 @ManaCost("1UBR")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE, Color.BLACK, Color.RED})
 public final class FireFieldOgre extends Card
 {

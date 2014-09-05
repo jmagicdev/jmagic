@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Martial Coup")
 @Types({Type.SORCERY})
 @ManaCost("XWW")
-@Printings({@Printings.Printed(ex = Expansion.CONFLUX, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Conflux.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class MartialCoup extends Card
 {

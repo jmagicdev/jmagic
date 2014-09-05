@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.patterns.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mossbridge Troll")
 @Types({Type.CREATURE})
 @SubTypes({SubType.TROLL})
 @ManaCost("5GG")
-@Printings({@Printings.Printed(ex = Expansion.SHADOWMOOR, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class MossbridgeTroll extends Card
 {

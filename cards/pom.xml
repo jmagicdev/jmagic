@@ -25,12 +25,6 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.rnd.jmagic</groupId>
-			<artifactId>development</artifactId>
-			<version>0.12</version>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 
 	<build>

@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mirror-Mad Phantasm")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT})
 @ManaCost("3UU")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE})
 public final class MirrorMadPhantasm extends Card
 {

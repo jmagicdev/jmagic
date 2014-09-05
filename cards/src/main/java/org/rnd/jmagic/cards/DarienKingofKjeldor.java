@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Darien, King of Kjeldor")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.HUMAN})
 @ManaCost("4WW")
-@Printings({@Printings.Printed(ex = Expansion.COLDSNAP, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Coldsnap.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class DarienKingofKjeldor extends Card
 {

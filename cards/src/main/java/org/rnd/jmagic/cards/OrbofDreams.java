@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Orb of Dreams")
 @Types({Type.ARTIFACT})
 @ManaCost("3")
-@Printings({@Printings.Printed(ex = Expansion.BETRAYERS_OF_KAMIGAWA, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = BetrayersOfKamigawa.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class OrbofDreams extends Card
 {

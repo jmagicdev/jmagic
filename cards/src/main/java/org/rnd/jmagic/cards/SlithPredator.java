@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Slith Predator")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SLITH})
 @ManaCost("GG")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Mirrodin.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class SlithPredator extends Card
 {

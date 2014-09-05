@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Hedron-Field Purists")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CLERIC, SubType.HUMAN})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = Expansion.RISE_OF_THE_ELDRAZI, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class HedronFieldPurists extends Card
 {

@@ -3,14 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Mirrored Depths")
 @Types({Type.PLANE})
 @SubTypes({SubType.KARSUS})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.SPECIAL)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.SPECIAL)})
 @ColorIdentity({})
 public final class MirroredDepths extends Card
 {
@@ -35,7 +35,7 @@ public final class MirroredDepths extends Card
 			factory.parameters.put(EventType.Parameter.THEN, Identity.instance(counter(thatSpell, "Counter that spell.")));
 			this.addEffect(factory);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -45,7 +45,7 @@ public final class MirroredDepths extends Card
 		{
 			super(state, "Whenever you roll (C), target player reveals the top card of his or her library. If it's a nonland card, you may cast it without paying its mana cost.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			Target target = this.addTarget(Players.instance(), "target player");
 
@@ -66,7 +66,7 @@ public final class MirroredDepths extends Card
 			ifNonland.parameters.put(EventType.Parameter.THEN, Identity.instance(castFactory));
 			this.addEffect(ifNonland);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

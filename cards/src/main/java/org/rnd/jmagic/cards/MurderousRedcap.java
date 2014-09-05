@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Murderous Redcap")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ASSASSIN, SubType.GOBLIN})
 @ManaCost("2(B/R)(B/R)")
-@Printings({@Printings.Printed(ex = Expansion.SHADOWMOOR, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK, Color.RED})
 public final class MurderousRedcap extends Card
 {

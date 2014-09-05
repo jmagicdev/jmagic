@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Possessed Nomad")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.HORROR, SubType.NOMAD})
 @ManaCost("2WW")
-@Printings({@Printings.Printed(ex = Expansion.TORMENT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Torment.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.BLACK})
 public final class PossessedNomad extends Card
 {

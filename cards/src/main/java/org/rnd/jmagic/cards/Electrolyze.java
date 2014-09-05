@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Electrolyze")
 @Types({Type.INSTANT})
 @ManaCost("1UR")
-@Printings({@Printings.Printed(ex = Expansion.COMMANDER, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.GUILDPACT, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Guildpact.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE, Color.RED})
 public final class Electrolyze extends Card
 {

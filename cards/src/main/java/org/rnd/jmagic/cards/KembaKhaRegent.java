@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Kemba, Kha Regent")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.CLERIC, SubType.CAT})
 @ManaCost("1WW")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class KembaKhaRegent extends Card
 {

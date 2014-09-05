@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 // imported to make the leveler line that adds three abilities not 238490284 characters long.
 import org.rnd.jmagic.abilities.keywords.*;
@@ -9,7 +10,7 @@ import org.rnd.jmagic.abilities.keywords.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.HUMAN})
 @ManaCost("RR")
-@Printings({@Printings.Printed(ex = Expansion.RISE_OF_THE_ELDRAZI, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.RED})
 public final class KarganDragonlord extends Card
 {

@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Stonecloaker")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GARGOYLE})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = Expansion.PLANAR_CHAOS, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = PlanarChaos.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class Stonecloaker extends Card
 {

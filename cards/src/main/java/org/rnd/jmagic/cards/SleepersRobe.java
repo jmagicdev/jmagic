@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Sleeper's Robe")
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.AURA})
 @ManaCost("UB")
-@Printings({@Printings.Printed(ex = Expansion.INVASION, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Invasion.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE, Color.BLACK})
 public final class SleepersRobe extends Card
 {

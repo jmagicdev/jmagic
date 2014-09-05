@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Exhume")
 @Types({Type.SORCERY})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Expansion.URZAS_SAGA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = UrzasSaga.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class Exhume extends Card
 {

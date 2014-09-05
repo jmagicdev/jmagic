@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Life from the Loam")
 @Types({Type.SORCERY})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.RAVNICA, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = RavnicaCityOfGuilds.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class LifefromtheLoam extends Card
 {

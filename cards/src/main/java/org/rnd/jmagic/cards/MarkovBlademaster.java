@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Markov Blademaster")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.VAMPIRE})
 @ManaCost("1RR")
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class MarkovBlademaster extends Card
 {

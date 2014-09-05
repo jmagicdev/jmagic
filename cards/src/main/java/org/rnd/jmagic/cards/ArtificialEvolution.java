@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Artificial Evolution")
 @Types({Type.INSTANT})
 @ManaCost("U")
-@Printings({@Printings.Printed(ex = Expansion.ONSLAUGHT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Onslaught.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class ArtificialEvolution extends Card
 {

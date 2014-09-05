@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Predatory Urge")
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.AURA})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class PredatoryUrge extends Card
 {

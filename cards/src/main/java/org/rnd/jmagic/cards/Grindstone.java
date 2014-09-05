@@ -7,11 +7,12 @@ import java.util.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.Set;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Grindstone")
 @Types({Type.ARTIFACT})
 @ManaCost("1")
-@Printings({@Printings.Printed(ex = Expansion.TEMPEST, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Tempest.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class Grindstone extends Card
 {

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Nephalia Seakite")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BIRD})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class NephaliaSeakite extends Card
 {

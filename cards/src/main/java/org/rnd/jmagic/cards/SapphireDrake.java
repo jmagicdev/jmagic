@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Sapphire Drake")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAKE})
 @ManaCost("5U")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class SapphireDrake extends Card
 {

@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Zealous Persecution")
 @Types({Type.INSTANT})
 @ManaCost("WB")
-@Printings({@Printings.Printed(ex = Expansion.ALARA_REBORN, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE, Color.BLACK})
 public final class ZealousPersecution extends Card
 {

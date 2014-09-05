@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Finest Hour")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2GWU")
-@Printings({@Printings.Printed(ex = Expansion.ALARA_REBORN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN})
 public final class FinestHour extends Card
 {

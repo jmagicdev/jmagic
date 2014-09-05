@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Hound of Griselbrand")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL, SubType.HOUND})
 @ManaCost("2RR")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class HoundofGriselbrand extends Card
 {

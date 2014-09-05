@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Joiner Adept")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRUID, SubType.ELF})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.FIFTH_DAWN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = FifthDawn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class JoinerAdept extends Card
 {

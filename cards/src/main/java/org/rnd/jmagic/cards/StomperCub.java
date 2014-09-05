@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Stomper Cub")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("3GG")
-@Printings({@Printings.Printed(ex = Expansion.RISE_OF_THE_ELDRAZI, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class StomperCub extends Card
 {

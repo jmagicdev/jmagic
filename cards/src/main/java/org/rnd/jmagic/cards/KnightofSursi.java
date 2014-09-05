@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Knight of Sursi")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.KNIGHT})
 @ManaCost("3W")
-@Printings({@Printings.Printed(ex = Expansion.FUTURE_SIGHT, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class KnightofSursi extends Card
 {

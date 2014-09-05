@@ -2,13 +2,14 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Commander Eesha")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.BIRD})
 @ManaCost("2WW")
-@Printings({@Printings.Printed(ex = Expansion.JUDGMENT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Judgment.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class CommanderEesha extends Card
 {

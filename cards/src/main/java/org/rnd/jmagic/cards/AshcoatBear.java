@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ashcoat Bear")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAR})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.TIME_SPIRAL, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class AshcoatBear extends Card
 {

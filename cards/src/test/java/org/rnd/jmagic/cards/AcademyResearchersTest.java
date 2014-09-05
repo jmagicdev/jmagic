@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.rnd.jmagic.engine.Answer;
 import org.rnd.jmagic.engine.Color;
-import org.rnd.jmagic.engine.GameTypes;
 import org.rnd.jmagic.engine.SubType;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.testing.JUnitTest;
 
 @RunWith(JUnit4.class)
@@ -20,7 +20,7 @@ public class AcademyResearchersTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, BlackLotus.class, SeasClaim.class, UnholyStrength.class, AcademyResearchers.class, AcademyResearchers.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		this.startGame(GameTypes.OPEN);
+		this.startGame(new Open());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

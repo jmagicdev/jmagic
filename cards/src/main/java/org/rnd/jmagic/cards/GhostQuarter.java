@@ -4,10 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ghost Quarter")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.DISSENSION, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Dissension.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class GhostQuarter extends Card
 {

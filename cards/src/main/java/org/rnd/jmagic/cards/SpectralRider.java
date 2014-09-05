@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Spectral Rider")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT, SubType.KNIGHT})
 @ManaCost("WW")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class SpectralRider extends Card
 {

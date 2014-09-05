@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Tainted Sigil")
 @Types({Type.ARTIFACT})
 @ManaCost("1WB")
-@Printings({@Printings.Printed(ex = Expansion.ALARA_REBORN, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE, Color.BLACK})
 public final class TaintedSigil extends Card
 {

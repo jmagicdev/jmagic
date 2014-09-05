@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Godsire")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("4RGGW")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE, Color.GREEN, Color.RED})
 public final class Godsire extends Card
 {

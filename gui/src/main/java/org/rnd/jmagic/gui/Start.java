@@ -87,22 +87,6 @@ public class Start
 
 					try
 					{
-						LOG.info("Loading cards (" + org.rnd.jmagic.CardLoader.getCardsLoaded() + " loaded so far)");
-						while((null != Start.this.cardThread) && Start.this.cardThread.isAlive())
-						{
-							Start.this.cardThread.join(1000);
-							LOG.info("Loading cards (" + org.rnd.jmagic.CardLoader.getCardsLoaded() + " loaded so far)");
-						}
-					}
-					catch(InterruptedException e)
-					{
-						LOG.fine("Interrupted while loading cards");
-						hideSplash();
-						return;
-					}
-
-					try
-					{
 						if(0 == port)
 							for(int i = 0; i < numPlayers; ++i)
 								addLocal(deck, name + i, server);
@@ -598,11 +582,8 @@ public class Start
 
 	static
 	{
-		FORMAT_STRINGS.add(org.rnd.jmagic.engine.GameTypes.BLOCK.getName());
-		FORMAT_STRINGS.add(org.rnd.jmagic.engine.GameTypes.STANDARD.getName());
-		FORMAT_STRINGS.add(org.rnd.jmagic.engine.GameTypes.MODERN.getName());
-		FORMAT_STRINGS.add(org.rnd.jmagic.engine.GameTypes.LEGACY.getName());
-		FORMAT_STRINGS.add(org.rnd.jmagic.engine.GameTypes.VINTAGE.getName());
+		for(org.rnd.jmagic.engine.GameType gameType: org.rnd.jmagic.engine.GameType.list())
+			FORMAT_STRINGS.add(gameType.getName());
 	}
 
 	private static final java.util.logging.Logger LOG = java.util.logging.Logger.getLogger("org.rnd.jmagic.gui.Start");
@@ -790,8 +771,6 @@ public class Start
 	}
 
 	private javax.swing.JTextArea cardList;
-
-	private Thread cardThread;
 
 	private java.util.Set<org.rnd.jmagic.engine.GameType> customGameTypes;
 
@@ -1021,7 +1000,7 @@ public class Start
 		}
 
 		this.gameTypeComboBox = new javax.swing.JComboBox<Object>();
-		for(org.rnd.jmagic.engine.GameType gameType: org.rnd.jmagic.engine.GameTypes.values())
+		for(org.rnd.jmagic.engine.GameType gameType: org.rnd.jmagic.engine.GameType.list())
 			this.gameTypeComboBox.addItem(gameType);
 		this.gameTypeComboBox.addItem(CUSTOM_GAME_TYPE_VALUE);
 
@@ -1048,7 +1027,7 @@ public class Start
 							if(null == Start.this.gameTypeDialog)
 							{
 								java.util.Set<org.rnd.jmagic.engine.GameType> presets = new java.util.HashSet<org.rnd.jmagic.engine.GameType>();
-								for(org.rnd.jmagic.engine.GameType t: org.rnd.jmagic.engine.GameTypes.values())
+								for(org.rnd.jmagic.engine.GameType t: org.rnd.jmagic.engine.GameType.list())
 									presets.add(t);
 								presets.addAll(Start.this.customGameTypes);
 								Start.this.gameTypeDialog = new GameTypeDialog(Start.this.frame, presets);
@@ -1704,62 +1683,5 @@ public class Start
 			properties.setProperty(PROPERTIES_CARD_IMAGE_LOCATION, "");
 		else if(0 != cardImageLocation.length())
 			CardGraphics.setCardImageLocation(cardImageLocation);
-
-		this.cardThread = new Thread()
-		{
-			@Override
-			public void run()
-			{
-				String[] packages = properties.getProperty(PROPERTIES_CARDS_PACKAGES).split("[|]");
-				char[] loadPackage = Start.this.properties.getProperty(PROPERTIES_CARDS_PACKAGES_LOAD).toCharArray();
-				for(int i = 0; i < packages.length; ++i)
-					if(loadPackage[i] != '1')
-						packages[i] = null;
-				org.rnd.jmagic.CardLoader.addPackages(packages);
-
-				try
-				{
-					String jarProperty = properties.getProperty(PROPERTIES_EXTERNAL_JARS);
-					if(0 != jarProperty.length())
-					{
-						java.net.URL rootURL = new java.net.URL("file:///" + System.getProperty("user.dir") + java.io.File.separator);
-						String[] jarPaths = jarProperty.split("[|]");
-						char[] loadJar = properties.getProperty(PROPERTIES_EXTERNAL_JARS_LOAD).toCharArray();
-						java.net.URL[] jarURLs = new java.net.URL[jarPaths.length];
-						for(int i = 0; i < jarPaths.length; ++i)
-							if(loadJar[i] == '1')
-								jarURLs[i] = new java.net.URL(rootURL, jarPaths[i]);
-						org.rnd.jmagic.CardLoader.addURLs(jarURLs);
-					}
-				}
-				catch(java.net.MalformedURLException e)
-				{
-					LOG.log(java.util.logging.Level.SEVERE, "External classpath URL malformed: ", e);
-				}
-
-				java.awt.EventQueue.invokeLater(new Runnable()
-				{
-					@Override
-					public void run()
-					{
-						StringBuilder cards = null;
-						for(String card: new java.util.TreeSet<String>(org.rnd.jmagic.CardLoader.getAllCardNames()))
-						{
-							if(null == cards)
-								cards = new StringBuilder(card);
-							else
-							{
-								cards.append("\n");
-								cards.append(card);
-							}
-						}
-
-						Start.this.cardList.setText(cards.toString());
-						Start.this.cardList.setCaretPosition(0);
-					}
-				});
-			}
-		};
-		this.cardThread.start();
 	}
 }

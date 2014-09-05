@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Unexpected Results")
 @Types({Type.SORCERY})
 @ManaCost("2GU")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.GREEN})
 public final class UnexpectedResults extends Card
 {

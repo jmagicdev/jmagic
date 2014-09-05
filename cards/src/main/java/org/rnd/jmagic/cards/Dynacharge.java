@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Dynacharge")
 @Types({Type.INSTANT})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Expansion.RETURN_TO_RAVNICA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class Dynacharge extends Card
 {

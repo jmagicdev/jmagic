@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.testing.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class HarmsWayTest extends JUnitTest
 {
@@ -13,7 +14,7 @@ public class HarmsWayTest extends JUnitTest
 	{
 		this.addDeck(MoggFanatic.class, ChaosCharm.class, LightningBolt.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(HarmsWay.class, Sprout.class, HarmsWay.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		this.startGame(GameTypes.OPEN);
+		this.startGame(new Open());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ichorid")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HORROR})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = Expansion.TORMENT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Torment.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class Ichorid extends Card
 {

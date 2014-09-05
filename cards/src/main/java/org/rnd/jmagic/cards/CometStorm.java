@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Comet Storm")
 @Types({Type.INSTANT})
 @ManaCost("XRR")
-@Printings({@Printings.Printed(ex = Expansion.COMMANDER, r = Rarity.MYTHIC), @Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.MYTHIC), @Printings.Printed(ex = Worldwake.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.RED})
 public final class CometStorm extends Card
 {

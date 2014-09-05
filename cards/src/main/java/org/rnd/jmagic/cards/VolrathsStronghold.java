@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Volrath's Stronghold")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.STRONGHOLD, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Stronghold.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class VolrathsStronghold extends Card
 {

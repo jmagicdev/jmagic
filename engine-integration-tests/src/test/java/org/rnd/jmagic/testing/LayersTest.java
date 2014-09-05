@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class LayersTest extends JUnitTest
 {
@@ -14,7 +15,7 @@ public class LayersTest extends JUnitTest
 
 		this.addDeck(BlackLotus.class, BlackLotus.class, Humility.class, Tarmogoyf.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -63,7 +64,7 @@ public class LayersTest extends JUnitTest
 		// Coat of arms
 		this.addDeck(CoatofArms.class, GoblinRuinblaster.class, GoblinRuinblaster.class, MoggFanatic.class, MoggFanatic.class, TrollAscetic.class, Sprout.class);
 		this.addDeck(Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -141,7 +142,7 @@ public class LayersTest extends JUnitTest
 	{
 		this.addDeck(ChildofNight.class, OliviaVoldaren.class, ChildofNight.class, OliviaVoldaren.class, ChildofNight.class, OliviaVoldaren.class, ChildofNight.class, OliviaVoldaren.class);
 		this.addDeck(Threaten.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -174,7 +175,7 @@ public class LayersTest extends JUnitTest
 		// After drawing, the only thing left in the library will be two Plains
 		Plains.class, Plains.class, Plains.class, Plains.class, StreamofUnconsciousness.class, InsideOut.class, AmbassadorLaquatus.class, BlackLotus.class, BlackLotus.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();

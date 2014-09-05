@@ -5,10 +5,11 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.abilities.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Maze of Ith")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.THE_DARK, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = TheDark.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class MazeofIth extends Card
 {

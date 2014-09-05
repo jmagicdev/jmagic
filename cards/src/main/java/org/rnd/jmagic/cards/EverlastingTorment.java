@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Everlasting Torment")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2(B/R)")
-@Printings({@Printings.Printed(ex = Expansion.SHADOWMOOR, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK, Color.RED})
 public final class EverlastingTorment extends Card
 {

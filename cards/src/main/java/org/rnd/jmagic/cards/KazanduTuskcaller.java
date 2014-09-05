@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Kazandu Tuskcaller")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.SHAMAN})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.RISE_OF_THE_ELDRAZI, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class KazanduTuskcaller extends Card
 {

@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Diabolic Revelation")
 @Types({Type.SORCERY})
 @ManaCost("X3BB")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2013, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class DiabolicRevelation extends Card
 {

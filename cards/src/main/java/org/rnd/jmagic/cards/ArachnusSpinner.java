@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Arachnus Spinner")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIDER})
 @ManaCost("5G")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class ArachnusSpinner extends Card
 {

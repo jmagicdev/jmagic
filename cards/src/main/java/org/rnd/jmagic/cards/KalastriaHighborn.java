@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Kalastria Highborn")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.VAMPIRE})
 @ManaCost("BB")
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class KalastriaHighborn extends Card
 {

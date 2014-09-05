@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Hearthfire Hobgoblin")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GOBLIN, SubType.SOLDIER})
 @ManaCost("(RW)(RW)(RW)")
-@Printings({@Printings.Printed(ex = Expansion.EVENTIDE, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Eventide.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE, Color.RED})
 public final class HearthfireHobgoblin extends Card
 {

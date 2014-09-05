@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mirri's Guile")
 @Types({Type.ENCHANTMENT})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Expansion.TEMPEST, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Tempest.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class MirrisGuile extends Card
 {

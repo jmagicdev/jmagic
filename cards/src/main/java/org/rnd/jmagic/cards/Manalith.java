@@ -1,11 +1,12 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Manalith")
 @Types({Type.ARTIFACT})
 @ManaCost("3")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Manalith extends Card
 {

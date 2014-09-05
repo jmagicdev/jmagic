@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class LegendaryTest extends JUnitTest
 {
@@ -14,7 +15,7 @@ public class LegendaryTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, ArcanistheOmnipotent.class, ArcanistheOmnipotent.class, ArcanistheOmnipotent.class, ArcanistheOmnipotent.class, ArcanistheOmnipotent.class, ArcanistheOmnipotent.class);
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, ArcanistheOmnipotent.class, ArcanistheOmnipotent.class, ArcanistheOmnipotent.class, ArcanistheOmnipotent.class, ArcanistheOmnipotent.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

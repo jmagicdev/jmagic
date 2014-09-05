@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Nearheath Stalker")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ROGUE, SubType.VAMPIRE})
 @ManaCost("4R")
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class NearheathStalker extends Card
 {

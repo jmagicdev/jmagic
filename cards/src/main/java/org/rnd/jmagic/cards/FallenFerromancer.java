@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Fallen Ferromancer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.SHAMAN})
 @ManaCost("3R")
-@Printings({@Printings.Printed(ex = Expansion.NEW_PHYREXIA, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class FallenFerromancer extends Card
 {

@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Gisela, Blade of Goldnight")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("4RWW")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE, Color.RED})
 public final class GiselaBladeofGoldnight extends Card
 {

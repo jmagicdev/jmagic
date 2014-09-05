@@ -2,13 +2,14 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Silvos, Rogue Elemental")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL})
 @ManaCost("3GGG")
-@Printings({@Printings.Printed(ex = Expansion.ONSLAUGHT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Onslaught.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class SilvosRogueElemental extends Card
 {

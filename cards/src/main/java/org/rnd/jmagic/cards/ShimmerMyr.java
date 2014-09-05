@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Shimmer Myr")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.MYR})
 @ManaCost("3")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN_BESIEGED, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class ShimmerMyr extends Card
 {

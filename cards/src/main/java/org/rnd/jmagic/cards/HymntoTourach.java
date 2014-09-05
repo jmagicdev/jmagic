@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Hymn to Tourach")
 @Types({Type.SORCERY})
 @ManaCost("BB")
-@Printings({@Printings.Printed(ex = Expansion.FALLEN_EMPIRES, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = FallenEmpires.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class HymntoTourach extends Card
 {

@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Etherium Sculptor")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.ARTIFICER, SubType.VEDALKEN})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class EtheriumSculptor extends Card
 {

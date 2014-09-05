@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.testing.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class ChromeMoxTest extends JUnitTest
 {
@@ -13,7 +14,7 @@ public class ChromeMoxTest extends JUnitTest
 	{
 		this.addDeck(Forest.class, Forest.class, Island.class, Mountain.class, Plains.class, ChromeMox.class, KhalniHeartExpedition.class, KhalniHeartExpedition.class, Harrow.class, Forest.class, Forest.class, ChromeMox.class, SummonersPact.class);
 		this.addDeck(Swamp.class, Swamp.class, Swamp.class, Swamp.class, Swamp.class, Swamp.class, Swamp.class, Swamp.class);
-		this.startGame(GameTypes.STACKED);
+		this.startGame(new Stacked());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

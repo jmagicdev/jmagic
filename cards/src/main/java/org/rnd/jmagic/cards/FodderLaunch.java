@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Fodder Launch")
 @Types({Type.SORCERY, Type.TRIBAL})
 @SubTypes({SubType.GOBLIN})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = Expansion.LORWYN, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class FodderLaunch extends Card
 {

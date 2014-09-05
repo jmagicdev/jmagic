@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Flame-Kin Zealot")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL, SubType.BERSERKER})
 @ManaCost("1RRW")
-@Printings({@Printings.Printed(ex = Expansion.RAVNICA, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = RavnicaCityOfGuilds.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE, Color.RED})
 public final class FlameKinZealot extends Card
 {

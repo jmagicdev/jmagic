@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Hero of Oxid Ridge")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.KNIGHT})
 @ManaCost("2RR")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN_BESIEGED, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.RED})
 public final class HeroofOxidRidge extends Card
 {

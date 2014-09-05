@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Shifting Sliver")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SLIVER})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = Expansion.LEGIONS, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Legions.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class ShiftingSliver extends Card
 {

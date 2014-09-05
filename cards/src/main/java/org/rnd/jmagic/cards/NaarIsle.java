@@ -3,13 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Naar Isle")
 @Types({Type.PLANE})
 @SubTypes({SubType.WILDFIRE})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class NaarIsle extends Card
 {
@@ -25,7 +25,7 @@ public final class NaarIsle extends Card
 
 			this.addEffect(permanentDealDamage(Count.instance(CountersOn.instance(ABILITY_SOURCE_OF_THIS, Counter.CounterType.FLAME)), You.instance(), "Naar Isle deals damage to you equal to the number of flame counters on it."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -35,13 +35,13 @@ public final class NaarIsle extends Card
 		{
 			super(state, "Whenever you roll (C), Naar Isle deals 3 damage to target player.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			Target target = this.addTarget(Players.instance(), "target player");
 
 			this.addEffect(permanentDealDamage(3, targetedBy(target), "Naar Isle deals 3 damage to target player."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

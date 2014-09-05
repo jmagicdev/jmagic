@@ -3,13 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Naya")
 @Types({Type.PLANE})
 @SubTypes({SubType.ALARA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Naya extends Card
 {
@@ -19,7 +19,7 @@ public final class Naya extends Card
 		{
 			super(state, null, "You may play any number of lands on each of your turns.");
 
-			setCanApply(Planechase.staticAbilityCanApply);
+			setCanApply(PlanechaseGameRules.staticAbilityCanApply);
 		}
 	}
 
@@ -29,7 +29,7 @@ public final class Naya extends Card
 		{
 			super(state, "Whenever you roll (C), target red, green, or white creature you control gets +1/+1 until end of turn for each land you control.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			Target target = this.addTarget(Intersect.instance(HasColor.instance(Color.RED, Color.GREEN, Color.WHITE), CreaturePermanents.instance()), "target red, green, or white creature");
 
@@ -37,7 +37,7 @@ public final class Naya extends Card
 
 			this.addEffect(ptChangeUntilEndOfTurn(targetedBy(target), pump, pump, "Target red, green, or white creature you control gets +1/+1 until end of turn for each land you control."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Snapping Creeper")
 @Types({Type.CREATURE})
 @SubTypes({SubType.PLANT})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class SnappingCreeper extends Card
 {

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Grim Roustabout")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SKELETON, SubType.WARRIOR})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Expansion.RETURN_TO_RAVNICA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class GrimRoustabout extends Card
 {

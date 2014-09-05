@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ironshell Beetle")
 @Types({Type.CREATURE})
 @SubTypes({SubType.INSECT})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.JUDGMENT, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Judgment.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class IronshellBeetle extends Card
 {

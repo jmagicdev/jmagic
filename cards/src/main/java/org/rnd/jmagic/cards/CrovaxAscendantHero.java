@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Crovax, Ascendant Hero")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN})
 @ManaCost("4WW")
-@Printings({@Printings.Printed(ex = Expansion.PLANAR_CHAOS, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = PlanarChaos.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class CrovaxAscendantHero extends Card
 {

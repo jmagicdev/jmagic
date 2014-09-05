@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Replenish")
 @Types({Type.SORCERY})
 @ManaCost("3W")
-@Printings({@Printings.Printed(ex = Expansion.URZAS_DESTINY, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = UrzasDestiny.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class Replenish extends Card
 {

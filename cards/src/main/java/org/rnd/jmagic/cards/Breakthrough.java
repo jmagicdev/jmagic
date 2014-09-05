@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Breakthrough")
 @Types({Type.SORCERY})
 @ManaCost("XU")
-@Printings({@Printings.Printed(ex = Expansion.TORMENT, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Torment.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class Breakthrough extends Card
 {

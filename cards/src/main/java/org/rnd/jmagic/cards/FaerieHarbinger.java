@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Faerie Harbinger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.FAERIE, SubType.WIZARD})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = Expansion.LORWYN, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class FaerieHarbinger extends Card
 {

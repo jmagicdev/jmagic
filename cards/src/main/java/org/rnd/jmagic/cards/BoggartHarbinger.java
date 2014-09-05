@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Boggart Harbinger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.GOBLIN})
 @ManaCost("2B")
-@Printings({@Printings.Printed(ex = Expansion.LORWYN, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class BoggartHarbinger extends Card
 {

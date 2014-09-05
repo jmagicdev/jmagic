@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class TriggeredManaAbilitiesTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class TriggeredManaAbilitiesTest extends JUnitTest
 	{
 		this.addDeck(HighTide.class, HighTide.class, Island.class, Island.class, Island.class, Island.class, Island.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -34,7 +37,7 @@ public class TriggeredManaAbilitiesTest extends JUnitTest
 	{
 		this.addDeck(BirdsofParadise.class, BirdsofParadise.class, BirdsofParadise.class, Forest.class, Overgrowth.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Duskmantle Prowler")
 @Types({Type.CREATURE})
 @SubTypes({SubType.VAMPIRE, SubType.ROGUE})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2013, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class DuskmantleProwler extends Card
 {

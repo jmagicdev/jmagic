@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Knight of the Reliquary")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.KNIGHT})
 @ManaCost("1GW")
-@Printings({@Printings.Printed(ex = Expansion.CONFLUX, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Conflux.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class KnightoftheReliquary extends Card
 {

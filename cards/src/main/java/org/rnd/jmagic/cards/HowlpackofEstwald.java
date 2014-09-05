@@ -1,11 +1,12 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Howlpack of Estwald")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WEREWOLF})
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class HowlpackofEstwald extends AlternateCard
 {

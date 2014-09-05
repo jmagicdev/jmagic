@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Anarchist")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.HUMAN})
 @ManaCost("4R")
-@Printings({@Printings.Printed(ex = Expansion.NINTH_EDITION, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.ODYSSEY, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.EXODUS, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = NinthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Odyssey.class, r = Rarity.COMMON), @Printings.Printed(ex = Exodus.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class Anarchist extends Card
 {

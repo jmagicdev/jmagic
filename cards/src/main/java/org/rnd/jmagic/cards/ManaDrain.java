@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Mana Drain")
 @Types({Type.INSTANT})
 @ManaCost("UU")
-@Printings({@Printings.Printed(ex = Expansion.LEGENDS, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Legends.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class ManaDrain extends Card
 {

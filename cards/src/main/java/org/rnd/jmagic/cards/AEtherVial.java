@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("\u00C6ther Vial")
 @Types({Type.ARTIFACT})
 @ManaCost("1")
-@Printings({@Printings.Printed(ex = Expansion.RELICS, r = Rarity.MYTHIC), @Printings.Printed(ex = Expansion.DARKSTEEL, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = FromTheVaultRelics.class, r = Rarity.MYTHIC), @Printings.Printed(ex = Darksteel.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class AEtherVial extends Card
 {

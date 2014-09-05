@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Bloodhusk Ritualist")
 @Types({Type.CREATURE})
 @SubTypes({SubType.VAMPIRE, SubType.SHAMAN})
 @ManaCost("2B")
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class BloodhuskRitualist extends Card
 {

@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Pawn of Ulamog")
 @Types({Type.CREATURE})
 @SubTypes({SubType.VAMPIRE, SubType.SHAMAN})
 @ManaCost("1BB")
-@Printings({@Printings.Printed(ex = Expansion.RISE_OF_THE_ELDRAZI, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class PawnofUlamog extends Card
 {

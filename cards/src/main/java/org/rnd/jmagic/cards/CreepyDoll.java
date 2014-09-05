@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Creepy Doll")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.CONSTRUCT})
 @ManaCost("5")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class CreepyDoll extends Card
 {

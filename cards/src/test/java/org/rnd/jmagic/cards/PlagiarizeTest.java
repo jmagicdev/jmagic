@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.testing.*;
 
 public class PlagiarizeTest extends JUnitTest
@@ -13,7 +14,7 @@ public class PlagiarizeTest extends JUnitTest
 	{
 		this.addDeck(Inspiration.class, Inspiration.class, Inspiration.class, Inspiration.class, Inspiration.class, Plagiarize.class, Plagiarize.class, Plagiarize.class, Plagiarize.class, Plagiarize.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		this.startGame(GameTypes.OPEN);
+		this.startGame(new Open());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

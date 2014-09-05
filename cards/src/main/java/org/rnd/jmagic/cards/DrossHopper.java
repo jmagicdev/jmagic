@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Dross Hopper")
 @Types({Type.CREATURE})
 @SubTypes({SubType.INSECT, SubType.HORROR})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class DrossHopper extends Card
 {

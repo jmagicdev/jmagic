@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Vault Skirge")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.IMP})
 @ManaCost("1(B/P)")
-@Printings({@Printings.Printed(ex = Expansion.NEW_PHYREXIA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class VaultSkirge extends Card
 {

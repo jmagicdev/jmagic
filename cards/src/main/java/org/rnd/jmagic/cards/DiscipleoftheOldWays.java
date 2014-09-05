@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Disciple of the Old Ways")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.HUMAN})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN, Color.RED})
 public final class DiscipleoftheOldWays extends Card
 {

@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class MultiplayerTest extends JUnitTest
 {
@@ -11,7 +14,7 @@ public class MultiplayerTest extends JUnitTest
 	public void onePlayerWithSevenCards()
 	{
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		// Game ends immediately
 		assertEquals(player(0), this.winner);
@@ -21,7 +24,7 @@ public class MultiplayerTest extends JUnitTest
 	public void onePlayerWithZeroCards()
 	{
 		addDeck();
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		// Game ends immediately
 		assertEquals(player(0), this.winner);
@@ -33,7 +36,7 @@ public class MultiplayerTest extends JUnitTest
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -108,7 +111,7 @@ public class MultiplayerTest extends JUnitTest
 		addDeck(Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -125,7 +128,7 @@ public class MultiplayerTest extends JUnitTest
 		addDeck();
 		addDeck();
 		addDeck();
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		// Game ends immediately; no one should win
 		assertEquals(null, this.winner);

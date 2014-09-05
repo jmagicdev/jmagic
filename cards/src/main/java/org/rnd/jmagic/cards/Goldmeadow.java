@@ -1,15 +1,16 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Goldmeadow")
 @Types({Type.PLANE})
 @SubTypes({SubType.LORWYN})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Goldmeadow extends Card
 {
@@ -27,7 +28,7 @@ public final class Goldmeadow extends Card
 			token.setSubTypes(SubType.GOAT);
 			this.addEffect(token.getEventFactory());
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -37,14 +38,14 @@ public final class Goldmeadow extends Card
 		{
 			super(state, "Whenever you roll (C), put a 0/1 white Goat creature token onto the battlefield.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			CreateTokensFactory token = new CreateTokensFactory(1, 0, 1, "Put a 0/1 white Goat creature token onto the battlefield.");
 			token.setColors(Color.WHITE);
 			token.setSubTypes(SubType.GOAT);
 			this.addEffect(token.getEventFactory());
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

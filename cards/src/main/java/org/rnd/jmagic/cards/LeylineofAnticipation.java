@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Leyline of Anticipation")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2UU")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2011, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class LeylineofAnticipation extends Card
 {

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Brushstrider")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.RETURN_TO_RAVNICA, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class Brushstrider extends Card
 {

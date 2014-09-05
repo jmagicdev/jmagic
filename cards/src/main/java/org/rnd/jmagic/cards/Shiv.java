@@ -1,14 +1,15 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Shiv")
 @Types({Type.PLANE})
 @SubTypes({SubType.DOMINARIA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class Shiv extends Card
 {
@@ -20,7 +21,7 @@ public final class Shiv extends Card
 
 			this.addEffectPart(addAbilityToObject(CreaturePermanents.instance(), org.rnd.jmagic.abilities.Firebreathing.class));
 
-			this.canApply = Planechase.staticAbilityCanApply;
+			this.canApply = PlanechaseGameRules.staticAbilityCanApply;
 		}
 	}
 
@@ -30,7 +31,7 @@ public final class Shiv extends Card
 		{
 			super(state, "Whenever you roll (C), put a 5/5 red Dragon creature token with flying onto the battlefield.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			CreateTokensFactory token = new CreateTokensFactory(1, 5, 5, "Put a 5/5 red Dragon creature token with flying onto the battlefield.");
 			token.setColors(Color.RED);

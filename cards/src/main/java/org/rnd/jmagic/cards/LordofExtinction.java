@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Lord of Extinction")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL})
 @ManaCost("3BG")
-@Printings({@Printings.Printed(ex = Expansion.ALARA_REBORN, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.GREEN, Color.BLACK})
 public final class LordofExtinction extends Card
 {

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Rakdos Ragemutt")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HOUND, SubType.ELEMENTAL})
 @ManaCost("3BR")
-@Printings({@Printings.Printed(ex = Expansion.RETURN_TO_RAVNICA, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK, Color.RED})
 public final class RakdosRagemutt extends Card
 {

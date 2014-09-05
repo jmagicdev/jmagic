@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Sublime Archangel")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("2WW")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2013, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE})
 public final class SublimeArchangel extends Card
 {

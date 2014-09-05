@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import org.rnd.jmagic.engine.GameTypes;
 import org.rnd.jmagic.engine.Phase;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.testing.JUnitTest;
 
 @RunWith(JUnit4.class)
@@ -18,7 +18,7 @@ public class AnimateDeadTest extends JUnitTest
 		this.addDeck(AnimateDead.class, SleeperAgent.class, Disenchant.class, CabalTherapy.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
-		this.startGame(GameTypes.OPEN);
+		this.startGame(new Open());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

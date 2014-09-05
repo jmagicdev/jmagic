@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Llanowar Sentinel")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.WEATHERLIGHT, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = Weatherlight.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class LlanowarSentinel extends Card
 {

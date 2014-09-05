@@ -17,6 +17,11 @@
 			<artifactId>engine</artifactId>
 			<version>0.12</version>
 		</dependency>
+		<dependency>
+			<groupId>org.rnd.jmagic</groupId>
+			<artifactId>cards</artifactId>
+			<version>0.12</version>
+		</dependency>
 		<!-- Note that this is included not just for testing so that classes that
 			depend on JUnit are available in the JAR of this project -->
 		<dependency>

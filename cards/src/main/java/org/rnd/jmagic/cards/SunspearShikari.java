@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Sunspear Shikari")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.CAT})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class SunspearShikari extends Card
 {

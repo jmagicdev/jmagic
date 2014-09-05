@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Archon of Redemption")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ARCHON})
 @ManaCost("3WW")
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class ArchonofRedemption extends Card
 {

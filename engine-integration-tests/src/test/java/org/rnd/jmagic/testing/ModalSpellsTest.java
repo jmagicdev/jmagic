@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.sanitized.*;
 
 public class ModalSpellsTest extends JUnitTest
@@ -13,7 +16,7 @@ public class ModalSpellsTest extends JUnitTest
 	{
 		this.addDeck(ShivanSandMage.class, ShivanSandMage.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -55,7 +58,7 @@ public class ModalSpellsTest extends JUnitTest
 	{
 		this.addDeck(Ornithopter.class, Ornithopter.class, Ornithopter.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, Plains.class);
 		this.addDeck(BranchingBolt.class, BranchingBolt.class, BranchingBolt.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

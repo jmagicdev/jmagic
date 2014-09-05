@@ -4,10 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("R&D's Secret Lair")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.TEST, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Testing.class, r = Rarity.MYTHIC)})
 @ColorIdentity({})
 public final class RDsSecretLair extends Card
 {

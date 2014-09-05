@@ -3,13 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Otaria")
 @Types({Type.PLANE})
 @SubTypes({SubType.DOMINARIA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Otaria extends Card
 {
@@ -26,7 +26,7 @@ public final class Otaria extends Card
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, affected);
 			this.addEffectPart(part);
 
-			this.canApply = Planechase.staticAbilityCanApply;
+			this.canApply = PlanechaseGameRules.staticAbilityCanApply;
 		}
 	}
 
@@ -36,11 +36,11 @@ public final class Otaria extends Card
 		{
 			super(state, "Whenever you roll (C), take an extra turn after this one.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			this.addEffect(takeExtraTurns(You.instance(), 1, "Take an extra turn after this one."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

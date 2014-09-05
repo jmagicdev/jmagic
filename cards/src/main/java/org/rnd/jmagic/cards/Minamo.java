@@ -3,14 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Minamo")
 @Types({Type.PLANE})
 @SubTypes({SubType.KAMIGAWA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Minamo extends Card
 {
@@ -30,7 +30,7 @@ public final class Minamo extends Card
 
 			this.addEffect(playerMay(thatPlayer, drawCards(thatPlayer, 1, "That player draws a card."), "That player may draw a card."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -101,7 +101,7 @@ public final class Minamo extends Card
 		{
 			super(state, "Whenever you roll (C), each player may return a blue card from his or her graveyard to his or her hand.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			EventFactory factory = new EventFactory(BLUE_CHAOS_EFFECT, "Each player may return a blue card from his or her graveyard to his or hand.");
 			factory.parameters.put(EventType.Parameter.CAUSE, This.instance());
@@ -109,7 +109,7 @@ public final class Minamo extends Card
 			factory.parameters.put(EventType.Parameter.CHOICE, HasColor.instance(Color.BLUE));
 			this.addEffect(factory);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

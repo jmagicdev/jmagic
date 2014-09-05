@@ -1,0 +1,9 @@
+org.rnd.jmagic.gameTypes.Block
+org.rnd.jmagic.gameTypes.Legacy
+org.rnd.jmagic.gameTypes.Modern
+org.rnd.jmagic.gameTypes.Open
+org.rnd.jmagic.gameTypes.PackWars
+org.rnd.jmagic.gameTypes.Stacked
+org.rnd.jmagic.gameTypes.Standard
+org.rnd.jmagic.gameTypes.Vintage
+org.rnd.jmagic.gameTypes.VintagePackWars

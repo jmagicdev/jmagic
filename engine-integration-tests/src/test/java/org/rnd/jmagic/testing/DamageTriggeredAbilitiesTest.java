@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class DamageTriggeredAbilitiesTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class DamageTriggeredAbilitiesTest extends JUnitTest
 	{
 		addDeck(WallofAir.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(PhagetheUntouchable.class, PhagetheUntouchable.class, ElvishPiper.class, ChaosCharm.class, ChaosCharm.class, RelentlessAssault.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -122,7 +125,7 @@ public class DamageTriggeredAbilitiesTest extends JUnitTest
 	{
 		addDeck(UmezawasJitte.class, BallLightning.class, SleeperAgent.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(PhagetheUntouchable.class, PhagetheUntouchable.class, ElvishPiper.class, ChaosCharm.class, ChaosCharm.class, RelentlessAssault.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -165,7 +168,7 @@ public class DamageTriggeredAbilitiesTest extends JUnitTest
 	{
 		addDeck(Plains.class, Plains.class, Plains.class, MirranCrusader.class, MirranCrusader.class, BurstofSpeed.class, BazaarTrader.class, ContestedWarZone.class);
 		addDeck(Plains.class, Plains.class, Plains.class, MirranCrusader.class, MirranCrusader.class, BurstofSpeed.class, BazaarTrader.class, ContestedWarZone.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();

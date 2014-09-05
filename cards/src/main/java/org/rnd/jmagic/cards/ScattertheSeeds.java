@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Scatter the Seeds")
 @Types({Type.INSTANT})
 @ManaCost("3GG")
-@Printings({@Printings.Printed(ex = Expansion.RAVNICA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = RavnicaCityOfGuilds.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class ScattertheSeeds extends Card
 {

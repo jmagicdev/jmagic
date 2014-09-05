@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Pride of the Clouds")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CAT, SubType.ELEMENTAL})
 @ManaCost("WU")
-@Printings({@Printings.Printed(ex = Expansion.DISSENSION, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Dissension.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.WHITE})
 public final class PrideoftheClouds extends Card
 {

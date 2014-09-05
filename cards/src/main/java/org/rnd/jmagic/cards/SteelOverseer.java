@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Steel Overseer")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.CONSTRUCT})
 @ManaCost("2")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2011, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class SteelOverseer extends Card
 {

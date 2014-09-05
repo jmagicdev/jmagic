@@ -2,13 +2,14 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Melira's Keepers")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.WARRIOR})
 @ManaCost("4G")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN_BESIEGED, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class MelirasKeepers extends Card
 {

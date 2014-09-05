@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Seascape Aerialist")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.ALLY, SubType.MERFOLK})
 @ManaCost("4U")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class SeascapeAerialist extends Card
 {

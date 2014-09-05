@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.sanitized.*;
 
 public class CombatBasicsTest extends JUnitTest
@@ -14,7 +15,7 @@ public class CombatBasicsTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, ChandraNalaar.class);
 		this.addDeck(BlackLotus.class, BlackLotus.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, GiantGrowth.class, GiantGrowth.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -154,7 +155,7 @@ public class CombatBasicsTest extends JUnitTest
 	{
 		this.addDeck(Mountain.class, Mountain.class, Mountain.class, Mountain.class, Mountain.class, Mountain.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -205,7 +206,7 @@ public class CombatBasicsTest extends JUnitTest
 		// This is to test BECOMES_BLOCKED_BY_ONE triggers
 		this.addDeck(SylvanBasilisk.class, SylvanBasilisk.class, SylvanBasilisk.class, SylvanBasilisk.class, ChaosCharm.class, ChaosCharm.class, ChaosCharm.class, ChaosCharm.class);
 		this.addDeck(Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -317,7 +318,7 @@ public class CombatBasicsTest extends JUnitTest
 	{
 		this.addDeck(PalaceGuard.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -382,7 +383,7 @@ public class CombatBasicsTest extends JUnitTest
 		this.addDeck(RagingGoblin.class, RagingGoblin.class, SleeperAgent.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(MasterWarcraft.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();

@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Belbe's Armor")
 @Types({Type.ARTIFACT})
 @ManaCost("3")
-@Printings({@Printings.Printed(ex = Expansion.NEMESIS, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Nemesis.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class BelbesArmor extends Card
 {

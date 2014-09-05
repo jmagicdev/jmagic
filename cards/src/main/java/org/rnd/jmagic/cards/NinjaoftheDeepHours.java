@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ninja of the Deep Hours")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.NINJA})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = Expansion.BETRAYERS_OF_KAMIGAWA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = BetrayersOfKamigawa.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class NinjaoftheDeepHours extends Card
 {

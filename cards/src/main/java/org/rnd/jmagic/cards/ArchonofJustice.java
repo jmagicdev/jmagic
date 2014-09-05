@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Archon of Justice")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ARCHON})
 @ManaCost("3WW")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.RARE), @Printings.Printed(ex = Expansion.EVENTIDE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.RARE), @Printings.Printed(ex = Eventide.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class ArchonofJustice extends Card
 {

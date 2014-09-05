@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Kazandu Blademaster")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.ALLY, SubType.HUMAN})
 @ManaCost("WW")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class KazanduBlademaster extends Card
 {

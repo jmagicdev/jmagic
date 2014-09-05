@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class AttackingCostsTest extends JUnitTest
 {
@@ -20,7 +21,7 @@ public class AttackingCostsTest extends JUnitTest
 		// block with wb muse
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, Plains.class, WindbornMuse.class, WindbornMuse.class, WindbornMuse.class);
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -200,7 +201,7 @@ public class AttackingCostsTest extends JUnitTest
 		// block with wb muse
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, Plains.class, WindbornMuse.class, WindbornMuse.class, WindbornMuse.class);
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -352,7 +353,7 @@ public class AttackingCostsTest extends JUnitTest
 		// decide i'd rather not attack
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, Plains.class, WindbornMuse.class, WindbornMuse.class, WindbornMuse.class);
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Realmwright")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.VEDALKEN})
 @ManaCost("U")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class Realmwright extends Card
 {

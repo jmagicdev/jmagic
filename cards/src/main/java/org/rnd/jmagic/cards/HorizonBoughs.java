@@ -3,13 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Horizon Boughs")
 @Types({Type.PLANE})
 @SubTypes({SubType.PYRULEA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.SPECIAL)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.SPECIAL)})
 @ColorIdentity({})
 public final class HorizonBoughs extends Card
 {
@@ -23,7 +23,7 @@ public final class HorizonBoughs extends Card
 			part.parameters.put(ContinuousEffectType.Parameter.EVENT, Identity.instance(untap(Permanents.instance(), "All permanents untap.")));
 			this.addEffectPart(part);
 
-			this.canApply = Planechase.staticAbilityCanApply;
+			this.canApply = PlanechaseGameRules.staticAbilityCanApply;
 		}
 	}
 
@@ -33,7 +33,7 @@ public final class HorizonBoughs extends Card
 		{
 			super(state, "Whenever you roll (C), you may search your library for up to three basic land cards, put them onto the battlefield tapped, then shuffle your library.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			EventFactory factory = new EventFactory(EventType.SEARCH_LIBRARY_AND_PUT_INTO, "Search your library for up to three basic land cards, put them onto the battlefield tapped. Then shuffle your library.");
 			factory.parameters.put(EventType.Parameter.CAUSE, This.instance());
@@ -45,7 +45,7 @@ public final class HorizonBoughs extends Card
 			factory.parameters.put(EventType.Parameter.TYPE, Identity.instance(Intersect.instance(HasSuperType.instance(SuperType.BASIC), HasType.instance(Type.LAND))));
 			this.addEffect(youMay(factory, "You may search your library for up to three basic land cards, put them onto the battlefield tapped, then shuffle your library."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

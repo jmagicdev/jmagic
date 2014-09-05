@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.testing.*;
 
 public class WildEvocationTest extends JUnitTest
@@ -13,7 +14,7 @@ public class WildEvocationTest extends JUnitTest
 	{
 		this.addDeck(WildEvocation.class, WildEvocation.class, WildEvocation.class, WildEvocation.class, WildEvocation.class, WildEvocation.class, WildEvocation.class, WildEvocation.class, WildEvocation.class, WildEvocation.class, WildEvocation.class, WildEvocation.class, WildEvocation.class, WildEvocation.class);
 		this.addDeck(Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, WheelofFortune.class, WheelofFortune.class, WheelofFortune.class, WheelofFortune.class, WheelofFortune.class, WheelofFortune.class, WheelofFortune.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();

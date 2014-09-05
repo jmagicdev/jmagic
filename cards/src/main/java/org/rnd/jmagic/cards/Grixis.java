@@ -1,15 +1,16 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.abilities.keywords.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Grixis")
 @Types({Type.PLANE})
 @SubTypes({SubType.ALARA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Grixis extends Card
 {
@@ -26,7 +27,7 @@ public final class Grixis extends Card
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, affected);
 			this.addEffectPart(part);
 
-			this.canApply = Planechase.staticAbilityCanApply;
+			this.canApply = PlanechaseGameRules.staticAbilityCanApply;
 		}
 	}
 
@@ -36,7 +37,7 @@ public final class Grixis extends Card
 		{
 			super(state, "Whenever you roll (C), put target creature card from a graveyard onto the battlefield under your control.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			Target target = this.addTarget(Intersect.instance(HasType.instance(Type.CREATURE), InZone.instance(GraveyardOf.instance(Players.instance()))), "target creature card from a graveyard");
 
@@ -46,7 +47,7 @@ public final class Grixis extends Card
 			factory.parameters.put(EventType.Parameter.OBJECT, targetedBy(target));
 			this.addEffect(factory);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

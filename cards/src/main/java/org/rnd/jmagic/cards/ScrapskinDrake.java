@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Scrapskin Drake")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAKE, SubType.ZOMBIE})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class ScrapskinDrake extends Card
 {

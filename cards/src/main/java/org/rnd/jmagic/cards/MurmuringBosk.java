@@ -1,11 +1,12 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Murmuring Bosk")
 @Types({Type.LAND})
 @SubTypes({SubType.FOREST})
-@Printings({@Printings.Printed(ex = Expansion.MORNINGTIDE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Morningtide.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.BLACK, Color.GREEN})
 public final class MurmuringBosk extends Card
 {

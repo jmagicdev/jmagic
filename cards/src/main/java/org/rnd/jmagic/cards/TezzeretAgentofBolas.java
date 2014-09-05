@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Tezzeret, Agent of Bolas")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.TEZZERET})
 @ManaCost("2UB")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN_BESIEGED, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE, Color.BLACK})
 public final class TezzeretAgentofBolas extends Card
 {

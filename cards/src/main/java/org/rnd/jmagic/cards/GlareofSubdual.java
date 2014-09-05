@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Glare of Subdual")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2GW")
-@Printings({@Printings.Printed(ex = Expansion.RAVNICA, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = RavnicaCityOfGuilds.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class GlareofSubdual extends Card
 {

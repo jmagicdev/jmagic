@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Banefire")
 @Types({Type.SORCERY})
 @ManaCost("XR")
-@Printings({@Printings.Printed(ex = Expansion.CONFLUX, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Conflux.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class Banefire extends Card
 {

@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class CharacteristicDefiningAbilitiesTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class CharacteristicDefiningAbilitiesTest extends JUnitTest
 	{
 		this.addDeck(ChimericMass.class, ChimericMass.class, ChimericMass.class, ChimericMass.class, ChimericMass.class, ChimericMass.class, ChimericMass.class);
 		this.addDeck(ChimericMass.class, ChimericMass.class, ChimericMass.class, ChimericMass.class, ChimericMass.class, ChimericMass.class, ChimericMass.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -57,7 +60,7 @@ public class CharacteristicDefiningAbilitiesTest extends JUnitTest
 		ShatteredPerception.class, RagingGoblin.class, Maro.class, GrizzlyBears.class, MoggFanatic.class, Forest.class, Plains.class);
 
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -82,7 +85,7 @@ public class CharacteristicDefiningAbilitiesTest extends JUnitTest
 	{
 		this.addDeck(Tarmogoyf.class, Tarmogoyf.class, Tarmogoyf.class, BlackLotus.class, BlackLotus.class, Shock.class, Shock.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

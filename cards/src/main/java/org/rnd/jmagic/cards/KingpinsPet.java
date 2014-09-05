@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Kingpin's Pet")
 @Types({Type.CREATURE})
 @SubTypes({SubType.THRULL})
 @ManaCost("1WB")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.BLACK})
 public final class KingpinsPet extends Card
 {

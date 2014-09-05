@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.testing.*;
 
 public class MarchoftheMachinesTest extends JUnitTest
@@ -13,7 +14,7 @@ public class MarchoftheMachinesTest extends JUnitTest
 	{
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, ChromaticStar.class);
 		this.addDeck(MarchoftheMachines.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, PhyrexianWalker.class, Island.class, ChromaticStar.class, AngelicWall.class);
-		this.startGame(GameTypes.OPEN);
+		this.startGame(new Open());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

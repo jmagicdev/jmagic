@@ -3,6 +3,7 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Trostani, Selesnya's Voice")
@@ -10,7 +11,7 @@ import org.rnd.jmagic.engine.patterns.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRYAD})
 @ManaCost("GGWW")
-@Printings({@Printings.Printed(ex = Expansion.RETURN_TO_RAVNICA, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class TrostaniSelesnyasVoice extends Card
 {

@@ -1,0 +1,5 @@
+org.rnd.jmagic.gameTypes.packWars.ExpansionBoosterFactory
+org.rnd.jmagic.gameTypes.packWars.FullExpansionBoosterFactory
+org.rnd.jmagic.gameTypes.packWars.LandBoosterFactory
+org.rnd.jmagic.gameTypes.packWars.SpecificCardsBoosterFactory
+org.rnd.jmagic.gameTypes.packWars.VintageBoosterFactory

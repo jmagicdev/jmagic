@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Shattering Spree")
 @Types({Type.SORCERY})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Expansion.GUILDPACT, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Guildpact.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class ShatteringSpree extends Card
 {

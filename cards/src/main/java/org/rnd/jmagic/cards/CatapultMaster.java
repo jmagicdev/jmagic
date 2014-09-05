@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Catapult Master")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.HUMAN})
 @ManaCost("3WW")
-@Printings({@Printings.Printed(ex = Expansion.ONSLAUGHT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Onslaught.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class CatapultMaster extends Card
 {

@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Bosk Banneret")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.TREEFOLK})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.MORNINGTIDE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Morningtide.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class BoskBanneret extends Card
 {

@@ -3,6 +3,7 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Llawan, Cephalid Empress")
@@ -10,7 +11,7 @@ import org.rnd.jmagic.engine.patterns.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.CEPHALID})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = Expansion.TORMENT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Torment.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class LlawanCephalidEmpress extends Card
 {

@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Avatar of Might")
 @Types({Type.CREATURE})
 @SubTypes({SubType.AVATAR})
 @ManaCost("6GG")
-@Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.PROPHECY, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Prophecy.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class AvatarofMight extends Card
 {

@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Thornscape Battlemage")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.ELF})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = Expansion.TIME_SPIRAL, r = Rarity.SPECIAL), @Printings.Printed(ex = Expansion.PLANESHIFT, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.SPECIAL), @Printings.Printed(ex = Planeshift.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE, Color.GREEN, Color.RED})
 public final class ThornscapeBattlemage extends Card
 {

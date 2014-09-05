@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Glen Elendra Archmage")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.FAERIE})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = Expansion.EVENTIDE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Eventide.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class GlenElendraArchmage extends Card
 {

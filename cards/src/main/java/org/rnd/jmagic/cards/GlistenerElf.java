@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Glistener Elf")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.WARRIOR})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Expansion.NEW_PHYREXIA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class GlistenerElf extends Card
 {

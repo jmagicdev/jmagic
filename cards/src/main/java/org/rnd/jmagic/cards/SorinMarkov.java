@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Sorin Markov")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.SORIN})
 @ManaCost("3BBB")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.MYTHIC), @Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.MYTHIC), @Printings.Printed(ex = Zendikar.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLACK})
 public final class SorinMarkov extends Card
 {

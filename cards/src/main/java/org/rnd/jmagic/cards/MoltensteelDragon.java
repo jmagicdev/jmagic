@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Moltensteel Dragon")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.DRAGON})
 @ManaCost("4(R/P)(R/P)")
-@Printings({@Printings.Printed(ex = Expansion.NEW_PHYREXIA, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class MoltensteelDragon extends Card
 {

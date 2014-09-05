@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Dark Depths")
 @SuperTypes({SuperType.LEGENDARY, SuperType.SNOW})
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.COLDSNAP, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Coldsnap.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class DarkDepths extends Card
 {

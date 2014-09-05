@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Merfolk Wayfinder")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SCOUT, SubType.MERFOLK})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class MerfolkWayfinder extends Card
 {

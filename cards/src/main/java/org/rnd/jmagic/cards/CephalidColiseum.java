@@ -3,10 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Cephalid Coliseum")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.ODYSSEY, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Odyssey.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class CephalidColiseum extends Card
 {

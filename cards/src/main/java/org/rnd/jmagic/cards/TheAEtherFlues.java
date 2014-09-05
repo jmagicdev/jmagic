@@ -3,14 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("The \u00C6ther Flues")
 @Types({Type.PLANE})
 @SubTypes({SubType.IQUATANA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class TheAEtherFlues extends Card
 {
@@ -80,7 +80,7 @@ public final class TheAEtherFlues extends Card
 		{
 			super(state, "When you planeswalk to The \u00C6ther Flues or at the beginning of your upkeep, you may sacrifice a creature. If you do, reveal cards from the top of your library until you reveal a creature card, put that card onto the battlefield, then shuffle all other cards revealed this way into your library.");
 
-			SimpleEventPattern pattern = new SimpleEventPattern(Planechase.PLANESWALK);
+			SimpleEventPattern pattern = new SimpleEventPattern(PlanechaseGameRules.PLANESWALK);
 			pattern.put(EventType.Parameter.PLAYER, You.instance());
 			pattern.put(EventType.Parameter.TO, ABILITY_SOURCE_OF_THIS);
 			this.addPattern(pattern);
@@ -95,7 +95,7 @@ public final class TheAEtherFlues extends Card
 			factory.parameters.put(EventType.Parameter.THEN, Identity.instance(then));
 			this.addEffect(factory);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -105,7 +105,7 @@ public final class TheAEtherFlues extends Card
 		{
 			super(state, "Whenever you roll (C), you may put a creature card from your hand onto the battlefield.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			EventFactory putOntoBattlefield = new EventFactory(EventType.PUT_ONTO_BATTLEFIELD_CHOICE, "Put a creature card from your hand onto the battlefield.");
 			putOntoBattlefield.parameters.put(EventType.Parameter.CAUSE, This.instance());
@@ -113,7 +113,7 @@ public final class TheAEtherFlues extends Card
 			putOntoBattlefield.parameters.put(EventType.Parameter.OBJECT, Intersect.instance(InZone.instance(HandOf.instance(You.instance())), HasType.instance(Type.CREATURE)));
 			this.addEffect(youMay(putOntoBattlefield, "You may put a creature card from your hand onto the battlefield."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

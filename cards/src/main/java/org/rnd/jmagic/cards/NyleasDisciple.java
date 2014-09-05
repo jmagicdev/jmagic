@@ -2,6 +2,7 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 import static org.rnd.jmagic.Convenience.*;
 
@@ -9,7 +10,7 @@ import static org.rnd.jmagic.Convenience.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.CENTAUR, SubType.ARCHER})
 @ManaCost("2GG")
-@Printings({@Printings.Printed(ex = Expansion.THEROS, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class NyleasDisciple extends Card
 {

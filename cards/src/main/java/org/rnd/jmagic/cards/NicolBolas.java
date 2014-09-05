@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Nicol Bolas")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAGON, SubType.ELDER})
 @ManaCost("2UUBBRR")
-@Printings({@Printings.Printed(ex = Expansion.DRAGONS, r = Rarity.RARE), @Printings.Printed(ex = Expansion.TIME_SPIRAL, r = Rarity.SPECIAL), @Printings.Printed(ex = Expansion.LEGENDS, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = FromTheVaultDragons.class, r = Rarity.RARE), @Printings.Printed(ex = TimeSpiral.class, r = Rarity.SPECIAL), @Printings.Printed(ex = Legends.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.BLACK, Color.RED})
 public final class NicolBolas extends Card
 {

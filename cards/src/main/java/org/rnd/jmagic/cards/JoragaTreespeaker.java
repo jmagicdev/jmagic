@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Joraga Treespeaker")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRUID, SubType.ELF})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Expansion.RISE_OF_THE_ELDRAZI, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class JoragaTreespeaker extends Card
 {

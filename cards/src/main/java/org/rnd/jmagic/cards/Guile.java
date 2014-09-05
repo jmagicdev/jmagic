@@ -4,13 +4,14 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Guile")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL, SubType.INCARNATION})
 @ManaCost("3UUU")
-@Printings({@Printings.Printed(ex = Expansion.LORWYN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class Guile extends Card
 {

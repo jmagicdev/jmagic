@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Praetor's Grasp")
 @Types({Type.SORCERY})
 @ManaCost("1BB")
-@Printings({@Printings.Printed(ex = Expansion.NEW_PHYREXIA, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class PraetorsGrasp extends Card
 {

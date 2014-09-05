@@ -10,6 +10,54 @@ public class CreateFromJson
 {
 	public static void main(String args[]) throws java.io.IOException, URISyntaxException
 	{
+		java.net.URL jsonLocation = CreateFromJson.class.getResource("AllSets-x.json");
+		if(null == jsonLocation)
+			return;
+
+		JsonReader jsonReader = Json.createReader(jsonLocation.openStream());
+		JsonObject root = jsonReader.readObject();
+
+		for(Map.Entry<String, JsonValue> entry: root.entrySet())
+		{
+			JsonObject expansion = (JsonObject)entry.getValue();
+			JsonArray cards = expansion.getJsonArray("cards");
+			if(cards == null)
+				continue;
+
+			java.util.List<String> cardList = new java.util.LinkedList<String>();
+			for(JsonObject card: cards.getValuesAs(JsonObject.class))
+				cardList.add(card.getString("name", "[card missing name]").replace("\"", "\\\""));
+
+			if(cardList.isEmpty())
+				continue;
+
+			String expansionName = expansion.getString("name", "[no name found]");
+
+			String className = "";
+			for(String part: expansionName.replaceAll("[^a-zA-Z0-9 ]", "").split(" "))
+			{
+				className += part.substring(0, 1).toUpperCase() + part.substring(1);
+			}
+
+			java.io.File file = new java.io.File(".\\cards\\src\\main\\java\\org\\rnd\\jmagic\\expansions\\" + className + ".java");
+
+			if(!file.exists())
+			{
+				System.out.println(expansionName);
+				continue;
+			}
+
+			java.io.PrintStream write = new java.io.PrintStream(file);
+			write.print("package org.rnd.jmagic.expansions;\n\nimport org.rnd.jmagic.engine.*;\n\n@Name(\"" + expansionName + "\")\npublic final class " + className + " extends SimpleExpansion\n{\n");
+			write.print("\tpublic " + className + "()\n\t{\n\t\tsuper(new String[] {\"" + org.rnd.util.SeparatedList.get("\", \"", "", cardList) + "\"});");
+			write.print("\n\t}\n}\n");
+			write.flush();
+			write.close();
+		}
+	}
+
+	public static void main2(String args[]) throws java.io.IOException, URISyntaxException
+	{
 		boolean deck = false;
 		if(args.length > 0)
 		{

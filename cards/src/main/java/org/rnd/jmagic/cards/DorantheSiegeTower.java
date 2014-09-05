@@ -1,13 +1,14 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Doran, the Siege Tower")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.TREEFOLK})
 @ManaCost("BGW")
-@Printings({@Printings.Printed(ex = Expansion.FTV_LEGENDS, r = Rarity.MYTHIC), @Printings.Printed(ex = Expansion.LORWYN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = FromTheVaultLegends.class, r = Rarity.MYTHIC), @Printings.Printed(ex = Lorwyn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.GREEN, Color.BLACK})
 public final class DorantheSiegeTower extends Card
 {

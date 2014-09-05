@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class CostModificationsTest extends JUnitTest
 {
@@ -13,7 +16,7 @@ public class CostModificationsTest extends JUnitTest
 		// Play Avatar of Might with no cost reduction
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, AvatarofMight.class, AvatarofMight.class, AvatarofMight.class, AvatarofMight.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -58,7 +61,7 @@ public class CostModificationsTest extends JUnitTest
 	{
 		this.addDeck(PhyrexianWalker.class, PhyrexianWalker.class, PhyrexianWalker.class, PhyrexianWalker.class, PhyrexianWalker.class, PhyrexianWalker.class, PhyrexianWalker.class);
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, AvatarofMight.class, AvatarofMight.class, AvatarofMight.class, AvatarofMight.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -140,7 +143,7 @@ public class CostModificationsTest extends JUnitTest
 		// 2 auras = lotus costs 4
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		this.addDeck(AuraofSilence.class, AuraofSilence.class, AuraofSilence.class, AuraofSilence.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, PhyrexianWalker.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

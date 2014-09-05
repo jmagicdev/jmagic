@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Thada Adel, Acquisitor")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.ROGUE, SubType.MERFOLK})
 @ManaCost("1UU")
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class ThadaAdelAcquisitor extends Card
 {

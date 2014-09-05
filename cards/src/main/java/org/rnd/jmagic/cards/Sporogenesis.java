@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Sporogenesis")
 @Types({Type.ENCHANTMENT})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = Expansion.URZAS_SAGA, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = UrzasSaga.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class Sporogenesis extends Card
 {

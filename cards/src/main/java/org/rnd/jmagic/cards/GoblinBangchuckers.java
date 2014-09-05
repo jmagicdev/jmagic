@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Goblin Bangchuckers")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.GOBLIN})
 @ManaCost("2RR")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class GoblinBangchuckers extends Card
 {

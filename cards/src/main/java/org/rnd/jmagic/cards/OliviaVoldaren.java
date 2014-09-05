@@ -4,13 +4,14 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Olivia Voldaren")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.VAMPIRE})
 @ManaCost("2BR")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLACK, Color.RED})
 public final class OliviaVoldaren extends Card
 {

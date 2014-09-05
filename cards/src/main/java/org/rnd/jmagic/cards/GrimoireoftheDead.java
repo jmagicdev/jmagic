@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Grimoire of the Dead")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.ARTIFACT})
 @ManaCost("4")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.MYTHIC)})
 @ColorIdentity({})
 public final class GrimoireoftheDead extends Card
 {

@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Armada Wurm")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WURM})
 @ManaCost("2GGWW")
-@Printings({@Printings.Printed(ex = Expansion.RETURN_TO_RAVNICA, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class ArmadaWurm extends Card
 {

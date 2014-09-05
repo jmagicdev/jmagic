@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Gigadrowse")
 @Types({Type.INSTANT})
 @ManaCost("U")
-@Printings({@Printings.Printed(ex = Expansion.GUILDPACT, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Guildpact.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class Gigadrowse extends Card
 {

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Evernight Shade")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHADE})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class EvernightShade extends Card
 {

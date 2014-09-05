@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mogg War Marshal")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GOBLIN, SubType.WARRIOR})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = Expansion.TIME_SPIRAL, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class MoggWarMarshal extends Card
 {

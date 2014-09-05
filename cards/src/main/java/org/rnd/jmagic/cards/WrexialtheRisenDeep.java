@@ -4,13 +4,14 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Wrexial, the Risen Deep")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.KRAKEN})
 @ManaCost("3UUB")
-@Printings({@Printings.Printed(ex = Expansion.COMMANDER, r = Rarity.MYTHIC), @Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.MYTHIC), @Printings.Printed(ex = Worldwake.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE, Color.BLACK})
 public final class WrexialtheRisenDeep extends Card
 {

@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Nav Squad Commandos")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.HUMAN})
 @ManaCost("4W")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class NavSquadCommandos extends Card
 {

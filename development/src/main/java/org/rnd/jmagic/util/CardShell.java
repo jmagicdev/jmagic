@@ -5,12 +5,13 @@ import java.io.*;
 import org.rnd.jmagic.abilities.*;
 import org.rnd.jmagic.abilities.keywords.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 public class CardShell
 {
 	private static final java.util.Map<java.util.regex.Pattern, String> keywords = new java.util.HashMap<java.util.regex.Pattern, String>();
 	private static final java.util.Map<String, String> convenienceMethods = new java.util.HashMap<String, String>();
-	private static final java.util.Map<String, Expansion> expansionNames = new java.util.HashMap<String, Expansion>();
+	private static final java.util.Map<String, Class<? extends Expansion>> expansionNames = new java.util.HashMap<String, Class<? extends Expansion>>();
 	private static final java.util.Map<String, Rarity> rarityNames = new java.util.HashMap<String, Rarity>();
 
 	private static final java.util.Map<String, String> NON_ASCII_REPLACE;
@@ -27,7 +28,7 @@ public class CardShell
 		NON_ASCII_REPLACE.put("\u00F6", "\\u00F6");
 	}
 
-	private static void addExpansion(String name, Expansion expansion)
+	private static void addExpansion(String name, Class<? extends Expansion> expansion)
 	{
 		expansionNames.put(name.toLowerCase(), expansion);
 	}
@@ -54,7 +55,7 @@ public class CardShell
 		return "// " + cost;
 	}
 
-	private static Expansion getExpansion(String name)
+	private static Class<? extends Expansion> getExpansion(String name)
 	{
 		// Remove extra whitespace
 		name = name.trim();
@@ -180,19 +181,19 @@ public class CardShell
 
 	private static void populateExpansions()
 	{
-		for(Expansion expansion: Expansion.values())
-			addExpansion(expansion.toString(), expansion);
+		for(Expansion expansion: Expansion.list())
+			addExpansion("", expansion.getClass());
 
 		// Timeshifted cards have a unique string
-		addExpansion("Time Spiral \"Timeshifted\"", Expansion.TIME_SPIRAL);
-		addExpansion("Time Spiral \\\"Timeshifted\\\"", Expansion.TIME_SPIRAL);
+		addExpansion("Time Spiral \"Timeshifted\"", TimeSpiral.class);
+		addExpansion("Time Spiral \\\"Timeshifted\\\"", TimeSpiral.class);
 
 		// MtgJson has a strange string for Conspiracy
-		addExpansion("Magic: The Gathering—Conspiracy", Expansion.CONSPIRACY);
+		addExpansion("Magic: The Gathering—Conspiracy", MagicTheGatheringConspiracy.class);
 
 		// The expansion name for promo cards is different
-		addExpansion("Promo set for Gatherer", Expansion.PROMO);
-		addExpansion("Promo set for Gatherer Special", Expansion.PROMO);
+		// addExpansion("Promo set for Gatherer", ExpansionEnum.PROMO);
+		// addExpansion("Promo set for Gatherer Special", ExpansionEnum.PROMO);
 
 		// The following are not defined in Expansion because they do not define
 		// a cards legality in any formats
@@ -512,17 +513,17 @@ public class CardShell
 		return ret;
 	}
 
-	private static String printingsString(java.util.Map<Expansion, Rarity> expansions)
+	private static String printingsString(java.util.Map<Class<? extends Expansion>, Rarity> expansions)
 	{
 		StringBuilder ret = new StringBuilder("@Printings({");
 		boolean first = true;
-		for(java.util.Map.Entry<Expansion, Rarity> entry: expansions.entrySet())
+		for(java.util.Map.Entry<Class<? extends Expansion>, Rarity> entry: expansions.entrySet())
 		{
 			if(!first)
 				ret.append(", ");
 			else
 				first = false;
-			ret.append("@Printings.Printed(ex = Expansion." + entry.getKey().name() + ", r = Rarity." + entry.getValue().name() + ")");
+			ret.append("@Printings.Printed(ex = " + entry.getKey().getSimpleName() + ".class, r = Rarity." + entry.getValue().name() + ")");
 		}
 		ret.append("})\r\n");
 		return ret.toString();
@@ -540,12 +541,12 @@ public class CardShell
 			this.abilities.set(i, replaceIllegalCharacters(this.abilities.get(i)));
 		String nameInFile = replaceIllegalCharacters(this.name);
 
-		java.util.Map<Expansion, Rarity> expansions = new java.util.EnumMap<Expansion, Rarity>(Expansion.class);
+		java.util.Map<Class<? extends Expansion>, Rarity> expansions = new java.util.HashMap<Class<? extends Expansion>, Rarity>();
 		if(null != this.expansions)
 		{
 			for(java.util.Map.Entry<String, String> entry: this.expansions.entrySet())
 			{
-				Expansion ex = getExpansion(entry.getKey());
+				Class<? extends Expansion> ex = getExpansion(entry.getKey());
 				Rarity rarity = getRarity(entry.getValue());
 				if(ex != null && rarity != null)
 					expansions.put(ex, rarity);
@@ -556,7 +557,7 @@ public class CardShell
 			for(String printing: this.printings.trim().split(", "))
 			{
 				String expansionText = printing.replace(" Mythic Rare", "").replace(" Rare", "").replace(" Uncommon", "").replace(" Common", "").replace(" Land", "").replace(" Special", "");
-				Expansion ex = getExpansion(expansionText);
+				Class<? extends Expansion> ex = getExpansion(expansionText);
 				if(ex != null)
 				{
 					Rarity rarity = getRarity(printing.replace(expansionText, ""));
@@ -632,7 +633,8 @@ public class CardShell
 			out.write("package org.rnd.jmagic.cards;\r\n\r\n");
 			out.write("import static org.rnd.jmagic.Convenience.*;\r\n");
 			out.write("import org.rnd.jmagic.engine.*;\r\n");
-			out.write("import org.rnd.jmagic.engine.generators.*;\r\n\r\n");
+			out.write("import org.rnd.jmagic.engine.generators.*;\r\n");
+			out.write("import org.rnd.jmagic.expansions.*;\r\n\r\n");
 
 			out.write("@Name(\"" + nameInFile + "\")\n");
 

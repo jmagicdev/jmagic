@@ -3,13 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Krosa")
 @Types({Type.PLANE})
 @SubTypes({SubType.DOMINARIA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK, Color.RED, Color.GREEN})
 public final class Krosa extends Card
 {
@@ -21,7 +21,7 @@ public final class Krosa extends Card
 
 			this.addEffectPart(modifyPowerAndToughness(CreaturePermanents.instance(), 2, 2));
 
-			this.canApply = Planechase.staticAbilityCanApply;
+			this.canApply = PlanechaseGameRules.staticAbilityCanApply;
 		}
 	}
 
@@ -31,12 +31,12 @@ public final class Krosa extends Card
 		{
 			super(state, "Whenever you roll (C), you may add (W)(U)(B)(R)(G) to your mana pool.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			EventFactory mana = addManaToYourManaPoolFromAbility("(W)(U)(B)(R)(G)");
 			this.addEffect(youMay(mana, "You may add (W)(U)(B)(R)(G) to your mana pool."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

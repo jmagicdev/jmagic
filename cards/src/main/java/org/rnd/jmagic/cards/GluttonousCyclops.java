@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Gluttonous Cyclops")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CYCLOPS})
 @ManaCost("5R")
-@Printings({@Printings.Printed(ex = Expansion.JOURNEY_INTO_NYX, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = JourneyIntoNyx.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class GluttonousCyclops extends Card
 {

@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Terror of Kruin Pass")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WEREWOLF})
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class TerrorofKruinPass extends AlternateCard
 {

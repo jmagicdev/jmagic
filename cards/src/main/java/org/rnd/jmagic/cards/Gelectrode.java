@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Gelectrode")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WEIRD})
 @ManaCost("1UR")
-@Printings({@Printings.Printed(ex = Expansion.GUILDPACT, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Guildpact.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE, Color.RED})
 public final class Gelectrode extends Card
 {

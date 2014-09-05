@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Dreamspoiler Witches")
 @Types({Type.CREATURE})
 @SubTypes({SubType.FAERIE, SubType.WIZARD})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = Expansion.LORWYN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class DreamspoilerWitches extends Card
 {

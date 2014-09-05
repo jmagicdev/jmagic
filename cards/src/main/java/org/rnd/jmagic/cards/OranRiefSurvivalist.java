@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Oran-Rief Survivalist")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ALLY, SubType.WARRIOR, SubType.HUMAN})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class OranRiefSurvivalist extends Card
 {

@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Reverent Silence")
 @Types({Type.SORCERY})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = Expansion.NEMESIS, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Nemesis.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class ReverentSilence extends Card
 {

@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Hellkite Tyrant")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAGON})
 @ManaCost("4RR")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.RED})
 public final class HellkiteTyrant extends Card
 {

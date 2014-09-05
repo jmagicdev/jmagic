@@ -7,12 +7,13 @@ import java.util.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.Set;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Brooding Saurian")
 @Types({Type.CREATURE})
 @SubTypes({SubType.LIZARD})
 @ManaCost("2GG")
-@Printings({@Printings.Printed(ex = Expansion.COLDSNAP, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Coldsnap.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class BroodingSaurian extends Card
 {

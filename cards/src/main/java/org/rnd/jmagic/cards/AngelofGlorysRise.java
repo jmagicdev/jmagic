@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Angel of Glory's Rise")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("5WW")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class AngelofGlorysRise extends Card
 {

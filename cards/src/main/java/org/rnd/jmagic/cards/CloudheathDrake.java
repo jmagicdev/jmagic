@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Cloudheath Drake")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.DRAKE})
 @ManaCost("4U")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.BLUE})
 public final class CloudheathDrake extends Card
 {

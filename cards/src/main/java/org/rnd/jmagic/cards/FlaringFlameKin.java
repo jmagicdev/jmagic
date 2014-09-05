@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Flaring Flame-Kin")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.ELEMENTAL})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Expansion.DISSENSION, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Dissension.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class FlaringFlameKin extends Card
 {

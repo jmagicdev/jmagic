@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Pernicious Deed")
 @Types({Type.ENCHANTMENT})
 @ManaCost("1BG")
-@Printings({@Printings.Printed(ex = Expansion.APOCALYPSE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Apocalypse.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN, Color.BLACK})
 public final class PerniciousDeed extends Card
 {

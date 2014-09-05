@@ -6,6 +6,7 @@ import org.junit.*;
 import org.rnd.jmagic.abilities.keywords.*;
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.sanitized.*;
 
 public class CombatRequirementsTest extends JUnitTest
@@ -39,7 +40,7 @@ public class CombatRequirementsTest extends JUnitTest
 	{
 		this.addDeck(GhostlyPrison.class, JaceBeleren.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(TattermungeManiac.class, ChaosCharm.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -95,7 +96,7 @@ public class CombatRequirementsTest extends JUnitTest
 	{
 		this.addDeck(Juggernaut.class, Juggernaut.class, ChaosCharm.class, ChaosCharm.class, RelentlessAssault.class, Twiddle.class, Twiddle.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -219,7 +220,7 @@ public class CombatRequirementsTest extends JUnitTest
 	{
 		this.addDeck(BurstofSpeed.class, ConquerorsPledge.class, ConquerorsPledge.class, ConquerorsPledge.class, ConquerorsPledge.class, Lure.class, Lure.class);
 		this.addDeck(FlurryofWings.class, FlurryofWings.class, FlurryofWings.class, FlurryofWings.class, FlurryofWings.class, FlurryofWings.class, FlurryofWings.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -305,7 +306,7 @@ public class CombatRequirementsTest extends JUnitTest
 	{
 		this.addDeck(Island.class, Island.class, Island.class, Island.class, Island.class, MoggFanatic.class, MoggFanatic.class);
 		this.addDeck(Island.class, Island.class, Island.class, Island.class, RagingGoblin.class, RagingGoblin.class, CourtlyProvocateur.class, ChaosCharm.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -366,7 +367,7 @@ public class CombatRequirementsTest extends JUnitTest
 	{
 		this.addDeck(Island.class, Island.class, Island.class, Island.class, Island.class, MoggFanatic.class, MoggFanatic.class);
 		this.addDeck(Island.class, Island.class, Island.class, Island.class, RagingGoblin.class, RagingGoblin.class, Lure.class, Lure.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -459,7 +460,7 @@ public class CombatRequirementsTest extends JUnitTest
 	{
 		this.addDeck(InescapableBrute.class, InescapableBrute.class, InescapableBrute.class, InescapableBrute.class, InescapableBrute.class, InescapableBrute.class, ChaosCharm.class, ChaosCharm.class);
 		this.addDeck(Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class, Sprout.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -564,7 +565,7 @@ public class CombatRequirementsTest extends JUnitTest
 	{
 		this.addDeck(Island.class, Island.class, Island.class, Island.class, Island.class, Island.class, RecklessBrute.class);
 		this.addDeck(Island.class, Island.class, Island.class, Island.class, Island.class, Island.class, RecklessBrute.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -597,7 +598,7 @@ public class CombatRequirementsTest extends JUnitTest
 
 		this.addDeck(Island.class, Island.class, Island.class, Island.class, Island.class, Island.class, MoggFanatic.class);
 		this.addDeck(Island.class, Island.class, Island.class, Island.class, Island.class, SuntailHawk.class, ChaosCharm.class, Lure.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -658,7 +659,7 @@ public class CombatRequirementsTest extends JUnitTest
 	{
 		this.addDeck(Island.class, Island.class, Island.class, Island.class, Island.class, Island.class, Sprout.class);
 		this.addDeck(Island.class, Island.class, SuntailHawk.class, SuntailHawk.class, ChaosCharm.class, ChaosCharm.class, Lure.class, Lure.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

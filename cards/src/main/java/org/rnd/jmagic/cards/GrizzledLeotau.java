@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Grizzled Leotau")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CAT})
 @ManaCost("GW")
-@Printings({@Printings.Printed(ex = Expansion.ALARA_REBORN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class GrizzledLeotau extends Card
 {

@@ -3,6 +3,7 @@ package org.rnd.jmagic.testing;
 import org.junit.*;
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class GrantedAbilitiesTest extends JUnitTest
 {
@@ -11,7 +12,7 @@ public class GrantedAbilitiesTest extends JUnitTest
 	{
 		this.addDeck(BearUmbra.class, RagingGoblin.class, LightningBolt.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

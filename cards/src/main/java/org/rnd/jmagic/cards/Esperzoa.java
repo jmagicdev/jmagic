@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Esperzoa")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.JELLYFISH})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Expansion.CONFLUX, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Conflux.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class Esperzoa extends Card
 {

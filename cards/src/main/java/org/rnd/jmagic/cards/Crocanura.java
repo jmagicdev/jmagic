@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Crocanura")
 @Types({Type.CREATURE})
 @SubTypes({SubType.FROG, SubType.CROCODILE})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class Crocanura extends Card
 {

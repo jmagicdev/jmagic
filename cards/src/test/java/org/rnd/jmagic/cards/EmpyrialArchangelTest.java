@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.testing.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class EmpyrialArchangelTest extends JUnitTest
 {
@@ -16,7 +17,7 @@ public class EmpyrialArchangelTest extends JUnitTest
 		// to the angel
 		this.addDeck(EmpyrialArchangel.class, Shock.class, Mountain.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		this.addDeck(BlackLotus.class, BlackLotus.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class);
-		this.startGame(GameTypes.OPEN);
+		this.startGame(new Open());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();
@@ -173,7 +174,7 @@ public class EmpyrialArchangelTest extends JUnitTest
 		// The swamp is filler for the deck
 		this.addDeck(Swamp.class, EmpyrialArchangel.class, EmpyrialArchangel.class, Plains.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, Meditate.class);
 		this.addDeck(BlackLotus.class, BlackLotus.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class, RagingGoblin.class);
-		this.startGame(GameTypes.STACKED);
+		this.startGame(new Stacked());
 
 		// This test makes sure that all of combat damage is dealt to a
 		// single

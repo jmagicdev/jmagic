@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Psionic Sliver")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SLIVER})
 @ManaCost("4U")
-@Printings({@Printings.Printed(ex = Expansion.TIME_SPIRAL, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class PsionicSliver extends Card
 {

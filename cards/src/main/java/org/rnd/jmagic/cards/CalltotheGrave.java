@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Call to the Grave")
 @Types({Type.ENCHANTMENT})
 @ManaCost("4B")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.RARE), @Printings.Printed(ex = Expansion.SCOURGE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.RARE), @Printings.Printed(ex = Scourge.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class CalltotheGrave extends Card
 {

@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Windstorm")
 @Types({Type.INSTANT})
 @ManaCost("XG")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2010, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class Windstorm extends Card
 {

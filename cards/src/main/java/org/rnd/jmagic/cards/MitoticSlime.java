@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mitotic Slime")
 @Types({Type.CREATURE})
 @SubTypes({SubType.OOZE})
 @ManaCost("4G")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2011, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class MitoticSlime extends Card
 {

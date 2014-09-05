@@ -4,13 +4,14 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Cathedral Membrane")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.WALL})
 @ManaCost("1(W/P)")
-@Printings({@Printings.Printed(ex = Expansion.NEW_PHYREXIA, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class CathedralMembrane extends Card
 {

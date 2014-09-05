@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class TriggeredAbilitiesTest extends JUnitTest
 {
@@ -14,7 +15,7 @@ public class TriggeredAbilitiesTest extends JUnitTest
 	{
 		this.addDeck(Ornithopter.class, TinStreetHooligan.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -40,7 +41,7 @@ public class TriggeredAbilitiesTest extends JUnitTest
 	{
 		this.addDeck(TorporOrb.class, SoulWarden.class, FledglingGriffin.class, GeyserGlider.class, DryadArbor.class, DryadArbor.class, Explore.class, Explore.class);
 		this.addDeck(Sprout.class, Sprout.class, Naturalize.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -94,7 +95,7 @@ public class TriggeredAbilitiesTest extends JUnitTest
 	{
 		this.addDeck(TormentedPariah.class, TormentedPariah.class, TormentedPariah.class, TormentedPariah.class, TormentedPariah.class, TormentedPariah.class, TormentedPariah.class, TormentedPariah.class, TormentedPariah.class, TormentedPariah.class, TormentedPariah.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, TormentedPariah.class, TormentedPariah.class, Sprout.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();

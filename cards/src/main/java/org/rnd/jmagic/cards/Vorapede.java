@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Vorapede")
 @Types({Type.CREATURE})
 @SubTypes({SubType.INSECT})
 @ManaCost("2GGG")
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.GREEN})
 public final class Vorapede extends Card
 {

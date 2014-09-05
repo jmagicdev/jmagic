@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Quicksilver Gargantuan")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAPESHIFTER})
 @ManaCost("5UU")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE})
 public final class QuicksilverGargantuan extends Card
 {

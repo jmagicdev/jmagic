@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Oracle of Mul Daya")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.SHAMAN})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class OracleofMulDaya extends Card
 {

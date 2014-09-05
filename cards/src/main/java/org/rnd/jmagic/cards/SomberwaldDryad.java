@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Somberwald Dryad")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRYAD})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class SomberwaldDryad extends Card
 {

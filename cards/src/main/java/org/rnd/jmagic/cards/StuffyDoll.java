@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Stuffy Doll")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.CONSTRUCT})
 @ManaCost("5")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2013, r = Rarity.RARE), @Printings.Printed(ex = Expansion.TIME_SPIRAL, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.RARE), @Printings.Printed(ex = TimeSpiral.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class StuffyDoll extends Card
 {

@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.testing.*;
 
 public class LilianaVessTest extends JUnitTest
@@ -19,7 +20,7 @@ public class LilianaVessTest extends JUnitTest
 
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
-		this.startGame(GameTypes.STACKED);
+		this.startGame(new Stacked());
 		this.respondWith(this.getPlayer(0));
 		this.keep();
 		this.keep();

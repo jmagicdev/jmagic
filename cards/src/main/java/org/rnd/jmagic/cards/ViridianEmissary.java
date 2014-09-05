@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Viridian Emissary")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.SCOUT})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN_BESIEGED, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class ViridianEmissary extends Card
 {

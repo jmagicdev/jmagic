@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Galvanic Alchemist")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.WIZARD})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class GalvanicAlchemist extends Card
 {

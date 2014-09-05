@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.testing.*;
 
 public class NecroticPlagueTest extends JUnitTest
@@ -13,7 +14,7 @@ public class NecroticPlagueTest extends JUnitTest
 	{
 		addDeck(Plains.class, Plains.class, TormodsCrypt.class, SleeperAgent.class, MoggFanatic.class, NecroticPlague.class, MoggFanatic.class, TundraWolves.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();

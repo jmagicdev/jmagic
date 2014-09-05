@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Blue Sun's Zenith")
 @Types({Type.INSTANT})
 @ManaCost("XUUU")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN_BESIEGED, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class BlueSunsZenith extends Card
 {

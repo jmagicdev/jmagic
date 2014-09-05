@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Crib Swap")
 @Types({Type.TRIBAL, Type.INSTANT})
 @SubTypes({SubType.SHAPESHIFTER})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = Expansion.LORWYN, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class CribSwap extends Card
 {

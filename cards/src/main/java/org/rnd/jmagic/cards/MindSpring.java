@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mind Spring")
 @Types({Type.SORCERY})
 @ManaCost("XUU")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2010, r = Rarity.RARE), @Printings.Printed(ex = Expansion.MORNINGTIDE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.RARE), @Printings.Printed(ex = Morningtide.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class MindSpring extends Card
 {

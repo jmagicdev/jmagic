@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Winged Coatl")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SNAKE})
 @ManaCost("1GU")
-@Printings({@Printings.Printed(ex = Expansion.ALARA_REBORN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.GREEN})
 public final class WingedCoatl extends Card
 {

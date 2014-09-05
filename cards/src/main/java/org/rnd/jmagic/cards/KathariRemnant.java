@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Kathari Remnant")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SKELETON, SubType.BIRD})
 @ManaCost("2UB")
-@Printings({@Printings.Printed(ex = Expansion.ALARA_REBORN, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE, Color.BLACK})
 public final class KathariRemnant extends Card
 {

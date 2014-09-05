@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Puncture Blast")
 @Types({Type.INSTANT})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Expansion.EVENTIDE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Eventide.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class PunctureBlast extends Card
 {

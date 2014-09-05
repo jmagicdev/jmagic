@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Talon Sliver")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SLIVER})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = Expansion.TEMPEST, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Tempest.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class TalonSliver extends Card
 {

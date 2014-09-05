@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Thopter Assembly")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.THOPTER})
 @ManaCost("6")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN_BESIEGED, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class ThopterAssembly extends Card
 {

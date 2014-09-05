@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class ReplacementEffectsTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class ReplacementEffectsTest extends JUnitTest
 	{
 		this.addDeck(Swamp.class, Swamp.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, ThoughtReflection.class, GraveShellScarab.class);
 		this.addDeck(Swamp.class, Swamp.class, Swamp.class, Swamp.class, Swamp.class, Swamp.class, Swamp.class, Swamp.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -84,7 +87,7 @@ public class ReplacementEffectsTest extends JUnitTest
 	{
 		this.addDeck(KjeldoranRoyalGuard.class, ChaosCharm.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Sprout.class, Sprout.class, DoomBlade.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -134,7 +137,7 @@ public class ReplacementEffectsTest extends JUnitTest
 	{
 		this.addDeck(ThoughtReflection.class, ThoughtReflection.class, ThoughtReflection.class, ThoughtReflection.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		this.addDeck(Swamp.class, Swamp.class, Swamp.class, Swamp.class, Swamp.class, Swamp.class, Swamp.class, Swamp.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -244,7 +247,7 @@ public class ReplacementEffectsTest extends JUnitTest
 	{
 		this.addDeck(UndeadAlchemist.class, BlackcleaveGoblin.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -268,7 +271,7 @@ public class ReplacementEffectsTest extends JUnitTest
 	{
 		this.addDeck(MoxDiamond.class, Plains.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
 		this.addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -292,7 +295,7 @@ public class ReplacementEffectsTest extends JUnitTest
 	{
 		this.addDeck(DoublingSeason.class, Sprout.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -312,7 +315,7 @@ public class ReplacementEffectsTest extends JUnitTest
 	{
 		this.addDeck(DoublingSeason.class, IronshellBeetle.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -340,7 +343,7 @@ public class ReplacementEffectsTest extends JUnitTest
 	{
 		this.addDeck(DoublingSeason.class, ChandraNalaar.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();

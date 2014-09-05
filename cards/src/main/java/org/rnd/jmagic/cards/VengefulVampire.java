@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Vengeful Vampire")
 @Types({Type.CREATURE})
 @SubTypes({SubType.VAMPIRE})
 @ManaCost("4BB")
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class VengefulVampire extends Card
 {

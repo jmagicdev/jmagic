@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Frostburn Weird")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WEIRD})
 @ManaCost("(U/R)(U/R)")
-@Printings({@Printings.Printed(ex = Expansion.RETURN_TO_RAVNICA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.RED})
 public final class FrostburnWeird extends Card
 {

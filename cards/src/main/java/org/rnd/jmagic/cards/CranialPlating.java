@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Cranial Plating")
 @Types({Type.ARTIFACT})
 @SubTypes({SubType.EQUIPMENT})
 @ManaCost("2")
-@Printings({@Printings.Printed(ex = Expansion.FIFTH_DAWN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = FifthDawn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class CranialPlating extends Card
 {

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Kuldotha Ringleader")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BERSERKER, SubType.GIANT})
 @ManaCost("4R")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN_BESIEGED, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class KuldothaRingleader extends Card
 {

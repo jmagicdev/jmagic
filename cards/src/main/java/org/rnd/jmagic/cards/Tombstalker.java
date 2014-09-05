@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Tombstalker")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DEMON})
 @ManaCost("6BB")
-@Printings({@Printings.Printed(ex = Expansion.FUTURE_SIGHT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class Tombstalker extends Card
 {

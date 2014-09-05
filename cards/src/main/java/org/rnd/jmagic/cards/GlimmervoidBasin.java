@@ -1,15 +1,16 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Glimmervoid Basin")
 @Types({Type.PLANE})
 @SubTypes({SubType.MIRRODIN})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class GlimmervoidBasin extends Card
 {
@@ -64,7 +65,7 @@ public final class GlimmervoidBasin extends Card
 			factory.parameters.put(EventType.Parameter.TARGET, Union.instance(Spells.instance(), Permanents.instance(), Cards.instance(), Players.instance()));
 			this.addEffect(factory);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -74,7 +75,7 @@ public final class GlimmervoidBasin extends Card
 		{
 			super(state, "Whenever you roll (C), choose target creature. Each player except that creature's controller puts a token that's a copy of that creature onto the battlefield.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			Target target = this.addTarget(CreaturePermanents.instance(), "target creature");
 
@@ -84,7 +85,7 @@ public final class GlimmervoidBasin extends Card
 			factory.parameters.put(EventType.Parameter.OBJECT, targetedBy(target));
 			this.addEffect(factory);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

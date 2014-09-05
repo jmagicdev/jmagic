@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Enlisted Wurm")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WURM})
 @ManaCost("4GW")
-@Printings({@Printings.Printed(ex = Expansion.ALARA_REBORN, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class EnlistedWurm extends Card
 {

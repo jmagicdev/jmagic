@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Null Champion")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.ZOMBIE})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Expansion.RISE_OF_THE_ELDRAZI, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class NullChampion extends Card
 {

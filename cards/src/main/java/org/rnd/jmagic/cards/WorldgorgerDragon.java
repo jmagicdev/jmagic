@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Worldgorger Dragon")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAGON, SubType.NIGHTMARE})
 @ManaCost("3RRR")
-@Printings({@Printings.Printed(ex = Expansion.JUDGMENT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Judgment.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class WorldgorgerDragon extends Card
 {

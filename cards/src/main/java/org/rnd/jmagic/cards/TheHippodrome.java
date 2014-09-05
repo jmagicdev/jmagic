@@ -3,13 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("The Hippodrome")
 @Types({Type.PLANE})
 @SubTypes({SubType.SEGOVIA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class TheHippodrome extends Card
 {
@@ -21,7 +21,7 @@ public final class TheHippodrome extends Card
 
 			this.addEffectPart(modifyPowerAndToughness(CreaturePermanents.instance(), -5, 0));
 
-			this.canApply = Planechase.staticAbilityCanApply;
+			this.canApply = PlanechaseGameRules.staticAbilityCanApply;
 		}
 	}
 
@@ -38,7 +38,7 @@ public final class TheHippodrome extends Card
 			factory.parameters.put(EventType.Parameter.THEN, Identity.instance(youMay(destroy(targetedBy(target), "Destroy target creature."), "You may destroy target creature.")));
 			this.addEffect(factory);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class ObjectVisibilityTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class ObjectVisibilityTest extends JUnitTest
 	{
 		this.addDeck(Mountain.class, Mountain.class, Mountain.class, Mountain.class, Mountain.class, Mountain.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class);
 		this.addDeck(PlagueBoiler.class, LightningBolt.class, BoggartRamGang.class, HearthfireHobgoblin.class, HearthfireHobgoblin.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, CrownofConvergence.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();

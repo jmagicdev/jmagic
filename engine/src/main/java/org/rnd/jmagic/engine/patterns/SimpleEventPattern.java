@@ -29,13 +29,13 @@ public class SimpleEventPattern implements EventPattern
 	 * abilities that trigger when a player planeswalks away from a plane will
 	 * trigger based on their existence, and the appearance of objects, prior to
 	 * the event rather than afterward.
-	 * 
+	 *
 	 * This function determines whether this trigger is one of those abilities.
-	 * 
+	 *
 	 * TODO : when a permanent phases out
-	 * 
+	 *
 	 * TODO : when a player loses control of an object
-	 * 
+	 *
 	 * @return Whether the ability looks back in time.
 	 */
 	@Override
@@ -50,16 +50,13 @@ public class SimpleEventPattern implements EventPattern
 		if(EventType.UNATTACH == this.type)
 			return true;
 
-		if(org.rnd.jmagic.engine.gameTypes.Planechase.PLANESWALK == this.type && this.result != null)
-			return true;
-
 		return false;
 	}
 
 	/**
 	 * Determines whether a given event matches this pattern. Classes that
 	 * override this method should call it (using super.match).
-	 * 
+	 *
 	 * @param event The event to check.
 	 * @param object The object evaluating this generator (null if a non-object
 	 * is causing this match).
@@ -98,7 +95,7 @@ public class SimpleEventPattern implements EventPattern
 
 	/**
 	 * Adds a parameter to this event pattern.
-	 * 
+	 *
 	 * @param parameter The name of the parameter.
 	 * @param generator The value of the parameter, around which a
 	 * SimpleSetPattern will be constructed.

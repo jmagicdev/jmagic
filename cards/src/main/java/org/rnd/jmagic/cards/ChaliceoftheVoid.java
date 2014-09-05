@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Chalice of the Void")
 @Types({Type.ARTIFACT})
 @ManaCost("XX")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Mirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class ChaliceoftheVoid extends Card
 {

@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class PermissionsTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class PermissionsTest extends JUnitTest
 	{
 		this.addDeck(Squallmonger.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -49,7 +52,7 @@ public class PermissionsTest extends JUnitTest
 	{
 		this.addDeck(SwordofBodyandMind.class, BurstofSpeed.class, VirulentWound.class, BloodshotTrainee.class, BloodshotTrainee.class, BloodshotTrainee.class, BloodshotTrainee.class);
 		this.addDeck(GiantGrowth.class, GiantGrowth.class, GiantGrowth.class, GiantGrowth.class, GiantGrowth.class, GiantGrowth.class, GiantGrowth.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -95,7 +98,7 @@ public class PermissionsTest extends JUnitTest
 		MindsDesire.class, BlackLotus.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -139,7 +142,7 @@ public class PermissionsTest extends JUnitTest
 	{
 		this.addDeck(NaturesChosen.class, WildMongrel.class, ChaosCharm.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -242,7 +245,7 @@ public class PermissionsTest extends JUnitTest
 	{
 		this.addDeck(Necromancy.class, Necromancy.class, OnewithNothing.class, RagingGoblin.class, RagingGoblin.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -326,7 +329,7 @@ public class PermissionsTest extends JUnitTest
 	{
 		this.addDeck(NimbusMaze.class, NimbusMaze.class, NimbusMaze.class, Plains.class, Plains.class, Plains.class, Island.class, Island.class, Island.class);
 		this.addDeck(NimbusMaze.class, NimbusMaze.class, NimbusMaze.class, NimbusMaze.class, NimbusMaze.class, NimbusMaze.class, NimbusMaze.class, NimbusMaze.class, NimbusMaze.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -493,7 +496,7 @@ public class PermissionsTest extends JUnitTest
 		gameType.addRule(new org.rnd.jmagic.engine.gameTypes.CardPool()
 		{
 			{
-				this.allowSet(Expansion.TENTH_EDITION);
+				this.allowSet(org.rnd.jmagic.expansions.TenthEdition.class);
 			}
 		});
 
@@ -540,7 +543,7 @@ public class PermissionsTest extends JUnitTest
 	{
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Rootwalla.class, Rootwalla.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -607,7 +610,7 @@ public class PermissionsTest extends JUnitTest
 	{
 		this.addDeck(Clone.class, Rootwalla.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

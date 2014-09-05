@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mind's Desire")
 @Types({Type.SORCERY})
 @ManaCost("4UU")
-@Printings({@Printings.Printed(ex = Expansion.SCOURGE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Scourge.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class MindsDesire extends Card
 {

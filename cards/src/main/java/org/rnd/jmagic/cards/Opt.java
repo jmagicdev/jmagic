@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Opt")
 @Types({Type.INSTANT})
 @ManaCost("U")
-@Printings({@Printings.Printed(ex = Expansion.INVASION, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Invasion.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class Opt extends Card
 {

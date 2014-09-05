@@ -1,10 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Llanowar Reborn")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.FUTURE_SIGHT, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class LlanowarReborn extends Card
 {

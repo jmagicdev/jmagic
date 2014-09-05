@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.testing.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class DoublingCubeTest extends JUnitTest
 {
@@ -13,7 +14,7 @@ public class DoublingCubeTest extends JUnitTest
 	{
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(ColossusofSardia.class, SoulWarden.class, DoublingCube.class, CompositeGolem.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
-		this.startGame(GameTypes.STACKED);
+		this.startGame(new Stacked());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();
@@ -113,7 +114,7 @@ public class DoublingCubeTest extends JUnitTest
 	{
 		this.addDeck(PrimalBeyond.class, DoublingCube.class, SparkElemental.class, SparkElemental.class, Shock.class, BlackLotus.class, BlackLotus.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		this.startGame(GameTypes.OPEN);
+		this.startGame(new Open());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

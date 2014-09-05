@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Eye of Ugin")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.MYTHIC)})
 @ColorIdentity({})
 public final class EyeofUgin extends Card
 {

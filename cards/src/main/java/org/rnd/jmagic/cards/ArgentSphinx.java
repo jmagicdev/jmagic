@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Argent Sphinx")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPHINX})
 @ManaCost("2UU")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class ArgentSphinx extends Card
 {

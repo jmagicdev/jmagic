@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Consult the Necrosages")
 @Types({Type.SORCERY})
 @ManaCost("1UB")
-@Printings({@Printings.Printed(ex = Expansion.RAVNICA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = RavnicaCityOfGuilds.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.BLACK})
 public final class ConsulttheNecrosages extends Card
 {

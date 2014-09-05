@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Enter the Infinite")
 @Types({Type.SORCERY})
 @ManaCost("8UUUU")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE})
 public final class EntertheInfinite extends Card
 {

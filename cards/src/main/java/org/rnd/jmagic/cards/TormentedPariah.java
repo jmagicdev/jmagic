@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Tormented Pariah")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.WARRIOR, SubType.WEREWOLF})
 @ManaCost("3R")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 @BackFace(RampagingWerewolf.class)
 public final class TormentedPariah extends Card

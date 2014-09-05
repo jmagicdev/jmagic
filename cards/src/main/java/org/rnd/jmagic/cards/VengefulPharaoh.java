@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Vengeful Pharaoh")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE})
 @ManaCost("2BBB")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2012, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class VengefulPharaoh extends Card
 {

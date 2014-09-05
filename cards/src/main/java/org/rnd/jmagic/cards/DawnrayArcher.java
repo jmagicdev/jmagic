@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Dawnray Archer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.ARCHER})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE, Color.BLUE})
 public final class DawnrayArcher extends Card
 {

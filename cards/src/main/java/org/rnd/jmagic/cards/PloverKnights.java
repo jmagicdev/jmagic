@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Plover Knights")
 @Types({Type.CREATURE})
 @SubTypes({SubType.KITHKIN, SubType.KNIGHT})
 @ManaCost("3WW")
-@Printings({@Printings.Printed(ex = Expansion.LORWYN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class PloverKnights extends Card
 {

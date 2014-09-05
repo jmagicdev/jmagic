@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Golgari Thug")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.WARRIOR})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Expansion.RAVNICA, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = RavnicaCityOfGuilds.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class GolgariThug extends Card
 {

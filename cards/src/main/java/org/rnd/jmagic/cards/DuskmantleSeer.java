@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Duskmantle Seer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.VAMPIRE, SubType.WIZARD})
 @ManaCost("2UB")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE, Color.BLACK})
 public final class DuskmantleSeer extends Card
 {

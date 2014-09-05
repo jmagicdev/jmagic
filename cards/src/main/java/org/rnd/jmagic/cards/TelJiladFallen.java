@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Tel-Jilad Fallen")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.ELF})
 @ManaCost("2GG")
-@Printings({@Printings.Printed(ex = Expansion.SCARS_OF_MIRRODIN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class TelJiladFallen extends Card
 {

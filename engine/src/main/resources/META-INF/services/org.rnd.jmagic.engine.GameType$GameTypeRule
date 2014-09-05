@@ -1,0 +1,11 @@
+org.rnd.jmagic.engine.gameTypes.DeckSizeMaximum
+org.rnd.jmagic.engine.gameTypes.DeckSizeMinimum
+org.rnd.jmagic.engine.gameTypes.MaximumCardCount
+org.rnd.jmagic.engine.gameTypes.Pauper
+org.rnd.jmagic.engine.gameTypes.Peasant
+org.rnd.jmagic.engine.gameTypes.SideboardAsWishboard
+org.rnd.jmagic.engine.gameTypes.SideboardSize
+org.rnd.jmagic.engine.gameTypes.Stacked
+org.rnd.jmagic.engine.gameTypes.Tribal
+org.rnd.jmagic.engine.gameTypes.UtopiaLands
+org.rnd.jmagic.engine.gameTypes.X10

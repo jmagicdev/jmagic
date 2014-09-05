@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Phyrexian Metamorph")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.SHAPESHIFTER})
 @ManaCost("3(U/P)")
-@Printings({@Printings.Printed(ex = Expansion.NEW_PHYREXIA, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class PhyrexianMetamorph extends Card
 {

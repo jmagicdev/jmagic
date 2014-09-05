@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Geralf's Messenger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE})
 @ManaCost("BBB")
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class GeralfsMessenger extends Card
 {

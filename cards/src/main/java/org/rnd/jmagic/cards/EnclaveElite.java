@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Enclave Elite")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.MERFOLK})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class EnclaveElite extends Card
 {

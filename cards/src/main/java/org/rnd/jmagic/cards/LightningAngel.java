@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Lightning Angel")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("1RWU")
-@Printings({@Printings.Printed(ex = Expansion.TIME_SPIRAL, r = Rarity.SPECIAL), @Printings.Printed(ex = Expansion.APOCALYPSE, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.SPECIAL), @Printings.Printed(ex = Apocalypse.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.WHITE, Color.RED})
 public final class LightningAngel extends Card
 {

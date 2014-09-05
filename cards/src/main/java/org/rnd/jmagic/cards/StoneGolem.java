@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Stone Golem")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.GOLEM})
 @ManaCost("5")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2011, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class StoneGolem extends Card
 {

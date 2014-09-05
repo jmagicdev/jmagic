@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 import static org.rnd.jmagic.Convenience.*;
 
@@ -8,7 +9,7 @@ import static org.rnd.jmagic.Convenience.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.VIASHINO, SubType.SHAMAN})
 @ManaCost("BRG")
-@Printings({@Printings.Printed(ex = Expansion.ALARA_REBORN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN, Color.BLACK, Color.RED})
 public final class JundSojourners extends Card
 {

@@ -3,11 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Mystical Teachings")
 @Types({Type.INSTANT})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = Expansion.TIME_SPIRAL, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.BLACK})
 public final class MysticalTeachings extends Card
 {

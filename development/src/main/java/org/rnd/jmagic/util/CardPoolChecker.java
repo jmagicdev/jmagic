@@ -1,12 +1,12 @@
 package org.rnd.jmagic.util;
 
-
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class CardPoolChecker
 {
 	public static java.util.Set<String> missingCards = new java.util.HashSet<>();
-	
+
 	private static void checkFile(final java.io.File file, GameType type, final boolean delete) throws java.io.IOException
 	{
 		Game game = new Game(type);
@@ -72,15 +72,15 @@ public class CardPoolChecker
 		{
 			GameType type = null;
 			if(potentialPool.equals("Block"))
-				type = GameTypes.BLOCK;
+				type = new Block();
 			else if(potentialPool.equals("Standard"))
-				type = GameTypes.STANDARD;
+				type = new Standard();
 			else if(potentialPool.equals("Modern"))
-				type = GameTypes.MODERN;
+				type = new Modern();
 			else if(potentialPool.equals("Legacy"))
-				type = GameTypes.LEGACY;
+				type = new Legacy();
 			else if(potentialPool.equals("Vintage"))
-				type = GameTypes.VINTAGE;
+				type = new Vintage();
 			else
 				return;
 			checkFile(path, type, delete);
@@ -89,10 +89,6 @@ public class CardPoolChecker
 
 	public static void main(String[] args) throws java.io.IOException
 	{
-		System.out.println("Loading cards");
-		org.rnd.jmagic.CardLoader.addPackages("org.rnd.jmagic.cards");
-		System.out.println("Done loading cards");
-		System.out.println();
 		System.out.println("Checking decks");
 		checkPath(new java.io.File("../misc information/decks/"), null, args.length > 0 && args[0].equals("delete"));
 		System.out.println("Done checking decks");

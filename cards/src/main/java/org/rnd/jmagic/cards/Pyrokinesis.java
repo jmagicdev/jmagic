@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Pyrokinesis")
 @Types({Type.INSTANT})
 @ManaCost("4RR")
-@Printings({@Printings.Printed(ex = Expansion.ALLIANCES, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Alliances.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class Pyrokinesis extends Card
 {

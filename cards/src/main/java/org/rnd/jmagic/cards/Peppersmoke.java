@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Peppersmoke")
 @Types({Type.INSTANT, Type.TRIBAL})
 @SubTypes({SubType.FAERIE})
 @ManaCost("B")
-@Printings({@Printings.Printed(ex = Expansion.LORWYN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class Peppersmoke extends Card
 {

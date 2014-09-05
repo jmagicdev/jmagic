@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Strangleroot Geist")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT})
 @ManaCost("GG")
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class StranglerootGeist extends Card
 {

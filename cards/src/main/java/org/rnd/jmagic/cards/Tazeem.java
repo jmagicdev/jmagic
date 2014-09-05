@@ -3,13 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Tazeem")
 @Types({Type.PLANE})
 @SubTypes({SubType.ZENDIKAR})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.SPECIAL)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.SPECIAL)})
 @ColorIdentity({})
 public final class Tazeem extends Card
 {
@@ -23,7 +23,7 @@ public final class Tazeem extends Card
 			part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(Blocking.instance()));
 			this.addEffectPart(part);
 
-			this.canApply = Planechase.staticAbilityCanApply;
+			this.canApply = PlanechaseGameRules.staticAbilityCanApply;
 		}
 	}
 
@@ -33,11 +33,11 @@ public final class Tazeem extends Card
 		{
 			super(state, "Whenever you roll (C), draw a card for each land you control.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			this.addEffect(drawCards(You.instance(), Count.instance(Intersect.instance(ControlledBy.instance(You.instance()), LandPermanents.instance())), "Draw a card for each land you control."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

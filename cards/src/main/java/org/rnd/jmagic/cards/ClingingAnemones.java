@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Clinging Anemones")
 @Types({Type.CREATURE})
 @SubTypes({SubType.JELLYFISH})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = Expansion.GATECRASH, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class ClingingAnemones extends Card
 {

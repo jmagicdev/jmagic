@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Ethersworn Adjudicator")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.KNIGHT, SubType.VEDALKEN})
 @ManaCost("4U")
-@Printings({@Printings.Printed(ex = Expansion.CONFLUX, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = Conflux.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK})
 public final class EtherswornAdjudicator extends Card
 {

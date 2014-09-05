@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.testing.*;
 
 public class RhoxTest extends JUnitTest
@@ -14,7 +15,7 @@ public class RhoxTest extends JUnitTest
 		// AKA Super Tramp(le)
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, IndomitableAncients.class, IndomitableAncients.class, IndomitableAncients.class);
 		this.addDeck(ChaosCharm.class, Rhox.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, GiantGrowth.class, GiantGrowth.class, Plains.class);
-		this.startGame(GameTypes.OPEN);
+		this.startGame(new Open());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

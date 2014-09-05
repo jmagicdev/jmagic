@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Prismatic Omen")
 @Types({Type.ENCHANTMENT})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.SHADOWMOOR, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class PrismaticOmen extends Card
 {

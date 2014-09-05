@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Silent Arbiter")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.CONSTRUCT})
 @ManaCost("4")
-@Printings({@Printings.Printed(ex = Expansion.FIFTH_DAWN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = FifthDawn.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class SilentArbiter extends Card
 {

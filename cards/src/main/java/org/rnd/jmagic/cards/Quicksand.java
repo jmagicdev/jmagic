@@ -4,10 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Quicksand")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.NINTH_EDITION, r = Rarity.UNCOMMON), @Printings.Printed(ex = Expansion.VISIONS, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.COMMON), @Printings.Printed(ex = TenthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = NinthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Visions.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class Quicksand extends Card
 {

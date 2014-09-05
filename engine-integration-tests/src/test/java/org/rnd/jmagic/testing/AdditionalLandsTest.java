@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class AdditionalLandsTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class AdditionalLandsTest extends JUnitTest
 	{
 		this.addDeck(Forest.class, Forest.class, Forest.class, Forest.class, BlackLotus.class, Forest.class, AzusaLostbutSeeking.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -34,7 +37,7 @@ public class AdditionalLandsTest extends JUnitTest
 	{
 		this.addDeck(Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, OracleofMulDaya.class, Clone.class, Concentrate.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -65,7 +68,7 @@ public class AdditionalLandsTest extends JUnitTest
 		// Fanatic
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, AzusaLostbutSeeking.class, Mountain.class, Mountain.class, MoggFanatic.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -110,7 +113,7 @@ public class AdditionalLandsTest extends JUnitTest
 	{
 		this.addDeck(Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, AzusaLostbutSeeking.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -163,7 +166,7 @@ public class AdditionalLandsTest extends JUnitTest
 	{
 		this.addDeck(Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Boomerang.class, AzusaLostbutSeeking.class);
 		this.addDeck(Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Boomerang.class, AzusaLostbutSeeking.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();

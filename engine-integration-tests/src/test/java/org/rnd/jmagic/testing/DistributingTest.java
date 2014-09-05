@@ -3,9 +3,12 @@ package org.rnd.jmagic.testing;
 import java.io.*;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.sanitized.*;
 
 public class DistributingTest extends JUnitTest
@@ -15,7 +18,7 @@ public class DistributingTest extends JUnitTest
 	{
 		this.addDeck(BlessingsofNature.class, MartialCoup.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class TextChangeEffectsTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class TextChangeEffectsTest extends JUnitTest
 	{
 		this.addDeck(PrimalBeyond.class, ArtificialEvolution.class, ArtificialEvolution.class, AkrasanSquire.class, ChangelingHero.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -60,7 +63,7 @@ public class TextChangeEffectsTest extends JUnitTest
 	{
 		this.addDeck(CrystalSpray.class, CrystalSpray.class, BriarberryCohort.class, BriarberryCohort.class, RagingGoblin.class, RagingGoblin.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -101,7 +104,7 @@ public class TextChangeEffectsTest extends JUnitTest
 	{
 		this.addDeck(CrystalSpray.class, CrystalSpray.class, Luminesce.class, Luminesce.class, RagingGoblin.class, RagingGoblin.class, Shock.class, Shock.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -153,7 +156,7 @@ public class TextChangeEffectsTest extends JUnitTest
 	{
 		this.addDeck(CrystalSpray.class, CrystalSpray.class, BriarberryCohort.class, BriarberryCohort.class, RagingGoblin.class, RagingGoblin.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -195,7 +198,7 @@ public class TextChangeEffectsTest extends JUnitTest
 	{
 		this.addDeck(Mountain.class, Mountain.class, Mountain.class, NimbusMaze.class, NimbusMaze.class, NimbusMaze.class, MindBend.class, MindBend.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -230,7 +233,7 @@ public class TextChangeEffectsTest extends JUnitTest
 	{
 		this.addDeck(WhiteKnight.class, Pyroclasm.class, MindBend.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -267,7 +270,7 @@ public class TextChangeEffectsTest extends JUnitTest
 	{
 		this.addDeck(MindBend.class, BriarberryCohort.class, MoggFanatic.class, Mountain.class, Mountain.class, Mountain.class, Mountain.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -313,7 +316,7 @@ public class TextChangeEffectsTest extends JUnitTest
 	{
 		this.addDeck(HateWeaver.class, MindBend.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -359,7 +362,7 @@ public class TextChangeEffectsTest extends JUnitTest
 	{
 		this.addDeck(StampedingWildebeests.class, StampedingWildebeests.class, StampedingWildebeests.class, StampedingWildebeests.class, MindBend.class, MindBend.class, MindBend.class, MindBend.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -394,7 +397,7 @@ public class TextChangeEffectsTest extends JUnitTest
 	{
 		this.addDeck(MindBend.class, VoiceofAll.class, Pyroclasm.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

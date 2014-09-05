@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Cloistered Youth")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 @BackFace(UnholyFiend.class)
 public final class CloisteredYouth extends Card

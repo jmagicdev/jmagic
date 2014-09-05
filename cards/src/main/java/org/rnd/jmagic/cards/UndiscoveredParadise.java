@@ -3,10 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Undiscovered Paradise")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.VISIONS, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Visions.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class UndiscoveredParadise extends Card
 {

@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Nefarox, Overlord of Grixis")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.DEMON})
 @ManaCost("4BB")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2013, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class NefaroxOverlordofGrixis extends Card
 {

@@ -4,12 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.engine.gameTypes.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Feeding Grounds")
 @Types({Type.PLANE})
 @SubTypes({SubType.MURAGANDA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class FeedingGrounds extends Card
 {
@@ -24,7 +24,7 @@ public final class FeedingGrounds extends Card
 			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("1")));
 			this.addEffectPart(part);
 
-			this.canApply = Planechase.staticAbilityCanApply;
+			this.canApply = PlanechaseGameRules.staticAbilityCanApply;
 		}
 	}
 
@@ -39,7 +39,7 @@ public final class FeedingGrounds extends Card
 			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.fromCollection(new ManaPool("1")));
 			this.addEffectPart(part);
 
-			this.canApply = Planechase.staticAbilityCanApply;
+			this.canApply = PlanechaseGameRules.staticAbilityCanApply;
 		}
 	}
 
@@ -49,13 +49,13 @@ public final class FeedingGrounds extends Card
 		{
 			super(state, "Whenever you roll (C), put X +1/+1 counters on target creature, where X is that creature's converted mana cost.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			Target target = this.addTarget(CreaturePermanents.instance(), "target creature");
 
 			this.addEffect(putCounters(ConvertedManaCostOf.instance(targetedBy(target)), Counter.CounterType.PLUS_ONE_PLUS_ONE, targetedBy(target), "Put X +1/+1 counters on target creature, where X is that creature's converted mana cost."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

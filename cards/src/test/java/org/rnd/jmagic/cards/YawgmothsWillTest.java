@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.testing.*;
 
 public class YawgmothsWillTest extends JUnitTest
@@ -13,7 +14,7 @@ public class YawgmothsWillTest extends JUnitTest
 	{
 		this.addDeck(YawgmothsWill.class, OnewithNothing.class, Forest.class, LightningBolt.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class, Forest.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

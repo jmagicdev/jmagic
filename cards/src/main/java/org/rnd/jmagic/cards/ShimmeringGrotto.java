@@ -1,10 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Shimmering Grotto")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.LORWYN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.COMMON), @Printings.Printed(ex = Lorwyn.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class ShimmeringGrotto extends Card
 {

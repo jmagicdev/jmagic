@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Graypelt Hunter")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.HUMAN, SubType.ALLY})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class GraypeltHunter extends Card
 {

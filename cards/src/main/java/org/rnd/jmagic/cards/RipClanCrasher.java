@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Rip-Clan Crasher")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.HUMAN})
 @ManaCost("RG")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN, Color.RED})
 public final class RipClanCrasher extends Card
 {

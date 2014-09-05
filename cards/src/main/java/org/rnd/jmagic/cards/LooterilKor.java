@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Looter il-Kor")
 @Types({Type.CREATURE})
 @SubTypes({SubType.KOR, SubType.ROGUE})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = Expansion.TIME_SPIRAL, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class LooterilKor extends Card
 {

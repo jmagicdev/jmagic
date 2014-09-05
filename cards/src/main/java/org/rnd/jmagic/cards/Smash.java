@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Smash")
 @Types({Type.INSTANT})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.RAVNICA, r = Rarity.COMMON), @Printings.Printed(ex = Expansion.APOCALYPSE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = RavnicaCityOfGuilds.class, r = Rarity.COMMON), @Printings.Printed(ex = Apocalypse.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class Smash extends Card
 {

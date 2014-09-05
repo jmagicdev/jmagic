@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 import org.rnd.jmagic.sanitized.*;
 
 public class CardsWithCustomEventsTest extends JUnitTest
@@ -26,7 +27,7 @@ public class CardsWithCustomEventsTest extends JUnitTest
 		// Starting hand
 		Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Abundance.class, Inspiration.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -117,7 +118,7 @@ public class CardsWithCustomEventsTest extends JUnitTest
 	{
 		addDeck(CapriciousEfreet.class, SleeperAgent.class, SleeperAgent.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -170,7 +171,7 @@ public class CardsWithCustomEventsTest extends JUnitTest
 	{
 		addDeck(Gomazoa.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(RagingGoblin.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -211,7 +212,7 @@ public class CardsWithCustomEventsTest extends JUnitTest
 
 		// Hand
 		RuneclawBear.class, TomeScour.class, MoggFanatic.class, GrizzlyBears.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -257,7 +258,7 @@ public class CardsWithCustomEventsTest extends JUnitTest
 	{
 		addDeck(HiveMind.class, Twincast.class, LightningBolt.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -353,7 +354,7 @@ public class CardsWithCustomEventsTest extends JUnitTest
 	{
 		addDeck(MasteroftheWildHunt.class, DarksteelColossus.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -434,7 +435,7 @@ public class CardsWithCustomEventsTest extends JUnitTest
 
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -463,7 +464,7 @@ public class CardsWithCustomEventsTest extends JUnitTest
 	{
 		this.addDeck(SphinxAmbassador.class, BurstofSpeed.class, RelentlessAssault.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(MoggFanatic.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class, MoggFanatic.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -516,7 +517,7 @@ public class CardsWithCustomEventsTest extends JUnitTest
 
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 		respondWith(getPlayer(0));
 		keep();
 		keep();
@@ -547,7 +548,7 @@ public class CardsWithCustomEventsTest extends JUnitTest
 
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 		respondWith(getPlayer(0));
 		keep();
 		keep();
@@ -582,7 +583,7 @@ public class CardsWithCustomEventsTest extends JUnitTest
 
 		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
-		startGame(GameTypes.STACKED);
+		startGame(new Stacked());
 		respondWith(getPlayer(0));
 		keep();
 		keep();
@@ -608,7 +609,7 @@ public class CardsWithCustomEventsTest extends JUnitTest
 	{
 		this.addDeck(XathridDemon.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 		this.addDeck(XathridDemon.class, XathridDemon.class, Sprout.class, Sprout.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

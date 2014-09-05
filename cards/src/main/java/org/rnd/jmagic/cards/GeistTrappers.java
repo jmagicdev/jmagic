@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Geist Trappers")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.WARRIOR})
 @ManaCost("4G")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class GeistTrappers extends Card
 {

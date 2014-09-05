@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Tinder Wall")
 @Types({Type.CREATURE})
 @SubTypes({SubType.PLANT, SubType.WALL})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Expansion.ICE_AGE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = IceAge.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN, Color.RED})
 public final class TinderWall extends Card
 {

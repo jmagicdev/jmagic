@@ -5,11 +5,12 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.Convenience;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Force of Will")
 @Types({Type.INSTANT})
 @ManaCost("3UU")
-@Printings({@Printings.Printed(ex = Expansion.ALLIANCES, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Alliances.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class ForceofWill extends Card
 {

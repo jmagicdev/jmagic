@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Summoner's Pact")
 @ManaCost("0")
 @Types({Type.INSTANT})
-@Printings({@Printings.Printed(ex = Expansion.FUTURE_SIGHT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class SummonersPact extends org.rnd.jmagic.cardTemplates.Pact
 {

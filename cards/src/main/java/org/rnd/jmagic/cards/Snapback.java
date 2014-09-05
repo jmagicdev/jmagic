@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Snapback")
 @Types({Type.INSTANT})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = Expansion.TIME_SPIRAL, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class Snapback extends Card
 {

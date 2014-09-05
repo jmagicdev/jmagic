@@ -3,14 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Izzet Steam Maze")
 @Types({Type.PLANE})
 @SubTypes({SubType.RAVNICA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class IzzetSteamMaze extends Card
 {
@@ -34,7 +34,7 @@ public final class IzzetSteamMaze extends Card
 			factory.parameters.put(EventType.Parameter.PLAYER, thatPlayer);
 			this.addEffect(factory);
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -44,7 +44,7 @@ public final class IzzetSteamMaze extends Card
 		{
 			super(state, "Whenever you roll (C), instant and sorcery spells you cast this turn cost (3) less to cast.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, Intersect.instance(HasType.instance(Type.INSTANT, Type.SORCERY), ControlledBy.instance(You.instance(), Stack.instance())));
@@ -52,7 +52,7 @@ public final class IzzetSteamMaze extends Card
 
 			this.addEffect(createFloatingEffect("Instant and sorcery spells you cast this turn cost (3) less to cast.", part));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Etherium Abomination")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.HORROR})
 @ManaCost("3UB")
-@Printings({@Printings.Printed(ex = Expansion.ALARA_REBORN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.BLACK})
 public final class EtheriumAbomination extends Card
 {

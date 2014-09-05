@@ -2,12 +2,13 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Hellspark Elemental")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = Expansion.CONFLUX, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Conflux.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class HellsparkElemental extends Card
 {

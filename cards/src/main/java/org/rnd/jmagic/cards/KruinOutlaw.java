@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Kruin Outlaw")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.ROGUE, SubType.WEREWOLF})
 @ManaCost("1RR")
-@Printings({@Printings.Printed(ex = Expansion.INNISTRAD, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 @BackFace(TerrorofKruinPass.class)
 public final class KruinOutlaw extends Card

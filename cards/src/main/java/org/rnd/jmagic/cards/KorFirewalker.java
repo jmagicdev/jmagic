@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Kor Firewalker")
 @Types({Type.CREATURE})
 @SubTypes({SubType.KOR, SubType.SOLDIER})
 @ManaCost("WW")
-@Printings({@Printings.Printed(ex = Expansion.WORLDWAKE, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class KorFirewalker extends Card
 {

@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Sower of Temptation")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.FAERIE})
 @ManaCost("2UU")
-@Printings({@Printings.Printed(ex = Expansion.LORWYN, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class SowerofTemptation extends Card
 {

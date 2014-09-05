@@ -2,10 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Vault of the Archangel")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.BLACK})
 public final class VaultoftheArchangel extends Card
 {

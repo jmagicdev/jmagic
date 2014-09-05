@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Turntimber Ranger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.SCOUT, SubType.ALLY})
 @ManaCost("3GG")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class TurntimberRanger extends Card
 {

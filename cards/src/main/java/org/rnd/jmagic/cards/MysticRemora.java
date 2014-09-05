@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Mystic Remora")
 @Types({Type.ENCHANTMENT})
 @ManaCost("U")
-@Printings({@Printings.Printed(ex = Expansion.ICE_AGE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = IceAge.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class MysticRemora extends Card
 {

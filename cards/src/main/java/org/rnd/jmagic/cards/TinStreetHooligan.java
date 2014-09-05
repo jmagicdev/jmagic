@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Tin Street Hooligan")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ROGUE, SubType.GOBLIN})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = Expansion.GUILDPACT, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Guildpact.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN, Color.RED})
 public final class TinStreetHooligan extends Card
 {

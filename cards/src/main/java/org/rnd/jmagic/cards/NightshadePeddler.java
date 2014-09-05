@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Nightshade Peddler")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.DRUID})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Expansion.AVACYN_RESTORED, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class NightshadePeddler extends Card
 {

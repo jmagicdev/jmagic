@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class SkippingTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class SkippingTest extends JUnitTest
 	{
 		this.addDeck(Meditate.class, Meditate.class, Meditate.class, Meditate.class, Meditate.class, Meditate.class, Meditate.class, Meditate.class, Meditate.class, Meditate.class, Meditate.class, Meditate.class);
 		this.addDeck(Meditate.class, Meditate.class, Meditate.class, Meditate.class, Meditate.class, Meditate.class, Meditate.class, Meditate.class, Meditate.class, Meditate.class, Meditate.class, Meditate.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -51,7 +54,7 @@ public class SkippingTest extends JUnitTest
 	{
 		this.addDeck(BlackLotus.class, BlackLotus.class, BlackLotus.class, EonHub.class, EonHub.class, EonHub.class, EonHub.class);
 		this.addDeck(Swamp.class, Swamp.class, Swamp.class, Swamp.class, Swamp.class, Swamp.class, Swamp.class, Swamp.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();

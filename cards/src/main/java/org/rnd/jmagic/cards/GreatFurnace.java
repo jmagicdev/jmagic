@@ -1,10 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Great Furnace")
 @Types({Type.ARTIFACT, Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Mirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class GreatFurnace extends Card
 {

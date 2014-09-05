@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Bloodied Ghost")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT})
 @ManaCost("1(WB)(WB)")
-@Printings({@Printings.Printed(ex = Expansion.EVENTIDE, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = Eventide.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE, Color.BLACK})
 public final class BloodiedGhost extends Card
 {

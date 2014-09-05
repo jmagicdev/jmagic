@@ -4,12 +4,13 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Cephalid Constable")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.CEPHALID})
 @ManaCost("1UU")
-@Printings({@Printings.Printed(ex = Expansion.TENTH_EDITION, r = Rarity.RARE), @Printings.Printed(ex = Expansion.JUDGMENT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Judgment.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class CephalidConstable extends Card
 {

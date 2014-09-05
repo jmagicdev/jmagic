@@ -3,12 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Fiend of the Shadows")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.VAMPIRE})
 @ManaCost("3BB")
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class FiendoftheShadows extends Card
 {

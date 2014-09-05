@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Deft Duelist")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ROGUE, SubType.HUMAN})
 @ManaCost("WU")
-@Printings({@Printings.Printed(ex = Expansion.SHARDS_OF_ALARA, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.WHITE})
 public final class DeftDuelist extends Card
 {

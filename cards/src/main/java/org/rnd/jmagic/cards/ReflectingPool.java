@@ -3,10 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Reflecting Pool")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Expansion.SHADOWMOOR, r = Rarity.RARE), @Printings.Printed(ex = Expansion.TEMPEST, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.RARE), @Printings.Printed(ex = Tempest.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class ReflectingPool extends Card
 {

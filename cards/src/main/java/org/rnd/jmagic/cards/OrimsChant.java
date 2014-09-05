@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.patterns.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Orim's Chant")
 @Types({Type.INSTANT})
 @ManaCost("W")
-@Printings({@Printings.Printed(ex = Expansion.PLANESHIFT, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Planeshift.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class OrimsChant extends Card
 {

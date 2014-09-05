@@ -2,11 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Open the Vaults")
 @Types({Type.SORCERY})
 @ManaCost("4WW")
-@Printings({@Printings.Printed(ex = Expansion.MAGIC_2010, r = Rarity.RARE)})
+@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class OpentheVaults extends Card
 {

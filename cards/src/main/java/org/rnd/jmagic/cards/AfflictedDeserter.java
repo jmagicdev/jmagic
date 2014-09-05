@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Afflicted Deserter")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.WEREWOLF})
 @ManaCost("3R")
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.UNCOMMON)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 @BackFace(WerewolfRansacker.class)
 public final class AfflictedDeserter extends Card

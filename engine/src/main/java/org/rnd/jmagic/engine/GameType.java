@@ -1,8 +1,28 @@
 package org.rnd.jmagic.engine;
 
 /** Represents deck construction rules. */
-public final class GameType
+public class GameType
 {
+	private static final java.util.ServiceLoader<GameType> loader = java.util.ServiceLoader.load(GameType.class);
+	private static java.util.List<GameType> list = null;
+
+	public static java.util.List<GameType> list()
+	{
+		if(null == list)
+		{
+			java.util.List<GameType> gameTypes = new java.util.LinkedList<GameType>();
+
+			for(GameType gameType: loader)
+			{
+				gameTypes.add(gameType);
+			}
+
+			list = java.util.Collections.unmodifiableList(gameTypes);
+		}
+
+		return list;
+	}
+
 	@java.lang.annotation.Target({java.lang.annotation.ElementType.TYPE})
 	@java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
 	public static @interface Ignore
@@ -52,7 +72,7 @@ public final class GameType
 
 		/**
 		 * Make any changes to the physical GameState before the game starts.
-		 * 
+		 *
 		 * @param physicalState The physical GameState to change
 		 */
 		public void modifyGameState(GameState physicalState);
@@ -177,13 +197,16 @@ public final class GameType
 
 	private void calculateCardPool()
 	{
-		java.util.Set<Expansion> expansions = java.util.EnumSet.allOf(Expansion.class);
+		java.util.List<Class<? extends Expansion>> expansions = new java.util.LinkedList<Class<? extends Expansion>>();
 		for(GameTypeRule rule: this.rules)
 		{
-			java.util.Iterator<Expansion> iter = expansions.iterator();
+			java.util.Iterator<Expansion> iter = Expansion.list().iterator();
 			while(iter.hasNext())
-				if(!rule.checkExpansion(iter.next()))
-					iter.remove();
+			{
+				Expansion ex = iter.next();
+				if(rule.checkExpansion(ex))
+					expansions.add(ex.getClass());
+			}
 		}
 
 		java.util.Set<Class<? extends Card>> cards = org.rnd.jmagic.CardLoader.getCards(expansions);

@@ -1,12 +1,13 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Umara Raptor")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ALLY, SubType.BIRD})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Expansion.ZENDIKAR, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class UmaraRaptor extends Card
 {

@@ -4,11 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Molten Rain")
 @Types({Type.SORCERY})
 @ManaCost("1RR")
-@Printings({@Printings.Printed(ex = Expansion.MIRRODIN, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Mirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class MoltenRain extends Card
 {

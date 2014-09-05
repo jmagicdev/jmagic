@@ -20,7 +20,7 @@ public class ObjectFramework
 	public java.util.Set<SuperType> superTypes = java.util.EnumSet.noneOf(SuperType.class);
 	public java.util.Set<Type> types = java.util.EnumSet.noneOf(Type.class);
 	public java.util.Set<SubType> subTypes = java.util.EnumSet.noneOf(SubType.class);
-	public java.util.Map<Expansion, Rarity> printings = new java.util.TreeMap<Expansion, Rarity>();
+	public java.util.Map<Class<? extends Expansion>, Rarity> printings = new java.util.TreeMap<Class<? extends Expansion>, Rarity>();
 	public java.util.List<ObjectFramework> abilities = new java.util.LinkedList<ObjectFramework>();
 	public Integer power = null;
 	public Integer toughness = null;
@@ -104,13 +104,13 @@ public class ObjectFramework
 			{
 				out.write(indent + "@Printings({ ");
 				boolean first = true;
-				for(java.util.Map.Entry<Expansion, Rarity> entry: this.printings.entrySet())
+				for(java.util.Map.Entry<Class<? extends Expansion>, Rarity> entry: this.printings.entrySet())
 				{
 					if(!first)
 						out.write(", ");
 					else
 						first = false;
-					out.write("@Printings.Printed(ex = Expansion." + entry.getKey().name() + ", r = Rarity." + entry.getValue().name() + ")");
+					out.write("@Printings.Printed(ex = " + entry.getKey().getSimpleName() + ".class, r = Rarity." + entry.getValue().name() + ")");
 				}
 				out.write(" })");
 			}
@@ -225,7 +225,8 @@ public class ObjectFramework
 			out.write("import static org.rnd.jmagic.Convenience.*;\r\n");
 			out.write("import org.rnd.jmagic.engine.*;\r\n");
 			out.write("import org.rnd.jmagic.engine.patterns.*;\r\n");
-			out.write("import org.rnd.jmagic.engine.generators.*;\r\n\r\n");
+			out.write("import org.rnd.jmagic.engine.generators.*;\r\n");
+			out.write("import org.rnd.jmagic.expansions.*;\r\n\r\n");
 
 			this.printToStream(out, 0);
 			out.flush();

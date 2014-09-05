@@ -3,14 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Immersturm")
 @Types({Type.PLANE})
 @SubTypes({SubType.VALLA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Immersturm extends Card
 {
@@ -31,7 +31,7 @@ public final class Immersturm extends Card
 			EventFactory factory = permanentDealDamage(PowerOf.instance(thatCreature), targetedBy(target), "It deals damage equal to its power to target creature or player of his or her choice.");
 			this.addEffect(playerMay(thatCreaturesController, factory, "That creature's controller may have it deal damage equal to its power to target creature or player of his or her choice."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -41,7 +41,7 @@ public final class Immersturm extends Card
 		{
 			super(state, "Whenever you roll (C), exile target creature, then return it to the battlefield under its owner's control.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			Target target = this.addTarget(CreaturePermanents.instance(), "target creature");
 
@@ -51,7 +51,7 @@ public final class Immersturm extends Card
 			blinkParameters.put(EventType.Parameter.PLAYER, OwnerOf.instance(targetedBy(target)));
 			this.addEffect(new EventFactory(BLINK, blinkParameters, "Exile target creature, then return it to the battlefield under its owner's control."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.expansions.*;
 
 @Name("Jenara, Asura of War")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("GWU")
-@Printings({@Printings.Printed(ex = Expansion.ALARA_REBORN, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN})
 public final class JenaraAsuraofWar extends Card
 {

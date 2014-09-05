@@ -3,6 +3,7 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Mikaeus, the Unhallowed")
@@ -10,7 +11,7 @@ import org.rnd.jmagic.engine.patterns.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE, SubType.CLERIC})
 @ManaCost("3BBB")
-@Printings({@Printings.Printed(ex = Expansion.DARK_ASCENSION, r = Rarity.MYTHIC)})
+@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLACK})
 public final class MikaeustheUnhallowed extends Card
 {

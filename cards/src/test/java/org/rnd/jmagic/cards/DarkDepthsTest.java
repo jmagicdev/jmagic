@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.testing.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class DarkDepthsTest extends JUnitTest
 {
@@ -13,7 +14,7 @@ public class DarkDepthsTest extends JUnitTest
 	{
 		this.addDeck(UrborgTombofYawgmoth.class, BloodMoon.class, Plains.class, Plains.class, Plains.class, DarkDepths.class, VampireHexmage.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		this.startGame(GameTypes.STACKED);
+		this.startGame(new Stacked());
 
 		this.respondWith(this.getPlayer(0));
 		this.keep();

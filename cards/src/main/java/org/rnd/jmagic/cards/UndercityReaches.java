@@ -3,13 +3,13 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.gameTypes.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.gameTypes.*;
 
 @Name("Undercity Reaches")
 @Types({Type.PLANE})
 @SubTypes({SubType.RAVNICA})
-@Printings({@Printings.Printed(ex = Expansion.PLANECHASE, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class UndercityReaches extends Card
 {
@@ -25,7 +25,7 @@ public final class UndercityReaches extends Card
 
 			this.addEffect(drawCards(itsController, 1, "Its controller may draw a card."));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 
@@ -35,14 +35,14 @@ public final class UndercityReaches extends Card
 		{
 			super(state, "Whenever you roll (C), you have no maximum hand size for the rest of the game.");
 
-			this.addPattern(Planechase.wheneverYouRollChaos());
+			this.addPattern(PlanechaseGameRules.wheneverYouRollChaos());
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.SET_MAX_HAND_SIZE);
 			part.parameters.put(ContinuousEffectType.Parameter.PLAYER, You.instance());
 			part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Empty.instance());
 			this.addEffect(createFloatingEffect(Empty.instance(), "You have no maximum hand size for the rest of the game.", part));
 
-			this.canTrigger = Planechase.triggeredAbilityCanTrigger;
+			this.canTrigger = PlanechaseGameRules.triggeredAbilityCanTrigger;
 		}
 	}
 

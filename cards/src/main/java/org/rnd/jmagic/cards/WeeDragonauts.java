@@ -3,13 +3,14 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
+import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Wee Dragonauts")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.FAERIE})
 @ManaCost("1UR")
-@Printings({@Printings.Printed(ex = Expansion.GUILDPACT, r = Rarity.COMMON)})
+@Printings({@Printings.Printed(ex = Guildpact.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.RED})
 public final class WeeDragonauts extends Card
 {

@@ -1,9 +1,12 @@
 package org.rnd.jmagic.testing;
 
 import org.junit.*;
+
 import static org.junit.Assert.*;
+
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
+import org.rnd.jmagic.gameTypes.*;
 
 public class RegenerateTest extends JUnitTest
 {
@@ -12,7 +15,7 @@ public class RegenerateTest extends JUnitTest
 	{
 		this.addDeck(Rhox.class, WrathofGod.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -78,7 +81,7 @@ public class RegenerateTest extends JUnitTest
 		// regenerated (assuming it survives the wrath)
 		this.addDeck(DarksteelGargoyle.class, WrathofGod.class, Regeneration.class, Humble.class, CreepingMold.class, Plains.class, Plains.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -141,7 +144,7 @@ public class RegenerateTest extends JUnitTest
 	{
 		this.addDeck(Rhox.class, Rhox.class, Incinerate.class, Incinerate.class, LightningBolt.class, LightningBolt.class, LightningBolt.class);
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
@@ -213,7 +216,7 @@ public class RegenerateTest extends JUnitTest
 	{
 		this.addDeck(Rhox.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class, BlackLotus.class);
 		this.addDeck(BlackLotus.class, BlackLotus.class, LightningBolt.class, LightningBolt.class, LightningBolt.class, LightningBolt.class, LightningBolt.class, LightningBolt.class);
-		startGame(GameTypes.OPEN);
+		startGame(new Open());
 
 		respondWith(getPlayer(0));
 		keep();
