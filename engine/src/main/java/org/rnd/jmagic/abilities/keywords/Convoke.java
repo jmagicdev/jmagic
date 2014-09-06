@@ -65,7 +65,7 @@ public final class Convoke extends Keyword
 		@Override
 		public boolean equals(Object obj)
 		{
-			return obj instanceof AlternateManaPayment;
+			return obj instanceof ConvokePayment;
 		}
 
 		private static int manaOfType(ManaSymbol.ManaType type, ManaPool cost)
