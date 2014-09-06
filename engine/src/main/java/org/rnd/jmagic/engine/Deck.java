@@ -34,7 +34,7 @@ public class Deck implements java.io.Serializable
 			main.add(org.rnd.jmagic.Convenience.getName(cls));
 	}
 
-	public java.util.Map<String, java.util.List<String>> getCards() throws org.rnd.jmagic.CardLoader.CardLoaderException
+	public java.util.Map<String, java.util.List<String>> getCards()
 	{
 		return this.publicCardMap;
 	}

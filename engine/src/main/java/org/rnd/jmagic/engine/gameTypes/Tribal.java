@@ -43,7 +43,7 @@ public class Tribal extends GameType.SimpleGameTypeRule
 		}
 		catch(org.rnd.jmagic.CardLoader.CardLoaderException e)
 		{
-			throw new RuntimeException("Couldn't load a card during checkDeck, something is horribly broken.");
+			throw new RuntimeException("Couldn't load card: " + e.cardNames);
 		}
 
 		int max = java.util.Collections.max(count.values());

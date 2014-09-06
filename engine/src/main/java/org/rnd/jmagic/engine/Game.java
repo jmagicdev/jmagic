@@ -914,15 +914,7 @@ public class Game
 		Deck deck = comm.getDeck();
 
 		java.util.Map<String, java.util.List<String>> cards = null;
-		try
-		{
-			cards = deck.getCards();
-		}
-		catch(CardLoaderException e)
-		{
-			comm.alertError(e.getErrorParameters());
-			return null;
-		}
+		cards = deck.getCards();
 
 		ErrorParameters deckCheckError = this.gameType.checkDeck(cards);
 		if(null != deckCheckError)
@@ -1305,7 +1297,7 @@ public class Game
 			}
 			catch(CardLoaderException e)
 			{
-				throw new RuntimeException(cardName + " wasn't found, and this was caught way too late.  Something is broken!");
+				throw new RuntimeException("Couldn't load card: " + cardName);
 			}
 			GameObject newCard = org.rnd.util.Constructor.construct(cardClass, new Class<?>[] {GameState.class}, new Object[] {this.physicalState});
 

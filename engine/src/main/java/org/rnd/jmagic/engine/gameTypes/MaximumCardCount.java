@@ -57,7 +57,7 @@ public class MaximumCardCount extends GameType.SimpleGameTypeRule
 		}
 		catch(CardLoaderException e)
 		{
-			throw new RuntimeException("Couldn't load a card during checkDeck, something is horribly broken.");
+			throw new RuntimeException("Couldn't load card(s): " + e.cardNames);
 		}
 
 		return true;
