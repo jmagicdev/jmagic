@@ -77,9 +77,10 @@ public class DevotionTo extends SetGenerator
 				continue;
 
 			for(ManaPool pool: permanent.getManaCost())
-				for(ManaSymbol mana: pool)
-					if(!java.util.Collections.disjoint(colors, mana.colors))
-						devotion++;
+				if(pool != null)
+					for(ManaSymbol mana: pool)
+						if(!java.util.Collections.disjoint(colors, mana.colors))
+							devotion++;
 		}
 		return new Set(devotion);
 	}
