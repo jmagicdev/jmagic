@@ -254,7 +254,8 @@ public class CopyTest extends JUnitTest
 		// automatically choose Virulent Sliver
 
 		assertTrue(this.game.physicalState.battlefield().objects.get(0).getName().equals("Clone"));
-		assertTrue(this.game.actualState.battlefield().objects.get(0).getName().equals("Virulent Sliver"));
+		assertEquals(1, this.game.actualState.battlefield().objects.get(0).getPower());
+		assertEquals("Virulent Sliver", this.game.actualState.battlefield().objects.get(0).getName());
 
 		java.util.Iterator<Keyword> iter = this.game.actualState.battlefield().objects.get(0).getKeywordAbilities().iterator();
 		assertTrue(iter.next() instanceof org.rnd.jmagic.abilities.keywords.Poisonous);

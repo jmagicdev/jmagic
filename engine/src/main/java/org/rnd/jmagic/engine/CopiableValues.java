@@ -2,7 +2,7 @@ package org.rnd.jmagic.engine;
 
 public class CopiableValues
 {
-	public final Characteristics characteristics;
+	public final Characteristics[] characteristics;
 
 	boolean originalWasOnStack;
 	java.util.Set<Characteristics.Characteristic> toCopy;
@@ -18,7 +18,10 @@ public class CopiableValues
 
 	public CopiableValues(Game game, GameObject original, GameObject target, boolean include, Characteristics.Characteristic... types)
 	{
-		this.characteristics = original.getCharacteristics().create(target);
+		Characteristics[] originalCharacteristics = original.getCharacteristics();
+		this.characteristics = new Characteristics[originalCharacteristics.length];
+		for(int i = 0; i < this.characteristics.length; ++i)
+			this.characteristics[i] = originalCharacteristics[i].create(target);
 
 		this.originalWasOnStack = false;
 		this.toCopy = java.util.EnumSet.allOf(Characteristics.Characteristic.class);
@@ -49,16 +52,19 @@ public class CopiableValues
 		// characteristic-defining ability that defines its power and
 		// toughness. Quicksilver Gargantuan does not have that ability. It
 		// will be 7/7.
-		java.util.List<Integer> toRemove = new java.util.LinkedList<Integer>();
-		for(int abilityID: this.characteristics.staticAbilities)
+		for(Characteristics characteristics: this.characteristics)
 		{
-			StaticAbility ability = game.physicalState.get(abilityID);
-			java.util.Collection<Characteristics.Characteristic> defined = ability.definesCharacteristics();
-			if(!java.util.Collections.disjoint(defined, dontCopy))
-				toRemove.add(abilityID);
+			java.util.List<Integer> toRemove = new java.util.LinkedList<Integer>();
+			for(int abilityID: characteristics.staticAbilities)
+			{
+				StaticAbility ability = game.physicalState.get(abilityID);
+				java.util.Collection<Characteristics.Characteristic> defined = ability.definesCharacteristics();
+				if(!java.util.Collections.disjoint(defined, dontCopy))
+					toRemove.add(abilityID);
+			}
+			for(int abilityID: toRemove)
+				characteristics.removeStaticAbility(abilityID);
 		}
-		for(int abilityID: toRemove)
-			this.characteristics.removeStaticAbility(abilityID);
 
 		Characteristics flipped = original.getBottomHalf();
 		if(flipped == null)
@@ -66,125 +72,17 @@ public class CopiableValues
 		else
 		{
 			this.bottomHalf = flipped.create(target);
-			this.bottomHalf.colors = this.characteristics.colors;
-			this.bottomHalf.manaCost = this.characteristics.manaCost;
+			this.bottomHalf.colors = this.characteristics[0].colors;
+			this.bottomHalf.manaCost = this.characteristics[0].manaCost;
 		}
 		this.originalWasOnStack = (original.zoneID == game.physicalState.stack().ID);
 	}
 
-	@SuppressWarnings("unchecked")
 	public void apply(GameState state, GameObject object)
 	{
 		if(object == null)
 			return;
 
 		object.applyCopiableValues(state, this);
-
-		/*
-		Characteristics toApply = this.characteristics;
-		if(this.bottomHalf != null && object.isFlipped())
-			toApply = this.bottomHalf;
-
-		if(this.toCopy.contains(Characteristics.Characteristic.NAME))
-			object.setName(toApply.name);
-
-		if(this.toCopy.contains(Characteristics.Characteristic.POWER))
-			object.setPower(toApply.power);
-
-		if(this.toCopy.contains(Characteristics.Characteristic.TOUGHNESS))
-			object.setToughness(toApply.toughness);
-
-		if(this.toCopy.contains(Characteristics.Characteristic.LOYALTY))
-			object.setPrintedLoyalty(toApply.loyalty);
-
-		if(this.toCopy.contains(Characteristics.Characteristic.MANA_COST))
-		{
-			if(toApply.manaCost != null)
-				object.setManaCost(new ManaPool(toApply.manaCost));
-			else
-				object.setManaCost(null);
-		}
-
-		if(this.toCopy.contains(Characteristics.Characteristic.RULES_TEXT))
-		{
-			object.setMinimumX(toApply.minimumX);
-
-			object.removeAllAbilities();
-			{
-				for(Integer abilityID: toApply.nonStaticAbilities)
-					object.addAbility(state.<NonStaticAbility>get(abilityID));
-				for(Integer abilityID: toApply.staticAbilities)
-					object.addAbility(state.<StaticAbility>get(abilityID));
-
-				// Add keywords without applying them, since the abilities they
-				// would grant have already been taken care of.
-				for(Integer abilityID: toApply.keywordAbilities)
-					object.addAbility(state.<Keyword>get(abilityID), false);
-
-				object.setAbilityIDsInOrder(new java.util.List[] {new java.util.LinkedList<Integer>(toApply.abilityIDsInOrder)});
-			}
-
-			object.clearCosts();
-			{
-				for(EventFactory cost: toApply.costs)
-					object.getCosts().add(cost);
-			}
-
-			for(java.util.List<Mode> modes: object.getModes())
-				modes.clear();
-			{
-				for(Mode mode: toApply.modes)
-					object.getModes()[0].add(mode);
-			}
-
-			object.setBottomHalf(this.bottomHalf);
-		}
-
-		if(this.toCopy.contains(Characteristics.Characteristic.COLOR))
-		{
-			object.getColors().clear();
-			object.getColors().addAll(toApply.colors);
-			object.getColorIndicator().clear();
-			object.getColorIndicator().addAll(toApply.colorIndicator);
-		}
-
-		if(this.toCopy.contains(Characteristics.Characteristic.TYPES))
-		{
-			object.removeSuperTypes(object.getSuperTypes());
-			object.addSuperTypes(toApply.superTypes);
-
-			object.removeTypes(object.getTypes());
-			object.addTypes(toApply.types);
-
-			object.removeSubTypes(object.getSubTypes());
-			object.addSubTypes(toApply.subTypes);
-		}
-
-		if(this.originalWasOnStack)
-		{
-			if(this.toCopy.contains(Characteristics.Characteristic.CHOICES_MADE_WHEN_PLAYING))
-			{
-				object.setAlternateCost(toApply.alternateCost);
-
-				for(java.util.Collection<CostCollection> optionalAdditional: object.getOptionalAdditionalCostsChosen())
-					optionalAdditional.clear();
-				for(CostCollection cost: toApply.optionalAdditionalCostsChosen)
-					object.getOptionalAdditionalCostsChosen()[0].add(cost);
-
-				for(java.util.List<Integer> selectedModeNumbers: object.getSelectedModeNumbers())
-					selectedModeNumbers.clear();
-				object.getSelectedModeNumbers()[0].addAll(toApply.selectedModeNumbers);
-
-				object.setValueOfX(toApply.valueOfX);
-
-				for(java.util.Map<Target, java.util.List<Target>> chosenTargets: object.getChosenTargets())
-					chosenTargets.clear();
-				object.getChosenTargets()[0].putAll(toApply.chosenTargets);
-			}
-
-			if(toApply.sourceID != -1 && (object.isActivatedAbility() || object.isTriggeredAbility()))
-				((NonStaticAbility)object).sourceID = toApply.sourceID;
-		}
-		*/
 	}
 }

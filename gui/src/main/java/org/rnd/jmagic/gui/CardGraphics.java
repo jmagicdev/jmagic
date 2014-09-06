@@ -124,11 +124,11 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 	private static java.util.Set<SanitizedGameObject.CharacteristicSet> getLargeCardDisplayOptions(SanitizedGameObject object)
 	{
 		java.util.Set<SanitizedGameObject.CharacteristicSet> ret = java.util.EnumSet.noneOf(SanitizedGameObject.CharacteristicSet.class);
-		if(object.characteristics.containsKey(SanitizedGameObject.CharacteristicSet.PHYSICAL))
+		if(object.characteristics[0].containsKey(SanitizedGameObject.CharacteristicSet.PHYSICAL))
 			ret.add(SanitizedGameObject.CharacteristicSet.PHYSICAL);
-		if(!object.flipped && object.characteristics.containsKey(SanitizedGameObject.CharacteristicSet.FLIP))
+		if(!object.flipped && object.characteristics[0].containsKey(SanitizedGameObject.CharacteristicSet.FLIP))
 			ret.add(SanitizedGameObject.CharacteristicSet.FLIP);
-		if(!object.transformed && object.characteristics.containsKey(SanitizedGameObject.CharacteristicSet.BACK_FACE))
+		if(!object.transformed && object.characteristics[0].containsKey(SanitizedGameObject.CharacteristicSet.BACK_FACE))
 			ret.add(SanitizedGameObject.CharacteristicSet.BACK_FACE);
 		return ret;
 	}
@@ -225,7 +225,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 
 		java.util.Set<Color> colors = null;
 
-		SanitizedCharacteristics c = o.characteristics.get(option);
+		SanitizedCharacteristics c = o.characteristics[0].get(option);
 
 		if(c.types.contains(Type.LAND))
 			colors = o.canProduce;
@@ -505,7 +505,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 	/**
 	 * Construct a CardGraphics by casting a {@link java.awt.Graphics} to a
 	 * {@link java.awt.Graphics2D} and keeping the result as the delegate.
-	 * 
+	 *
 	 * @param graphics The {@link java.awt.Graphics} to cast
 	 * @throws ClassCastException If <code>graphics</code> is not a
 	 * {@link java.awt.Graphics2D} object
@@ -528,7 +528,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 	 * look-and-feel. This method exists because, since BufferedImages' graphics
 	 * aren't usually used to draw text, they don't specify their fonts
 	 * "correctly".
-	 * 
+	 *
 	 * @param image The image whose graphics to create this CardGraphics from.
 	 */
 	public CardGraphics(java.awt.image.BufferedImage image, SanitizedGameState state, java.awt.Font font)
@@ -596,7 +596,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 
 	/**
 	 * Draws text.
-	 * 
+	 *
 	 * @param text The text to draw.
 	 * @param x The leftmost pixel of text.
 	 * @param y The top of the text.
@@ -614,7 +614,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 	 * Draws black card text to fit within a specific boundary. The text is
 	 * drawn at the default size if it will fit; otherwise, the text is shrunk
 	 * by half-point increments until it fits.
-	 * 
+	 *
 	 * @param text The text to draw.
 	 * @param font The font with which to render the text.
 	 * @param x The leftmost pixel of text.
@@ -634,7 +634,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 	 * Draws card text to fit within a specific boundary. The text is drawn at
 	 * the default size if it will fit; otherwise, the text is shrunk by
 	 * half-point increments until it fits.
-	 * 
+	 *
 	 * @param text The text to draw.
 	 * @param font The font with which to render the text.
 	 * @param x The leftmost pixel of text.
@@ -734,7 +734,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 
 	/**
 	 * Draws a single line of right-aligned text.
-	 * 
+	 *
 	 * @param text The text to draw.
 	 * @param x The x-coordinate of rightmost pixel of text.
 	 * @param y The y-coordinate of the top of the text.
@@ -821,7 +821,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 		}
 
 		SanitizedGameObject object = (SanitizedGameObject)i;
-		SanitizedCharacteristics c = object.characteristics.get(option);
+		SanitizedCharacteristics c = object.characteristics[0].get(option);
 		boolean isAbility = i instanceof SanitizedNonStaticAbility;
 
 		String name;
@@ -963,7 +963,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 		if(o instanceof SanitizedGameObject)
 		{
 			SanitizedGameObject object = (SanitizedGameObject)o;
-			SanitizedCharacteristics characteristics = object.characteristics.get(SanitizedGameObject.CharacteristicSet.ACTUAL);
+			SanitizedCharacteristics characteristics = object.characteristics[0].get(SanitizedGameObject.CharacteristicSet.ACTUAL);
 
 			java.awt.Image art = getCardArt(characteristics.name, false);
 			if(0 != characteristics.name.length())
@@ -1122,7 +1122,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 	private int loyaltyOf(SanitizedGameObject o, SanitizedGameObject.CharacteristicSet set)
 	{
 		if(o.zoneID != this.state.battlefield)
-			return o.characteristics.get(set).printedLoyalty;
+			return o.characteristics[0].get(set).printedLoyalty;
 
 		int loyaltyCounters = 0;
 		for(Counter c: o.counters)
@@ -1146,7 +1146,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 	 * something. This function assumes that the graphics have been translated
 	 * to the upper left corner of the rectangle representing the card or
 	 * card-like object over which the number is to be drawn.
-	 * 
+	 *
 	 * @param division The number to draw.
 	 */
 	public void drawDivision(int division)

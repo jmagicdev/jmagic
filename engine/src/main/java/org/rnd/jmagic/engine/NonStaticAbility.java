@@ -83,10 +83,10 @@ public abstract class NonStaticAbility extends GameObject implements Linkable
 	}
 
 	@Override
-	public Characteristics getCharacteristics()
+	public Characteristics[] getCharacteristics()
 	{
-		Characteristics ret = super.getCharacteristics();
-		ret.sourceID = this.sourceID;
+		Characteristics[] ret = super.getCharacteristics();
+		ret[0].sourceID = this.sourceID;
 		return ret;
 	}
 

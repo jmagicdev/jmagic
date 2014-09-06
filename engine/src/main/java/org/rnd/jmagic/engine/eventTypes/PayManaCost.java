@@ -22,9 +22,22 @@ public final class PayManaCost extends EventType
 	public boolean attempt(Game game, Event event, java.util.Map<Parameter, Set> parameters)
 	{
 		GameObject object = parameters.get(Parameter.OBJECT).getOne(GameObject.class);
-		if(object == null || object.getManaCost() != null)
+		if(object == null)
 			return true;
 
+		// If the object has no null costs, then pay its mana can be attempted.
+		boolean nullPool = false;
+		for(ManaPool pool: object.getManaCost())
+			if(pool == null)
+			{
+				nullPool = true;
+				break;
+			}
+
+		if(!nullPool)
+			return true;
+
+		// Otherwise, check if any of the alternate costs could be attempted.
 		Player player = parameters.get(Parameter.PLAYER).getOne(Player.class);
 		if(null != object.alternateCosts)
 			for(AlternateCost c: object.alternateCosts)

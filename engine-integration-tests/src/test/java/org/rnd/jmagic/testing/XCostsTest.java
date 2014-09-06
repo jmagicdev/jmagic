@@ -148,12 +148,12 @@ public class XCostsTest extends JUnitTest
 		respondWith(getMana(Color.BLACK, Color.RED, Color.BLACK, Color.BLACK, Color.BLACK, Color.BLACK, Color.BLACK));
 		// You shouldn't have any actions since all your spells are artifacts
 		assertEquals(0, this.choices.size());
-		assertEquals(7, this.game.actualState.stack().objects.get(0).getConvertedManaCost());
+		assertEquals(7, this.game.actualState.stack().objects.get(0).getConvertedManaCost()[0]);
 		pass();
 		pass();
 
 		assertEquals(0, this.game.actualState.stack().objects.size());
-		assertEquals(2, getGraveyard(0).objects.get(0).getConvertedManaCost());
+		assertEquals(2, getGraveyard(0).objects.get(0).getConvertedManaCost()[0]);
 		// Three black lotuses
 		assertEquals(3, this.choices.size());
 
@@ -229,7 +229,7 @@ public class XCostsTest extends JUnitTest
 		respondWith(Color.BLACK);
 		donePlayingManaAbilities();
 		respondWith(getMana(Color.RED, Color.RED, Color.RED, Color.BLUE, Color.BLACK, Color.BLUE, Color.BLACK, Color.BLUE));
-		assertEquals(8, this.game.actualState.stack().objects.get(0).getConvertedManaCost());
+		assertEquals(8, this.game.actualState.stack().objects.get(0).getConvertedManaCost()[0]);
 		pass();
 		pass();
 
@@ -239,7 +239,7 @@ public class XCostsTest extends JUnitTest
 		assertEquals(1, player(0).pool.converted());
 
 		assertEquals(0, this.game.actualState.stack().objects.size());
-		assertEquals(1, getGraveyard(0).objects.get(0).getConvertedManaCost());
+		assertEquals(1, getGraveyard(0).objects.get(0).getConvertedManaCost()[0]);
 
 	}
 

@@ -12,7 +12,7 @@ public class SanitizedGameObject extends SanitizedIdentified
 
 	private static final long serialVersionUID = 10L;
 
-	public final java.util.Map<CharacteristicSet, SanitizedCharacteristics> characteristics;
+	public final java.util.Map<CharacteristicSet, SanitizedCharacteristics>[] characteristics;
 
 	public final int controllerID;
 	public final int ownerID;
@@ -43,6 +43,7 @@ public class SanitizedGameObject extends SanitizedIdentified
 
 	public final int pairedWith;
 
+	@SuppressWarnings("unchecked")
 	public SanitizedGameObject(GameObject go, Player whoFor)
 	{
 		super(go);
@@ -51,8 +52,13 @@ public class SanitizedGameObject extends SanitizedIdentified
 		this.ownerID = go.ownerID;
 		this.zoneID = go.zoneID;
 
-		this.characteristics = new java.util.HashMap<CharacteristicSet, SanitizedCharacteristics>();
-		this.characteristics.put(CharacteristicSet.ACTUAL, go.getCharacteristics().sanitize(go.state, whoFor));
+		Characteristics[] objectCharacteristics = go.getCharacteristics();
+		this.characteristics = new java.util.HashMap[objectCharacteristics.length];
+		for(int i = 0; i < this.characteristics.length; ++i)
+		{
+			this.characteristics[i] = new java.util.HashMap<CharacteristicSet, SanitizedCharacteristics>();
+			this.characteristics[i].put(CharacteristicSet.ACTUAL, objectCharacteristics[i].sanitize(go.state, whoFor));
+		}
 
 		this.counters = go.counters;
 		this.damage = go.getDamage();
@@ -131,43 +137,46 @@ public class SanitizedGameObject extends SanitizedIdentified
 		if(this.transformed)
 			storePhysical = true;
 		else if(go.getBackFace() != null)
-			this.characteristics.put(CharacteristicSet.BACK_FACE, go.getBackFace().sanitize(go.state, whoFor));
+			this.characteristics[0].put(CharacteristicSet.BACK_FACE, go.getBackFace().sanitize(go.state, whoFor));
 
 		boolean faceDown = go.faceDownValues != null;
 		boolean physicallyVisible = go.getPhysical().isVisibleTo(whoFor);
 		if((faceDown && physicallyVisible) || (!faceDown && actuallyVisible))
 		{
 			if(!this.flipped && go.getBottomHalf() != null)
-				this.characteristics.put(CharacteristicSet.FLIP, go.getBottomHalf().sanitize(go.state, whoFor));
+				this.characteristics[0].put(CharacteristicSet.FLIP, go.getBottomHalf().sanitize(go.state, whoFor));
 			if(go.hasACopyEffect || this.flipped)
 				storePhysical = true;
 		}
 
 		if(storePhysical || (faceDown && physicallyVisible))
-			this.characteristics.put(CharacteristicSet.PHYSICAL, go.getPhysical().getCharacteristics().sanitize(go.game.physicalState, whoFor));
+			this.characteristics[0].put(CharacteristicSet.PHYSICAL, go.getPhysical().getCharacteristics()[0].sanitize(go.game.physicalState, whoFor));
 	}
 
 	public java.util.Collection<org.rnd.jmagic.sanitized.SanitizedIdentified> sanitizeAbilities(GameState state, Player whoFor)
 	{
 		java.util.Collection<org.rnd.jmagic.sanitized.SanitizedIdentified> ret = new java.util.LinkedList<org.rnd.jmagic.sanitized.SanitizedIdentified>();
-		for(SanitizedCharacteristics characteristics: this.characteristics.values())
-			for(int ID: characteristics.abilities)
-			{
-				if(ID == -1)
-					continue;
+		for(java.util.Map<CharacteristicSet, SanitizedCharacteristics> characteristicsMap: this.characteristics)
+			for(SanitizedCharacteristics characteristics: characteristicsMap.values())
+				for(int ID: characteristics.abilities)
+				{
+					if(ID == -1)
+						continue;
 
-				GameState sanitizeIn = state;
-				if(!state.containsIdentified(ID))
-					// this can happen if we are looking at a back face or
-					// bottom half of a card that is front-face-up or unflipped.
-					// Sanitizing such an object causes its
-					// back-face/bottom-half abilities to be generated in the
-					// physical state.
-					sanitizeIn = state.game.physicalState;
-				Identified ability = sanitizeIn.get(ID);
-				java.io.Serializable sanitized = ((Sanitizable)ability).sanitize(sanitizeIn, whoFor);
-				ret.add((org.rnd.jmagic.sanitized.SanitizedIdentified)sanitized);
-			}
+					GameState sanitizeIn = state;
+					if(!state.containsIdentified(ID))
+						// this can happen if we are looking at a back face or
+						// bottom half of a card that is front-face-up or
+						// unflipped.
+						// Sanitizing such an object causes its
+						// back-face/bottom-half abilities to be generated in
+						// the
+						// physical state.
+						sanitizeIn = state.game.physicalState;
+					Identified ability = sanitizeIn.get(ID);
+					java.io.Serializable sanitized = ((Sanitizable)ability).sanitize(sanitizeIn, whoFor);
+					ret.add((org.rnd.jmagic.sanitized.SanitizedIdentified)sanitized);
+				}
 		return ret;
 	}
 }

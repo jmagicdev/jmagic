@@ -274,7 +274,7 @@ public class JMagicTextPane extends javax.swing.JTextPane
 			firstLine = false;
 		}
 
-		SanitizedCharacteristics c = o.characteristics.get(displayOption);
+		SanitizedCharacteristics c = o.characteristics[0].get(displayOption);
 
 		if(o instanceof SanitizedActivatedAbility)
 		{

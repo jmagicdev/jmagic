@@ -686,7 +686,9 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	public GameObject clone(GameState state)
 	{
 		GameObject ret = (GameObject)super.clone(state);
-		ret.characteristics = this.characteristics.clone();
+		ret.characteristics = new Characteristics[this.characteristics.length];
+		for(int i = 0; i < ret.characteristics.length; ++i)
+			ret.characteristics[i] = this.characteristics[i].clone();
 
 		if(this.backFace != null)
 			ret.backFace = this.backFace.clone();
@@ -931,10 +933,12 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		return this.battlefieldProperties.blockingIDs;
 	}
 
-	public Characteristics getCharacteristics()
+	public Characteristics[] getCharacteristics()
 	{
-		this.characteristics[0].name = this.getName();
-		return this.characteristics[0];
+		for(Characteristics characteristics: this.characteristics)
+			if(null == characteristics.name || characteristics.name.isEmpty())
+				characteristics.name = this.getName();
+		return this.characteristics;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -1234,7 +1238,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		}, java.util.EnumSet<SubType>::addAll, (left, right) -> {
 			left.addAll(right);
 			return left;
-		}, Collections::unmodifiableSet));
+		}));
 	}
 
 	public java.util.Set<SuperType> getSuperTypes()
@@ -1244,7 +1248,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		}, java.util.EnumSet<SuperType>::addAll, (left, right) -> {
 			left.addAll(right);
 			return left;
-		}, Collections::unmodifiableSet));
+		}));
 	}
 
 	public int getTimestamp()
@@ -1264,7 +1268,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		}, java.util.EnumSet<Type>::addAll, (left, right) -> {
 			left.addAll(right);
 			return left;
-		}, Collections::unmodifiableSet));
+		}));
 	}
 
 	public int getValueOfX()
@@ -1637,10 +1641,11 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		java.util.Arrays.stream(this.characteristics).forEach(t -> t.types.removeAll(types));
 	}
 
-	public boolean reselectTargets(Player chooser)
+	/**
+	 * @return A set containing the IDs of the newly selected targets.
+	 */
+	public java.util.Set<Integer> reselectTargets(Player chooser)
 	{
-		boolean ret = true;
-
 		java.util.Set<Integer> newTargetIDs = new java.util.HashSet<Integer>();
 
 		java.util.Map<Target, List<Target>> chosenTargets = new java.util.HashMap<>();
@@ -1681,15 +1686,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 			}
 		}
 
-		if(!newTargetIDs.isEmpty())
-		{
-			EventFactory becomesTarget = new EventFactory(EventType.BECOMES_TARGET, "Changed targets of " + this);
-			becomesTarget.parameters.put(EventType.Parameter.OBJECT, Identity.instance(this));
-			becomesTarget.parameters.put(EventType.Parameter.TARGET, IdentifiedWithID.instance(newTargetIDs));
-			becomesTarget.createEvent(this.game, null).perform(null, true);
-		}
-
-		return ret;
+		return newTargetIDs;
 	}
 
 	/** Resolves this object. */
@@ -2158,106 +2155,132 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public void applyCopiableValues(GameState state, CopiableValues cvs)
 	{
-		Characteristics toApply = cvs.characteristics;
-
-		if(cvs.bottomHalf != null && this.isFlipped())
-			toApply = cvs.bottomHalf;
-
-		if(cvs.toCopy.contains(Characteristics.Characteristic.NAME))
-			this.setName(toApply.name);
-
-		if(cvs.toCopy.contains(Characteristics.Characteristic.POWER))
-			this.setPower(toApply.power);
-
-		if(cvs.toCopy.contains(Characteristics.Characteristic.TOUGHNESS))
-			this.setToughness(toApply.toughness);
-
-		if(cvs.toCopy.contains(Characteristics.Characteristic.LOYALTY))
-			this.setPrintedLoyalty(toApply.loyalty);
-
-		if(cvs.toCopy.contains(Characteristics.Characteristic.MANA_COST))
-		{
-			if(toApply.manaCost != null)
-				this.setManaCost(new ManaPool(toApply.manaCost));
-			else
-				this.setManaCost(null);
-		}
-
 		if(cvs.toCopy.contains(Characteristics.Characteristic.RULES_TEXT))
 		{
-			this.setMinimumX(toApply.minimumX);
-
 			this.removeAllAbilities();
-			{
-				for(Integer abilityID: toApply.nonStaticAbilities)
-					this.addAbility(state.<NonStaticAbility>get(abilityID));
-				for(Integer abilityID: toApply.staticAbilities)
-					this.addAbility(state.<StaticAbility>get(abilityID));
-
-				// Add keywords without applying them, since the abilities they
-				// would grant have already been taken care of.
-				for(Integer abilityID: toApply.keywordAbilities)
-					this.addAbility(state.<Keyword>get(abilityID), false);
-
-				this.setAbilityIDsInOrder(new java.util.LinkedList<Integer>(toApply.abilityIDsInOrder));
-			}
-
-			this.clearCosts();
-			{
-				for(EventFactory cost: toApply.costs)
-					this.getCosts().add(cost);
-			}
-
-			this.getModes().clear();
-			{
-				for(Mode mode: toApply.modes)
-					this.getModes().add(mode);
-			}
-
-			this.setBottomHalf(this.bottomHalf);
+			this.setBottomHalf(cvs.bottomHalf);
 		}
 
-		if(cvs.toCopy.contains(Characteristics.Characteristic.COLOR))
+		if(this.characteristics.length < cvs.characteristics.length)
+			this.characteristics = java.util.Arrays.copyOf(this.characteristics, cvs.characteristics.length);
+
+		// If this object is flipped, then the name will be set by the
+		// Characteristics object for the bottom half, in the next block
+		if(cvs.bottomHalf == null || !this.isFlipped())
+			this.setName(java.util.Arrays.stream(cvs.characteristics).map(t -> t.name).reduce((left, right) -> left + " // " + right).orElse(""));
+
+		for(int i = 0; i < cvs.characteristics.length; ++i)
 		{
-			this.getColors().clear();
-			this.getColors().addAll(toApply.colors);
-			this.getColorIndicator().clear();
-			this.getColorIndicator().addAll(toApply.colorIndicator);
-		}
+			Characteristics toApply = cvs.characteristics[i];
 
-		if(cvs.toCopy.contains(Characteristics.Characteristic.TYPES))
-		{
-			this.removeSuperTypes(this.getSuperTypes());
-			this.addSuperTypes(toApply.superTypes);
-
-			this.removeTypes(this.getTypes());
-			this.addTypes(toApply.types);
-
-			this.removeSubTypes(this.getSubTypes());
-			this.addSubTypes(toApply.subTypes);
-		}
-
-		if(cvs.originalWasOnStack)
-		{
-			if(cvs.toCopy.contains(Characteristics.Characteristic.CHOICES_MADE_WHEN_PLAYING))
+			if(this.characteristics[i] == null)
 			{
-				this.setAlternateCost(toApply.alternateCost);
-
-				this.getOptionalAdditionalCostsChosen().clear();
-				for(CostCollection cost: toApply.optionalAdditionalCostsChosen)
-					this.getOptionalAdditionalCostsChosen().add(cost);
-
-				this.getSelectedModeNumbers().clear();
-				this.getSelectedModeNumbers().addAll(toApply.selectedModeNumbers);
-
-				this.setValueOfX(toApply.valueOfX);
-
-				this.getChosenTargets().clear();
-				this.getChosenTargets().putAll(toApply.chosenTargets);
+				this.characteristics[i] = toApply.create(this);
 			}
+			else
+			{
+				if(cvs.bottomHalf != null && this.isFlipped())
+				{
+					toApply = cvs.bottomHalf;
+					this.setName(toApply.name);
+				}
 
-			if(toApply.sourceID != -1 && (this.isActivatedAbility() || this.isTriggeredAbility()))
-				((NonStaticAbility)this).sourceID = toApply.sourceID;
+				if(cvs.toCopy.contains(Characteristics.Characteristic.NAME))
+					this.characteristics[i].name = toApply.name;
+
+				if(cvs.toCopy.contains(Characteristics.Characteristic.POWER))
+					this.characteristics[i].power = toApply.power;
+
+				if(cvs.toCopy.contains(Characteristics.Characteristic.TOUGHNESS))
+					this.characteristics[i].toughness = toApply.toughness;
+
+				if(cvs.toCopy.contains(Characteristics.Characteristic.LOYALTY))
+					this.characteristics[i].loyalty = toApply.loyalty;
+
+				if(cvs.toCopy.contains(Characteristics.Characteristic.MANA_COST))
+				{
+					if(toApply.manaCost != null)
+						this.characteristics[i].manaCost = new ManaPool(toApply.manaCost);
+					else
+						this.characteristics[i].manaCost = null;
+				}
+
+				if(cvs.toCopy.contains(Characteristics.Characteristic.RULES_TEXT))
+				{
+					this.characteristics[i].minimumX = toApply.minimumX;
+
+					{
+						for(Integer abilityID: toApply.nonStaticAbilities)
+							this.addAbility(state.<NonStaticAbility>get(abilityID));
+						for(Integer abilityID: toApply.staticAbilities)
+							this.addAbility(state.<StaticAbility>get(abilityID));
+
+						// Add keywords without applying them, since the
+						// abilities
+						// they
+						// would grant have already been taken care of.
+						for(Integer abilityID: toApply.keywordAbilities)
+							this.addAbility(state.<Keyword>get(abilityID), false);
+
+						this.characteristics[i].abilityIDsInOrder = new java.util.LinkedList<Integer>(toApply.abilityIDsInOrder);
+					}
+
+					this.characteristics[i].costs.clear();
+					{
+						for(EventFactory cost: toApply.costs)
+							this.characteristics[i].costs.add(cost);
+					}
+
+					this.characteristics[i].modes.clear();
+					{
+						for(Mode mode: toApply.modes)
+							this.characteristics[i].modes.add(mode);
+					}
+
+				}
+
+				if(cvs.toCopy.contains(Characteristics.Characteristic.COLOR))
+				{
+					this.characteristics[i].colors.clear();
+					this.characteristics[i].colors.addAll(toApply.colors);
+					this.characteristics[i].colorIndicator.clear();
+					this.characteristics[i].colorIndicator.addAll(toApply.colorIndicator);
+				}
+
+				if(cvs.toCopy.contains(Characteristics.Characteristic.TYPES))
+				{
+					this.characteristics[i].superTypes.clear();
+					this.characteristics[i].superTypes.addAll(toApply.superTypes);
+
+					this.characteristics[i].types.clear();
+					this.characteristics[i].types.addAll(toApply.types);
+
+					this.characteristics[i].subTypes.clear();
+					this.characteristics[i].subTypes.addAll(toApply.subTypes);
+				}
+
+				if(cvs.originalWasOnStack)
+				{
+					if(cvs.toCopy.contains(Characteristics.Characteristic.CHOICES_MADE_WHEN_PLAYING))
+					{
+						this.characteristics[i].alternateCost = toApply.alternateCost;
+
+						this.characteristics[i].optionalAdditionalCostsChosen.clear();
+						this.characteristics[i].optionalAdditionalCostsChosen.addAll(toApply.optionalAdditionalCostsChosen);
+
+						this.characteristics[i].selectedModeNumbers.clear();
+						this.characteristics[i].selectedModeNumbers.addAll(toApply.selectedModeNumbers);
+
+						this.characteristics[i].valueOfX = toApply.valueOfX;
+
+						this.characteristics[i].chosenTargets.clear();
+						this.characteristics[i].chosenTargets.putAll(toApply.chosenTargets);
+					}
+
+					if(toApply.sourceID != -1 && (this.isActivatedAbility() || this.isTriggeredAbility()))
+						((NonStaticAbility)this).sourceID = toApply.sourceID;
+				}
+			}
 		}
 	}
 }

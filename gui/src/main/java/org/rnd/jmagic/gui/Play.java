@@ -296,7 +296,7 @@ public class Play
 			java.util.List<Integer> abilitiesOnChosenObject = new java.util.LinkedList<Integer>();
 			if(chosenIdentified instanceof SanitizedGameObject)
 			{
-				SanitizedCharacteristics c = ((SanitizedGameObject)chosenIdentified).characteristics.get(SanitizedGameObject.CharacteristicSet.ACTUAL);
+				SanitizedCharacteristics c = ((SanitizedGameObject)chosenIdentified).characteristics[0].get(SanitizedGameObject.CharacteristicSet.ACTUAL);
 				abilitiesOnChosenObject.addAll(c.abilities);
 				abilitiesOnChosenObject.addAll(c.hiddenAbilities);
 			}
@@ -1946,7 +1946,7 @@ public class Play
 			{
 				SanitizedGameObject object = (SanitizedGameObject)thing;
 				int assigned = this.divisions.get(target.targetID);
-				int toughness = object.characteristics.get(SanitizedGameObject.CharacteristicSet.ACTUAL).toughness;
+				int toughness = object.characteristics[0].get(SanitizedGameObject.CharacteristicSet.ACTUAL).toughness;
 				int extra = Math.max(0, toughness - object.damage - assigned);
 				total += extra;
 

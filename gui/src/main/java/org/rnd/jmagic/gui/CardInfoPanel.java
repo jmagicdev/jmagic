@@ -162,7 +162,7 @@ class CardInfoPanel extends javax.swing.JPanel
 		CardGraphics cardGraphics = new CardGraphics(g, this.gui.state);
 		// If the focus is a SGO without the relevant display option, just show
 		// the actual characteristics
-		if((this.focus instanceof SanitizedGameObject) && !(((SanitizedGameObject)(this.focus)).characteristics.containsKey(this.displayType)))
+		if((this.focus instanceof SanitizedGameObject) && !(((SanitizedGameObject)(this.focus)).characteristics[0].containsKey(this.displayType)))
 			this.displayType = SanitizedGameObject.CharacteristicSet.ACTUAL;
 		cardGraphics.drawImage(getLargeCardImage(this.focus, this.displayType, this.getFont()), 0, 0, null);
 		if(this.scroll.isVisible() && this.focus == null)
@@ -204,7 +204,7 @@ class CardInfoPanel extends javax.swing.JPanel
 
 			// If the focus doesn't have characteristics for the display option,
 			// show the actual characteristics instead
-			if(!(o.characteristics.containsKey(this.displayType)))
+			if(!(o.characteristics[0].containsKey(this.displayType)))
 				this.displayType = SanitizedGameObject.CharacteristicSet.ACTUAL;
 
 			this.textbox.setText(o, state, this.displayType);
@@ -262,7 +262,7 @@ class CardInfoPanel extends javax.swing.JPanel
 			if(id instanceof SanitizedGameObject)
 			{
 				SanitizedGameObject card = (SanitizedGameObject)id;
-				SanitizedCharacteristics characteristics = card.characteristics.get(SanitizedGameObject.CharacteristicSet.ACTUAL);
+				SanitizedCharacteristics characteristics = card.characteristics[0].get(SanitizedGameObject.CharacteristicSet.ACTUAL);
 				for(int modeIndex: characteristics.selectedModes)
 					for(SanitizedTarget possibleTarget: characteristics.modes.get(modeIndex - 1).targets)
 						if(characteristics.chosenTargets.containsKey(possibleTarget))

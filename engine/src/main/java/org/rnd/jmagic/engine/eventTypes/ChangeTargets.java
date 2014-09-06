@@ -80,8 +80,10 @@ public final class ChangeTargets extends EventType
 		{
 			// if the object can be changed and is changed successfully, add
 			// it to results. Otherwise, we're returning false.
-			if(this.canBeChanged(game, object) && object.reselectTargets(chooser))
+			if(this.canBeChanged(game, object))
 			{
+				java.util.Set<Integer> newTargetIDs = object.reselectTargets(chooser);
+
 				// Update the physical object, unless this is the physical
 				// object.
 				for(GameObject objectToUpdate: object.andPhysical())
@@ -98,6 +100,14 @@ public final class ChangeTargets extends EventType
 					}
 				}
 				result.add(object);
+
+				if(!newTargetIDs.isEmpty())
+				{
+					EventFactory becomesTarget = new EventFactory(EventType.BECOMES_TARGET, "Changed targets of " + this);
+					becomesTarget.parameters.put(EventType.Parameter.OBJECT, Identity.instance(this));
+					becomesTarget.parameters.put(EventType.Parameter.TARGET, IdentifiedWithID.instance(newTargetIDs));
+					becomesTarget.createEvent(game, null).perform(null, true);
+				}
 			}
 			else
 				ret = false;

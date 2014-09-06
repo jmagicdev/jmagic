@@ -26,7 +26,7 @@ public class ConvertedManaCostOf extends SetGenerator
 	{
 		Set ret = new Set();
 		for(GameObject object: this.what.evaluate(state, thisObject).getAll(GameObject.class))
-			ret.add(object.getConvertedManaCost());
+			ret.addAll(object.getConvertedManaCost());
 		return ret;
 	}
 

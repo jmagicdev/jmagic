@@ -28,7 +28,7 @@ public class Characteristics implements Sanitizable, Cloneable
 		// class by ID
 		game.physicalState.removeIdentified(dummy.ID);
 
-		Characteristics ret = dummy.getCharacteristics();
+		Characteristics ret = dummy.getCharacteristics()[0];
 		for(int a: ret.nonStaticAbilities)
 		{
 			NonStaticAbility ability = game.physicalState.<NonStaticAbility>get(a);
@@ -43,6 +43,8 @@ public class Characteristics implements Sanitizable, Cloneable
 		}
 		for(int a: ret.keywordAbilities)
 			game.actualState.put(game.physicalState.<Keyword>get(a));
+
+		ret.name = dummy.getName();
 
 		return ret;
 	}

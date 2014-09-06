@@ -426,7 +426,9 @@ public final class CastSpellOrActivateAbility extends EventType
 				// if Branching Bolt is cast with no creatures in play
 				java.util.List<Integer>[] selectedModeNumbers = physicalOnStack.getSelectedModeNumbers();
 				for(int i = 0; i < selectedModeNumbers.length; ++i)
-					if(!onStack.getNumModes()[i].contains(selectedModeNumbers[i].size()))
+					// Use Intersect with Sets here instead of contains because
+					// Intersect does magic with ranges.
+					if(Intersect.get(onStack.getNumModes()[i], new Set(selectedModeNumbers[i].size())).isEmpty())
 						return false;
 			}
 			// Otherwise, choose all the modes

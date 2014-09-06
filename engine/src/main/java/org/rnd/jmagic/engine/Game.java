@@ -1588,12 +1588,15 @@ public class Game
 	public void removeObject(GameObject voided)
 	{
 		this.physicalState.removeIdentified(voided.ID);
-		for(int a: voided.getCharacteristics().nonStaticAbilities)
-			this.physicalState.removeIdentified(a);
-		for(int a: voided.getCharacteristics().staticAbilities)
-			this.physicalState.removeIdentified(a);
-		for(int a: voided.getCharacteristics().keywordAbilities)
-			this.physicalState.removeIdentified(a);
+		for(Characteristics characteristics: voided.getCharacteristics())
+		{
+			for(int a: characteristics.nonStaticAbilities)
+				this.physicalState.removeIdentified(a);
+			for(int a: characteristics.staticAbilities)
+				this.physicalState.removeIdentified(a);
+			for(int a: characteristics.keywordAbilities)
+				this.physicalState.removeIdentified(a);
+		}
 	}
 
 	/**

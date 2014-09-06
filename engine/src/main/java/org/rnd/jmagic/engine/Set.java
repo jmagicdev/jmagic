@@ -4,16 +4,16 @@ import java.util.Collection;
 
 /**
  * Represents a Magic-specific version of a mathematical set.
- * 
+ *
  * A mathematical set is a collection of things where duplicates are not
  * allowed. Java provides an interface at java.util.Set which represents a
  * contract for this functionality.
- * 
+ *
  * There are two main differences between this class and the mathematical set.
  * The first is that, while most things (GameObjects, Zones, etc.) may not
  * appear more than once, integers may. So a Set could (for example) contain [2,
  * 2, Battlefield], but not [2, Battlefield, Battlefield].
- * 
+ *
  * The other main difference is that only one NumberRange may appear in a Set.
  */
 public class Set implements java.util.Set<Object>, java.io.Serializable
@@ -159,7 +159,7 @@ public class Set implements java.util.Set<Object>, java.io.Serializable
 
 	/**
 	 * Constructs a Set containing all the elements in a given collection.
-	 * 
+	 *
 	 * @param c The collection.
 	 */
 	public static Set fromCollection(Collection<?> c)
@@ -198,7 +198,7 @@ public class Set implements java.util.Set<Object>, java.io.Serializable
 
 	/**
 	 * Constructs a Set containing all the elements in a given array.
-	 * 
+	 *
 	 * @param c The array.
 	 */
 	public Set(Object... c)
@@ -227,9 +227,26 @@ public class Set implements java.util.Set<Object>, java.io.Serializable
 		}
 	}
 
+	public Set(int... c)
+	{
+		this();
+
+		if(null == c)
+			throw new UnsupportedOperationException("Attempt to add to a Set with a null collection");
+
+		for(int i: c)
+			this.store.add(new IntWrapper((Integer)i));
+	}
+
+	public Set(int c)
+	{
+		this();
+		this.store.add(new IntWrapper((Integer)c));
+	}
+
 	/**
 	 * Adds an element to this Set.
-	 * 
+	 *
 	 * @param e The element
 	 */
 	@Override
@@ -260,7 +277,7 @@ public class Set implements java.util.Set<Object>, java.io.Serializable
 
 	/**
 	 * Adds all the elements of a collection to this set.
-	 * 
+	 *
 	 * @param c The collection.
 	 * @return True if this Set changed as a result of this call; false
 	 * otherwise.
@@ -297,6 +314,18 @@ public class Set implements java.util.Set<Object>, java.io.Serializable
 			if((isInt && this.store.add(new IntWrapper((Integer)e))) || (!isInt && this.store.add(e)))
 				changed = true;
 		}
+		return changed;
+	}
+
+	public boolean addAll(int... c)
+	{
+		if(null == c)
+			throw new UnsupportedOperationException("Attempt to add to a Set with a null collection");
+
+		boolean changed = false;
+		for(int i: c)
+			changed = this.store.add(new IntWrapper((Integer)i)) || changed;
+
 		return changed;
 	}
 
@@ -346,7 +375,7 @@ public class Set implements java.util.Set<Object>, java.io.Serializable
 
 	/**
 	 * Gets all elements of a specific type from this Set.
-	 * 
+	 *
 	 * @param <T> The type.
 	 * @param c The type.
 	 * @return The elements.
@@ -373,7 +402,7 @@ public class Set implements java.util.Set<Object>, java.io.Serializable
 
 	/**
 	 * Gets all classes from this Set which are assignable to a specific class.
-	 * 
+	 *
 	 * @param c The specific class to check against.
 	 * @return The elements.
 	 */
@@ -389,7 +418,7 @@ public class Set implements java.util.Set<Object>, java.io.Serializable
 
 	/**
 	 * Gets a single element out of this Set.
-	 * 
+	 *
 	 * @param <T> The kind of item to get.
 	 * @param c The kind of item to get.
 	 * @return An arbitrary element of type <T> from this Set if it contains
@@ -439,7 +468,7 @@ public class Set implements java.util.Set<Object>, java.io.Serializable
 	/**
 	 * Removes the specified element from this Set (assuming this set contains
 	 * the specified element).
-	 * 
+	 *
 	 * @param arg0 The element to remove.
 	 * @return Whether this Set changed as a result of this call.
 	 */
@@ -451,7 +480,7 @@ public class Set implements java.util.Set<Object>, java.io.Serializable
 
 	/**
 	 * Removes all elements in the specified collection from this set.
-	 * 
+	 *
 	 * @param arg0 A collection containing the elements to remove.
 	 * @return Whether this Set changed as a result of this call.
 	 */
@@ -464,7 +493,7 @@ public class Set implements java.util.Set<Object>, java.io.Serializable
 	/**
 	 * Removes all elements in this Set that are not in the specified
 	 * collection.
-	 * 
+	 *
 	 * @param arg0 The elements to retain in this Set.
 	 * @return Whether this Set changed as a result of this call.
 	 */
@@ -497,11 +526,11 @@ public class Set implements java.util.Set<Object>, java.io.Serializable
 	 * fits in the specified array, it is returned therein. Otherwise, a new
 	 * array is allocated with the runtime type of the specified array and the
 	 * size of this set.
-	 * 
+	 *
 	 * If this Set fits in the specified array with room to spare, the element
 	 * in the array immediately following the end of the Set is set to
 	 * <code>null</code>.
-	 * 
+	 *
 	 * @param arg0 The array into which the elements of this Set are to be
 	 * stored, if it is big enough; otherwise, a new array of the same runtime
 	 * type is allocated for this purpose.

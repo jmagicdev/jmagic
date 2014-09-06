@@ -16,6 +16,6 @@ public class ConvertedManaCostTest extends JUnitTest
 		this.addDeck();
 		startGame(new Open());
 
-		assertEquals(6, getLibrary(0).objects.get(0).getConvertedManaCost());
+		assertEquals(6, getLibrary(0).objects.get(0).getConvertedManaCost()[0]);
 	}
 }

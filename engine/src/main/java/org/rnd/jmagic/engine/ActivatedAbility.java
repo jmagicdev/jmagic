@@ -93,7 +93,7 @@ public abstract class ActivatedAbility extends NonStaticAbility
 
 	/**
 	 * Constructs an activated ability that does nothing.
-	 * 
+	 *
 	 * @param state The game state in which the ability exists.
 	 * @param abilityText The text of the ability.
 	 */
@@ -101,7 +101,7 @@ public abstract class ActivatedAbility extends NonStaticAbility
 	{
 		super(state, abilityText);
 
-		if(this.getManaCost() == null)
+		if(this.getManaCost()[0] == null)
 			this.setManaCost(new ManaPool(""));
 
 		this.costsTap = false;
@@ -170,7 +170,7 @@ public abstract class ActivatedAbility extends NonStaticAbility
 	/**
 	 * Combine a restriction on when this ability may not be activated with the
 	 * default value.
-	 * 
+	 *
 	 * @param restriction A SetGenerator that evaluates to a non-empty set if
 	 * this ability may not be activated.
 	 */
@@ -236,7 +236,7 @@ public abstract class ActivatedAbility extends NonStaticAbility
 
 	/**
 	 * Determines whether this ability is a mana ability.
-	 * 
+	 *
 	 * 605.1a An activated ability without a target that could put mana into a
 	 * player's mana pool when it resolves is a mana ability.
 	 */
@@ -255,7 +255,7 @@ public abstract class ActivatedAbility extends NonStaticAbility
 	 * Adds a play restriction on this ability that prevents the player from
 	 * activating it more than a specified number of times in a turn. This
 	 * method ensures the appropriate Flag exists in the game state.
-	 * 
+	 *
 	 * @param numPlays The maximum number of times per turn this ability can be
 	 * activated.
 	 */
@@ -269,7 +269,7 @@ public abstract class ActivatedAbility extends NonStaticAbility
 	/**
 	 * Puts an instance of this ability on the stack if it's not a mana ability.
 	 * The ability's controller will be the player currently taking an action.
-	 * 
+	 *
 	 * @return The instance of the ability on the stack, or if it's a mana
 	 * ability, the instance of the ability which will resolve and produce mana.
 	 */
@@ -307,7 +307,7 @@ public abstract class ActivatedAbility extends NonStaticAbility
 	/**
 	 * Set a permission for when this ability may be activated from its current
 	 * location.
-	 * 
+	 *
 	 * @param permission A {@link SetGenerator} that evaluates to a non-empty
 	 * set if this ability may be activated from its current location.
 	 */
