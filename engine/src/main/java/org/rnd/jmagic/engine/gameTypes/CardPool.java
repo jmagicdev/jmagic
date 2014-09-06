@@ -57,15 +57,15 @@ public abstract class CardPool implements GameTypeRule
 	}
 
 	@Override
-	public boolean checkDeck(java.util.Map<String, java.util.List<Class<? extends Card>>> deck)
+	public boolean checkDeck(java.util.Map<String, java.util.List<String>> deck)
 	{
 		if(this.restrictedList.isEmpty())
 			return true;
 
 		// keys are card classes, values are numbers of that card
-		java.util.Collection<Class<? extends Card>> restrictedCardsPresent = new java.util.LinkedList<Class<? extends Card>>();
-		for(java.util.List<Class<? extends Card>> deckPart: deck.values())
-			for(Class<? extends Card> card: deckPart)
+		java.util.Collection<String> restrictedCardsPresent = new java.util.LinkedList<String>();
+		for(java.util.List<String> deckPart: deck.values())
+			for(String card: deckPart)
 				if(this.restrictedList.contains(card))
 				{
 					if(restrictedCardsPresent.contains(card))

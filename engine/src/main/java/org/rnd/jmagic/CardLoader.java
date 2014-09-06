@@ -50,6 +50,8 @@ public class CardLoader
 
 	private static java.util.Map<String, String> NON_ASCII_REPLACE;
 
+	private static java.util.Map<String, Class<? extends Card>> NAME_CACHE = new java.util.HashMap<>();
+
 	static
 	{
 		// If you add new patterns here, you should probably change
@@ -109,11 +111,17 @@ public class CardLoader
 	 */
 	public static Class<? extends Card> getCard(String name) throws CardLoaderException
 	{
+		if(NAME_CACHE.containsKey(name))
+			return NAME_CACHE.get(name);
+
 		for(Expansion expansion: Expansion.list())
 		{
 			Class<? extends Card> card = expansion.getCard(name);
 			if(null != card)
+			{
+				NAME_CACHE.put(name, card);
 				return card;
+			}
 		}
 		throw new CardLoaderException(name);
 	}

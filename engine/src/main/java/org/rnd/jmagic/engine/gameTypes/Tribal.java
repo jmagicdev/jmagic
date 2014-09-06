@@ -19,7 +19,7 @@ public class Tribal extends GameType.SimpleGameTypeRule
 	}
 
 	@Override
-	public boolean checkDeck(java.util.Map<String, java.util.List<Class<? extends Card>>> deck)
+	public boolean checkDeck(java.util.Map<String, java.util.List<String>> deck)
 	{
 		java.util.Map<SubType, Integer> count = new java.util.HashMap<SubType, Integer>();
 		for(SubType subType: SubType.getAllCreatureTypes())
@@ -27,16 +27,24 @@ public class Tribal extends GameType.SimpleGameTypeRule
 
 		int total = 0;
 
-		for(java.util.List<Class<? extends Card>> cards: deck.values())
-			for(Class<? extends Card> card: cards)
-			{
-				SubTypes subTypes = card.getAnnotation(SubTypes.class);
-				if(subTypes != null)
-					for(SubType subType: subTypes.value())
-						if(count.containsKey(subType))
-							count.put(subType, count.get(subType) + 1);
-				++total;
-			}
+		try
+		{
+			for(java.util.List<String> cards: deck.values())
+				for(String cardName: cards)
+				{
+					Class<? extends Card> card = org.rnd.jmagic.CardLoader.getCard(cardName);
+					SubTypes subTypes = card.getAnnotation(SubTypes.class);
+					if(subTypes != null)
+						for(SubType subType: subTypes.value())
+							if(count.containsKey(subType))
+								count.put(subType, count.get(subType) + 1);
+					++total;
+				}
+		}
+		catch(org.rnd.jmagic.CardLoader.CardLoaderException e)
+		{
+			throw new RuntimeException("Couldn't load a card during checkDeck, something is horribly broken.");
+		}
 
 		int max = java.util.Collections.max(count.values());
 

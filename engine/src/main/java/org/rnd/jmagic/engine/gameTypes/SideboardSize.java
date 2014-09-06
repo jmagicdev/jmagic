@@ -25,7 +25,7 @@ public class SideboardSize extends GameType.SimpleGameTypeRule
 	}
 
 	@Override
-	public boolean checkDeck(java.util.Map<String, java.util.List<Class<? extends Card>>> deck)
+	public boolean checkDeck(java.util.Map<String, java.util.List<String>> deck)
 	{
 		int sideboardSize = deck.get(Deck.SIDEBOARD).size();
 		return sideboardSize <= this.maximumSize;

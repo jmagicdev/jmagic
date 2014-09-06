@@ -1,5 +1,6 @@
 package org.rnd.jmagic.engine.gameTypes;
 
+import org.rnd.jmagic.CardLoader.CardLoaderException;
 import org.rnd.jmagic.engine.*;
 
 /**
@@ -30,26 +31,34 @@ public class MaximumCardCount extends GameType.SimpleGameTypeRule
 	 * play.
 	 */
 	@Override
-	public boolean checkDeck(java.util.Map<String, java.util.List<Class<? extends Card>>> deck)
+	public boolean checkDeck(java.util.Map<String, java.util.List<String>> deck)
 	{
 		// keys are card classes, values are numbers of that card
-		java.util.Map<Class<? extends Card>, Integer> cardCounts = new java.util.HashMap<Class<? extends Card>, Integer>();
-		for(java.util.List<Class<? extends Card>> deckPart: deck.values())
-			for(Class<? extends Card> card: deckPart)
-				if(!AnyNumberInADeck.class.isAssignableFrom(card))
-				{
-					Integer count = cardCounts.remove(card);
-					if(count == null)
-						cardCounts.put(card, 1);
-					else
+		java.util.Map<String, Integer> cardCounts = new java.util.HashMap<>();
+		try
+		{
+			for(java.util.List<String> deckPart: deck.values())
+				for(String card: deckPart)
+					if(!AnyNumberInADeck.class.isAssignableFrom(org.rnd.jmagic.CardLoader.getCard(card)))
 					{
-						// It will only be >= if it is ==, since we only ever
-						// increment by one, and check every time.
-						if(count == this.maximum)
-							return false;
-						cardCounts.put(card, count + 1);
+						Integer count = cardCounts.remove(card);
+						if(count == null)
+							cardCounts.put(card, 1);
+						else
+						{
+							// It will only be >= if it is ==, since we only
+							// ever
+							// increment by one, and check every time.
+							if(count == this.maximum)
+								return false;
+							cardCounts.put(card, count + 1);
+						}
 					}
-				}
+		}
+		catch(CardLoaderException e)
+		{
+			throw new RuntimeException("Couldn't load a card during checkDeck, something is horribly broken.");
+		}
 
 		return true;
 	}

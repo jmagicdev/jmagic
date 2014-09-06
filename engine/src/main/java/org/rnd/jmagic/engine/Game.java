@@ -827,7 +827,7 @@ public class Game
 	public PlayerAction currentAction;
 
 	/** The decks each player submits for deck-check, and start the game with. */
-	private java.util.Map<Player, java.util.Map<String, java.util.List<Class<? extends Card>>>> decks;
+	private java.util.Map<Player, java.util.Map<String, java.util.List<String>>> decks;
 
 	public final GameType gameType;
 
@@ -889,7 +889,7 @@ public class Game
 		this.backupStates = new java.util.Stack<GameState>();
 		this.currentAction = null;
 
-		this.decks = new java.util.HashMap<Player, java.util.Map<String, java.util.List<Class<? extends Card>>>>();
+		this.decks = new java.util.HashMap<>();
 
 		this.grantedAbilities = new java.util.HashMap<GrantedAbilityKey, Integer>();
 		this.grantedTargets = new java.util.HashMap<>();
@@ -913,7 +913,7 @@ public class Game
 	{
 		Deck deck = comm.getDeck();
 
-		java.util.Map<String, java.util.List<Class<? extends Card>>> cards = null;
+		java.util.Map<String, java.util.List<String>> cards = null;
 		try
 		{
 			cards = deck.getCards();
@@ -921,19 +921,6 @@ public class Game
 		catch(CardLoaderException e)
 		{
 			comm.alertError(e.getErrorParameters());
-			return null;
-		}
-
-		// Reject any deck that has any alternate cards in it
-		java.util.Set<String> illegalCards = new java.util.HashSet<String>();
-		for(java.util.List<Class<? extends Card>> kind: cards.values())
-			for(Class<? extends Card> card: kind)
-				if(AlternateCard.class.isAssignableFrom(card))
-					illegalCards.add(org.rnd.jmagic.Convenience.getName(card));
-
-		if(!illegalCards.isEmpty())
-		{
-			comm.alertError(new PlayerInterface.ErrorParameters.IllegalCardsError(illegalCards));
 			return null;
 		}
 
@@ -1307,14 +1294,20 @@ public class Game
 	 * @param zone The zone to put the cards into
 	 * @param owner The player to set as the owner of the cards
 	 */
-	private void instantiateCards(java.util.List<Class<? extends Card>> cards, Zone zone, Player owner)
+	private void instantiateCards(java.util.List<String> cards, Zone zone, Player owner)
 	{
-		for(Class<? extends Card> i: cards)
+		for(String cardName: cards)
 		{
-			GameObject newCard = org.rnd.util.Constructor.construct(i, new Class<?>[] {GameState.class}, new Object[] {this.physicalState});
-
-			if(org.rnd.jmagic.CardLoader.getPrintings(i).isEmpty())
-				throw new IllegalStateException("No printings specified for card: " + i.getSimpleName());
+			Class<? extends Card> cardClass;
+			try
+			{
+				cardClass = org.rnd.jmagic.CardLoader.getCard(cardName);
+			}
+			catch(CardLoaderException e)
+			{
+				throw new RuntimeException(cardName + " wasn't found, and this was caught way too late.  Something is broken!");
+			}
+			GameObject newCard = org.rnd.util.Constructor.construct(cardClass, new Class<?>[] {GameState.class}, new Object[] {this.physicalState});
 
 			// The players' decks become their libraries.
 			newCard.setOwner(owner);

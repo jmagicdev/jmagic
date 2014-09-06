@@ -290,9 +290,9 @@ public interface PlayerInterface
 
 			public final String card;
 
-			public CardCheckError(Class<? extends Card> card)
+			public CardCheckError(String card)
 			{
-				this.card = card.getName();
+				this.card = card;
 			}
 		}
 	}

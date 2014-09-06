@@ -19,7 +19,7 @@ public class DeckSizeMaximum extends GameType.SimpleGameTypeRule
 	}
 
 	@Override
-	public boolean checkDeck(java.util.Map<String, java.util.List<Class<? extends Card>>> deck)
+	public boolean checkDeck(java.util.Map<String, java.util.List<String>> deck)
 	{
 		return (deck.get(Deck.MAIN_DECK).size() <= this.maximum);
 	}

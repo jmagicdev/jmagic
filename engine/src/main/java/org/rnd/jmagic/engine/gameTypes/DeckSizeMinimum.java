@@ -30,7 +30,7 @@ public class DeckSizeMinimum extends GameType.SimpleGameTypeRule
 	 * play.
 	 */
 	@Override
-	public boolean checkDeck(java.util.Map<String, java.util.List<Class<? extends Card>>> deck)
+	public boolean checkDeck(java.util.Map<String, java.util.List<String>> deck)
 	{
 		return (this.minimum <= deck.get(Deck.MAIN_DECK).size());
 	}

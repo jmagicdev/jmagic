@@ -53,7 +53,7 @@ public class GameType
 		 * @param deck The deck to check
 		 * @return Whether the deck as a whole is allowed to be played with.
 		 */
-		public boolean checkDeck(java.util.Map<String, java.util.List<Class<? extends Card>>> deck);
+		public boolean checkDeck(java.util.Map<String, java.util.List<String>> deck);
 
 		/**
 		 * @return Decklists that are exempt from
@@ -106,7 +106,7 @@ public class GameType
 		 * @return true. See {@link GameTypeRule#checkDeck(java.util.Map)}.
 		 */
 		@Override
-		public boolean checkDeck(java.util.Map<String, java.util.List<Class<? extends Card>>> deck)
+		public boolean checkDeck(java.util.Map<String, java.util.List<String>> deck)
 		{
 			return true;
 		}
@@ -141,7 +141,7 @@ public class GameType
 
 	private String name;
 	private java.util.List<GameTypeRule> rules;
-	private java.util.Map<String, Class<? extends Card>> cardpool;
+	private java.util.Set<String> cardpool;
 
 	public GameType()
 	{
@@ -161,7 +161,7 @@ public class GameType
 		this.rules.add(rule);
 	}
 
-	public PlayerInterface.ErrorParameters checkDeck(java.util.Map<String, java.util.List<Class<? extends Card>>> deck)
+	public PlayerInterface.ErrorParameters checkDeck(java.util.Map<String, java.util.List<String>> deck)
 	{
 		if(this.cardpool == null)
 		{
@@ -172,86 +172,21 @@ public class GameType
 			if(!rule.checkDeck(deck))
 				return new PlayerInterface.ErrorParameters.DeckCheckError(rule.getClass());
 
-		Class<? extends Card> cardBanned = null;
-		for(java.util.List<Class<? extends Card>> deckPart: deck.values())
-			for(Class<? extends Card> card: deckPart)
-				if(!this.cardpool.containsKey(card.getAnnotation(Name.class).value()))
-				{
-					cardBanned = card;
-					break;
-				}
-
-		if(cardBanned != null)
-			for(GameTypeRule rule: this.rules)
-				if(!checkExemptions(rule, deck))
-				{
-					cardBanned = null;
-					break;
-				}
-
-		if(cardBanned != null)
-			return new PlayerInterface.ErrorParameters.CardCheckError(cardBanned);
+		for(java.util.List<String> deckPart: deck.values())
+			for(String card: deckPart)
+				if(!this.cardpool.contains(card))
+					return new PlayerInterface.ErrorParameters.CardCheckError(card);
 
 		return null;
 	}
 
 	private void calculateCardPool()
 	{
-		java.util.List<Class<? extends Expansion>> expansions = new java.util.LinkedList<Class<? extends Expansion>>();
-		for(GameTypeRule rule: this.rules)
-		{
-			java.util.Iterator<Expansion> iter = Expansion.list().iterator();
-			while(iter.hasNext())
-			{
-				Expansion ex = iter.next();
+		this.cardpool = new java.util.HashSet<String>();
+		for(Expansion ex: Expansion.list())
+			for(GameTypeRule rule: this.rules)
 				if(rule.checkExpansion(ex))
-					expansions.add(ex.getClass());
-			}
-		}
-
-		java.util.Set<Class<? extends Card>> cards = org.rnd.jmagic.CardLoader.getCards(expansions);
-		for(GameTypeRule rule: this.rules)
-		{
-			java.util.Iterator<Class<? extends Card>> iter = cards.iterator();
-			while(iter.hasNext())
-				if(!rule.checkCard(iter.next()))
-					iter.remove();
-		}
-
-		this.cardpool = new java.util.HashMap<String, Class<? extends Card>>();
-
-		for(Class<? extends Card> card: cards)
-			this.cardpool.put(card.getAnnotation(Name.class).value(), card);
-	}
-
-	private static boolean checkExemptions(GameTypeRule rule, java.util.Map<String, java.util.List<Class<? extends Card>>> deck)
-	{
-		exemptions: for(java.util.Map<String, java.util.List<Class<? extends Card>>> exemptDeck: rule.exemptDecklists())
-		{
-			if(exemptDeck.size() != deck.size())
-				continue;
-
-			for(java.util.Map.Entry<String, java.util.List<Class<? extends Card>>> subDeck: deck.entrySet())
-			{
-				if(!exemptDeck.containsKey(subDeck.getKey()))
-					continue exemptions;
-				java.util.List<Class<? extends Card>> yourCardsUnsorted = subDeck.getValue();
-				java.util.List<Class<? extends Card>> legalCardsUnsorted = exemptDeck.get(subDeck.getKey());
-				if(legalCardsUnsorted.size() != yourCardsUnsorted.size())
-					continue exemptions;
-
-				java.util.List<Class<? extends Card>> yourCards = new java.util.ArrayList<Class<? extends Card>>(yourCardsUnsorted);
-				java.util.Collections.sort(yourCards, new org.rnd.util.CompareOnToString<Class<? extends Card>>());
-
-				java.util.List<Class<? extends Card>> legalCards = new java.util.ArrayList<Class<? extends Card>>(legalCardsUnsorted);
-				java.util.Collections.sort(legalCards, new org.rnd.util.CompareOnToString<Class<? extends Card>>());
-
-				if(!yourCards.equals(legalCards))
-					continue exemptions;
-			}
-			return true;
-		}
-		return false;
+					this.cardpool.addAll(ex.getAllCardNames());
 	}
 
 	@Override
@@ -274,11 +209,11 @@ public class GameType
 		return true;
 	}
 
-	public java.util.Map<String, Class<? extends Card>> getCardPool()
+	public java.util.Collection<String> getCardPool()
 	{
 		if(this.cardpool == null)
 			this.calculateCardPool();
-		return java.util.Collections.unmodifiableMap(this.cardpool);
+		return java.util.Collections.unmodifiableSet(this.cardpool);
 	}
 
 	public String getName()

@@ -55,9 +55,16 @@ public abstract class SimpleExpansion extends Expansion
 		java.util.List<Class<? extends Card>> ret = new java.util.LinkedList<Class<? extends Card>>();
 		for(String name: this.cardList)
 		{
-			Class<? extends Card> card = this.getCard(name);
-			if(null != card)
-				ret.add(card);
+			try
+			{
+				@SuppressWarnings("unchecked") Class<? extends Card> card = (Class<? extends Card>)Class.forName(this.pkg + "." + org.rnd.jmagic.CardLoader.formatName(name));
+				if(null != card)
+					ret.add(card);
+			}
+			catch(ClassNotFoundException ex)
+			{
+				//
+			}
 		}
 		return ret;
 	}
