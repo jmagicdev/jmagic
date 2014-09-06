@@ -2,6 +2,10 @@
 3 Elvish Mystic
 4 Sylvan Caryatid
 
+3 Chandra, Pyromaster
+3 Vraska the Unseen
+3 Xenagos, the Reveler
+
 1 Abrupt Decay
 2 Dreadbore
 2 Golgari Charm
