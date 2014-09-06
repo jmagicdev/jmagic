@@ -182,7 +182,7 @@ public class CardShell
 	private static void populateExpansions()
 	{
 		for(Expansion expansion: Expansion.list())
-			addExpansion("", expansion.getClass());
+			addExpansion(Expansion.getExpansionName(expansion), expansion.getClass());
 
 		// Timeshifted cards have a unique string
 		addExpansion("Time Spiral \"Timeshifted\"", TimeSpiral.class);

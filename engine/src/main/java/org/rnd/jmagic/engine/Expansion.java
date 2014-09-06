@@ -17,6 +17,14 @@ public abstract class Expansion
 		return list;
 	}
 
+	public static String getExpansionName(Expansion x)
+	{
+		Name nameAnnotation = x.getClass().getAnnotation(Name.class);
+		if(nameAnnotation == null)
+			return null;
+		return nameAnnotation.value();
+	}
+
 	public abstract Class<? extends Card> getCard(String name);
 
 	public abstract java.util.List<String> getAllCardNames();
