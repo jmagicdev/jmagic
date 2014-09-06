@@ -26,7 +26,18 @@ public class CreateFromJson
 
 			java.util.List<String> cardList = new java.util.LinkedList<String>();
 			for(JsonObject card: cards.getValuesAs(JsonObject.class))
-				cardList.add(card.getString("name", "[card missing name]").replace("\"", "\\\""));
+			{
+				String name = card.getString("name", "[card missing name]");
+				String layout = card.getString("layout", "");
+				if(layout.equals("flip") || layout.equals("double-faced"))
+				{
+					JsonArray names = card.getJsonArray("names");
+					if(null != names && !names.getString(0).equals(name))
+						continue;
+				}
+
+				cardList.add(name.replace("\"", "\\\""));
+			}
 
 			if(cardList.isEmpty())
 				continue;
@@ -39,7 +50,7 @@ public class CreateFromJson
 				className += part.substring(0, 1).toUpperCase() + part.substring(1);
 			}
 
-			java.io.File file = new java.io.File(".\\cards\\src\\main\\java\\org\\rnd\\jmagic\\expansions\\" + className + ".java");
+			java.io.File file = new java.io.File("..\\cards\\src\\main\\java\\org\\rnd\\jmagic\\expansions\\" + className + ".java");
 
 			if(!file.exists())
 			{
@@ -48,7 +59,7 @@ public class CreateFromJson
 			}
 
 			java.io.PrintStream write = new java.io.PrintStream(file);
-			write.print("package org.rnd.jmagic.expansions;\n\nimport org.rnd.jmagic.engine.*;\n\n@Name(\"" + expansionName + "\")\npublic final class " + className + " extends SimpleExpansion\n{\n");
+			write.print("package org.rnd.jmagic.expansions;\n\nimport org.rnd.jmagic.engine.*;\n\n@Name(\"" + expansionName.replace("\"", "\\\"") + "\")\npublic final class " + className + " extends SimpleExpansion\n{\n");
 			write.print("\tpublic " + className + "()\n\t{\n\t\tsuper(new String[] {\"" + org.rnd.util.SeparatedList.get("\", \"", "", cardList) + "\"});");
 			write.print("\n\t}\n}\n");
 			write.flush();
