@@ -4,8 +4,8 @@ public class CopiableValues
 {
 	public final Characteristics characteristics;
 
-	private boolean originalWasOnStack;
-	private java.util.Set<Characteristics.Characteristic> toCopy;
+	boolean originalWasOnStack;
+	java.util.Set<Characteristics.Characteristic> toCopy;
 
 	// This isn't mentioned in the rules as being a copiable value, but it has
 	// to be in order for copies of unflipped flip cards to work
@@ -77,6 +77,9 @@ public class CopiableValues
 		if(object == null)
 			return;
 
+		object.applyCopiableValues(state, this);
+
+		/*
 		Characteristics toApply = this.characteristics;
 		if(this.bottomHalf != null && object.isFlipped())
 			toApply = this.bottomHalf;
@@ -177,5 +180,6 @@ public class CopiableValues
 			if(toApply.sourceID != -1 && (object.isActivatedAbility() || object.isTriggeredAbility()))
 				((NonStaticAbility)object).sourceID = toApply.sourceID;
 		}
+		*/
 	}
 }
