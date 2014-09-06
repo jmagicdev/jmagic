@@ -133,6 +133,6 @@ public class FlipCardsTest extends JUnitTest
 		this.addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
 
 		// We'll get an assertion error when player 0's deck is validated.
-		startGame(new Open());
+		startGame(new Legacy());
 	}
 }
