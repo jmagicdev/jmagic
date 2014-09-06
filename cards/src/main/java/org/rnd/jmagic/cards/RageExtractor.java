@@ -17,7 +17,7 @@ public final class RageExtractor extends Card
 	{
 		public RageExtractorAbility0(GameState state)
 		{
-			super(state, "Whenever you cast a spell with (p) in its mana cost, Rage Extractor deals damage equal to that spell's converted mana cost to target creature or player.");
+			super(state, "Whenever you cast a spell with (P) in its mana cost, Rage Extractor deals damage equal to that spell's converted mana cost to target creature or player.");
 
 			ManaSymbol phyrexian = new ManaSymbol("(P)");
 			phyrexian.isPhyrexian = true;

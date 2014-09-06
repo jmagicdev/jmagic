@@ -45,7 +45,7 @@ public class Mode implements Sanitizable
 
 	/**
 	 * Adds an effect to this mode.
-	 * 
+	 *
 	 * @param e The effect to add.
 	 */
 	public void addEffect(EventFactory e)
@@ -55,7 +55,7 @@ public class Mode implements Sanitizable
 
 	/**
 	 * Adds a target to this mode.
-	 * 
+	 *
 	 * @param t The target to add.
 	 */
 	public void addTarget(Target t)
@@ -82,7 +82,7 @@ public class Mode implements Sanitizable
 
 	/**
 	 * Gets an effect from this mode.
-	 * 
+	 *
 	 * @param index Which effect to get. The first effect is 1.
 	 * @return The effect.
 	 */
@@ -93,7 +93,7 @@ public class Mode implements Sanitizable
 
 	/**
 	 * Gets a target from this mode.
-	 * 
+	 *
 	 * @param source The object which added the Target
 	 * @param index Which target to get. The first target is 1.
 	 * @return The target.
@@ -106,7 +106,7 @@ public class Mode implements Sanitizable
 	@Override
 	public java.io.Serializable sanitize(GameState state, Player whoFor)
 	{
-		return new org.rnd.jmagic.sanitized.SanitizedMode(this, this.sourceID, state.<GameObject>get(this.sourceID).getModes().indexOf(this));
+		return new org.rnd.jmagic.sanitized.SanitizedMode(this, this.sourceID, state.<GameObject>get(this.sourceID).getModes()[0].indexOf(this));
 	}
 
 	/**

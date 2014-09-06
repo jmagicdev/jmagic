@@ -23,26 +23,41 @@ public final class CastSpellOrActivateAbility extends EventType
 	{
 		GameObject object = parameters.get(Parameter.OBJECT).getOne(GameObject.class);
 
-		if(!object.getModes().isEmpty())
-		{
-			// TODO : Is this code duplication? Does this functionality
-			// differ from mode.canBeChosen()? If so, how is the code
-			// different, and what is the reason for the difference?
-			// -RulesGuru
-			int legalModes = 0;
-			for(Mode mode: object.getModes())
-			{
-				java.util.LinkedList<Target> targets = new java.util.LinkedList<Target>();
-				for(Target target: mode.targets)
-					targets.add(target);
-				if(this.checkTargets(game, object, targets))
-					legalModes++;
-			}
+		boolean validTargets = true;
 
-			Integer minimum = Minimum.get(object.getNumModes());
-			if(minimum == null || legalModes < minimum)
-				return false;
+		java.util.List<Mode>[] allModes = object.getModes();
+		for(int i = 0; i < allModes.length; ++i)
+		{
+			java.util.List<Mode> modes = allModes[i];
+			if(!modes.isEmpty())
+			{
+				validTargets = false;
+
+				// TODO : Is this code duplication? Does this functionality
+				// differ from mode.canBeChosen()? If so, how is the code
+				// different, and what is the reason for the difference?
+				// -RulesGuru
+				int legalModes = 0;
+				for(Mode mode: modes)
+				{
+					java.util.LinkedList<Target> targets = new java.util.LinkedList<Target>();
+					for(Target target: mode.targets)
+						targets.add(target);
+					if(this.checkTargets(game, object, targets))
+						legalModes++;
+				}
+
+				Integer minimum = Minimum.get(object.getNumModes()[i]);
+				if(minimum != null && legalModes >= minimum)
+				{
+					validTargets = true;
+					break;
+				}
+			}
 		}
+
+		if(!validTargets)
+			return false;
 
 		if(parameters.containsKey(Parameter.ALTERNATE_COST))
 		{
@@ -53,7 +68,18 @@ public final class CastSpellOrActivateAbility extends EventType
 			// won't be able to. You must pick 0 as the value of X in the
 			// mana cost of a spell being cast "without paying its mana
 			// cost," but the X in Mind Grind's mana cost can't be 0.
-			if(object.getMinimumX() > 0 && object.getDefinedX() < object.getMinimumX())
+
+			boolean zeroIsValidX = false;
+
+			int[] minimums = object.getMinimumX();
+			for(int i = 0; i < minimums.length; ++i)
+				if(minimums[i] <= 0 || object.getDefinedX() >= minimums[i])
+				{
+					zeroIsValidX = true;
+					break;
+				}
+
+			if(!zeroIsValidX)
 				return false;
 
 			java.util.Set<EventFactory> factories = new java.util.HashSet<EventFactory>();
@@ -177,7 +203,19 @@ public final class CastSpellOrActivateAbility extends EventType
 		}
 		else
 		{
-			CostCollection chosenCost = (onStack.getManaCost() == null ? null : new CostCollection(CostCollection.TYPE_MANA, onStack.getManaCost()));
+			ManaPool accumulatedManaCost = new ManaPool();
+			for(ManaPool pool: onStack.getManaCost())
+			{
+				if(null == pool)
+				{
+					accumulatedManaCost = null;
+					break;
+				}
+
+				accumulatedManaCost.addAll(pool);
+			}
+
+			CostCollection chosenCost = (accumulatedManaCost == null ? null : new CostCollection(CostCollection.TYPE_MANA, accumulatedManaCost));
 			if(onStack.alternateCosts != null && !onStack.alternateCosts.isEmpty())
 			{
 				java.util.Set<CostCollection> choices = new java.util.HashSet<CostCollection>();
@@ -240,7 +278,7 @@ public final class CastSpellOrActivateAbility extends EventType
 				factories.addAll(entry.getKey().events);
 			}
 			for(GameObject o: onStack.andPhysical())
-				o.getOptionalAdditionalCostsChosen().addAll(extras);
+				o.getOptionalAdditionalCostsChosen()[0].addAll(extras);
 		}
 
 		// "As an additional cost to cast..." costs apply even when a forced
@@ -260,7 +298,7 @@ public final class CastSpellOrActivateAbility extends EventType
 						org.rnd.jmagic.abilities.keywords.Splice splice = (org.rnd.jmagic.abilities.keywords.Splice)k;
 						if(onStack.getSubTypes().contains(splice.getSubType()))
 						{
-							if(card.getModes().iterator().next().canBeChosen(game, onStack))
+							if(card.getModes()[0].iterator().next().canBeChosen(game, onStack))
 								splicables.put(card, splice.getCost());
 							continue cards;
 						}
@@ -322,9 +360,14 @@ public final class CastSpellOrActivateAbility extends EventType
 			// exiled card), the cost is undefined can't be paid:
 			if(newX == -2)
 				return false;
+
+			int minX = java.util.Arrays.stream(onStack.getMinimumX()).reduce((l, r) -> {
+				return l < r ? r : l;
+			}).orElse(0);
+
 			if(newX == -1)
-				newX = playerActing.chooseNumber(new org.rnd.util.NumberRange(onStack.getMinimumX(), null), "Choose a value for X.");
-			else if(newX < onStack.getMinimumX())
+				newX = playerActing.chooseNumber(new org.rnd.util.NumberRange(minX, null), "Choose a value for X.");
+			else if(newX < minX)
 				return false;
 			onStack.setValueOfX(newX);
 			onStack.getPhysical().setValueOfX(newX);
@@ -363,31 +406,45 @@ public final class CastSpellOrActivateAbility extends EventType
 		onStack = onStack.getActual();
 		playerActing = playerActing.getActual();
 
-		// If there are more modes than the spell is allowed to perform and
-		// no splice is involved (PLEASE NO MODAL SPLICE SPELLS OH GOD), ask
-		// the player to choose the modes
-		Integer minimum = Minimum.get(onStack.getNumModes());
-		if(!spliced && (minimum == null || onStack.getModes().size() > minimum))
+		Set[] numModes = onStack.getNumModes();
+		if(null == Minimum.get(numModes[0]))
 		{
-			physicalOnStack.selectModes();
-
-			// It's possible that not enough modes were chosen, for example,
-			// if Branching Bolt is cast with no creatures in play
-			if(Intersect.get(onStack.getNumModes(), new Set(physicalOnStack.getSelectedModeNumbers().size())).isEmpty())
-				return false;
+			// permanent spell, don't bother selecting modes
 		}
-		// Otherwise, choose all the modes
 		else
 		{
-			int n = 1;
-			for(Mode mode: onStack.getModes())
+			// If there are more modes than the spell is allowed to perform and
+			// no splice is involved (PLEASE NO MODAL SPLICE SPELLS OH GOD), ask
+			// the player to choose the modes
+			int minimum = java.util.Arrays.stream(numModes).mapToInt(t -> Minimum.get(t)).sum();
+			int countTotalModes = java.util.Arrays.stream(onStack.getModes()).mapToInt(t -> t.size()).sum();
+			if(!spliced && countTotalModes > minimum)
 			{
-				// If we have to choose all the modes, and even one can't be
-				// chosen, fail.
-				if(!mode.canBeChosen(game, onStack))
-					return false;
-				physicalOnStack.getSelectedModeNumbers().add(n);
-				n++;
+				physicalOnStack.selectModes();
+
+				// It's possible that not enough modes were chosen, for example,
+				// if Branching Bolt is cast with no creatures in play
+				java.util.List<Integer>[] selectedModeNumbers = physicalOnStack.getSelectedModeNumbers();
+				for(int i = 0; i < selectedModeNumbers.length; ++i)
+					if(!onStack.getNumModes()[i].contains(selectedModeNumbers[i].size()))
+						return false;
+			}
+			// Otherwise, choose all the modes
+			else
+			{
+				int n = 1;
+				java.util.List<Mode>[] modes = onStack.getModes();
+				for(int i = 0; i < modes.length; ++i)
+					for(Mode mode: modes[i])
+					{
+						// If we have to choose all the modes, and even one
+						// can't be
+						// chosen, fail.
+						if(!mode.canBeChosen(game, onStack))
+							return false;
+						physicalOnStack.getSelectedModeNumbers()[i].add(n);
+						n++;
+					}
 			}
 		}
 
@@ -401,21 +458,25 @@ public final class CastSpellOrActivateAbility extends EventType
 		if(!onStack.selectTargets())
 			return false;
 
-		int modeNumber = 1;
-		for(Mode mode: onStack.getModes())
+		java.util.List<Mode>[] modes = onStack.getModes();
+		for(int i = 0; i < modes.length; ++i)
 		{
-			if(!onStack.getSelectedModeNumbers().contains(modeNumber))
-				continue;
-			if(null == mode.targets)
-				return false;
-			for(Target target: mode.targets)
+			int modeNumber = 1;
+			for(Mode mode: modes[i])
 			{
-				if(null == target)
+				if(!onStack.getSelectedModeNumbers()[i].contains(modeNumber))
+					continue;
+				if(null == mode.targets)
 					return false;
-				java.util.List<Target> chosenTargets = new java.util.LinkedList<Target>(onStack.getChosenTargets().get(target));
-				onStack.getPhysical().getChosenTargets().put(target, chosenTargets);
+				for(Target target: mode.targets)
+				{
+					if(null == target)
+						return false;
+					java.util.List<Target> chosenTargets = new java.util.LinkedList<Target>(onStack.getChosenTargets()[i].get(target));
+					onStack.getPhysical().getChosenTargets()[i].put(target, chosenTargets);
+				}
+				modeNumber++;
 			}
-			modeNumber++;
 		}
 
 		game.refreshActualState();
@@ -423,19 +484,21 @@ public final class CastSpellOrActivateAbility extends EventType
 		playerActing = playerActing.getActual();
 
 		// 601.2d -- Divisions (like Violent Eruption)
-		for(int i = 1; i <= onStack.getModes().size(); i++)
-		{
-			Set division = onStack.getMode(i).division.evaluate(game, onStack);
-			int divisionAmount = division.getOne(Integer.class);
-			if(divisionAmount != 0)
+		modes = onStack.getModes();
+		for(int sideNumber = 0; sideNumber < modes.length; ++sideNumber)
+			for(int modeNumber = 0; modeNumber < onStack.getModes()[sideNumber].size(); modeNumber++)
 			{
-				java.util.LinkedList<Target> targets = new java.util.LinkedList<Target>();
-				for(Target possibleTarget: onStack.getPhysical().getMode(i).targets)
-					for(Target chosenTarget: onStack.getPhysical().getChosenTargets().get(possibleTarget))
-						targets.add(chosenTarget);
-				playerActing.divide(divisionAmount, 1, onStack.ID, division.getOne(String.class), targets);
+				Set division = onStack.getModes()[sideNumber].get(modeNumber).division.evaluate(game, onStack);
+				int divisionAmount = division.getOne(Integer.class);
+				if(divisionAmount != 0)
+				{
+					java.util.LinkedList<Target> targets = new java.util.LinkedList<Target>();
+					for(Target possibleTarget: onStack.getPhysical().getModes()[sideNumber].get(modeNumber).targets)
+						for(Target chosenTarget: onStack.getPhysical().getChosenTargets()[sideNumber].get(possibleTarget))
+							targets.add(chosenTarget);
+					playerActing.divide(divisionAmount, 1, onStack.ID, division.getOne(String.class), targets);
+				}
 			}
-		}
 
 		// 601.2e -- Determine total cost
 

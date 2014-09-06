@@ -82,7 +82,7 @@ public class DamageTriggeredAbilitiesTest extends JUnitTest
 		// The trigger for the opponent to lose the game should be on the stack
 		java.util.List<GameObject> stack = this.game.actualState.stack().objects;
 		assertEquals(1, stack.size());
-		assertEquals(EventType.LOSE_GAME, stack.get(0).getModes().get(0).effects.get(0).type);
+		assertEquals(EventType.LOSE_GAME, stack.get(0).getModes()[0].get(0).effects.get(0).type);
 
 		// haste the piper
 		respondWith(getSpellAction(ChaosCharm.class));
@@ -111,8 +111,8 @@ public class DamageTriggeredAbilitiesTest extends JUnitTest
 		// Two triggers should be on the stack for players losing
 		stack = this.game.actualState.stack().objects;
 		assertEquals(2, stack.size());
-		assertEquals(EventType.LOSE_GAME, stack.get(0).getModes().get(0).effects.get(0).type);
-		assertEquals(EventType.LOSE_GAME, stack.get(1).getModes().get(0).effects.get(0).type);
+		assertEquals(EventType.LOSE_GAME, stack.get(0).getModes()[0].get(0).effects.get(0).type);
+		assertEquals(EventType.LOSE_GAME, stack.get(1).getModes()[0].get(0).effects.get(0).type);
 
 		// resolve one of the triggers, player 0 wins
 		pass();

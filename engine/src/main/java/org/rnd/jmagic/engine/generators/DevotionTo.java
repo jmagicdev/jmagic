@@ -5,14 +5,14 @@ import org.rnd.jmagic.engine.*;
 /**
  * Evaluates to a single number representing [your/the given player's] devotion
  * to the specified colors. This will only evaluate the devotion for one player!
- * 
+ *
  * A player's devotion to [color] is the number of mana symbols that are (at
  * least) [color] among the mana costs of permanents they control.
- * 
+ *
  * A player's devotion to [color X] or [color Y] is the total number of mana
  * symbols that are (at least) [color X] or [color Y] among those mana costs; in
  * other words, we don't double-count hybrid symbols.
- * 
+ *
  * The rules don't (yet?) say how to determine devotion to three or more colors,
  * but we can logically extend this pattern. This generator just looks at each
  * mana symbol, and if it's one of the given colors, counts it.
@@ -75,10 +75,11 @@ public class DevotionTo extends SetGenerator
 		{
 			if(!permanent.getController(state).equals(player))
 				continue;
-			
-			for(ManaSymbol mana: permanent.getManaCost())
-				if(!java.util.Collections.disjoint(colors, mana.colors))
-					devotion++;
+
+			for(ManaPool pool: permanent.getManaCost())
+				for(ManaSymbol mana: pool)
+					if(!java.util.Collections.disjoint(colors, mana.colors))
+						devotion++;
 		}
 		return new Set(devotion);
 	}

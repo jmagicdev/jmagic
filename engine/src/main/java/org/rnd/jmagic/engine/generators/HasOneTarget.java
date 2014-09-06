@@ -23,11 +23,15 @@ public class HasOneTarget extends SetGenerator
 
 		for(GameObject object: state.stack().objects)
 		{
+			java.util.Map<Target, java.util.List<Target>> chosenTargets = new java.util.HashMap<>();
+			for(java.util.Map<Target, java.util.List<Target>> characteristicChosenTargets: object.getChosenTargets())
+				chosenTargets.putAll(characteristicChosenTargets);
+
 			int targetCount = 0;
 			for(Mode mode: object.getSelectedModes())
 				for(Target possibleTarget: mode.targets)
-					if(object.getChosenTargets().containsKey(possibleTarget))
-						targetCount += object.getChosenTargets().get(possibleTarget).size();
+					if(chosenTargets.containsKey(possibleTarget))
+						targetCount += chosenTargets.get(possibleTarget).size();
 
 			if(1 == targetCount)
 				ret.add(object);

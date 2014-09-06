@@ -43,7 +43,7 @@ public final class SpellCopy extends GameObject implements Castable
 
 	/**
 	 * Counters this spell.
-	 * 
+	 *
 	 * @param counterer What is countering this spell.
 	 * @return The countered object.
 	 */
@@ -78,12 +78,9 @@ public final class SpellCopy extends GameObject implements Castable
 	 * @return The converted mana cost of this spell.
 	 */
 	@Override
-	public int getConvertedManaCost()
+	public int[] getConvertedManaCost()
 	{
-		ManaPool manaCost = this.getManaCost();
-		if(manaCost == null)
-			return 0;
-		return manaCost.converted();
+		return java.util.Arrays.stream(this.getManaCost()).mapToInt(t -> null == t ? 0 : t.converted()).toArray();
 	}
 
 	@Override
@@ -113,7 +110,7 @@ public final class SpellCopy extends GameObject implements Castable
 
 	/**
 	 * Puts this spell on the stack.
-	 * 
+	 *
 	 * @return The spell on the stack.
 	 */
 	@Override

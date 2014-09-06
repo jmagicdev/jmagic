@@ -57,16 +57,17 @@ public final class HasInManaCost extends SetGenerator
 		Set ret = new Set();
 		for(GameObject o: state.getAllObjects())
 		{
-			if(null == o.getManaCost())
-				continue;
-
-			for(ManaSymbol s: o.getManaCost())
+			for(ManaPool manaCost: o.getManaCost())
 			{
-				if(checkSymbol(s))
-				{
-					ret.add(o);
-					break;
-				}
+				if(null == manaCost)
+					continue;
+
+				for(ManaSymbol s: manaCost)
+					if(checkSymbol(s))
+					{
+						ret.add(o);
+						break;
+					}
 			}
 		}
 		return ret;

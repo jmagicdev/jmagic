@@ -27,9 +27,9 @@ public class WasEvoked extends SetGenerator
 	{
 		for(GameObject object: this.what.evaluate(state, thisObject).getAll(GameObject.class))
 		{
-			CostCollection alt = state.<GameObject>get(object.pastSelf).getAlternateCost();
-			if(alt != null && alt.type.equals(org.rnd.jmagic.abilities.keywords.Evoke.EVOKE_COST))
-				return NonEmpty.set;
+			for(CostCollection alt: state.<GameObject>get(object.pastSelf).getAlternateCost())
+				if(alt != null && alt.type.equals(org.rnd.jmagic.abilities.keywords.Evoke.EVOKE_COST))
+					return NonEmpty.set;
 		}
 
 		return Empty.set;

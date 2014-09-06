@@ -59,7 +59,7 @@ public class Event extends Identified implements Sanitizable
 	 * An effect that modifies how a permanent enters the battlefield may cause
 	 * other objects to change zones. Such an effect can't cause the permanent
 	 * itself to not enter the battlefield.
-	 * 
+	 *
 	 * Tells this Event that it can't move the specified objects in accordance
 	 * with this rule.
 	 */
@@ -74,7 +74,7 @@ public class Event extends Identified implements Sanitizable
 	 * Choices made for this event; for example, what to sacrifice for Innocent
 	 * Blood, or what to put onto the battlefield from Hunted Wumpus. Null when
 	 * choices haven't yet been made for this event.
-	 * 
+	 *
 	 * Keys are player IDs, values are the choices those players made.
 	 */
 	private java.util.Map<Integer, Identity> choices;
@@ -179,7 +179,7 @@ public class Event extends Identified implements Sanitizable
 	 * @param state The game state in which this event is to be performed.
 	 * @param name The text of this event.
 	 * @param type What kind of event this is.
-	 * 
+	 *
 	 * Constructs an event with an empty parameter map.
 	 */
 	public Event(GameState state, String name, EventType type)
@@ -217,7 +217,7 @@ public class Event extends Identified implements Sanitizable
 	/**
 	 * Tells this event to add one damage assignment to the damage it will deal
 	 * when performed.
-	 * 
+	 *
 	 * @param source The source of the damage.
 	 * @param taker What is taking the damage.
 	 * @param unpreventable Whether "the damage can't be prevented".
@@ -231,7 +231,7 @@ public class Event extends Identified implements Sanitizable
 
 	/**
 	 * Tells this event to add some damage to what it will deal when performed.
-	 * 
+	 *
 	 * @param assignments The damage to deal.
 	 */
 	public final void addDamage(java.util.Collection<DamageAssignment> assignments)
@@ -261,7 +261,7 @@ public class Event extends Identified implements Sanitizable
 
 	/**
 	 * Tells this event that an object was moved while it was being performed.
-	 * 
+	 *
 	 * @param object The object that was moved.
 	 * @param index The index at which the object was inserted.
 	 * @param zone The zone it was moved to.
@@ -285,7 +285,7 @@ public class Event extends Identified implements Sanitizable
 
 	/**
 	 * Tells this event that an object was moved while it was being performed.
-	 * 
+	 *
 	 * @param object The object that was moved.
 	 * @param index The index at which the object was inserted.
 	 * @param zone The zone it was moved to.
@@ -536,8 +536,8 @@ public class Event extends Identified implements Sanitizable
 				// this whole loop is just for triggered mana abilities, don't
 				// panic. (unless there's a modal triggered mana ability, in
 				// which case you should panic, but not because of this code...)
-				for(int i = 0; i < trigger.getModes().size(); i++)
-					trigger.getSelectedModeNumbers().add(i + 1);
+				for(int i = 0; i < trigger.getModes()[0].size(); i++)
+					trigger.getSelectedModeNumbers()[0].add(i + 1);
 				trigger.clone(this.game.actualState);
 
 				// Add it to the currently resolving mana abilities list so that
@@ -959,10 +959,10 @@ public class Event extends Identified implements Sanitizable
 
 	/**
 	 * Performs this event.
-	 * 
+	 *
 	 * TODO : GOD DAMN THIS METHOD IS HUGE. Break it up a little. Kamikaze: I
 	 * started this, but it should be broken up further.
-	 * 
+	 *
 	 * @return Whether this event can be used to pay a cost.
 	 */
 	private boolean perform()
@@ -1076,7 +1076,7 @@ public class Event extends Identified implements Sanitizable
 
 	/**
 	 * Performs this event.
-	 * 
+	 *
 	 * @param parent What event is performing this.
 	 * @param topLevel Whether this event is a "top level" event (a sentence on
 	 * a card, for example)
@@ -1132,7 +1132,7 @@ public class Event extends Identified implements Sanitizable
 
 	/**
 	 * Tells this event that a player made a choice for it.
-	 * 
+	 *
 	 * @param madeChoices Who made the choice.
 	 * @param choices What things were chosen.
 	 */
@@ -1152,7 +1152,7 @@ public class Event extends Identified implements Sanitizable
 	/**
 	 * Check if any creatures aren't creatures anymore, or any planeswalkers
 	 * aren't planeswalkers anymore. Also see if anything has changed control
-	 * 
+	 *
 	 * @param previousGameState The game state to refer to when checking for
 	 * lost types
 	 */
@@ -1211,7 +1211,7 @@ public class Event extends Identified implements Sanitizable
 	/**
 	 * This figures out if any damage replacement effects can apply and, if so,
 	 * applies one.
-	 * 
+	 *
 	 * @return Whether any replacement effects applied
 	 */
 	private boolean replaceDamage()
@@ -1515,7 +1515,7 @@ public class Event extends Identified implements Sanitizable
 	/**
 	 * Evaluates the parameters of this event and removes all ghosts from the
 	 * "affected" parameter.
-	 * 
+	 *
 	 * @return If the event was changed in this manner, false; otherwise true.
 	 */
 	private boolean validate()

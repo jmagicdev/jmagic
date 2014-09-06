@@ -28,16 +28,24 @@ public class HasConvertedManaCost extends SetGenerator
 		java.util.Set<Integer> numbers = this.numbers.evaluate(state, thisObject).getAll(Integer.class);
 		org.rnd.util.NumberRange range = this.numbers.evaluate(state, thisObject).getOne(org.rnd.util.NumberRange.class);
 
-		for(GameObject object: state.getAllObjects())
+		objectLoop: for(GameObject object: state.getAllObjects())
 		{
-			int convertedCost = object.getConvertedManaCost();
+			int[] convertedCost = object.getConvertedManaCost();
 
 			for(Integer n: numbers)
-				if(convertedCost == n)
-					ret.add(object);
+				for(Integer c: convertedCost)
+					if(c == n)
+					{
+						ret.add(object);
+						continue objectLoop;
+					}
 			if(range != null)
-				if(range.contains(convertedCost))
-					ret.add(object);
+				for(Integer c: convertedCost)
+					if(range.contains(c))
+					{
+						ret.add(object);
+						continue objectLoop;
+					}
 		}
 
 		return ret;

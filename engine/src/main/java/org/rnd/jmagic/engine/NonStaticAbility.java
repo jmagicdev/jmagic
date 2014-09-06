@@ -43,10 +43,11 @@ public abstract class NonStaticAbility extends GameObject implements Linkable
 
 	protected boolean addsMana()
 	{
-		for(Mode mode: this.getModes())
-			for(EventFactory e: mode.effects)
-				if(e.type.addsMana())
-					return true;
+		for(java.util.List<Mode> modes: this.getModes())
+			for(Mode mode: modes)
+				for(EventFactory e: mode.effects)
+					if(e.type.addsMana())
+						return true;
 
 		return false;
 	}
@@ -91,9 +92,9 @@ public abstract class NonStaticAbility extends GameObject implements Linkable
 
 	/** @return Zero. */
 	@Override
-	public int getConvertedManaCost()
+	public int[] getConvertedManaCost()
 	{
-		return 0;
+		return new int[] {0};
 	}
 
 	@Override
@@ -125,9 +126,10 @@ public abstract class NonStaticAbility extends GameObject implements Linkable
 
 	public boolean hasTargets()
 	{
-		for(Mode mode: this.getModes())
-			if(!mode.targets.isEmpty())
-				return true;
+		for(java.util.List<Mode> modes: this.getModes())
+			for(Mode mode: modes)
+				if(!mode.targets.isEmpty())
+					return true;
 		return false;
 	}
 

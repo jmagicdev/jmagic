@@ -10,7 +10,7 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 
 	/**
 	 * Constructs a card that is blank (except for the name).
-	 * 
+	 *
 	 * @param state The game state the card is to exist in.
 	 */
 	public Card(GameState state)
@@ -56,7 +56,7 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 
 	/**
 	 * Counters this card.
-	 * 
+	 *
 	 * @param counterer The thing countering this card.
 	 * @return The countered card (probably in the graveyard).
 	 */
@@ -91,18 +91,14 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 	/**
 	 * 202.3. The converted mana cost of an object is a number equal to the
 	 * total amount of mana in its mana cost, regardless of color.
-	 * 
+	 *
 	 * @return The converted mana cost of this card.
 	 */
 	@Override
-	public int getConvertedManaCost()
+	public int[] getConvertedManaCost()
 	{
-		ManaPool manaCost = this.getManaCost();
-		if(manaCost == null)
-			// 202.3a The converted mana cost of an object with no mana cost is
-			// 0.
-			return 0;
-		return manaCost.converted();
+		// 202.3a The converted mana cost of an object with no mana cost is 0.
+		return java.util.Arrays.stream(this.getManaCost()).mapToInt(t -> null == t ? 0 : t.converted()).toArray();
 	}
 
 	/** return True. */
@@ -144,7 +140,7 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 
 	/**
 	 * Puts this card on the stack.
-	 * 
+	 *
 	 * @param faceDownValues Null if this card is to be put on the stack face
 	 * up; otherwise, a set of values for this object to assume when it's put on
 	 * the stack (face down).
@@ -184,12 +180,12 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 		// need to re-get the card from the actual state, because it could have
 		// changed (thanks, bestow!)
 		this.game.actualState.<Card>get(this.ID).resolveForReal();
-		
+
 		this.game.physicalState.resolvingID = -1;
 		this.game.refreshActualState();
 		// thanks again, bestow.
 	}
-	
+
 	private final void resolveForReal()
 	{
 		SetGenerator thisObject = IdentifiedWithID.instance(this.ID);
@@ -212,7 +208,7 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 			putIntoGraveyard.perform(null, true);
 		}
 		else
-				{
+		{
 			// 608.3. If the object that's resolving is a permanent spell,
 			// its
 			// resolution involves a single step (unless it's an Aura). The
@@ -225,7 +221,7 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 
 			EventFactory factory = new EventFactory(EventType.PUT_ONTO_BATTLEFIELD, "Put " + this + " onto the battlefield.");
 			if(this.getSubTypes().contains(SubType.AURA))
-					{
+			{
 				// ... First, it checks whether the target specified by its
 				// enchant ability is still legal, as described in rule
 				// 608.2b.
@@ -234,7 +230,7 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 				// declaring what to target and that only the first target
 				// in
 				// that mode is relevant
-				Target target = this.getChosenTargets().get(this.getMode(1).targets.iterator().next()).get(0);
+				Target target = this.getChosenTargets()[0].get(this.getMode(1).targets.iterator().next()).get(0);
 				if(!target.isLegal(this.game, this))
 				{
 					Event counterEvent = new Event(this.game.physicalState, "Counter " + this + " due to lack of legal target.", EventType.COUNTER);
@@ -251,7 +247,7 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 				// attached to the object it was targeting.
 				factory = new EventFactory(EventType.PUT_ONTO_BATTLEFIELD_ATTACHED_TO, "Put " + this + " onto the battlefield attached to the object it was targeting.");
 				factory.parameters.put(EventType.Parameter.TARGET, ExtractTargets.instance(Identity.instance(target)));
-					}
+			}
 			factory.parameters.put(EventType.Parameter.CAUSE, CurrentGame.instance());
 			factory.parameters.put(EventType.Parameter.CONTROLLER, you);
 			factory.parameters.put(EventType.Parameter.OBJECT, thisObject);
@@ -259,9 +255,8 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 
 			Event putOntoBattlefield = factory.createEvent(this.game, this);
 			putOntoBattlefield.perform(null, true);
-				}
-			}
-
+		}
+	}
 
 	@Override
 	void setManaCost(ManaPool manaCost)

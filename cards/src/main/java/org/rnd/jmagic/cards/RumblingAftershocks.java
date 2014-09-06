@@ -23,9 +23,10 @@ public final class RumblingAftershocks extends Card
 				if(!object.isSpell())
 					continue;
 
-				for(CostCollection cost: object.getOptionalAdditionalCostsChosen())
-					if(cost.type.equals(org.rnd.jmagic.abilities.keywords.Kicker.COST_TYPE))
-						return true;
+				for(java.util.Collection<CostCollection> costs: object.getOptionalAdditionalCostsChosen())
+					for(CostCollection cost: costs)
+						if(cost.type.equals(org.rnd.jmagic.abilities.keywords.Kicker.COST_TYPE))
+							return true;
 			}
 			return false;
 		}
@@ -60,9 +61,10 @@ public final class RumblingAftershocks extends Card
 				if(!object.isSpell())
 					continue;
 
-				for(CostCollection cost: object.getOptionalAdditionalCostsChosen())
-					if(cost.type.equals(org.rnd.jmagic.abilities.keywords.Kicker.COST_TYPE))
-						timesKicked++;
+				for(java.util.Collection<CostCollection> costs: object.getOptionalAdditionalCostsChosen())
+					for(CostCollection cost: costs)
+						if(cost.type.equals(org.rnd.jmagic.abilities.keywords.Kicker.COST_TYPE))
+							timesKicked++;
 			}
 			if(timesKicked == 0)
 				return Empty.set;

@@ -1,5 +1,8 @@
 package org.rnd.jmagic.engine;
 
+import java.util.*;
+import java.util.stream.*;
+
 import org.rnd.jmagic.engine.PlayerInterface.ChooseParameters;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
@@ -152,7 +155,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	/** If this object is a spell and was cast, the action used to cast it. */
 	public CastSpellAction castAction;
 
-	private Characteristics characteristics;
+	protected Characteristics[] characteristics;
 
 	public int controllerID;
 
@@ -223,15 +226,15 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	/**
 	 * Constructs a game object that is blank (except for its name.)
-	 * 
+	 *
 	 * @param state The game state in which this object exists.
 	 */
 	GameObject(GameState state)
 	{
 		super(state);
 
-		this.characteristics = new Characteristics();
-		this.characteristics.numModes = new Set(new org.rnd.util.NumberRange(1, 1));
+		this.characteristics = new Characteristics[] {new Characteristics()};
+		this.characteristics[0].numModes = new Set(new org.rnd.util.NumberRange(1, 1));
 
 		this.alternateCosts = null;
 		this.alternatePayments = null;
@@ -289,7 +292,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		SuperTypes superTypes = clazz.getAnnotation(SuperTypes.class);
 		if(superTypes != null)
 			for(SuperType superType: superTypes.value())
-				this.characteristics.superTypes.add(superType);
+				this.characteristics[0].superTypes.add(superType);
 
 		Types types = clazz.getAnnotation(Types.class);
 		if(types != null && types.value().length > 0)
@@ -298,7 +301,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		SubTypes subTypes = clazz.getAnnotation(SubTypes.class);
 		if(subTypes != null)
 			for(SubType subType: subTypes.value())
-				this.characteristics.subTypes.add(subType);
+				this.characteristics[0].subTypes.add(subType);
 	}
 
 	/**
@@ -316,13 +319,17 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 */
 	public final boolean addAbility(Keyword ability, boolean apply)
 	{
-		this.characteristics.abilityIDsInOrder.add(ability.ID);
+		boolean ret = true;
+		for(Characteristics characteristics: this.characteristics)
+		{
+			characteristics.abilityIDsInOrder.add(ability.ID);
+			if(!characteristics.keywordAbilities.add(ability.ID))
+				ret = false;
+		}
 
-		// Do this on two lines to prevent short-circuiting skipping an
-		// evaluation
-		boolean ret = this.characteristics.keywordAbilities.add(ability.ID);
 		if(apply)
 			ret = ability.apply(this) && ret;
+
 		return ret;
 	}
 
@@ -331,10 +338,17 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 */
 	public final boolean addAbility(NonStaticAbility ability)
 	{
-		this.characteristics.abilityIDsInOrder.add(ability.ID);
+		for(Characteristics characteristics: this.characteristics)
+			characteristics.abilityIDsInOrder.add(ability.ID);
+
 		ability.sourceID = this.ID;
-		addLink(ability);
-		return this.characteristics.nonStaticAbilities.add(ability.ID);
+		this.addLink(ability);
+
+		boolean ret = true;
+		for(Characteristics characteristics: this.characteristics)
+			ret = characteristics.nonStaticAbilities.add(ability.ID) && ret;
+
+		return ret;
 	}
 
 	/**
@@ -342,10 +356,17 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 */
 	public final boolean addAbility(StaticAbility ability)
 	{
-		this.characteristics.abilityIDsInOrder.add(ability.ID);
+		for(Characteristics characteristics: this.characteristics)
+			characteristics.abilityIDsInOrder.add(ability.ID);
+
 		ability.sourceID = this.ID;
-		addLink(ability);
-		return this.characteristics.staticAbilities.add(ability.ID);
+		this.addLink(ability);
+
+		boolean ret = true;
+		for(Characteristics characteristics: this.characteristics)
+			ret = characteristics.staticAbilities.add(ability.ID) && ret;
+
+		return ret;
 	}
 
 	@Override
@@ -364,13 +385,13 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public final void addCost(EventFactory factory)
 	{
-		this.characteristics.costs.add(factory);
+		this.characteristics[0].costs.add(factory);
 	}
 
 	/**
 	 * Adds an effect to this object. This method is only to be used when this
 	 * object "has no modes".
-	 * 
+	 *
 	 * @param factory Factory to create the effect event.
 	 */
 	public final void addEffect(EventFactory factory)
@@ -380,18 +401,19 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	/**
 	 * Adds an effect to a specific mode of this object.
-	 * 
+	 *
 	 * @param mode Which mode to add the effect to; the first mode is mode 1.
 	 * @param factory Factory to create the effect event.
 	 */
 	public final void addEffect(int mode, EventFactory factory)
 	{
-		while(this.getModes().size() < mode)
-			this.getModes().add(new Mode(this.ID));
-		this.getModes().get(mode - 1).addEffect(factory);
+		List<Mode> modes = this.getModes()[0];
+		while(modes.size() < mode)
+			modes.add(new Mode(this.ID));
+		modes.get(mode - 1).addEffect(factory);
 
 		if(!this.getAbilityIDsInOrder().contains(-1))
-			this.characteristics.abilityIDsInOrder.add(-1);
+			this.characteristics[0].abilityIDsInOrder.add(-1);
 	}
 
 	public final void addEffects(EventFactory... factories)
@@ -430,12 +452,12 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public void addSubTypes(java.util.Collection<SubType> subTypes)
 	{
-		this.characteristics.subTypes.addAll(subTypes);
+		this.characteristics[0].subTypes.addAll(subTypes);
 	}
 
 	public void addSuperTypes(java.util.Collection<SuperType> superTypes)
 	{
-		this.characteristics.superTypes.addAll(superTypes);
+		this.characteristics[0].superTypes.addAll(superTypes);
 	}
 
 	protected final Target addTarget(int mode, SetGenerator filter, String name)
@@ -447,14 +469,15 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	protected final void addTarget(int mode, Target target)
 	{
-		while(this.getModes().size() < mode)
-			this.getModes().add(new Mode(this.ID));
-		this.getModes().get(mode - 1).addTarget(target);
+		List<Mode> modes = this.getModes()[0];
+		while(modes.size() < mode)
+			modes.add(new Mode(this.ID));
+		modes.get(mode - 1).addTarget(target);
 	}
 
 	/**
 	 * Adds a target to this object.
-	 * 
+	 *
 	 * @param filter Describes the legal objects, players, or zones that can be
 	 * targeted by this target.
 	 * @param name The name of this target, including the word 'target', the
@@ -479,7 +502,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public void addTypes(java.util.Collection<Type> types)
 	{
-		this.characteristics.types.addAll(types);
+		this.characteristics[0].types.addAll(types);
 	}
 
 	/**
@@ -497,7 +520,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	@Override
 	public boolean attackable()
 	{
-		return this.characteristics.types.contains(Type.PLANESWALKER);
+		return this.characteristics[0].types.contains(Type.PLANESWALKER);
 	}
 
 	public boolean canAttachTo(Game game, AttachableTo targetObject)
@@ -505,7 +528,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		boolean attachable = false;
 
 		// Creatures can't be attached to things
-		if(this.characteristics.types.contains(Type.CREATURE))
+		if(this.characteristics[0].types.contains(Type.CREATURE))
 			return false;
 
 		if(targetObject.cantBeAttachedBy().match(game.actualState, (Identified)targetObject, new Set(this)))
@@ -514,7 +537,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		if(this.cantBeAttachedTo().match(game.actualState, this, new Set(targetObject)))
 			return false;
 
-		if(this.characteristics.subTypes.contains(SubType.AURA))
+		if(this.characteristics[0].subTypes.contains(SubType.AURA))
 		{
 			// Auras can only be attached to objects they can legally
 			// enchant
@@ -539,21 +562,21 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 			attachable = true;
 		}
 
-		if(this.characteristics.subTypes.contains(SubType.EQUIPMENT))
+		if(this.characteristics[0].subTypes.contains(SubType.EQUIPMENT))
 		{
 			// Equipment can only be attached to a creature
 
-			if(targetObject instanceof GameObject && !((GameObject)targetObject).characteristics.types.contains(Type.CREATURE))
+			if(targetObject instanceof GameObject && !((GameObject)targetObject).characteristics[0].types.contains(Type.CREATURE))
 				return false;
 
 			attachable = true;
 		}
 
-		if(this.characteristics.subTypes.contains(SubType.FORTIFICATION))
+		if(this.characteristics[0].subTypes.contains(SubType.FORTIFICATION))
 		{
 			// Fortifications can only be attached to a land
 
-			if(targetObject.isGameObject() && !((GameObject)targetObject).characteristics.types.contains(Type.LAND))
+			if(targetObject.isGameObject() && !((GameObject)targetObject).characteristics[0].types.contains(Type.LAND))
 				return false;
 
 			attachable = true;
@@ -574,7 +597,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	/**
 	 * Tells this object it can't be attached by some kinds of objects.
-	 * 
+	 *
 	 * @param restriction SetPattern describing the kind of object that can't
 	 * attach to this.
 	 */
@@ -601,7 +624,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	/**
 	 * Tells this object it can't be attached to some kinds of objects.
-	 * 
+	 *
 	 * @param restriction SetPattern describing the kind of object this can't
 	 * attach to.
 	 */
@@ -628,7 +651,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	/**
 	 * Tells this object it can't be the target of some kind of spell or
 	 * ability.
-	 * 
+	 *
 	 * @param what The kind of spell or ability this object can't be the target
 	 * of.
 	 */
@@ -707,10 +730,10 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	/**
 	 * Counters this object.
-	 * 
+	 *
 	 * @param counterer What is countering this object.
 	 * @return The countered object.
-	 * 
+	 *
 	 */
 	public GameObject counterThisObject(Set counterer)
 	{
@@ -719,7 +742,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	/**
 	 * Counters this object.
-	 * 
+	 *
 	 * @param counterer What is countering the object.
 	 * @param counterTo Where the object will go when it is countered.
 	 * @return The countered object.
@@ -761,7 +784,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 * and the value of X is defined by the text of that spell or ability rather
 	 * than being chosen by the player playing it, use this method to define
 	 * that value.
-	 * 
+	 *
 	 * @param X The definition of X. If this parameter evaluates to a single
 	 * number, X is that number. If it evaluates to no numbers, X is undefined.
 	 * If it evaluates to multiple numbers, X is the sum of those numbers. It
@@ -794,6 +817,11 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		boolean needRefresh = false;
 
 		GameObject physicalThis = this.getPhysical();
+
+		java.util.Map<Target, java.util.List<Target>> chosenTargets = new java.util.HashMap<>();
+		for(java.util.Map<Target, java.util.List<Target>> characteristicChosenTargets: physicalThis.getChosenTargets())
+			chosenTargets.putAll(characteristicChosenTargets);
+
 		for(Mode mode: this.getSelectedModes())
 		{
 			// Don't check modes with no targets
@@ -802,10 +830,10 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 			for(Target possibleTarget: mode.targets)
 			{
-				if(!physicalThis.getChosenTargets().containsKey(possibleTarget))
+				if(!chosenTargets.containsKey(possibleTarget))
 					continue;
 
-				java.util.ListIterator<Target> i = physicalThis.getChosenTargets().get(possibleTarget).listIterator();
+				java.util.ListIterator<Target> i = chosenTargets.get(possibleTarget).listIterator();
 				while(i.hasNext())
 				{
 					// we wait until now to declare that the spell has a target,
@@ -855,7 +883,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 */
 	public java.util.List<Integer> getAbilityIDsInOrder()
 	{
-		return java.util.Collections.unmodifiableList(this.characteristics.abilityIDsInOrder);
+		return java.util.Collections.unmodifiableList(this.characteristics[0].abilityIDsInOrder);
 	}
 
 	@Override
@@ -905,29 +933,30 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public Characteristics getCharacteristics()
 	{
-		this.characteristics.name = this.getName();
-		return this.characteristics;
+		this.characteristics[0].name = this.getName();
+		return this.characteristics[0];
 	}
 
-	public java.util.Map<Target, java.util.List<Target>> getChosenTargets()
+	@SuppressWarnings("unchecked")
+	public java.util.Map<Target, java.util.List<Target>>[] getChosenTargets()
 	{
-		return this.characteristics.chosenTargets;
+		return java.util.Arrays.stream(this.characteristics).map(t -> t.chosenTargets).toArray(size -> new java.util.Map[size]);
 	}
 
 	public java.util.Set<Color> getColorIndicator()
 	{
-		return this.characteristics.colorIndicator;
+		return this.characteristics[0].colorIndicator;
 	}
 
 	public java.util.Set<Color> getColors()
 	{
-		return this.characteristics.colors;
+		return this.characteristics[0].colors;
 	}
 
 	/**
 	 * @return The controller of this object; or its owner if it has no
 	 * controller.
-	 * 
+	 *
 	 * Controller glossary entry: "... If anything asks for the controller of an
 	 * object that doesn't have a controller, use its owner instead."
 	 */
@@ -940,11 +969,11 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	}
 
 	/** @return The converted mana cost of this object. */
-	public abstract int getConvertedManaCost();
+	public abstract int[] getConvertedManaCost();
 
 	/**
 	 * Get a cost generated during CAST_SPELL_OR_ACTIVATED_ABILITY
-	 * 
+	 *
 	 * @param state The {@link GameState} to look up the cost in
 	 * @param factory What {@link EventFactory} generated the cost
 	 * @return The {@link Event} generated as an cost or {@code null} if nothing
@@ -959,7 +988,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public java.util.Collection<EventFactory> getCosts()
 	{
-		return this.characteristics.costs;
+		return this.characteristics[0].costs;
 	}
 
 	public java.util.Collection<Event> getCostsPaid()
@@ -1005,15 +1034,16 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	/**
 	 * Gets the number this object asks the player to divide when it's played.
 	 * This method is only for use on objects that "have no modes".
-	 * 
+	 *
 	 * Example: Bogardan Hellkite's ability should return Identity.instance(new
 	 * Set(5)).
-	 * 
+	 *
 	 * Example: Living Inferno's ability should return PowerOf(this).
 	 */
 	public final SetGenerator getDivisionAmount()
 	{
-		if(this.getSelectedModeNumbers().size() > 1)
+		int totalNumSelectedModes = java.util.Arrays.stream(this.characteristics).mapToInt(t -> t.selectedModeNumbers.size()).sum();
+		if(totalNumSelectedModes > 1)
 			throw new UnsupportedOperationException("Objects with multiple modes should explicitly declare which modes division amount they want");
 		return getDivision(1);
 	}
@@ -1022,7 +1052,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 * Gets the number and kind of thing ("damage", "counters", etc) this object
 	 * asks the player to divide when it's played with the specified mode
 	 * chosen.
-	 * 
+	 *
 	 * @param modeNum The mode.
 	 * @return A set generator that evaluates to the division.
 	 */
@@ -1033,7 +1063,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	/**
 	 * Get a effect generated during {@link #followInstructions()}
-	 * 
+	 *
 	 * @param state The {@link GameState} to look up the effect in
 	 * @param factory What {@link EventFactory} generated the effect
 	 * @return The {@link Event} generated as an effect or {@code null} if
@@ -1061,15 +1091,18 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	@Override
 	public java.util.List<Keyword> getKeywordAbilities()
 	{
-		return new IDList<Keyword>(this.state, this.characteristics.keywordAbilities, false);
+		java.util.List<Integer> ids = new java.util.LinkedList<>();
+		for(Characteristics characteristics: this.characteristics)
+			ids.addAll(characteristics.keywordAbilities);
+		return new IDList<>(this.state, ids, false);
 	}
 
 	/**
 	 * @return the manaCost
 	 */
-	public ManaPool getManaCost()
+	public ManaPool[] getManaCost()
 	{
-		return this.characteristics.manaCost;
+		return java.util.Arrays.stream(this.characteristics).map(t -> t.manaCost).toArray(size -> new ManaPool[size]);
 	}
 
 	public int getMaximumBlocks()
@@ -1079,9 +1112,9 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		return this.battlefieldProperties.maximumBlocks;
 	}
 
-	public int getMinimumX()
+	public int[] getMinimumX()
 	{
-		return this.characteristics.minimumX;
+		return java.util.Arrays.stream(this.characteristics).mapToInt(t -> t.minimumX).toArray();
 	}
 
 	/**
@@ -1090,35 +1123,41 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 */
 	public Mode getMode(int modeNumber)
 	{
-		while(modeNumber > this.getModes().size())
-			this.getModes().add(new Mode(this.ID));
-		return this.getModes().get(modeNumber - 1);
+		List<Mode> modes = this.getModes()[0];
+		while(modeNumber > modes.size())
+			modes.add(new Mode(this.ID));
+		return modes.get(modeNumber - 1);
 	}
 
-	public java.util.List<Mode> getModes()
+	@SuppressWarnings("unchecked")
+	public java.util.List<Mode>[] getModes()
 	{
-		return this.characteristics.modes;
+		return java.util.Arrays.stream(this.characteristics).map(t -> t.modes).toArray(size -> new java.util.LinkedList[size]);
 	}
 
 	@Override
 	public java.util.List<NonStaticAbility> getNonStaticAbilities()
 	{
-		return new IDList<NonStaticAbility>(this.state, this.characteristics.nonStaticAbilities, false);
+		java.util.List<Integer> ids = new java.util.LinkedList<>();
+		for(Characteristics characteristics: this.characteristics)
+			ids.addAll(characteristics.nonStaticAbilities);
+		return new IDList<>(this.state, ids, false);
 	}
 
-	public Set getNumModes()
+	public Set[] getNumModes()
 	{
-		return this.characteristics.numModes;
+		return java.util.Arrays.stream(this.characteristics).map(t -> t.numModes).toArray(size -> new Set[size]);
 	}
 
-	public CostCollection getAlternateCost()
+	public CostCollection[] getAlternateCost()
 	{
-		return this.characteristics.alternateCost;
+		return java.util.Arrays.stream(this.characteristics).map(t -> t.alternateCost).toArray(size -> new CostCollection[size]);
 	}
 
-	public java.util.Collection<CostCollection> getOptionalAdditionalCostsChosen()
+	@SuppressWarnings("unchecked")
+	public java.util.Collection<CostCollection>[] getOptionalAdditionalCostsChosen()
 	{
-		return this.characteristics.optionalAdditionalCostsChosen;
+		return java.util.Arrays.stream(this.characteristics).map(t -> t.optionalAdditionalCostsChosen).toArray(size -> new java.util.Collection[size]);
 	}
 
 	/** @return The owner of this object. */
@@ -1156,41 +1195,56 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public int getPower()
 	{
-		return this.characteristics.power;
+		return this.characteristics[0].power;
 	}
 
 	public int getPrintedLoyalty()
 	{
-		return this.characteristics.loyalty;
+		return this.characteristics[0].loyalty;
 	}
 
-	public java.util.List<Integer> getSelectedModeNumbers()
+	@SuppressWarnings("unchecked")
+	public java.util.List<Integer>[] getSelectedModeNumbers()
 	{
-		return this.characteristics.selectedModeNumbers;
+		return java.util.Arrays.stream(this.characteristics).map(t -> t.selectedModeNumbers).toArray(size -> new List[size]);
 	}
 
 	public java.util.List<Mode> getSelectedModes()
 	{
 		java.util.List<Mode> ret = new java.util.LinkedList<>();
-		for(int n: this.characteristics.selectedModeNumbers)
-			ret.add(this.getModes().get(n - 1));
+		for(Characteristics characteristics: this.characteristics)
+			for(int n: characteristics.selectedModeNumbers)
+				ret.add(characteristics.modes.get(n - 1));
 		return ret;
 	}
 
 	@Override
 	public java.util.List<StaticAbility> getStaticAbilities()
 	{
-		return new IDList<StaticAbility>(this.state, this.characteristics.staticAbilities, false);
+		java.util.List<Integer> ids = new java.util.LinkedList<>();
+		for(Characteristics characteristics: this.characteristics)
+			ids.addAll(characteristics.staticAbilities);
+		return new IDList<>(this.state, ids, false);
 	}
 
 	public java.util.Set<SubType> getSubTypes()
 	{
-		return java.util.EnumSet.copyOf(this.characteristics.subTypes);
+		return java.util.Arrays.stream(this.characteristics).map(t -> t.subTypes).collect(java.util.stream.Collector.of(() -> {
+			return java.util.EnumSet.noneOf(SubType.class);
+		}, java.util.EnumSet<SubType>::addAll, (left, right) -> {
+			left.addAll(right);
+			return left;
+		}, Collections::unmodifiableSet));
 	}
 
 	public java.util.Set<SuperType> getSuperTypes()
 	{
-		return java.util.EnumSet.copyOf(this.characteristics.superTypes);
+		return java.util.Arrays.stream(this.characteristics).map(t -> t.superTypes).collect(java.util.stream.Collector.of(() -> {
+			return java.util.EnumSet.noneOf(SuperType.class);
+		}, java.util.EnumSet<SuperType>::addAll, (left, right) -> {
+			left.addAll(right);
+			return left;
+		}, Collections::unmodifiableSet));
 	}
 
 	public int getTimestamp()
@@ -1200,17 +1254,22 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public int getToughness()
 	{
-		return this.characteristics.toughness;
+		return this.characteristics[0].toughness;
 	}
 
 	public java.util.Set<Type> getTypes()
 	{
-		return java.util.EnumSet.copyOf(this.characteristics.types);
+		return java.util.Arrays.stream(this.characteristics).map(t -> t.types).collect(java.util.stream.Collector.of(() -> {
+			return java.util.EnumSet.noneOf(Type.class);
+		}, java.util.EnumSet<Type>::addAll, (left, right) -> {
+			left.addAll(right);
+			return left;
+		}, Collections::unmodifiableSet));
 	}
 
 	public int getValueOfX()
 	{
-		return this.characteristics.valueOfX;
+		return this.characteristics[0].valueOfX;
 	}
 
 	public java.util.Set<Player> getVisibleTo()
@@ -1366,7 +1425,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	/**
 	 * 702.59b A card is "suspended" if it's in the exile zone, has suspend, and
 	 * has a time counter on it.
-	 * 
+	 *
 	 * @return Whether this object is suspended.
 	 */
 	public boolean isSuspended()
@@ -1465,7 +1524,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 * the use of a movement event, this is done by setting the CONTROLLER
 	 * parameter of that event; otherwise, call
 	 * {@link GameObject#setController(Player)} on the new object.
-	 * 
+	 *
 	 * @param controller Who will control the object on the stack.
 	 * @param faceDownValues Null if this card is to be put on the stack face
 	 * up; otherwise, a class defining a set of values for this object to assume
@@ -1482,12 +1541,18 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 */
 	public final boolean removeAbility(Keyword ability)
 	{
-		this.characteristics.abilityIDsInOrder.remove((Integer)ability.ID);
+		java.util.Arrays.stream(this.characteristics).forEach(t -> t.abilityIDsInOrder.remove((Integer)ability.ID));
+
 		this.state.removeIdentified(ability.ID);
 
-		// do this on two lines to prevent short circuiting
-		boolean ret = this.characteristics.keywordAbilities.remove((Integer)ability.ID);
+		Stream<Boolean> booleanMap = java.util.Arrays.stream(this.characteristics).map(t -> t.keywordAbilities.remove((Integer)ability.ID));
+
+		boolean ret = booleanMap.reduce((left, right) -> {
+			return left && right;
+		}).orElse(true);
+
 		ret = ability.removeFrom(this) && ret;
+
 		return ret;
 	}
 
@@ -1496,9 +1561,15 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 */
 	public final boolean removeAbility(NonStaticAbility ability)
 	{
-		this.characteristics.abilityIDsInOrder.remove((Integer)ability.ID);
+		java.util.Arrays.stream(this.characteristics).forEach(t -> t.abilityIDsInOrder.remove((Integer)ability.ID));
+
 		this.state.removeIdentified(ability.ID);
-		return this.characteristics.nonStaticAbilities.remove((Integer)ability.ID);
+
+		Stream<Boolean> booleanMap = java.util.Arrays.stream(this.characteristics).map(t -> t.nonStaticAbilities.remove((Integer)ability.ID));
+
+		return booleanMap.reduce((left, right) -> {
+			return left && right;
+		}).orElse(true);
 	}
 
 	/**
@@ -1506,26 +1577,35 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 */
 	public final boolean removeAbility(StaticAbility ability)
 	{
-		this.characteristics.abilityIDsInOrder.remove((Integer)ability.ID);
+		java.util.Arrays.stream(this.characteristics).forEach(t -> t.abilityIDsInOrder.remove((Integer)ability.ID));
+
 		this.state.removeIdentified(ability.ID);
-		return this.characteristics.staticAbilities.remove((Integer)ability.ID);
+
+		Stream<Boolean> booleanMap = java.util.Arrays.stream(this.characteristics).map(t -> t.staticAbilities.remove((Integer)ability.ID));
+
+		return booleanMap.reduce((left, right) -> {
+			return left && right;
+		}).orElse(true);
 	}
 
 	public void removeAllAbilities()
 	{
-		for(int a: this.characteristics.nonStaticAbilities)
-			this.state.removeIdentified(a);
-		this.characteristics.nonStaticAbilities.clear();
+		for(Characteristics characteristics: this.characteristics)
+		{
+			for(int a: characteristics.nonStaticAbilities)
+				this.state.removeIdentified(a);
+			characteristics.nonStaticAbilities.clear();
 
-		for(int a: this.characteristics.staticAbilities)
-			this.state.removeIdentified(a);
-		this.characteristics.staticAbilities.clear();
+			for(int a: characteristics.staticAbilities)
+				this.state.removeIdentified(a);
+			characteristics.staticAbilities.clear();
 
-		for(int a: this.characteristics.keywordAbilities)
-			this.state.removeIdentified(a);
-		this.characteristics.keywordAbilities.clear();
+			for(int a: characteristics.keywordAbilities)
+				this.state.removeIdentified(a);
+			characteristics.keywordAbilities.clear();
 
-		this.characteristics.abilityIDsInOrder.clear();
+			characteristics.abilityIDsInOrder.clear();
+		}
 	}
 
 	@Override
@@ -1544,17 +1624,17 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	void removeSubTypes(java.util.Collection<SubType> subTypes)
 	{
-		this.characteristics.subTypes.removeAll(subTypes);
+		java.util.Arrays.stream(this.characteristics).forEach(t -> t.subTypes.removeAll(subTypes));
 	}
 
 	void removeSuperTypes(java.util.Collection<SuperType> superTypes)
 	{
-		this.characteristics.superTypes.removeAll(superTypes);
+		java.util.Arrays.stream(this.characteristics).forEach(t -> t.superTypes.removeAll(superTypes));
 	}
 
 	void removeTypes(java.util.Collection<Type> types)
 	{
-		this.characteristics.types.removeAll(types);
+		java.util.Arrays.stream(this.characteristics).forEach(t -> t.types.removeAll(types));
 	}
 
 	public boolean reselectTargets(Player chooser)
@@ -1563,6 +1643,10 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 		java.util.Set<Integer> newTargetIDs = new java.util.HashSet<Integer>();
 
+		java.util.Map<Target, List<Target>> chosenTargets = new java.util.HashMap<>();
+		for(java.util.Map<Target, List<Target>> characteristicChosenTargets: this.getChosenTargets())
+			chosenTargets.putAll(characteristicChosenTargets);
+
 		for(Mode mode: this.getSelectedModes())
 		{
 			java.util.List<Integer> ignoreThese = new java.util.LinkedList<Integer>();
@@ -1570,7 +1654,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 			for(Target possibleTarget: mode.targets)
 			{
-				java.util.ListIterator<Target> i = this.getChosenTargets().get(possibleTarget).listIterator();
+				java.util.ListIterator<Target> i = chosenTargets.get(possibleTarget).listIterator();
 				while(i.hasNext())
 				{
 					Target chosenTarget = i.next();
@@ -1622,32 +1706,40 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	/**
 	 * Causes the player playing this object to select modes.
-	 * 
+	 *
 	 * @return The 1-based mode indices selected, in ascending order
 	 */
-	public java.util.List<Integer> selectModes()
+	public java.util.List<Integer>[] selectModes()
 	{
 		Player controller = this.getController(this.state);
 
-		// 700.2a ... If one of the modes would be illegal (due to an inability
-		// to choose legal targets, for example), that mode can't be chosen.
-		java.util.List<Mode> chooseFrom = new java.util.LinkedList<Mode>(this.getModes());
-		java.util.Iterator<Mode> it = chooseFrom.iterator();
-		while(it.hasNext())
-			if(!it.next().canBeChosen(this.game, this))
-				it.remove();
+		GameObject actual = this.getActual();
 
-		final ChooseParameters<java.io.Serializable> chooseParameters = new ChooseParameters<java.io.Serializable>(this.getActual().getNumModes(), PlayerInterface.ChoiceType.MODE, PlayerInterface.ChooseReason.SELECT_MODE);
-		chooseParameters.thisID = this.ID;
-		java.util.Collection<Mode> choices = controller.sanitizeAndChoose(this.state, chooseFrom, chooseParameters);
-
-		this.setSelectedModeNumbers(new java.util.LinkedList<Integer>());
-		int n = 1;
-		for(Mode mode: this.getModes())
+		for(int i = 0; i < this.characteristics.length; ++i)
 		{
-			if(choices.contains(mode))
-				this.getSelectedModeNumbers().add(n);
-			n++;
+			Characteristics characteristics = this.characteristics[i];
+
+			// 700.2a ... If one of the modes would be illegal (due to an
+			// inability
+			// to choose legal targets, for example), that mode can't be chosen.
+			java.util.List<Mode> chooseFrom = new java.util.LinkedList<Mode>(characteristics.modes);
+			java.util.Iterator<Mode> it = chooseFrom.iterator();
+			while(it.hasNext())
+				if(!it.next().canBeChosen(this.game, this))
+					it.remove();
+
+			final ChooseParameters<java.io.Serializable> chooseParameters = new ChooseParameters<java.io.Serializable>(actual.characteristics[i].numModes, PlayerInterface.ChoiceType.MODE, PlayerInterface.ChooseReason.SELECT_MODE);
+			chooseParameters.thisID = this.ID;
+			java.util.Collection<Mode> choices = controller.sanitizeAndChoose(this.state, chooseFrom, chooseParameters);
+
+			characteristics.selectedModeNumbers = new java.util.LinkedList<Integer>();
+			int n = 1;
+			for(Mode mode: characteristics.modes)
+			{
+				if(choices.contains(mode))
+					characteristics.selectedModeNumbers.add(n);
+				n++;
+			}
 		}
 
 		return this.getSelectedModeNumbers();
@@ -1657,13 +1749,13 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 * This function is called by CAST_SPELL_OR_ACTIVATE_ABILITY. Divisions are
 	 * NOT assigned during this function. If the number of targets is variable,
 	 * this function will ask for the number of targets first.
-	 * 
+	 *
 	 * TODO : 601.2C ... If any effects say that an object or player must be
 	 * chosen as a target, the player chooses targets so that he or she obeys
 	 * the maximum possible number of such effects without violating any rules
 	 * or effects that say that an object or player can't be chosen as a target.
 	 * ...
-	 * 
+	 *
 	 * @return Whether all required targets could be chosen.
 	 */
 	public final boolean selectTargets()
@@ -1673,62 +1765,68 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		Player specificChooser = this.getController(this.state);
 		java.util.Set<Integer> newTargetIDs = new java.util.HashSet<Integer>();
 
-		for(Mode mode: this.getSelectedModes())
-		{
-			java.util.List<Integer> ignoreThese = new java.util.LinkedList<Integer>();
-			ignoreThese.add(this.ID);
-
-			for(Target target: mode.targets)
+		java.util.List<Mode>[] modes = this.getActual().getModes();
+		java.util.List<Mode> selectedModes = this.getSelectedModes();
+		for(int i = 0; i < modes.length; ++i)
+			for(Mode mode: modes[i])
 			{
-				if(target.condition.evaluate(this.game, this).isEmpty())
+				if(!selectedModes.contains(mode))
 					continue;
 
-				int previousTarget = -1;
+				java.util.List<Integer> ignoreThese = new java.util.LinkedList<Integer>();
+				ignoreThese.add(this.ID);
 
-				Set legalTargetsNow = target.legalChoicesNow(this.game, this);
-				java.util.Set<Target> targetSet = new java.util.HashSet<Target>();
-
-				for(Identified potentialTarget: legalTargetsNow.getAll(Identified.class))
-					if(!ignoreThese.contains(potentialTarget.ID) && previousTarget != potentialTarget.ID)
-						targetSet.add(new Target(potentialTarget, target));
-
-				if(target.chooser != null)
-					specificChooser = target.chooser.evaluate(this.game, this).getOne(Player.class);
-
-				org.rnd.util.NumberRange number = target.number.evaluate(this.game, this).getOne(org.rnd.util.NumberRange.class);
-				int min = number.getLower(0);
-				int max = number.getUpper(targetSet.size());
-				java.util.List<Target> targetChoice = null;
-				while(targetChoice == null)
+				for(Target target: mode.targets)
 				{
-					targetChoice = specificChooser.sanitizeAndChoose(this.game.actualState, min, max, targetSet, PlayerInterface.ChoiceType.TARGETS, PlayerInterface.ChooseReason.DECLARE_TARGETS);
-					if(!target.checkSpecialRestrictions(this.state, targetChoice))
-						targetChoice = null;
-				}
-				if(targetChoice.size() < min)
-				{
-					this.getChosenTargets().put(target, null);
-					ret = false;
-					break;
-				}
+					if(target.condition.evaluate(this.game, this).isEmpty())
+						continue;
 
-				java.util.List<Target> chosenTargets = new java.util.LinkedList<Target>();
-				this.getChosenTargets().put(target, chosenTargets);
-				int count = 0;
-				for(Target t: targetChoice)
-				{
-					if(1 < targetChoice.size())
+					int previousTarget = -1;
+
+					Set legalTargetsNow = target.legalChoicesNow(this.game, this);
+					java.util.Set<Target> targetSet = new java.util.HashSet<Target>();
+
+					for(Identified potentialTarget: legalTargetsNow.getAll(Identified.class))
+						if(!ignoreThese.contains(potentialTarget.ID) && previousTarget != potentialTarget.ID)
+							targetSet.add(new Target(potentialTarget, target));
+
+					if(target.chooser != null)
+						specificChooser = target.chooser.evaluate(this.game, this).getOne(Player.class);
+
+					org.rnd.util.NumberRange number = target.number.evaluate(this.game, this).getOne(org.rnd.util.NumberRange.class);
+					int min = number.getLower(0);
+					int max = number.getUpper(targetSet.size());
+					java.util.List<Target> targetChoice = null;
+					while(targetChoice == null)
 					{
-						++count;
-						t.name = "target " + count + " of " + t.name;
+						targetChoice = specificChooser.sanitizeAndChoose(this.game.actualState, min, max, targetSet, PlayerInterface.ChoiceType.TARGETS, PlayerInterface.ChooseReason.DECLARE_TARGETS);
+						if(!target.checkSpecialRestrictions(this.state, targetChoice))
+							targetChoice = null;
 					}
-					chosenTargets.add(t);
-					if(target.restrictFromLaterTargets)
-						ignoreThese.add(t.targetID);
-					newTargetIDs.add(t.targetID);
+					if(targetChoice.size() < min)
+					{
+						this.getChosenTargets()[i].put(target, null);
+						ret = false;
+						break;
+					}
+
+					java.util.List<Target> chosenTargets = new java.util.LinkedList<Target>();
+					this.getChosenTargets()[i].put(target, chosenTargets);
+					int count = 0;
+					for(Target t: targetChoice)
+					{
+						if(1 < targetChoice.size())
+						{
+							++count;
+							t.name = "target " + count + " of " + t.name;
+						}
+						chosenTargets.add(t);
+						if(target.restrictFromLaterTargets)
+							ignoreThese.add(t.targetID);
+						newTargetIDs.add(t.targetID);
+					}
 				}
 			}
-		}
 
 		if(ret && !newTargetIDs.isEmpty())
 		{
@@ -1741,9 +1839,10 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		return ret;
 	}
 
-	void setAbilityIDsInOrder(java.util.List<Integer> abilityIDsInOrder)
+	void setAbilityIDsInOrder(java.util.List<Integer>[] abilityIDsInOrder)
 	{
-		this.characteristics.abilityIDsInOrder = abilityIDsInOrder;
+		for(int i = 0; i < this.characteristics.length; ++i)
+			this.characteristics[i].abilityIDsInOrder = abilityIDsInOrder[i];
 	}
 
 	/**
@@ -1795,10 +1894,13 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public void setCharacteristics(Characteristics characteristics)
 	{
-		for(int abilityID: this.characteristics.abilityIDsInOrder)
-			this.game.actualState.removeIdentified(abilityID);
+		java.util.Arrays.stream(this.characteristics).forEach(t -> {
+			t.abilityIDsInOrder.stream().forEach(l -> {
+				this.game.actualState.removeIdentified(l);
+			});
+		});
 
-		this.characteristics = characteristics;
+		this.characteristics = new Characteristics[] {characteristics};
 		this.setName(characteristics.name);
 	}
 
@@ -1810,33 +1912,30 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	public void setColorIndicator(java.util.Collection<Color> colors)
 	{
 		this.setColors(java.util.EnumSet.copyOf(colors));
-		this.characteristics.colorIndicator = java.util.EnumSet.copyOf(colors);
+		this.characteristics[0].colorIndicator = java.util.EnumSet.copyOf(colors);
 	}
 
 	/** Sets the colors of this object based on its mana cost. */
 	public void setColors()
 	{
-		if(null != this.characteristics.manaCost)
-		{
-			this.characteristics.colors.clear();
-			for(Color color: Color.values())
-				for(ManaSymbol mana: this.getManaCost())
-					if(mana.isColor(color))
-					{
-						this.characteristics.colors.add(color);
-						break;
-					}
-		}
+		for(Characteristics characteristics: this.characteristics)
+			if(null != characteristics.manaCost)
+			{
+				characteristics.colors.clear();
+				for(ManaSymbol mana: characteristics.manaCost)
+					characteristics.colors.addAll(mana.colors);
+			}
 	}
 
 	public void setColors(java.util.Set<Color> colors)
 	{
-		this.characteristics.colors = colors;
+		for(Characteristics characteristics: this.characteristics)
+			characteristics.colors = colors;
 	}
 
 	/**
 	 * Tells this object it has a new controller.
-	 * 
+	 *
 	 * @param controller Null if no one is to control the object; the new
 	 * controller otherwise.
 	 */
@@ -1846,11 +1945,6 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 			this.controllerID = -1;
 		else
 			this.controllerID = controller.ID;
-	}
-
-	public void setCosts(java.util.List<EventFactory> costs)
-	{
-		this.characteristics.costs = costs;
 	}
 
 	public void setDamage(int damage)
@@ -1876,7 +1970,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	/**
 	 * Tells this object what it should ask the player playing it to divide if
 	 * the player has selected the specified mode.
-	 * 
+	 *
 	 * @param modeNum The mode.
 	 * @param division A set generator representing what the player playing this
 	 * object will be dividing.
@@ -1889,7 +1983,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	/**
 	 * Tells this object what it should ask the player playing it to divide. Use
 	 * this method only on objects that "have no modes".
-	 * 
+	 *
 	 * @param division A set generator representing what the player playing this
 	 * object will be dividing.
 	 */
@@ -1908,7 +2002,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 */
 	void setManaCost(ManaPool manaCost)
 	{
-		this.characteristics.manaCost = manaCost;
+		this.characteristics[0].manaCost = manaCost;
 	}
 
 	public void setMaximumBlocks(int maximumBlocks)
@@ -1918,12 +2012,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	protected void setMinimumX(int minimumX)
 	{
-		this.characteristics.minimumX = minimumX;
-	}
-
-	public void setModes(java.util.List<Mode> modes)
-	{
-		this.characteristics.modes = modes;
+		this.characteristics[0].minimumX = minimumX;
 	}
 
 	/** Assignes this GameObject a new timestamp. */
@@ -1934,22 +2023,17 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public void setNumModes(Set numModes)
 	{
-		this.characteristics.numModes = numModes;
+		this.characteristics[0].numModes = numModes;
 	}
 
 	public void setAlternateCost(CostCollection alternateCost)
 	{
-		this.characteristics.alternateCost = alternateCost;
-	}
-
-	public void setOptionalAdditionalCostsChosen(java.util.Collection<CostCollection> optionalAdditionalCostsChosen)
-	{
-		this.characteristics.optionalAdditionalCostsChosen = optionalAdditionalCostsChosen;
+		this.characteristics[0].alternateCost = alternateCost;
 	}
 
 	/**
 	 * Tells this object it has a new owner.
-	 * 
+	 *
 	 * @param owner The new owner.
 	 */
 	public void setOwner(Player owner)
@@ -1979,17 +2063,18 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public void setPower(int power)
 	{
-		this.characteristics.power = power;
+		this.characteristics[0].power = power;
 	}
 
 	public void setPrintedLoyalty(int loyalty)
 	{
-		this.characteristics.loyalty = loyalty;
+		this.characteristics[0].loyalty = loyalty;
 	}
 
-	public void setSelectedModeNumbers(java.util.List<Integer> selectedModeNumbers)
+	public void setSelectedModeNumbers(java.util.List<Integer>[] selectedModeNumbers)
 	{
-		this.characteristics.selectedModeNumbers = selectedModeNumbers;
+		for(int i = 0; i < this.characteristics.length; ++i)
+			this.characteristics[i].selectedModeNumbers = selectedModeNumbers[i];
 	}
 
 	public void setTapped(boolean tapped)
@@ -1999,7 +2084,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public void setToughness(int toughness)
 	{
-		this.characteristics.toughness = toughness;
+		this.characteristics[0].toughness = toughness;
 	}
 
 	public void setTransformed(boolean transformed)
@@ -2009,12 +2094,13 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public void setValueOfX(int valueOfX)
 	{
-		this.characteristics.valueOfX = valueOfX;
+		for(Characteristics characteristics: this.characteristics)
+			characteristics.valueOfX = valueOfX;
 	}
 
 	/**
 	 * Tells this object it has moved.
-	 * 
+	 *
 	 * @param zone The zone it moved to.
 	 */
 	public void setZone(Zone zone)
@@ -2026,16 +2112,16 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	/**
 	 * Splices this object onto the specified object.
-	 * 
+	 *
 	 * @param target The object whose text box will receive a copy of this
 	 * object's text box.
 	 */
 	public void spliceOnto(GameObject target)
 	{
-		for(Mode mode: this.getModes())
+		for(Mode mode: this.getModes()[0])
 		{
 			Mode newMode = new Mode(mode, target.ID);
-			target.getModes().add(newMode);
+			target.getModes()[0].add(newMode);
 		}
 
 		Set grantedByKeywords = new Set();

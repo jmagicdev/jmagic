@@ -10,7 +10,7 @@ import org.rnd.jmagic.engine.*;
  * that's waiting to trigger (even if that object is no longer in the zone it
  * used to be in); or, for certain casual variant games, a face-up card in the
  * command zone.
- * 
+ *
  * TODO : any object referred to by a replacement effect that's waiting to apply
  */
 public class AllSourcesOfDamage extends SetGenerator
@@ -33,9 +33,10 @@ public class AllSourcesOfDamage extends SetGenerator
 	{
 		java.util.Collection<GameObject> ret = new java.util.HashSet<GameObject>();
 
-		for(Mode m: object.getModes())
-			for(EventFactory effect: m.effects)
-				ret.addAll(effect.refersTo(state, object));
+		for(java.util.List<Mode> modes: object.getModes())
+			for(Mode m: modes)
+				for(EventFactory effect: m.effects)
+					ret.addAll(effect.refersTo(state, object));
 
 		return ret;
 	}

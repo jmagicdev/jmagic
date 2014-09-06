@@ -103,10 +103,14 @@ public final class CopySpellOrAbility extends EventType
 
 				for(GameObject copy: result.getAll(GameObject.class))
 				{
+					java.util.Map<Target, java.util.List<Target>> chosenTargets = new java.util.HashMap<>();
+					for(java.util.Map<Target, java.util.List<Target>> characteristicChosenTargets: copy.getChosenTargets())
+						chosenTargets.putAll(characteristicChosenTargets);
+
 					java.util.Set<Integer> targets = new java.util.HashSet<Integer>();
 					for(Mode m: copy.getSelectedModes())
 						for(Target possibleTarget: m.targets)
-							for(Target chosenTarget: copy.getChosenTargets().get(possibleTarget))
+							for(Target chosenTarget: chosenTargets.get(possibleTarget))
 								targets.add(chosenTarget.targetID);
 
 					if(!targets.isEmpty())

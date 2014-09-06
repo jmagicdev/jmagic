@@ -47,7 +47,7 @@ public class FlipCardsTest extends JUnitTest
 		GameObject ichiga = this.game.actualState.battlefield().objects.get(0);
 		assertEquals("Ichiga, Who Topples Oaks", ichiga.getName());
 		assertNotNull(ichiga.getManaCost());
-		assertEquals(3, ichiga.getManaCost().converted());
+		assertEquals(3, ichiga.getManaCost()[0].converted());
 
 		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
 

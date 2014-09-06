@@ -29,20 +29,21 @@ public final class CopySpellForEachTarget extends EventType
 
 		Target toChange = null;
 
-		for(java.util.Map.Entry<Target, java.util.List<Target>> entry: object.getChosenTargets().entrySet())
-		{
-			// This eventtype doesn't work on objects with multiple
-			// targets
-			if(entry.getValue().size() > 1)
-				return false;
-
-			if(toChange == null)
-				toChange = entry.getValue().get(0);
-			else
+		for(java.util.Map<Target, java.util.List<Target>> chosenTargets: object.getChosenTargets())
+			for(java.util.Map.Entry<Target, java.util.List<Target>> entry: chosenTargets.entrySet())
+			{
 				// This eventtype doesn't work on objects with multiple
 				// targets
-				return false;
-		}
+				if(entry.getValue().size() > 1)
+					return false;
+
+				if(toChange == null)
+					toChange = entry.getValue().get(0);
+				else
+					// This eventtype doesn't work on objects with multiple
+					// targets
+					return false;
+			}
 
 		Set targets = toChange.legalChoicesNow(game, object);
 		targets.remove(game.actualState.get(toChange.targetID));
@@ -65,8 +66,9 @@ public final class CopySpellForEachTarget extends EventType
 		for(GameObject copy: copies)
 		{
 			Identified nextTarget = targetsIter.next();
-			for(java.util.List<Target> chosenTargets: copy.getChosenTargets().values())
-				chosenTargets.get(0).targetID = nextTarget.ID;
+			for(java.util.Map<Target, java.util.List<Target>> sidesChosenTargets: copy.getChosenTargets())
+				for(java.util.List<Target> chosenTargets: sidesChosenTargets.values())
+					chosenTargets.get(0).targetID = nextTarget.ID;
 		}
 
 		if(targets.size() > 1)

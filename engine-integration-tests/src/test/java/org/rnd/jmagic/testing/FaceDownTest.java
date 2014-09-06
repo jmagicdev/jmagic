@@ -31,7 +31,7 @@ public class FaceDownTest extends JUnitTest
 		assertEquals(2, this.game.actualState.battlefield().objects.size());
 		GameObject moggFanatic = this.game.actualState.battlefield().objects.get(1);
 		assertEquals("", moggFanatic.getName());
-		assertEquals(null, moggFanatic.getManaCost());
+		assertEquals(null, moggFanatic.getManaCost()[0]);
 		assertTrue(moggFanatic.getSuperTypes().isEmpty());
 		assertEquals(1, moggFanatic.getTypes().size());
 		assertEquals(Type.CREATURE, moggFanatic.getTypes().iterator().next());
@@ -52,7 +52,7 @@ public class FaceDownTest extends JUnitTest
 		assertEquals(3, this.game.actualState.battlefield().objects.size());
 		GameObject clone = this.game.actualState.battlefield().objects.get(0);
 		assertEquals("", clone.getName());
-		assertEquals(null, clone.getManaCost());
+		assertEquals(null, clone.getManaCost()[0]);
 		assertTrue(clone.getSuperTypes().isEmpty());
 		assertEquals(1, clone.getTypes().size());
 		assertEquals(Type.CREATURE, clone.getTypes().iterator().next());

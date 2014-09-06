@@ -45,7 +45,7 @@ public class CouldBeProducedBy extends SetGenerator
 
 		for(NonStaticAbility ability: object.getNonStaticAbilities())
 		{
-			for(Mode mode: ability.getModes())
+			for(Mode mode: ability.getModes()[0])
 			{
 				for(EventFactory effect: mode.effects)
 				{

@@ -27,6 +27,12 @@ public final class ChangeSingleTargetTo extends EventType
 
 		java.util.Map<Target, Boolean> wasLegal = new java.util.HashMap<Target, Boolean>();
 
+		java.util.Map<Target, java.util.List<Target>> allChosenTargets = new java.util.HashMap<Target, java.util.List<Target>>();
+		for(java.util.Map<Target, java.util.List<Target>> chosenTargets: object.getChosenTargets())
+			allChosenTargets.putAll(chosenTargets);
+
+		// Introduce this scope because there are two variables named
+		// 'restricted'
 		{
 			java.util.Set<Integer> restricted = new java.util.HashSet<Integer>();
 			for(Mode checkMode: object.getSelectedModes())
@@ -34,7 +40,7 @@ public final class ChangeSingleTargetTo extends EventType
 				for(Target checkBaseTarget: checkMode.targets)
 				{
 					java.util.Set<Integer> thisBaseTarget = new java.util.HashSet<Integer>();
-					for(Target checkTarget: object.getChosenTargets().get(checkBaseTarget))
+					for(Target checkTarget: allChosenTargets.get(checkBaseTarget))
 					{
 						Set legalCheck = checkTarget.legalChoicesNow(game, object);
 						boolean legal = !(restricted.contains(checkTarget.targetID) || !legalCheck.contains(game.actualState.get(checkTarget.targetID)));
@@ -51,7 +57,7 @@ public final class ChangeSingleTargetTo extends EventType
 		{
 			for(Target baseTarget: mode.targets)
 			{
-				for(Target target: object.getChosenTargets().get(baseTarget))
+				for(Target target: allChosenTargets.get(baseTarget))
 				{
 					Set targets = target.legalChoicesNow(game, object);
 					if(targets.contains(newTarget))
@@ -71,7 +77,7 @@ public final class ChangeSingleTargetTo extends EventType
 							for(Target checkBaseTarget: checkMode.targets)
 							{
 								java.util.Set<Integer> thisBaseTarget = new java.util.HashSet<Integer>();
-								for(Target checkTarget: object.getChosenTargets().get(checkBaseTarget))
+								for(Target checkTarget: allChosenTargets.get(checkBaseTarget))
 								{
 									Set legalCheck = checkTarget.legalChoicesNow(game, object);
 									boolean targetWasLegal = wasLegal.get(checkTarget);
@@ -108,18 +114,20 @@ public final class ChangeSingleTargetTo extends EventType
 			chosenTarget.targetID = newTarget.ID;
 
 			// Also set the target on the physical object
-			setPhysicalTarget: for(java.util.Map.Entry<Target, java.util.List<Target>> entry: object.getChosenTargets().entrySet())
-			{
-				for(int i = 0; i < entry.getValue().size(); ++i)
+			java.util.Map<Target, java.util.List<Target>>[] chosenTargets = object.getChosenTargets();
+			setPhysicalTarget: for(int sideNumber = 0; sideNumber < object.getChosenTargets().length; ++sideNumber)
+				for(java.util.Map.Entry<Target, java.util.List<Target>> entry: chosenTargets[sideNumber].entrySet())
 				{
-					if(entry.getValue().get(i) == chosenTarget)
+					for(int targetNumber = 0; targetNumber < entry.getValue().size(); ++targetNumber)
 					{
-						GameObject physical = object.getPhysical();
-						physical.getChosenTargets().get(entry.getKey()).get(i).targetID = newTarget.ID;
-						break setPhysicalTarget;
+						if(entry.getValue().get(targetNumber) == chosenTarget)
+						{
+							GameObject physical = object.getPhysical();
+							physical.getChosenTargets()[sideNumber].get(entry.getKey()).get(targetNumber).targetID = newTarget.ID;
+							break setPhysicalTarget;
+						}
 					}
 				}
-			}
 		}
 		else
 		{

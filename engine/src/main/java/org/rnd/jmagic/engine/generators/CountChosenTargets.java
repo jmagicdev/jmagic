@@ -24,9 +24,15 @@ public class CountChosenTargets extends SetGenerator
 		int i = 0;
 		java.util.Set<Target> targets = this.targets.evaluate(state, thisObject).getAll(Target.class);
 		for(GameObject o: this.what.evaluate(state, thisObject).getAll(GameObject.class))
+		{
+			java.util.Map<Target, java.util.List<Target>> chosenTargets = new java.util.HashMap<>();
+			for(java.util.Map<Target, java.util.List<Target>> characteristicChosenTargets: o.getChosenTargets())
+				chosenTargets.putAll(characteristicChosenTargets);
+
 			for(Target target: targets)
-				if(o.getChosenTargets().containsKey(target))
-					i += o.getChosenTargets().get(target).size();
+				if(chosenTargets.containsKey(target))
+					i += chosenTargets.get(target).size();
+		}
 		return new Set(i);
 	}
 

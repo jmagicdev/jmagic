@@ -25,9 +25,10 @@ public class ThisSpellWasKicked extends SetGenerator
 			thisObject = ((NonStaticAbility)thisObject).getSource(state);
 
 		int timesKicked = 0;
-		for(CostCollection cost: ((GameObject)thisObject).getOptionalAdditionalCostsChosen())
-			if(this.cost.equals(cost))
-				timesKicked++;
+		for(java.util.Collection<CostCollection> costs: ((GameObject)thisObject).getOptionalAdditionalCostsChosen())
+			for(CostCollection cost: costs)
+				if(this.cost.equals(cost))
+					timesKicked++;
 
 		if(timesKicked == 0)
 			return Empty.set;

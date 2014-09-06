@@ -30,10 +30,10 @@ public class AllChosenTargetsOf extends SetGenerator
 
 		for(GameObject object: what.getAll(GameObject.class))
 		{
-			java.util.Map<Target, java.util.List<Target>> chosenTargets = object.getChosenTargets();
-			for(java.util.List<Target> chosenTarget: chosenTargets.values())
-				for(Target t: chosenTarget)
-					returnValue.add(t);
+			for(java.util.Map<Target, java.util.List<Target>> chosenTargets: object.getChosenTargets())
+				for(java.util.List<Target> chosenTarget: chosenTargets.values())
+					for(Target t: chosenTarget)
+						returnValue.add(t);
 		}
 
 		return returnValue;

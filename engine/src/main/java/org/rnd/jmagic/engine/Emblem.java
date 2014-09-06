@@ -4,7 +4,7 @@ public final class Emblem extends GameObject
 {
 	/**
 	 * Create an emblem.
-	 * 
+	 *
 	 * @param state The gamestate in which the emblem exists.
 	 */
 	public Emblem(GameState state)
@@ -25,12 +25,12 @@ public final class Emblem extends GameObject
 	 * 113.3. An emblem has no characteristics other than the abilities defined
 	 * by the effect that created it. In particular, an emblem has ... no mana
 	 * cost ... .
-	 * 
+	 *
 	 * @return 0.
 	 */
 	@Override
-	public int getConvertedManaCost()
+	public int[] getConvertedManaCost()
 	{
-		return 0;
+		return new int[] {0};
 	}
 }

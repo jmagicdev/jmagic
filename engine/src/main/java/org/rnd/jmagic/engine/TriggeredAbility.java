@@ -4,7 +4,7 @@ import org.rnd.jmagic.engine.generators.*;
 
 /**
  * Represents a triggered ability.
- * 
+ *
  * ONLY {@link EventTriggeredAbility} and {@link StateTriggeredAbility} get to
  * extend this. If you're writing a new triggered ability, extend one of those.
  */
@@ -35,7 +35,7 @@ public abstract class TriggeredAbility extends NonStaticAbility
 
 	/**
 	 * Constructs a triggered ability that does nothing.
-	 * 
+	 *
 	 * @param state The game state this ability exists in.
 	 * @param abilityText The text of this ability.
 	 */
@@ -61,7 +61,7 @@ public abstract class TriggeredAbility extends NonStaticAbility
 	 * Determines whether this ability can go on the stack. A triggered ability
 	 * can't go on the stack if targets for it can't be chosen (or, if it's
 	 * modal, if at least one of its modes can't be chosen).
-	 * 
+	 *
 	 * @return Whether this ability can go on the stack.
 	 */
 	public boolean canStack()
@@ -69,12 +69,12 @@ public abstract class TriggeredAbility extends NonStaticAbility
 		int numValidModes = 0;
 		// 603.3c ... If one of the modes would be illegal (due to an inability
 		// to choose legal targets, for example), that mode can't be chosen. ...
-		for(Mode mode: this.getModes())
+		for(Mode mode: this.getModes()[0])
 			if(mode.canBeChosen(this.game, this))
 				numValidModes++;
-		if(this.getModes().isEmpty())
+		if(this.getModes()[0].isEmpty())
 			System.err.println("\"" + this + "\" didn't trigger because it has no effects!");
-		Integer minimum = Minimum.get(this.getNumModes());
+		Integer minimum = Minimum.get(this.getNumModes()[0]);
 		return minimum == null || numValidModes >= minimum;
 	}
 
@@ -84,7 +84,7 @@ public abstract class TriggeredAbility extends NonStaticAbility
 	 * battlefield. Other triggered abilities may override this function for
 	 * abilities that can trigger from other zones or under other conditions, or
 	 * to restrict the conditions under which it can trigger.
-	 * 
+	 *
 	 * @return Whether this ability can trigger.
 	 */
 	protected final boolean canTrigger()
@@ -110,7 +110,7 @@ public abstract class TriggeredAbility extends NonStaticAbility
 
 	/**
 	 * This method is intended to be overridden by derived classes.
-	 * 
+	 *
 	 * @return Whether or not this triggered ability is a delayed triggered
 	 * ability.
 	 */
@@ -128,11 +128,12 @@ public abstract class TriggeredAbility extends NonStaticAbility
 
 	/**
 	 * Puts this ability on the stack.
-	 * 
+	 *
 	 * @return This ability -- this instance of this ability is already a copy
 	 * of one that existed on an object. It was instantiated when the ability
 	 * triggered and was put into the waiting trigger list.
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public TriggeredAbility putOnStack(Player controller, Class<? extends Characteristics> faceDownValues)
 	{
@@ -147,29 +148,29 @@ public abstract class TriggeredAbility extends NonStaticAbility
 		this.game.actualState.stack().addToTop(this);
 
 		// select modes...
-		Integer minimum = Minimum.get(this.getNumModes());
-		if(minimum == null || this.getModes().size() > minimum)
+		Integer minimum = Minimum.get(this.getNumModes()[0]);
+		if(minimum == null || this.getModes()[0].size() > minimum)
 		{
 			this.setSelectedModeNumbers(this.selectModes());
-			physicalAbility.setSelectedModeNumbers(new java.util.LinkedList<Integer>(this.getSelectedModeNumbers()));
+			physicalAbility.setSelectedModeNumbers(new java.util.List[] {new java.util.LinkedList<Integer>(this.getSelectedModeNumbers()[0])});
 		}
 		// ...or choose all of them
 		else
 			for(GameObject o: this.andPhysical())
-				for(int n = 1; n <= o.getModes().size(); n++)
-					o.getSelectedModeNumbers().add(n);
+				for(int n = 1; n <= o.getModes()[0].size(); n++)
+					o.getSelectedModeNumbers()[0].add(n);
 
 		// select targets
 		this.selectTargets();
 		int modeNumber = 1;
-		for(Mode mode: this.getModes())
+		for(Mode mode: this.getModes()[0])
 		{
-			if(!this.getSelectedModeNumbers().contains(modeNumber))
+			if(!this.getSelectedModeNumbers()[0].contains(modeNumber))
 				continue;
 			for(Target possible: mode.targets)
 			{
-				java.util.List<Target> chosenTargets = new java.util.LinkedList<Target>(this.getChosenTargets().get(possible));
-				physicalAbility.getChosenTargets().put(possible, chosenTargets);
+				java.util.List<Target> chosenTargets = new java.util.LinkedList<Target>(this.getChosenTargets()[0].get(possible));
+				physicalAbility.getChosenTargets()[0].put(possible, chosenTargets);
 				for(Target chosen: chosenTargets)
 					if(null == chosen)
 						return null;
@@ -177,10 +178,10 @@ public abstract class TriggeredAbility extends NonStaticAbility
 			modeNumber++;
 		}
 
-		for(int i = 1; i <= this.getModes().size(); i++)
+		for(int i = 1; i <= this.getModes()[0].size(); i++)
 		{
 			Mode mode = this.getMode(i);
-			if(!this.getSelectedModeNumbers().contains(i))
+			if(!this.getSelectedModeNumbers()[0].contains(i))
 				continue;
 
 			Set division = mode.division.evaluate(this.game, this);
@@ -189,7 +190,7 @@ public abstract class TriggeredAbility extends NonStaticAbility
 			{
 				java.util.LinkedList<Target> targets = new java.util.LinkedList<Target>();
 				for(Target target: physicalAbility.getMode(i).targets)
-					targets.addAll(physicalAbility.getChosenTargets().get(target));
+					targets.addAll(physicalAbility.getChosenTargets()[0].get(target));
 				controller.divide(divisionAmount, 1, this.ID, division.getOne(String.class), targets);
 			}
 		}
@@ -214,7 +215,7 @@ public abstract class TriggeredAbility extends NonStaticAbility
 	/**
 	 * Triggers this ability and returns the instance of the ability created by
 	 * triggering it.
-	 * 
+	 *
 	 * @return The instance of the ability created by triggering it.
 	 */
 	protected TriggeredAbility triggerAndReturnNewInstance()
@@ -226,7 +227,7 @@ public abstract class TriggeredAbility extends NonStaticAbility
 	 * Triggers this ability from a game state other than the current one (for
 	 * look back in time triggers) and returns the instance of the ability
 	 * created by triggering it.
-	 * 
+	 *
 	 * @param triggerFrom The game state in which the trigger is assumed to
 	 * exist.
 	 * @return The instance of the ability created by triggering it.

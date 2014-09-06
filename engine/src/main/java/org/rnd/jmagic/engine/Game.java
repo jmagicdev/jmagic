@@ -834,7 +834,7 @@ public class Game
 	/**
 	 * Abilities that exist in the physical state to be granted by continuous
 	 * effects or game rules (like intrinsic mana abilities or keywords).
-	 * 
+	 *
 	 * Keys are {@link GrantedAbilityKey} objects representing the class of the
 	 * ability, the object granting the ability, and the object the ability is
 	 * being granted to; values are IDs of the abilities.
@@ -846,9 +846,9 @@ public class Game
 	 * Bestow causes a spell on the stack to become an Aura with enchant
 	 * creature, which causes the spell to have a target when it otherwise
 	 * wouldn't.
-	 * 
+	 *
 	 * Key: ID of the ability granting the Target
-	 * 
+	 *
 	 * Value: the granted Target
 	 */
 	private java.util.Map<Integer, Target> grantedTargets;
@@ -875,7 +875,7 @@ public class Game
 
 	/**
 	 * Constructs a game.
-	 * 
+	 *
 	 * @param gameType What deck construction rules to use.
 	 */
 	public Game(GameType gameType)
@@ -905,7 +905,7 @@ public class Game
 
 	/**
 	 * Adds a player to this game.
-	 * 
+	 *
 	 * @param comm The interface of the player to add.
 	 * @return The player, or null if the deck was illegal.
 	 */
@@ -1033,7 +1033,7 @@ public class Game
 
 	/**
 	 * Generates actions for the player who has priority.
-	 * 
+	 *
 	 * @param manaAbilitiesOnly Whether the player can only activate mana
 	 * abilities. This is set to true when the player is in the middle of
 	 * playing a spell or ability, or is being asked to pay a cost during the
@@ -1121,7 +1121,7 @@ public class Game
 	 * If {@link Game#snapshotSoon(GameObject)} was called for the specified
 	 * object, returns that snapshot. Future calls to this method with that
 	 * object will return null.
-	 * 
+	 *
 	 * @param of The object to get the cached snapshot for.
 	 * @return The cached snapshot, if it exists; otherwise null.
 	 */
@@ -1134,7 +1134,7 @@ public class Game
 	 * If we have already stored a Target for the given ability, return that
 	 * target. If not, generate a new Target with the given filter and name,
 	 * store it for the given ability, and return it.
-	 * 
+	 *
 	 * @param abilityID the ID of the ability you want to know about
 	 * @param filter the legal choices for the target to generate
 	 * @param targetName the name of the target to generate
@@ -1289,7 +1289,7 @@ public class Game
 	/**
 	 * Instantiates a list of cards from their Class objects, assigns them
 	 * expansions, owners, and puts them in the given zone.
-	 * 
+	 *
 	 * @param cards The Class literals of the cards to create
 	 * @param zone The zone to put the cards into
 	 * @param owner The player to set as the owner of the cards
@@ -1361,7 +1361,7 @@ public class Game
 
 			for(GameObject o: flipped)
 			{
-				ManaPool newManaCost = new ManaPool(o.getManaCost());
+				ManaPool newManaCost = new ManaPool(o.getManaCost()[0]);
 				java.util.Set<Color> newColors = java.util.EnumSet.copyOf(o.getColors());
 
 				o.setCharacteristics(o.getBottomHalf());
@@ -1607,7 +1607,7 @@ public class Game
 	 * generic RuntimeException with a description of the error as the message.
 	 * That way, callers of this function need only handle a single exception
 	 * type for any error from which jMagic can't recover.
-	 * 
+	 *
 	 * @return Who won.
 	 * @throws InterruptedGameException if an interface needs to end the game
 	 * for some reason
@@ -1756,7 +1756,7 @@ public class Game
 	 * copying the object. However, if the object to be copied changes zones
 	 * before the copy effect is made, you must call this method before the copy
 	 * changes zones.
-	 * 
+	 *
 	 * @param object The object to be copied later.
 	 */
 	public void snapshotSoon(GameObject object)
@@ -1769,7 +1769,7 @@ public class Game
 	 * received priority, each player, in APNAP order, puts triggered abilities
 	 * he or she controls on the stack in any order he or she chooses. (See rule
 	 * 101.4.)
-	 * 
+	 *
 	 * @return True if at least one trigger is stacked; false otherwise.
 	 */
 	public boolean stackTriggers()

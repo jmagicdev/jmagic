@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 /**
  * If "this permanent" was not kicked, evaluates to empty. Otherwise evaluates
  * to the number of times it was kicked.
- * 
+ *
  * "This permanent" is considered to be kicked if the spell that became it was
  * kicked.
  */
@@ -36,9 +36,10 @@ public class ThisPermanentWasKicked extends SetGenerator
 		if(pastSelf != -1)
 		{
 			GameObject spell = state.get(pastSelf);
-			for(CostCollection cost: spell.getOptionalAdditionalCostsChosen())
-				if(this.cost.equals(cost))
-					timesKicked++;
+			for(java.util.Collection<CostCollection> costs: spell.getOptionalAdditionalCostsChosen())
+				for(CostCollection cost: costs)
+					if(this.cost.equals(cost))
+						timesKicked++;
 		}
 
 		if(timesKicked == 0)

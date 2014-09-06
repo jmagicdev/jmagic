@@ -39,13 +39,18 @@ public class AllTargetsOf extends SetGenerator
 		java.util.Set<Integer> modeIndices = this.modeIndices.evaluate(state, thisObject).getAll(Integer.class);
 
 		for(GameObject object: what.getAll(GameObject.class))
+		{
+			java.util.Map<Target, java.util.List<Target>> chosenTargets = new java.util.HashMap<>();
+			for(java.util.Map<Target, java.util.List<Target>> characteristicChosenTargets: object.getChosenTargets())
+				chosenTargets.putAll(characteristicChosenTargets);
+
 			for(Integer modeNum: modeIndices)
 				if(ALL_SELECTED_MODES_VALUE == modeNum)
 				{
 					for(Mode mode: object.getSelectedModes())
 						for(Target possibleTarget: mode.targets)
-							if(object.getChosenTargets().containsKey(possibleTarget))
-								for(Target chosenTarget: object.getChosenTargets().get(possibleTarget))
+							if(chosenTargets.containsKey(possibleTarget))
+								for(Target chosenTarget: chosenTargets.get(possibleTarget))
 									if(null != chosenTarget)
 										returnValue.add(chosenTarget);
 				}
@@ -53,11 +58,12 @@ public class AllTargetsOf extends SetGenerator
 				{
 					Mode mode = object.getMode(modeNum);
 					for(Target possibleTarget: mode.targets)
-						if(object.getChosenTargets().containsKey(possibleTarget))
-							for(Target chosenTarget: object.getChosenTargets().get(possibleTarget))
+						if(chosenTargets.containsKey(possibleTarget))
+							for(Target chosenTarget: chosenTargets.get(possibleTarget))
 								if(null != chosenTarget)
 									returnValue.add(chosenTarget);
 				}
+		}
 		return returnValue;
 	}
 }

@@ -378,7 +378,7 @@ public class CardsWithCustomEventsTest extends JUnitTest
 		// sharpie master's trigger to make 20 wolf tokens
 		GameObject stackedTrigger = this.game.physicalState.stack().objects.get(0);
 		assertEquals(MasteroftheWildHunt.MakeWolf.class, stackedTrigger.getClass());
-		stackedTrigger.getModes().get(0).effects.get(0).parameters.put(EventType.Parameter.NUMBER, org.rnd.jmagic.engine.generators.Identity.instance(20));
+		stackedTrigger.getModes()[0].get(0).effects.get(0).parameters.put(EventType.Parameter.NUMBER, org.rnd.jmagic.engine.generators.Identity.instance(20));
 		// and just give the fucker haste directly
 		this.game.physicalState.battlefield().objects.get(1).addAbility(new org.rnd.jmagic.abilities.keywords.Haste(this.game.physicalState));
 		pass();

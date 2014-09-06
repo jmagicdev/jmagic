@@ -620,7 +620,7 @@ public abstract class JUnitTest
 	protected final SanitizedMode getMode(EventType type)
 	{
 		for(SanitizedMode mode: this.choices.getAll(SanitizedMode.class))
-			for(EventFactory effect: this.game.actualState.<GameObject>get(mode.sourceID).getModes().get(mode.index).effects)
+			for(EventFactory effect: this.game.actualState.<GameObject>get(mode.sourceID).getModes()[0].get(mode.index).effects)
 				if(effect.type == type)
 					return mode;
 		fail("Failed to find Mode(EventType." + type + ")");
@@ -696,7 +696,7 @@ public abstract class JUnitTest
 			NonStaticAbility ability = this.game.actualState.<NonStaticAbility>get(choice.ID);
 
 			if(ability instanceof TriggeredAbility)
-				for(Mode mode: ((TriggeredAbility)ability).getModes())
+				for(Mode mode: ((TriggeredAbility)ability).getModes()[0])
 					for(EventFactory effect: mode.effects)
 						if(effect.type == type)
 							return choice;

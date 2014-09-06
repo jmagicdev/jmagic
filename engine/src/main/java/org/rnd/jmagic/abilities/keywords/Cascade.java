@@ -60,7 +60,7 @@ public final class Cascade extends Keyword
 
 				GameObject exiled = game.actualState.get(exile.getResult().getOne(ZoneChange.class).newObjectID);
 				cardsExiledThisWay.add(exiled);
-				if(!exiled.getTypes().contains(Type.LAND) && exiled.getConvertedManaCost() < cmc)
+				if(!exiled.getTypes().contains(Type.LAND) && java.util.Arrays.stream(exiled.getConvertedManaCost()).min().getAsInt() < cmc)
 				{
 					hitCard = exiled;
 					break;

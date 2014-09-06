@@ -43,8 +43,18 @@ public final class PayManaCost extends EventType
 		Player p = parameters.get(Parameter.PLAYER).getOne(Player.class);
 
 		java.util.Collection<CostCollection> availableChoices = new java.util.LinkedList<CostCollection>();
-		if(o.getManaCost() != null)
-			availableChoices.add(new CostCollection(CostCollection.TYPE_MANA, o.getManaCost()));
+		ManaPool totalCost = new ManaPool();
+		for(ManaPool manaCost: o.getManaCost())
+		{
+			if(manaCost == null)
+			{
+				totalCost = null;
+				break;
+			}
+			totalCost.addAll(manaCost);
+		}
+		if(totalCost != null)
+			availableChoices.add(new CostCollection(CostCollection.TYPE_MANA, totalCost));
 		if(null != o.alternateCosts)
 			for(AlternateCost c: o.alternateCosts)
 				if(c.playersMayPay.contains(p))

@@ -32,6 +32,10 @@ public final class ChangeTargets extends EventType
 
 	private boolean canBeChanged(Game game, GameObject originalObject)
 	{
+		java.util.Map<Target, java.util.List<Target>> chosenTargets = new java.util.HashMap<>();
+		for(java.util.Map<Target, java.util.List<Target>> characteristicChosenTargets: originalObject.getChosenTargets())
+			chosenTargets.putAll(characteristicChosenTargets);
+
 		for(Mode mode: originalObject.getSelectedModes())
 		{
 			java.util.List<Integer> ignoreThese = new java.util.LinkedList<Integer>();
@@ -39,10 +43,10 @@ public final class ChangeTargets extends EventType
 
 			for(Target possibleTarget: mode.targets)
 			{
-				if(!originalObject.getChosenTargets().containsKey(possibleTarget))
+				if(!chosenTargets.containsKey(possibleTarget))
 					continue;
 
-				for(Target chosenTarget: originalObject.getChosenTargets().get(possibleTarget))
+				for(Target chosenTarget: chosenTargets.get(possibleTarget))
 				{
 					int previousTarget = chosenTarget.targetID;
 
@@ -84,8 +88,14 @@ public final class ChangeTargets extends EventType
 				{
 					if(objectToUpdate == object)
 						continue;
-					objectToUpdate.getChosenTargets().clear();
-					objectToUpdate.getChosenTargets().putAll(object.getChosenTargets());
+
+					java.util.Map<Target, java.util.List<Target>>[] chosenTargets = object.getChosenTargets();
+
+					for(int i = 0; i < chosenTargets.length; ++i)
+					{
+						objectToUpdate.getChosenTargets()[i].clear();
+						objectToUpdate.getChosenTargets()[i].putAll(object.getChosenTargets()[i]);
+					}
 				}
 				result.add(object);
 			}

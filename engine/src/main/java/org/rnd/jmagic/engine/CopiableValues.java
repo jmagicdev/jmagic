@@ -72,6 +72,7 @@ public class CopiableValues
 		this.originalWasOnStack = (original.zoneID == game.physicalState.stack().ID);
 	}
 
+	@SuppressWarnings("unchecked")
 	public void apply(GameState state, GameObject object)
 	{
 		if(object == null)
@@ -120,7 +121,7 @@ public class CopiableValues
 				for(Integer abilityID: toApply.keywordAbilities)
 					object.addAbility(state.<Keyword>get(abilityID), false);
 
-				object.setAbilityIDsInOrder(new java.util.LinkedList<Integer>(toApply.abilityIDsInOrder));
+				object.setAbilityIDsInOrder(new java.util.List[] {new java.util.LinkedList<Integer>(toApply.abilityIDsInOrder)});
 			}
 
 			object.clearCosts();
@@ -129,10 +130,11 @@ public class CopiableValues
 					object.getCosts().add(cost);
 			}
 
-			object.getModes().clear();
+			for(java.util.List<Mode> modes: object.getModes())
+				modes.clear();
 			{
 				for(Mode mode: toApply.modes)
-					object.getModes().add(mode);
+					object.getModes()[0].add(mode);
 			}
 
 			object.setBottomHalf(this.bottomHalf);
@@ -164,17 +166,20 @@ public class CopiableValues
 			{
 				object.setAlternateCost(toApply.alternateCost);
 
-				object.getOptionalAdditionalCostsChosen().clear();
+				for(java.util.Collection<CostCollection> optionalAdditional: object.getOptionalAdditionalCostsChosen())
+					optionalAdditional.clear();
 				for(CostCollection cost: toApply.optionalAdditionalCostsChosen)
-					object.getOptionalAdditionalCostsChosen().add(cost);
+					object.getOptionalAdditionalCostsChosen()[0].add(cost);
 
-				object.getSelectedModeNumbers().clear();
-				object.getSelectedModeNumbers().addAll(toApply.selectedModeNumbers);
+				for(java.util.List<Integer> selectedModeNumbers: object.getSelectedModeNumbers())
+					selectedModeNumbers.clear();
+				object.getSelectedModeNumbers()[0].addAll(toApply.selectedModeNumbers);
 
 				object.setValueOfX(toApply.valueOfX);
 
-				object.getChosenTargets().clear();
-				object.getChosenTargets().putAll(toApply.chosenTargets);
+				for(java.util.Map<Target, java.util.List<Target>> chosenTargets: object.getChosenTargets())
+					chosenTargets.clear();
+				object.getChosenTargets()[0].putAll(toApply.chosenTargets);
 			}
 
 			if(toApply.sourceID != -1 && (object.isActivatedAbility() || object.isTriggeredAbility()))

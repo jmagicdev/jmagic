@@ -672,7 +672,7 @@ public class CombatRequirementsTest extends JUnitTest
 		donePlayingManaAbilities();
 
 		// Edit the Sprout to create 100 tokens, not just one
-		this.game.physicalState.stack().objects.get(0).getModes().get(0).effects.get(0).parameters.put(EventType.Parameter.NUMBER, org.rnd.jmagic.engine.generators.Identity.instance(100));
+		this.game.physicalState.stack().objects.get(0).getModes()[0].get(0).effects.get(0).parameters.put(EventType.Parameter.NUMBER, org.rnd.jmagic.engine.generators.Identity.instance(100));
 
 		// Pass the turn so the other player can attack
 		goToStep(Step.StepType.END);

@@ -9,7 +9,7 @@ public final class Token extends GameObject
 
 	/**
 	 * Creates a blank token.
-	 * 
+	 *
 	 * @param state The gamestate in which the token exists.
 	 * @param abilityClasses Any abilities the token is intended to have at all
 	 * times
@@ -65,12 +65,9 @@ public final class Token extends GameObject
 	 * @return The converted mana cost of this token. Probably zero.
 	 */
 	@Override
-	public int getConvertedManaCost()
+	public int[] getConvertedManaCost()
 	{
-		ManaPool manaCost = this.getManaCost();
-		if(manaCost == null)
-			return 0;
-		return manaCost.converted();
+		return java.util.Arrays.stream(this.getManaCost()).mapToInt(t -> null == t ? 0 : t.converted()).toArray();
 	}
 
 	/**
@@ -112,7 +109,7 @@ public final class Token extends GameObject
 	/**
 	 * Tells this token it's in a different zone. If this token is currently in
 	 * play, then subsequent calls to wasInPlay() will return true.
-	 * 
+	 *
 	 * @param zone The new zone.
 	 */
 	@Override
@@ -126,7 +123,7 @@ public final class Token extends GameObject
 
 	/**
 	 * 110.5f A token that has left the battlefield can't change zones.
-	 * 
+	 *
 	 * @return Whether this token has been in play.
 	 */
 	public final boolean wasOnBattlefield()

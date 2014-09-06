@@ -24,18 +24,20 @@ public class ManaCostContainsX extends SetGenerator
 	{
 		Set ret = new Set();
 
-		for(GameObject object: state.getAllObjects())
+		objectLoop: for(GameObject object: state.getAllObjects())
 		{
-			ManaPool manaCost = object.getManaCost();
-			if(manaCost == null)
-				continue;
+			for(ManaPool manaCost: object.getManaCost())
+			{
+				if(manaCost == null)
+					continue;
 
-			for(ManaSymbol m: manaCost)
-				if(m.isX)
-				{
-					ret.add(object);
-					break;
-				}
+				for(ManaSymbol m: manaCost)
+					if(m.isX)
+					{
+						ret.add(object);
+						continue objectLoop;
+					}
+			}
 		}
 
 		return ret;

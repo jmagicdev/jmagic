@@ -84,7 +84,7 @@ public final class BludgeonBrawl extends Card
 
 			for(GameObject object: objects)
 			{
-				int cmc = object.getConvertedManaCost();
+				int cmc = object.getConvertedManaCost()[0];
 
 				{
 					Game.GrantedAbilityKey key = new GrantedAbilityWithNumberKey(effect.getSourceObject(), org.rnd.jmagic.abilities.keywords.Equip.class, object.ID, cmc);

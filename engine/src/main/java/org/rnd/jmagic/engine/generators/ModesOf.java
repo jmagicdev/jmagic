@@ -22,7 +22,8 @@ public class ModesOf extends SetGenerator
 		Set ret = new Set();
 
 		for(GameObject object: this.what.evaluate(state, thisObject).getAll(GameObject.class))
-			ret.addAll(object.getModes());
+			for(java.util.List<Mode> modes: object.getModes())
+				ret.addAll(modes);
 
 		return ret;
 	}

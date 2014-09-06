@@ -283,20 +283,20 @@ public abstract class ContinuousEffectType
 		 * method to see if the object indicates a dependency. If what Y
 		 * "does to" an object changes based on whether X is applied to that
 		 * object, then Y is dependent on X.
-		 * 
+		 *
 		 * @param untouched The object before either effect is applied.
 		 * @param afterX The object after only effect X is applied.
 		 * @param afterY The object after only effect Y is applied.
 		 * @param afterXandY The object after effect X and Y are applied, in
 		 * that order.
-		 * 
+		 *
 		 * @return Whether the objects given indicate that effect Y depends on
 		 * effect X. The objects given will be the same object, but in different
 		 * game states.
-		 * 
+		 *
 		 * @throws UnsupportedOperationException if checkDependencies is false
 		 * for this layer.
-		 * 
+		 *
 		 * @see SubLayer#objectsIndicateDependency
 		 */
 		public abstract boolean objectsIndicateDependency(GameObject untouched, GameObject afterX, GameObject afterY, GameObject afterXandY);
@@ -410,20 +410,20 @@ public abstract class ContinuousEffectType
 		 * method to see if the object indicates a dependency. If what Y
 		 * "does to" an object changes based on whether X is applied to that
 		 * object, then Y is dependent on X.
-		 * 
+		 *
 		 * @param untouched The object before either effect is applied.
 		 * @param afterX The object after only effect X is applied.
 		 * @param afterY The object after only effect Y is applied.
 		 * @param afterXandY The object after effect X and Y are applied, in
 		 * that order.
-		 * 
+		 *
 		 * @return Whether the objects given indicate that effect Y depends on
 		 * effect X. The objects given will be the same object, but in different
 		 * game states.
-		 * 
+		 *
 		 * @throws UnsupportedOperationException if checkDependencies is false
 		 * for this layer.
-		 * 
+		 *
 		 * @see Layer#objectsIndicateDependency
 		 */
 		public abstract boolean objectsIndicateDependency(GameObject untouched, GameObject afterX, GameObject afterY, GameObject afterXandY);
@@ -589,9 +589,9 @@ public abstract class ContinuousEffectType
 			for(GameObject object: parameters.get(Parameter.OBJECT).getAll(GameObject.class))
 			{
 				if(range == null)
-					object.getNumModes().add(object.getModes().size());
+					object.getNumModes()[0].add(object.getModes()[0].size());
 				else
-					object.getNumModes().add(range);
+					object.getNumModes()[0].add(range);
 			}
 		}
 
@@ -691,7 +691,7 @@ public abstract class ContinuousEffectType
 	/**
 	 * DAMN YOU SEEDBORN MUSE. DAMN YOU UNDISCOVERED PARADISE. DAMN YOU BOTH TO
 	 * HELL.
-	 * 
+	 *
 	 * @eparam EVENT: the events to add to the extra events list
 	 */
 	public static final ContinuousEffectType ADD_UNTAP_EVENT = new ContinuousEffectType("ADD_UNTAP_EVENT")
@@ -755,7 +755,8 @@ public abstract class ContinuousEffectType
 	/**
 	 * @eparam COST this isn't actually a cost :-P an instance of a class
 	 * extending {@link AlternateManaPayment}
-	 * @eparam OBJECT the object (singular!) that can be paid for via the alternate payment
+	 * @eparam OBJECT the object (singular!) that can be paid for via the
+	 * alternate payment
 	 */
 	public static final ContinuousEffectType ALTERNATE_PAYMENT = new ContinuousEffectType("ALTERNATE_PAYMENT")
 	{
@@ -783,7 +784,7 @@ public abstract class ContinuousEffectType
 			return Layer.RULE_CHANGE;
 		}
 	};
-	
+
 	/**
 	 * @eparam OBJECT: the object to be modified
 	 */
@@ -955,7 +956,7 @@ public abstract class ContinuousEffectType
 	 * the starting player's hand allow that player to begin the game with those
 	 * cards on the battlefield, he or she may put any or all of them onto the
 	 * battlefield. Then each other player in turn order may do the same.
-	 * 
+	 *
 	 * @eparam EVENT: An event putting the object onto the battlefield.
 	 * [optional -- By default, a simple PUT_ONTO_BATTLEFIELD event will be
 	 * generated; you'll need to specify this if it's something more complex,
@@ -1648,7 +1649,7 @@ public abstract class ContinuousEffectType
 	/**
 	 * If damage would reduce [player]'s life total to less than [number], it
 	 * reduces it to [number] instead.
-	 * 
+	 *
 	 * @eparam PLAYER: players affected
 	 * @eparam NUMBER: minimum life total of those players
 	 */
@@ -1798,7 +1799,7 @@ public abstract class ContinuousEffectType
 
 			for(GameObject object: parameters.get(Parameter.OBJECT).getAll(GameObject.class))
 			{
-				ManaPool manaCost = object.getManaCost();
+				ManaPool manaCost = object.getManaCost()[0];
 				if(manaCost == null)
 					continue;
 
@@ -1977,7 +1978,7 @@ public abstract class ContinuousEffectType
 
 	/**
 	 * [Mana] doesn't empty from [mana pools] as steps and phases end.
-	 * 
+	 *
 	 * @eparam TYPE: one {@link SetPattern} describing what kind of mana doesn't
 	 * empty. The pattern should match one mana symbol. The pattern should not
 	 * depend on thisObject as it will be null.
@@ -2013,7 +2014,7 @@ public abstract class ContinuousEffectType
 	 * instances as they move about the game, the way to use this is to add a
 	 * {@link PlayPermission} that simply resolves to the desired {@link Player
 	 * Players} without doing any location-based logic.
-	 * 
+	 *
 	 * @eparam OBJECT: the {@link Castable} instances to add permissions to when
 	 * those instances can be played from
 	 * @eparam PERMISSION: the {@link PlayPermission} instances to add
@@ -2082,7 +2083,7 @@ public abstract class ContinuousEffectType
 	 * instances as they move about the game, the way to use this is to add a
 	 * {@link PlayPermission} that simply resolves to the desired {@link Player
 	 * Players} without doing any location-based logic.
-	 * 
+	 *
 	 * @eparam OBJECT: the {@link Castable} and {@link PlayableAsLand} instances
 	 * to add permissions to where those instances can be played from
 	 * @eparam PERMISSION: the {@link PlayPermission} instances to add
@@ -2736,7 +2737,7 @@ public abstract class ContinuousEffectType
 	 * characteristics). The characteristics chosen with these effects affect
 	 * the creature's copiable values. (See rule 706.2.) While the card isn't on
 	 * the battlefield, its power and toughness are each considered to be 0.
-	 * 
+	 *
 	 * @eparam OBJECT the object to set the copiable characteristics of
 	 * @eparam POWER the power [optional; default is to not set the power;
 	 * required when toughness is specified]
@@ -2806,13 +2807,13 @@ public abstract class ContinuousEffectType
 	 * sets the creature's power and toughness to one of a number of specific
 	 * choices as it enters the battlefield or is turned face up, do not use
 	 * this effect. Instead, use {@link #SET_COPIABLE_CHARACTERISTICS}.
-	 * 
+	 *
 	 * @eparam OBJECT: the creatures to affect
 	 * @eparam POWER: new power [optional; if parameter not present, power isn't
 	 * changed]
 	 * @eparam TOUGHNESS: new toughness [optional; if parameter not present,
 	 * toughness isn't changed]
-	 * 
+	 *
 	 * NOTE: at lease one of POWER and TOUGHNESS must be present, or a runtime
 	 * exception will be thrown
 	 */
@@ -2890,7 +2891,7 @@ public abstract class ContinuousEffectType
 		{
 			for(GameObject object: parameters.get(Parameter.OBJECT).getAll(GameObject.class))
 			{
-				int cmc = object.getConvertedManaCost();
+				int cmc = object.getConvertedManaCost()[0];
 				object.setPower(cmc);
 				object.setToughness(cmc);
 			}

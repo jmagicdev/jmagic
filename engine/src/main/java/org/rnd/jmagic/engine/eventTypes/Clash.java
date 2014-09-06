@@ -48,7 +48,7 @@ public final class Clash extends EventType
 		int cmc = -1;
 		for(GameObject object: revealEvent.getResult().getAll(GameObject.class))
 		{
-			int newCmc = object.getConvertedManaCost();
+			int newCmc = java.util.Arrays.stream(object.getConvertedManaCost()).max().orElse(0);
 			if(newCmc == cmc)
 				highestCMC = null;
 			else if(newCmc > cmc)

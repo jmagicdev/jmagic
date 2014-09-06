@@ -25,15 +25,16 @@ public class WasBestowed extends SetGenerator
 	{
 		for(GameObject object: this.what.evaluate(state, thisObject).getAll(GameObject.class))
 		{
-			CostCollection alt = object.getAlternateCost();
-			if(alt != null && alt.type.equals(org.rnd.jmagic.abilities.keywords.Bestow.BESTOW_COST))
-				return NonEmpty.set;
+			for(CostCollection alt: object.getAlternateCost())
+				if(alt != null && alt.type.equals(org.rnd.jmagic.abilities.keywords.Bestow.BESTOW_COST))
+					return NonEmpty.set;
 
 			if(object.pastSelf == -1)
 				continue;
-			alt = state.<GameObject>get(object.pastSelf).getAlternateCost();
-			if(alt != null && alt.type.equals(org.rnd.jmagic.abilities.keywords.Bestow.BESTOW_COST))
-				return NonEmpty.set;
+
+			for(CostCollection alt: state.<GameObject>get(object.pastSelf).getAlternateCost())
+				if(alt != null && alt.type.equals(org.rnd.jmagic.abilities.keywords.Bestow.BESTOW_COST))
+					return NonEmpty.set;
 		}
 
 		return Empty.set;

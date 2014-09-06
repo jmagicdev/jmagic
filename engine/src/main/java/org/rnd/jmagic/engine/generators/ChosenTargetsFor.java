@@ -31,11 +31,16 @@ public class ChosenTargetsFor extends SetGenerator
 		Set ret = new Set();
 
 		for(GameObject o: this.what.evaluate(state, thisObject).getAll(GameObject.class))
+		{
+			java.util.Map<Target, java.util.List<Target>> chosenTargets = new java.util.HashMap<>();
+			for(java.util.Map<Target, java.util.List<Target>> characteristicChosenTargets: o.getChosenTargets())
+				chosenTargets.putAll(characteristicChosenTargets);
+
 			for(Target t: this.targets.evaluate(state, thisObject).getAll(Target.class))
 			{
-				if(o.getChosenTargets().containsKey(t))
+				if(chosenTargets.containsKey(t))
 				{
-					for(Target chosen: o.getChosenTargets().get(t))
+					for(Target chosen: chosenTargets.get(t))
 						if(chosen != null)
 							ret.add(chosen);
 				}
@@ -52,6 +57,7 @@ public class ChosenTargetsFor extends SetGenerator
 						ret.add(new Target(i));
 				}
 			}
+		}
 		return ret;
 	}
 }
