@@ -10,18 +10,20 @@ class CardInfoPanel extends javax.swing.JPanel
 	private static final class ImageCacheKey
 	{
 		public final int ID;
+		public final int characteristicIndex;
 		public final SanitizedGameObject.CharacteristicSet displayType;
 
-		public ImageCacheKey(int ID, SanitizedGameObject.CharacteristicSet displayType)
+		public ImageCacheKey(int ID, int characteristicIndex, SanitizedGameObject.CharacteristicSet displayType)
 		{
 			this.ID = ID;
+			this.characteristicIndex = characteristicIndex;
 			this.displayType = displayType;
 		}
 
 		@Override
 		public int hashCode()
 		{
-			return 31 * (31 + this.ID) + 31 * this.displayType.hashCode();
+			return 63 * (63 + this.ID) + 31 * this.displayType.hashCode() + 31 * (31 + this.characteristicIndex);
 		}
 
 		@Override
@@ -35,6 +37,8 @@ class CardInfoPanel extends javax.swing.JPanel
 				return false;
 			ImageCacheKey other = (ImageCacheKey)obj;
 			if(this.ID != other.ID)
+				return false;
+			if(this.characteristicIndex != other.characteristicIndex)
 				return false;
 			if(this.displayType != other.displayType)
 				return false;
@@ -56,6 +60,8 @@ class CardInfoPanel extends javax.swing.JPanel
 	 * actual focus, see {@link #focusID}.
 	 */
 	private SanitizedIdentified focus;
+
+	private int focusCharacteristicIndex;
 
 	/**
 	 * The ID of the focus to render. This will be used to look-up the actual
@@ -79,6 +85,7 @@ class CardInfoPanel extends javax.swing.JPanel
 		this.displayArrows = false;
 		this.displayType = SanitizedGameObject.CharacteristicSet.ACTUAL;
 		this.focus = null;
+		this.focusCharacteristicIndex = -1;
 		this.forceUpdate = false;
 		this.gui = play;
 		this.largeImageCache = new java.util.HashMap<ImageCacheKey, java.awt.Image>();
@@ -142,15 +149,15 @@ class CardInfoPanel extends javax.swing.JPanel
 		return (!this.displayArrows || this.focus == null ? -1 : this.focus.ID);
 	}
 
-	private java.awt.Image getLargeCardImage(SanitizedIdentified card, SanitizedGameObject.CharacteristicSet option, java.awt.Font font)
+	private java.awt.Image getLargeCardImage(SanitizedIdentified card, SanitizedGameObject.CharacteristicSet option, java.awt.Font font, int characteristicIndex)
 	{
 		if(card == null)
-			return CardGraphics.getLargeCard(null, option, this.gui.state, font);
+			return CardGraphics.getLargeCard(null, option, this.gui.state, font, characteristicIndex);
 
-		ImageCacheKey key = new ImageCacheKey(card.ID, option);
+		ImageCacheKey key = new ImageCacheKey(card.ID, characteristicIndex, option);
 
 		if(!this.largeImageCache.containsKey(key))
-			this.largeImageCache.put(key, CardGraphics.getLargeCard(card, option, this.gui.state, font));
+			this.largeImageCache.put(key, CardGraphics.getLargeCard(card, option, this.gui.state, font, characteristicIndex));
 
 		return this.largeImageCache.get(key);
 	}
@@ -164,7 +171,7 @@ class CardInfoPanel extends javax.swing.JPanel
 		// the actual characteristics
 		if((this.focus instanceof SanitizedGameObject) && !(((SanitizedGameObject)(this.focus)).characteristics[0].containsKey(this.displayType)))
 			this.displayType = SanitizedGameObject.CharacteristicSet.ACTUAL;
-		cardGraphics.drawImage(getLargeCardImage(this.focus, this.displayType, this.getFont()), 0, 0, null);
+		cardGraphics.drawImage(getLargeCardImage(this.focus, this.displayType, this.getFont(), this.focusCharacteristicIndex), 0, 0, null);
 		if(this.scroll.isVisible() && this.focus == null)
 			this.scroll.setVisible(false);
 	}
@@ -177,7 +184,7 @@ class CardInfoPanel extends javax.swing.JPanel
 	 * @param state What {@link SanitizedGameState} to use when determining
 	 * which {@link SanitizedIdentified} is the focus
 	 */
-	private void setFocus(int focusID, SanitizedGameState state)
+	private void setFocus(int focusID, SanitizedGameState state, int characteristicIndex)
 	{
 		this.displayArrows = true;
 
@@ -185,7 +192,7 @@ class CardInfoPanel extends javax.swing.JPanel
 		if(null == this.focus)
 			sameFocus = (focusID == -1);
 		else
-			sameFocus = (focusID == this.focus.ID);
+			sameFocus = (focusID == this.focus.ID) && (this.focusCharacteristicIndex == characteristicIndex);
 
 		if(!this.forceUpdate && sameFocus)
 		{
@@ -195,8 +202,11 @@ class CardInfoPanel extends javax.swing.JPanel
 
 		this.focusID = focusID;
 		this.focus = state.get(focusID);
+		this.focusCharacteristicIndex = characteristicIndex;
 		if((null == this.focus) || (this.focus instanceof SanitizedPlayer))
+		{
 			this.scroll.setVisible(false);
+		}
 		else
 		{
 			SanitizedGameObject o = (SanitizedGameObject)this.focus;
@@ -207,7 +217,7 @@ class CardInfoPanel extends javax.swing.JPanel
 			if(!(o.characteristics[0].containsKey(this.displayType)))
 				this.displayType = SanitizedGameObject.CharacteristicSet.ACTUAL;
 
-			this.textbox.setText(o, state, this.displayType);
+			this.textbox.setText(o, state, this.displayType, characteristicIndex);
 			this.gui.setHelpText(this.textbox.getHelpText());
 			if(!sameFocus)
 				this.textbox.scrollRectToVisible(TOP_LEFT_PIXEL);
@@ -217,7 +227,7 @@ class CardInfoPanel extends javax.swing.JPanel
 		this.forceUpdate = false;
 	}
 
-	public void setFocusToGameObject(SanitizedGameObject card, SanitizedGameState state, SanitizedGameObject.CharacteristicSet type)
+	public void setFocusToGameObject(SanitizedGameObject card, SanitizedGameState state, SanitizedGameObject.CharacteristicSet type, int characteristicIndex)
 	{
 		if(type != this.displayType)
 		{
@@ -225,7 +235,7 @@ class CardInfoPanel extends javax.swing.JPanel
 			this.forceUpdate();
 		}
 
-		this.setFocus((card == null ? -1 : card.ID), state);
+		this.setFocus((card == null ? -1 : card.ID), state, characteristicIndex);
 
 		if(null == card)
 			this.textbox.setForeground(java.awt.Color.WHITE);
@@ -242,7 +252,7 @@ class CardInfoPanel extends javax.swing.JPanel
 			this.displayType = SanitizedGameObject.CharacteristicSet.ACTUAL;
 			this.forceUpdate();
 		}
-		this.setFocus(ID, state);
+		this.setFocus(ID, state, 0);
 	}
 
 	@Override
@@ -300,7 +310,7 @@ class CardInfoPanel extends javax.swing.JPanel
 		if(null != this.focus)
 		{
 			this.forceUpdate();
-			this.setFocus(this.focusID, this.gui.state);
+			this.setFocus(this.focusID, this.gui.state, this.focusCharacteristicIndex);
 		}
 	}
 }

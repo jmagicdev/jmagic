@@ -236,7 +236,7 @@ public class JMagicTextPane extends javax.swing.JTextPane
 	 * @param state The state in which o exists.
 	 * @param displayOption Which set of characteristics to use.
 	 */
-	public void setText(SanitizedGameObject o, SanitizedGameState state, SanitizedGameObject.CharacteristicSet displayOption)
+	public void setText(SanitizedGameObject o, SanitizedGameState state, SanitizedGameObject.CharacteristicSet displayOption, int characteristicIndex)
 	{
 		StringBuilder textBuilder = new StringBuilder();
 		boolean firstLine = true;
@@ -274,7 +274,7 @@ public class JMagicTextPane extends javax.swing.JTextPane
 			firstLine = false;
 		}
 
-		SanitizedCharacteristics c = o.characteristics[0].get(displayOption);
+		SanitizedCharacteristics c = o.characteristics[characteristicIndex].get(displayOption);
 
 		if(o instanceof SanitizedActivatedAbility)
 		{

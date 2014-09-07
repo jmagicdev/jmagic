@@ -121,6 +121,16 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 		return SanitizedGameObject.CharacteristicSet.ACTUAL;
 	}
 
+	public static int getCharacteristicIndex(java.awt.event.MouseEvent e, java.awt.Point cardStart, SanitizedGameObject display)
+	{
+		if(display.characteristics.length == 1)
+			return 0;
+		for(int i = 0; i < display.characteristics.length; ++i)
+			if(getSmallCardCharacteristicRect(cardStart, i, display.characteristics.length).contains(e.getPoint()))
+				return i;
+		return 0;
+	}
+
 	private static java.util.Set<SanitizedGameObject.CharacteristicSet> getLargeCardDisplayOptions(SanitizedGameObject object)
 	{
 		java.util.Set<SanitizedGameObject.CharacteristicSet> ret = java.util.EnumSet.noneOf(SanitizedGameObject.CharacteristicSet.class);
@@ -157,6 +167,12 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 			y = (int)(smallCardStart.getY()) + SMALL_CARD.height - (SMALL_CARD_ICON_HEIGHT + SMALL_CARD_ICON_PADDING) * optionsSoFar + SMALL_CARD_ICON_PADDING;
 		}
 		return new java.awt.Rectangle(x, y, SMALL_CARD_ICON_WIDTH, SMALL_CARD_ICON_HEIGHT);
+	}
+
+	private static java.awt.Rectangle getSmallCardCharacteristicRect(java.awt.Point cardStart, int index, int total)
+	{
+		int y = (int)(cardStart.getY() + SMALL_CARD.height - (SMALL_CARD.height * (index + 1) / (double)total));
+		return new java.awt.Rectangle(cardStart.x, y, SMALL_CARD.width, (int)(SMALL_CARD.height / (double)total));
 	}
 
 	private static java.io.File cardArts = null;
@@ -206,7 +222,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 		return attrText;
 	}
 
-	private static String getCardFrameString(SanitizedIdentified i, SanitizedGameObject.CharacteristicSet option)
+	private static String getCardFrameString(SanitizedIdentified i, SanitizedGameObject.CharacteristicSet option, int characteristicIndex)
 	{
 		if(null == i)
 			return "back.png";
@@ -225,7 +241,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 
 		java.util.Set<Color> colors = null;
 
-		SanitizedCharacteristics c = o.characteristics[0].get(option);
+		SanitizedCharacteristics c = o.characteristics[characteristicIndex].get(option);
 
 		if(c.types.contains(Type.LAND))
 			colors = o.canProduce;
@@ -371,12 +387,12 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 		return imageCache.get(name);
 	}
 
-	public static java.awt.Image getLargeCard(SanitizedIdentified object, SanitizedGameObject.CharacteristicSet option, SanitizedGameState state, java.awt.Font font)
+	public static java.awt.Image getLargeCard(SanitizedIdentified object, SanitizedGameObject.CharacteristicSet option, SanitizedGameState state, java.awt.Font font, int characteristicIndex)
 	{
 		java.awt.image.BufferedImage image = new java.awt.image.BufferedImage(LARGE_CARD.width, LARGE_CARD.height, java.awt.image.BufferedImage.TYPE_INT_RGB);
 
 		CardGraphics cg = new CardGraphics(image, state, font);
-		cg.drawLargeCard(object, option);
+		cg.drawLargeCard(object, option, characteristicIndex);
 
 		return image;
 	}
@@ -745,9 +761,9 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 		this.drawCardText(new java.awt.font.TextLayout(CardGraphics.getAttributedString(text, getFontMetrics(), false).getIterator(), getFontRenderContext()), x - textWidth, y, color);
 	}
 
-	private void drawLargeCard(SanitizedIdentified i, SanitizedGameObject.CharacteristicSet option)
+	private void drawLargeCard(SanitizedIdentified i, SanitizedGameObject.CharacteristicSet option, int characteristicIndex)
 	{
-		String cardFrameString = getCardFrameString(i, option);
+		String cardFrameString = getCardFrameString(i, option, characteristicIndex);
 		java.awt.Color textColor = cardFrameString.equals("back.png") ? java.awt.Color.WHITE : java.awt.Color.BLACK;
 		this.drawImage(CardGraphics.getImage("largeframes/" + cardFrameString), 0, 0, null);
 
@@ -821,7 +837,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 		}
 
 		SanitizedGameObject object = (SanitizedGameObject)i;
-		SanitizedCharacteristics c = object.characteristics[0].get(option);
+		SanitizedCharacteristics c = object.characteristics[characteristicIndex].get(option);
 		boolean isAbility = i instanceof SanitizedNonStaticAbility;
 
 		String name;
@@ -921,7 +937,8 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 
 	private void drawSmallCard(SanitizedIdentified o, boolean renderDamage, boolean renderCounters)
 	{
-		this.drawImage(CardGraphics.getImage("smallframes/" + getCardFrameString(o, SanitizedGameObject.CharacteristicSet.ACTUAL)), 0, 0, null);
+		if(!(o instanceof SanitizedGameObject) || (((SanitizedGameObject)o).characteristics.length == 1))
+			this.drawImage(CardGraphics.getImage("smallframes/" + getCardFrameString(o, SanitizedGameObject.CharacteristicSet.ACTUAL, 0)), 0, 0, null);
 
 		if(null == o)
 			return;
@@ -963,96 +980,137 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 		if(o instanceof SanitizedGameObject)
 		{
 			SanitizedGameObject object = (SanitizedGameObject)o;
-			SanitizedCharacteristics characteristics = object.characteristics[0].get(SanitizedGameObject.CharacteristicSet.ACTUAL);
 
-			java.awt.Image art = getCardArt(characteristics.name, false);
-			if(0 != characteristics.name.length())
+			if(object.characteristics.length > 1)
 			{
-				if(art == null)
-					this.drawCardText(characteristics.name, getFont(), SMALL_CARD_PADDING_LEFT, SMALL_CARD_PADDING_TOP, new java.awt.Dimension(SMALL_CARD_TEXT_WIDTH, SMALL_CARD_TOTAL_TEXT_HEIGHT), false, false);
-				else
+				for(int i = 0; i < object.characteristics.length; ++i)
 				{
-					this.drawImage(art, SMALL_CARD_ART_LEFT, SMALL_CARD_ART_TOP, SMALL_CARD_ART_WIDTH, SMALL_CARD_ART_HEIGHT, null);
-					this.drawCardText(characteristics.name, getFont(), SMALL_CARD_PADDING_LEFT, SMALL_CARD_PADDING_TOP, new java.awt.Dimension(SMALL_CARD_TEXT_WIDTH, SMALL_CARD_TOTAL_TEXT_HEIGHT), false, false);
-					this.drawCardText(characteristics.name, getFont(), SMALL_CARD_PADDING_LEFT - 1, SMALL_CARD_PADDING_TOP - 1, new java.awt.Dimension(SMALL_CARD_TEXT_WIDTH, SMALL_CARD_TOTAL_TEXT_HEIGHT), false, false, java.awt.Color.WHITE);
-				}
-			}
+					java.awt.image.BufferedImage image = new java.awt.image.BufferedImage(SMALL_CARD.width, SMALL_CARD.height, java.awt.image.BufferedImage.TYPE_INT_ARGB);
+					CardGraphics cg = new CardGraphics(image, state, this.getFont());
+					SanitizedCharacteristics characteristics = object.characteristics[i].get(SanitizedGameObject.CharacteristicSet.ACTUAL);
 
-			boolean isCreature = characteristics.types.contains(Type.CREATURE);
-			if(isCreature)
-			{
-				this.drawPowerToughnessBox(characteristics, SMALL_CARD_PT_BOX_LEFT, SMALL_CARD_PT_BOX_TOP, true);
-				this.drawCardText(characteristics.power + "/" + characteristics.toughness, getFont(), SMALL_CARD_PT_TEXT_LEFT, SMALL_CARD_PT_TEXT_TOP, SMALL_CARD_PT_DIMENSIONS, true, false);
-			}
-			if(characteristics.types.contains(Type.PLANESWALKER))
-			{
-				int offset = isCreature ? 39 : 0;
-				this.drawImage(getImage("smallframes/loyaltybox.png"), SMALL_CARD_PT_BOX_LEFT - offset, SMALL_CARD_PT_BOX_TOP, null);
-				this.drawCardText(Integer.toString(loyaltyOf(object, SanitizedGameObject.CharacteristicSet.ACTUAL)), getFont(), SMALL_CARD_PT_TEXT_LEFT - offset, SMALL_CARD_PT_TEXT_TOP, SMALL_CARD_PT_DIMENSIONS, true, false, java.awt.Color.WHITE);
-			}
+					cg.drawImage(CardGraphics.getImage("smallframes/" + getCardFrameString(o, SanitizedGameObject.CharacteristicSet.ACTUAL, i)), 0, 0, null);
 
-			if(renderDamage && object.damage > 0)
-			{
-				java.awt.FontMetrics f = this.getFontMetrics();
-				int x = SMALL_CARD.width - SMALL_CARD_DAMAGE_RIGHT;
-				int y = SMALL_CARD.height - SMALL_CARD_DAMAGE_BOTTOM - f.getHeight();
-				this.drawCardTextRightAligned(Integer.toString(((SanitizedGameObject)o).damage), x, y, java.awt.Color.RED);
-			}
+					java.awt.Image art = getCardArt(characteristics.name, false);
+					if(art != null)
+						cg.drawImage(art, SMALL_CARD_ART_LEFT, SMALL_CARD_ART_TOP, SMALL_CARD_ART_WIDTH, SMALL_CARD_ART_HEIGHT, null);
 
-			if(renderCounters)
-			{
-				int countersPerRow = 10;
-				int maxRows = 3;
-				java.util.List<Counter> counters = ((SanitizedGameObject)o).counters;
-				if(counters.size() > maxRows * countersPerRow)
-				{
-					int x = SMALL_CARD_PADDING_LEFT;
-					int height = this.getFontMetrics().getHeight();
-					int y = SMALL_CARD_ART_TOP + SMALL_CARD_ART_HEIGHT - height - 1;
-					this.drawCardText(counters.size() + " counters", this.getFont(), x, y, new java.awt.Dimension(SMALL_CARD_TEXT_WIDTH, height), false, false);
-					this.drawCardText(counters.size() + " counters", this.getFont(), x - 1, y - 1, new java.awt.Dimension(SMALL_CARD_TEXT_WIDTH, height), false, false, java.awt.Color.WHITE);
-				}
-				else
-				{
-					java.util.Collections.sort(counters);
+					java.awt.geom.AffineTransform affine = new java.awt.geom.AffineTransform();
+					double scaleX = (double)SMALL_CARD.height / (SMALL_CARD.width * object.characteristics.length);
+					double scaleY = (double)SMALL_CARD.width / SMALL_CARD.height;
+					affine.scale(scaleX, scaleY);
 
-					java.awt.Color oldColor = this.getColor();
-					int counterSize = 5;
-					int counterSpace = 7;
-					int i = 0;
-					for(Counter c: counters)
+					image = new java.awt.image.AffineTransformOp(affine, null).filter(image, null);
+					cg = new CardGraphics(image, state, this.getFont());
+
+					if(art == null)
+						cg.drawCardText(characteristics.name, getFont(), (int)(SMALL_CARD_PADDING_LEFT * scaleY), (int)(SMALL_CARD_PADDING_TOP * scaleX), new java.awt.Dimension((int)(SMALL_CARD_TEXT_WIDTH * scaleY), (int)(SMALL_CARD_TOTAL_TEXT_HEIGHT * scaleX)), false, false);
+					else
 					{
-						// TODO : customize these colors
-						java.awt.Color color = java.awt.Color.WHITE;
-						if(c.getType() == Counter.CounterType.PLUS_ONE_PLUS_ONE)
-							color = java.awt.Color.GREEN;
-						else if(c.getType() == Counter.CounterType.MINUS_ONE_MINUS_ONE)
-							color = java.awt.Color.RED;
-
-						int col = i % countersPerRow;
-						int x = SMALL_CARD_ART_LEFT + SMALL_CARD_ART_WIDTH - (col + 1) * counterSpace;
-
-						int row = i / countersPerRow;
-						int y = SMALL_CARD_ART_TOP + SMALL_CARD_ART_HEIGHT - (row + 1) * counterSpace;
-
-						this.setColor(color);
-						fillRect(x, y, counterSize, counterSize);
-						this.setColor(java.awt.Color.BLACK);
-						drawRect(x, y, counterSize, counterSize);
-
-						i++;
+						cg.drawCardText(characteristics.name, getFont(), (int)(SMALL_CARD_PADDING_LEFT * scaleY), (int)(SMALL_CARD_PADDING_TOP * scaleX), new java.awt.Dimension((int)(SMALL_CARD_TEXT_WIDTH * scaleY), (int)(SMALL_CARD_TOTAL_TEXT_HEIGHT * scaleX)), false, false);
+						cg.drawCardText(characteristics.name, getFont(), (int)(SMALL_CARD_PADDING_LEFT * scaleY) - 1, (int)(SMALL_CARD_PADDING_TOP * scaleX) - 1, new java.awt.Dimension((int)(SMALL_CARD_TEXT_WIDTH * scaleY), (int)(SMALL_CARD_TOTAL_TEXT_HEIGHT * scaleX)), false, false, java.awt.Color.WHITE);
 					}
-					this.setColor(oldColor);
+
+					affine = new java.awt.geom.AffineTransform();
+					affine.translate(0, SMALL_CARD.height - (i * SMALL_CARD.height / object.characteristics.length));
+					affine.rotate(Math.toRadians(-90));
+
+					this.drawImage(image, affine, null);
 				}
 			}
-
-			int options = 0;
-			for(SanitizedGameObject.CharacteristicSet option: getLargeCardDisplayOptions(object))
+			else
 			{
-				++options;
+				SanitizedCharacteristics characteristics = object.characteristics[0].get(SanitizedGameObject.CharacteristicSet.ACTUAL);
 
-				java.awt.Rectangle rect = getSmallCardOptionRect(false, false, new java.awt.Point(0, 0), options);
-				this.drawImage(getImage("icons/" + option.name().toLowerCase() + ".png"), (int)(rect.getX()), (int)(rect.getY()), null);
+				java.awt.Image art = getCardArt(characteristics.name, false);
+				if(0 != characteristics.name.length())
+				{
+					if(art == null)
+						this.drawCardText(characteristics.name, getFont(), SMALL_CARD_PADDING_LEFT, SMALL_CARD_PADDING_TOP, new java.awt.Dimension(SMALL_CARD_TEXT_WIDTH, SMALL_CARD_TOTAL_TEXT_HEIGHT), false, false);
+					else
+					{
+						this.drawImage(art, SMALL_CARD_ART_LEFT, SMALL_CARD_ART_TOP, SMALL_CARD_ART_WIDTH, SMALL_CARD_ART_HEIGHT, null);
+						this.drawCardText(characteristics.name, getFont(), SMALL_CARD_PADDING_LEFT, SMALL_CARD_PADDING_TOP, new java.awt.Dimension(SMALL_CARD_TEXT_WIDTH, SMALL_CARD_TOTAL_TEXT_HEIGHT), false, false);
+						this.drawCardText(characteristics.name, getFont(), SMALL_CARD_PADDING_LEFT - 1, SMALL_CARD_PADDING_TOP - 1, new java.awt.Dimension(SMALL_CARD_TEXT_WIDTH, SMALL_CARD_TOTAL_TEXT_HEIGHT), false, false, java.awt.Color.WHITE);
+					}
+				}
+
+				boolean isCreature = characteristics.types.contains(Type.CREATURE);
+				if(isCreature)
+				{
+					this.drawPowerToughnessBox(characteristics, SMALL_CARD_PT_BOX_LEFT, SMALL_CARD_PT_BOX_TOP, true);
+					this.drawCardText(characteristics.power + "/" + characteristics.toughness, getFont(), SMALL_CARD_PT_TEXT_LEFT, SMALL_CARD_PT_TEXT_TOP, SMALL_CARD_PT_DIMENSIONS, true, false);
+				}
+				if(characteristics.types.contains(Type.PLANESWALKER))
+				{
+					int offset = isCreature ? 39 : 0;
+					this.drawImage(getImage("smallframes/loyaltybox.png"), SMALL_CARD_PT_BOX_LEFT - offset, SMALL_CARD_PT_BOX_TOP, null);
+					this.drawCardText(Integer.toString(loyaltyOf(object, SanitizedGameObject.CharacteristicSet.ACTUAL)), getFont(), SMALL_CARD_PT_TEXT_LEFT - offset, SMALL_CARD_PT_TEXT_TOP, SMALL_CARD_PT_DIMENSIONS, true, false, java.awt.Color.WHITE);
+				}
+
+				if(renderDamage && object.damage > 0)
+				{
+					java.awt.FontMetrics f = this.getFontMetrics();
+					int x = SMALL_CARD.width - SMALL_CARD_DAMAGE_RIGHT;
+					int y = SMALL_CARD.height - SMALL_CARD_DAMAGE_BOTTOM - f.getHeight();
+					this.drawCardTextRightAligned(Integer.toString(((SanitizedGameObject)o).damage), x, y, java.awt.Color.RED);
+				}
+
+				if(renderCounters)
+				{
+					int countersPerRow = 10;
+					int maxRows = 3;
+					java.util.List<Counter> counters = ((SanitizedGameObject)o).counters;
+					if(counters.size() > maxRows * countersPerRow)
+					{
+						int x = SMALL_CARD_PADDING_LEFT;
+						int height = this.getFontMetrics().getHeight();
+						int y = SMALL_CARD_ART_TOP + SMALL_CARD_ART_HEIGHT - height - 1;
+						this.drawCardText(counters.size() + " counters", this.getFont(), x, y, new java.awt.Dimension(SMALL_CARD_TEXT_WIDTH, height), false, false);
+						this.drawCardText(counters.size() + " counters", this.getFont(), x - 1, y - 1, new java.awt.Dimension(SMALL_CARD_TEXT_WIDTH, height), false, false, java.awt.Color.WHITE);
+					}
+					else
+					{
+						java.util.Collections.sort(counters);
+
+						java.awt.Color oldColor = this.getColor();
+						int counterSize = 5;
+						int counterSpace = 7;
+						int i = 0;
+						for(Counter c: counters)
+						{
+							// TODO : customize these colors
+							java.awt.Color color = java.awt.Color.WHITE;
+							if(c.getType() == Counter.CounterType.PLUS_ONE_PLUS_ONE)
+								color = java.awt.Color.GREEN;
+							else if(c.getType() == Counter.CounterType.MINUS_ONE_MINUS_ONE)
+								color = java.awt.Color.RED;
+
+							int col = i % countersPerRow;
+							int x = SMALL_CARD_ART_LEFT + SMALL_CARD_ART_WIDTH - (col + 1) * counterSpace;
+
+							int row = i / countersPerRow;
+							int y = SMALL_CARD_ART_TOP + SMALL_CARD_ART_HEIGHT - (row + 1) * counterSpace;
+
+							this.setColor(color);
+							fillRect(x, y, counterSize, counterSize);
+							this.setColor(java.awt.Color.BLACK);
+							drawRect(x, y, counterSize, counterSize);
+
+							i++;
+						}
+						this.setColor(oldColor);
+					}
+				}
+
+				int options = 0;
+				for(SanitizedGameObject.CharacteristicSet option: getLargeCardDisplayOptions(object))
+				{
+					++options;
+
+					java.awt.Rectangle rect = getSmallCardOptionRect(false, false, new java.awt.Point(0, 0), options);
+					this.drawImage(getImage("icons/" + option.name().toLowerCase() + ".png"), (int)(rect.getX()), (int)(rect.getY()), null);
+				}
 			}
 		}
 	}

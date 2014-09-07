@@ -148,7 +148,8 @@ public class ScrollingCardPanel extends javax.swing.JComponent
 							int index = InnerCardPanel.this.displayOrder.indexOf(hoveredCard);
 							java.awt.Point cardStart = new java.awt.Point(index * (CardGraphics.SMALL_CARD.width + InnerCardPanel.this.cardSpacing), 0);
 							SanitizedGameObject.CharacteristicSet displayOption = CardGraphics.getLargeCardDisplayOption(e, cardStart, display, false);
-							InnerCardPanel.this.gui.cardInfoPanel.setFocusToGameObject(display, InnerCardPanel.this.gui.state, displayOption);
+							int characteristicIndex = CardGraphics.getCharacteristicIndex(e, cardStart, display);
+							InnerCardPanel.this.gui.cardInfoPanel.setFocusToGameObject(display, InnerCardPanel.this.gui.state, displayOption, characteristicIndex);
 							InnerCardPanel.this.setToolTipText(InnerCardPanel.this.gui.getHelpText());
 							return;
 						}

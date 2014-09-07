@@ -347,7 +347,7 @@ class BattlefieldPanel extends javax.swing.JPanel
 					boolean flipped = shouldFlip && hoveredCard.controllerID != BattlefieldPanel.this.gui.playerID;
 
 					SanitizedGameObject.CharacteristicSet displayOption = CardGraphics.getLargeCardDisplayOption(e, cardStart, hoveredCard, flipped);
-					BattlefieldPanel.this.gui.cardInfoPanel.setFocusToGameObject(hoveredCard, BattlefieldPanel.this.gui.state, displayOption);
+					BattlefieldPanel.this.gui.cardInfoPanel.setFocusToGameObject(hoveredCard, BattlefieldPanel.this.gui.state, displayOption, 0);
 					BattlefieldPanel.this.setToolTipText(BattlefieldPanel.this.gui.getHelpText());
 				}
 				else
