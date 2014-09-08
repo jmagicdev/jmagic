@@ -2,8 +2,6 @@ package org.rnd.jmagic.engine;
 
 import static org.rnd.jmagic.Convenience.*;
 
-import org.rnd.jmagic.CardLoader.CardLoaderException;
-import org.rnd.jmagic.engine.PlayerInterface.ErrorParameters;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
 
@@ -916,7 +914,16 @@ public class Game
 		java.util.Map<String, java.util.List<String>> cards = null;
 		cards = deck.getCards();
 
-		ErrorParameters deckCheckError = this.gameType.checkDeck(cards);
+		PlayerInterface.ErrorParameters deckCheckError = null;
+		try
+		{
+			deckCheckError = this.gameType.checkDeck(cards);
+		}
+		catch(org.rnd.jmagic.CardLoader.CardLoaderException e)
+		{
+			deckCheckError = new PlayerInterface.ErrorParameters.CardLoadingError(e.cardNames);
+		}
+
 		if(null != deckCheckError)
 		{
 			comm.alertError(deckCheckError);
@@ -1295,7 +1302,7 @@ public class Game
 			{
 				cardClass = org.rnd.jmagic.CardLoader.getCard(cardName);
 			}
-			catch(CardLoaderException e)
+			catch(org.rnd.jmagic.CardLoader.CardLoaderException e)
 			{
 				throw new RuntimeException("Couldn't load card: " + cardName);
 			}

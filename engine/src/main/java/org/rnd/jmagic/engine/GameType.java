@@ -161,8 +161,23 @@ public class GameType
 		this.rules.add(rule);
 	}
 
-	public PlayerInterface.ErrorParameters checkDeck(java.util.Map<String, java.util.List<String>> deck)
+	public PlayerInterface.ErrorParameters checkDeck(java.util.Map<String, java.util.List<String>> deck) throws org.rnd.jmagic.CardLoader.CardLoaderException
 	{
+		// first make sure all the cards exist
+		org.rnd.jmagic.CardLoader.CardLoaderException throwMe = new org.rnd.jmagic.CardLoader.CardLoaderException();
+		deck.values().stream().forEach(deckPart -> deckPart.stream().forEach(card -> {
+			try
+			{
+				org.rnd.jmagic.CardLoader.getCard(card);
+			}
+			catch(org.rnd.jmagic.CardLoader.CardLoaderException e)
+			{
+				throwMe.cardNames.addAll(e.cardNames);
+			}
+		}));
+		if(!throwMe.cardNames.isEmpty())
+			throw throwMe;
+
 		if(this.cardpool == null)
 		{
 			this.calculateCardPool();
