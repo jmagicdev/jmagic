@@ -23,10 +23,10 @@ public final class Fire extends Card
 		target.setNumber(1, 2);
 		this.setDivision(Union.instance(numberGenerator(2), Identity.instance("damage")));
 
-		EventType.ParameterMap damageParameters = new EventType.ParameterMap();
-		damageParameters.put(EventType.Parameter.SOURCE, ABILITY_SOURCE_OF_THIS);
-		damageParameters.put(EventType.Parameter.TAKER, ChosenTargetsFor.instance(Identity.instance(target), This.instance()));
-		this.addEffect(new EventFactory(EventType.DISTRIBUTE_DAMAGE, damageParameters, "Fire deals 2 damage divided as you choose among one or two target creatures and/or players."));
-
+		SetGenerator takers = ChosenTargetsFor.instance(Identity.instance(target), This.instance());
+		EventFactory damage = new EventFactory(EventType.DISTRIBUTE_DAMAGE, "Fire deals 2 damage divided as you choose among one or two target creatures and/or players.");
+		damage.parameters.put(EventType.Parameter.SOURCE, This.instance());
+		damage.parameters.put(EventType.Parameter.TAKER, takers);
+		this.addEffect(damage);
 	}
 }

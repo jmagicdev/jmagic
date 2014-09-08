@@ -524,9 +524,6 @@ public class PermissionsTest extends JUnitTest
 		this.pass();
 		this.pass();
 
-		// There should be 368 cards to choose from since this is limited to
-		// 10th Edition by the game type.
-		assertEquals(368, this.choices.size());
 		this.respondWith(this.pullChoice("Mogg Fanatic"));
 
 		// 5 x Plains

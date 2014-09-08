@@ -41,7 +41,7 @@ public final class Bestow extends Keyword
 			ContinuousEffect.Part auraPart = new ContinuousEffect.Part(ContinuousEffectType.SET_TYPES);
 			auraPart.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());
 			auraPart.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.instance(Type.ENCHANTMENT, SubType.AURA));
-			
+
 			ContinuousEffect.Part enchantCreaturePart = addAbilityToObject(This.instance(), org.rnd.jmagic.abilities.keywords.Enchant.Creature.class);
 
 			this.addEffectPart(auraPart, enchantCreaturePart);
@@ -54,19 +54,19 @@ public final class Bestow extends Keyword
 			// effect ends. Then, after it's on the battlefield, we need to
 			// check to make sure it's attached to something (which, if it
 			// resolved as a creature, will conveniently be never).
-			
+
 			// This makes our desired canApply generator as follows:
 			// this was bestowed AND (
 			// .. this is on the stack but not resolving OR
 			// .. this is resolving with a legal target OR
 			// .. this is on the battlefield attached)
-			
+
 			SetGenerator thisIsResolving = Intersect.instance(This.instance(), Resolving.instance());
 			SetGenerator notResolvedYet = Both.instance(THIS_IS_ON_THE_STACK, Not.instance(thisIsResolving));
-			
+
 			SetGenerator hasLegalTarget = TargetsAreLegal.instance(AllChosenTargetsOf.instance(This.instance()));
 			SetGenerator resolvingWithLegalTarget = Both.instance(thisIsResolving, hasLegalTarget);
-			
+
 			SetGenerator attachedToSomething = EnchantedBy.instance(This.instance());
 
 			SetGenerator criteria = Union.instance(notResolvedYet, resolvingWithLegalTarget, attachedToSomething);
@@ -143,7 +143,7 @@ public final class Bestow extends Keyword
 
 		public BestowAction(Game game, Bestow parent, GameObject cast, Player casting)
 		{
-			super(game, cast, casting, parent.ID);
+			super(game, cast, new int[] {0}, casting, parent.ID);
 			this.name = "Cast " + cast + " for its bestow cost";
 			this.parentID = parent.ID;
 		}

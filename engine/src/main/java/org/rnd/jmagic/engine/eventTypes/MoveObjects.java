@@ -43,6 +43,11 @@ public final class MoveObjects extends EventType
 		int controllerID = -1;
 		if(parameters.containsKey(Parameter.CONTROLLER))
 			controllerID = parameters.get(Parameter.CONTROLLER).getOne(Player.class).ID;
+
+		java.util.Set<Integer> characteristicsIndices = null;
+		if(parameters.containsKey(Parameter.EFFECT))
+			characteristicsIndices = new java.util.HashSet<>(parameters.get(Parameter.EFFECT).getAll(Integer.class));
+
 		int index = 0;
 		if(parameters.containsKey(Parameter.INDEX))
 			index = parameters.get(Parameter.INDEX).getOne(Integer.class);
@@ -80,6 +85,7 @@ public final class MoveObjects extends EventType
 
 			ZoneChange change = new ZoneChange();
 			change.causeID = causeID;
+			change.characteristicsIndices = characteristicsIndices;
 			change.controllerID = controllerID;
 			change.destinationZoneID = to.ID;
 			change.faceDownCharacteristics = faceDownCharacteristics;

@@ -103,7 +103,7 @@ public final class Flashback extends Keyword
 
 		public FlashbackAction(Game game, Flashback parent, GameObject cast, Player caster)
 		{
-			super(game, cast, caster, parent.ID);
+			super(game, cast, new int[] {0}, caster, parent.ID);
 			this.name = parent.getName();
 			this.parentID = parent.ID;
 		}

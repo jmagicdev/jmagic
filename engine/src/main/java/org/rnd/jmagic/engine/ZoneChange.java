@@ -36,6 +36,11 @@ public class ZoneChange implements Sanitizable
 	public int causeID = -1;
 
 	/**
+	 * Which side(s) of a split card are being cast during this zone change.
+	 */
+	public java.util.Set<Integer> characteristicsIndices;
+
+	/**
 	 * The ID of the Player who will control the new GameObject when it is
 	 * inserted into the new Zone. This must be specified if the destination
 	 * Zone is either the Battlefield or the Stack and is unused otherwise.

@@ -1,5 +1,7 @@
 package org.rnd.jmagic.engine;
 
+import org.rnd.jmagic.engine.generators.*;
+
 /** Represents the act of playing a spell or activated ability. */
 public abstract class CastSpellOrActivateAbilityAction extends PlayerAction
 {
@@ -13,16 +15,19 @@ public abstract class CastSpellOrActivateAbilityAction extends PlayerAction
 	private int playedID;
 	private SetGenerator forcedAlternateCost;
 
+	protected final int[] characteristicsIndices;
+
 	/**
 	 * @param game The game in which this action will be performed.
 	 * @param name This should usually be Magic-ese that describes this action;
-	 * for example, "Play Giant Growth", or the text of an ability.
+	 * for example, "Cast Giant Growth", or the text of an ability.
 	 */
-	public CastSpellOrActivateAbilityAction(Game game, String name, Player caster, int source)
+	public CastSpellOrActivateAbilityAction(Game game, String name, int[] characteristicsIndices, Player caster, int source)
 	{
 		super(game, name, caster, source);
 		this.playedID = -1;
 		this.forcedAlternateCost = null;
+		this.characteristicsIndices = characteristicsIndices;
 	}
 
 	/**
@@ -58,10 +63,11 @@ public abstract class CastSpellOrActivateAbilityAction extends PlayerAction
 		Player caster = this.game.actualState.get(this.actorID);
 
 		Event event = new Event(this.game.physicalState, caster + " plays " + toBePlayed + ".", EventType.CAST_SPELL_OR_ACTIVATE_ABILITY);
-		event.parameters.put(EventType.Parameter.PLAYER, org.rnd.jmagic.engine.generators.Identity.instance(caster));
-		event.parameters.put(EventType.Parameter.OBJECT, org.rnd.jmagic.engine.generators.Identity.instance(toBePlayed));
+		event.parameters.put(EventType.Parameter.PLAYER, Identity.instance(caster));
+		event.parameters.put(EventType.Parameter.OBJECT, Identity.instance(toBePlayed));
 		if(this.forcedAlternateCost != null)
 			event.parameters.put(EventType.Parameter.ALTERNATE_COST, this.forcedAlternateCost);
+		event.parameters.put(EventType.Parameter.EFFECT, Identity.fromCollection(new Set(this.characteristicsIndices)));
 
 		event.setSource(toBePlayed);
 		return !event.isProhibited(this.game.actualState);
@@ -101,9 +107,13 @@ public abstract class CastSpellOrActivateAbilityAction extends PlayerAction
 		Player caster = this.game.actualState.get(this.actorID);
 
 		Event event = new Event(this.game.physicalState, caster + " plays " + toBePlayed + ".", EventType.CAST_SPELL_OR_ACTIVATE_ABILITY);
-		event.parameters.put(EventType.Parameter.PLAYER, org.rnd.jmagic.engine.generators.Identity.instance(caster));
-		event.parameters.put(EventType.Parameter.ACTION, org.rnd.jmagic.engine.generators.Identity.instance(this));
-		event.parameters.put(EventType.Parameter.OBJECT, org.rnd.jmagic.engine.generators.Identity.instance(toBePlayed));
+		event.parameters.put(EventType.Parameter.PLAYER, Identity.instance(caster));
+		event.parameters.put(EventType.Parameter.ACTION, Identity.instance(this));
+		event.parameters.put(EventType.Parameter.OBJECT, Identity.instance(toBePlayed));
+		// this Identity looks inefficient, but if you try to replace it, please
+		// be very careful that the ints end up in the identity. it's easy to
+		// make this evaluate to [[1]] instead of [1].
+		event.parameters.put(EventType.Parameter.EFFECT, Identity.fromCollection(new Set(this.characteristicsIndices)));
 		if(this.forcedAlternateCost != null)
 			event.parameters.put(EventType.Parameter.ALTERNATE_COST, this.forcedAlternateCost);
 

@@ -149,7 +149,15 @@ public final class CastSpellOrActivateAbility extends EventType
 		if(parameters.containsKey(Parameter.FACE_DOWN))
 			onStack = beingPlayed.putOnStack(playerActing, parameters.get(Parameter.FACE_DOWN).getOne(Class.class));
 		else
-			onStack = beingPlayed.putOnStack(playerActing, null);
+		{
+			// if it was a split card, figure out which half was chosen
+			java.util.Set<Integer> splitChoices = new java.util.HashSet<>();
+			if(parameters.containsKey(Parameter.EFFECT))
+				splitChoices.addAll(parameters.get(Parameter.EFFECT).getAll(Integer.class));
+			else
+				splitChoices.add(0);
+			onStack = beingPlayed.putOnStack(playerActing, splitChoices);
+		}
 		GameObject physicalOnStack = onStack.getPhysical();
 
 		if(parameters.containsKey(Parameter.ACTION))
@@ -434,9 +442,10 @@ public final class CastSpellOrActivateAbility extends EventType
 			// Otherwise, choose all the modes
 			else
 			{
-				int n = 1;
 				java.util.List<Mode>[] modes = onStack.getModes();
 				for(int i = 0; i < modes.length; ++i)
+				{
+					int n = 1;
 					for(Mode mode: modes[i])
 					{
 						// If we have to choose all the modes, and even one
@@ -447,6 +456,7 @@ public final class CastSpellOrActivateAbility extends EventType
 						physicalOnStack.getSelectedModeNumbers()[i].add(n);
 						n++;
 					}
+				}
 			}
 		}
 

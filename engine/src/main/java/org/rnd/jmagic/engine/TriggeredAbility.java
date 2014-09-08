@@ -135,11 +135,8 @@ public abstract class TriggeredAbility extends NonStaticAbility
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public TriggeredAbility putOnStack(Player controller, Class<? extends Characteristics> faceDownValues)
+	public TriggeredAbility putOnStack(Player controller, java.util.Set<Integer> characteristicsIndices)
 	{
-		if(null != faceDownValues)
-			throw new UnsupportedOperationException("Trying to put a triggered ability on the stack face down.");
-
 		GameObject physicalAbility = this.getPhysical();
 		this.game.physicalState.waitingTriggers.get(this.controllerID).remove(physicalAbility);
 		this.game.physicalState.stack().addToTop(physicalAbility);
@@ -200,6 +197,12 @@ public abstract class TriggeredAbility extends NonStaticAbility
 		playEvent.perform(null, true);
 
 		return this;
+	}
+
+	@Override
+	public TriggeredAbility putOnStack(Player controller, Class<? extends Characteristics> faceDownValues)
+	{
+		throw new UnsupportedOperationException("Trying to put a triggered ability on the stack face down.");
 	}
 
 	/** Carries out the instructions for this ability. */

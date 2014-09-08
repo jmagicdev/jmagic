@@ -11,15 +11,21 @@ public class CastSpellAction extends CastSpellOrActivateAbilityAction
 
 	private java.util.List<EventFactoryWithSource> attachedEvents;
 
+	private static String actionName(GameObject spell, int[] characteristicsIndices)
+	{
+		Characteristics[] characteristics = spell.getCharacteristics();
+		return java.util.Arrays.stream(characteristicsIndices).mapToObj(i -> characteristics[i].name).reduce((left, right) -> left + " // " + right).orElse("");
+	}
+
 	/**
 	 * Creates a cast spell action for a specific spell.
 	 * 
 	 * @param game The game in which the action will be performed.
 	 * @param spell The spell to cast.
 	 */
-	public CastSpellAction(Game game, GameObject spell, Player casting, int source)
+	public CastSpellAction(Game game, GameObject spell, int[] characteristicsIndices, Player casting, int source)
 	{
-		super(game, "Cast " + spell, casting, source);
+		super(game, "Cast " + actionName(spell, characteristicsIndices), characteristicsIndices, casting, source);
 		this.attachedEvents = new java.util.LinkedList<EventFactoryWithSource>();
 		this.toBePlayedID = spell.ID;
 	}

@@ -138,8 +138,25 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 		return (this.zoneID == this.game.actualState.stack().ID);
 	}
 
+	@Override
+	public GameObject putOnStack(Player controller, java.util.Set<Integer> characteristicsIndices)
+	{
+		SetGenerator thisObject = IdentifiedWithID.instance(this.ID);
+
+		Event moveEvent = new Event(this.game.physicalState, "Put " + this + " on the stack.", EventType.PUT_IN_CONTROLLED_ZONE);
+		moveEvent.parameters.put(EventType.Parameter.CAUSE, CurrentGame.instance());
+		moveEvent.parameters.put(EventType.Parameter.CONTROLLER, Identity.instance(controller));
+		moveEvent.parameters.put(EventType.Parameter.ZONE, Stack.instance());
+		moveEvent.parameters.put(EventType.Parameter.OBJECT, thisObject);
+		moveEvent.parameters.put(EventType.Parameter.EFFECT, Identity.fromCollection(characteristicsIndices));
+		moveEvent.parameters.put(EventType.Parameter.INDEX, numberGenerator(1));
+
+		moveEvent.perform(null, true);
+		return this.game.actualState.stack().objects.get(0);
+	}
+
 	/**
-	 * Puts this card on the stack.
+	 * Puts this card on the stack face down.
 	 *
 	 * @param faceDownValues Null if this card is to be put on the stack face
 	 * up; otherwise, a set of values for this object to assume when it's put on
@@ -156,8 +173,7 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 		moveEvent.parameters.put(EventType.Parameter.CONTROLLER, Identity.instance(controller));
 		moveEvent.parameters.put(EventType.Parameter.ZONE, Stack.instance());
 		moveEvent.parameters.put(EventType.Parameter.OBJECT, thisObject);
-		if(faceDownValues != null)
-			moveEvent.parameters.put(EventType.Parameter.FACE_DOWN, Identity.instance(faceDownValues));
+		moveEvent.parameters.put(EventType.Parameter.FACE_DOWN, Identity.instance(faceDownValues));
 		moveEvent.parameters.put(EventType.Parameter.INDEX, numberGenerator(1));
 
 		moveEvent.perform(null, true);

@@ -58,6 +58,8 @@ public final class PutInControlledZone extends EventType
 		moveParameters.put(Parameter.CONTROLLER, controller);
 		if(parameters.containsKey(Parameter.INDEX))
 			moveParameters.put(Parameter.INDEX, parameters.get(Parameter.INDEX));
+		if(parameters.containsKey(Parameter.EFFECT))
+			moveParameters.put(Parameter.EFFECT, parameters.get(Parameter.EFFECT));
 		if(resolvingParameterPresent)
 			moveParameters.put(Parameter.RESOLVING, Empty.set);
 		if(faceDownParameterPresent)

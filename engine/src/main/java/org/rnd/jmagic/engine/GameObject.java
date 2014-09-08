@@ -1521,18 +1521,22 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		this.costsGenerated.put(factory, cost.ID);
 	}
 
+	public GameObject putOnStack(Player controller, java.util.Set<Integer> characteristicsIndices)
+	{
+		throw new UnsupportedOperationException("Attempt to put a GameObject on the stack whose derived class doesn't have putOnStack defined");
+	}
+
 	/**
-	 * Puts this object on the stack. Classes overriding this method should set
-	 * the controller of the new object to the controller specified in the
-	 * parameters to this method. If the new object is put on the stack through
-	 * the use of a movement event, this is done by setting the CONTROLLER
-	 * parameter of that event; otherwise, call
+	 * Puts this object on the stack face down. Classes overriding this method
+	 * should set the controller of the new object to the controller specified
+	 * in the parameters to this method. If the new object is put on the stack
+	 * through the use of a movement event, this is done by setting the
+	 * CONTROLLER parameter of that event; otherwise, call
 	 * {@link GameObject#setController(Player)} on the new object.
 	 *
 	 * @param controller Who will control the object on the stack.
-	 * @param faceDownValues Null if this card is to be put on the stack face
-	 * up; otherwise, a class defining a set of values for this object to assume
-	 * when it's put on the stack (face down).
+	 * @param faceDownValues a class defining a set of values for this object to
+	 * assume when it's put on the stack (face down).
 	 * @return The object as it exists on the stack in the actual game state.
 	 */
 	public GameObject putOnStack(Player controller, Class<? extends Characteristics> faceDownValues)
@@ -1887,6 +1891,36 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	public void setBlockingIDs(java.util.List<Integer> blockingIDs)
 	{
 		this.battlefieldProperties.blockingIDs = blockingIDs;
+	}
+
+	/**
+	 * Tells this object that only some of it exists.
+	 * 
+	 * ...
+	 * 
+	 * This is for split cards. Giving [0] will cut off the right side, giving
+	 * [1] will cut off the left side.
+	 * 
+	 * @param characteristicsIndices Which characteristics to retain. If this
+	 * parameter's size is equal to the number of "sides" this card has, or if
+	 * it's null, this method will do nothing.
+	 */
+	public void selectCharacteristics(java.util.Set<Integer> characteristicsIndices)
+	{
+		if(characteristicsIndices == null || this.characteristics.length == characteristicsIndices.size())
+			return;
+
+		java.util.List<Characteristics> newCharacteristics = new java.util.ArrayList<>();
+		for(int i = 0; i < this.characteristics.length; i++)
+			if(characteristicsIndices.contains(i))
+				newCharacteristics.add(this.characteristics[i]);
+			else
+				this.characteristics[i].abilityIDsInOrder.stream().forEach(ability -> {
+					this.game.actualState.removeIdentified(ability);
+				});
+
+		this.characteristics = newCharacteristics.toArray(new Characteristics[] {});
+		this.setName(newCharacteristics.stream().map(c -> c.name).reduce((left, right) -> left + " // " + right).orElse(""));
 	}
 
 	public void setCharacteristics(Characteristics characteristics)

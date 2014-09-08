@@ -98,7 +98,7 @@ public final class Evoke extends Keyword
 
 		public EvokeAction(Game game, Evoke parent, GameObject cast, Player casting)
 		{
-			super(game, cast, casting, parent.ID);
+			super(game, cast, new int[] {0}, casting, parent.ID);
 			this.name = "Cast " + cast + " for its evoke cost";
 			this.parentID = parent.ID;
 		}

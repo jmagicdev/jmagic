@@ -47,8 +47,8 @@ public final class MeddlingMage extends Card
 		{
 			super(state, "The named card can't be cast.");
 
-			SimpleEventPattern cast = new SimpleEventPattern(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY);
-			cast.put(EventType.Parameter.OBJECT, HasName.instance(ChosenFor.instance(LinkedTo.instance(Identity.instance(this)))));
+			SetGenerator name = ChosenFor.instance(LinkedTo.instance(Identity.instance(this)));
+			EventPattern cast = new CastSpellWithNamePattern(name);
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(cast));

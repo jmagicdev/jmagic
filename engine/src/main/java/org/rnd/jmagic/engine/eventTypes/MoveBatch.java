@@ -218,6 +218,9 @@ public final class MoveBatch extends EventType
 				if(movement.faceDownCharacteristics != null)
 					faceDownValues = org.rnd.util.Constructor.construct(movement.faceDownCharacteristics, new Class<?>[] {}, new Object[] {});
 				moveIn.faceDownValues = faceDownValues;
+
+				moveIn.selectCharacteristics(movement.characteristicsIndices);
+
 				if(toBattlefield || toStack)
 				{
 					Player controller = game.actualState.get(movement.controllerID);

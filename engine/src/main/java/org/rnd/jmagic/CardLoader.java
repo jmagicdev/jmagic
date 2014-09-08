@@ -214,7 +214,7 @@ public class CardLoader
 	private static java.util.regex.Pattern getDeckLinePattern()
 	{
 		if(null == DECK_LINE_PATTERN)
-			DECK_LINE_PATTERN = java.util.regex.Pattern.compile("\\s*(((SB):\\s*)?((\\d+)\\s+)?([^#/]*[^#/\\s]))?\\s*(#.*)?(//.*)?");
+			DECK_LINE_PATTERN = java.util.regex.Pattern.compile("\\s*(((SB):\\s*)?((\\d+)\\s+)?([^#]*[^#\\s]))?\\s*(#.*)?");
 		return DECK_LINE_PATTERN;
 	}
 

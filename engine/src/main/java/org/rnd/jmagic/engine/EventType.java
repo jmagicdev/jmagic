@@ -159,6 +159,9 @@ public abstract class EventType
 	 * @eparam PLAYER: the player playing the spell/ability
 	 * @eparam ALTERNATE_COST: a set of forced alternate costs represented as
 	 * events and/or mana pools [optional; default = no forced alternate cost]
+	 * @eparam EFFECT: which side(s) of a split card is/are being cast.
+	 * represented as 0-based indices (left side is 0, right side is 1).
+	 * [optional, default is 0 -- you can leave this alone for non-split cards.]
 	 * @eparam OBJECT: the spell/ability
 	 * @eparam ACTION: if the object being played is a spell being cast using an
 	 * action, that action; otherwise leave it out
@@ -930,6 +933,7 @@ public abstract class EventType
 	 * @eparam INDEX: where to insert the object if the zone is ordered (See
 	 * {@link ZoneChange#index})
 	 * @eparam OBJECT: what is being moved
+	 * @eparam EFFECT: if present, which side(s) of a split card to cast
 	 * @eparam HIDDEN: if present, the new object will be visible to no one.
 	 * used for exiling things "face down"
 	 * @eparam FACE_DOWN: if present, put the object into the new zone face down
@@ -1140,6 +1144,7 @@ public abstract class EventType
 	 * @eparam CONTROLLER: who will control the objects
 	 * @eparam ZONE: which zone to put the objects into
 	 * @eparam OBJECT: the objects to move
+	 * @eparam EFFECT: if present, the side(s) of the split card chosen to cast
 	 * @eparam FACE_DOWN: if the object is to be put into the new zone with the
 	 * face down status, a CopiableValues class defining the characteristics for
 	 * that object to assume while face down (see

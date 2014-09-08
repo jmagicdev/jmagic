@@ -18,9 +18,9 @@ public final class Ice extends Card
 
 		// Tap target permanent.
 		SetGenerator target = targetedBy(this.addTarget(Permanents.instance(), "target permanent"));
-		this.addEffect(tap(target, "Tap target permanent.\n\n"));
+		this.addEffect(tap(target, "Tap target permanent."));
 
 		// Draw a card.
-		this.addEffect(drawACard());
+		this.addEffect(drawCards(You.instance(), 1, "\n\nDraw a card."));
 	}
 }

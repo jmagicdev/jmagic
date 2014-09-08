@@ -114,7 +114,7 @@ public final class SpellCopy extends GameObject implements Castable
 	 * @return The spell on the stack.
 	 */
 	@Override
-	public GameObject putOnStack(Player controller, Class<? extends Characteristics> faceDownValues)
+	public GameObject putOnStack(Player controller, java.util.Set<Integer> characteristicsIndices)
 	{
 		SetGenerator thisObject = IdentifiedWithID.instance(this.ID);
 
@@ -123,6 +123,7 @@ public final class SpellCopy extends GameObject implements Castable
 		stackEvent.parameters.put(EventType.Parameter.CONTROLLER, Identity.instance(controller));
 		stackEvent.parameters.put(EventType.Parameter.ZONE, Stack.instance());
 		stackEvent.parameters.put(EventType.Parameter.OBJECT, thisObject);
+		stackEvent.parameters.put(EventType.Parameter.EFFECT, Identity.fromCollection(characteristicsIndices));
 		stackEvent.parameters.put(EventType.Parameter.INDEX, numberGenerator(1));
 
 		stackEvent.perform(null, true);

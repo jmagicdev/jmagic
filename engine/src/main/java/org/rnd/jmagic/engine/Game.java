@@ -1800,7 +1800,7 @@ public class Game
 			for(TriggeredAbility t: orderedTriggers)
 			{
 				this.refreshActualState();
-				this.actualState.<TriggeredAbility>get(t.ID).putOnStack(player, null);
+				this.actualState.<TriggeredAbility>get(t.ID).putOnStack(player, java.util.Collections.singleton(0));
 				triggerStacked = true;
 			}
 		}

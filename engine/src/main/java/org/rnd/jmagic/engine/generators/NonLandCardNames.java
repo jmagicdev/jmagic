@@ -32,7 +32,9 @@ public class NonLandCardNames extends SetGenerator
 					}
 					Name name = card.getAnnotation(Name.class);
 					if(name != null)
-						ret.add(name.value());
+						// when naming cards for meddling mage, you name one
+						// side of a split card, not both sides.
+						java.util.Arrays.stream(name.value().split(" // ")).forEach(n -> ret.add(n));
 				}
 			}
 			set = new Set.Unmodifiable(ret);

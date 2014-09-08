@@ -274,11 +274,8 @@ public abstract class ActivatedAbility extends NonStaticAbility
 	 * ability, the instance of the ability which will resolve and produce mana.
 	 */
 	@Override
-	public final ActivatedAbility putOnStack(Player controller, Class<? extends Characteristics> faceDownValues)
+	public final ActivatedAbility putOnStack(Player controller, java.util.Set<Integer> characteristicsIndices)
 	{
-		if(null != faceDownValues)
-			throw new UnsupportedOperationException("Trying to put an activated ability on the stack face down.");
-
 		ActivatedAbility ability = (ActivatedAbility)(this.create(this.game));
 		Identified source = this.getSource(this.game.actualState);
 		if(source.isGameObject())
@@ -296,6 +293,12 @@ public abstract class ActivatedAbility extends NonStaticAbility
 
 		this.game.refreshActualState();
 		return (ActivatedAbility)ability.getActual();
+	}
+
+	@Override
+	public final ActivatedAbility putOnStack(Player controller, Class<? extends Characteristics> faceDownValues)
+	{
+		throw new UnsupportedOperationException("Trying to put an activated ability on the stack face down.");
 	}
 
 	@Override
