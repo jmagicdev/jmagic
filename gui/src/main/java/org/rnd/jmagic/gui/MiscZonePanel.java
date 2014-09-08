@@ -116,7 +116,8 @@ class MiscZonePanel extends javax.swing.JPanel
 					int reverseIndex = MiscZonePanel.this.zone.objects.size() - MiscZonePanel.this.zone.objects.indexOf(hoveredCard.ID) - 1;
 					java.awt.Point cardStart = new java.awt.Point(0, reverseIndex * CardGraphics.SMALL_CARD_PADDING.height);
 					SanitizedGameObject.CharacteristicSet displayOption = CardGraphics.getLargeCardDisplayOption(e, cardStart, hoveredCard, false);
-					MiscZonePanel.this.gui.cardInfoPanel.setFocusToGameObject(hoveredCard, MiscZonePanel.this.gui.state, displayOption, 0);
+					int characteristicIndex = CardGraphics.getCharacteristicIndex(e, cardStart, hoveredCard);
+					MiscZonePanel.this.gui.cardInfoPanel.setFocusToGameObject(hoveredCard, MiscZonePanel.this.gui.state, displayOption, characteristicIndex);
 					MiscZonePanel.this.setToolTipText(MiscZonePanel.this.gui.getHelpText());
 				}
 				else
