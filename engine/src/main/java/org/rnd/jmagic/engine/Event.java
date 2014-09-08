@@ -733,6 +733,11 @@ public class Event extends Identified implements Sanitizable
 		return this.result;
 	}
 
+	public final int getStoreInID()
+	{
+		return this.storeIn;
+	}
+
 	public final GameObject getSource()
 	{
 		if(this.sourceID == -1)
