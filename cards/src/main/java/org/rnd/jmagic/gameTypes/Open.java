@@ -10,5 +10,15 @@ public class Open extends GameType
 		super("Open");
 
 		this.addRule(new SideboardAsWishboard());
+		this.addRule(new CardPool());
+	}
+
+	public static class CardPool extends org.rnd.jmagic.engine.gameTypes.CardPool
+	{
+		public CardPool()
+		{
+			super(true);
+			this.allowSet(org.rnd.jmagic.expansions.Testing.class);
+		}
 	}
 }
