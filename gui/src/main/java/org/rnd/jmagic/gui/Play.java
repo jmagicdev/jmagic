@@ -679,7 +679,7 @@ public class Play
 			this.logPanel.addLine(description);
 			if(event.type.equals(EventType.GAME_OVER.toString()))
 			{
-				this.displayChoiceText(description, false);
+				this.displayChoiceText(description, null, false);
 			}
 			else if(event.type.equals(EventType.RESTART_THE_GAME.toString()))
 			{
@@ -765,7 +765,7 @@ public class Play
 
 	public void alertWaiting(SanitizedPlayer who)
 	{
-		this.displayChoiceText("Waiting for " + (who == null ? "the game" : who.toString()) + "...", false);
+		this.displayChoiceText("Waiting for " + (who == null ? "the game" : who.toString()) + "...", null, false);
 	}
 
 	/**
@@ -842,7 +842,7 @@ public class Play
 				}
 		}
 
-		this.displayChoiceText(query, true);
+		this.displayChoiceText(query, parameterObject.type, true);
 
 		this.clearIndicated();
 		if(parameterObject.whatForID != -1)
@@ -1173,7 +1173,7 @@ public class Play
 		window.setLayout(new java.awt.BorderLayout());
 		window.add(number, java.awt.BorderLayout.CENTER);
 
-		this.displayChoiceText(description, true);
+		this.displayChoiceText(description, null, true);
 		this.mainWindow.toFront();
 
 		this.passButton.setEnabled(false);
@@ -1854,9 +1854,14 @@ public class Play
 		this.mainWindow.setVisible(true);
 	}
 
-	public void displayChoiceText(String text, boolean active)
+	public void displayChoiceText(String text, PlayerInterface.ChoiceType type, boolean active)
 	{
-		this.statusLine.setText(0 == text.length() ? " " : text);
+		String line = 0 == text.length() ? " " : text;
+
+		if(type == PlayerInterface.ChoiceType.NORMAL_ACTIONS)
+			this.statusLine.setText(line + " (" + this.turnLabel.getText() + ", " + this.stepLabel.getHighlighted().toLowerCase() + ")");
+		else
+			this.statusLine.setText(line);
 
 		if(active)
 		{
@@ -1869,7 +1874,7 @@ public class Play
 			this.statusLine.setForeground(javax.swing.UIManager.getColor("Label.foreground"));
 		}
 
-		this.mainWindow.setTitle("jMagic" + (0 == text.length() ? "" : (" - " + text)));
+		this.mainWindow.setTitle("jMagic - " + line);
 	}
 
 	/**
@@ -1889,7 +1894,7 @@ public class Play
 	public void divide(int quantity, int minimum, int whatFrom, String beingDivided, final java.util.List<SanitizedTarget> targets)
 	{
 		final String oldTitle = this.mainWindow.getTitle();
-		this.displayChoiceText("Divide " + quantity + " " + beingDivided + ".", true);
+		this.displayChoiceText("Divide " + quantity + " " + beingDivided + ".", null, true);
 		this.mainWindow.toFront();
 
 		this.divisions = new java.util.HashMap<Integer, Integer>();

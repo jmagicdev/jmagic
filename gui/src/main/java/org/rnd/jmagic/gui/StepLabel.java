@@ -80,4 +80,9 @@ class StepLabel extends javax.swing.JTextPane
 			throw new RuntimeException("[ this should never happen ] Error highlighting " + s);
 		}
 	}
+
+	public String getHighlighted()
+	{
+		return this.highlighted.toString();
+	}
 }
