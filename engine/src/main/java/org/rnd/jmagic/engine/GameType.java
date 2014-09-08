@@ -99,7 +99,7 @@ public class GameType
 		@Override
 		public boolean checkExpansion(Expansion ex)
 		{
-			return true;
+			return false;
 		}
 
 		/**
