@@ -1,0 +1,29 @@
+1 Birds of Paradise
+4 Blighted Agent
+4 Glistener Elf
+4 Noble Hierarch
+3 Viridian Corrupter
+
+1 Apostle's Blessing
+3 Distortion Strike
+3 Gitaxian Probe
+4 Groundswell
+3 Might of Old Krosa
+4 Mutagenic Growth
+4 Vines of Vastwood
+1 Wild Defiance
+
+4 Breeding Pool
+1 Dryad Arbor
+2 Forest
+4 Inkmoth Nexus
+4 Misty Rainforest
+2 Pendelhaven
+4 Verdant Catacombs
+
+SB: 3 Dispel
+SB: 2 Hunt the Hunter
+SB: 4 Nature's Claim
+SB: 2 Spellskite
+SB: 2 Twisted Image
+SB: 2 Wild Defiance

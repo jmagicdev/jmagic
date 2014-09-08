@@ -1,0 +1,32 @@
+4 Arcbound Ravager
+2 Etched Champion
+2 Master of Etherium
+2 Memnite
+4 Ornithopter
+4 Signal Pest
+3 Steel Overseer
+4 Vault Skirge
+
+4 Cranial Plating
+3 Ensoul Artifact
+4 Galvanic Blast
+4 Mox Opal
+4 Springleaf Drum
+
+4 Blinkmoth Nexus
+4 Darksteel Citadel
+3 Glimmervoid
+4 Inkmoth Nexus
+1 Island
+
+SB: 2 Ancient Grudge
+SB: 1 Dismember
+SB: 1 Etched Champion
+SB: 1 Grafdigger's Cage
+SB: 1 Master of Etherium
+SB: 1 Relic of Progenitus
+SB: 2 Spellskite
+SB: 2 Thoughtseize
+SB: 1 Torpor Orb
+SB: 2 Wear // Tear
+SB: 1 Whipflare

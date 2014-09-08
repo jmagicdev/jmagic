@@ -1,0 +1,40 @@
+4 Dark Confidant
+1 Grim Lavamancer
+1 Olivia Voldaren
+3 Scavenging Ooze
+4 Tarmogoyf
+
+1 Chandra, Pyromaster
+4 Liliana of the Veil
+
+3 Abrupt Decay
+1 Batterskull
+3 Inquisition of Kozilek
+4 Lightning Bolt
+1 Maelstrom Pulse
+1 Slaughter Pact
+2 Terminate
+3 Thoughtseize
+
+4 Blackcleave Cliffs
+2 Blood Crypt
+1 Forest
+4 Marsh Flats
+1 Overgrown Tomb
+1 Raging Ravine
+1 Stomping Ground
+2 Swamp
+3 Treetop Village
+1 Twilight Mire
+4 Verdant Catacombs
+
+SB: 2 Ancient Grudge
+SB: 3 Fulminator Mage
+SB: 2 Grafdigger's Cage
+SB: 1 Magma Spray
+SB: 1 Olivia Voldaren
+SB: 2 Shatterstorm
+SB: 1 Sowing Salt
+SB: 1 Sword of Light and Shadow
+SB: 1 Thoughtseize
+SB: 1 Thrun, the Last Troll

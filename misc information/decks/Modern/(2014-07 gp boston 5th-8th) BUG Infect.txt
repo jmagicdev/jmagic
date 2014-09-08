@@ -1,0 +1,25 @@
+4 Blighted Agent
+4 Glistener Elf
+4 Noble Hierarch
+4 Plague Stinger
+
+4 Apostle's Blessing
+4 Gitaxian Probe
+4 Groundswell
+4 Might of Old Krosa
+4 Rancor
+4 Vines of Vastwood
+
+2 Breeding Pool
+2 Forest
+4 Inkmoth Nexus
+4 Misty Rainforest
+2 Overgrown Tomb
+2 Pendelhaven
+4 Verdant Catacombs
+
+SB: 3 Abrupt Decay
+SB: 2 Dismember
+SB: 3 Inquisition of Kozilek
+SB: 3 Spellskite
+SB: 4 Viridian Corrupter

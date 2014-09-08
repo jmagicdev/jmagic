@@ -1,0 +1,40 @@
+4 Dark Confidant
+3 Scavenging Ooze
+4 Tarmogoyf
+
+1 Garruk Wildspeaker
+4 Liliana of the Veil
+
+3 Abrupt Decay
+1 Darkblast
+1 Dismember
+4 Inquisition of Kozilek
+3 Lingering Souls
+2 Maelstrom Pulse
+1 Slaughter Pact
+4 Thoughtseize
+
+1 Forest
+2 Godless Shrine
+4 Marsh Flats
+1 Overgrown Tomb
+1 Stirring Wildwood
+2 Swamp
+4 Tectonic Edge
+1 Temple Garden
+3 Treetop Village
+1 Twilight Mire
+1 Urborg, Tomb of Yawgmoth
+4 Verdant Catacombs
+
+SB: 3 Aven Mindcensor
+SB: 1 Choke
+SB: 1 Creeping Corrosion
+SB: 2 Engineered Explosives
+SB: 1 Fulminator Mage
+SB: 1 Grafdigger's Cage
+SB: 1 Hushwing Gryff
+SB: 1 Lingering Souls
+SB: 1 Scavenging Ooze
+SB: 1 Seal of Primordium
+SB: 2 Stony Silence

@@ -1,0 +1,35 @@
+4 Snapcaster Mage
+3 Vendilion Clique
+
+1 Batterskull
+3 Blood Moon
+4 Cryptic Command
+2 Electrolyze
+4 Lightning Bolt
+2 Mana Leak
+3 Remand
+1 Repeal
+4 Serum Visions
+3 Spell Snare
+1 Think Twice
+3 Vedalken Shackles
+
+9 Island
+4 Misty Rainforest
+1 Mountain
+4 Scalding Tarn
+3 Steam Vents
+1 Sulfur Falls
+
+SB: 2 Anger of the Gods
+SB: 1 Batterskull
+SB: 2 Combust
+SB: 1 Dispel
+SB: 1 Engineered Explosives
+SB: 1 Keranos, God of Storms
+SB: 1 Magma Spray
+SB: 1 Negate
+SB: 1 Relic of Progenitus
+SB: 1 Shadow of Doubt
+SB: 1 Spellskite
+SB: 2 Vandalblast
