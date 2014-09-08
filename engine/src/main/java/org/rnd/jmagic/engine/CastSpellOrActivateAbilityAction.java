@@ -15,7 +15,7 @@ public abstract class CastSpellOrActivateAbilityAction extends PlayerAction
 	private int playedID;
 	private SetGenerator forcedAlternateCost;
 
-	protected final int[] characteristicsIndices;
+	public final int[] characteristicsIndices;
 
 	/**
 	 * @param game The game in which this action will be performed.

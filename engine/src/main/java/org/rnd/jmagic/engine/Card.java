@@ -1,6 +1,7 @@
 package org.rnd.jmagic.engine;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.generators.*;
 
 public abstract class Card extends GameObject implements Castable, PlayableAsLand
@@ -97,8 +98,12 @@ public abstract class Card extends GameObject implements Castable, PlayableAsLan
 	@Override
 	public int[] getConvertedManaCost()
 	{
-		// 202.3a The converted mana cost of an object with no mana cost is 0.
-		return java.util.Arrays.stream(this.getManaCost()).mapToInt(t -> null == t ? 0 : t.converted()).toArray();
+		// the converted mana cost of a fused split spell is the total amount of
+		// mana in both halves' mana costs.
+		java.util.stream.IntStream costStream = java.util.Arrays.stream(this.getManaCost()).mapToInt(t -> null == t ? 0 : t.converted());
+		if(this.state.stack().equals(this.getZone()))
+			return new int[] {costStream.sum()};
+		return costStream.toArray();
 	}
 
 	/** return True. */

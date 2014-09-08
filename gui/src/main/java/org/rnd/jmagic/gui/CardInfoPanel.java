@@ -272,37 +272,40 @@ class CardInfoPanel extends javax.swing.JPanel
 			if(id instanceof SanitizedGameObject)
 			{
 				SanitizedGameObject card = (SanitizedGameObject)id;
-				SanitizedCharacteristics characteristics = card.characteristics[0].get(SanitizedGameObject.CharacteristicSet.ACTUAL);
-				for(int modeIndex: characteristics.selectedModes)
-					for(SanitizedTarget possibleTarget: characteristics.modes.get(modeIndex - 1).targets)
-						if(characteristics.chosenTargets.containsKey(possibleTarget))
-							for(SanitizedTarget chosenTarget: characteristics.chosenTargets.get(possibleTarget))
-								if(chosenTarget != null && chosenTarget.targetID != -1)
-									addArrow(new Arrow(card.ID, chosenTarget.targetID, Arrow.ArrowType.TARGET));
-				for(int attachmentID: card.attachments)
-					addArrow(new Arrow(attachmentID, card.ID, Arrow.ArrowType.ATTACHMENT));
-				if(card.attachedTo != -1)
-					addArrow(new Arrow(card.ID, card.attachedTo, Arrow.ArrowType.ATTACHMENT));
-				if(card.attackingID != -1)
-					addArrow(new Arrow(card.ID, card.attackingID, Arrow.ArrowType.ATTACKING));
-				if(card.blockingIDs != null)
-					for(int attacker: card.blockingIDs)
-						addArrow(new Arrow(card.ID, attacker, Arrow.ArrowType.BLOCKING));
-				if(card.blockedByIDs != null)
-					for(int blocker: card.blockedByIDs)
-						addArrow(new Arrow(blocker, card.ID, Arrow.ArrowType.BLOCKING));
-				if(card.controllerID != -1)
-					addArrow(new Arrow(card.controllerID, card.ID, Arrow.ArrowType.CONTROLLER));
-				for(int linkID: card.linkObjects)
-					addArrow(new Arrow(card.ID, linkID, Arrow.ArrowType.LINK));
-				if(card.pairedWith != -1)
-					addArrow(new Arrow(card.ID, card.pairedWith, Arrow.ArrowType.PAIR));
-				if(card instanceof SanitizedNonStaticAbility)
+				for(int i = 0; i < card.characteristics.length; i++)
 				{
-					SanitizedNonStaticAbility nsa = (SanitizedNonStaticAbility)card;
-					addArrow(new Arrow(nsa.sourceID, card.ID, Arrow.ArrowType.SOURCE));
-					if(nsa.causeID != -1)
-						addArrow(new Arrow(nsa.causeID, card.ID, Arrow.ArrowType.CAUSE));
+					SanitizedCharacteristics characteristics = card.characteristics[i].get(SanitizedGameObject.CharacteristicSet.ACTUAL);
+					for(int modeIndex: characteristics.selectedModes)
+						for(SanitizedTarget possibleTarget: characteristics.modes.get(modeIndex - 1).targets)
+							if(characteristics.chosenTargets.containsKey(possibleTarget))
+								for(SanitizedTarget chosenTarget: characteristics.chosenTargets.get(possibleTarget))
+									if(chosenTarget != null && chosenTarget.targetID != -1)
+										addArrow(new Arrow(card.ID, chosenTarget.targetID, Arrow.ArrowType.TARGET));
+					for(int attachmentID: card.attachments)
+						addArrow(new Arrow(attachmentID, card.ID, Arrow.ArrowType.ATTACHMENT));
+					if(card.attachedTo != -1)
+						addArrow(new Arrow(card.ID, card.attachedTo, Arrow.ArrowType.ATTACHMENT));
+					if(card.attackingID != -1)
+						addArrow(new Arrow(card.ID, card.attackingID, Arrow.ArrowType.ATTACKING));
+					if(card.blockingIDs != null)
+						for(int attacker: card.blockingIDs)
+							addArrow(new Arrow(card.ID, attacker, Arrow.ArrowType.BLOCKING));
+					if(card.blockedByIDs != null)
+						for(int blocker: card.blockedByIDs)
+							addArrow(new Arrow(blocker, card.ID, Arrow.ArrowType.BLOCKING));
+					if(card.controllerID != -1)
+						addArrow(new Arrow(card.controllerID, card.ID, Arrow.ArrowType.CONTROLLER));
+					for(int linkID: card.linkObjects)
+						addArrow(new Arrow(card.ID, linkID, Arrow.ArrowType.LINK));
+					if(card.pairedWith != -1)
+						addArrow(new Arrow(card.ID, card.pairedWith, Arrow.ArrowType.PAIR));
+					if(card instanceof SanitizedNonStaticAbility)
+					{
+						SanitizedNonStaticAbility nsa = (SanitizedNonStaticAbility)card;
+						addArrow(new Arrow(nsa.sourceID, card.ID, Arrow.ArrowType.SOURCE));
+						if(nsa.causeID != -1)
+							addArrow(new Arrow(nsa.causeID, card.ID, Arrow.ArrowType.CAUSE));
+					}
 				}
 			}
 		}

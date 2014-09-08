@@ -20,5 +20,4 @@ SB: 4 Leyline of Sanctity
 SB: 4 Molten Rain
 SB: 1 Shatterstorm
 SB: 4 Stony Silence
-## this card should be Wear // Tear but we don't support split cards.
-SB: 2 Shatter
+SB: 2 Wear // Tear

@@ -22,5 +22,4 @@ SB: 4 Leyline of Sanctity
 SB: 2 Molten Rain
 SB: 2 Relic of Progenitus
 SB: 2 Searing Blood
-## this card should be Wear // Tear but we don't support split cards
-SB: 3 Shatter
+SB: 3 Wear // Tear

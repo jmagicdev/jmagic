@@ -28,8 +28,7 @@
 SB: 2 Stony Silence
 SB: 2 Izzet Staticaster
 SB: 2 Sword of War and Peace
-## this card should be Wear // Tear, but we don't support split cards.
-SB: 1 Shatter
+SB: 1 Wear // Tear
 SB: 2 Negate
 SB: 1 Counterflux
 SB: 3 Threads of Disloyalty

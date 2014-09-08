@@ -19,8 +19,7 @@
 SB: 1 Thoughtseize
 SB: 2 Sunbeam Spellbomb
 SB: 2 Path to Exile
-## this card should be Wear // Tear, but we don't support split cards.
-SB: 2 Shatter
+SB: 2 Wear // Tear
 SB: 2 Ancient Grudge
 SB: 2 Whipflare
 SB: 2 Spellskite

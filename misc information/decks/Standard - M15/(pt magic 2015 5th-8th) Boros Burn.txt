@@ -23,5 +23,4 @@ SB: 1 Eidolon of the Great Revel
 SB: 2 Glare of Heresy
 SB: 4 Satyr Firedancer
 SB: 1 Skullcrack
-// this card should be wear // tear, but we don't support split cards
-SB: 1 Smelt
+SB: 1 Wear // Tear

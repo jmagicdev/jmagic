@@ -33,16 +33,19 @@ public class Characteristics implements Sanitizable, Cloneable
 		{
 			NonStaticAbility ability = game.physicalState.<NonStaticAbility>get(a);
 			ability.sourceID = target.ID;
-			game.actualState.put(ability);
+			if(game.actualState != null)
+				game.actualState.put(ability);
 		}
 		for(int a: ret.staticAbilities)
 		{
 			StaticAbility ability = game.physicalState.<StaticAbility>get(a);
 			ability.sourceID = target.ID;
-			game.actualState.put(ability);
+			if(game.actualState != null)
+				game.actualState.put(ability);
 		}
 		for(int a: ret.keywordAbilities)
-			game.actualState.put(game.physicalState.<Keyword>get(a));
+			if(game.actualState != null)
+				game.actualState.put(game.physicalState.<Keyword>get(a));
 
 		ret.name = dummy.getName();
 

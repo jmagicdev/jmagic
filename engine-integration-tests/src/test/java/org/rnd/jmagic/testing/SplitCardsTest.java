@@ -152,4 +152,40 @@ public class SplitCardsTest extends JUnitTest
 		if(action == null)
 			fail("Couldn't cast Ice.");
 	}
+
+	@Test
+	public void fuse()
+	{
+		this.addDeck(PyriteSpellbomb.class, IntangibleVirtue.class, WearTear.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
+		this.addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
+
+		startGame(new Open());
+
+		respondWith(getPlayer(0));
+		keep();
+		keep();
+
+		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
+
+		castAndResolveSpell(PyriteSpellbomb.class);
+		castAndResolveSpell(IntangibleVirtue.class);
+
+		SanitizedPlayerAction action = null;
+		for(SanitizedCastSpellOrActivateAbilityAction choice: this.choices.getAll(SanitizedCastSpellOrActivateAbilityAction.class))
+			if(choice.name.equals("Cast Wear // Tear"))
+			{
+				action = choice;
+				break;
+			}
+		if(action == null)
+			fail("Couldn't cast Wear // Tear.");
+		respondWith(action);
+		// auto-pick both targets
+		addMana("1WR");
+		donePlayingManaAbilities();
+		pass();
+		pass();
+
+		assertEquals(0, this.game.actualState.battlefield().objects.size());
+	}
 }
