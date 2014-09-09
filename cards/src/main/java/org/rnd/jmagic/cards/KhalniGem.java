@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Khalni Gem")
 @Types({Type.ARTIFACT})
 @ManaCost("4")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class KhalniGem extends Card
 {

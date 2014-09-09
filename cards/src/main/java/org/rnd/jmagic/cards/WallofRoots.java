@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Wall of Roots")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WALL, SubType.PLANT})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.SPECIAL), @Printings.Printed(ex = Mirage.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class WallofRoots extends Card
 {

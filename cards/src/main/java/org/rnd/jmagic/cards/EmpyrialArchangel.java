@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Empyrial Archangel")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("4GWWU")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN})
 public final class EmpyrialArchangel extends Card
 {

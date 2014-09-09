@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Phyrexian Rebirth")
 @Types({Type.SORCERY})
 @ManaCost("4WW")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class PhyrexianRebirth extends Card
 {

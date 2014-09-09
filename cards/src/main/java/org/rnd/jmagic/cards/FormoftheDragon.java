@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Form of the Dragon")
 @Types({Type.ENCHANTMENT})
 @ManaCost("4RRR")
-@Printings({@Printings.Printed(ex = FromTheVaultDragons.class, r = Rarity.RARE), @Printings.Printed(ex = NinthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Scourge.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class FormoftheDragon extends Card
 {

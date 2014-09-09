@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Knight of the White Orchid")
 @Types({Type.CREATURE})
 @SubTypes({SubType.KNIGHT, SubType.HUMAN})
 @ManaCost("WW")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class KnightoftheWhiteOrchid extends Card
 {

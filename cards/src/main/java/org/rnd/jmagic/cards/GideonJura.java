@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Gideon Jura")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.GIDEON})
 @ManaCost("3WW")
-@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.MYTHIC), @Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE})
 public final class GideonJura extends Card
 {

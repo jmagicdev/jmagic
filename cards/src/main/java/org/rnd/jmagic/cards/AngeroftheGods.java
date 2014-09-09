@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Anger of the Gods")
 @Types({Type.SORCERY})
 @ManaCost("1RR")
-@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class AngeroftheGods extends Card
 {

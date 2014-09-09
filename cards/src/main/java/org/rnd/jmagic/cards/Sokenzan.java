@@ -9,7 +9,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Sokenzan")
 @Types({Type.PLANE})
 @SubTypes({SubType.KAMIGAWA})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Sokenzan extends Card
 {

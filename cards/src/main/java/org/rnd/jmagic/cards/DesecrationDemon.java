@@ -3,14 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Desecration Demon")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DEMON})
 @ManaCost("2BB")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class DesecrationDemon extends Card
 {

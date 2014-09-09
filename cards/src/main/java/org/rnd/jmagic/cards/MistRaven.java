@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Mist Raven")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BIRD})
 @ManaCost("2UU")
-@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class MistRaven extends Card
 {

@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("True Believer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.CLERIC})
 @ManaCost("WW")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Onslaught.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class TrueBeliever extends Card
 {

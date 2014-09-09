@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Reckless Waif")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.ROGUE, SubType.WEREWOLF})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 @BackFace(MercilessPredator.class)
 public final class RecklessWaif extends Card

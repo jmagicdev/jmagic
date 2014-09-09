@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Awakening Zone")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.RARE), @Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class AwakeningZone extends Card
 {

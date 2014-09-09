@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("High Tide")
 @Types({Type.INSTANT})
 @ManaCost("U")
-@Printings({@Printings.Printed(ex = FallenEmpires.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class HighTide extends Card
 {

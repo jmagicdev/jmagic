@@ -2,7 +2,6 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Melira, Sylvok Outcast")
@@ -10,7 +9,6 @@ import org.rnd.jmagic.engine.patterns.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.SCOUT, SubType.HUMAN})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class MeliraSylvokOutcast extends Card
 {

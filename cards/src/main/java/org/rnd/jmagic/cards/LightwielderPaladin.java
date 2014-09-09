@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Lightwielder Paladin")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.KNIGHT})
 @ManaCost("3WW")
-@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class LightwielderPaladin extends Card
 {

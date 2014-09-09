@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Core Prowler")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.HORROR})
 @ManaCost("4")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class CoreProwler extends Card
 {

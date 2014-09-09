@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Minotaur Aggressor")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BERSERKER, SubType.MINOTAUR})
 @ManaCost("6R")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class MinotaurAggressor extends Card
 {

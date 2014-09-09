@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Sphinx Ambassador")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPHINX})
 @ManaCost("5UU")
-@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE})
 public final class SphinxAmbassador extends Card
 {

@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Vedalken Mastermind")
 @Types({Type.CREATURE})
 @SubTypes({SubType.VEDALKEN, SubType.WIZARD})
 @ManaCost("UU")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = FifthDawn.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class VedalkenMastermind extends Card
 {

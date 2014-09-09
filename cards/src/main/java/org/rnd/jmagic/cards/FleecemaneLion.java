@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import static org.rnd.jmagic.Convenience.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Fleecemane Lion")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CAT})
 @ManaCost("GW")
-@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN, Color.WHITE})
 public final class FleecemaneLion extends Card
 {

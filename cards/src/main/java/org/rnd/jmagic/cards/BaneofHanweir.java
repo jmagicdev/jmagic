@@ -1,12 +1,10 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Bane of Hanweir")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WEREWOLF})
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class BaneofHanweir extends AlternateCard
 {

@@ -4,14 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Nissa's Chosen")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.ELF})
 @ManaCost("GG")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class NissasChosen extends Card
 {

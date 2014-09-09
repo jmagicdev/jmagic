@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Growing Ranks")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2(G/W)(G/W)")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class GrowingRanks extends Card
 {

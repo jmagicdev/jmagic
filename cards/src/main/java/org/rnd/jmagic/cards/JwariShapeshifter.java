@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Jwari Shapeshifter")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ALLY, SubType.SHAPESHIFTER})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class JwariShapeshifter extends Card
 {

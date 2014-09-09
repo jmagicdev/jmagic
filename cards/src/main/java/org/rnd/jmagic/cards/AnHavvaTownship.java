@@ -1,11 +1,9 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("An-Havva Township")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Homelands.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE, Color.GREEN, Color.RED})
 public final class AnHavvaTownship extends org.rnd.jmagic.engine.Card
 {

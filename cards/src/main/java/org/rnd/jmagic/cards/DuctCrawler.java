@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Duct Crawler")
 @Types({Type.CREATURE})
 @SubTypes({SubType.INSECT})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = Stronghold.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class DuctCrawler extends Card
 {

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Korozda Monitor")
 @Types({Type.CREATURE})
 @SubTypes({SubType.LIZARD})
 @ManaCost("2GG")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class KorozdaMonitor extends Card
 {

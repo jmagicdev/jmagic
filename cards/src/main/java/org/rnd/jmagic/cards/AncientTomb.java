@@ -3,11 +3,9 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Ancient Tomb")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Tempest.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class AncientTomb extends Card
 {

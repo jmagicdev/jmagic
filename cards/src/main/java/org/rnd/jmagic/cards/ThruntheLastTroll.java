@@ -1,14 +1,12 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Thrun, the Last Troll")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.TROLL, SubType.SHAMAN})
 @ManaCost("2GG")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.GREEN})
 public final class ThruntheLastTroll extends Card
 {

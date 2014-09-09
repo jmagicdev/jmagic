@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Filigree Angel")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.ANGEL})
 @ManaCost("5WWU")
-@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.WHITE})
 public final class FiligreeAngel extends Card
 {

@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Cloud Sprite")
 @Types({Type.CREATURE})
 @SubTypes({SubType.FAERIE})
 @ManaCost("U")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = MercadianMasques.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class CloudSprite extends Card
 {

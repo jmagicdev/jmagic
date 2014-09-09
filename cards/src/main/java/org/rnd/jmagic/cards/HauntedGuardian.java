@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Haunted Guardian")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.CONSTRUCT})
 @ManaCost("2")
-@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class HauntedGuardian extends Card
 {

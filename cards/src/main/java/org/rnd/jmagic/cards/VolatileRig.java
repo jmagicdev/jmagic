@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Volatile Rig")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.CONSTRUCT})
 @ManaCost("4")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class VolatileRig extends Card
 {

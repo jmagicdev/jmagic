@@ -1,11 +1,9 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Blackcleave Cliffs")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK, Color.RED})
 public final class BlackcleaveCliffs extends Card
 {

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Skitter of Lizards")
 @Types({Type.CREATURE})
 @SubTypes({SubType.LIZARD})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class SkitterofLizards extends Card
 {

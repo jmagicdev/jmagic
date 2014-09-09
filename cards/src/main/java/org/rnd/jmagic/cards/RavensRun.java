@@ -9,7 +9,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Raven's Run")
 @Types({Type.PLANE})
 @SubTypes({SubType.SHADOWMOOR})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class RavensRun extends Card
 {

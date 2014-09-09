@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Hover Barrier")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WALL, SubType.ILLUSION})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class HoverBarrier extends Card
 {

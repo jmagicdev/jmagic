@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Assemble the Legion")
 @Types({Type.ENCHANTMENT})
 @ManaCost("3RW")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.RED})
 public final class AssembletheLegion extends Card
 {

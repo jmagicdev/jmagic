@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Crashing Centaur")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CENTAUR})
 @ManaCost("4GG")
-@Printings({@Printings.Printed(ex = Odyssey.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class CrashingCentaur extends Card
 {

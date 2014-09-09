@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Damnation")
 @Types({Type.SORCERY})
 @ManaCost("2BB")
-@Printings({@Printings.Printed(ex = PlanarChaos.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class Damnation extends Card
 {

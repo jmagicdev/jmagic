@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.abilities.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Dark Confidant")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.WIZARD})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = RavnicaCityOfGuilds.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class DarkConfidant extends Card
 {

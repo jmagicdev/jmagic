@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Sedraxis Specter")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPECTER})
 @ManaCost("UBR")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.BLACK, Color.RED})
 public final class SedraxisSpecter extends Card
 {

@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Tajuru Archer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.ALLY, SubType.ARCHER})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class TajuruArcher extends Card
 {

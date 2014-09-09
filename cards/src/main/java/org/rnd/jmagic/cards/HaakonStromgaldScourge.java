@@ -3,14 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Haakon, Stromgald Scourge")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE, SubType.KNIGHT})
 @ManaCost("1BB")
-@Printings({@Printings.Printed(ex = Coldsnap.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class HaakonStromgaldScourge extends Card
 {

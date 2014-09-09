@@ -3,11 +3,9 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Kabira Crossroads")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class KabiraCrossroads extends Card
 {

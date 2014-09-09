@@ -10,7 +10,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Skybreen")
 @Types({Type.PLANE})
 @SubTypes({SubType.KALDHEIM})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Skybreen extends Card
 {

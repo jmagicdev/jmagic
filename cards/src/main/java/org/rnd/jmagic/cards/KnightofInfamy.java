@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Knight of Infamy")
 @Types({Type.CREATURE})
 @SubTypes({SubType.KNIGHT, SubType.HUMAN})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class KnightofInfamy extends Card
 {

@@ -3,14 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Krenko, Mob Boss")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.GOBLIN, SubType.WARRIOR})
 @ManaCost("2RR")
-@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class KrenkoMobBoss extends Card
 {

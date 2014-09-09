@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Avalanche Riders")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.NOMAD})
 @ManaCost("3R")
-@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.SPECIAL), @Printings.Printed(ex = UrzasLegacy.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class AvalancheRiders extends Card
 {

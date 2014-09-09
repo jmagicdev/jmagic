@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Mark of the Vampire")
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.AURA})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class MarkoftheVampire extends Card
 {

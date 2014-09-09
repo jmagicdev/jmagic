@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Advent of the Wurm")
 @Types({Type.INSTANT})
 @ManaCost("1GGW")
-@Printings({@Printings.Printed(ex = DragonsMaze.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class AdventoftheWurm extends Card
 {

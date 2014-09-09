@@ -10,7 +10,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("The Maelstrom")
 @Types({Type.PLANE})
 @SubTypes({SubType.ALARA})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class TheMaelstrom extends Card
 {

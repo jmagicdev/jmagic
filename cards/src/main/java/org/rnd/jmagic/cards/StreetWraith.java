@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Street Wraith")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WRAITH})
 @ManaCost("3BB")
-@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class StreetWraith extends Card
 {

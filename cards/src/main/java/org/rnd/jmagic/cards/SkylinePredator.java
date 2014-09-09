@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Skyline Predator")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAKE})
 @ManaCost("4UU")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class SkylinePredator extends Card
 {

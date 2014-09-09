@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Shoal Serpent")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SERPENT})
 @ManaCost("5U")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class ShoalSerpent extends Card
 {

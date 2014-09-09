@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Wrecking Ogre")
 @Types({Type.CREATURE})
 @SubTypes({SubType.OGRE, SubType.WARRIOR})
 @ManaCost("4R")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class WreckingOgre extends Card
 {

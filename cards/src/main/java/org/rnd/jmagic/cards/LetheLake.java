@@ -9,7 +9,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Lethe Lake")
 @Types({Type.PLANE})
 @SubTypes({SubType.ARKHOS})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class LetheLake extends Card
 {

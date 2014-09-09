@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Mondronen Shaman")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.HUMAN, SubType.WEREWOLF})
 @ManaCost("3R")
-@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 @BackFace(TovolarsMagehunter.class)
 public final class MondronenShaman extends Card

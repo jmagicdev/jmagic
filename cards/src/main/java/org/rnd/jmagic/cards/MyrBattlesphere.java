@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Myr Battlesphere")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.MYR, SubType.CONSTRUCT})
 @ManaCost("7")
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class MyrBattlesphere extends Card
 {

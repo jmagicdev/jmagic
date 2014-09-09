@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Disrupting Shoal")
 @Types({Type.INSTANT})
 @SubTypes({SubType.ARCANE})
 @ManaCost("XUU")
-@Printings({@Printings.Printed(ex = BetrayersOfKamigawa.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class DisruptingShoal extends Card
 {

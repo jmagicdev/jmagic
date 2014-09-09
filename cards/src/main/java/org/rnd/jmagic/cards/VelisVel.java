@@ -9,7 +9,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Velis Vel")
 @Types({Type.PLANE})
 @SubTypes({SubType.LORWYN})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class VelisVel extends Card
 {

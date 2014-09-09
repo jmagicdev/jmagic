@@ -3,14 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Escaped Null")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE, SubType.BERSERKER})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class EscapedNull extends Card
 {

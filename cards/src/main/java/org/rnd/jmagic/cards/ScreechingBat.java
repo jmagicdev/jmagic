@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Screeching Bat")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BAT})
 @ManaCost("2B")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 @BackFace(StalkingVampire.class)
 public final class ScreechingBat extends Card

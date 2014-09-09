@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Villagers of Estwald")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.WEREWOLF})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 @BackFace(HowlpackofEstwald.class)
 public final class VillagersofEstwald extends Card

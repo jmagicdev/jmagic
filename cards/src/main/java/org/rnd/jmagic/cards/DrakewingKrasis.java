@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Drakewing Krasis")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAKE, SubType.LIZARD})
 @ManaCost("1GU")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.GREEN})
 public final class DrakewingKrasis extends Card
 {

@@ -5,14 +5,12 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Erebos, God of the Dead")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.ENCHANTMENT, Type.CREATURE})
 @SubTypes({SubType.GOD})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLACK})
 public final class ErebosGodoftheDead extends Card
 {

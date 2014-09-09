@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Syndicate Enforcer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.ROGUE})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class SyndicateEnforcer extends Card
 {

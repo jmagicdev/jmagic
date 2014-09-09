@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Venser, the Sojourner")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.VENSER})
 @ManaCost("3WU")
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE, Color.WHITE})
 public final class VensertheSojourner extends Card
 {

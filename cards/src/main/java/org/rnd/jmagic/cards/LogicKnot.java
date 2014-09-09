@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Logic Knot")
 @Types({Type.INSTANT})
 @ManaCost("XUU")
-@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class LogicKnot extends Card
 {

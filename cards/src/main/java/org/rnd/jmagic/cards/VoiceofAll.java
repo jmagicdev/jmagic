@@ -2,14 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Voice of All")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("2WW")
-@Printings({@Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.RARE), @Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Planeshift.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class VoiceofAll extends Card
 {

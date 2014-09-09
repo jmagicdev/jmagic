@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Battery")
 @Types({Type.SORCERY})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = Invasion.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = TimeSpiral.class, r = Rarity.SPECIAL), @Printings.Printed(ex = Planechase.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class Battery extends Card
 {

@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Mistbind Clique")
 @Types({Type.CREATURE})
 @SubTypes({SubType.FAERIE, SubType.WIZARD})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class MistbindClique extends Card
 {

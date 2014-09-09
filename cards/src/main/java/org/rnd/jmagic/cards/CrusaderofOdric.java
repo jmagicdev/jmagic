@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Crusader of Odric")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.HUMAN})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class CrusaderofOdric extends Card
 {

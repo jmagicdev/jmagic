@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Jace, the Mind Sculptor")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.JACE})
 @ManaCost("2UU")
-@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE})
 public final class JacetheMindSculptor extends Card
 {

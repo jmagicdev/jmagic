@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Warclamp Mastiff")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HOUND})
 @ManaCost("W")
-@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class WarclampMastiff extends Card
 {

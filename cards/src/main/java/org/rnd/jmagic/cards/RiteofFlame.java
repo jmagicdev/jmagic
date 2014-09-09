@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Rite of Flame")
 @Types({Type.SORCERY})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Coldsnap.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class RiteofFlame extends Card
 {

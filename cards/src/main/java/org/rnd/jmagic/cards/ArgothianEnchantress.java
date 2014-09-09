@@ -3,14 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Argothian Enchantress")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.DRUID})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = UrzasSaga.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class ArgothianEnchantress extends Card
 {

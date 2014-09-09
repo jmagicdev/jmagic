@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Mephidross Vampire")
 @Types({Type.CREATURE})
 @SubTypes({SubType.VAMPIRE})
 @ManaCost("4BB")
-@Printings({@Printings.Printed(ex = FifthDawn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class MephidrossVampire extends Card
 {

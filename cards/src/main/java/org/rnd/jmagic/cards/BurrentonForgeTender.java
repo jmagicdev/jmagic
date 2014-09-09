@@ -5,13 +5,11 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.abilities.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Burrenton Forge-Tender")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.KITHKIN})
 @ManaCost("W")
-@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class BurrentonForgeTender extends Card
 {

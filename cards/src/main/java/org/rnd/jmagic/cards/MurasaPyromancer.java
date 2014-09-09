@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Murasa Pyromancer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.ALLY, SubType.HUMAN})
 @ManaCost("4RR")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class MurasaPyromancer extends Card
 {

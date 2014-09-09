@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Brightstone Ritual")
 @Types({Type.INSTANT})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Onslaught.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class BrightstoneRitual extends Card
 {

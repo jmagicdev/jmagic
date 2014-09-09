@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("All Is Dust")
 @Types({Type.TRIBAL, Type.SORCERY})
 @SubTypes({SubType.ELDRAZI})
 @ManaCost("7")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.MYTHIC)})
 @ColorIdentity({})
 public final class AllIsDust extends Card
 {

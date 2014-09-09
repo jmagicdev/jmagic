@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Prickly Boggart")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ROGUE, SubType.GOBLIN})
 @ManaCost("B")
-@Printings({@Printings.Printed(ex = Morningtide.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class PricklyBoggart extends Card
 {

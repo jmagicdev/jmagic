@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Starlight Invoker")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.MUTANT, SubType.CLERIC})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Legions.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class StarlightInvoker extends Card
 {

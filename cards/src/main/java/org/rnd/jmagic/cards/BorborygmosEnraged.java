@@ -3,14 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Borborygmos Enraged")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.CYCLOPS})
 @ManaCost("4RRGG")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.GREEN, Color.RED})
 public final class BorborygmosEnraged extends Card
 {

@@ -3,14 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Phantom Beast")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST, SubType.ILLUSION})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class PhantomBeast extends Card
 {

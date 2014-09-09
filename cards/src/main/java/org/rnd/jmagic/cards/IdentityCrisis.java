@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Identity Crisis")
 @Types({Type.SORCERY})
 @ManaCost("2WWBB")
-@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.BLACK})
 public final class IdentityCrisis extends Card
 {

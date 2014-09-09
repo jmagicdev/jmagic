@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Rot Wolf")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WOLF})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class RotWolf extends Card
 {

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Knight of Glory")
 @Types({Type.CREATURE})
 @SubTypes({SubType.KNIGHT, SubType.HUMAN})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class KnightofGlory extends Card
 {

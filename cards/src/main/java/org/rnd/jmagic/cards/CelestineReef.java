@@ -8,7 +8,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Celestine Reef")
 @Types({Type.PLANE})
 @SubTypes({SubType.LUVION})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.SPECIAL)})
 @ColorIdentity({})
 public final class CelestineReef extends Card
 {

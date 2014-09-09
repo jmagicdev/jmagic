@@ -2,14 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import static org.rnd.jmagic.Convenience.*;
 
 @Name("Thieves' Fortune")
 @Types({Type.INSTANT, Type.TRIBAL})
 @SubTypes({SubType.ROGUE})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Morningtide.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class ThievesFortune extends Card
 {

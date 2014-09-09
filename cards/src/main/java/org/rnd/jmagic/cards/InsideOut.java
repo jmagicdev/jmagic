@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Inside Out")
 @Types({Type.INSTANT})
 @ManaCost("1(UR)")
-@Printings({@Printings.Printed(ex = Eventide.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.RED})
 public final class InsideOut extends Card
 {

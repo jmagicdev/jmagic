@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Surreal Memoir")
 @Types({Type.SORCERY})
 @ManaCost("3R")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class SurrealMemoir extends Card
 {

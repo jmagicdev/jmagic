@@ -3,14 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Stormfront Riders")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.SOLDIER})
 @ManaCost("4W")
-@Printings({@Printings.Printed(ex = PlanarChaos.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class StormfrontRiders extends Card
 {

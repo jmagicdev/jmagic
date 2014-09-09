@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Pathrazer of Ulamog")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELDRAZI})
 @ManaCost("(11)")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class PathrazerofUlamog extends Card
 {

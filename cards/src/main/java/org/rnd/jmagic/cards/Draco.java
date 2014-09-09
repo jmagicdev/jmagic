@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Draco")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.DRAGON})
 @ManaCost("(16)")
-@Printings({@Printings.Printed(ex = FromTheVaultDragons.class, r = Rarity.RARE), @Printings.Printed(ex = Planeshift.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class Draco extends Card
 {

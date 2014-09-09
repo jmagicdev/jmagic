@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Fiery Temper")
 @Types({Type.INSTANT})
 @ManaCost("1RR")
-@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.SPECIAL), @Printings.Printed(ex = Torment.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class FieryTemper extends Card
 {

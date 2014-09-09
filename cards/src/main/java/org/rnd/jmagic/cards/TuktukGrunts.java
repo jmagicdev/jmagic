@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Tuktuk Grunts")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GOBLIN, SubType.ALLY, SubType.WARRIOR})
 @ManaCost("4R")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class TuktukGrunts extends Card
 {

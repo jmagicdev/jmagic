@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Denizen of the Deep")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SERPENT})
 @ManaCost("6UU")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Starter1999.class, r = Rarity.RARE), @Printings.Printed(ex = PortalSecondAge.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class DenizenoftheDeep extends Card
 {

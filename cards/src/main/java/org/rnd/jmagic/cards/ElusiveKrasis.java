@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Elusive Krasis")
 @Types({Type.CREATURE})
 @SubTypes({SubType.MUTANT, SubType.FISH})
 @ManaCost("1GU")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE, Color.GREEN})
 public final class ElusiveKrasis extends Card
 {

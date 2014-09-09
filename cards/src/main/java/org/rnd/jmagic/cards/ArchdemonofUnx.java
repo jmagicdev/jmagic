@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Archdemon of Unx")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DEMON})
 @ManaCost("5BB")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class ArchdemonofUnx extends Card
 {

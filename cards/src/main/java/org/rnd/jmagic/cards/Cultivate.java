@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Cultivate")
 @Types({Type.SORCERY})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.COMMON), @Printings.Printed(ex = Magic2011.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class Cultivate extends Card
 {

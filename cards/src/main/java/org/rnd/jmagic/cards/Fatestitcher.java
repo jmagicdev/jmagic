@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Fatestitcher")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.ZOMBIE})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class Fatestitcher extends Card
 {

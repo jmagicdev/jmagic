@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Leyline Phantom")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ILLUSION})
 @ManaCost("4U")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class LeylinePhantom extends Card
 {

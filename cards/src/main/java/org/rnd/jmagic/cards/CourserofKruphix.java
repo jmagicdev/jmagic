@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Courser of Kruphix")
 @Types({Type.ENCHANTMENT, Type.CREATURE})
 @SubTypes({SubType.CENTAUR})
 @ManaCost("1GG")
-@Printings({@Printings.Printed(ex = BornOfTheGods.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class CourserofKruphix extends Card
 {

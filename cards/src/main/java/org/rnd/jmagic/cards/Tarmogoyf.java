@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Tarmogoyf")
 @Types({Type.CREATURE})
 @SubTypes({SubType.LHURGOYF})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class Tarmogoyf extends Card
 {

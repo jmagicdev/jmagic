@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Elvish Spirit Guide")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.SPIRIT})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = Alliances.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class ElvishSpiritGuide extends Card
 {

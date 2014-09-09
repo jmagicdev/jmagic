@@ -131,7 +131,7 @@ public class CardLoader
 	 * @return A set containing the class object of every card printed in at
 	 * least one of the given sets
 	 */
-	public static java.util.Set<Class<? extends Card>> getCards(java.util.Collection<Class<? extends Expansion>> sets)
+	public static java.util.Set<Class<? extends Card>> getCards(java.util.Collection<Expansion> sets)
 	{
 		return getCards(sets, false);
 	}
@@ -141,21 +141,14 @@ public class CardLoader
 	 * @return A set containing the class object of every card printed in at
 	 * least one of the given sets
 	 */
-	public static java.util.Set<Class<? extends Card>> getCards(java.util.Collection<Class<? extends Expansion>> sets, boolean includeAlternateCards)
+	public static java.util.Set<Class<? extends Card>> getCards(java.util.Collection<Expansion> sets, boolean includeAlternateCards)
 	{
 		java.util.Set<Class<? extends Card>> ret = new java.util.HashSet<Class<? extends Card>>();
 
-		for(Class<? extends Card> c: getAllCards(includeAlternateCards))
-		{
-			java.util.Map<Class<? extends Expansion>, Rarity> printingsArray = getPrintings(c);
-
-			for(Class<? extends Expansion> printing: printingsArray.keySet())
-				if(sets.contains(printing))
-				{
-					ret.add(c);
-					break;
-				}
-		}
+		for(Expansion expansion: sets)
+			for(Class<? extends Card> card: expansion.getAllCardClasses())
+				if(includeAlternateCards || !AlternateCard.class.isAssignableFrom(card))
+					ret.add(card);
 
 		return ret;
 	}
@@ -218,79 +211,11 @@ public class CardLoader
 		return DECK_LINE_PATTERN;
 	}
 
-	public static Printings.Printed[] getPrintedAnnotation(Class<? extends Card> c)
-	{
-		if(!c.isAnnotationPresent(Printings.class))
-			throw new java.lang.annotation.AnnotationFormatError(c.getSimpleName() + " has no @Printed annotation");
-
-		return c.getAnnotation(Printings.class).value();
-	}
-
-	public static java.util.Map<Class<? extends Expansion>, Rarity> getPrintings(Class<? extends Card> c)
-	{
-		java.util.Map<Class<? extends Expansion>, Rarity> ret = new java.util.HashMap<Class<? extends Expansion>, Rarity>();
-
-		Printings.Printed[] printings = getPrintedAnnotation(c);
-		for(Printings.Printed print: printings)
-			ret.put(print.ex(), print.r());
-		return ret;
-	}
-
-	public static java.util.Map<Rarity, java.util.Set<Class<? extends Card>>> getRarityMap(Expansion ex)
-	{
-		java.util.Map<Rarity, java.util.Set<Class<? extends Card>>> ret = new java.util.HashMap<Rarity, java.util.Set<Class<? extends Card>>>();
-
-		for(Class<? extends Card> card: ex.getAllCardClasses())
-		{
-			Rarity rarity = null;
-			for(java.util.Map.Entry<Class<? extends Expansion>, Rarity> entry: getPrintings(card).entrySet())
-				if(entry.getKey().equals(ex.getClass()))
-				{
-					rarity = entry.getValue();
-					break;
-				}
-
-			if(rarity == null)
-				throw new RuntimeException("getCards(" + ex.getClass().getName() + ") returned a card such that getPrintings(card) didn't contain '" + ex.getClass().getName() + "'");
-
-			if(!ret.containsKey(rarity))
-				ret.put(rarity, new java.util.HashSet<Class<? extends Card>>());
-			ret.get(rarity).add(card);
-		}
-
-		return ret;
-	}
-
-	public static java.util.Map<Rarity, java.util.Set<Class<? extends Card>>> getRarityMap(Class<? extends Expansion> ex)
-	{
-		java.util.Map<Rarity, java.util.Set<Class<? extends Card>>> ret = new java.util.HashMap<Rarity, java.util.Set<Class<? extends Card>>>();
-
-		for(Class<? extends Card> card: getCards(java.util.Collections.singleton(ex)))
-		{
-			Rarity rarity = null;
-			for(java.util.Map.Entry<Class<? extends Expansion>, Rarity> entry: getPrintings(card).entrySet())
-				if(entry.getKey().equals(ex))
-				{
-					rarity = entry.getValue();
-					break;
-				}
-
-			if(rarity == null)
-				throw new RuntimeException("getCards(" + ex + ") returned a card such that getPrintings(card) didn't contain '" + ex + "'");
-
-			if(!ret.containsKey(rarity))
-				ret.put(rarity, new java.util.HashSet<Class<? extends Card>>());
-			ret.get(rarity).add(card);
-		}
-
-		return ret;
-	}
-
 	public static void main(String[] args)
 	{
 		for(Expansion ex: Expansion.list())
 		{
-			java.util.Collection<Class<? extends Card>> cards = getCards(java.util.Collections.singleton(ex.getClass()));
+			java.util.Collection<Class<? extends Card>> cards = getCards(java.util.Collections.singleton(ex));
 
 			System.out.println(ex + ": \t" + cards.size());
 

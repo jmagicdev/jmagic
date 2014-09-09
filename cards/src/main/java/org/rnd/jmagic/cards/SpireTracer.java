@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Spire Tracer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.SCOUT})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class SpireTracer extends Card
 {

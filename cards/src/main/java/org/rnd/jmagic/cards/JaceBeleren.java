@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Jace Beleren")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.JACE})
 @ManaCost("1UU")
-@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.MYTHIC), @Printings.Printed(ex = Magic2010.class, r = Rarity.MYTHIC), @Printings.Printed(ex = Lorwyn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class JaceBeleren extends Card
 {

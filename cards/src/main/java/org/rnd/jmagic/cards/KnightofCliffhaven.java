@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Knight of Cliffhaven")
 @Types({Type.CREATURE})
 @SubTypes({SubType.KNIGHT, SubType.KOR})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class KnightofCliffhaven extends Card
 {

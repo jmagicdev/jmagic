@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Cruel Ultimatum")
 @Types({Type.SORCERY})
 @ManaCost("UUBBBRR")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.BLACK, Color.RED})
 public final class CruelUltimatum extends Card
 {

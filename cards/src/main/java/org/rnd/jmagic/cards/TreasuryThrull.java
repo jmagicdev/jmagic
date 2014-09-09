@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Treasury Thrull")
 @Types({Type.CREATURE})
 @SubTypes({SubType.THRULL})
 @ManaCost("4WB")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.BLACK})
 public final class TreasuryThrull extends Card
 {

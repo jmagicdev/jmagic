@@ -1,12 +1,10 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Exploration")
 @Types({Type.ENCHANTMENT})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = UrzasSaga.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class Exploration extends Card
 {

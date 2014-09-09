@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Borderland Ranger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.SCOUT})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.COMMON), @Printings.Printed(ex = Magic2010.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class BorderlandRanger extends Card
 {

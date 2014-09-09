@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Thrill-Kill Assassin")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ASSASSIN, SubType.HUMAN})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class ThrillKillAssassin extends Card
 {

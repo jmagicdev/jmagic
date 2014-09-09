@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Maelstrom Pulse")
 @Types({Type.SORCERY})
 @ManaCost("1BG")
-@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN, Color.BLACK})
 public final class MaelstromPulse extends Card
 {

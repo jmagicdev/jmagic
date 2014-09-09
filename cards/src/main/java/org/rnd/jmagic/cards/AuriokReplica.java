@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Auriok Replica")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.CLERIC})
 @ManaCost("3")
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class AuriokReplica extends Card
 {

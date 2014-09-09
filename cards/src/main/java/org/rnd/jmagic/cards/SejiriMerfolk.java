@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Sejiri Merfolk")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.MERFOLK})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class SejiriMerfolk extends Card
 {

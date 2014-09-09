@@ -10,7 +10,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Fields of Summer")
 @Types({Type.PLANE})
 @SubTypes({SubType.MOAG})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class FieldsofSummer extends Card
 {

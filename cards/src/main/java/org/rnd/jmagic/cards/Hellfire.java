@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Hellfire")
 @Types({Type.SORCERY})
 @ManaCost("2BBB")
-@Printings({@Printings.Printed(ex = Legends.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class Hellfire extends Card
 {

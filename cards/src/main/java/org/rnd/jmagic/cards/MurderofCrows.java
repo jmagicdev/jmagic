@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Murder of Crows")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BIRD})
 @ManaCost("3UU")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class MurderofCrows extends Card
 {

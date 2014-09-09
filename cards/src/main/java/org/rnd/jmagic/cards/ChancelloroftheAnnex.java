@@ -4,14 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Chancellor of the Annex")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("4WWW")
-@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class ChancelloroftheAnnex extends Card
 {

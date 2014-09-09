@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Myr Superion")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.MYR})
 @ManaCost("2")
-@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class MyrSuperion extends Card
 {

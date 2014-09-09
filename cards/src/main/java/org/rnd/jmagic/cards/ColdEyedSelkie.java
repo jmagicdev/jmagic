@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Cold-Eyed Selkie")
 @Types({Type.CREATURE})
 @SubTypes({SubType.MERFOLK, SubType.ROGUE})
 @ManaCost("1(G/U)(G/U)")
-@Printings({@Printings.Printed(ex = Eventide.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.GREEN})
 public final class ColdEyedSelkie extends Card
 {

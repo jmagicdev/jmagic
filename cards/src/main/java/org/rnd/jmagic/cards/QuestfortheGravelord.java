@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.patterns.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Quest for the Gravelord")
 @Types({Type.ENCHANTMENT})
 @ManaCost("B")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class QuestfortheGravelord extends Card
 {

@@ -9,7 +9,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Naya")
 @Types({Type.PLANE})
 @SubTypes({SubType.ALARA})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Naya extends Card
 {

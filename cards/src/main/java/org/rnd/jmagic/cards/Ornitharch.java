@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Ornitharch")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ARCHON})
 @ManaCost("3WW")
-@Printings({@Printings.Printed(ex = BornOfTheGods.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class Ornitharch extends Card
 {

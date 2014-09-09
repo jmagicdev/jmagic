@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Secrets of the Dead")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class SecretsoftheDead extends Card
 {

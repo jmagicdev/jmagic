@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Lightning Mauler")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BERSERKER, SubType.HUMAN})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class LightningMauler extends Card
 {

@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Ajani, Caller of the Pride")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.AJANI})
 @ManaCost("1WW")
-@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE})
 public final class AjaniCallerofthePride extends Card
 {

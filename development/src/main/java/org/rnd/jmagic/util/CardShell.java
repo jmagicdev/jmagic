@@ -1,23 +1,13 @@
 package org.rnd.jmagic.util;
 
-import java.io.*;
-
 import org.rnd.jmagic.abilities.*;
 import org.rnd.jmagic.abilities.keywords.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 public class CardShell
 {
 	private static final java.util.Map<java.util.regex.Pattern, String> keywords = new java.util.HashMap<java.util.regex.Pattern, String>();
 	private static final java.util.Map<String, String> convenienceMethods = new java.util.HashMap<String, String>();
-	private static final java.util.Map<String, Class<? extends Expansion>> expansionNames = new java.util.HashMap<String, Class<? extends Expansion>>();
-	private static final java.util.Map<String, Rarity> rarityNames = new java.util.HashMap<String, Rarity>();
-
-	private static void addExpansion(String name, Class<? extends Expansion> expansion)
-	{
-		expansionNames.put(name.toLowerCase(), expansion);
-	}
 
 	private static String getConvenienceMethod(String string)
 	{
@@ -39,40 +29,6 @@ public class CardShell
 			return "this.addCost(" + convenienceMethod + "(" + (cost.contains(thisName) ? "\"" + thisName + "\"" : "") + "));";
 
 		return "// " + cost;
-	}
-
-	private static Class<? extends Expansion> getExpansion(String name)
-	{
-		// Remove extra whitespace
-		name = name.trim();
-
-		if(expansionNames.size() == 0)
-			populateExpansions();
-
-		if(!expansionNames.containsKey(name.toLowerCase()))
-		{
-			System.out.println("Expansion required: " + name);
-			return null;
-		}
-
-		return expansionNames.get(name.toLowerCase());
-	}
-
-	private static Rarity getRarity(String name)
-	{
-		// Remove extra whitespace
-		name = name.trim();
-
-		if(rarityNames.size() == 0)
-			populateRarities();
-
-		if(!rarityNames.containsKey(name))
-		{
-			System.out.println("Rarity required: " + name);
-			return null;
-		}
-
-		return rarityNames.get(name);
 	}
 
 	private static java.util.List<java.util.Set<?>> getTypes(String typeLine)
@@ -163,79 +119,6 @@ public class CardShell
 		convenienceMethods.put("whenthisoranotherallyentersthebattlefieldunderyourcontrol", "allyTrigger");
 		convenienceMethods.put("whenalandentersthebattlefieldunderyourcontrol", "landfall");
 		convenienceMethods.put("whenthisandatleasttwoothercreaturesattack", "battalion");
-	}
-
-	private static void populateExpansions()
-	{
-		for(Expansion expansion: Expansion.list())
-			addExpansion(Expansion.getExpansionName(expansion), expansion.getClass());
-
-		// Timeshifted cards have a unique string
-		addExpansion("Time Spiral \"Timeshifted\"", TimeSpiral.class);
-		addExpansion("Time Spiral \\\"Timeshifted\\\"", TimeSpiral.class);
-
-		// MtgJson has a strange string for Conspiracy
-		addExpansion("Magic: The Gathering—Conspiracy", MagicTheGatheringConspiracy.class);
-
-		// The expansion name for promo cards is different
-		// addExpansion("Promo set for Gatherer", ExpansionEnum.PROMO);
-		// addExpansion("Promo set for Gatherer Special", ExpansionEnum.PROMO);
-
-		// The following are not defined in Expansion because they do not define
-		// a cards legality in any formats
-		addExpansion("Archenemy", null);
-		addExpansion("Battle Royale Box Set", null);
-		addExpansion("Beatdown Box Set", null);
-		addExpansion("Chronicles", null);
-		addExpansion("Duel Decks: Ajani vs. Nicol Bolas", null);
-		addExpansion("Duel Decks: Divine vs. Demonic", null);
-		addExpansion("Duel Decks: Elspeth vs. Tezzeret", null);
-		addExpansion("Duel Decks: Elves vs. Goblins", null);
-		addExpansion("Duel Decks: Garruk vs. Liliana", null);
-		addExpansion("Duel Decks: Heroes vs. Monsters", null);
-		addExpansion("Duel Decks: Izzet vs. Golgari", null);
-		addExpansion("Duel Decks: Jace vs. Chandra", null);
-		addExpansion("Duel Decks: Jace vs. Vraska", null);
-		addExpansion("Duel Decks: Knights vs. Dragons", null);
-		addExpansion("Duel Decks: Phyrexia vs. The Coalition", null);
-		addExpansion("Duel Decks: Sorin vs. Tibalt", null);
-		addExpansion("Duel Decks: Speed vs. Cunning", null);
-		addExpansion("Duel Decks: Venser vs. Koth", null);
-		addExpansion("Elves vs Goblins box set", null);
-		addExpansion("From the Vault: Exiled", null);
-		addExpansion("From the Vault: Realms", null);
-		addExpansion("Masters Edition", null);
-		addExpansion("Masters Edition II", null);
-		addExpansion("Masters Edition II (Magic Online only)", null);
-		addExpansion("Masters Edition III", null);
-		addExpansion("Masters Edition IV", null);
-		addExpansion("Masters Edition V", null);
-		addExpansion("Modern Masters", null);
-		addExpansion("Premium Deck Series: Fire and Lightning", null);
-		addExpansion("Premium Deck Series: Graveborn", null);
-		addExpansion("Premium Deck Series: Slivers", null);
-		addExpansion("Unhinged", null);
-		addExpansion("Unglued", null);
-		addExpansion("Vintage Masters", null);
-
-		// mtgjson-specific printings
-		addExpansion("Asia Pacific Land Program", null);
-		addExpansion("Anthologies", null);
-		addExpansion("Arena League", null);
-		addExpansion("Deckmasters", null);
-		addExpansion("Duels of the Planeswalkers", null);
-		addExpansion("European Land Program", null);
-		addExpansion("Friday Night Magic", null);
-		addExpansion("Guru", null);
-		addExpansion("Introductory Two-Player Set", null);
-		addExpansion("Magic Player Rewards", null);
-		addExpansion("Media Inserts", null);
-		addExpansion("Modern Event Deck 2014", null);
-		addExpansion("Prerelease Events", null);
-		addExpansion("Release Events", null);
-		addExpansion("Rivals Quick Start Set", null);
-		addExpansion("Wizards of the Coast Online Store", null);
-		addExpansion("WPN and Gateway", null);
 	}
 
 	private static String simpleInstantiation(Class<? extends Keyword> k)
@@ -379,17 +262,6 @@ public class CardShell
 			keywords.put(java.util.regex.Pattern.compile(entry.getKey(), java.util.regex.Pattern.CASE_INSENSITIVE), entry.getValue());
 	}
 
-	private static void populateRarities()
-	{
-		rarityNames.put("Land", Rarity.LAND);
-		rarityNames.put("Basic Land", Rarity.LAND);
-		rarityNames.put("Common", Rarity.COMMON);
-		rarityNames.put("Uncommon", Rarity.UNCOMMON);
-		rarityNames.put("Rare", Rarity.RARE);
-		rarityNames.put("Mythic Rare", Rarity.MYTHIC);
-		rarityNames.put("Special", Rarity.SPECIAL);
-	}
-
 	private static String removeReminderText(String ability)
 	{
 		int start = 0;
@@ -499,22 +371,6 @@ public class CardShell
 		return ret;
 	}
 
-	private static String printingsString(java.util.Map<Class<? extends Expansion>, Rarity> expansions)
-	{
-		StringBuilder ret = new StringBuilder("@Printings({");
-		boolean first = true;
-		for(java.util.Map.Entry<Class<? extends Expansion>, Rarity> entry: expansions.entrySet())
-		{
-			if(!first)
-				ret.append(", ");
-			else
-				first = false;
-			ret.append("@Printings.Printed(ex = " + entry.getKey().getSimpleName() + ".class, r = Rarity." + entry.getValue().name() + ")");
-		}
-		ret.append("})\r\n");
-		return ret.toString();
-	}
-
 	/**
 	 * Write this CardShell to the correct Java source file.
 	 *
@@ -527,84 +383,10 @@ public class CardShell
 			this.abilities.set(i, replaceIllegalCharacters(this.abilities.get(i)));
 		String nameInFile = replaceIllegalCharacters(this.name);
 
-		java.util.Map<Class<? extends Expansion>, Rarity> expansions = new java.util.HashMap<Class<? extends Expansion>, Rarity>();
-		if(null != this.expansions)
-		{
-			for(java.util.Map.Entry<String, String> entry: this.expansions.entrySet())
-			{
-				Class<? extends Expansion> ex = getExpansion(entry.getKey());
-				Rarity rarity = getRarity(entry.getValue());
-				if(ex != null && rarity != null)
-					expansions.put(ex, rarity);
-			}
-		}
-		else
-		{
-			for(String printing: this.printings.trim().split(", "))
-			{
-				String expansionText = printing.replace(" Mythic Rare", "").replace(" Rare", "").replace(" Uncommon", "").replace(" Common", "").replace(" Land", "").replace(" Special", "");
-				Class<? extends Expansion> ex = getExpansion(expansionText);
-				if(ex != null)
-				{
-					Rarity rarity = getRarity(printing.replace(expansionText, ""));
-					if(rarity != null)
-						expansions.put(ex, rarity);
-				}
-			}
-		}
-
 		String className = org.rnd.jmagic.CardLoader.formatName(this.name);
 		java.io.File card = new java.io.File("../cards/src/main/java/org/rnd/jmagic/cards/" + className + ".java");
 		if(card.exists())
-		{
-			if(updatePrintings)
-			{
-				boolean hasEnoughPrintings = false;
-				try
-				{
-					Class<?> clz = Class.forName("org.rnd.jmagic.cards." + className);
-					Printings printings = clz.getAnnotation(Printings.class);
-					hasEnoughPrintings = (printings.value().length == expansions.size());
-				}
-				catch(ClassNotFoundException e1)
-				{
-					// No class found
-				}
-
-				if(!hasEnoughPrintings)
-					try
-					{
-						StringBuilder newContents = new StringBuilder();
-						java.io.BufferedReader in = new java.io.BufferedReader(new java.io.FileReader(card));
-						String read = null;
-						do
-						{
-							read = in.readLine();
-							if(read != null)
-							{
-								if(read.trim().startsWith("@Printings"))
-									newContents.append(printingsString(expansions));
-								else
-									newContents.append(read + "\r\n");
-							}
-						}
-						while(read != null);
-						in.close();
-
-						java.io.BufferedWriter out = new java.io.BufferedWriter(new java.io.FileWriter(card, false));
-						out.write(newContents.toString());
-						out.flush();
-						out.close();
-					}
-					catch(IOException e)
-					{
-						e.printStackTrace();
-						throw new RuntimeException(e);
-					}
-			}
-
 			return false;
-		}
 
 		java.util.List<java.util.Set<?>> info = getTypes(this.types);
 
@@ -676,8 +458,6 @@ public class CardShell
 			{
 				out.write("@ManaCost(\"" + this.manaCost + "\")\r\n");
 			}
-
-			out.write(printingsString(expansions));
 
 			out.write("@ColorIdentity({");
 			java.util.Set<String> identity = this.colorIdentity();

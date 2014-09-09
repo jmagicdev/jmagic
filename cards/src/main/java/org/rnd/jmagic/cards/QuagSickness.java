@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Quag Sickness")
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.AURA})
 @ManaCost("2B")
-@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class QuagSickness extends Card
 {

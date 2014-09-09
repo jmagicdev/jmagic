@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Master of Waves")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.MERFOLK})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE})
 public final class MasterofWaves extends Card
 {

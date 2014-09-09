@@ -1,11 +1,9 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Secluded Glen")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.BLACK})
 public final class SecludedGlen extends Card
 {

@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Tree of Redemption")
 @Types({Type.CREATURE})
 @SubTypes({SubType.PLANT})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.GREEN})
 public final class TreeofRedemption extends Card
 {

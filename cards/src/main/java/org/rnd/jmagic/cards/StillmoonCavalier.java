@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Stillmoon Cavalier")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE, SubType.KNIGHT})
 @ManaCost("1(W/B)(W/B)")
-@Printings({@Printings.Printed(ex = Eventide.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.BLACK})
 public final class StillmoonCavalier extends Card
 {

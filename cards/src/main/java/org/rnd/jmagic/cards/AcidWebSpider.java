@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Acid Web Spider")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIDER})
 @ManaCost("3GG")
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class AcidWebSpider extends Card
 {

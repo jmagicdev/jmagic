@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Tidewater Minion")
 @Types({Type.CREATURE})
 @SubTypes({SubType.MINION, SubType.ELEMENTAL})
 @ManaCost("3UU")
-@Printings({@Printings.Printed(ex = RavnicaCityOfGuilds.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class TidewaterMinion extends Card
 {

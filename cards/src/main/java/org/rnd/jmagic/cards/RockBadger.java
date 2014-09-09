@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Rock Badger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BADGER, SubType.BEAST})
 @ManaCost("4R")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = MercadianMasques.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class RockBadger extends Card
 {

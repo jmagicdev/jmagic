@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Harbor Serpent")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SERPENT})
 @ManaCost("4UU")
-@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.COMMON), @Printings.Printed(ex = Magic2012.class, r = Rarity.COMMON), @Printings.Printed(ex = Magic2011.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class HarborSerpent extends Card
 {

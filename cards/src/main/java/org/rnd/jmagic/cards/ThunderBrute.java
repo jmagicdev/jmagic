@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Thunder Brute")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CYCLOPS})
 @ManaCost("4RR")
-@Printings({@Printings.Printed(ex = BornOfTheGods.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class ThunderBrute extends Card
 {

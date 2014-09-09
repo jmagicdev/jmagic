@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Din of the Fireherd")
 @Types({Type.SORCERY})
 @ManaCost("5(B/R)(B/R)(B/R)")
-@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK, Color.RED})
 public final class DinoftheFireherd extends Card
 {

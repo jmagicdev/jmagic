@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Sift Through Sands")
 @Types({Type.INSTANT})
 @SubTypes({SubType.ARCANE})
 @ManaCost("1UU")
-@Printings({@Printings.Printed(ex = ChampionsOfKamigawa.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class SiftThroughSands extends Card
 {

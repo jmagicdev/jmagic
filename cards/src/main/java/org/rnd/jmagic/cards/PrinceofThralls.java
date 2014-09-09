@@ -3,14 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Prince of Thralls")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DEMON})
 @ManaCost("4UBBR")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE, Color.BLACK, Color.RED})
 public final class PrinceofThralls extends Card
 {

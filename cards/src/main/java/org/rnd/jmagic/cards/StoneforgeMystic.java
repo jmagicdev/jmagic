@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Stoneforge Mystic")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ARTIFICER, SubType.KOR})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class StoneforgeMystic extends Card
 {

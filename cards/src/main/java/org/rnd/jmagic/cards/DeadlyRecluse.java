@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Deadly Recluse")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIDER})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.COMMON), @Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.COMMON), @Printings.Printed(ex = Magic2010.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class DeadlyRecluse extends Card
 {

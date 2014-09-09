@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Manor Skeleton")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SKELETON})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class ManorSkeleton extends Card
 {

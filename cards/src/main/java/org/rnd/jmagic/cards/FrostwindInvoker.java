@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Frostwind Invoker")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.MERFOLK})
 @ManaCost("4U")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class FrostwindInvoker extends Card
 {

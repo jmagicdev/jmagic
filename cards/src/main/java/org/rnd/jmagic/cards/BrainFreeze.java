@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Brain Freeze")
 @Types({Type.INSTANT})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = Scourge.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class BrainFreeze extends Card
 {

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Hinterland Hermit")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.WEREWOLF})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 @BackFace(HinterlandScourge.class)
 public final class HinterlandHermit extends Card

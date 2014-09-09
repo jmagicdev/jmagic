@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Chandra, Pyromaster")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.CHANDRA})
 @ManaCost("2RR")
-@Printings({@Printings.Printed(ex = Magic2015CoreSet.class, r = Rarity.MYTHIC), @Printings.Printed(ex = Magic2014CoreSet.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.RED})
 public final class ChandraPyromaster extends Card
 {

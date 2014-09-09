@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Eidolon of the Great Revel")
 @Types({Type.CREATURE, Type.ENCHANTMENT})
 @SubTypes({SubType.SPIRIT})
 @ManaCost("RR")
-@Printings({@Printings.Printed(ex = JourneyIntoNyx.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class EidolonoftheGreatRevel extends Card
 {

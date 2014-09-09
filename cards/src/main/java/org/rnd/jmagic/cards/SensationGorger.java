@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Sensation Gorger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.GOBLIN})
 @ManaCost("1RR")
-@Printings({@Printings.Printed(ex = Morningtide.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class SensationGorger extends Card
 {

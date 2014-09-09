@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Waveskimmer Aven")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BIRD, SubType.SOLDIER})
 @ManaCost("2GWU")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN})
 public final class WaveskimmerAven extends Card
 {

@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Vinelasher Kudzu")
 @Types({Type.CREATURE})
 @SubTypes({SubType.PLANT})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = RavnicaCityOfGuilds.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class VinelasherKudzu extends Card
 {

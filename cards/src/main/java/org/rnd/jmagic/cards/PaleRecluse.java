@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Pale Recluse")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIDER})
 @ManaCost("4GW")
-@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class PaleRecluse extends Card
 {

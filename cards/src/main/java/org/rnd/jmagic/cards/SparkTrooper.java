@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Spark Trooper")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL, SubType.SOLDIER})
 @ManaCost("1RRW")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.RED})
 public final class SparkTrooper extends Card
 {

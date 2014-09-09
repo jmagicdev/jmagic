@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Student of Warfare")
 @Types({Type.CREATURE})
 @SubTypes({SubType.KNIGHT, SubType.HUMAN})
 @ManaCost("W")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class StudentofWarfare extends Card
 {

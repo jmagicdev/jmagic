@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Thrummingbird")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BIRD, SubType.HORROR})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class Thrummingbird extends Card
 {

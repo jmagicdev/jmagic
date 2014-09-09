@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Demon of Death's Gate")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DEMON})
 @ManaCost("6BBB")
-@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLACK})
 public final class DemonofDeathsGate extends Card
 {

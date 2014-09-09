@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Burning-Tree Emissary")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.HUMAN})
 @ManaCost("(R/G)(R/G)")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN, Color.RED})
 public final class BurningTreeEmissary extends Card
 {

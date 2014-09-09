@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Wurmcoil Engine")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.WURM})
 @ManaCost("6")
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.MYTHIC)})
 @ColorIdentity({})
 public final class WurmcoilEngine extends Card
 {

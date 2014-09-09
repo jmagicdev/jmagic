@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Parasitic Strix")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.BIRD})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Conflux.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class ParasiticStrix extends Card
 {

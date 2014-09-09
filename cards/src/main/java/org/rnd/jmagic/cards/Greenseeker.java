@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Greenseeker")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.SPELLSHAPER})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class Greenseeker extends Card
 {

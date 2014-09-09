@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Spawn of Rix Maadi")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HORROR})
 @ManaCost("3BR")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK, Color.RED})
 public final class SpawnofRixMaadi extends Card
 {

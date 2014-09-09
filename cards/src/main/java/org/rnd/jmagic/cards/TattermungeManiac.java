@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Tattermunge Maniac")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GOBLIN, SubType.WARRIOR})
 @ManaCost("(R/G)")
-@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN, Color.RED})
 public final class TattermungeManiac extends Card
 {

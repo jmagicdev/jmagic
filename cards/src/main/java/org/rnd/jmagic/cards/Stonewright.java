@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Stonewright")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.SHAMAN})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class Stonewright extends Card
 {

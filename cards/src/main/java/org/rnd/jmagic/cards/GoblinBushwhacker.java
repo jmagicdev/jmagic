@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Goblin Bushwhacker")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.GOBLIN})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class GoblinBushwhacker extends Card
 {

@@ -7,7 +7,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Turri Island")
 @Types({Type.PLANE})
 @SubTypes({SubType.IR})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class TurriIsland extends Card
 {

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Priests of Norn")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CLERIC})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class PriestsofNorn extends Card
 {

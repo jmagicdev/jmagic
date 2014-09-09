@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Dread Slaver")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HORROR, SubType.ZOMBIE})
 @ManaCost("3BB")
-@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class DreadSlaver extends Card
 {

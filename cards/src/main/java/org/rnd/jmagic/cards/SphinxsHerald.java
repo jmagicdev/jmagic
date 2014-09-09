@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Sphinx's Herald")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.VEDALKEN, SubType.WIZARD})
 @ManaCost("U")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class SphinxsHerald extends org.rnd.jmagic.cardTemplates.ShardsHerald
 {

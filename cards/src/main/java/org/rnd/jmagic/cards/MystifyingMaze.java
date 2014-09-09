@@ -4,11 +4,9 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Mystifying Maze")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class MystifyingMaze extends Card
 {

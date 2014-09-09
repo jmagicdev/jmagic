@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Slitherhead")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE, SubType.PLANT})
 @ManaCost("(B/G)")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN, Color.BLACK})
 public final class Slitherhead extends Card
 {

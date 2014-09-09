@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Deathrite Shaman")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.ELF})
 @ManaCost("(B/G)")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN, Color.BLACK})
 public final class DeathriteShaman extends Card
 {

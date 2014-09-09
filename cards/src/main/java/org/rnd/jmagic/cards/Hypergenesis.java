@@ -2,11 +2,9 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Hypergenesis")
 @Types({Type.SORCERY})
-@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class Hypergenesis extends Card
 {

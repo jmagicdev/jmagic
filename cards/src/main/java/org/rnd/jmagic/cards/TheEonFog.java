@@ -10,7 +10,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("The Eon Fog")
 @Types({Type.PLANE})
 @SubTypes({SubType.EQUILOR})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class TheEonFog extends Card
 {

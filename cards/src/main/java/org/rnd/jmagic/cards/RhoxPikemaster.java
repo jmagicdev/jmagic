@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Rhox Pikemaster")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.RHINO})
 @ManaCost("2WW")
-@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class RhoxPikemaster extends Card
 {

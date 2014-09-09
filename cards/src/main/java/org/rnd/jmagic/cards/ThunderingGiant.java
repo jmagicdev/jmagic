@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Thundering Giant")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GIANT})
 @ManaCost("3RR")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = UrzasSaga.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class ThunderingGiant extends Card
 {

@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Devouring Swarm")
 @Types({Type.CREATURE})
 @SubTypes({SubType.INSECT})
 @ManaCost("1BB")
-@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class DevouringSwarm extends Card
 {

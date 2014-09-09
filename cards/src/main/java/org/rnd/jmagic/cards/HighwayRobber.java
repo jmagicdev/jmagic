@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Highway Robber")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.MERCENARY})
 @ManaCost("2BB")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = NinthEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = MercadianMasques.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class HighwayRobber extends Card
 {

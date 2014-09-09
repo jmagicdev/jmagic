@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Nissa, Worldwaker")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.NISSA})
 @ManaCost("3GG")
-@Printings({@Printings.Printed(ex = Magic2015CoreSet.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.GREEN})
 public final class NissaWorldwaker extends Card
 {

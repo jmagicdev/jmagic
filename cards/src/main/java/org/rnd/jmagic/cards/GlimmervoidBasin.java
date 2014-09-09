@@ -10,7 +10,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Glimmervoid Basin")
 @Types({Type.PLANE})
 @SubTypes({SubType.MIRRODIN})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class GlimmervoidBasin extends Card
 {

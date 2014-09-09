@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Jagwasp Swarm")
 @Types({Type.CREATURE})
 @SubTypes({SubType.INSECT})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class JagwaspSwarm extends Card
 {

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Vine Trellis")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WALL, SubType.PLANT})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = EighthEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = MercadianMasques.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class VineTrellis extends Card
 {

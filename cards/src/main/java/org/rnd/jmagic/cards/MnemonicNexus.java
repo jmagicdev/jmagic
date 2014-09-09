@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Mnemonic Nexus")
 @Types({Type.INSTANT})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = RavnicaCityOfGuilds.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class MnemonicNexus extends Card
 {

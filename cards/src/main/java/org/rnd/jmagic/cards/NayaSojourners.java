@@ -2,15 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
-
 import static org.rnd.jmagic.Convenience.*;
 
 @Name("Naya Sojourners")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.SHAMAN})
 @ManaCost("2RGW")
-@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.GREEN, Color.RED})
 public final class NayaSojourners extends Card
 {

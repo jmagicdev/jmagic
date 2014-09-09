@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Deadshot Minotaur")
 @Types({Type.CREATURE})
 @SubTypes({SubType.MINOTAUR})
 @ManaCost("3RG")
-@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN, Color.RED})
 public final class DeadshotMinotaur extends Card
 {

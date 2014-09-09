@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Treetop Scout")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SCOUT, SubType.ELF})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Scourge.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class TreetopScout extends Card
 {

@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Myr Sire")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.MYR})
 @ManaCost("2")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class MyrSire extends Card
 {

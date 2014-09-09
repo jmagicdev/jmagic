@@ -8,7 +8,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("The Great Forest")
 @Types({Type.PLANE})
 @SubTypes({SubType.LORWYN})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class TheGreatForest extends Card
 {

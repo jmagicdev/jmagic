@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Squee's Embrace")
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.AURA})
 @ManaCost("RW")
-@Printings({@Printings.Printed(ex = Apocalypse.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.RED})
 public final class SqueesEmbrace extends Card
 {

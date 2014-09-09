@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Djinn Illuminatus")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DJINN})
 @ManaCost("5(U/R)(U/R)")
-@Printings({@Printings.Printed(ex = Guildpact.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.RED})
 public final class DjinnIlluminatus extends Card
 {

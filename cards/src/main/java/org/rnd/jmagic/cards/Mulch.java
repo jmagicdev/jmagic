@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Mulch")
 @Types({Type.SORCERY})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.COMMON), @Printings.Printed(ex = Stronghold.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class Mulch extends Card
 {

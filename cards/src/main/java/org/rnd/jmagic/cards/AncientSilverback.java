@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Ancient Silverback")
 @Types({Type.CREATURE})
 @SubTypes({SubType.APE})
 @ManaCost("4GG")
-@Printings({@Printings.Printed(ex = NinthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = SeventhEdition.class, r = Rarity.RARE), @Printings.Printed(ex = UrzasDestiny.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class AncientSilverback extends Card
 {

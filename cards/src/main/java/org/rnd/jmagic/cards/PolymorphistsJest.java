@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Polymorphist's Jest")
 @Types({Type.INSTANT})
 @ManaCost("1UU")
-@Printings({@Printings.Printed(ex = Magic2015CoreSet.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class PolymorphistsJest extends Card
 {

@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Rebuild")
 @Types({Type.INSTANT})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = UrzasLegacy.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class Rebuild extends Card
 {

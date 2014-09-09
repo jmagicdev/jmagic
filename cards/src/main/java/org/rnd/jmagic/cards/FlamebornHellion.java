@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Flameborn Hellion")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HELLION})
 @ManaCost("5R")
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class FlamebornHellion extends Card
 {

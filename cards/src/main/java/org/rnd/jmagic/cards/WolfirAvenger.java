@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Wolfir Avenger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WOLF, SubType.WARRIOR})
 @ManaCost("1GG")
-@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class WolfirAvenger extends Card
 {

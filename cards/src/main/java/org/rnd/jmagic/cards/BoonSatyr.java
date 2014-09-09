@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Boon Satyr")
 @Types({Type.CREATURE, Type.ENCHANTMENT})
 @SubTypes({SubType.SATYR})
 @ManaCost("1GG")
-@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class BoonSatyr extends Card
 {

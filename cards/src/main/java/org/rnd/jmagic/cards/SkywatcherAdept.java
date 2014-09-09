@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Skywatcher Adept")
 @Types({Type.CREATURE})
 @SubTypes({SubType.MERFOLK, SubType.WIZARD})
 @ManaCost("U")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class SkywatcherAdept extends Card
 {

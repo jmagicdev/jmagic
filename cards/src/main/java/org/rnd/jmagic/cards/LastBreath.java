@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Last Breath")
 @Types({Type.INSTANT})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.COMMON), @Printings.Printed(ex = Shadowmoor.class, r = Rarity.COMMON), @Printings.Printed(ex = MercadianMasques.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class LastBreath extends Card
 {

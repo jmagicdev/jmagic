@@ -261,7 +261,7 @@ public class PlanechaseGameRules extends GameType.SimpleGameTypeRule
 
 		Class<?>[] parameterClasses = new Class<?>[] {GameState.class};
 		Object[] parameterObjects = new Object[] {physicalState};
-		java.util.List<Class<? extends Card>> planeClasses = new java.util.LinkedList<Class<? extends Card>>(org.rnd.jmagic.CardLoader.getCards(java.util.Collections.singleton(Planechase.class)));
+		java.util.List<Class<? extends Card>> planeClasses = new java.util.LinkedList<Class<? extends Card>>(org.rnd.jmagic.CardLoader.getCards(java.util.Collections.singleton(new Planechase())));
 		java.util.Collections.shuffle(planeClasses);
 
 		// ***DEBUGGING***

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Cradle Guard")
 @Types({Type.CREATURE})
 @SubTypes({SubType.TREEFOLK})
 @ManaCost("1GG")
-@Printings({@Printings.Printed(ex = UrzasSaga.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class CradleGuard extends Card
 {

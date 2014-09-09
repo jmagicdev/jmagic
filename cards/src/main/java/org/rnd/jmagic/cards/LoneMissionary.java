@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Lone Missionary")
 @Types({Type.CREATURE})
 @SubTypes({SubType.KOR, SubType.MONK})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class LoneMissionary extends Card
 {

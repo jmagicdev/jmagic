@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Undead Slayer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.CLERIC})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class UndeadSlayer extends Card
 {

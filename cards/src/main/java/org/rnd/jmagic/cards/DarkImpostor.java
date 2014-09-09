@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Dark Impostor")
 @Types({Type.CREATURE})
 @SubTypes({SubType.VAMPIRE, SubType.ASSASSIN})
 @ManaCost("2B")
-@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class DarkImpostor extends Card
 {

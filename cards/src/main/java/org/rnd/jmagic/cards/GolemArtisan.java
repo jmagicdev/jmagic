@@ -5,13 +5,11 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.abilities.keywords.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Golem Artisan")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.GOLEM})
 @ManaCost("5")
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class GolemArtisan extends Card
 {

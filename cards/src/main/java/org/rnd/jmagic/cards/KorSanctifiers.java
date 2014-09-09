@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Kor Sanctifiers")
 @Types({Type.CREATURE})
 @SubTypes({SubType.KOR, SubType.CLERIC})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class KorSanctifiers extends Card
 {

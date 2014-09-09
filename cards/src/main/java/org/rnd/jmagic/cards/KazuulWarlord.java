@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Kazuul Warlord")
 @Types({Type.CREATURE})
 @SubTypes({SubType.MINOTAUR, SubType.ALLY, SubType.WARRIOR})
 @ManaCost("4R")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class KazuulWarlord extends Card
 {

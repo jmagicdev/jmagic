@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Scarwood Treefolk")
 @Types({Type.CREATURE})
 @SubTypes({SubType.TREEFOLK})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class ScarwoodTreefolk extends Card
 {

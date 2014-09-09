@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Figure of Destiny")
 @Types({Type.CREATURE})
 @SubTypes({SubType.KITHKIN})
 @ManaCost("(R/W)")
-@Printings({@Printings.Printed(ex = Eventide.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.RED})
 public final class FigureofDestiny extends Card
 {

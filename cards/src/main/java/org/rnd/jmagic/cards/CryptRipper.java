@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.abilities.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Crypt Ripper")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHADE})
 @ManaCost("2BB")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class CryptRipper extends Card
 {

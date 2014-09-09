@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Wall of Faith")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WALL})
 @ManaCost("3W")
-@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class WallofFaith extends Card
 {

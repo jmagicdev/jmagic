@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Rhox Charger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.RHINO})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class RhoxCharger extends Card
 {

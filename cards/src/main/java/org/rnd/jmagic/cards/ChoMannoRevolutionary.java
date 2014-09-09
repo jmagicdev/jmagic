@@ -3,14 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Cho-Manno, Revolutionary")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.REBEL, SubType.HUMAN})
 @ManaCost("2WW")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = MercadianMasques.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class ChoMannoRevolutionary extends Card
 {

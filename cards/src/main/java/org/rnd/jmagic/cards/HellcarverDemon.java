@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Hellcarver Demon")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DEMON})
 @ManaCost("3BBB")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLACK})
 public final class HellcarverDemon extends Card
 {

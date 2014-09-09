@@ -5,13 +5,11 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Tidebinder Mage")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.MERFOLK})
 @ManaCost("UU")
-@Printings({@Printings.Printed(ex = Magic2014CoreSet.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class TidebinderMage extends Card
 {

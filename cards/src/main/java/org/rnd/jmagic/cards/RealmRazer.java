@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Realm Razer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("3RGW")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.GREEN, Color.RED})
 public final class RealmRazer extends Card
 {

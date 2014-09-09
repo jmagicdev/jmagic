@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Yew Spirit")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT, SubType.TREEFOLK})
 @ManaCost("4G")
-@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class YewSpirit extends Card
 {

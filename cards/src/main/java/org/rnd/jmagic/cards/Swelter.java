@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Swelter")
 @Types({Type.SORCERY})
 @ManaCost("3R")
-@Printings({@Printings.Printed(ex = Judgment.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class Swelter extends Card
 {

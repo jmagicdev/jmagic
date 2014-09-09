@@ -5,13 +5,11 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.ManaSymbol.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Grand Architect")
 @Types({Type.CREATURE})
 @SubTypes({SubType.VEDALKEN, SubType.ARTIFICER})
 @ManaCost("1UU")
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class GrandArchitect extends Card
 {

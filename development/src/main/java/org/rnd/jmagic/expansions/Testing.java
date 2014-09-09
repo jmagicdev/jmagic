@@ -7,6 +7,8 @@ public final class Testing extends SimpleExpansion
 {
 	public Testing()
 	{
-		super(new String[] {"R&D's Secret Lair"});
+		super();
+
+		this.addCards(Rarity.SPECIAL, "R&D's Secret Lair");
 	}
 }

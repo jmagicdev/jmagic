@@ -4,11 +4,9 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Glacial Chasm")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = IceAge.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class GlacialChasm extends Card
 {

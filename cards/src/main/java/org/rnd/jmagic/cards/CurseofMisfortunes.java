@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Curse of Misfortunes")
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.CURSE, SubType.AURA})
 @ManaCost("4B")
-@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class CurseofMisfortunes extends Card
 {

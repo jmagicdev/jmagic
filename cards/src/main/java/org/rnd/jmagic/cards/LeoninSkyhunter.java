@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Leonin Skyhunter")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CAT, SubType.KNIGHT})
 @ManaCost("WW")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.COMMON), @Printings.Printed(ex = NinthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Mirrodin.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class LeoninSkyhunter extends Card
 {

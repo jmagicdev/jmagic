@@ -5,13 +5,11 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Goblin Rabblemaster")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.GOBLIN})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Magic2015CoreSet.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class GoblinRabblemaster extends Card
 {

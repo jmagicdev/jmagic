@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Hallowed Burial")
 @Types({Type.SORCERY})
 @ManaCost("3WW")
-@Printings({@Printings.Printed(ex = Eventide.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class HallowedBurial extends Card
 {

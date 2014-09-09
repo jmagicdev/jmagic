@@ -5,12 +5,10 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.PlayerInterface.ChooseParameters;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Killing Wave")
 @Types({Type.SORCERY})
 @ManaCost("XB")
-@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class KillingWave extends Card
 {

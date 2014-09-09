@@ -49,7 +49,7 @@ public abstract class CardPool implements GameTypeRule
 	}
 
 	@Override
-	public boolean checkCard(Class<? extends Card> card)
+	public boolean checkCard(String card)
 	{
 		if(this.bannedList.contains(card))
 			return false;

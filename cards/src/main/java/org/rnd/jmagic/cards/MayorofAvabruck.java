@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Mayor of Avabruck")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.ADVISOR, SubType.WEREWOLF})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 @BackFace(HowlpackAlpha.class)
 public final class MayorofAvabruck extends Card

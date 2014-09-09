@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Viscera Dragger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE, SubType.OGRE, SubType.WARRIOR})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class VisceraDragger extends Card
 {

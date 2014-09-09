@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Keymaster Rogue")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.ROGUE})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class KeymasterRogue extends Card
 {

@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Ember Shot")
 @Types({Type.INSTANT})
 @ManaCost("6R")
-@Printings({@Printings.Printed(ex = Judgment.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class EmberShot extends Card
 {

@@ -2,14 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Karplusan Strider")
 @Types({Type.CREATURE})
 @SubTypes({SubType.YETI})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Coldsnap.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class KarplusanStrider extends Card
 {

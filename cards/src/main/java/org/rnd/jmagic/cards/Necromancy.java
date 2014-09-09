@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.abilities.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Necromancy")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2B")
-@Printings({@Printings.Printed(ex = Visions.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class Necromancy extends Card
 {

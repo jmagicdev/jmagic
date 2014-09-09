@@ -9,7 +9,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Horizon Boughs")
 @Types({Type.PLANE})
 @SubTypes({SubType.PYRULEA})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.SPECIAL)})
 @ColorIdentity({})
 public final class HorizonBoughs extends Card
 {

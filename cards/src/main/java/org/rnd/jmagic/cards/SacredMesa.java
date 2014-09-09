@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Sacred Mesa")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.SPECIAL), @Printings.Printed(ex = Mirage.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class SacredMesa extends Card
 {

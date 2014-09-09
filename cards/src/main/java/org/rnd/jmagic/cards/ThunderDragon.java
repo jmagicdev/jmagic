@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Thunder Dragon")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAGON})
 @ManaCost("5RR")
-@Printings({@Printings.Printed(ex = FromTheVaultDragons.class, r = Rarity.RARE), @Printings.Printed(ex = Starter1999.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class ThunderDragon extends Card
 {

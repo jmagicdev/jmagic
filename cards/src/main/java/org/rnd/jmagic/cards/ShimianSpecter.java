@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Shimian Specter")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPECTER})
 @ManaCost("2BB")
-@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.RARE), @Printings.Printed(ex = FutureSight.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class ShimianSpecter extends Card
 {

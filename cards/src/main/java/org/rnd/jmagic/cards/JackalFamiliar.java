@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Jackal Familiar")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HOUND})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class JackalFamiliar extends Card
 {

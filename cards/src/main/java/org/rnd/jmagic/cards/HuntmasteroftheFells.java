@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Huntmaster of the Fells")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.WEREWOLF})
 @ManaCost("2RG")
-@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.GREEN, Color.RED})
 @BackFace(RavageroftheFells.class)
 public final class HuntmasteroftheFells extends Card

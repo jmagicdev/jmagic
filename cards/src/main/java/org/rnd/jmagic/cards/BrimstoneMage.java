@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Brimstone Mage")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.HUMAN})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class BrimstoneMage extends Card
 {

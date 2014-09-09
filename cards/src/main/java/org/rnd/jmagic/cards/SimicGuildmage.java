@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Simic Guildmage")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.ELF})
 @ManaCost("(GU)(GU)")
-@Printings({@Printings.Printed(ex = Dissension.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE, Color.GREEN})
 public final class SimicGuildmage extends Card
 {

@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Lodestone Golem")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.GOLEM})
 @ManaCost("4")
-@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class LodestoneGolem extends Card
 {

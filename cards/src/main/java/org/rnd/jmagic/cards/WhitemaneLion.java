@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Whitemane Lion")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CAT})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = PlanarChaos.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class WhitemaneLion extends Card
 {

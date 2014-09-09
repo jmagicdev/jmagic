@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Wall of Vines")
 @Types({Type.CREATURE})
 @SubTypes({SubType.PLANT, SubType.WALL})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class WallofVines extends Card
 {

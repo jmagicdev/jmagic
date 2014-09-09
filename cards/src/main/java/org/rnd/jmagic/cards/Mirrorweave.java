@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Mirrorweave")
 @Types({Type.INSTANT})
 @ManaCost("2(W/U)(W/U)")
-@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.WHITE})
 public final class Mirrorweave extends Card
 {

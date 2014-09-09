@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Nekrataal")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.ASSASSIN})
 @ManaCost("2BB")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = NinthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = EighthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Visions.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class Nekrataal extends Card
 {

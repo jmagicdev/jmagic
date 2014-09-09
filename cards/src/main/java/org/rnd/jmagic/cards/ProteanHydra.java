@@ -4,14 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Protean Hydra")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HYDRA})
 @ManaCost("XG")
-@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.RARE), @Printings.Printed(ex = Magic2010.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.GREEN})
 public final class ProteanHydra extends Card
 {

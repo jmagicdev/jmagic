@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("City of Solitude")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = Visions.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class CityofSolitude extends Card
 {

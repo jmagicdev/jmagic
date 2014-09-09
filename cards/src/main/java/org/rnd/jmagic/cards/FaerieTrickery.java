@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Faerie Trickery")
 @Types({Type.INSTANT, Type.TRIBAL})
 @SubTypes({SubType.FAERIE})
 @ManaCost("1UU")
-@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class FaerieTrickery extends Card
 {

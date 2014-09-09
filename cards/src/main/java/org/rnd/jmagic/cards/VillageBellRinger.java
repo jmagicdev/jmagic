@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Village Bell-Ringer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.SCOUT})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class VillageBellRinger extends Card
 {

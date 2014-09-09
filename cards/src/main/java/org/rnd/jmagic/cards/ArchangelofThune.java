@@ -5,13 +5,11 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Archangel of Thune")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("3WW")
-@Printings({@Printings.Printed(ex = Magic2014CoreSet.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE})
 public final class ArchangelofThune extends Card
 {

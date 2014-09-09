@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Ludevic's Test Subject")
 @Types({Type.CREATURE})
 @SubTypes({SubType.LIZARD})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 @BackFace(LudevicsAbomination.class)
 public final class LudevicsTestSubject extends Card

@@ -4,14 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Loxodon Smiter")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEPHANT, SubType.SOLDIER})
 @ManaCost("1GW")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class LoxodonSmiter extends Card
 {

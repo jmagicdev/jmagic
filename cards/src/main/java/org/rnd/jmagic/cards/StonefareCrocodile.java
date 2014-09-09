@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Stonefare Crocodile")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CROCODILE})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK, Color.GREEN})
 public final class StonefareCrocodile extends Card
 {

@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Obliterate")
 @Types({Type.SORCERY})
 @ManaCost("6RR")
-@Printings({@Printings.Printed(ex = EighthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Invasion.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class Obliterate extends Card
 {

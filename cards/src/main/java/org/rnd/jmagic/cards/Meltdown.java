@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Meltdown")
 @Types({Type.SORCERY})
 @ManaCost("XR")
-@Printings({@Printings.Printed(ex = UrzasSaga.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class Meltdown extends Card
 {

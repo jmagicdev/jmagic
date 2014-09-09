@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Aven Flock")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.BIRD})
 @ManaCost("4W")
-@Printings({@Printings.Printed(ex = NinthEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = EighthEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = Odyssey.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class AvenFlock extends Card
 {

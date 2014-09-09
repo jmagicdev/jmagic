@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Brilliant Ultimatum")
 @Types({Type.SORCERY})
 @ManaCost("WWUUUBB")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.WHITE, Color.BLACK})
 public final class BrilliantUltimatum extends Card
 {

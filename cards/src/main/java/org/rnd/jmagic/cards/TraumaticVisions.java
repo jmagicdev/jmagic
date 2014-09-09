@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Traumatic Visions")
 @Types({Type.INSTANT})
 @ManaCost("3UU")
-@Printings({@Printings.Printed(ex = Conflux.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class TraumaticVisions extends Card
 {

@@ -10,7 +10,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Eloren Wilds")
 @Types({Type.PLANE})
 @SubTypes({SubType.SHANDALAR})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class ElorenWilds extends Card
 {

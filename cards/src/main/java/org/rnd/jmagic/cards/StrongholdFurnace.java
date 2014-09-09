@@ -8,7 +8,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Stronghold Furnace")
 @Types({Type.PLANE})
 @SubTypes({SubType.RATH})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class StrongholdFurnace extends Card
 {

@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Transmute Artifact")
 @Types({Type.SORCERY})
 @ManaCost("UU")
-@Printings({@Printings.Printed(ex = Antiquities.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class TransmuteArtifact extends Card
 {

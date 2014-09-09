@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Karn Liberated")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.KARN})
 @ManaCost("7")
-@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.MYTHIC)})
 @ColorIdentity({})
 public final class KarnLiberated extends Card
 {

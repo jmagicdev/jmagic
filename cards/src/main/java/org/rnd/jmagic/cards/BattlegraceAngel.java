@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Battlegrace Angel")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("3WW")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class BattlegraceAngel extends Card
 {

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Phyrexian Juggernaut")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.JUGGERNAUT})
 @ManaCost("6")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class PhyrexianJuggernaut extends Card
 {

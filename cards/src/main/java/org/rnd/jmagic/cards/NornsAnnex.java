@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Norn's Annex")
 @Types({Type.ARTIFACT})
 @ManaCost("3(W/P)(W/P)")
-@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class NornsAnnex extends Card
 {

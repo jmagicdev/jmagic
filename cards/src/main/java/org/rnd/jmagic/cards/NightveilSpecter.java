@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Nightveil Specter")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPECTER})
 @ManaCost("(U/B)(U/B)(U/B)")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.BLACK})
 public final class NightveilSpecter extends Card
 {

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Wasteland Viper")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SNAKE})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class WastelandViper extends Card
 {

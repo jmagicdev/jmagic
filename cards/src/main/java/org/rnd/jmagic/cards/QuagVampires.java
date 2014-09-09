@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Quag Vampires")
 @Types({Type.CREATURE})
 @SubTypes({SubType.VAMPIRE, SubType.ROGUE})
 @ManaCost("B")
-@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class QuagVampires extends Card
 {

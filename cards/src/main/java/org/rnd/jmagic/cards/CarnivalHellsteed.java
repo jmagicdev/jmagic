@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Carnival Hellsteed")
 @Types({Type.CREATURE})
 @SubTypes({SubType.NIGHTMARE, SubType.HORSE})
 @ManaCost("4BR")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK, Color.RED})
 public final class CarnivalHellsteed extends Card
 {

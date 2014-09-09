@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Root Maze")
 @Types({Type.ENCHANTMENT})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Tempest.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class RootMaze extends Card
 {

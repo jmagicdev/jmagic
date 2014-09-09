@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Predator Ooze")
 @Types({Type.CREATURE})
 @SubTypes({SubType.OOZE})
 @ManaCost("GGG")
-@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class PredatorOoze extends Card
 {

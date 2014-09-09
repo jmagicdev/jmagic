@@ -3,7 +3,6 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Grimgrin, Corpse-Born")
@@ -11,7 +10,6 @@ import org.rnd.jmagic.engine.patterns.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE, SubType.WARRIOR})
 @ManaCost("3UB")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE, Color.BLACK})
 public final class GrimgrinCorpseBorn extends Card
 {

@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Ghostly Prison")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = ChampionsOfKamigawa.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class GhostlyPrison extends Card
 {

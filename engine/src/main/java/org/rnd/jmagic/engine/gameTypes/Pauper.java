@@ -7,12 +7,15 @@ import org.rnd.jmagic.engine.*;
 public class Pauper extends GameType.SimpleGameTypeRule
 {
 	@Override
-	public boolean checkCard(Class<? extends Card> card)
+	public boolean checkCard(String card)
 	{
-		Printings printings = card.getAnnotation(Printings.class);
-		for(Printings.Printed printing: printings.value())
-			if(printing.r().equals(Rarity.COMMON))
+		for(Expansion expansion: Expansion.list())
+		{
+			Rarity rarity = expansion.getRarity(card);
+			if(rarity != null && rarity.ordinal() <= Rarity.COMMON.ordinal())
 				return true;
+		}
+
 		return false;
 	}
 }

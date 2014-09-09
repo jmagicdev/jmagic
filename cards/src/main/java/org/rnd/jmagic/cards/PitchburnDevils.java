@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Pitchburn Devils")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DEVIL})
 @ManaCost("4R")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class PitchburnDevils extends Card
 {

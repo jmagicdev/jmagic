@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Curse of the Nightly Hunt")
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.CURSE, SubType.AURA})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class CurseoftheNightlyHunt extends Card
 {

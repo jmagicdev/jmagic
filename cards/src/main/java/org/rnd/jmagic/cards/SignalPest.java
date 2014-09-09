@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import org.rnd.jmagic.abilities.keywords.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Signal Pest")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.PEST})
 @ManaCost("1")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class SignalPest extends Card
 {

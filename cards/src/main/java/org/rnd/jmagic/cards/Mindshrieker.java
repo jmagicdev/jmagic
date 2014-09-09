@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Mindshrieker")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT, SubType.BIRD})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class Mindshrieker extends Card
 {

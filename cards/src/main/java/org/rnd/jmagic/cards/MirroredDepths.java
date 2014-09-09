@@ -10,7 +10,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Mirrored Depths")
 @Types({Type.PLANE})
 @SubTypes({SubType.KARSUS})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.SPECIAL)})
 @ColorIdentity({})
 public final class MirroredDepths extends Card
 {

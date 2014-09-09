@@ -9,7 +9,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("The Fourth Sphere")
 @Types({Type.PLANE})
 @SubTypes({SubType.PHYREXIA})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class TheFourthSphere extends Card
 {

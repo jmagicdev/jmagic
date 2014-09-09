@@ -4,14 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Renegade Doppelganger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAPESHIFTER})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class RenegadeDoppelganger extends Card
 {

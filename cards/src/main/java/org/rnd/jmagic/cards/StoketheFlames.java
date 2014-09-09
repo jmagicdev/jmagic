@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Stoke the Flames")
 @Types({Type.INSTANT})
 @ManaCost("2RR")
-@Printings({@Printings.Printed(ex = Magic2015CoreSet.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class StoketheFlames extends Card
 {

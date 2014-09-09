@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Halimar Wavewatch")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.MERFOLK})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class HalimarWavewatch extends Card
 {

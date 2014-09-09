@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Steppe Lynx")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CAT})
 @ManaCost("W")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class SteppeLynx extends Card
 {

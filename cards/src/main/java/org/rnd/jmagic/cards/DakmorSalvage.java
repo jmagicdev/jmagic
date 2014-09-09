@@ -1,11 +1,9 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Dakmor Salvage")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class DakmorSalvage extends Card
 {

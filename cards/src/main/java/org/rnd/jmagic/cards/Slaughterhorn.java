@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Slaughterhorn")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class Slaughterhorn extends Card
 {

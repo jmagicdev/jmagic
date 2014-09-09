@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Akoum Boulderfoot")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.GIANT})
 @ManaCost("4RR")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class AkoumBoulderfoot extends Card
 {

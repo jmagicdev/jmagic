@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Nested Ghoul")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE, SubType.WARRIOR})
 @ManaCost("3BB")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class NestedGhoul extends Card
 {

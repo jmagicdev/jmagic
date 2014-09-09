@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Vulshok Heartstoker")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.HUMAN})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class VulshokHeartstoker extends Card
 {

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Soulbound Guardians")
 @Types({Type.CREATURE})
 @SubTypes({SubType.KOR, SubType.SPIRIT})
 @ManaCost("4W")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class SoulboundGuardians extends Card
 {

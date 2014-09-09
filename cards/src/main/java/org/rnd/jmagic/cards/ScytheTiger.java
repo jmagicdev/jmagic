@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Scythe Tiger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CAT})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class ScytheTiger extends Card
 {

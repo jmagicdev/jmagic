@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Aura of Silence")
 @Types({Type.ENCHANTMENT})
 @ManaCost("1WW")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Weatherlight.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class AuraofSilence extends Card
 {

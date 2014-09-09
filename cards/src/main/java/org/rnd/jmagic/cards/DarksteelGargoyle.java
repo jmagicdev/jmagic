@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Darksteel Gargoyle")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.GARGOYLE})
 @ManaCost("7")
-@Printings({@Printings.Printed(ex = Darksteel.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class DarksteelGargoyle extends Card
 {

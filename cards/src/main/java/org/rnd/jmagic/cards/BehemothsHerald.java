@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Behemoth's Herald")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.SHAMAN})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class BehemothsHerald extends org.rnd.jmagic.cardTemplates.ShardsHerald
 {

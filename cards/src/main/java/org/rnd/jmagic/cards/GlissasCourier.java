@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Glissa's Courier")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HORROR})
 @ManaCost("1GG")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class GlissasCourier extends Card
 {

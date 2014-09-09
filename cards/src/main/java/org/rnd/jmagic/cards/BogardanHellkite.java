@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Bogardan Hellkite")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAGON})
 @ManaCost("6RR")
-@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.MYTHIC), @Printings.Printed(ex = FromTheVaultDragons.class, r = Rarity.RARE), @Printings.Printed(ex = TimeSpiral.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class BogardanHellkite extends Card
 {

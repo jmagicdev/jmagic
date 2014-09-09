@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Hellkite Overlord")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAGON})
 @ManaCost("4BRRG")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.MYTHIC), @Printings.Printed(ex = FromTheVaultDragons.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN, Color.BLACK, Color.RED})
 public final class HellkiteOverlord extends Card
 {

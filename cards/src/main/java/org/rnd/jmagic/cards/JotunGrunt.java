@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("J\u00F6tun Grunt")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.GIANT})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Coldsnap.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class JotunGrunt extends Card
 {

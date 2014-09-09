@@ -2,11 +2,9 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.abilities.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Copperline Gorge")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN, Color.RED})
 public final class CopperlineGorge extends Card
 {

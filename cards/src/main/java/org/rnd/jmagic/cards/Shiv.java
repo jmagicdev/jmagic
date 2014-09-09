@@ -9,7 +9,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Shiv")
 @Types({Type.PLANE})
 @SubTypes({SubType.DOMINARIA})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class Shiv extends Card
 {

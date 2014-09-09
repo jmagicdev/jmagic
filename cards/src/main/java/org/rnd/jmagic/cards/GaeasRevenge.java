@@ -2,14 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Gaea's Revenge")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL})
 @ManaCost("5GG")
-@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.GREEN})
 public final class GaeasRevenge extends Card
 {

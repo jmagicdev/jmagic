@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Pharagax Giant")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GIANT})
 @ManaCost("4R")
-@Printings({@Printings.Printed(ex = BornOfTheGods.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class PharagaxGiant extends Card
 {

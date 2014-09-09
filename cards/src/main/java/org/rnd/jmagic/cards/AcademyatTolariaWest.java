@@ -9,7 +9,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Academy at Tolaria West")
 @Types({Type.PLANE})
 @SubTypes({SubType.DOMINARIA})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class AcademyatTolariaWest extends Card
 {

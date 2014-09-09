@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Stromkirk Captain")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.VAMPIRE})
 @ManaCost("1BR")
-@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK, Color.RED})
 public final class StromkirkCaptain extends Card
 {

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Ulvenwald Mystics")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.SHAMAN, SubType.WEREWOLF})
 @ManaCost("2GG")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 @BackFace(UlvenwaldPrimordials.class)
 public final class UlvenwaldMystics extends Card

@@ -9,7 +9,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Pools of Becoming")
 @Types({Type.PLANE})
 @SubTypes({SubType.BOLASS_MEDITATION_REALM})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class PoolsofBecoming extends Card
 {

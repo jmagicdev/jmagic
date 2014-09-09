@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Pith Driller")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.HORROR})
 @ManaCost("4(B/P)")
-@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class PithDriller extends Card
 {

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Nirkana Cutthroat")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.VAMPIRE})
 @ManaCost("2B")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class NirkanaCutthroat extends Card
 {

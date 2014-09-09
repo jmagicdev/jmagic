@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Ogre Jailbreaker")
 @Types({Type.CREATURE})
 @SubTypes({SubType.OGRE, SubType.ROGUE})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class OgreJailbreaker extends Card
 {

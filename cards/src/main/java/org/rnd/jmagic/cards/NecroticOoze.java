@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Necrotic Ooze")
 @Types({Type.CREATURE})
 @SubTypes({SubType.OOZE})
 @ManaCost("2BB")
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class NecroticOoze extends Card
 {

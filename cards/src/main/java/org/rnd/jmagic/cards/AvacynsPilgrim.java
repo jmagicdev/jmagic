@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Avacyn's Pilgrim")
 @Types({Type.CREATURE})
 @SubTypes({SubType.MONK, SubType.HUMAN})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class AvacynsPilgrim extends Card
 {

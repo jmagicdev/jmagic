@@ -3,14 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Countryside Crusher")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.GIANT})
 @ManaCost("1RR")
-@Printings({@Printings.Printed(ex = Morningtide.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class CountrysideCrusher extends Card
 {

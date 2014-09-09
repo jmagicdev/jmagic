@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Ordruun Veteran")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.MINOTAUR})
 @ManaCost("2RW")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE, Color.RED})
 public final class OrdruunVeteran extends Card
 {

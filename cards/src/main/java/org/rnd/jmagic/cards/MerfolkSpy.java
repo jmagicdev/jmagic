@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Merfolk Spy")
 @Types({Type.CREATURE})
 @SubTypes({SubType.MERFOLK, SubType.ROGUE})
 @ManaCost("U")
-@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class MerfolkSpy extends Card
 {

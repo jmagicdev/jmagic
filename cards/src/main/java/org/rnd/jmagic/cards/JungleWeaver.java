@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Jungle Weaver")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIDER})
 @ManaCost("5GG")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class JungleWeaver extends Card
 {

@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Drowned Rusalka")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT})
 @ManaCost("U")
-@Printings({@Printings.Printed(ex = Guildpact.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class DrownedRusalka extends Card
 {

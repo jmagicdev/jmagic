@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Fireblast")
 @Types({Type.INSTANT})
 @ManaCost("4RR")
-@Printings({@Printings.Printed(ex = Visions.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class Fireblast extends Card
 {

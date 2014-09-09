@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Viral Drake")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAKE})
 @ManaCost("3U")
-@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class ViralDrake extends Card
 {

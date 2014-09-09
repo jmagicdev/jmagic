@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Lava Spike")
 @Types({Type.SORCERY})
 @SubTypes({SubType.ARCANE})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = ChampionsOfKamigawa.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class LavaSpike extends Card
 {

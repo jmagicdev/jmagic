@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Keldon Halberdier")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.HUMAN})
 @ManaCost("4R")
-@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class KeldonHalberdier extends Card
 {

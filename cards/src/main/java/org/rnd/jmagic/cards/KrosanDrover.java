@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Krosan Drover")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = Scourge.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class KrosanDrover extends Card
 {

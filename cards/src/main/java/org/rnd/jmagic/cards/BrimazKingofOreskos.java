@@ -4,14 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Brimaz, King of Oreskos")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.CREATURE})
 @SubTypes({SubType.CAT, SubType.SOLDIER})
 @ManaCost("1WW")
-@Printings({@Printings.Printed(ex = BornOfTheGods.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE})
 public final class BrimazKingofOreskos extends Card
 {

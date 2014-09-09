@@ -1,11 +1,9 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Darksteel Citadel")
 @Types({Type.LAND, Type.ARTIFACT})
-@Printings({@Printings.Printed(ex = Darksteel.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class DarksteelCitadel extends Card
 {

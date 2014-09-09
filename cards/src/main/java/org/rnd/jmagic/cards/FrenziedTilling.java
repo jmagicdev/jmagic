@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Frenzied Tilling")
 @Types({Type.SORCERY})
 @ManaCost("3RG")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Invasion.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN, Color.RED})
 public final class FrenziedTilling extends Card
 {

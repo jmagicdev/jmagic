@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Matca Rioters")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.HUMAN})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = Conflux.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class MatcaRioters extends Card
 {

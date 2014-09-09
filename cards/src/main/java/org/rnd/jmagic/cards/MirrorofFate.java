@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Mirror of Fate")
 @Types({Type.ARTIFACT})
 @ManaCost("5")
-@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class MirrorofFate extends Card
 {

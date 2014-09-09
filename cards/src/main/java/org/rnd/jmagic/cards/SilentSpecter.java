@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Silent Specter")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPECTER})
 @ManaCost("4BB")
-@Printings({@Printings.Printed(ex = Onslaught.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class SilentSpecter extends Card
 {

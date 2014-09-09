@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Isperia's Skywatch")
 @Types({Type.CREATURE})
 @SubTypes({SubType.KNIGHT, SubType.VEDALKEN})
 @ManaCost("5U")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class IsperiasSkywatch extends Card
 {

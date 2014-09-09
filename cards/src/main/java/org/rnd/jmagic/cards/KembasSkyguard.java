@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Kemba's Skyguard")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CAT, SubType.KNIGHT})
 @ManaCost("1WW")
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class KembasSkyguard extends Card
 {

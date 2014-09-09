@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Searing Blood")
 @Types({Type.INSTANT})
 @ManaCost("RR")
-@Printings({@Printings.Printed(ex = BornOfTheGods.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class SearingBlood extends Card
 {

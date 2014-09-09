@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Changeling Hero")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAPESHIFTER})
 @ManaCost("4W")
-@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class ChangelingHero extends Card
 {

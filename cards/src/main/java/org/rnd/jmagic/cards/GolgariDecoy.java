@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Golgari Decoy")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ROGUE, SubType.ELF})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class GolgariDecoy extends Card
 {

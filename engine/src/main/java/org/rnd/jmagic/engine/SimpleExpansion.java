@@ -2,16 +2,16 @@ package org.rnd.jmagic.engine;
 
 public abstract class SimpleExpansion extends Expansion
 {
-	private String[] cardList;
+	private java.util.SortedMap<String, Rarity> cardList;
 	private String pkg;
 
 	/**
 	 * @param cardList An array of the card names in this expansion. The array
 	 * must already be sorted.
 	 */
-	public SimpleExpansion(String[] cardList)
+	public SimpleExpansion()
 	{
-		this(cardList, "org.rnd.jmagic.cards");
+		this("org.rnd.jmagic.cards");
 	}
 
 	/**
@@ -19,17 +19,34 @@ public abstract class SimpleExpansion extends Expansion
 	 * must already be sorted.
 	 * @param pkg The package containing the card classes for this set.
 	 */
-	public SimpleExpansion(String[] cardList, String pkg)
+	public SimpleExpansion(String pkg)
 	{
-		this.cardList = cardList;
+		this.cardList = new java.util.TreeMap<String, Rarity>();
 		this.pkg = pkg;
+	}
+
+	protected void addCards(String... cardList)
+	{
+		for(String card: cardList)
+			this.cardList.put(card, null);
+	}
+
+	protected void addCards(Rarity rarity, String... cardList)
+	{
+		for(String card: cardList)
+			this.cardList.put(card, rarity);
+	}
+
+	protected void addCards(java.util.Map<String, Rarity> cardList)
+	{
+		this.cardList.putAll(cardList);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public Class<? extends Card> getCard(String name)
 	{
-		if(java.util.Arrays.binarySearch(this.cardList, name) >= 0)
+		if(this.cardList.containsKey(name))
 		{
 			try
 			{
@@ -46,14 +63,14 @@ public abstract class SimpleExpansion extends Expansion
 	@Override
 	public java.util.List<String> getAllCardNames()
 	{
-		return java.util.Arrays.asList(this.cardList);
+		return new java.util.LinkedList<String>(this.cardList.keySet());
 	}
 
 	@Override
 	public java.util.List<Class<? extends Card>> getAllCardClasses()
 	{
 		java.util.List<Class<? extends Card>> ret = new java.util.LinkedList<Class<? extends Card>>();
-		for(String name: this.cardList)
+		for(String name: this.cardList.keySet())
 		{
 			try
 			{
@@ -67,6 +84,30 @@ public abstract class SimpleExpansion extends Expansion
 			}
 		}
 		return ret;
+	}
+
+	@Override
+	public java.util.Map<Rarity, java.util.List<String>> getRarityMap()
+	{
+		java.util.Map<Rarity, java.util.List<String>> ret = new java.util.EnumMap<Rarity, java.util.List<String>>(Rarity.class);
+
+		for(Rarity rarity: Rarity.values())
+			ret.put(rarity, new java.util.LinkedList<String>());
+
+		for(java.util.Map.Entry<String, Rarity> card: this.cardList.entrySet())
+			ret.get(card.getValue()).add(card.getKey());
+
+		for(Rarity rarity: Rarity.values())
+			if(ret.get(rarity).isEmpty())
+				ret.remove(ret);
+
+		return ret;
+	}
+
+	@Override
+	public Rarity getRarity(String card)
+	{
+		return this.cardList.get(card);
 	}
 
 }

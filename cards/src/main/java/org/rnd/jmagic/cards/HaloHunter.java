@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Halo Hunter")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DEMON})
 @ManaCost("2BBB")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class HaloHunter extends Card
 {

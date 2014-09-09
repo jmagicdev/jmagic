@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Skyhunter Skirmisher")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CAT, SubType.KNIGHT})
 @ManaCost("1WW")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = FifthDawn.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class SkyhunterSkirmisher extends Card
 {

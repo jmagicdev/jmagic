@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Warren Instigator")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GOBLIN, SubType.BERSERKER})
 @ManaCost("RR")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.RED})
 public final class WarrenInstigator extends Card
 {

@@ -3,14 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Thassa, God of the Sea")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.ENCHANTMENT, Type.CREATURE})
 @SubTypes({SubType.GOD})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE})
 public final class ThassaGodoftheSea extends Card
 {

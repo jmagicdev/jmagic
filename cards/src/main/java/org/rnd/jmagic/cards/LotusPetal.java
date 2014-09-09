@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Lotus Petal")
 @Types({Type.ARTIFACT})
 @ManaCost("0")
-@Printings({@Printings.Printed(ex = Tempest.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class LotusPetal extends Card
 {

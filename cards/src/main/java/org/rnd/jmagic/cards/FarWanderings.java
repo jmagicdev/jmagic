@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Far Wanderings")
 @Types({Type.SORCERY})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = Torment.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class FarWanderings extends Card
 {

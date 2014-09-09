@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Rusted Sentinel")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.GOLEM})
 @ManaCost("4")
-@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class RustedSentinel extends Card
 {

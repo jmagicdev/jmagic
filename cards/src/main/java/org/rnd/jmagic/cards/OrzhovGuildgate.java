@@ -1,12 +1,10 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Orzhov Guildgate")
 @Types({Type.LAND})
 @SubTypes({SubType.GATE})
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.BLACK})
 public final class OrzhovGuildgate extends Card
 {

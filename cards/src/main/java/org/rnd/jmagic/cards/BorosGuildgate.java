@@ -1,12 +1,10 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Boros Guildgate")
 @Types({Type.LAND})
 @SubTypes({SubType.GATE})
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.RED})
 public final class BorosGuildgate extends Card
 {

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Bloodfray Giant")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GIANT})
 @ManaCost("2RR")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class BloodfrayGiant extends Card
 {

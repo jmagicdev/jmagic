@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Cloudpost")
 @Types({Type.LAND})
 @SubTypes({SubType.LOCUS})
-@Printings({@Printings.Printed(ex = Mirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Cloudpost extends Card
 {

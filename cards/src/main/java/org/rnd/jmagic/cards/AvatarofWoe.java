@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Avatar of Woe")
 @Types({Type.CREATURE})
 @SubTypes({SubType.AVATAR})
 @ManaCost("6BB")
-@Printings({@Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.RARE), @Printings.Printed(ex = TimeSpiral.class, r = Rarity.SPECIAL), @Printings.Printed(ex = Prophecy.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class AvatarofWoe extends Card
 {

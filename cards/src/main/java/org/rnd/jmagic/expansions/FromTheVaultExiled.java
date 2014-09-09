@@ -7,6 +7,8 @@ public final class FromTheVaultExiled extends SimpleExpansion
 {
 	public FromTheVaultExiled()
 	{
-		super(new String[] {"Balance", "Berserk", "Channel", "Gifts Ungiven", "Goblin Lackey", "Kird Ape", "Lotus Petal", "Mystical Tutor", "Necropotence", "Sensei's Divining Top", "Serendib Efreet", "Skullclamp", "Strip Mine", "Tinker", "Trinisphere"});
+		super();
+
+		this.addCards(Rarity.MYTHIC, "Balance", "Berserk", "Channel", "Gifts Ungiven", "Goblin Lackey", "Kird Ape", "Lotus Petal", "Mystical Tutor", "Necropotence", "Sensei's Divining Top", "Serendib Efreet", "Skullclamp", "Strip Mine", "Tinker", "Trinisphere");
 	}
 }

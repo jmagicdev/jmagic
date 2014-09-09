@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Ajani Steadfast")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.AJANI})
 @ManaCost("3W")
-@Printings({@Printings.Printed(ex = Magic2015CoreSet.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE})
 public final class AjaniSteadfast extends Card
 {

@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Ondu Giant")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GIANT, SubType.DRUID})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class OnduGiant extends Card
 {

@@ -3,14 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Psychosis Crawler")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.HORROR})
 @ManaCost("5")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class PsychosisCrawler extends Card
 {

@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Warleader's Helix")
 @Types({Type.INSTANT})
 @ManaCost("2WR")
-@Printings({@Printings.Printed(ex = DragonsMaze.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED, Color.WHITE})
 public final class WarleadersHelix extends Card
 {

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Terrus Wurm")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE, SubType.WURM})
 @ManaCost("6B")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class TerrusWurm extends Card
 {

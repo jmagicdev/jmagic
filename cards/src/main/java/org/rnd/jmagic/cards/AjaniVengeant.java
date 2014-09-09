@@ -4,14 +4,12 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Ajani Vengeant")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.AJANI})
 @ManaCost("2RW")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE, Color.RED})
 public final class AjaniVengeant extends Card
 {

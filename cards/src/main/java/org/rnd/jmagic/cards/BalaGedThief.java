@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Bala Ged Thief")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.ROGUE, SubType.ALLY})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class BalaGedThief extends Card
 {

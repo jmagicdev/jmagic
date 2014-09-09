@@ -4,11 +4,9 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Grove of the Burnwillows")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN, Color.RED})
 public final class GroveoftheBurnwillows extends Card
 {

@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Stampeding Wildebeests")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANTELOPE, SubType.BEAST})
 @ManaCost("2GG")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Visions.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class StampedingWildebeests extends Card
 {

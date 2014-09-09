@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Cadaver Imp")
 @Types({Type.CREATURE})
 @SubTypes({SubType.IMP})
 @ManaCost("1BB")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class CadaverImp extends Card
 {

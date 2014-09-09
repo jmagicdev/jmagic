@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Condescend")
 @Types({Type.INSTANT})
 @ManaCost("XU")
-@Printings({@Printings.Printed(ex = FifthDawn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class Condescend extends Card
 {

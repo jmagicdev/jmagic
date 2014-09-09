@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Flash Foliage")
 @Types({Type.INSTANT})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = Dissension.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class FlashFoliage extends Card
 {

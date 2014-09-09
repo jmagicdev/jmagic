@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Garruk, the Veil-Cursed")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.GARRUK})
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLACK, Color.GREEN})
 public final class GarruktheVeilCursed extends AlternateCard
 {

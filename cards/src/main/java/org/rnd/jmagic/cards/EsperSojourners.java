@@ -2,15 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
-
 import static org.rnd.jmagic.Convenience.*;
 
 @Name("Esper Sojourners")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.VEDALKEN, SubType.WIZARD})
 @ManaCost("WUB")
-@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.WHITE, Color.BLACK})
 public final class EsperSojourners extends Card
 {

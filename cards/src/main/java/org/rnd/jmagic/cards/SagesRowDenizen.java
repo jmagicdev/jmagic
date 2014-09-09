@@ -3,14 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Sage's Row Denizen")
 @Types({Type.CREATURE})
 @SubTypes({SubType.VEDALKEN, SubType.WIZARD})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class SagesRowDenizen extends Card
 {

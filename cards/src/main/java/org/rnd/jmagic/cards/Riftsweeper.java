@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Riftsweeper")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.SHAMAN})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class Riftsweeper extends Card
 {

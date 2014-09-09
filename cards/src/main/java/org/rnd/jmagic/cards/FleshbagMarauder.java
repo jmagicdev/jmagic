@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Fleshbag Marauder")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.ZOMBIE})
 @ManaCost("2B")
-@Printings({@Printings.Printed(ex = MagicTheGatheringCommander.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class FleshbagMarauder extends Card
 {

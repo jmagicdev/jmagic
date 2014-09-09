@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Bogardan Lancer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.KNIGHT})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class BogardanLancer extends Card
 {

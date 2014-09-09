@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Grim Tutor")
 @Types({Type.SORCERY})
 @ManaCost("1BB")
-@Printings({@Printings.Printed(ex = Starter1999.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class GrimTutor extends Card
 {

@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Blazing Archon")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ARCHON})
 @ManaCost("6WWW")
-@Printings({@Printings.Printed(ex = RavnicaCityOfGuilds.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class BlazingArchon extends Card
 {

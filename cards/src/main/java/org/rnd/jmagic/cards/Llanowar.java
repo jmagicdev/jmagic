@@ -9,7 +9,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Llanowar")
 @Types({Type.PLANE})
 @SubTypes({SubType.DOMINARIA})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class Llanowar extends Card
 {

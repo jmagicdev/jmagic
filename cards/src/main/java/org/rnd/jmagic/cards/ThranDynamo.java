@@ -1,12 +1,10 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Thran Dynamo")
 @Types({Type.ARTIFACT})
 @ManaCost("4")
-@Printings({@Printings.Printed(ex = UrzasDestiny.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class ThranDynamo extends Card
 {

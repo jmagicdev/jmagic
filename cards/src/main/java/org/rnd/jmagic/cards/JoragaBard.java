@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Joraga Bard")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.ROGUE, SubType.ALLY})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class JoragaBard extends Card
 {

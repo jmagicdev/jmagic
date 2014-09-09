@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Putrid Leech")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE, SubType.LEECH})
 @ManaCost("BG")
-@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN, Color.BLACK})
 public final class PutridLeech extends Card
 {

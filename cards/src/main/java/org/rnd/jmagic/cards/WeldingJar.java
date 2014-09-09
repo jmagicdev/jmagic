@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Welding Jar")
 @Types({Type.ARTIFACT})
 @ManaCost("0")
-@Printings({@Printings.Printed(ex = Mirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class WeldingJar extends Card
 {

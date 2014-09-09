@@ -2,14 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Steel Golem")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.GOLEM})
 @ManaCost("3")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Weatherlight.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class SteelGolem extends Card
 {

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Greenweaver Druid")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.DRUID})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class GreenweaverDruid extends Card
 {

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Krosan Colossus")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("6GGG")
-@Printings({@Printings.Printed(ex = Onslaught.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class KrosanColossus extends Card
 {

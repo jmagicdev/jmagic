@@ -3,14 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Havengul Lich")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.ZOMBIE})
 @ManaCost("3UB")
-@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE, Color.BLACK})
 public final class HavengulLich extends Card
 {

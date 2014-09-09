@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Akoum Battlesinger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ALLY, SubType.BERSERKER, SubType.HUMAN})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class AkoumBattlesinger extends Card
 {

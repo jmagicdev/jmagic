@@ -10,7 +10,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Minamo")
 @Types({Type.PLANE})
 @SubTypes({SubType.KAMIGAWA})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Minamo extends Card
 {

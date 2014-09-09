@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Wood Elves")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SCOUT, SubType.ELF})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = NinthEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = EighthEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = SeventhEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = Starter1999.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Exodus.class, r = Rarity.COMMON), @Printings.Printed(ex = Portal.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class WoodElves extends Card
 {

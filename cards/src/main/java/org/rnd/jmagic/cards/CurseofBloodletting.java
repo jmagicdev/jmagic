@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Curse of Bloodletting")
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.CURSE, SubType.AURA})
 @ManaCost("3RR")
-@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class CurseofBloodletting extends Card
 {

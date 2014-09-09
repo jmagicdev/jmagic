@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Hypersonic Dragon")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAGON})
 @ManaCost("3UR")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.RED})
 public final class HypersonicDragon extends Card
 {

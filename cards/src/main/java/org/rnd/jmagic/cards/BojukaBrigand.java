@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Bojuka Brigand")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.ALLY, SubType.WARRIOR})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class BojukaBrigand extends Card
 {

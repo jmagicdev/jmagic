@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Sylvan Caryatid")
 @Types({Type.CREATURE})
 @SubTypes({SubType.PLANT})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class SylvanCaryatid extends Card
 {

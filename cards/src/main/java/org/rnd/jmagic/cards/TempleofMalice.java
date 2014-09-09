@@ -2,11 +2,9 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Temple of Malice")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = BornOfTheGods.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class TempleofMalice extends Card
 {

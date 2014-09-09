@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Gust-Skimmer")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.INSECT})
 @ManaCost("2")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class GustSkimmer extends Card
 {

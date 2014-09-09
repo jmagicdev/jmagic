@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Phantasmal Abomination")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ILLUSION})
 @ManaCost("1UU")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class PhantasmalAbomination extends Card
 {

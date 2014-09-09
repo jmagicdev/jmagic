@@ -9,7 +9,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("The Hippodrome")
 @Types({Type.PLANE})
 @SubTypes({SubType.SEGOVIA})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class TheHippodrome extends Card
 {

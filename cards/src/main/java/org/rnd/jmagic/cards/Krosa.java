@@ -9,7 +9,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Krosa")
 @Types({Type.PLANE})
 @SubTypes({SubType.DOMINARIA})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK, Color.RED, Color.GREEN})
 public final class Krosa extends Card
 {

@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Nicol Bolas, Planeswalker")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.BOLAS})
 @ManaCost("4UBBR")
-@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.MYTHIC), @Printings.Printed(ex = Conflux.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE, Color.BLACK, Color.RED})
 public final class NicolBolasPlaneswalker extends Card
 {

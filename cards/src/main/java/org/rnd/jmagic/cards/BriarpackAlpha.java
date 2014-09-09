@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Briarpack Alpha")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WOLF})
 @ManaCost("3G")
-@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class BriarpackAlpha extends Card
 {

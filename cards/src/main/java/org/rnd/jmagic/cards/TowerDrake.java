@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Tower Drake")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAKE})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON), @Printings.Printed(ex = Invasion.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.BLUE})
 public final class TowerDrake extends Card
 {

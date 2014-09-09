@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Calcite Snapper")
 @Types({Type.CREATURE})
 @SubTypes({SubType.TURTLE})
 @ManaCost("1UU")
-@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class CalciteSnapper extends Card
 {

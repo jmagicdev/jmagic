@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Arctic Aven")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.BIRD})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE, Color.BLUE})
 public final class ArcticAven extends Card
 {

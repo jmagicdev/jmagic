@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Dark Heart of the Wood")
 @Types({Type.ENCHANTMENT})
 @ManaCost("BG")
-@Printings({@Printings.Printed(ex = RavnicaCityOfGuilds.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = TheDark.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN, Color.BLACK})
 public final class DarkHeartoftheWood extends Card
 {

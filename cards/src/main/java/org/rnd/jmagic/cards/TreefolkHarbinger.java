@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Treefolk Harbinger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRUID, SubType.TREEFOLK})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class TreefolkHarbinger extends Card
 {

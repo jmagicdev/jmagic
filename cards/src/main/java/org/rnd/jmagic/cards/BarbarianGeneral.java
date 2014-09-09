@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Barbarian General")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.SOLDIER, SubType.BARBARIAN})
 @ManaCost("4R")
-@Printings({@Printings.Printed(ex = PortalThreeKingdoms.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class BarbarianGeneral extends Card
 {

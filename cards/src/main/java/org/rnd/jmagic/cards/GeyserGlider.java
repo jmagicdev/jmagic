@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Geyser Glider")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL, SubType.BEAST})
 @ManaCost("3RR")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class GeyserGlider extends Card
 {

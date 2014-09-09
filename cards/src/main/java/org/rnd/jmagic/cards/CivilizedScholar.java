@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Civilized Scholar")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.ADVISOR})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 @BackFace(HomicidalBrute.class)
 public final class CivilizedScholar extends Card

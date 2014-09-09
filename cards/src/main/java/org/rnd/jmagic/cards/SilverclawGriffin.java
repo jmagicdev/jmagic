@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Silverclaw Griffin")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GRIFFIN})
 @ManaCost("3WW")
-@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class SilverclawGriffin extends Card
 {

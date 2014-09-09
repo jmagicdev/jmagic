@@ -1,12 +1,10 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Unhallowed Cathar")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE, SubType.SOLDIER})
-@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class UnhallowedCathar extends AlternateCard
 {

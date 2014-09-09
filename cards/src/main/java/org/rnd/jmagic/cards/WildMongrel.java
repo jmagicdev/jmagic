@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Wild Mongrel")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HOUND})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Odyssey.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class WildMongrel extends Card
 {

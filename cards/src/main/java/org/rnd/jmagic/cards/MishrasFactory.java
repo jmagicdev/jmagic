@@ -4,11 +4,9 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Mishra's Factory")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = FourthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Antiquities.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class MishrasFactory extends Card
 {

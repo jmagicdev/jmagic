@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Sphinx Summoner")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.SPHINX})
 @ManaCost("3UB")
-@Printings({@Printings.Printed(ex = Conflux.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.BLACK})
 public final class SphinxSummoner extends Card
 {

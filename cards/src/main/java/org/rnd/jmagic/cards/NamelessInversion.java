@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Nameless Inversion")
 @Types({Type.TRIBAL, Type.INSTANT})
 @SubTypes({SubType.SHAPESHIFTER})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class NamelessInversion extends Card
 {

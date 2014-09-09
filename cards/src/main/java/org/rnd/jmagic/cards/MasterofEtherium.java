@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Master of Etherium")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.WIZARD, SubType.VEDALKEN})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class MasterofEtherium extends Card
 {

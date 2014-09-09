@@ -10,7 +10,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("The \u00C6ther Flues")
 @Types({Type.PLANE})
 @SubTypes({SubType.IQUATANA})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class TheAEtherFlues extends Card
 {

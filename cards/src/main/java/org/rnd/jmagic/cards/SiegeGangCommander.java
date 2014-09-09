@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Siege-Gang Commander")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GOBLIN})
 @ManaCost("3RR")
-@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.RARE), @Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Scourge.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class SiegeGangCommander extends Card
 {

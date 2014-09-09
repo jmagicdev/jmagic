@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Moat")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2WW")
-@Printings({@Printings.Printed(ex = Legends.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class Moat extends Card
 {

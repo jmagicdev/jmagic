@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Druid of the Anima")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.DRUID})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.GREEN, Color.RED})
 public final class DruidoftheAnima extends Card
 {

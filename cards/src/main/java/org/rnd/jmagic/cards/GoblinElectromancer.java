@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Goblin Electromancer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.GOBLIN})
 @ManaCost("UR")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.RED})
 public final class GoblinElectromancer extends Card
 {

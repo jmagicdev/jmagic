@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Balustrade Spy")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ROGUE, SubType.VAMPIRE})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class BalustradeSpy extends Card
 {

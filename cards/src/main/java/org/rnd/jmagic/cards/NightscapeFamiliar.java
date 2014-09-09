@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Nightscape Familiar")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Planeshift.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class NightscapeFamiliar extends Card
 {

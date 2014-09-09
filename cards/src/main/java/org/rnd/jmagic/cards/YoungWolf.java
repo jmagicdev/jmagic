@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Young Wolf")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WOLF})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.COMMON)})
 @ColorIdentity(Color.GREEN)
 public final class YoungWolf extends Card
 {

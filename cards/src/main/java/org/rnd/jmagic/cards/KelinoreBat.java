@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Kelinore Bat")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BAT})
 @ManaCost("2B")
-@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class KelinoreBat extends Card
 {

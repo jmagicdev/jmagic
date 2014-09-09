@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Raise the Alarm")
 @Types({Type.INSTANT})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = Mirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class RaisetheAlarm extends Card
 {

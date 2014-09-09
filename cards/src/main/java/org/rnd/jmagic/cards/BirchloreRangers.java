@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Birchlore Rangers")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRUID, SubType.ELF})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Onslaught.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class BirchloreRangers extends Card
 {

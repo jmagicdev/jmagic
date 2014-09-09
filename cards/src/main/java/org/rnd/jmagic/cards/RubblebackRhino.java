@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Rubbleback Rhino")
 @Types({Type.CREATURE})
 @SubTypes({SubType.RHINO})
 @ManaCost("4G")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class RubblebackRhino extends Card
 {

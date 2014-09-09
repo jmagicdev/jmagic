@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Awakener Druid")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.DRUID})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Magic2010.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class AwakenerDruid extends Card
 {

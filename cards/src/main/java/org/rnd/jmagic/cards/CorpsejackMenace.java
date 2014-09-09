@@ -2,14 +2,12 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Corpsejack Menace")
 @Types({Type.CREATURE})
 @SubTypes({SubType.FUNGUS})
 @ManaCost("2BG")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN, Color.BLACK})
 public final class CorpsejackMenace extends Card
 {

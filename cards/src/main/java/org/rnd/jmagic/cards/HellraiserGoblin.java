@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Hellraiser Goblin")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GOBLIN, SubType.BERSERKER})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class HellraiserGoblin extends Card
 {

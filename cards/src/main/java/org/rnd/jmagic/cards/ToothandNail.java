@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Tooth and Nail")
 @Types({Type.SORCERY})
 @ManaCost("5GG")
-@Printings({@Printings.Printed(ex = Mirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class ToothandNail extends Card
 {

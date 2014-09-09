@@ -1,12 +1,10 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Ghastly Haunting")
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.AURA})
-@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class GhastlyHaunting extends AlternateCard
 {

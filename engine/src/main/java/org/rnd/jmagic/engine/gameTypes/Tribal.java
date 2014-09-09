@@ -13,9 +13,9 @@ public class Tribal extends GameType.SimpleGameTypeRule
 	private static final java.util.Collection<String> bannedList = java.util.Arrays.<String>asList("Arboria", "Balance", "Channel", "Circle of Solace", "Demonic Consultation", "Demonic Tutor", "Engineered Plague", "Flash", "Imperial Seal", "Mana Crypt", "Necropotence", "Peer Pressure", "Skullclamp", "Strip Mine", "The Abyss", "Tinker", "Tolarian Academy", "Tsabo's Decree", "Umezawa's Jitte", "Yawgmoth's Will");
 
 	@Override
-	public boolean checkCard(Class<? extends Card> card)
+	public boolean checkCard(String card)
 	{
-		return !bannedList.contains(card.getAnnotation(Name.class).value());
+		return !bannedList.contains(card);
 	}
 
 	@Override

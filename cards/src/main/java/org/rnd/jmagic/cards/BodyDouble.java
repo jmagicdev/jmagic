@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Body Double")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAPESHIFTER})
 @ManaCost("4U")
-@Printings({@Printings.Printed(ex = PlanarChaos.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class BodyDouble extends Card
 {

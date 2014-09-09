@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Shambleshark")
 @Types({Type.CREATURE})
 @SubTypes({SubType.FISH, SubType.CRAB})
 @ManaCost("GU")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.GREEN})
 public final class Shambleshark extends Card
 {

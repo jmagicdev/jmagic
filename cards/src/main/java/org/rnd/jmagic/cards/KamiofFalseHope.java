@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Kami of False Hope")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT})
 @ManaCost("W")
-@Printings({@Printings.Printed(ex = BetrayersOfKamigawa.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class KamiofFalseHope extends Card
 {

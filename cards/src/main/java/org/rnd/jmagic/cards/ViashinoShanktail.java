@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Viashino Shanktail")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.VIASHINO})
 @ManaCost("3R")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class ViashinoShanktail extends Card
 {

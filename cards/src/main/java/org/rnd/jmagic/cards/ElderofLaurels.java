@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Elder of Laurels")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ADVISOR, SubType.HUMAN})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class ElderofLaurels extends Card
 {

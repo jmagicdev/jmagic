@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Essence Drain")
 @Types({Type.SORCERY})
 @ManaCost("4B")
-@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.COMMON), @Printings.Printed(ex = TenthEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = Darksteel.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class EssenceDrain extends Card
 {

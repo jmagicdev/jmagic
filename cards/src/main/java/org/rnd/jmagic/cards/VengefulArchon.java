@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Vengeful Archon")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ARCHON})
 @ManaCost("4WWW")
-@Printings({@Printings.Printed(ex = Magic2011.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class VengefulArchon extends Card
 {

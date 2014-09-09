@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Angel's Herald")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.CLERIC})
 @ManaCost("W")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class AngelsHerald extends org.rnd.jmagic.cardTemplates.ShardsHerald
 {

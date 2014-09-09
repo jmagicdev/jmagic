@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Phyrexian Rager")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HORROR})
 @ManaCost("2B")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.COMMON), @Printings.Printed(ex = TenthEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = Apocalypse.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class PhyrexianRager extends Card
 {

@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Rootwater Matriarch")
 @Types({Type.CREATURE})
 @SubTypes({SubType.MERFOLK})
 @ManaCost("2UU")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Tempest.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class RootwaterMatriarch extends Card
 {

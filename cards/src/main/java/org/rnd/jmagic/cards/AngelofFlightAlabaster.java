@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Angel of Flight Alabaster")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("4W")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class AngelofFlightAlabaster extends Card
 {

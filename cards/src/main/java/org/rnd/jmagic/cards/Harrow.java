@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Harrow")
 @Types({Type.INSTANT})
 @ManaCost("2G")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON), @Printings.Printed(ex = Invasion.class, r = Rarity.COMMON), @Printings.Printed(ex = Tempest.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class Harrow extends Card
 {

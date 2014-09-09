@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.Convenience;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Discombobulate")
 @Types({Type.INSTANT})
 @ManaCost("2UU")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Onslaught.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class Discombobulate extends Card
 {

@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Guul Draz Vampire")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ROGUE, SubType.VAMPIRE})
 @ManaCost("B")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class GuulDrazVampire extends Card
 {

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Basilica Screecher")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BAT})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class BasilicaScreecher extends Card
 {

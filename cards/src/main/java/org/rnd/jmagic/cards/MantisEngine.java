@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Mantis Engine")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.INSECT})
 @ManaCost("5")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = UrzasDestiny.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class MantisEngine extends Card
 {

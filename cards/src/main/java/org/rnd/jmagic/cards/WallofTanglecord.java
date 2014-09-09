@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Wall of Tanglecord")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.WALL})
 @ManaCost("2")
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class WallofTanglecord extends Card
 {

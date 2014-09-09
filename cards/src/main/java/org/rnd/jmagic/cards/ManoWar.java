@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Man-o'-War")
 @Types({Type.CREATURE})
 @SubTypes({SubType.JELLYFISH})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Starter1999.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Portal.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Visions.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class ManoWar extends Card
 {

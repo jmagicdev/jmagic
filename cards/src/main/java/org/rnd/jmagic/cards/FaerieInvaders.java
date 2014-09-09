@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Faerie Invaders")
 @Types({Type.CREATURE})
 @SubTypes({SubType.FAERIE, SubType.ROGUE})
 @ManaCost("4U")
-@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class FaerieInvaders extends Card
 {

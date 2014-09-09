@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Stormscape Familiar")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BIRD})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.SPECIAL), @Printings.Printed(ex = Planeshift.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class StormscapeFamiliar extends Card
 {

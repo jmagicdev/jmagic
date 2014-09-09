@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Sea Gate Loremaster")
 @Types({Type.CREATURE})
 @SubTypes({SubType.MERFOLK, SubType.ALLY, SubType.WIZARD})
 @ManaCost("4U")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class SeaGateLoremaster extends Card
 {

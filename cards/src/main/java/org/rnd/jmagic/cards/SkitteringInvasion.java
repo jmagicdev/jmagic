@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Skittering Invasion")
 @Types({Type.TRIBAL, Type.SORCERY})
 @SubTypes({SubType.ELDRAZI})
 @ManaCost("7")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class SkitteringInvasion extends Card
 {

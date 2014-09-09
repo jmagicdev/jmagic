@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Intuition")
 @Types({Type.INSTANT})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = Tempest.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class Intuition extends Card
 {

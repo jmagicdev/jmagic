@@ -10,7 +10,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Agyrem")
 @Types({Type.PLANE})
 @SubTypes({SubType.RAVNICA})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Agyrem extends Card
 {

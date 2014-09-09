@@ -10,7 +10,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("The Dark Barony")
 @Types({Type.PLANE})
 @SubTypes({SubType.ULGROTHA})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class TheDarkBarony extends Card
 {

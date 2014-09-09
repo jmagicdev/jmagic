@@ -3,14 +3,12 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Cunning Bandit")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.HUMAN})
 @ManaCost("1RR")
-@Printings({@Printings.Printed(ex = BetrayersOfKamigawa.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 @BottomHalf(AzamukiTreacheryIncarnate.class)
 public final class CunningBandit extends Card

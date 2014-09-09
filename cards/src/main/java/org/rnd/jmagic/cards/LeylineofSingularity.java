@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import org.rnd.jmagic.abilities.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Leyline of Singularity")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2UU")
-@Printings({@Printings.Printed(ex = Guildpact.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class LeylineofSingularity extends Card
 {

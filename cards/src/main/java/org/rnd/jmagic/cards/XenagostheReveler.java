@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Xenagos, the Reveler")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.XENAGOS})
 @ManaCost("2RG")
-@Printings({@Printings.Printed(ex = Theros.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.RED, Color.GREEN})
 public final class XenagostheReveler extends Card
 {

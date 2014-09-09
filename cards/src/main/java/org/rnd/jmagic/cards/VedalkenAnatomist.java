@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Vedalken Anatomist")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.VEDALKEN})
 @ManaCost("2U")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class VedalkenAnatomist extends Card
 {

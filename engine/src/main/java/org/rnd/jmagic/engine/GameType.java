@@ -41,7 +41,7 @@ public class GameType
 		 * @param card The card to check
 		 * @return Whether a card is allowed to be played with.
 		 */
-		public boolean checkCard(Class<? extends Card> card);
+		public boolean checkCard(String card);
 
 		/**
 		 * @param ex The expansion to check
@@ -88,7 +88,7 @@ public class GameType
 		 * @return true. See {@link GameTypeRule#checkCard(Class)}.
 		 */
 		@Override
-		public boolean checkCard(Class<? extends Card> card)
+		public boolean checkCard(String card)
 		{
 			return true;
 		}
@@ -201,7 +201,23 @@ public class GameType
 		for(Expansion ex: Expansion.list())
 			for(GameTypeRule rule: this.rules)
 				if(rule.checkExpansion(ex))
+				{
 					this.cardpool.addAll(ex.getAllCardNames());
+					break;
+				}
+
+		java.util.Iterator<String> iter = this.cardpool.iterator();
+		while(iter.hasNext())
+		{
+			String card = iter.next();
+			System.out.println(card);
+			for(GameTypeRule rule: this.rules)
+				if(!rule.checkCard(card))
+				{
+					iter.remove();
+					break;
+				}
+		}
 	}
 
 	@Override

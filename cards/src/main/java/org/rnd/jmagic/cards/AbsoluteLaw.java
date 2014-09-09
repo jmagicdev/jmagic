@@ -2,12 +2,10 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Absolute Law")
 @Types({Type.ENCHANTMENT})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = UrzasSaga.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class AbsoluteLaw extends Card
 {

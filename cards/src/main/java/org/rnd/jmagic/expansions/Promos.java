@@ -7,6 +7,8 @@ public final class Promos extends SimpleExpansion
 {
 	public Promos()
 	{
-		super(new String[] {"Beast of Burden", "Mana Crypt"});
+		super();
+
+		this.addCards(Rarity.SPECIAL, "Beast of Burden", "Mana Crypt");
 	}
 }

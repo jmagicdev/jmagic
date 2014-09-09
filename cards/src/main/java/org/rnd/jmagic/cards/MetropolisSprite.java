@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Metropolis Sprite")
 @Types({Type.CREATURE})
 @SubTypes({SubType.FAERIE, SubType.ROGUE})
 @ManaCost("1U")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class MetropolisSprite extends Card
 {

@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Wipe Away")
 @Types({Type.INSTANT})
 @ManaCost("1UU")
-@Printings({@Printings.Printed(ex = TimeSpiral.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class WipeAway extends Card
 {

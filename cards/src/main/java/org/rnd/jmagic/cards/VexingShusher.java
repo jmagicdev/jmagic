@@ -5,13 +5,11 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.patterns.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Vexing Shusher")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GOBLIN, SubType.SHAMAN})
 @ManaCost("(RG)(RG)")
-@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN, Color.RED})
 public final class VexingShusher extends Card
 {

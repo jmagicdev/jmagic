@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Sanctum Plowbeast")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("4WU")
-@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.WHITE})
 public final class SanctumPlowbeast extends Card
 {

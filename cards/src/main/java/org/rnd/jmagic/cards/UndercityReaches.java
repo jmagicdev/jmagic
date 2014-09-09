@@ -9,7 +9,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Undercity Reaches")
 @Types({Type.PLANE})
 @SubTypes({SubType.RAVNICA})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class UndercityReaches extends Card
 {

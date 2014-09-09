@@ -2,14 +2,12 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Phantasmal Bear")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAR, SubType.ILLUSION})
 @ManaCost("U")
-@Printings({@Printings.Printed(ex = Magic2012.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE})
 public final class PhantasmalBear extends Card
 {

@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Enigma Sphinx")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.SPHINX})
 @ManaCost("4WUB")
-@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.WHITE, Color.BLACK})
 public final class EnigmaSphinx extends Card
 {

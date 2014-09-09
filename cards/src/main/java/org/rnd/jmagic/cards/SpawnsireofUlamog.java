@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Spawnsire of Ulamog")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELDRAZI})
 @ManaCost("(10)")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class SpawnsireofUlamog extends Card
 {

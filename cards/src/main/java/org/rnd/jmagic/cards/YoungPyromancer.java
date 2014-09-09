@@ -5,13 +5,11 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Young Pyromancer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.SHAMAN})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = Magic2014CoreSet.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class YoungPyromancer extends Card
 {

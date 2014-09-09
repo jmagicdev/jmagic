@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Vampire Interloper")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SCOUT, SubType.VAMPIRE})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class VampireInterloper extends Card
 {

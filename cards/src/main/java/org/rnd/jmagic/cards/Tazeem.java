@@ -9,7 +9,6 @@ import org.rnd.jmagic.gameTypes.*;
 @Name("Tazeem")
 @Types({Type.PLANE})
 @SubTypes({SubType.ZENDIKAR})
-@Printings({@Printings.Printed(ex = org.rnd.jmagic.expansions.Planechase.class, r = Rarity.SPECIAL)})
 @ColorIdentity({})
 public final class Tazeem extends Card
 {

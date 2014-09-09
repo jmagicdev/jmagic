@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Elvish Mystic")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.DRUID})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Magic2015CoreSet.class, r = Rarity.COMMON), @Printings.Printed(ex = Magic2014CoreSet.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN})
 public final class ElvishMystic extends Card
 {

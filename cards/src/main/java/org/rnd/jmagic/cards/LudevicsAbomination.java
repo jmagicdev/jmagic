@@ -1,12 +1,10 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Ludevic's Abomination")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HORROR, SubType.LIZARD})
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class LudevicsAbomination extends AlternateCard
 {

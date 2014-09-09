@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Frogmite")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.FROG})
 @ManaCost("4")
-@Printings({@Printings.Printed(ex = Mirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class Frogmite extends Card
 {

@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Reinforced Bulwark")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.WALL})
 @ManaCost("3")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.COMMON)})
 @ColorIdentity({})
 public final class ReinforcedBulwark extends Card
 {

@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Blister Beetle")
 @Types({Type.CREATURE})
 @SubTypes({SubType.INSECT})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = ShardsOfAlara.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class BlisterBeetle extends Card
 {

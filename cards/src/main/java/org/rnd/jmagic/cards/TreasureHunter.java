@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Treasure Hunter")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Exodus.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class TreasureHunter extends Card
 {

@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Spectral Gateguards")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT, SubType.SOLDIER})
 @ManaCost("4W")
-@Printings({@Printings.Printed(ex = AvacynRestored.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class SpectralGateguards extends Card
 {

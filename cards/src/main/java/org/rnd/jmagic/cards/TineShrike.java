@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Tine Shrike")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BIRD})
 @ManaCost("3W")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class TineShrike extends Card
 {

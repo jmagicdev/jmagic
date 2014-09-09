@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Tarfire")
 @Types({Type.TRIBAL, Type.INSTANT})
 @SubTypes({SubType.GOBLIN})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Lorwyn.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class Tarfire extends Card
 {

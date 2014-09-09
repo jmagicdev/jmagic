@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Trestle Troll")
 @Types({Type.CREATURE})
 @SubTypes({SubType.TROLL})
 @ManaCost("1BG")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN, Color.BLACK})
 public final class TrestleTroll extends Card
 {

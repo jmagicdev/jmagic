@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Sphinx of the Chimes")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPHINX})
 @ManaCost("4UU")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class SphinxoftheChimes extends Card
 {

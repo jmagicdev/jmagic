@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Lotus Cobra")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SNAKE})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.GREEN})
 public final class LotusCobra extends Card
 {

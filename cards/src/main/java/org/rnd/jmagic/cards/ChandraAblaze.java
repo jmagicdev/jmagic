@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Chandra Ablaze")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.CHANDRA})
 @ManaCost("4RR")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.RED})
 public final class ChandraAblaze extends Card
 {

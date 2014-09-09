@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Deranged Outcast")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ROGUE, SubType.HUMAN})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class DerangedOutcast extends Card
 {

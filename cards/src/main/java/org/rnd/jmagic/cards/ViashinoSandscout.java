@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Viashino Sandscout")
 @Types({Type.CREATURE})
 @SubTypes({SubType.VIASHINO, SubType.SCOUT})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = TenthEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = UrzasLegacy.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class ViashinoSandscout extends Card
 {

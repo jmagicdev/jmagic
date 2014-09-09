@@ -2,14 +2,12 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Curse of Exhaustion")
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.CURSE, SubType.AURA})
 @ManaCost("2WW")
-@Printings({@Printings.Printed(ex = DarkAscension.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class CurseofExhaustion extends Card
 {

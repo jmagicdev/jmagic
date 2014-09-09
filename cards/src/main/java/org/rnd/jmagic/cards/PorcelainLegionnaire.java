@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Porcelain Legionnaire")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.SOLDIER})
 @ManaCost("2(W/P)")
-@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class PorcelainLegionnaire extends Card
 {

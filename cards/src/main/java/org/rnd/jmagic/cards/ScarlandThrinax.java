@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Scarland Thrinax")
 @Types({Type.CREATURE})
 @SubTypes({SubType.LIZARD})
 @ManaCost("BRG")
-@Printings({@Printings.Printed(ex = Conflux.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN, Color.BLACK, Color.RED})
 public final class ScarlandThrinax extends Card
 {

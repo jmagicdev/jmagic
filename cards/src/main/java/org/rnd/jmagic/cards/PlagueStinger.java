@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Plague Stinger")
 @Types({Type.CREATURE})
 @SubTypes({SubType.INSECT, SubType.HORROR})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLACK})
 public final class PlagueStinger extends Card
 {

@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Revered Dead")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT, SubType.SOLDIER})
 @ManaCost("1W")
-@Printings({@Printings.Printed(ex = PlanarChaos.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class ReveredDead extends Card
 {

@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Experiment One")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.OOZE})
 @ManaCost("G")
-@Printings({@Printings.Printed(ex = Gatecrash.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class ExperimentOne extends Card
 {

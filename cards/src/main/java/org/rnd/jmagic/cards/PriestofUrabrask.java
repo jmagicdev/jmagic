@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Priest of Urabrask")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.CLERIC})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class PriestofUrabrask extends Card
 {

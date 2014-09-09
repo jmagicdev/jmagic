@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Kird Ape")
 @Types({Type.CREATURE})
 @SubTypes({SubType.APE})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = NinthEdition.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = RevisedEdition.class, r = Rarity.COMMON), @Printings.Printed(ex = ArabianNights.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class KirdApe extends Card
 {

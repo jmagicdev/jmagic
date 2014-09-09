@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Sluiceway Scorpion")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SCORPION})
 @ManaCost("2BG")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.GREEN, Color.BLACK})
 public final class SluicewayScorpion extends Card
 {

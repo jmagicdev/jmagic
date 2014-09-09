@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Lifebane Zombie")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.ZOMBIE})
 @ManaCost("1BB")
-@Printings({@Printings.Printed(ex = Magic2014CoreSet.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLACK})
 public final class LifebaneZombie extends Card
 {

@@ -2,11 +2,9 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.abilities.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Razorverge Thicket")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.GREEN})
 public final class RazorvergeThicket extends Card
 {

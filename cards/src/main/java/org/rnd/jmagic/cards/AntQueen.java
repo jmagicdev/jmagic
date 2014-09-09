@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Ant Queen")
 @Types({Type.CREATURE})
 @SubTypes({SubType.INSECT})
 @ManaCost("3GG")
-@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class AntQueen extends Card
 {

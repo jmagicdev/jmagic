@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Darksteel Juggernaut")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.JUGGERNAUT})
 @ManaCost("5")
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class DarksteelJuggernaut extends Card
 {

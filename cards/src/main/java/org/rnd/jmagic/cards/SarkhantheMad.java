@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Sarkhan the Mad")
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.SARKHAN})
 @ManaCost("3BR")
-@Printings({@Printings.Printed(ex = RiseOfTheEldrazi.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLACK, Color.RED})
 public final class SarkhantheMad extends Card
 {

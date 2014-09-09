@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Kemba's Legion")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CAT, SubType.SOLDIER})
 @ManaCost("5WW")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class KembasLegion extends Card
 {

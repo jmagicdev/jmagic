@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Yixlid Jailer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.ZOMBIE})
 @ManaCost("1B")
-@Printings({@Printings.Printed(ex = FutureSight.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class YixlidJailer extends Card
 {

@@ -4,12 +4,10 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Sylvan Library")
 @Types({Type.ENCHANTMENT})
 @ManaCost("1G")
-@Printings({@Printings.Printed(ex = FifthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = FourthEdition.class, r = Rarity.RARE), @Printings.Printed(ex = Legends.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.GREEN})
 public final class SylvanLibrary extends Card
 {

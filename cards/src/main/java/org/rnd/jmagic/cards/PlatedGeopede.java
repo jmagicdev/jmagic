@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Plated Geopede")
 @Types({Type.CREATURE})
 @SubTypes({SubType.INSECT})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class PlatedGeopede extends Card
 {

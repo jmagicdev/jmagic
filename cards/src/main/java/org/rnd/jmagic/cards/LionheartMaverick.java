@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Lionheart Maverick")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.KNIGHT})
 @ManaCost("W")
-@Printings({@Printings.Printed(ex = Guildpact.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE})
 public final class LionheartMaverick extends Card
 {

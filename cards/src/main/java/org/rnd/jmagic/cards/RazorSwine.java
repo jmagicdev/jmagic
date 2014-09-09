@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Razor Swine")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BOAR})
 @ManaCost("2R")
-@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.RED})
 public final class RazorSwine extends Card
 {

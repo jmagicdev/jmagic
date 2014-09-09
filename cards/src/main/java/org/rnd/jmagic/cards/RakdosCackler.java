@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Rakdos Cackler")
 @Types({Type.CREATURE})
 @SubTypes({SubType.DEVIL})
 @ManaCost("(B/R)")
-@Printings({@Printings.Printed(ex = ReturnToRavnica.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK, Color.RED})
 public final class RakdosCackler extends Card
 {

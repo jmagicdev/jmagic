@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Boros Recruit")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.GOBLIN})
 @ManaCost("(R/W)")
-@Printings({@Printings.Printed(ex = RavnicaCityOfGuilds.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.WHITE, Color.RED})
 public final class BorosRecruit extends Card
 {

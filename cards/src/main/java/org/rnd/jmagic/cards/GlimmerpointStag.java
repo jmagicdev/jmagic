@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Glimmerpoint Stag")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELK})
 @ManaCost("2WW")
-@Printings({@Printings.Printed(ex = ScarsOfMirrodin.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class GlimmerpointStag extends Card
 {

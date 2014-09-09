@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Nemesis of Reason")
 @Types({Type.CREATURE})
 @SubTypes({SubType.LEVIATHAN, SubType.HORROR})
 @ManaCost("3UB")
-@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE, Color.BLACK})
 public final class NemesisofReason extends Card
 {

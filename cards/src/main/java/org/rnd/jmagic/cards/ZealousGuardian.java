@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Zealous Guardian")
 @Types({Type.CREATURE})
 @SubTypes({SubType.KITHKIN, SubType.SOLDIER})
 @ManaCost("(WU)")
-@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.COMMON)})
 @ColorIdentity({Color.BLUE, Color.WHITE})
 public final class ZealousGuardian extends Card
 {

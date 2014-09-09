@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Sphinx of the Steel Wind")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.SPHINX})
 @ManaCost("5WUB")
-@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.BLUE, Color.WHITE, Color.BLACK})
 public final class SphinxoftheSteelWind extends Card
 {

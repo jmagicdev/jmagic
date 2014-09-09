@@ -3,12 +3,10 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Cabal Therapy")
 @Types({Type.SORCERY})
 @ManaCost("B")
-@Printings({@Printings.Printed(ex = Judgment.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class CabalTherapy extends Card
 {

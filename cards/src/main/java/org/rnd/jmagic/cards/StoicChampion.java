@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Stoic Champion")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.SOLDIER})
 @ManaCost("WW")
-@Printings({@Printings.Printed(ex = Legions.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.WHITE})
 public final class StoicChampion extends Card
 {

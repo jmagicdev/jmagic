@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Capricious Efreet")
 @Types({Type.CREATURE})
 @SubTypes({SubType.EFREET})
 @ManaCost("4RR")
-@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class CapriciousEfreet extends Card
 {

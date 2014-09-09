@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Chancellor of the Spires")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPHINX})
 @ManaCost("4UUU")
-@Printings({@Printings.Printed(ex = NewPhyrexia.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class ChancelloroftheSpires extends Card
 {

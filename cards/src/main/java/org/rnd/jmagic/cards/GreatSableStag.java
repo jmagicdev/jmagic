@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Great Sable Stag")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELK})
 @ManaCost("1GG")
-@Printings({@Printings.Printed(ex = Magic2010.class, r = Rarity.RARE)})
 @ColorIdentity({Color.GREEN})
 public final class GreatSableStag extends Card
 {

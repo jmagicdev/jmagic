@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Angelic Overseer")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("3WW")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.WHITE})
 public final class AngelicOverseer extends Card
 {

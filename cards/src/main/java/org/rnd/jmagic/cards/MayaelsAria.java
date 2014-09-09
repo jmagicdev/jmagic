@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 import org.rnd.util.*;
 
 @Name("Mayael's Aria")
 @Types({Type.ENCHANTMENT})
 @ManaCost("RGW")
-@Printings({@Printings.Printed(ex = AlaraReborn.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE, Color.GREEN, Color.RED})
 public final class MayaelsAria extends Card
 {

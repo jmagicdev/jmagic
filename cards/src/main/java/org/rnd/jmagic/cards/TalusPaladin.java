@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Talus Paladin")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ALLY, SubType.HUMAN, SubType.KNIGHT})
 @ManaCost("3W")
-@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class TalusPaladin extends Card
 {

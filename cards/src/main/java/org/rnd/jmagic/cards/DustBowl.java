@@ -3,11 +3,9 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Dust Bowl")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = MercadianMasques.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class DustBowl extends Card
 {

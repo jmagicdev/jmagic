@@ -2,11 +2,9 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Reliquary Tower")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = Magic2013.class, r = Rarity.UNCOMMON), @Printings.Printed(ex = Conflux.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class ReliquaryTower extends Card
 {

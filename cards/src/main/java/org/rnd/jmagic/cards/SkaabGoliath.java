@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Skaab Goliath")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE, SubType.GIANT})
 @ManaCost("5U")
-@Printings({@Printings.Printed(ex = Innistrad.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE})
 public final class SkaabGoliath extends Card
 {

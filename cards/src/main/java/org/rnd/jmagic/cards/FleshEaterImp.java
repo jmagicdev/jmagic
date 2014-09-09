@@ -2,13 +2,11 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Flesh-Eater Imp")
 @Types({Type.CREATURE})
 @SubTypes({SubType.IMP})
 @ManaCost("3B")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLACK})
 public final class FleshEaterImp extends Card
 {

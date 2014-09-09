@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Metalworker")
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.CONSTRUCT})
 @ManaCost("3")
-@Printings({@Printings.Printed(ex = UrzasDestiny.class, r = Rarity.RARE)})
 @ColorIdentity({})
 public final class Metalworker extends Card
 {

@@ -3,11 +3,9 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Bazaar of Baghdad")
 @Types({Type.LAND})
-@Printings({@Printings.Printed(ex = ArabianNights.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({})
 public final class BazaarofBaghdad extends Card
 {

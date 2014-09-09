@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Goblin Guide")
 @Types({Type.CREATURE})
 @SubTypes({SubType.SCOUT, SubType.GOBLIN})
 @ManaCost("R")
-@Printings({@Printings.Printed(ex = Zendikar.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class GoblinGuide extends Card
 {

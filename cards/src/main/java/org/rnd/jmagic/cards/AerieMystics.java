@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Aerie Mystics")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BIRD, SubType.WIZARD})
 @ManaCost("4W")
-@Printings({@Printings.Printed(ex = Conflux.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN})
 public final class AerieMystics extends Card
 {

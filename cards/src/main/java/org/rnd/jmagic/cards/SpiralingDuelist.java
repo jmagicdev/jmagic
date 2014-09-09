@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Spiraling Duelist")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BERSERKER, SubType.HUMAN})
 @ManaCost("2RR")
-@Printings({@Printings.Printed(ex = MirrodinBesieged.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class SpiralingDuelist extends Card
 {

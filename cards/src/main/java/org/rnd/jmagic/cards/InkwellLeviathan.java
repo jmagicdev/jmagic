@@ -1,13 +1,11 @@
 package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Inkwell Leviathan")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.LEVIATHAN})
 @ManaCost("7UU")
-@Printings({@Printings.Printed(ex = Conflux.class, r = Rarity.RARE)})
 @ColorIdentity({Color.BLUE})
 public final class InkwellLeviathan extends Card
 {

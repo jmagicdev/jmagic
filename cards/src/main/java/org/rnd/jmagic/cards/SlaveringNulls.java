@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Slavering Nulls")
 @Types({Type.CREATURE})
 @SubTypes({SubType.GOBLIN, SubType.ZOMBIE})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = Worldwake.class, r = Rarity.UNCOMMON)})
 @ColorIdentity({Color.RED})
 public final class SlaveringNulls extends Card
 {

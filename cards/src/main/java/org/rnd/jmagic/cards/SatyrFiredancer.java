@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Satyr Firedancer")
 @Types({Type.ENCHANTMENT, Type.CREATURE})
 @SubTypes({SubType.SATYR})
 @ManaCost("1R")
-@Printings({@Printings.Printed(ex = BornOfTheGods.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED})
 public final class SatyrFiredancer extends Card
 {
