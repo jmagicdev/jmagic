@@ -20,7 +20,6 @@ public class ObjectFramework
 	public java.util.Set<SuperType> superTypes = java.util.EnumSet.noneOf(SuperType.class);
 	public java.util.Set<Type> types = java.util.EnumSet.noneOf(Type.class);
 	public java.util.Set<SubType> subTypes = java.util.EnumSet.noneOf(SubType.class);
-	public java.util.Map<Class<? extends Expansion>, Rarity> printings = new java.util.TreeMap<Class<? extends Expansion>, Rarity>();
 	public java.util.List<ObjectFramework> abilities = new java.util.LinkedList<ObjectFramework>();
 	public Integer power = null;
 	public Integer toughness = null;
@@ -98,21 +97,6 @@ public class ObjectFramework
 			if(this.manaCost != null)
 			{
 				out.write(indent + "@ManaCost(\"" + this.manaCost + "\")");
-			}
-
-			if(!this.printings.isEmpty())
-			{
-				out.write(indent + "@Printings({ ");
-				boolean first = true;
-				for(java.util.Map.Entry<Class<? extends Expansion>, Rarity> entry: this.printings.entrySet())
-				{
-					if(!first)
-						out.write(", ");
-					else
-						first = false;
-					out.write("@Printings.Printed(ex = " + entry.getKey().getSimpleName() + ".class, r = Rarity." + entry.getValue().name() + ")");
-				}
-				out.write(" })");
 			}
 		}
 
