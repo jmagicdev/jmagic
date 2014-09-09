@@ -68,6 +68,7 @@ org.rnd.jmagic.expansions.Planeshift
 org.rnd.jmagic.expansions.Portal
 org.rnd.jmagic.expansions.PortalSecondAge
 org.rnd.jmagic.expansions.PortalThreeKingdoms
+org.rnd.jmagic.expansions.Promos
 org.rnd.jmagic.expansions.Prophecy
 org.rnd.jmagic.expansions.RavnicaCityOfGuilds
 org.rnd.jmagic.expansions.ReturnToRavnica
