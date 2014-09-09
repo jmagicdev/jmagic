@@ -40,6 +40,7 @@ public class GameTypesTest extends JUnitTest
 
 		GameType x10 = new GameType("X10");
 		x10.addRule(new org.rnd.jmagic.engine.gameTypes.X10());
+		x10.addRule(new Open.CardPool());
 		x10.addRule(new PackWars.GameRules(expansion));
 		startGame(x10);
 
