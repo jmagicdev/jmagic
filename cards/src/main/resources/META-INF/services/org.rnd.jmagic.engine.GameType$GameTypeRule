@@ -4,5 +4,6 @@ org.rnd.jmagic.gameTypes.PlanechaseGameRules
 org.rnd.jmagic.gameTypes.Block$CardPool
 org.rnd.jmagic.gameTypes.Legacy$CardPool
 org.rnd.jmagic.gameTypes.Modern$CardPool
+org.rnd.jmagic.gameTypes.Open$CardPool
 org.rnd.jmagic.gameTypes.Standard$CardPool
 org.rnd.jmagic.gameTypes.Vintage$CardPool

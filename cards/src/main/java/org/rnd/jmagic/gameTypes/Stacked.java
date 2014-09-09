@@ -10,6 +10,7 @@ public class Stacked extends GameType
 		super("Stacked (cheater!)");
 
 		this.addRule(new org.rnd.jmagic.engine.gameTypes.Stacked());
+		this.addRule(new Open.CardPool());
 		this.addRule(new SideboardAsWishboard());
 	}
 }
