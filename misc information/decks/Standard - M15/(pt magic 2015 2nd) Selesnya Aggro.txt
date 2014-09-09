@@ -6,6 +6,8 @@
 2 Sunblade Elf
 4 Voice of Resurgence
 
+3 Ajani, Caller of the Pride
+
 4 Advent of the Wurm
 3 Banishing Light
 3 Selesnya Charm
