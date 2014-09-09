@@ -18,7 +18,7 @@ public class Open extends GameType
 		public CardPool()
 		{
 			super(true);
-			this.allowSet(org.rnd.jmagic.expansions.Testing.class);
+			// this.allowSet(org.rnd.jmagic.expansions.Testing.class);
 		}
 	}
 }

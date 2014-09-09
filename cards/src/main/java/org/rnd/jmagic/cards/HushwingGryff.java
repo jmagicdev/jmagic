@@ -3,13 +3,11 @@ package org.rnd.jmagic.cards;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Hushwing Gryff")
 @Types({Type.CREATURE})
 @SubTypes({SubType.HIPPOGRIFF})
 @ManaCost("2W")
-@Printings({@Printings.Printed(ex = Magic2015CoreSet.class, r = Rarity.RARE)})
 @ColorIdentity({Color.WHITE})
 public final class HushwingGryff extends Card
 {

@@ -4,13 +4,11 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Fulminator Mage")
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL, SubType.SHAMAN})
 @ManaCost("1(B/R)(B/R)")
-@Printings({@Printings.Printed(ex = Shadowmoor.class, r = Rarity.RARE)})
 @ColorIdentity({Color.RED, Color.BLACK})
 public final class FulminatorMage extends Card
 {

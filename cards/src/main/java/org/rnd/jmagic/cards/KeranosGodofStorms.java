@@ -5,14 +5,12 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
-import org.rnd.jmagic.expansions.*;
 
 @Name("Keranos, God of Storms")
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.ENCHANTMENT, Type.CREATURE})
 @SubTypes({SubType.GOD})
 @ManaCost("3UR")
-@Printings({@Printings.Printed(ex = JourneyIntoNyx.class, r = Rarity.MYTHIC)})
 @ColorIdentity({Color.RED, Color.BLUE})
 public final class KeranosGodofStorms extends Card
 {
