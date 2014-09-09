@@ -210,7 +210,6 @@ public class GameType
 		while(iter.hasNext())
 		{
 			String card = iter.next();
-			System.out.println(card);
 			for(GameTypeRule rule: this.rules)
 				if(!rule.checkCard(card))
 				{
