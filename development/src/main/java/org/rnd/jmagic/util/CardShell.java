@@ -14,20 +14,6 @@ public class CardShell
 	private static final java.util.Map<String, Class<? extends Expansion>> expansionNames = new java.util.HashMap<String, Class<? extends Expansion>>();
 	private static final java.util.Map<String, Rarity> rarityNames = new java.util.HashMap<String, Rarity>();
 
-	private static final java.util.Map<String, String> NON_ASCII_REPLACE;
-
-	static
-	{
-		// Keep these values up to date with CardLoader.NON_ASCII_REPLACE
-		NON_ASCII_REPLACE = new java.util.HashMap<String, String>();
-		// Upper-case combined a-e
-		NON_ASCII_REPLACE.put("\u00C6", "\\u00C6");
-		// Lower-case e with an accent
-		NON_ASCII_REPLACE.put("\u00E9", "\\u00E9");
-		// Lower-case o with umlaut
-		NON_ASCII_REPLACE.put("\u00F6", "\\u00F6");
-	}
-
 	private static void addExpansion(String name, Class<? extends Expansion> expansion)
 	{
 		expansionNames.put(name.toLowerCase(), expansion);
@@ -462,7 +448,7 @@ public class CardShell
 	private static String replaceIllegalCharacters(String string)
 	{
 		String ret = string;
-		for(java.util.Map.Entry<String, String> entry: NON_ASCII_REPLACE.entrySet())
+		for(java.util.Map.Entry<String, String> entry: org.rnd.jmagic.CardLoader.NON_ASCII_REPLACE.entrySet())
 			ret = ret.replace(entry.getKey(), entry.getValue());
 		return ret;
 	}

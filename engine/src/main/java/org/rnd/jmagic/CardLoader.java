@@ -48,7 +48,7 @@ public class CardLoader
 
 	private static java.util.regex.Pattern DECK_LINE_PATTERN;
 
-	private static java.util.Map<String, String> NON_ASCII_REPLACE;
+	public static java.util.Map<String, String> NON_ASCII_REPLACE;
 
 	private static java.util.Map<String, Class<? extends Card>> NAME_CACHE = new java.util.HashMap<>();
 

@@ -7,6 +7,6 @@ public final class FromTheVaultRelics extends SimpleExpansion
 {
 	public FromTheVaultRelics()
 	{
-		super(new String[] {"Æther Vial", "Black Vise", "Isochron Scepter", "Ivory Tower", "Jester's Cap", "Karn, Silver Golem", "Masticore", "Memory Jar", "Mirari", "Mox Diamond", "Nevinyrral's Disk", "Sol Ring", "Sundering Titan", "Sword of Body and Mind", "Zuran Orb"});
+		super(new String[] {"AEther Vial", "Black Vise", "Isochron Scepter", "Ivory Tower", "Jester's Cap", "Karn, Silver Golem", "Masticore", "Memory Jar", "Mirari", "Mox Diamond", "Nevinyrral's Disk", "Sol Ring", "Sundering Titan", "Sword of Body and Mind", "Zuran Orb"});
 	}
 }

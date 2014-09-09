@@ -26,6 +26,8 @@ public class ExpansionsFromJson
 			for(JsonObject card: cards.getValuesAs(JsonObject.class))
 			{
 				String name = card.getString("name", "[card missing name]");
+				for(java.util.Map.Entry<String, String> replacement: org.rnd.jmagic.CardLoader.NON_ASCII_REPLACE.entrySet())
+					name = name.replace(replacement.getKey(), replacement.getValue());
 				String layout = card.getString("layout", "");
 				if(layout.equals("flip") || layout.equals("double-faced") || layout.equals("split"))
 				{
@@ -62,6 +64,10 @@ public class ExpansionsFromJson
 				System.out.println(expansionName);
 				continue;
 			}
+
+			// just in case there were some cards that are not in order; AE
+			// cards might cause this
+			java.util.Collections.sort(cardList);
 
 			java.io.PrintStream write = new java.io.PrintStream(file);
 			write.print("package org.rnd.jmagic.expansions;\n\nimport org.rnd.jmagic.engine.*;\n\n@Name(\"" + expansionName.replace("\"", "\\\"") + "\")\npublic final class " + className + " extends SimpleExpansion\n{\n");
