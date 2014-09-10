@@ -402,7 +402,6 @@ public class CardShell
 			out.write("import static org.rnd.jmagic.Convenience.*;\r\n");
 			out.write("import org.rnd.jmagic.engine.*;\r\n");
 			out.write("import org.rnd.jmagic.engine.generators.*;\r\n");
-			out.write("import org.rnd.jmagic.expansions.*;\r\n\r\n");
 
 			out.write("@Name(\"" + nameInFile + "\")\n");
 
