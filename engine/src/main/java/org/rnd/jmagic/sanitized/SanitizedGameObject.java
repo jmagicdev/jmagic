@@ -10,7 +10,7 @@ public class SanitizedGameObject extends SanitizedIdentified
 		ACTUAL, BACK_FACE, FLIP, PHYSICAL;
 	}
 
-	private static final long serialVersionUID = 10L;
+	private static final long serialVersionUID = 11L;
 
 	public final java.util.Map<CharacteristicSet, SanitizedCharacteristics>[] characteristics;
 
