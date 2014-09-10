@@ -954,7 +954,10 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public java.util.Set<Color> getColors()
 	{
-		return this.characteristics[0].colors;
+		return java.util.Arrays.stream(this.characteristics).map(t -> t.colors).reduce(java.util.EnumSet.noneOf(Color.class), (left, right) -> {
+			left.addAll(right);
+			return left;
+		});
 	}
 
 	/**
