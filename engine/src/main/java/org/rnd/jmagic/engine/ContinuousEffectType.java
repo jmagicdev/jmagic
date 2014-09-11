@@ -617,9 +617,9 @@ public abstract class ContinuousEffectType
 		@Override
 		public void apply(GameState state, ContinuousEffect effect, java.util.Map<Parameter, Set> parameters)
 		{
-			java.util.Collection<Color> colors = parameters.get(Parameter.COLOR).getAll(Color.class);
+			java.util.Set<Color> colors = parameters.get(Parameter.COLOR).getAll(Color.class);
 			for(GameObject object: parameters.get(Parameter.OBJECT).getAll(GameObject.class))
-				object.getColors().addAll(colors);
+				object.addColors(colors);
 		}
 
 		@Override

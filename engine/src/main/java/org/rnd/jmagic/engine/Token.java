@@ -46,7 +46,7 @@ public final class Token extends GameObject
 		ret.addSuperTypes(this.getSuperTypes());
 		ret.setPower(this.getPower());
 		ret.setToughness(this.getToughness());
-		ret.getColors().addAll(this.getColors());
+		ret.addColors(this.getColors());
 		ret.addSubTypes(this.getSubTypes());
 		ret.addTypes(this.getTypes());
 

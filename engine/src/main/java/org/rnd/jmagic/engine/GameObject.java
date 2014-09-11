@@ -383,6 +383,12 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		this.battlefieldProperties.defendingIDs.add(attackingID);
 	}
 
+	public void addColors(java.util.Set<Color> colors)
+	{
+		for(Characteristics characteristics: this.characteristics)
+			characteristics.colors.addAll(colors);
+	}
+
 	public final void addCost(EventFactory factory)
 	{
 		this.characteristics[0].costs.add(factory);
@@ -452,12 +458,12 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public void addSubTypes(java.util.Collection<SubType> subTypes)
 	{
-		this.characteristics[0].subTypes.addAll(subTypes);
+		java.util.Arrays.stream(this.characteristics).forEach(c -> c.subTypes.addAll(subTypes));
 	}
 
 	public void addSuperTypes(java.util.Collection<SuperType> superTypes)
 	{
-		this.characteristics[0].superTypes.addAll(superTypes);
+		java.util.Arrays.stream(this.characteristics).forEach(c -> c.superTypes.addAll(superTypes));
 	}
 
 	protected final Target addTarget(int mode, SetGenerator filter, String name)
@@ -502,7 +508,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public void addTypes(java.util.Collection<Type> types)
 	{
-		this.characteristics[0].types.addAll(types);
+		java.util.Arrays.stream(this.characteristics).forEach(c -> c.types.addAll(types));
 	}
 
 	/**
@@ -954,10 +960,9 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public java.util.Set<Color> getColors()
 	{
-		return java.util.Arrays.stream(this.characteristics).map(t -> t.colors).reduce(java.util.EnumSet.noneOf(Color.class), (left, right) -> {
-			left.addAll(right);
-			return left;
-		});
+		return java.util.Arrays.stream(this.characteristics).flatMap(t -> t.colors.stream()).collect(java.util.stream.Collectors.toCollection(() -> {
+			return java.util.EnumSet.noneOf(Color.class);
+		}));
 	}
 
 	/**
@@ -1236,18 +1241,16 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public java.util.Set<SubType> getSubTypes()
 	{
-		return java.util.Arrays.stream(this.characteristics).map(t -> t.subTypes).reduce(java.util.EnumSet.noneOf(SubType.class), (left, right) -> {
-			left.addAll(right);
-			return left;
-		});
+		return java.util.Arrays.stream(this.characteristics).flatMap(t -> t.subTypes.stream()).collect(java.util.stream.Collectors.toCollection(() -> {
+			return java.util.EnumSet.noneOf(SubType.class);
+		}));
 	}
 
 	public java.util.Set<SuperType> getSuperTypes()
 	{
-		return java.util.Arrays.stream(this.characteristics).map(t -> t.superTypes).reduce(java.util.EnumSet.noneOf(SuperType.class), (left, right) -> {
-			left.addAll(right);
-			return left;
-		});
+		return java.util.Arrays.stream(this.characteristics).flatMap(t -> t.superTypes.stream()).collect(java.util.stream.Collectors.toCollection(() -> {
+			return java.util.EnumSet.noneOf(SuperType.class);
+		}));
 	}
 
 	public int getTimestamp()
@@ -1262,10 +1265,9 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public java.util.Set<Type> getTypes()
 	{
-		return java.util.Arrays.stream(this.characteristics).map(t -> t.types).reduce(java.util.EnumSet.noneOf(Type.class), (left, right) -> {
-			left.addAll(right);
-			return left;
-		});
+		return java.util.Arrays.stream(this.characteristics).flatMap(t -> t.types.stream()).collect(java.util.stream.Collectors.toCollection(() -> {
+			return java.util.EnumSet.noneOf(Type.class);
+		}));
 	}
 
 	public int getValueOfX()

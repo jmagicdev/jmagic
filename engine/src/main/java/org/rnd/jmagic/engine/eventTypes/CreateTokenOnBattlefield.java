@@ -130,7 +130,7 @@ public final class CreateTokenOnBattlefield extends EventType
 					t.addSubTypes(subTypes);
 				t.addTypes(types);
 				if(null != colors)
-					t.getColors().addAll(colors);
+					t.addColors(colors);
 
 				t.ownerID = owner.ID;
 				game.physicalState.exileZone().addToTop(t);
