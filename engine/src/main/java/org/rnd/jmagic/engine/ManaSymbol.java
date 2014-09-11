@@ -137,6 +137,15 @@ public class ManaSymbol implements Colorful, Comparable<ManaSymbol>, java.io.Ser
 	}
 
 	/**
+	 * If spending this mana produces an effect (like on Generator Servant),
+	 * that effect. If it doesn't, null.
+	 */
+	public EventFactory getEffectForSpendingOn(GameObject o)
+	{
+		return null;
+	}
+
+	/**
 	 * This should only be called on ManaSymbols guaranteed to have only one
 	 * type (like those in a players mana pool).
 	 * 

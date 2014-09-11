@@ -125,12 +125,24 @@ public final class PayMana extends EventType
 			ManaPool choice = new ManaPool(paying.choose(chooseParameters));
 			if(choice.pays(game.actualState, costCopy))
 			{
+				java.util.Map<Integer, EventFactory> specialEffects = new java.util.HashMap<Integer, EventFactory>();
+				if(costOf != null)
+					for(ManaSymbol chosen: choice)
+					{
+						EventFactory specialEffect = chosen.getEffectForSpendingOn(costOf);
+						if(specialEffect != null)
+							specialEffects.put(chosen.sourceID, specialEffect);
+					}
+
 				paying.pool.removeAll(choice);
 
 				// resolving spells and abilities abilities that ask you
 				// to pay mana aren't part of a PlayerAction being performed
 				if(null != game.currentAction)
 					game.currentAction.manaPaid.addAll(choice);
+
+				for(java.util.Map.Entry<Integer, EventFactory> fx: specialEffects.entrySet())
+					fx.getValue().createEvent(game, game.actualState.<GameObject>get(fx.getKey())).perform(event, false);
 
 				event.setResult(Identity.fromCollection(choice));
 				return true;

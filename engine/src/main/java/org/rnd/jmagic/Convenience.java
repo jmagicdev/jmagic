@@ -1363,6 +1363,8 @@ public class Convenience
 		}
 	};
 
+	public static final SetGenerator SLIVER_CREATURES_YOU_CONTROL = Intersect.instance(HasSubType.instance(SubType.SLIVER), HasType.instance(Type.CREATURE), ControlledBy.instance(You.instance()));
+
 	private static SetPattern spellsAndAbilitiesPattern = null;
 
 	private static EventPattern spiritcraftPattern = null;
