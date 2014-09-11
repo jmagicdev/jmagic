@@ -15,7 +15,7 @@ public final class HavengulVampire extends Card
 		public HavengulVampireAbility1(GameState state)
 		{
 			super(state, "Whenever another creature dies, put a +1/+1 counter on Havengul Vampire.");
-			this.addPattern(whenAnotherCreatureIsPutIntoAGraveyardFromTheBattlefield());
+			this.addPattern(whenAnotherCreatureDies());
 
 			this.addEffect(putCounters(1, Counter.CounterType.PLUS_ONE_PLUS_ONE, ABILITY_SOURCE_OF_THIS, "Put a +1/+1 counter on Havengul Vampire."));
 		}

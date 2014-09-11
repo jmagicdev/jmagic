@@ -17,7 +17,7 @@ public final class MurderofCrows extends Card
 		public MurderofCrowsAbility1(GameState state)
 		{
 			super(state, "Whenever another creature dies, you may draw a card. If you do, discard a card.");
-			this.addPattern(whenAnotherCreatureIsPutIntoAGraveyardFromTheBattlefield());
+			this.addPattern(whenAnotherCreatureDies());
 			this.addEffect(ifThen(youMay(drawACard()), discardCards(You.instance(), 1, "Discard a card."), "You may draw a card. If you do, discard a card."));
 		}
 	}

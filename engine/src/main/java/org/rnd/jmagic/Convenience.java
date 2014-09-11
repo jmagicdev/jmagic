@@ -147,6 +147,7 @@ public class Convenience
 		private boolean loseAllAbilities;
 		private boolean setColor;
 		private final java.util.Set<SubType> subTypes;
+		private final java.util.Set<SubType> subTypeRemoval;
 		private final java.util.Set<Type> types;
 
 		private ContinuousEffectType animationMode;
@@ -178,6 +179,7 @@ public class Convenience
 			this.loseAllAbilities = false;
 			this.setColor = false;
 			this.subTypes = java.util.EnumSet.noneOf(SubType.class);
+			this.subTypeRemoval = java.util.EnumSet.noneOf(SubType.class);
 			this.types = java.util.EnumSet.of(Type.CREATURE);
 		}
 
@@ -239,6 +241,14 @@ public class Convenience
 			typesPart.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.fromCollection(types));
 			parts.add(typesPart);
 
+			if(!this.subTypeRemoval.isEmpty())
+			{
+				ContinuousEffect.Part removeSubTypes = new ContinuousEffect.Part(ContinuousEffectType.REMOVE_TYPES);
+				removeSubTypes.parameters.put(ContinuousEffectType.Parameter.OBJECT, this.target);
+				removeSubTypes.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.fromCollection(this.subTypeRemoval));
+				parts.add(removeSubTypes);
+			}
+
 			if(!this.abilities.isEmpty())
 			{
 				java.util.Set<AbilityFactory> factories = new java.util.HashSet<AbilityFactory>();
@@ -275,6 +285,14 @@ public class Convenience
 		public void removeOldTypes()
 		{
 			this.animationMode = ContinuousEffectType.SET_TYPES;
+		}
+
+		/**
+		 * call this method if `It's no loner an equipment` (for example)
+		 */
+		public void removeOneSubType(SubType remove)
+		{
+			this.subTypeRemoval.add(remove);
 		}
 	}
 
@@ -3354,7 +3372,7 @@ public class Convenience
 		return factory;
 	}
 
-	public static ZoneChangePattern whenAnotherCreatureIsPutIntoAGraveyardFromTheBattlefield()
+	public static ZoneChangePattern whenAnotherCreatureDies()
 	{
 		if(whenAnotherCreatureIsPutIntoAGraveyardFromTheBattlefieldPattern == null)
 			whenAnotherCreatureIsPutIntoAGraveyardFromTheBattlefieldPattern = new ImmutableZoneChangePattern(new SimpleZoneChangePattern(Battlefield.instance(), GraveyardOf.instance(Players.instance()), RelativeComplement.instance(CreaturePermanents.instance(), ABILITY_SOURCE_OF_THIS), true));

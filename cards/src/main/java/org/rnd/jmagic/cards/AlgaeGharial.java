@@ -15,7 +15,7 @@ public final class AlgaeGharial extends Card
 		public AlgaeGharialAbility1(GameState state)
 		{
 			super(state, "Whenever another creature dies, you may put a +1/+1 counter on Algae Gharial.");
-			this.addPattern(whenAnotherCreatureIsPutIntoAGraveyardFromTheBattlefield());
+			this.addPattern(whenAnotherCreatureDies());
 
 			EventFactory putCounters = putCounters(1, Counter.CounterType.PLUS_ONE_PLUS_ONE, ABILITY_SOURCE_OF_THIS, "Put a +1/+1 counter on Algae Gharial.");
 			this.addEffect(youMay(putCounters, "You may put a +1/+1 counter on Algae Gharial."));
