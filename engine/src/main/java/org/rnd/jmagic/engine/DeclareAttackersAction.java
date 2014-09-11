@@ -155,6 +155,9 @@ public class DeclareAttackersAction extends PlayerAction
 		// game allows the active player to attack multiple other players, the
 		// active player announces which player or planeswalker each of the
 		// chosen creatures is attacking.
+		// Master Warcraft doesn't override this choice.
+		chooser = this.activePlayer.getActual();
+
 		SetGenerator opponents = OpponentsOf.instance(this.activePlayerGenerator);
 		SetGenerator controlledByOpponents = ControlledBy.instance(opponents);
 		SetGenerator planeswalkers = HasType.instance(Type.PLANESWALKER);
