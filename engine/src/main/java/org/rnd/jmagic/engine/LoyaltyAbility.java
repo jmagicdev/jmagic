@@ -82,7 +82,7 @@ public abstract class LoyaltyAbility extends ActivatedAbility
 	private void setUpLoyaltyRestrictions(GameState state)
 	{
 		this.activateOnlyAtSorcerySpeed();
-		this.addActivateRestriction(Intersect.instance(LoyaltyActivatedThisTurn.instance(), AbilitySource.instance(This.instance())));
-		state.ensureTracker(new LoyaltyActivatedThisTurn.Counter());
+		this.addActivateRestriction(Intersect.instance(LoyaltyUsedUpThisTurn.instance(), AbilitySource.instance(This.instance())));
+		state.ensureTracker(new LoyaltyUsedUpThisTurn.Counter());
 	}
 }

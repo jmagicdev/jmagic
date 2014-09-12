@@ -195,6 +195,8 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	public java.util.Collection<ManaSymbol> manaCostRestrictions;
 
+	public int maxLoyaltyActivations;
+
 	public java.util.Collection<CostCollection> optionalAdditionalCosts;
 
 	public int ownerID;
@@ -255,6 +257,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		this.futureSelf = -1;
 		this.hasACopyEffect = false;
 		this.isGhost = false;
+		this.maxLoyaltyActivations = 1;
 		this.optionalAdditionalCosts = new java.util.LinkedList<CostCollection>();
 		this.ownerID = -1;
 		this.pastSelf = -1;

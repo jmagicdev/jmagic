@@ -1300,6 +1300,8 @@ public abstract class EventType
 	 * {@link org.rnd.util.NumberRange} [optional; default is 1]
 	 * @eparam PLAYER: the player choosing the objects [optional; default is
 	 * CONTROLLER]
+	 * @eparam EFFECT: the event type to use to put the object onto the
+	 * battlefield. [optional; default is {@link #PUT_ONTO_BATTLEFIELD}]
 	 * @eparam RESULT: result of the {@link #PUT_ONTO_BATTLEFIELD} event
 	 */
 	public static final EventType PUT_ONTO_BATTLEFIELD_CHOICE = PutOntoBattlefieldChoice.INSTANCE;

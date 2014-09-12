@@ -134,6 +134,7 @@ public interface PlayerInterface
 		public static final ChooseReason OPTIONAL_ALTERNATE_COST = new ChooseReason(GAME, "Pay an optional alternate cost?", true);
 		public static final ChooseReason OPTIONAL_REPLACEMENT = new ChooseReason(GAME, "~", true);
 		public static final ChooseReason ORDER_ATTACK_COSTS = new ChooseReason(GAME, "Choose payment order for costs to attack.", true);
+		public static final ChooseReason ORDER_BLOCK_COSTS = new ChooseReason(GAME, "Choose payment order for costs to block.", true);
 		public static final ChooseReason ORDER_COSTS = new ChooseReason(GAME, "Order costs to play ~", true);
 		public static final ChooseReason ORDER_GRAVEYARD = new ChooseReason(GAME, "Order cards put into your graveyard.", true);
 		public static final ChooseReason ORDER_LIBRARY_TARGET = new ChooseReason(GAME, "Order cards put into target player's library.", false);

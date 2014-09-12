@@ -412,10 +412,10 @@ public class CombatBasicsTest extends JUnitTest
 		assertEquals(player(2).ID, this.choosingPlayerID);
 		respondWith(pullChoice(RagingGoblin.class), pullChoice(RagingGoblin.class));
 		// Choose who the first Raging Goblin is attacking
-		assertEquals(player(2).ID, this.choosingPlayerID);
+		assertEquals(player(0).ID, this.choosingPlayerID);
 		respondWith(getPlayer(1));
 		// Choose who the second Raging Goblin is attacking
-		assertEquals(player(2).ID, this.choosingPlayerID);
+		assertEquals(player(0).ID, this.choosingPlayerID);
 		respondWith(getPlayer(1));
 
 		goToStep(Step.StepType.DECLARE_BLOCKERS);

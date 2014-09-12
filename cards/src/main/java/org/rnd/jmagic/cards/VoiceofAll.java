@@ -26,8 +26,8 @@ public final class VoiceofAll extends Card
 		{
 			public VoiceOfAllStatic(GameState state)
 			{
-				super(state, null, "the color of your choice");
-				this.setQuality(new SimpleSetPattern(HasColor.instance(ChosenFor.instance(LinkedTo.instance(Identity.instance(this))))));
+				super(state, null, SetPattern.NEVER_MATCH, "the color of your choice");
+				this.setQuality(new SimpleSetPattern(HasColor.instance(ChosenFor.instance(LinkedTo.instance(Identity.instance(this))))), SetPattern.NEVER_MATCH);
 				this.getLinkManager().addLinkClass(ColorChoice.class);
 			}
 		}

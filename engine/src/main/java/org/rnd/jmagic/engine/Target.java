@@ -277,9 +277,10 @@ public class Target implements Cloneable, Sanitizable
 	 * null. For spells that say "any number" and ask the player to divide
 	 * damage, use the amount of damage being divided.
 	 */
-	public void setNumber(int lower, Integer upper)
+	public Target setNumber(int lower, Integer upper)
 	{
 		this.number = Between.instance(lower, upper);
+		return this;
 	}
 
 	/**
@@ -289,9 +290,10 @@ public class Target implements Cloneable, Sanitizable
 	 * 
 	 * @param N A generator <i>evaluating to a single number</i>.
 	 */
-	public void setSingleNumber(SetGenerator N)
+	public Target setSingleNumber(SetGenerator N)
 	{
 		this.number = Between.instance(N, N);
+		return this;
 	}
 
 	/**
@@ -301,9 +303,10 @@ public class Target implements Cloneable, Sanitizable
 	 * 
 	 * @param range A generator evaluating to a NumberRange.
 	 */
-	public void setRange(SetGenerator range)
+	public Target setRange(SetGenerator range)
 	{
 		this.number = range;
+		return this;
 	}
 
 	/** @return A string representation of this target. */

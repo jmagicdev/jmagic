@@ -110,6 +110,11 @@ public class SimpleEventPattern implements EventPattern
 		this.parameters.put(parameter, pattern);
 	}
 
+	public final void put(EventType.Parameter parameter, MatcherFunction matcher)
+	{
+		this.parameters.put(parameter, new NonFreezingPattern(matcher));
+	}
+
 	public final void withResult(SetGenerator result)
 	{
 		this.result = new SimpleSetPattern(result);
@@ -118,6 +123,11 @@ public class SimpleEventPattern implements EventPattern
 	public final void withResult(SetPattern result)
 	{
 		this.result = result;
+	}
+
+	public final void withResult(MatcherFunction result)
+	{
+		this.result = new NonFreezingPattern(result);
 	}
 
 	@Override

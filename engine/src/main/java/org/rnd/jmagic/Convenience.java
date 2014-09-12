@@ -707,7 +707,7 @@ public class Convenience
 	 * @eparam SOURCE: the object creating the mana
 	 * @eparam PLAYER: the player choosing the color and getting the mana
 	 * @eparam TYPE: a SetPattern describing [kind] in the above text. this
-	 * parameter should be composed of generators that are not affected by text
+	 * parameter should be composed of patterns that are not affected by text
 	 * change effects.
 	 * @eparam PERMANENT: if present, "Spend this mana only to cast [kind]
 	 * spells"; activating abilities with the mana will not be allowed.

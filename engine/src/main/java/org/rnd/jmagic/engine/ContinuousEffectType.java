@@ -430,6 +430,36 @@ public abstract class ContinuousEffectType
 	}
 
 	/**
+	 * "The Chain Veil" effect.
+	 * 
+	 * @eparam OBJECT which planeswalkers can have their loyalty abilities
+	 * activated again.
+	 */
+	public static final ContinuousEffectType ACTIVATE_ADDITIONAL_LOYALTY_ABILITY = new ContinuousEffectType("ACTIVATE_ADDITIONAL_LOYALTY_ABILITY")
+	{
+		@Override
+		public Parameter affects()
+		{
+			return Parameter.OBJECT;
+		}
+
+		@Override
+		public void apply(GameState state, ContinuousEffect effect, java.util.Map<Parameter, Set> parameters)
+		{
+			parameters.get(Parameter.OBJECT).getAll(GameObject.class).stream()//
+			.forEach(o -> {
+				o.maxLoyaltyActivations++;
+			});
+		}
+
+		@Override
+		public Layer layer()
+		{
+			return Layer.RULE_CHANGE;
+		}
+	};
+
+	/**
 	 * @eparam OBJECT: the object(s) who get the ability
 	 * @eparam ABILITY: an {@link AbilityFactory} which should be used to
 	 * construct the ability to add to the objects
@@ -992,6 +1022,45 @@ public abstract class ContinuousEffectType
 
 			if(parameters.containsKey(Parameter.ACTION))
 				toPut.beginTheGameConsequence = parameters.get(Parameter.ACTION).getOne(EventFactory.class);
+		}
+
+		@Override
+		public Layer layer()
+		{
+			return Layer.RULE_CHANGE;
+		}
+	};
+
+	/**
+	 * @eparam COST: The cost, per creature in the OBJECT parameter, each
+	 * creature's controller must pay to block with it.
+	 * @eparam NUMBER: The number of times the player must pay the cost
+	 * (optional; default = 1) (NOTE: read COST!! do not put the number of
+	 * attacking creatures here!)
+	 * @eparam OBJECT: The creatures this effect applies to. (Optional; default
+	 * = all creatures) (does not use the double-generator idiom)
+	 */
+	public static final ContinuousEffectType BLOCKING_COST = new ContinuousEffectType("BLOCKING_COST")
+	{
+		@Override
+		public Parameter affects()
+		{
+			return Parameter.OBJECT;
+		}
+
+		@Override
+		public void apply(GameState state, ContinuousEffect effect, java.util.Map<Parameter, Set> parameters)
+		{
+			Set cost = parameters.get(Parameter.COST);
+			if(cost == null)
+				throw new UnsupportedOperationException("No cost to block specified in " + effect + ".");
+			int number = 1;
+			if(parameters.containsKey(Parameter.NUMBER))
+				number = parameters.get(Parameter.NUMBER).getOne(Integer.class);
+
+			Set creatures = parameters.get(Parameter.OBJECT);
+
+			state.blockingCosts.add(new BlockingCost(state, number, cost, creatures));
 		}
 
 		@Override

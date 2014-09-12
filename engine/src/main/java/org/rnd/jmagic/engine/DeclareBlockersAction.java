@@ -227,14 +227,53 @@ public class DeclareBlockersAction extends PlayerAction
 
 		// TODO : Permissions
 
-		// TODO : 509.1d If any of the chosen creatures require paying costs to
+		// 509.1d If any of the chosen creatures require paying costs to
 		// block, the defending player determines the total cost to block.
+		boolean costsRequireMana = false;
+		java.util.Collection<Event> totalCostToBlock = new java.util.LinkedList<Event>();
 
-		// TODO : 509.1e If any of the costs require mana, the defending player
+		for(BlockingCost cost: this.game.actualState.blockingCosts)
+		{
+			Set thisCost = cost.evaluate(blockers);
+			if(thisCost == null)
+				continue;
+
+			Event eventCost = thisCost.getOne(Event.class);
+			if(eventCost != null)
+				totalCostToBlock.add(eventCost);
+			else
+			{
+				java.util.Set<ManaSymbol> manaCost = thisCost.getAll(ManaSymbol.class);
+				if(!manaCost.isEmpty())
+				{
+					Event manaEvent = new Event(this.game.physicalState, "Pay " + manaCost, EventType.PAY_MANA);
+					manaEvent.parameters.put(EventType.Parameter.CAUSE, Identity.instance(this.game));
+					manaEvent.parameters.put(EventType.Parameter.PLAYER, Identity.instance(this.defender));
+					manaEvent.parameters.put(EventType.Parameter.COST, Identity.fromCollection(manaCost));
+					totalCostToBlock.add(manaEvent);
+					costsRequireMana = true;
+				}
+			}
+		}
+
+		// 509.1e If any of the costs require mana, the defending player
 		// then has a chance to activate mana abilities.
+		if(costsRequireMana)
+			this.defender.mayActivateManaAbilities();
 
-		// TODO : 509.1f Once the player has enough mana in his or her mana
+		// 509.1f Once the player has enough mana in his or her mana
 		// pool, he or she pays all costs in any order..
+		if(!totalCostToBlock.isEmpty())
+		{
+			java.util.List<Event> orderedCosts = this.defender.getPhysical().sanitizeAndChoose(this.game.actualState, totalCostToBlock.size(), totalCostToBlock, PlayerInterface.ChoiceType.COSTS, PlayerInterface.ChooseReason.ORDER_BLOCK_COSTS);
+			for(Event cost: orderedCosts)
+			{
+				cost.isEffect = false;
+				cost.isCost = true;
+				if(!cost.perform(null, true))
+					return false;
+			}
+		}
 
 		// Rule 309.2e 509.1g Each chosen creature still controlled by the
 		// defending player becomes a blocking creature. Each one is blocking

@@ -28,6 +28,14 @@ public class CardShell
 		if(convenienceMethod != null)
 			return "this.addCost(" + convenienceMethod + "(" + (cost.contains(thisName) ? "\"" + thisName + "\"" : "") + "));";
 
+		java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("^pay (\\d) life$");
+		java.util.regex.Matcher matcher = pattern.matcher(cost.toLowerCase());
+		if(matcher.lookingAt())
+		{
+			String amount = matcher.group(1);
+			return "this.addEffect(payLife(You.instance(), " + amount + ", \"Pay " + amount + " life.\"));";
+		}
+
 		return "// " + cost;
 	}
 

@@ -24,6 +24,9 @@ public final class PutOntoBattlefieldChoice extends EventType
 		Set controller = parameters.get(Parameter.CONTROLLER);
 		Set objects = parameters.get(Parameter.OBJECT);
 		int number = getRange(parameters.get(Parameter.NUMBER)).getLower(0);
+		EventType type = EventType.PUT_ONTO_BATTLEFIELD;
+		if(parameters.containsKey(Parameter.EFFECT))
+			type = parameters.get(Parameter.EFFECT).getOne(EventType.class);
 
 		int successes = 0;
 		for(GameObject object: objects.getAll(GameObject.class))
@@ -32,7 +35,7 @@ public final class PutOntoBattlefieldChoice extends EventType
 			putOntoBattlefieldParameters.put(Parameter.CAUSE, cause);
 			putOntoBattlefieldParameters.put(Parameter.OBJECT, new Set(object));
 			putOntoBattlefieldParameters.put(Parameter.CONTROLLER, controller);
-			Event putOntoBattlefield = createEvent(game, "Put " + object + " onto the battlefield", PUT_ONTO_BATTLEFIELD, putOntoBattlefieldParameters);
+			Event putOntoBattlefield = createEvent(game, "Put " + object + " onto the battlefield", type, putOntoBattlefieldParameters);
 			if(putOntoBattlefield.attempt(event))
 			{
 				successes++;
@@ -96,13 +99,17 @@ public final class PutOntoBattlefieldChoice extends EventType
 		else
 			chooser = controller;
 
+		EventType type = EventType.PUT_ONTO_BATTLEFIELD;
+		if(parameters.containsKey(Parameter.EFFECT))
+			type = parameters.get(Parameter.EFFECT).getOne(EventType.class);
+
 		Set stuffToPutOntoBattlefield = event.getChoices(chooser);
 
 		java.util.Map<Parameter, Set> putOntoBattlefieldParameters = new java.util.HashMap<Parameter, Set>();
 		putOntoBattlefieldParameters.put(Parameter.CAUSE, cause);
 		putOntoBattlefieldParameters.put(Parameter.CONTROLLER, new Set(controller));
 		putOntoBattlefieldParameters.put(Parameter.OBJECT, stuffToPutOntoBattlefield);
-		Event putOntoBattlefield = createEvent(game, "Put " + stuffToPutOntoBattlefield + " onto the battlefield", PUT_ONTO_BATTLEFIELD, putOntoBattlefieldParameters);
+		Event putOntoBattlefield = createEvent(game, "Put " + stuffToPutOntoBattlefield + " onto the battlefield", type, putOntoBattlefieldParameters);
 
 		boolean moveSuccess = putOntoBattlefield.perform(event, false);
 		event.setResult(putOntoBattlefield.getResultGenerator());

@@ -13,12 +13,12 @@ public class GameState implements Cloneable
 	private static class DelayedOneShot
 	{
 		private static int nextDosID = 0;
-		
+
 		public int dosID;
 		public int sourceID;
 		public SetGenerator condition;
 		public EventFactory effect;
-		
+
 		public DelayedOneShot(int sourceID, SetGenerator condition, EventFactory effect)
 		{
 			this.dosID = nextDosID++;
@@ -60,6 +60,8 @@ public class GameState implements Cloneable
 	public java.util.Collection<CombatRestriction> attackingRestrictions;
 
 	private int battlefieldID;
+
+	public java.util.Collection<BlockingCost> blockingCosts;
 
 	public java.util.Collection<BlockingRequirement> blockingRequirements;
 	public java.util.Collection<CombatRestriction> blockingRestrictions;
@@ -211,6 +213,7 @@ public class GameState implements Cloneable
 		this.attackingRequirements = new java.util.LinkedList<AttackingRequirement>();
 		this.attackingRestrictions = null;
 		this.battlefieldID = new Zone(this, "The Battlefield").ID;
+		this.blockingCosts = new java.util.LinkedList<BlockingCost>();
 		this.blockingRequirements = new java.util.LinkedList<BlockingRequirement>();
 		this.blockingRestrictions = null;
 		this.commandZoneID = new Zone(this, "The Command Zone").ID;
@@ -355,6 +358,7 @@ public class GameState implements Cloneable
 		this.attackingRequirements.clear();
 		if(null != this.attackingRestrictions)
 			this.attackingRestrictions.clear();
+		this.blockingCosts.clear();
 		this.blockingRequirements.clear();
 		if(null != this.blockingRestrictions)
 			this.blockingRestrictions.clear();
@@ -447,6 +451,7 @@ public class GameState implements Cloneable
 			ret.attackingCosts = new java.util.LinkedList<AttackingCost>();
 			ret.attackingRequirements = new java.util.LinkedList<AttackingRequirement>();
 			ret.attackingRestrictions = new java.util.HashSet<CombatRestriction>();
+			ret.blockingCosts = new java.util.LinkedList<BlockingCost>();
 			ret.blockingRequirements = new java.util.LinkedList<BlockingRequirement>();
 			ret.blockingRestrictions = new java.util.HashSet<CombatRestriction>();
 			ret.controlledPlayers = new java.util.HashMap<Integer, Integer>();

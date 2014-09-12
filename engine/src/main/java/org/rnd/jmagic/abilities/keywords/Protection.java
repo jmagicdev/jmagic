@@ -260,10 +260,10 @@ public abstract class Protection extends Keyword
 			}
 		}
 
-		public ProtectionStatic(GameState state, SetPattern quality, String qualityName)
+		public ProtectionStatic(GameState state, SetPattern quality, SetPattern doesntRemove, String qualityName)
 		{
 			super(state, "This can't be damaged, enchanted, equipped, fortified, blocked, or targetted by [" + qualityName + "]");
-			this.setQuality(quality);
+			this.setQuality(quality, doesntRemove);
 			this.qualityName = qualityName;
 		}
 
@@ -272,7 +272,7 @@ public abstract class Protection extends Keyword
 			return this.quality;
 		}
 
-		public void setQuality(SetPattern quality)
+		public void setQuality(SetPattern quality, SetPattern doesntRemove)
 		{
 			this.quality = quality;
 			SetPattern protectionPattern = new ProtectionFromPattern(quality);
@@ -288,9 +288,12 @@ public abstract class Protection extends Keyword
 
 			// E - Enchant, Equip, Fortify
 			{
+				SetPattern qualityWithExceptions = new RelativeComplementPattern(quality, doesntRemove);
+				SetPattern protectionAttachPattern = new ProtectionFromPattern(qualityWithExceptions);
+
 				ContinuousEffect.Part attachRestrictionPart = new ContinuousEffect.Part(ContinuousEffectType.CANT_BE_ATTACHED_BY);
 				attachRestrictionPart.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());
-				attachRestrictionPart.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(protectionPattern));
+				attachRestrictionPart.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(protectionAttachPattern));
 				this.addEffectPart(attachRestrictionPart);
 			}
 
@@ -314,15 +317,18 @@ public abstract class Protection extends Keyword
 
 		public static final class Final extends ProtectionStatic
 		{
-			public Final(GameState state, SetPattern quality, String qualityName)
+			private SetPattern doesntRemove;
+
+			public Final(GameState state, SetPattern quality, SetPattern doesntRemove, String qualityName)
 			{
-				super(state, quality, qualityName);
+				super(state, quality, doesntRemove, qualityName);
+				this.doesntRemove = doesntRemove;
 			}
 
 			@Override
 			public Final create(Game game)
 			{
-				return new Final(game.physicalState, this.getQuality(), this.qualityName);
+				return new Final(game.physicalState, this.getQuality(), this.doesntRemove, this.qualityName);
 			}
 		}
 	}
@@ -367,6 +373,6 @@ public abstract class Protection extends Keyword
 
 	protected ProtectionStatic getProtectionStatic()
 	{
-		return new ProtectionStatic.Final(this.state, this.quality, this.qualityName);
+		return new ProtectionStatic.Final(this.state, this.quality, SetPattern.NEVER_MATCH, this.qualityName);
 	}
 }
