@@ -15,16 +15,16 @@ public final class TheChainVeil extends Card
 	/**
 	 * IDs of players who have activated a loyalty ability of a planeswalker.
 	 */
-	public static class Counter extends Tracker<java.util.Set<Integer>>
+	public static class PlayerTracker extends Tracker<java.util.Set<Integer>>
 	{
 		private java.util.HashSet<Integer> values = new java.util.HashSet<>();
 		private java.util.Set<Integer> unmodifiable = java.util.Collections.unmodifiableSet(this.values);
 
 		@SuppressWarnings("unchecked")
 		@Override
-		public Counter clone()
+		public PlayerTracker clone()
 		{
-			Counter ret = (Counter)super.clone();
+			PlayerTracker ret = (PlayerTracker)super.clone();
 			ret.values = (java.util.HashSet<Integer>)this.values.clone();
 			ret.unmodifiable = java.util.Collections.unmodifiableSet(ret.values);
 			return ret;
@@ -46,7 +46,9 @@ public final class TheChainVeil extends Card
 					for(EventFactory cost: ability.getCosts())
 						if(cost.type == EventType.REMOVE_COUNTERS || cost.type == EventType.PUT_COUNTERS)
 						{
-							java.util.Set<org.rnd.jmagic.engine.Counter.CounterType> counterTypes = cost.parameters.get(EventType.Parameter.COUNTER).evaluate(state, ability).getAll(org.rnd.jmagic.engine.Counter.CounterType.class);
+							java.util.Set<org.rnd.jmagic.engine.Counter.CounterType> counterTypes = //
+							cost.parameters.get(EventType.Parameter.COUNTER)//
+							.evaluate(state, ability).getAll(org.rnd.jmagic.engine.Counter.CounterType.class);
 							if(counterTypes.size() == 1 && counterTypes.contains(org.rnd.jmagic.engine.Counter.CounterType.LOYALTY))
 								return true;
 						}
@@ -87,7 +89,7 @@ public final class TheChainVeil extends Card
 		public Set evaluate(GameState state, Identified thisObject)
 		{
 			int you = You.instance().evaluate(state, thisObject).getOne(Player.class).ID;
-			if(state.getTracker(Counter.class).getValue(state).contains(you))
+			if(state.getTracker(PlayerTracker.class).getValue(state).contains(you))
 				return Empty.set;
 			return NonEmpty.set;
 		}
@@ -100,7 +102,7 @@ public final class TheChainVeil extends Card
 			super(state, "At the beginning of your end step, if you didn't activate a loyalty ability of a planeswalker this turn, you lose 2 life.");
 			this.addPattern(atTheBeginningOfYourEndStep());
 
-			state.ensureTracker(new Counter());
+			state.ensureTracker(new PlayerTracker());
 			this.interveningIf = YouDidntActivateLoyalty.instance();
 
 			this.addEffect(loseLife(You.instance(), 2, "You lose 2 life."));
