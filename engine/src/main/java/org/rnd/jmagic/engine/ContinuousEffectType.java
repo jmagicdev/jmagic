@@ -446,10 +446,8 @@ public abstract class ContinuousEffectType
 		@Override
 		public void apply(GameState state, ContinuousEffect effect, java.util.Map<Parameter, Set> parameters)
 		{
-			parameters.get(Parameter.OBJECT).getAll(GameObject.class).stream()//
-			.forEach(o -> {
+			for(GameObject o: parameters.get(Parameter.OBJECT).getAll(GameObject.class))
 				o.maxLoyaltyActivations++;
-			});
 		}
 
 		@Override
