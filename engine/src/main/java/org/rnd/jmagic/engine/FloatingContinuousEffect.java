@@ -40,6 +40,14 @@ public class FloatingContinuousEffect extends ContinuousEffect
 	public Turn turnCreated;
 
 	/**
+	 * for implementing "can't have" effects
+	 * 
+	 * keys are keyword classes, values are lists of objects not to grant that
+	 * keyword
+	 */
+	public java.util.Map<Class<? extends Keyword>, java.util.Set<Integer>> dontGrant;
+
+	/**
 	 * Constructs a floating continuous effect that does nothing, lasts until
 	 * end of turn, and is never used up.
 	 * 
@@ -51,6 +59,7 @@ public class FloatingContinuousEffect extends ContinuousEffect
 		super(game.physicalState, name);
 		this.expires = EndMostFloatingEffects.instance();
 		this.damage = -1;
+		this.dontGrant = new java.util.HashMap<>();
 		this.uses = -1;
 		this.sourceEvent = null;
 		this.timestamp = -1;

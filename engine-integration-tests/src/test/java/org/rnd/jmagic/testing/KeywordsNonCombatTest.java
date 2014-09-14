@@ -398,6 +398,65 @@ public class KeywordsNonCombatTest extends JUnitTest
 	}
 
 	@Test
+	public void cantHaveAbility()
+	{
+		addDeck(SleeperAgent.class, ChorusofMight.class, ArchetypeofAggression.class, Terminate.class, ChorusofMight.class, ArchetypeofAggression.class, GrizzlyBears.class);
+		addDeck(PrimalRage.class, Terminate.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
+		startGame(new Open());
+
+		respondWith(getPlayer(0));
+		keep();
+		keep();
+
+		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
+		castAndResolveSpell(SleeperAgent.class);
+		pass();
+		pass();
+
+		// give sleeper agent trample temporarily
+		castAndResolveSpell(ChorusofMight.class);
+		GameObject sleeper = this.game.actualState.battlefield().objects.get(0);
+		assertEquals(1, sleeper.getKeywordAbilities().size());
+
+		// sleeper agent can't have trample
+		castAndResolveSpell(ArchetypeofAggression.class);
+		sleeper = this.game.actualState.battlefield().objects.get(1);
+		assertEquals(0, sleeper.getKeywordAbilities().size());
+
+		// when we resolved the archetype, it should have ended the effect
+		// giving sleeper agent trample -- it still shouldn't have trample after
+		// we kill it...
+		castAndResolveSpell(Terminate.class, ArchetypeofAggression.class);
+		sleeper = this.game.actualState.battlefield().objects.get(0);
+		assertEquals(0, sleeper.getKeywordAbilities().size());
+
+		// ... but it should be able to gain it again
+		castAndResolveSpell(ChorusofMight.class);
+		sleeper = this.game.actualState.battlefield().objects.get(0);
+		assertEquals(1, sleeper.getKeywordAbilities().size());
+
+		// one more time, for the last test
+		castAndResolveSpell(ArchetypeofAggression.class);
+		sleeper = this.game.actualState.battlefield().objects.get(1);
+		assertEquals(0, sleeper.getKeywordAbilities().size());
+
+		// pass the turn
+		goToPhase(Phase.PhaseType.ENDING);
+		// this'll automatically resolve the upkeep trigger
+		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
+
+		// static ability granting trample
+		castAndResolveSpell(PrimalRage.class);
+		sleeper = this.game.actualState.battlefield().objects.get(2);
+		assertEquals(0, sleeper.getKeywordAbilities().size());
+
+		// kill the archetype -- static ability should be able to grant trample
+		castAndResolveSpell(Terminate.class, ArchetypeofAggression.class);
+		sleeper = this.game.actualState.battlefield().objects.get(1);
+		assertEquals(1, sleeper.getKeywordAbilities().size());
+	}
+
+	@Test
 	public void championChooseNotToRemove()
 	{
 

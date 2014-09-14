@@ -152,6 +152,8 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 	private MultipleSetPattern cantBeTheTargetOf;
 
+	public java.util.Set<Class<? extends Keyword>> cantHave;
+
 	/** If this object is a spell and was cast, the action used to cast it. */
 	public CastSpellAction castAction;
 
@@ -246,6 +248,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		this.beginTheGameConsequence = null;
 		this.cantBeAttachedBy = null;
 		this.cantBeTheTargetOf = null;
+		this.cantHave = new java.util.HashSet<>();
 		this.castAction = null;
 		this.controllerID = -1;
 		this.costsGenerated = null;
@@ -733,6 +736,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		// re-computed every time the game state is refreshed.
 		ret.cantBeAttachedBy = null;
 		ret.cantBeTheTargetOf = null;
+		ret.cantHave = new java.util.HashSet<>();
 
 		// maximumBlocks will already have the right value from the constructor
 

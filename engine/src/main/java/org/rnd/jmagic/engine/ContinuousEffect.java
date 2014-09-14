@@ -195,6 +195,7 @@ public class ContinuousEffect extends Identified
 		this.setName(name);
 
 		this.parts = new java.util.HashSet<Part>();
+
 		this.staticSourceID = -1;
 		this.affectedObjects = null;
 	}

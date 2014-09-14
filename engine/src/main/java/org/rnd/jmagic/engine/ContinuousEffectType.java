@@ -474,6 +474,8 @@ public abstract class ContinuousEffectType
 		public void apply(GameState state, ContinuousEffect effect, java.util.Map<Parameter, Set> parameters)
 		{
 			java.util.Set<AbilityFactory> factories = parameters.get(Parameter.ABILITY).getAll(AbilityFactory.class);
+			boolean isFCE = effect instanceof FloatingContinuousEffect;
+			FloatingContinuousEffect fce = isFCE ? (FloatingContinuousEffect)effect : null;
 
 			// Any created abilities should be created in the physical state
 			for(GameObject object: parameters.get(Parameter.OBJECT).getAll(GameObject.class))
@@ -508,6 +510,9 @@ public abstract class ContinuousEffectType
 					}
 					else if(instance instanceof Keyword)
 					{
+						if(isFCE && fce.dontGrant.containsKey(instance.getClass()) && fce.dontGrant.get(instance.getClass()).contains(object.ID))
+							continue;
+
 						Keyword newAbility = (Keyword)instance;
 						newAbility.createdByTimestamp = effect.getTimestamp();
 						newAbility.grantedByID = effect.ID;
@@ -1322,6 +1327,61 @@ public abstract class ContinuousEffectType
 		public Layer layer()
 		{
 			return Layer.RULE_CHANGE;
+		}
+	};
+
+	/**
+	 * @eparam OBJECT: objects that can't have the keyword
+	 * @eparam ABILITY: the keyword(s) those objects can't have (a Class<?
+	 * extends Keyword>)
+	 */
+	public static final ContinuousEffectType CANT_HAVE_KEYWORD = new ContinuousEffectType("CANT_HAVE_KEYWORD")
+	{
+		@Override
+		public Parameter affects()
+		{
+			return Parameter.OBJECT;
+		}
+
+		@Override
+		public void apply(GameState state, ContinuousEffect effect, java.util.Map<Parameter, Set> parameters)
+		{
+			java.util.Collection<Class<? extends Keyword>> abilities = parameters.get(Parameter.ABILITY).getAllClasses(Keyword.class);
+			java.util.Collection<GameObject> objects = parameters.get(Parameter.OBJECT).getAll(GameObject.class);
+
+			for(GameObject object: objects)
+				for(Class<? extends Keyword> keyword: abilities)
+				{
+					if(object.hasAbility(keyword))
+					{
+						Keyword granted = object.getKeywordAbilities().stream()//
+						.filter(k -> keyword.isAssignableFrom(k.getClass()))//
+						.findFirst().get();
+
+						if(granted.grantedByID != -1)
+						{
+							ContinuousEffect gaveThatAbility = state.<ContinuousEffect>get(granted.grantedByID);
+							if(gaveThatAbility instanceof FloatingContinuousEffect)
+							{
+								FloatingContinuousEffect fce = (FloatingContinuousEffect)gaveThatAbility;
+								Class<? extends Keyword> keywordClass = granted.getClass();
+								if(!fce.dontGrant.containsKey(keywordClass))
+									fce.dontGrant.put(keywordClass, new java.util.HashSet<>());
+								fce.dontGrant.get(keywordClass).add(object.ID);
+							}
+						}
+					}
+				}
+
+			// this is a tad inefficient, but it makes absolutely sure the
+			// losing-ability part is performed correctly.
+			REMOVE_ABILITY_FROM_OBJECT.apply(state, effect, parameters);
+		}
+
+		@Override
+		public Layer layer()
+		{
+			return Layer.ABILITY_ADD_OR_REMOVE;
 		}
 	};
 
