@@ -55,7 +55,7 @@ class CardInfoPanel extends javax.swing.JPanel
 
 	/**
 	 * This is just a storage place for
-	 * {@link #setFocus(int, SanitizedGameState)} to communicate to
+	 * {@link #setFocus(int, SanitizedGameState, int)} to communicate to
 	 * {@link #paintComponent(java.awt.Graphics)} what to render. To change the
 	 * actual focus, see {@link #focusID}.
 	 */
