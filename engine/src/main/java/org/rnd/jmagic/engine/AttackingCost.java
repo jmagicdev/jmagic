@@ -6,6 +6,7 @@ public class AttackingCost
 	private int number;
 	private java.util.Set<Integer> creatureIDs;
 	private java.util.Set<Integer> playerIDs;
+	public int sourceID;
 
 	/**
 	 * Creates a new attacking cost.
@@ -17,7 +18,7 @@ public class AttackingCost
 	 * @param players The set of players who, if attacked, will invoke this
 	 * cost. If it's null, it applies to attacking any player.
 	 */
-	public AttackingCost(GameState state, int number, Set cost, Set creatures, Set players)
+	public AttackingCost(GameState state, int number, Set cost, Set creatures, Set players, int sourceID)
 	{
 		this.cost = cost;
 		this.number = number;
@@ -33,6 +34,8 @@ public class AttackingCost
 		else
 			for(Player p: state.players)
 				this.playerIDs.add(p.ID);
+
+		this.sourceID = sourceID;
 	}
 
 	/**
@@ -56,10 +59,7 @@ public class AttackingCost
 						ret.add(m.create());
 				applies = true;
 
-				// TODO : The same needs to be done for events, yes? We don't
-				// have Event.create() (RW - we do now...), and Event.clone() is
-				// not used for this kind of thing.
-				Event eventCost = this.cost.getOne(Event.class);
+				EventFactory eventCost = this.cost.getOne(EventFactory.class);
 				if(eventCost != null)
 					ret.add(eventCost);
 			}

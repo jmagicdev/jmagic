@@ -231,7 +231,8 @@ public class DeclareAttackersAction extends PlayerAction
 		// 508.1g If any of the chosen creatures require paying costs to attack,
 		// the active player determines the total cost to attack.
 		boolean costsRequireMana = false;
-		java.util.Collection<Event> totalCostToAttack = new java.util.LinkedList<Event>();
+		// cost -> source of that cost
+		java.util.Map<EventFactory, Integer> totalCostToAttack = new java.util.HashMap<>();
 
 		for(AttackingCost cost: this.game.actualState.attackingCosts)
 		{
@@ -239,19 +240,19 @@ public class DeclareAttackersAction extends PlayerAction
 			if(thisCost == null)
 				continue;
 
-			Event eventCost = thisCost.getOne(Event.class);
+			EventFactory eventCost = thisCost.getOne(EventFactory.class);
 			if(eventCost != null)
-				totalCostToAttack.add(eventCost);
+				totalCostToAttack.put(eventCost, cost.sourceID);
 			else
 			{
 				java.util.Set<ManaSymbol> manaCost = thisCost.getAll(ManaSymbol.class);
 				if(!manaCost.isEmpty())
 				{
-					Event manaEvent = new Event(this.game.physicalState, "Pay " + manaCost, EventType.PAY_MANA);
+					EventFactory manaEvent = new EventFactory(EventType.PAY_MANA, "Pay " + manaCost);
 					manaEvent.parameters.put(EventType.Parameter.CAUSE, Identity.instance(this.game));
 					manaEvent.parameters.put(EventType.Parameter.PLAYER, this.activePlayerGenerator);
 					manaEvent.parameters.put(EventType.Parameter.COST, Identity.fromCollection(manaCost));
-					totalCostToAttack.add(manaEvent);
+					totalCostToAttack.put(manaEvent, cost.sourceID);
 					costsRequireMana = true;
 				}
 			}
@@ -266,7 +267,11 @@ public class DeclareAttackersAction extends PlayerAction
 		// she pays all costs in any order.
 		if(!totalCostToAttack.isEmpty())
 		{
-			java.util.List<Event> orderedCosts = this.activePlayer.getPhysical().sanitizeAndChoose(this.game.actualState, totalCostToAttack.size(), totalCostToAttack, PlayerInterface.ChoiceType.COSTS, PlayerInterface.ChooseReason.ORDER_ATTACK_COSTS);
+			java.util.Collection<Event> costEvents = totalCostToAttack.entrySet().stream() //
+			.map(entry -> entry.getKey().createEvent(this.game, this.game.actualState.<GameObject>get(entry.getValue()))) //
+			.collect(java.util.stream.Collectors.toList());
+
+			java.util.List<Event> orderedCosts = this.activePlayer.getPhysical().sanitizeAndChoose(this.game.physicalState, costEvents.size(), costEvents, PlayerInterface.ChoiceType.COSTS, PlayerInterface.ChooseReason.ORDER_ATTACK_COSTS);
 			for(Event cost: orderedCosts)
 			{
 				cost.isEffect = false;

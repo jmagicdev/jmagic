@@ -901,7 +901,7 @@ public abstract class ContinuousEffectType
 			Set creatures = parameters.get(Parameter.OBJECT);
 			Set players = parameters.get(Parameter.PLAYER);
 
-			state.attackingCosts.add(new AttackingCost(state, number, cost, creatures, players));
+			state.attackingCosts.add(new AttackingCost(state, number, cost, creatures, players, effect.getSourceObject().ID));
 		}
 
 		@Override
