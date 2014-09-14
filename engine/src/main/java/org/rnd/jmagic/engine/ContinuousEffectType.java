@@ -1352,23 +1352,26 @@ public abstract class ContinuousEffectType
 			for(GameObject object: objects)
 				for(Class<? extends Keyword> keyword: abilities)
 				{
-					if(object.hasAbility(keyword))
-					{
-						Keyword granted = object.getKeywordAbilities().stream()//
-						.filter(k -> keyword.isAssignableFrom(k.getClass()))//
-						.findFirst().get();
-
-						if(granted.grantedByID != -1)
+					Keyword granted = null;
+					for(Keyword onObject: object.getKeywordAbilities())
+						if(keyword.isAssignableFrom(onObject.getClass()))
 						{
-							ContinuousEffect gaveThatAbility = state.<ContinuousEffect>get(granted.grantedByID);
-							if(gaveThatAbility instanceof FloatingContinuousEffect)
-							{
-								FloatingContinuousEffect fce = (FloatingContinuousEffect)gaveThatAbility;
-								Class<? extends Keyword> keywordClass = granted.getClass();
-								if(!fce.dontGrant.containsKey(keywordClass))
-									fce.dontGrant.put(keywordClass, new java.util.HashSet<>());
-								fce.dontGrant.get(keywordClass).add(object.ID);
-							}
+							granted = onObject;
+							break;
+						}
+					if(granted == null)
+						continue;
+
+					if(granted.grantedByID != -1)
+					{
+						ContinuousEffect gaveThatAbility = state.<ContinuousEffect>get(granted.grantedByID);
+						if(gaveThatAbility instanceof FloatingContinuousEffect)
+						{
+							FloatingContinuousEffect fce = (FloatingContinuousEffect)gaveThatAbility;
+							Class<? extends Keyword> keywordClass = granted.getClass();
+							if(!fce.dontGrant.containsKey(keywordClass))
+								fce.dontGrant.put(keywordClass, new java.util.HashSet<>());
+							fce.dontGrant.get(keywordClass).add(object.ID);
 						}
 					}
 				}
