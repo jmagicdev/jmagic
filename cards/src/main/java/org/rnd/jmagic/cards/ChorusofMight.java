@@ -18,6 +18,6 @@ public final class ChorusofMight extends Card
 		// control and gains trample.
 		SetGenerator target = targetedBy(this.addTarget(CreaturePermanents.instance(), "target creature"));
 		SetGenerator num = Count.instance(CREATURES_YOU_CONTROL);
-		this.addEffect(ptChangeAndAbilityUntilEndOfTurn(target, num, num, "Target creature gets +1/+1 for each creature you control and gains trample.", org.rnd.jmagic.abilities.keywords.Trample.class));
+		this.addEffect(ptChangeAndAbilityUntilEndOfTurn(target, num, num, "Until end of turn, target creature gets +1/+1 for each creature you control and gains trample.", org.rnd.jmagic.abilities.keywords.Trample.class));
 	}
 }
