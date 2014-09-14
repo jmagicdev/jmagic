@@ -174,8 +174,6 @@ public class JMagicTextPane extends javax.swing.JTextPane
 	 * @param text The text to set.
 	 * @param bolds A map of start->end indicating what portion of the text
 	 * should be bold.
-	 * @param help Whether to return help text for the keywords in the text.
-	 * @return
 	 */
 	public void setText(java.lang.String text, java.util.Map<Integer, Integer> bolds)
 	{

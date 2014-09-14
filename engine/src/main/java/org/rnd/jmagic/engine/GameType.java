@@ -57,7 +57,7 @@ public class GameType
 
 		/**
 		 * @return Decklists that are exempt from
-		 * {@link GameTypeRule#checkCard(Class)}. For example, on 2011 July 1,
+		 * {@link GameTypeRule#checkCard(String)}. For example, on 2011 July 1,
 		 * Stoneforge Mystic was banned in Standard EXCEPT that the War of
 		 * Attrition event decklist was legal if left completely intact.
 		 */
@@ -85,7 +85,7 @@ public class GameType
 	public static class SimpleGameTypeRule implements GameTypeRule
 	{
 		/**
-		 * @return true. See {@link GameTypeRule#checkCard(Class)}.
+		 * @return true. See {@link GameTypeRule#checkCard(String)}.
 		 */
 		@Override
 		public boolean checkCard(String card)

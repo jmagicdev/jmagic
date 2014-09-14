@@ -5,18 +5,12 @@ public abstract class SimpleExpansion extends Expansion
 	private java.util.SortedMap<String, Rarity> cardList;
 	private String pkg;
 
-	/**
-	 * @param cardList An array of the card names in this expansion. The array
-	 * must already be sorted.
-	 */
 	public SimpleExpansion()
 	{
 		this("org.rnd.jmagic.cards");
 	}
 
 	/**
-	 * @param cardList An array of the card names in this expansion. The array
-	 * must already be sorted.
 	 * @param pkg The package containing the card classes for this set.
 	 */
 	public SimpleExpansion(String pkg)
