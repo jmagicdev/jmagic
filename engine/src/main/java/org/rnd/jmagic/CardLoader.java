@@ -63,6 +63,8 @@ public class CardLoader
 		NON_ASCII_REPLACE.put("\u00E9", "e");
 		// Lower-case o with an umlaut
 		NON_ASCII_REPLACE.put("\u00F6", "o");
+		// Emdash
+		NON_ASCII_REPLACE.put("\u2014", "\\u2014");
 	}
 
 	/**
