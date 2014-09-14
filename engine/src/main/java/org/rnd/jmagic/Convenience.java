@@ -1062,6 +1062,8 @@ public class Convenience
 		}
 	};
 
+	private static EventPattern inspiredPattern = null;
+
 	private static ZoneChangePattern landfallPattern = null;
 
 	private static SetPattern landPermanents = null;
@@ -2016,6 +2018,11 @@ public class Convenience
 			this.newController = newController;
 		}
 
+		public void setEnchantment()
+		{
+			this.types.add(Type.ENCHANTMENT);
+		}
+
 		public void setLegendary()
 		{
 			this.superTypes.add(SuperType.LEGENDARY);
@@ -2382,6 +2389,17 @@ public class Convenience
 		if(elseEvent != null)
 			ret.parameters.put(EventType.Parameter.ELSE, Identity.instance(elseEvent));
 		return ret;
+	}
+
+	public static EventPattern inspired()
+	{
+		if(inspiredPattern == null)
+		{
+			SimpleEventPattern untap = new SimpleEventPattern(EventType.UNTAP_ONE_PERMANENT);
+			untap.put(EventType.Parameter.OBJECT, ABILITY_SOURCE_OF_THIS);
+			inspiredPattern = new ImmutableEventPattern(untap);
+		}
+		return inspiredPattern;
 	}
 
 	public static ZoneChangePattern landfall()
