@@ -17,6 +17,7 @@ public final class ClaimofErebos extends Card
 		{
 			super(state, "(1)(B), (T): Target player loses 2 life.");
 			this.setManaCost(new ManaPool("(1)(B)"));
+			this.costsTap = true;
 			SetGenerator target = targetedBy(this.addTarget(Players.instance(), "target player"));
 			this.addEffect(loseLife(target, 2, "Target player loses 2 life."));
 		}
