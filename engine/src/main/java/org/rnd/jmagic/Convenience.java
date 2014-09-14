@@ -1062,6 +1062,8 @@ public class Convenience
 		}
 	};
 
+	private static EventPattern heroicPattern = null;
+
 	private static EventPattern inspiredPattern = null;
 
 	private static ZoneChangePattern landfallPattern = null;
@@ -2389,6 +2391,18 @@ public class Convenience
 		if(elseEvent != null)
 			ret.parameters.put(EventType.Parameter.ELSE, Identity.instance(elseEvent));
 		return ret;
+	}
+
+	public static EventPattern heroic()
+	{
+		if(heroicPattern == null)
+		{
+			SimpleEventPattern target = new SimpleEventPattern(EventType.BECOMES_PLAYED);
+			target.put(EventType.Parameter.PLAYER, You.instance());
+			target.put(EventType.Parameter.OBJECT, Intersect.instance(Spells.instance(), HasTarget.instance(ABILITY_SOURCE_OF_THIS)));
+			heroicPattern = new ImmutableEventPattern(heroicPattern);
+		}
+		return heroicPattern;
 	}
 
 	public static EventPattern inspired()
