@@ -343,7 +343,6 @@ public class CardShell
 	public String name = null;
 	public String power = null;
 	public String printings = null;
-	public java.util.Map<String, String> expansions = null;
 	public String toughness = null;
 	public String types = null;
 
