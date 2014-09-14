@@ -38,6 +38,7 @@ public class Modern extends GameType
 			this.allowSet(Dissension.class);
 			this.allowSet(Coldsnap.class);
 			this.allowSet(TimeSpiral.class);
+			this.allowSet(TimeSpiralTimeshifted.class);
 			this.allowSet(PlanarChaos.class);
 			this.allowSet(FutureSight.class);
 			this.allowSet(TenthEdition.class);
