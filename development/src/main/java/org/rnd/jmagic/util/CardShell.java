@@ -127,6 +127,8 @@ public class CardShell
 		convenienceMethods.put("whenthisoranotherallyentersthebattlefieldunderyourcontrol", "allyTrigger");
 		convenienceMethods.put("whenalandentersthebattlefieldunderyourcontrol", "landfall");
 		convenienceMethods.put("whenthisandatleasttwoothercreaturesattack", "battalion");
+		convenienceMethods.put("whenyoucastaspellthattargetsthis", "heroic");
+		convenienceMethods.put("whenthisbecomesuntapped", "inspired");
 	}
 
 	private static String simpleInstantiation(Class<? extends Keyword> k)
