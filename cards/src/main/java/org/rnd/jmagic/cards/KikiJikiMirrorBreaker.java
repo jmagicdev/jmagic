@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -37,7 +38,7 @@ public final class KikiJikiMirrorBreaker extends Card
 			EventFactory sacrifice = new EventFactory(EventType.SACRIFICE_PERMANENTS, "Sacrifice it");
 			sacrifice.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			sacrifice.parameters.put(EventType.Parameter.PLAYER, You.instance());
-			sacrifice.parameters.put(EventType.Parameter.PERMANENT, thatToken);
+			sacrifice.parameters.put(EventType.Parameter.PERMANENT, delayedTriggerContext(thatToken));
 
 			EventFactory sacrificeLater = new EventFactory(EventType.CREATE_DELAYED_TRIGGER, "Sacrifice it at the beginning of the next ends step.");
 			sacrificeLater.parameters.put(EventType.Parameter.CAUSE, This.instance());
