@@ -406,6 +406,8 @@ public class CardShell
 		java.io.BufferedWriter out;
 		try
 		{
+			boolean addable = false;
+
 			out = new java.io.BufferedWriter(new java.io.FileWriter(card));
 			out.write("package org.rnd.jmagic.cards;\r\n\r\n");
 			out.write("import static org.rnd.jmagic.Convenience.*;\r\n");
@@ -521,6 +523,7 @@ public class CardShell
 			}
 			else
 			{
+				addable = true;
 				java.util.Iterator<String> abilityIterator = this.abilities.iterator();
 				while(abilityIterator.hasNext())
 				{
@@ -536,6 +539,7 @@ public class CardShell
 					boolean triggered = ability.startsWith("When ") || ability.startsWith("Whenever ") || ability.startsWith("At ") || ability.startsWith("Landfall ");
 					if((-1 != firstColon) && ((-1 == firstQuote) || (firstColon < firstQuote)))
 					{
+						addable = false;
 						String abilityClassName = className + "Ability" + abilityNumber;
 						if(typeSet.contains(Type.PLANESWALKER))
 							out.write("\tpublic static final class " + abilityClassName + " extends LoyaltyAbility\r\n");
@@ -573,6 +577,7 @@ public class CardShell
 					}
 					else if(triggered)
 					{
+						addable = false;
 						String abilityClassName = className + "Ability" + abilityNumber;
 						out.write("\tpublic static final class " + abilityClassName + " extends EventTriggeredAbility\r\n");
 						out.write("\t{\r\n");
@@ -628,6 +633,7 @@ public class CardShell
 							generatedAbilities.put(abilityNumber, abilityConstructors);
 						else
 						{
+							addable = false;
 							// If it's not an activated ability, triggered
 							// ability, or keyword ability, assume it's a static
 							// ability
@@ -695,6 +701,29 @@ public class CardShell
 			out.write("}\r\n");
 			out.flush();
 			out.close();
+
+			if(addable)
+			{
+				System.out.println("Adding " + this.name);
+				try
+				{
+					Process p = Runtime.getRuntime().exec("git add " + card.getPath());
+					p.waitFor();
+
+					for(java.io.InputStream stream: new java.io.InputStream[] {p.getInputStream(), p.getErrorStream()})
+					{
+						java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.InputStreamReader(stream));
+
+						String line;
+						while((line = reader.readLine()) != null)
+							System.out.println(line);
+					}
+				}
+				catch(InterruptedException ex)
+				{
+					System.out.println("Interrupted");
+				}
+			}
 
 			return true;
 		}
