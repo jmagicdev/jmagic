@@ -20,18 +20,19 @@
 		</dependency>
 		<dependency>
 			<groupId>org.rnd.jmagic</groupId>
-			<artifactId>engine</artifactId>
-			<version>0.12</version>
-		</dependency>
-		<dependency>
-			<groupId>org.rnd.jmagic</groupId>
 			<artifactId>cards</artifactId>
 			<version>0.12</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.rnd.jmagic</groupId>
-			<artifactId>development</artifactId>
+			<artifactId>engine</artifactId>
+			<version>0.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.rnd.jmagic</groupId>
+			<artifactId>testing-common</artifactId>
 			<version>0.12</version>
 			<scope>test</scope>
 		</dependency>

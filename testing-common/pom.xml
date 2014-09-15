@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.rnd.jmagic</groupId>
-	<artifactId>development</artifactId>
-	<name>jmagic development</name>
+	<artifactId>testing-common</artifactId>
+	<name>jmagic testing common</name>
 	<version>0.12</version>
 
 	<properties>
@@ -13,19 +13,14 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+		</dependency>
+		<dependency>
 			<groupId>org.rnd.jmagic</groupId>
 			<artifactId>engine</artifactId>
 			<version>0.12</version>
-		</dependency>
-		<dependency>
-			<groupId>org.rnd.jmagic</groupId>
-			<artifactId>cards</artifactId>
-			<version>0.12</version>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish</groupId>
-			<artifactId>javax.json</artifactId>
-			<version>1.0.4</version>
 		</dependency>
 	</dependencies>
 

@@ -33,13 +33,6 @@
 			<artifactId>cling-support</artifactId>
 			<version>1.0.5</version>
 		</dependency>
-		<!-- Test dependencies -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 
 	<build>

@@ -13,11 +13,12 @@
 	</properties>
 
 	<modules>
-		<module>engine</module>
 		<module>cards</module>
-		<module>gui</module>
 		<module>development</module>
+		<module>engine</module>
 		<module>engine-integration-tests</module>
+		<module>gui</module>
+		<module>testing-common</module>
 	</modules>
 
 	<dependencies>
