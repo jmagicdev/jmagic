@@ -5,6 +5,7 @@ import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.engine.trackers.*;
 
 @Name("Keranos, God of Storms")
 @SuperTypes({SuperType.LEGENDARY})
@@ -30,84 +31,14 @@ public final class KeranosGodofStorms extends Card
 		}
 	}
 
-	/**
-	 * Keys are playerIDs, values are the number of cards they've drawn this
-	 * turn
-	 */
-	public static final class DrawTracker extends Tracker<java.util.Map<Integer, Integer>>
-	{
-		private java.util.Map<Integer, Integer> value = new java.util.HashMap<Integer, Integer>();
-		private java.util.Map<Integer, Integer> unmodifiable = java.util.Collections.unmodifiableMap(value);
-
-		@Override
-		protected Tracker<java.util.Map<java.lang.Integer, java.lang.Integer>> clone()
-		{
-			DrawTracker ret = (DrawTracker)super.clone();
-			ret.value = new java.util.HashMap<Integer, Integer>(this.value);
-			ret.unmodifiable = java.util.Collections.unmodifiableMap(this.value);
-			return ret;
-		}
-
-		@Override
-		protected java.util.Map<Integer, Integer> getValueInternal()
-		{
-			return this.unmodifiable;
-		}
-
-		@Override
-		protected void reset()
-		{
-			this.value.clear();
-		}
-
-		@Override
-		protected boolean match(GameState state, Event event)
-		{
-			return event.type == EventType.DRAW_ONE_CARD;
-		}
-
-		@Override
-		protected void update(GameState state, Event event)
-		{
-			int playerID = event.parameters.get(EventType.Parameter.PLAYER).evaluate(state, null).getOne(Player.class).ID;
-			if(this.value.containsKey(playerID))
-				this.value.put(playerID, this.value.get(playerID) + 1);
-			else
-				this.value.put(playerID, 1);
-		}
-	}
-
-	public static final class YouveDrawnACardThisTurn extends SetGenerator
-	{
-		private static SetGenerator _instance = new YouveDrawnACardThisTurn();
-
-		public static SetGenerator instance()
-		{
-			return _instance;
-		}
-
-		private YouveDrawnACardThisTurn()
-		{
-			// singleton generator
-		}
-
-		@Override
-		public Set evaluate(GameState state, Identified thisObject)
-		{
-			Player you = You.instance().evaluate(state, thisObject).getOne(Player.class);
-			if(state.getTracker(DrawTracker.class).getValue(state).containsKey(you.ID))
-				return NonEmpty.set;
-			return Empty.set;
-		}
-	}
-
 	public static final class KeranosGodofStormsAbility2 extends StaticAbility
 	{
 		public KeranosGodofStormsAbility2(GameState state)
 		{
 			super(state, "Reveal the first card you draw on each of your turns.");
 
-			SetGenerator yourFirstDraw = Not.instance(YouveDrawnACardThisTurn.instance());
+			SetGenerator youveDrawn = Intersect.instance(DrawnACardThisTurn.instance(), You.instance());
+			SetGenerator yourFirstDraw = Not.instance(youveDrawn);
 			SetGenerator yourTurn = Intersect.instance(OwnerOf.instance(CurrentTurn.instance()), You.instance());
 			SetGenerator yourFirstDrawYourTurn = Both.instance(yourFirstDraw, yourTurn);
 			this.canApply = Both.instance(this.canApply, yourFirstDrawYourTurn);

@@ -2,6 +2,10 @@ package org.rnd.jmagic.engine.generators;
 
 import org.rnd.jmagic.engine.*;
 
+/**
+ * Evaluates to all zone changes resulting from draw events this turn. Requires
+ * the inner tracker.
+ */
 public final class DrawnThisTurn extends SetGenerator
 {
 	public static final class DrawTracker extends Tracker<java.util.Collection<ZoneChange>>
