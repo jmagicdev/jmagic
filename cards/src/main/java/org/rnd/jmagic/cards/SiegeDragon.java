@@ -32,7 +32,7 @@ public final class SiegeDragon extends Card
 			this.addPattern(whenThisAttacks());
 
 			SetGenerator walls = HasSubType.instance(SubType.WALL);
-			SetGenerator enemyWalls = Intersect.instance(ControlledBy.instance(OpponentsOf.instance(You.instance())), walls);
+			SetGenerator enemyWalls = Intersect.instance(ControlledBy.instance(DefendingPlayer.instance(ABILITY_SOURCE_OF_THIS)), walls);
 			SetGenerator noEnemyWalls = Not.instance(enemyWalls);
 
 			SetGenerator thatPlayer = EventParameter.instance(TriggerEvent.instance(This.instance()), EventType.Parameter.PLAYER);

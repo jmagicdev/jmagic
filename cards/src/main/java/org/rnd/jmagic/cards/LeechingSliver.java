@@ -22,7 +22,7 @@ public final class LeechingSliver extends Card
 			SimpleEventPattern pattern = new SimpleEventPattern(EventType.DECLARE_ONE_ATTACKER);
 			pattern.put(EventType.Parameter.OBJECT, SLIVER_CREATURES_YOU_CONTROL);
 
-			SetGenerator defender = EventParameter.instance(TriggerEvent.instance(This.instance()), EventType.Parameter.DEFENDER);
+			SetGenerator defender = DefendingPlayer.instance(EventParameter.instance(TriggerEvent.instance(This.instance()), EventType.Parameter.OBJECT));
 			this.addEffect(loseLife(defender, 1, "Defending player loses 1 life."));
 		}
 	}

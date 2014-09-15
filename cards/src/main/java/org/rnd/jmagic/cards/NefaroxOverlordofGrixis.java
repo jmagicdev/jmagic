@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -18,8 +19,8 @@ public final class NefaroxOverlordofGrixis extends Card
 		{
 			super(state, "Whenever Nefarox, Overlord of Grixis attacks alone, defending player sacrifices a creature.");
 
-			SetGenerator defendingPlayer = EventParameter.instance(TriggerEvent.instance(This.instance()), EventType.Parameter.DEFENDER);
-			this.addEffect(sacrifice(defendingPlayer, 1, CreaturePermanents.instance(), "Defending player sacrifices a creature."));
+			SetGenerator defender = DefendingPlayer.instance(EventParameter.instance(TriggerEvent.instance(This.instance()), EventType.Parameter.OBJECT));
+			this.addEffect(sacrifice(defender, 1, CreaturePermanents.instance(), "Defending player sacrifices a creature."));
 		}
 	}
 

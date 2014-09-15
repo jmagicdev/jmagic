@@ -18,7 +18,7 @@ public final class SeaMonster extends Card
 
 			SetGenerator playersWithIslands = ControllerOf.instance(Intersect.instance(InZone.instance(Battlefield.instance()), HasSubType.instance(SubType.ISLAND)));
 			SetGenerator playersWithoutIslands = RelativeComplement.instance(Players.instance(), playersWithIslands);
-			SetGenerator restriction = Intersect.instance(This.instance(), Attacking.instance(playersWithoutIslands));
+			SetGenerator restriction = Intersect.instance(DefendingPlayer.instance(This.instance()), playersWithoutIslands);
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.ATTACKING_RESTRICTION);
 			part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(restriction));

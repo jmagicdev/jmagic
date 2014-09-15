@@ -20,7 +20,7 @@ public final class NemesisofReason extends Card
 
 			this.addPattern(whenThisAttacks());
 
-			this.addEffect(millCards(IsAttacked.instance(ABILITY_SOURCE_OF_THIS), 10, "Defending player puts the top ten cards of his or her library into his or her graveyard"));
+			this.addEffect(millCards(DefendingPlayer.instance(ABILITY_SOURCE_OF_THIS), 10, "Defending player puts the top ten cards of his or her library into his or her graveyard"));
 		}
 	}
 
