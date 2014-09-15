@@ -1,5 +1,10 @@
 package org.rnd.jmagic.cards;
 
+import static org.rnd.jmagic.Convenience.numberGenerator;
+import static org.rnd.jmagic.Convenience.putIntoHand;
+import static org.rnd.jmagic.Convenience.shuffleLibrary;
+import static org.rnd.jmagic.Convenience.simultaneous;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -14,25 +19,31 @@ public final class Cultivate extends Card
 		super(state);
 
 		// Search your library for up to two basic land cards, reveal those
-		// cards, and put one onto the battlefield tapped and the other into
-		// your hand. Then shuffle your library.
-		SetGenerator basicLandCards = Intersect.instance(HasSuperType.instance(SuperType.BASIC), HasType.instance(Type.LAND));
-		SetGenerator basicLandsInYourLibrary = Intersect.instance(InZone.instance(LibraryOf.instance(You.instance())), basicLandCards);
+		// cards,
+		SetGenerator basicLands = Intersect.instance(HasSuperType.instance(SuperType.BASIC), HasType.instance(Type.LAND));
 
-		// TODO : I realize I'm using a custom event type from another card
-		// here. The right thing to do is to make a new, more complicated
-		// MOVE_OBJECTS_TO_DIFFERENT_ZONES event that takes a map from where to
-		// put things to what to put there. There are a couple possible
-		// implementations of this though (mainly, how to handle ordered zones'
-		// indices), and rather than just picking one I'd rather discuss it. In
-		// the mean time I'm doing the "wrong thing" and just getting the card
-		// done.
-		// TODO : Above todo is moot now that we have the 'simultaneous'
-		// convenience event. Use it. Here and on Kodama's Reach.
-		EventFactory effect = new EventFactory(KodamasReach.KODAMAS_REACH_EVENT, "Search your library for two basic land cards, reveal those cards, and put one onto the battlefield tapped and the other into your hand. Then shuffle your library.");
-		effect.parameters.put(EventType.Parameter.CAUSE, This.instance());
-		effect.parameters.put(EventType.Parameter.PLAYER, You.instance());
-		effect.parameters.put(EventType.Parameter.CHOICE, Identity.instance(basicLandsInYourLibrary));
-		this.addEffect(effect);
+		EventFactory search = new EventFactory(EventType.SEARCH, "Search your library for up to two basic land cards, reveal those cards,");
+		search.parameters.put(EventType.Parameter.CAUSE, This.instance());
+		search.parameters.put(EventType.Parameter.PLAYER, You.instance());
+		search.parameters.put(EventType.Parameter.CARD, LibraryOf.instance(You.instance()));
+		search.parameters.put(EventType.Parameter.NUMBER, numberGenerator(2));
+		search.parameters.put(EventType.Parameter.TYPE, Identity.instance(basicLands));
+		this.addEffect(search);
+		SetGenerator found = EffectResult.instance(search);
+
+		// and put one onto the battlefield tapped
+		EventFactory drop = new EventFactory(EventType.PUT_ONTO_BATTLEFIELD_CHOICE, "and put one onto the battlefield tapped");
+		drop.parameters.put(EventType.Parameter.CAUSE, This.instance());
+		drop.parameters.put(EventType.Parameter.CONTROLLER, You.instance());
+		drop.parameters.put(EventType.Parameter.OBJECT, found);
+		drop.parameters.put(EventType.Parameter.EFFECT, Identity.instance(EventType.PUT_ONTO_BATTLEFIELD_TAPPED));
+
+		// and the other into your hand.
+		EventFactory take = putIntoHand(found, You.instance(), "and the other into your hand.");
+
+		this.addEffect(simultaneous(drop, take));
+
+		// Then shuffle your library,
+		this.addEffect(shuffleLibrary(You.instance(), "Then shuffle your library."));
 	}
 }
