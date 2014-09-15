@@ -651,6 +651,29 @@ public class ManaPool implements java.util.SortedSet<ManaSymbol>, java.io.Serial
 		}
 	}
 
+	public void reduceColored(ManaPool reduction)
+	{
+		reductions: for(ManaSymbol r: reduction)
+		{
+			if(r.colors.size() > 1)
+				throw new UnsupportedOperationException("Can't reduce by a hybrid amount. The player paying the cost being reduced must make a choice first.");
+			if(r.colors.size() == 0)
+				throw new UnsupportedOperationException("Applying a color-only cost reduction via a symbol with no colors...");
+
+			Color color = r.colors.iterator().next();
+			java.util.Iterator<ManaSymbol> iter = this.iterator();
+			while(iter.hasNext())
+			{
+				ManaSymbol m = iter.next();
+				if(m.colors.contains(color))
+				{
+					iter.remove();
+					continue reductions;
+				}
+			}
+		}
+	}
+
 	private void reduceColorless(int colorlessReduction)
 	{
 		java.util.Iterator<ManaSymbol> tIter = this.iterator();

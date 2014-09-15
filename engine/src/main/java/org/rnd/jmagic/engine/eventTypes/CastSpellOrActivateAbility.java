@@ -559,6 +559,15 @@ public final class CastSpellOrActivateAbility extends EventType
 			if(costAddition.getKey().contains(onStack))
 				totalManaCost.addAll(costAddition.getValue());
 
+		// cost reductions that only reduce colored mana
+		for(java.util.Map.Entry<Set, ManaPool> costReduction: game.actualState.manaCostColoredReductions.entrySet())
+			if(costReduction.getKey().contains(onStack))
+			{
+				ManaPool reduction = costReduction.getValue();
+				reduction = playerActing.sanitizeAndChoose(game.actualState, 1, reduction.explode(CostCollection.TYPE_REDUCE_COST), PlayerInterface.ChoiceType.MANA_EXPLOSION, PlayerInterface.ChooseReason.COST_REDUCTION).get(0).manaCost;
+				totalManaCost.reduceColored(reduction);
+			}
+
 		// cost reductions that can't reduce to less than one mana
 		for(java.util.Map.Entry<Set, ManaPool> costReduction: game.actualState.manaCostRestrictedReductions.entrySet())
 			if(costReduction.getKey().contains(onStack))

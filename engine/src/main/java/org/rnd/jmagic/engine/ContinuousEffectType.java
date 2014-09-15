@@ -2041,6 +2041,8 @@ public abstract class ContinuousEffectType
 	 * @eparam COST: ManaPool that is the reduction in cost.
 	 * @eparam NUMBER: How many times the cost is reduced (single number)
 	 * [optional; default is 1].
+	 * @eparam COLOR: if present, this effect reduces only the amount of colored
+	 * mana paid
 	 * @eparam RESTRICTION: if present, this effect can't reduce the amount of
 	 * mana a spell/ability costs to play to less than one mana.
 	 */
@@ -2060,7 +2062,12 @@ public abstract class ContinuousEffectType
 			if(parameters.containsKey(Parameter.NUMBER))
 				cost = cost.duplicate(parameters.get(Parameter.NUMBER).getOne(Integer.class));
 
-			java.util.Map<Set, ManaPool> reductions = parameters.containsKey(Parameter.RESTRICTION) ? state.manaCostRestrictedReductions : state.manaCostReductions;
+			java.util.Map<Set, ManaPool> reductions = state.manaCostReductions;
+			if(parameters.containsKey(Parameter.RESTRICTION))
+				reductions = state.manaCostRestrictedReductions;
+			else if(parameters.containsKey(Parameter.COLOR))
+				reductions = state.manaCostColoredReductions;
+
 			if(reductions.containsKey(objects))
 				reductions.get(objects).addAll(cost);
 			else

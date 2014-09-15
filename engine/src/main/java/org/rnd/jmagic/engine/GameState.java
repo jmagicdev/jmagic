@@ -150,6 +150,13 @@ public class GameState implements Cloneable
 	public java.util.Map<Set, ManaPool> manaCostReductions;
 
 	/**
+	 * This map describes cost reductions for playing spells and abilities. The
+	 * keys to the map are sets that describe which spells and abilities the
+	 * reduction applies to; the values are the costs.
+	 */
+	public java.util.Map<Set, ManaPool> manaCostColoredReductions;
+
+	/**
 	 * Like manaCostReductions except that these effects can't reduce the amount
 	 * of mana something costs to play to less than one mana.
 	 */
@@ -240,6 +247,7 @@ public class GameState implements Cloneable
 		this.manaCostAdditions = new java.util.HashMap<Set, ManaPool>();
 		this.manaCostMinimums = new java.util.HashMap<Set, Integer>();
 		this.manaCostReductions = new java.util.HashMap<Set, ManaPool>();
+		this.manaCostColoredReductions = new java.util.HashMap<Set, ManaPool>();
 		this.manaCostRestrictedReductions = new java.util.HashMap<Set, ManaPool>();
 		this.manaThatDoesntEmpty = new java.util.HashMap<Integer, MultipleSetPattern>();
 		this.nextTimestamp = 0;
@@ -373,6 +381,7 @@ public class GameState implements Cloneable
 		this.futureTurns.clear();
 		this.manaCostAdditions.clear();
 		this.manaCostReductions.clear();
+		this.manaCostColoredReductions.clear();
 		this.manaCostRestrictedReductions.clear();
 		this.playerActions.clear();
 		this.players.clear();
@@ -465,6 +474,7 @@ public class GameState implements Cloneable
 			ret.manaCostAdditions = new java.util.HashMap<Set, ManaPool>();
 			ret.manaCostMinimums = new java.util.HashMap<Set, Integer>();
 			ret.manaCostReductions = new java.util.HashMap<Set, ManaPool>();
+			ret.manaCostColoredReductions = new java.util.HashMap<Set, ManaPool>();
 			ret.manaCostRestrictedReductions = new java.util.HashMap<Set, ManaPool>();
 			ret.manaThatDoesntEmpty = new java.util.HashMap<Integer, MultipleSetPattern>();
 			for(int key: this.manaThatDoesntEmpty.keySet())
