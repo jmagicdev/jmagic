@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -18,11 +19,7 @@ public final class FatedRetribution extends Card
 		this.addEffect(destroy(Intersect.instance(Permanents.instance(), HasType.instance(Type.CREATURE, Type.PLANESWALKER)), "Destroy all creatures and planeswalkers."));
 
 		// If it's your turn, scry 2.
-		SetGenerator itsYourTurn = Intersect.instance(You.instance(), OwnerOf.instance(CurrentTurn.instance()));
-
-		EventFactory scryIfItsYourTurn = new EventFactory(EventType.IF_CONDITION_THEN_ELSE, "If it's your turn, scry 2.");
-		scryIfItsYourTurn.parameters.put(EventType.Parameter.IF, itsYourTurn);
-		scryIfItsYourTurn.parameters.put(EventType.Parameter.THEN, Identity.instance(scry(2, "Scry 2.")));
-		this.addEffect(scryIfItsYourTurn);
+		SetGenerator itsYourTurn = Intersect.instance(OwnerOf.instance(CurrentTurn.instance()), You.instance());
+		this.addEffect(ifThen(itsYourTurn, scry(2, "Scry 2."), "If it's your turn, scry 2."));
 	}
 }
