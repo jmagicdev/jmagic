@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 
 public class CardShell
 {
-	private static final java.util.Map<java.util.regex.Pattern, String> keywords = new java.util.HashMap<java.util.regex.Pattern, String>();
+	private static final java.util.Map<String, java.util.Map<java.util.regex.Pattern, String>> keywords = new java.util.HashMap<>();
 	private static final java.util.Map<String, String> convenienceMethods = new java.util.HashMap<String, String>();
 
 	private static String getConvenienceMethod(String string)
@@ -260,16 +260,28 @@ public class CardShell
 		newKeywords.put(keywordAndNumber("Tribute"), complexInstantiation(Tribute.class));
 		newKeywords.put(keywordAndManaCost("Unearth"), complexInstantiation(Unearth.class, true));
 
+		java.util.HashMap<java.util.regex.Pattern, String> compiledKeywords = new java.util.HashMap<>();
+		keywords.put("org.rnd.jmagic.engine.keywords.*", compiledKeywords);
+		for(java.util.Map.Entry<String, String> entry: newKeywords.entrySet())
+			compiledKeywords.put(java.util.regex.Pattern.compile(entry.getKey(), java.util.regex.Pattern.CASE_INSENSITIVE), entry.getValue());
+
 		// Not really keywords
-		newKeywords.put("This enters the battlefield tapped.", withThisNameInstantiation(EntersTheBattlefieldTapped.class));
-		newKeywords.put("This can't block.", withThisNameInstantiation(CantBlock.class));
-		newKeywords.put("This is unblockable.", withThisNameInstantiation(Unblockable.class));
+		java.util.Map<String, String> newAbilityWords = new java.util.HashMap<String, String>();
+
+		newAbilityWords.put("This enters the battlefield tapped.", withThisNameInstantiation(EntersTheBattlefieldTapped.class));
+		newAbilityWords.put("This can't block.", withThisNameInstantiation(CantBlock.class));
+		newAbilityWords.put("This is unblockable.", withThisNameInstantiation(Unblockable.class));
 		/* This doesn't work because it has a comma */
 		// keywords.put("If this is in your opening hand, you may begin the game with it on the battlefield.",
 		// withThisNameInstantiation(LeylineAbility.class));
+		newAbilityWords.put("This costs (\\(.*\\)) more to cast for each target beyond the first.", "new Strive(state, this.getName(), \"\\1\")");
 
-		for(java.util.Map.Entry<String, String> entry: newKeywords.entrySet())
-			keywords.put(java.util.regex.Pattern.compile(entry.getKey(), java.util.regex.Pattern.CASE_INSENSITIVE), entry.getValue());
+		java.util.HashMap<java.util.regex.Pattern, String> compiledAbilityWords = new java.util.HashMap<>();
+		for(java.util.Map.Entry<String, String> entry: newAbilityWords.entrySet())
+			compiledAbilityWords.put(java.util.regex.Pattern.compile(entry.getKey(), java.util.regex.Pattern.CASE_INSENSITIVE), entry.getValue());
+
+		keywords.put("org.rnd.jmagic.engine.keywords.*", compiledKeywords);
+		keywords.put("org.rnd.jmagic.abilities.*", compiledAbilityWords);
 	}
 
 	private static String removeReminderText(String ability)
@@ -403,81 +415,20 @@ public class CardShell
 		if(info.get(0).contains(SuperType.BASIC))
 			anyNumber = " implements AnyNumberInADeck";
 
-		java.io.BufferedWriter out;
+		java.io.BufferedWriter out = null;
 		try
 		{
 			boolean addable = false;
 
-			out = new java.io.BufferedWriter(new java.io.FileWriter(card));
-			out.write("package org.rnd.jmagic.cards;\r\n\r\n");
-			out.write("import static org.rnd.jmagic.Convenience.*;\r\n");
-			out.write("import org.rnd.jmagic.engine.*;\r\n");
-			out.write("import org.rnd.jmagic.engine.generators.*;\r\n\r\n");
-
-			out.write("@Name(\"" + nameInFile + "\")\n");
-
 			java.util.Set<SuperType> superTypeSet = (java.util.Set<SuperType>)info.get(0);
-			if(!superTypeSet.isEmpty())
-			{
-				out.write("@SuperTypes({");
-				boolean first = true;
-				for(SuperType type: superTypeSet)
-				{
-					if(first)
-						first = false;
-					else
-						out.write(",");
-					out.write("SuperType." + type.name());
-				}
-				out.write("})\r\n");
-			}
-
 			java.util.Set<Type> typeSet = (java.util.Set<Type>)info.get(1);
-			if(!typeSet.isEmpty())
-			{
-				out.write("@Types({");
-				boolean first = true;
-				for(Type type: typeSet)
-				{
-					if(first)
-						first = false;
-					else
-						out.write(",");
-					out.write("Type." + type.name());
-				}
-				out.write("})\r\n");
-			}
-
 			java.util.Set<SubType> subTypeSet = (java.util.Set<SubType>)info.get(2);
-			if(!subTypeSet.isEmpty())
-			{
-				out.write("@SubTypes({");
-				boolean first = true;
-				for(SubType type: subTypeSet)
-				{
-					if(first)
-						first = false;
-					else
-						out.write(",");
-					out.write("SubType." + type.name());
-				}
-				out.write("})\r\n");
-			}
 
-			if(this.manaCost != null)
-			{
-				out.write("@ManaCost(\"" + this.manaCost + "\")\r\n");
-			}
+			java.util.SortedSet<String> imports = new java.util.TreeSet<>();
+			imports.add("org.rnd.jmagic.engine.*");
+			imports.add("org.rnd.jmagic.engine.generators.*");
 
-			out.write("@ColorIdentity({");
-			java.util.Set<String> identity = this.colorIdentity();
-			if(!identity.isEmpty())
-			{
-				out.write("Color." + org.rnd.util.SeparatedList.get(", Color.", "", this.colorIdentity()).toString());
-			}
-			out.write("})\r\n");
-
-			out.write("public final class " + className + " extends Card" + anyNumber + "\r\n{\r\n");
+			StringBuilder abilityCode = new StringBuilder();
 
 			int abilityNumber = 0;
 			java.util.Map<Integer, java.util.List<String>> generatedAbilities = new java.util.HashMap<Integer, java.util.List<String>>();
@@ -501,16 +452,23 @@ public class CardShell
 					if(keywords.isEmpty())
 						populateKeywords();
 
-					for(java.util.regex.Pattern pattern: keywords.keySet())
+					for(java.util.Map.Entry<String, java.util.Map<java.util.regex.Pattern, String>> entry: keywords.entrySet())
 					{
-						java.util.regex.Matcher match = pattern.matcher(ability);
-						if(match.matches())
+						boolean added = false;
+						for(java.util.regex.Pattern pattern: entry.getValue().keySet())
 						{
-							String construction = keywords.get(pattern);
-							for(int i = 1; i <= match.groupCount(); ++i)
-								construction = construction.replace("\\" + i, match.group(i));
-							abilityConstructors.add(construction);
+							java.util.regex.Matcher match = pattern.matcher(ability);
+							if(match.matches())
+							{
+								String construction = entry.getValue().get(pattern);
+								for(int i = 1; i <= match.groupCount(); ++i)
+									construction = construction.replace("\\" + i, match.group(i));
+								abilityConstructors.add(construction);
+								added = true;
+							}
 						}
+						if(added)
+							imports.add(entry.getKey());
 					}
 
 					if(!abilityConstructors.isEmpty())
@@ -542,58 +500,58 @@ public class CardShell
 						addable = false;
 						String abilityClassName = className + "Ability" + abilityNumber;
 						if(typeSet.contains(Type.PLANESWALKER))
-							out.write("\tpublic static final class " + abilityClassName + " extends LoyaltyAbility\r\n");
+							abilityCode.append("\tpublic static final class " + abilityClassName + " extends LoyaltyAbility\r\n");
 						else
-							out.write("\tpublic static final class " + abilityClassName + " extends ActivatedAbility\r\n");
-						out.write("\t{\r\n");
-						out.write("\t\tpublic " + abilityClassName + "(GameState state)\r\n");
-						out.write("\t\t{\r\n");
+							abilityCode.append("\tpublic static final class " + abilityClassName + " extends ActivatedAbility\r\n");
+						abilityCode.append("\t{\r\n");
+						abilityCode.append("\t\tpublic " + abilityClassName + "(GameState state)\r\n");
+						abilityCode.append("\t\t{\r\n");
 						if(typeSet.contains(Type.PLANESWALKER))
-							out.write("\t\t\tsuper(state, " + ability.substring(0, firstColon) + ", \"" + ability.substring(firstColon + 2).replace("\"", "\\\"") + "\");\r\n");
+							abilityCode.append("\t\t\tsuper(state, " + ability.substring(0, firstColon) + ", \"" + ability.substring(firstColon + 2).replace("\"", "\\\"") + "\");\r\n");
 						// Only process costs if this isn't a loyalty ability
 						else
 						{
-							out.write("\t\t\tsuper(state, \"" + ability.replace("\"", "\\\"") + "\");\r\n");
+							abilityCode.append("\t\t\tsuper(state, \"" + ability.replace("\"", "\\\"") + "\");\r\n");
 
 							String costs = ability.substring(0, firstColon);
 							for(String cost: costs.split(","))
 							{
 								cost = cost.trim();
 								if(cost.equals("(T)"))
-									out.write("\t\t\tthis.costsTap = true;\r\n");
+									abilityCode.append("\t\t\tthis.costsTap = true;\r\n");
 								else if(cost.equals("(Q)"))
-									out.write("\t\t\tthis.costsUntap = true;\r\n");
+									abilityCode.append("\t\t\tthis.costsUntap = true;\r\n");
 								else if(cost.startsWith("("))
-									out.write("\t\t\tthis.setManaCost(new ManaPool(\"" + cost + "\"));\r\n");
+									abilityCode.append("\t\t\tthis.setManaCost(new ManaPool(\"" + cost + "\"));\r\n");
 								else
-									out.write("\t\t\t" + getCostLine(cost, nameInFile) + "\r\n");
+									abilityCode.append("\t\t\t" + getCostLine(cost, nameInFile) + "\r\n");
 							}
 						}
 
-						out.write("\t\t}\r\n");
-						out.write("\t}\r\n");
-						out.write("\r\n");
+						abilityCode.append("\t\t}\r\n");
+						abilityCode.append("\t}\r\n");
+						abilityCode.append("\r\n");
 						generatedAbilities.put(abilityNumber, java.util.Collections.singletonList("new " + abilityClassName + "(state)"));
 					}
 					else if(triggered)
 					{
 						addable = false;
 						String abilityClassName = className + "Ability" + abilityNumber;
-						out.write("\tpublic static final class " + abilityClassName + " extends EventTriggeredAbility\r\n");
-						out.write("\t{\r\n");
-						out.write("\t\tpublic " + abilityClassName + "(GameState state)\r\n");
-						out.write("\t\t{\r\n");
-						out.write("\t\t\tsuper(state, \"" + ability.replace("\"", "\\\"") + "\");\r\n");
+						abilityCode.append("\tpublic static final class " + abilityClassName + " extends EventTriggeredAbility\r\n");
+						abilityCode.append("\t{\r\n");
+						abilityCode.append("\t\tpublic " + abilityClassName + "(GameState state)\r\n");
+						abilityCode.append("\t\t{\r\n");
+						abilityCode.append("\t\t\tsuper(state, \"" + ability.replace("\"", "\\\"") + "\");\r\n");
 
 						String replacedAbility = ability.replace(nameInFile, "This");
 						String triggerCondition = replacedAbility.substring(0, replacedAbility.indexOf(","));
 						String method = getConvenienceMethod(triggerCondition);
 						if(method != null)
-							out.write("\t\t\tthis.addPattern(" + method + "());\r\n");
+							abilityCode.append("\t\t\tthis.addPattern(" + method + "());\r\n");
 
-						out.write("\t\t}\r\n");
-						out.write("\t}\r\n");
-						out.write("\r\n");
+						abilityCode.append("\t\t}\r\n");
+						abilityCode.append("\t}\r\n");
+						abilityCode.append("\r\n");
 						generatedAbilities.put(abilityNumber, java.util.Collections.singletonList("new " + abilityClassName + "(state)"));
 					}
 					else
@@ -608,17 +566,24 @@ public class CardShell
 								populateKeywords();
 
 							boolean found = false;
-							for(java.util.regex.Pattern pattern: keywords.keySet())
+							for(java.util.Map.Entry<String, java.util.Map<java.util.regex.Pattern, String>> entry: keywords.entrySet())
 							{
-								java.util.regex.Matcher match = pattern.matcher(seperateAbility);
-								if(match.matches())
+								boolean added = false;
+								for(java.util.regex.Pattern pattern: entry.getValue().keySet())
 								{
-									String construction = keywords.get(pattern);
-									for(int i = 1; i <= match.groupCount(); ++i)
-										construction = construction.replace("\\" + i, match.group(i));
-									abilityConstructors.add(construction);
-									found = true;
+									java.util.regex.Matcher match = pattern.matcher(seperateAbility);
+									if(match.matches())
+									{
+										String construction = entry.getValue().get(pattern);
+										for(int i = 1; i <= match.groupCount(); ++i)
+											construction = construction.replace("\\" + i, match.group(i));
+										abilityConstructors.add(construction);
+										found = true;
+										added = true;
+									}
 								}
+								if(added)
+									imports.add(entry.getKey());
 							}
 
 							// If we don't find one, quit. This avoids problems
@@ -638,20 +603,93 @@ public class CardShell
 							// ability, or keyword ability, assume it's a static
 							// ability
 							String abilityClassName = className + "Ability" + abilityNumber;
-							out.write("\tpublic static final class " + abilityClassName + " extends StaticAbility\r\n");
-							out.write("\t{\r\n");
-							out.write("\t\tpublic " + abilityClassName + "(GameState state)\r\n");
-							out.write("\t\t{\r\n");
-							out.write("\t\t\tsuper(state, \"" + ability.replace("\"", "\\\"") + "\");\r\n");
-							out.write("\t\t}\r\n");
-							out.write("\t}\r\n");
-							out.write("\r\n");
+							abilityCode.append("\tpublic static final class " + abilityClassName + " extends StaticAbility\r\n");
+							abilityCode.append("\t{\r\n");
+							abilityCode.append("\t\tpublic " + abilityClassName + "(GameState state)\r\n");
+							abilityCode.append("\t\t{\r\n");
+							abilityCode.append("\t\t\tsuper(state, \"" + ability.replace("\"", "\\\"") + "\");\r\n");
+							abilityCode.append("\t\t}\r\n");
+							abilityCode.append("\t}\r\n");
+							abilityCode.append("\r\n");
 							generatedAbilities.put(abilityNumber, java.util.Collections.singletonList("new " + abilityClassName + "(state)"));
 						}
 					}
 					++abilityNumber;
 				}
 			}
+
+			out = new java.io.BufferedWriter(new java.io.FileWriter(card));
+			out.write("package org.rnd.jmagic.cards;\r\n\r\n");
+			out.write("import static org.rnd.jmagic.Convenience.*;\r\n\r\n");
+
+			for(String pkg: imports)
+				out.write("import " + pkg + ";\r\n");
+
+			out.write("\r\n");
+
+			out.write("@Name(\"" + nameInFile + "\")\n");
+
+			if(!superTypeSet.isEmpty())
+			{
+				out.write("@SuperTypes({");
+				boolean first = true;
+				for(SuperType type: superTypeSet)
+				{
+					if(first)
+						first = false;
+					else
+						out.write(",");
+					out.write("SuperType." + type.name());
+				}
+				out.write("})\r\n");
+			}
+
+			if(!typeSet.isEmpty())
+			{
+				out.write("@Types({");
+				boolean first = true;
+				for(Type type: typeSet)
+				{
+					if(first)
+						first = false;
+					else
+						out.write(",");
+					out.write("Type." + type.name());
+				}
+				out.write("})\r\n");
+			}
+
+			if(!subTypeSet.isEmpty())
+			{
+				out.write("@SubTypes({");
+				boolean first = true;
+				for(SubType type: subTypeSet)
+				{
+					if(first)
+						first = false;
+					else
+						out.write(",");
+					out.write("SubType." + type.name());
+				}
+				out.write("})\r\n");
+			}
+
+			if(this.manaCost != null)
+			{
+				out.write("@ManaCost(\"" + this.manaCost + "\")\r\n");
+			}
+
+			out.write("@ColorIdentity({");
+			java.util.Set<String> identity = this.colorIdentity();
+			if(!identity.isEmpty())
+			{
+				out.write("Color." + org.rnd.util.SeparatedList.get(", Color.", "", this.colorIdentity()).toString());
+			}
+			out.write("})\r\n");
+
+			out.write("public final class " + className + " extends Card" + anyNumber + "\r\n{\r\n");
+
+			out.write(abilityCode.toString());
 
 			out.write("\tpublic " + className + "(GameState state)\r\n\t{\r\n");
 			out.write("\t\tsuper(state);\r\n\r\n");

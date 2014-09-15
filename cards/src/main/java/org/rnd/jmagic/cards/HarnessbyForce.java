@@ -2,6 +2,7 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 
+import org.rnd.jmagic.abilities.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -11,21 +12,13 @@ import org.rnd.jmagic.engine.generators.*;
 @ColorIdentity({Color.RED})
 public final class HarnessbyForce extends Card
 {
-	public static final class Strive extends org.rnd.jmagic.abilityTemplates.Strive
-	{
-		public Strive(GameState state)
-		{
-			super(state, "Harness by Force", "(2)(R)");
-		}
-	}
-
 	public HarnessbyForce(GameState state)
 	{
 		super(state);
 
 		// Strive — Harness by Force costs {2}{R} more to cast for each target
 		// beyond the first.
-		this.addAbility(new Strive(state));
+		this.addAbility(new Strive(state, "Harness by Force", "(2)(R)"));
 
 		Target target = this.addTarget(CreaturePermanents.instance(), "any number of target creatures");
 		target.setNumber(0, null);

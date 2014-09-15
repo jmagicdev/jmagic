@@ -1,6 +1,8 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
+import org.rnd.jmagic.abilities.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -10,14 +12,6 @@ import org.rnd.jmagic.engine.generators.*;
 @ColorIdentity({Color.GREEN})
 public final class SetessanTactics extends Card
 {
-	public static class Strive extends org.rnd.jmagic.abilityTemplates.Strive
-	{
-		public Strive(GameState state)
-		{
-			super(state, "Setessan Tactics", "(G)");
-		}
-	}
-
 	public static class CanFight extends ActivatedAbility
 	{
 		public CanFight(GameState state)
@@ -37,7 +31,7 @@ public final class SetessanTactics extends Card
 
 		// Strive — Setessan Tactics costs (G) more to cast for each target
 		// beyond the first.
-		this.addAbility(new Strive(state));
+		this.addAbility(new Strive(state, "Setessan Tactics", "(G)"));
 
 		// Until end of turn, any number of target creatures each get +1/+1 and
 		// gain "(T): This creature fights another target creature."

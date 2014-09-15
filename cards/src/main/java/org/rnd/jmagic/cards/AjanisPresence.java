@@ -1,6 +1,8 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
+import org.rnd.jmagic.abilities.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -10,21 +12,13 @@ import org.rnd.jmagic.engine.generators.*;
 @ColorIdentity({Color.WHITE})
 public final class AjanisPresence extends Card
 {
-	public final class Strive extends org.rnd.jmagic.abilityTemplates.Strive
-	{
-		public Strive(GameState state)
-		{
-			super(state, "Ajani's Presence", "(2)(W)");
-		}
-	}
-
 	public AjanisPresence(GameState state)
 	{
 		super(state);
 
 		// Strive — Ajani's Presence costs (2)(W) more to cast for each target
 		// beyond the first.
-		this.addAbility(new Strive(state));
+		this.addAbility(new Strive(state, "Ajani's Presence", "(2)(W)"));
 
 		// Any number of target creatures each get +1/+1 and gain indestructible
 		// until end of turn.
