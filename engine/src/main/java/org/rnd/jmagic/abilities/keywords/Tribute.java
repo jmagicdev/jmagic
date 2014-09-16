@@ -118,10 +118,10 @@ public final class Tribute extends Keyword
 			replacement.addEffect(chooseOpponent);
 
 			SetGenerator thatOpponent = EffectResult.instance(chooseOpponent);
-			
+
 			SetGenerator thisObject = NewObjectOf.instance(ReplacedBy.instance(Identity.instance(replacement)));
 			String withCounters = "with an additional " + org.rnd.util.NumberNames.get(parent.N, "") + " +1/+1 counter" + (parent.N == 1 ? "" : "s") + " on it.";
-			EventFactory putCounters = putCounters(parent.N, Counter.CounterType.PLUS_ONE_PLUS_ONE, thisObject, "This enters the battlefield" + withCounters);
+			EventFactory putCounters = putCounters(parent.N, Counter.CounterType.PLUS_ONE_PLUS_ONE, thisObject, "This enters the battlefield " + withCounters);
 
 			EventFactory tributePaid = new EventFactory(EventType.TRIBUTE_PAID, "Opponent paid tribute to this creature.");
 			tributePaid.parameters.put(EventType.Parameter.OBJECT, thisObject);
