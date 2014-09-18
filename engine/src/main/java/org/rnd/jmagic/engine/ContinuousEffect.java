@@ -242,7 +242,7 @@ public class ContinuousEffect extends Identified
 		{
 			// if another effect causes this one to be able to apply later,
 			// don't let it apply to any objects (see rule 613.5 quoted below)
-			this.affectedObjects = null;
+			this.affectedObjects = Identity.instance();
 			return;
 		}
 
@@ -272,7 +272,7 @@ public class ContinuousEffect extends Identified
 		{
 			// if another effect causes this one to be able to apply later,
 			// don't let it apply to any objects (see rule 613.5 quoted below)
-			this.affectedObjects = null;
+			this.affectedObjects = Identity.instance();
 			return;
 		}
 
