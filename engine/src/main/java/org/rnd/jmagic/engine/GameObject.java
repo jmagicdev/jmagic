@@ -784,7 +784,10 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 			newObject.pastSelf = oldObject.ID;
 
 			if(this.state.battlefield().equals(destination))
+			{
 				newObject.battlefieldProperties = new BattlefieldProperties();
+				this.game.physicalState.voidedObjects.add(newObject);
+			}
 		}
 		else
 		{

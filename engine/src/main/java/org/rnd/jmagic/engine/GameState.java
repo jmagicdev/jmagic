@@ -202,6 +202,8 @@ public class GameState implements Cloneable
 	 */
 	public java.util.Map<Integer, java.util.Collection<Integer>> summoningSick;
 
+	public IDList<GameObject> voidedObjects;
+
 	/** Triggered abilities that have triggered but not gone on the stack. */
 	public java.util.Map<Integer, java.util.Collection<TriggeredAbility>> waitingTriggers;
 
@@ -262,6 +264,7 @@ public class GameState implements Cloneable
 		this.specialActionFactories = new java.util.HashMap<SpecialActionFactory, GameObject>();
 		this.stackID = new Zone(this, "The Stack").ID;
 		this.summoningSick = new java.util.HashMap<Integer, java.util.Collection<Integer>>();
+		this.voidedObjects = new IDList<GameObject>(this);
 		this.waitingTriggers = new java.util.HashMap<Integer, java.util.Collection<TriggeredAbility>>();
 		this.zoneChangeProhibitions = new java.util.LinkedList<ZoneChangePattern>();
 		this.zoneChangeReplacementEffects = new java.util.LinkedList<ZoneChangeReplacementEffect>();
@@ -448,6 +451,7 @@ public class GameState implements Cloneable
 
 				ret.summoningSick.put(i, objects);
 			}
+			ret.voidedObjects = new IDList<GameObject>(ret, this.voidedObjects);
 			ret.waitingTriggers = new java.util.HashMap<Integer, java.util.Collection<TriggeredAbility>>();
 			for(Integer i: this.waitingTriggers.keySet())
 				ret.waitingTriggers.put(i, new IDList<TriggeredAbility>(ret, this.waitingTriggers.get(i)));

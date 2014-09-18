@@ -10,6 +10,7 @@ import org.rnd.jmagic.gameTypes.*;
 
 public class ReplacementEffectsTest extends JUnitTest
 {
+
 	@Test
 	public void dredgeWithThoughtReflection()
 	{
@@ -80,6 +81,44 @@ public class ReplacementEffectsTest extends JUnitTest
 		respondWith(Answer.YES);
 
 		assertTrue(getGraveyard(0).objects.get(0).getName().equals("Swamp"));
+	}
+
+	@Test
+	public void entersTheBattlefieldCornerCase()
+	{
+		this.addDeck(BlindObedience.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
+		this.addDeck(ThassaGodoftheSea.class, ArcanistheOmnipotent.class, ThassaGodoftheSea.class, FugitiveWizard.class, ThassaGodoftheSea.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
+		startGame(new Open());
+
+		respondWith(getPlayer(0));
+		keep();
+		keep();
+
+		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
+		castAndResolveSpell(BlindObedience.class);
+		goToPhase(Phase.PhaseType.ENDING);
+
+		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
+
+		// 0 devotion -- untapped
+		castAndResolveSpell(ThassaGodoftheSea.class);
+		GameObject thassa = this.game.actualState.battlefield().objects.get(0);
+		assertFalse(thassa.isTapped());
+
+		// 4 devotion -- untapped
+		castAndResolveSpell(ArcanistheOmnipotent.class);
+		castAndResolveSpell(ThassaGodoftheSea.class);
+		thassa = this.game.actualState.battlefield().objects.get(0);
+		assertFalse(thassa.isTapped());
+
+		// legend rule choice
+		respondWith(getChoice(this.game.actualState.battlefield().objects.get(0)));
+
+		// 5 devotion -- tapped
+		castAndResolveSpell(FugitiveWizard.class);
+		castAndResolveSpell(ThassaGodoftheSea.class);
+		thassa = this.game.actualState.battlefield().objects.get(0);
+		assertTrue(thassa.isTapped());
 	}
 
 	@Test

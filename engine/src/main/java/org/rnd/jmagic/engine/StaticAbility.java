@@ -60,7 +60,7 @@ public abstract class StaticAbility extends Identified implements Linkable, Sani
 		SetGenerator isEmblem = EmblemFilter.instance(This.instance());
 		SetGenerator inCommandZone = InZone.instance(CommandZone.instance());
 		SetGenerator isEmblemInCommandZone = Intersect.instance(isEmblem, inCommandZone);
-		SetGenerator permanentsAndPlayers = Union.instance(Players.instance(), InZone.instance(Battlefield.instance()));
+		SetGenerator permanentsAndPlayers = Union.instance(Players.instance(), Permanents.instance(), VoidedObjects.instance());
 		this.canApply = Union.instance(Intersect.instance(permanentsAndPlayers, This.instance()), isEmblemInCommandZone);
 	}
 
