@@ -24,8 +24,11 @@ public class WasFlashbacked extends SetGenerator
 	public Set evaluate(GameState state, Identified thisObject)
 	{
 		for(GameObject object: this.what.evaluate(state, thisObject).getAll(GameObject.class))
-			if(object.flashbackCostPaid)
-				return NonEmpty.set;
+		{
+			for(CostCollection alt: object.getAlternateCost())
+				if(alt != null && alt.type.equals(org.rnd.jmagic.abilities.keywords.Flashback.COST_TYPE))
+					return NonEmpty.set;
+		}
 
 		return Empty.set;
 	}

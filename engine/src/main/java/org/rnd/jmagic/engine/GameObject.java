@@ -181,8 +181,6 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 */
 	public Characteristics faceDownValues;
 
-	public boolean flashbackCostPaid;
-
 	/** What GameObject did this become after a move? */
 	public int futureSelf;
 
@@ -256,7 +254,6 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		this.definedX = null;
 		this.effectsGenerated = null;
 		this.faceDownValues = null;
-		this.flashbackCostPaid = false;
 		this.futureSelf = -1;
 		this.hasACopyEffect = false;
 		this.isGhost = false;

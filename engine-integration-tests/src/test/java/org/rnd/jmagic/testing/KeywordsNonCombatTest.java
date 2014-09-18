@@ -2590,17 +2590,35 @@ public class KeywordsNonCombatTest extends JUnitTest
 	@Test
 	public void flashback()
 	{
-		addDeck(OnewithNothing.class, Firebolt.class, Firebolt.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		addDeck(Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class, Plains.class);
-		startGame(new Open());
+		addDeck(GrizzlyBears.class, OnewithNothing.class, Firebolt.class, Firebolt.class, Firebolt.class, Quicken.class, GrizzlyBears.class, GrizzlyBears.class);
+		addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
+		startGame(new Stacked()); // ensure I draw a blank every time.
 
 		respondWith(getPlayer(0));
 		keep();
 		keep();
 
 		// during upkeep
+		respondWith(getSpellAction(Quicken.class));
+		addMana("U");
+		donePlayingManaAbilities();
 		castAndResolveSpell(OnewithNothing.class, "B");
-		// can't cast the Bolt now since it's a sorcery:
+		pass();
+		pass();
+
+		// cast it from the graveyard in the upkeep:
+		respondWith(getSpellAction(Firebolt.class));
+		respondWith(getTarget(Player.class));
+		addMana("4R");
+		donePlayingManaAbilities();
+		pass();
+		pass();
+
+		// find it exiled:
+		assertEquals(1, this.game.actualState.exileZone().objects.size());
+		assertEquals("Firebolt", this.game.actualState.exileZone().objects.get(0).getName());
+
+		// should not be able to cast the other firebolts:
 		assertEquals(0, this.choices.size());
 
 		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
@@ -2613,7 +2631,7 @@ public class KeywordsNonCombatTest extends JUnitTest
 		pass();
 
 		// find it exiled:
-		assertEquals(1, this.game.actualState.exileZone().objects.size());
+		assertEquals(2, this.game.actualState.exileZone().objects.size());
 		assertEquals("Firebolt", this.game.actualState.exileZone().objects.get(0).getName());
 	}
 

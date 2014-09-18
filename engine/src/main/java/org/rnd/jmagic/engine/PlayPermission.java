@@ -15,9 +15,9 @@ public class PlayPermission
 
 	private int sourceID = -1;
 
-	public PlayPermission(SetGenerator permission)
+	public PlayPermission(SetGenerator whoCanPlay)
 	{
-		this.permission = permission;
+		this.permission = whoCanPlay;
 	}
 
 	/**
@@ -49,7 +49,8 @@ public class PlayPermission
 	 * as a spell. This should be as if it were the
 	 * {@link EventType.Parameter#ALTERNATE_COST} parameter to
 	 * {@link EventType#CAST_SPELL_OR_ACTIVATE_ABILITY} (basically, as a union
-	 * of a {@link ManaPool} and associated {@link EventFactory} instances).
+	 * of a {@link ManaPool} and associated {@link EventFactory} instances, or
+	 * as a cost collection).
 	 */
 	public void forceAlternateCost(SetGenerator cost)
 	{

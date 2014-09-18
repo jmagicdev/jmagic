@@ -59,9 +59,12 @@ public final class Flashback extends Keyword
 
 			this.canApply = THIS_IS_IN_A_GRAVEYARD;
 
-			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.SPECIAL_ACTION);
-			part.parameters.put(ContinuousEffectType.Parameter.PLAYER, You.instance());
-			part.parameters.put(ContinuousEffectType.Parameter.ACTION, Identity.instance(new Flashback.FlashbackAction.Factory(this.parent)));
+			PlayPermission canFlashback = new PlayPermission(OwnerOf.instance(This.instance()));
+			canFlashback.forceAlternateCost(Identity.instance(parent.flashbackCost));
+
+			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.MAY_CAST_LOCATION);
+			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());
+			part.parameters.put(ContinuousEffectType.Parameter.PERMISSION, Identity.instance(canFlashback));
 			this.addEffectPart(part);
 		}
 
@@ -69,70 +72,6 @@ public final class Flashback extends Keyword
 		public FlashbackCastAbility create(Game game)
 		{
 			return new FlashbackCastAbility(game.physicalState, this.parent);
-		}
-	}
-
-	public static class FlashbackAction extends CastSpellAction
-	{
-		private static class Factory extends SpecialActionFactory
-		{
-			private final int parentID;
-
-			public Factory(Flashback parent)
-			{
-				this.parentID = parent.ID;
-			}
-
-			@Override
-			public java.util.Set<PlayerAction> getActions(GameState state, GameObject source, Player actor)
-			{
-				if(!source.getOwner(state).equals(state.getPlayerWithPriority()))
-					return java.util.Collections.<PlayerAction>emptySet();
-
-				// TODO : This isn't good enough. We need to take into
-				// account modifications to timing permissions (like
-				// Quicken). A unified way of doing this would be good.
-				if(source.getTypes().contains(Type.SORCERY) && !(PlayerCanPlaySorcerySpeed.get(state).contains(source.getController(state))))
-					return java.util.Collections.<PlayerAction>emptySet();
-
-				return java.util.Collections.<PlayerAction>singleton(new FlashbackAction(state.game, state.<Flashback>get(this.parentID), source, actor));
-			}
-		}
-
-		private final int parentID;
-
-		public FlashbackAction(Game game, Flashback parent, GameObject cast, Player caster)
-		{
-			super(game, cast, new int[] {0}, caster, parent.ID);
-			this.name = parent.getName();
-			this.parentID = parent.ID;
-		}
-
-		@Override
-		public GameObject play()
-		{
-			Set altCost = new Set();
-
-			Flashback parent = this.game.actualState.get(this.parentID);
-			if(!parent.flashbackCost.manaCost.isEmpty())
-				altCost.addAll(parent.flashbackCost.manaCost);
-			altCost.addAll(parent.flashbackCost.events);
-
-			GameObject toBePlayed = this.game.actualState.get(this.toBePlayedID);
-			Player casting = this.game.actualState.get(this.actorID);
-
-			EventFactory castEventFactory = new EventFactory(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY, casting + " plays " + toBePlayed + ".");
-			castEventFactory.parameters.put(EventType.Parameter.PLAYER, Identity.instance(casting));
-			castEventFactory.parameters.put(EventType.Parameter.ACTION, Identity.instance(this));
-			castEventFactory.parameters.put(EventType.Parameter.OBJECT, Identity.instance(toBePlayed));
-			castEventFactory.parameters.put(EventType.Parameter.ALTERNATE_COST, Identity.fromCollection(altCost));
-			Event castEvent = castEventFactory.createEvent(this.game, toBePlayed);
-			if(!castEvent.perform(null, true))
-				return null;
-
-			GameObject cast = castEvent.getResult().getOne(GameObject.class);
-			cast.getPhysical().flashbackCostPaid = true;
-			return cast;
 		}
 	}
 
