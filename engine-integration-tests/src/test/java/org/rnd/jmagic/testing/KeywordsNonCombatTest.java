@@ -115,19 +115,8 @@ public class KeywordsNonCombatTest extends JUnitTest
 		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
 		castAndResolveSpell(GrizzlyBears.class);
 
-		// bestow the eidolon onto the bears
-		java.io.Serializable choice = null;
-		for(java.io.Serializable c: this.choices.getAll(java.io.Serializable.class))
-		{
-			if(c.toString().contains("bestow"))
-			{
-				choice = c;
-				break;
-			}
-		}
-		if(choice == null)
-			fail("Couldn't find bestow cast action");
-		respondWith(choice);
+		respondWith(getCastSpellOrActivateAbilityAction(NyxbornEidolon.class));
+		respondWith(getChoiceByToString("Bestow"));
 		addMana("4B");
 		donePlayingManaAbilities();
 		pass();
@@ -162,18 +151,8 @@ public class KeywordsNonCombatTest extends JUnitTest
 		castAndResolveSpell(GrizzlyBears.class);
 
 		// bestow the eidolon onto the bears
-		choice = null;
-		for(java.io.Serializable c: this.choices.getAll(java.io.Serializable.class))
-		{
-			if(c.toString().contains("bestow"))
-			{
-				choice = c;
-				break;
-			}
-		}
-		if(choice == null)
-			fail("Couldn't find bestow cast action");
-		respondWith(choice);
+		respondWith(getCastSpellOrActivateAbilityAction(NyxbornEidolon.class));
+		respondWith(getChoiceByToString("Bestow"));
 		addMana("4B");
 		donePlayingManaAbilities();
 
@@ -2285,22 +2264,8 @@ public class KeywordsNonCombatTest extends JUnitTest
 
 		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
 
-		assertEquals(14, this.choices.size());
-
-		java.io.Serializable choice = null;
-		for(java.io.Serializable c: this.choices.getAll(java.io.Serializable.class))
-		{
-			if(c.toString().equals("Cast Mulldrifter"))
-			{
-				choice = c;
-				break;
-			}
-		}
-
-		if(choice == null)
-			fail("Regular cast action not found.");
-
-		respondWith(choice);
+		respondWith(getCastSpellOrActivateAbilityAction(Mulldrifter.class));
+		respondWith(getChoiceByToString("Mana cost"));
 		addMana("(4)(U)");
 		donePlayingManaAbilities();
 
@@ -2321,19 +2286,8 @@ public class KeywordsNonCombatTest extends JUnitTest
 		assertEquals(1, this.game.actualState.battlefield().objects.size());
 		assertEquals(8, player(0).getHand(this.game.actualState).objects.size());
 
-		for(java.io.Serializable c: this.choices.getAll(java.io.Serializable.class))
-		{
-			if(c.toString().equals("Cast Mulldrifter for its evoke cost"))
-			{
-				choice = c;
-				break;
-			}
-		}
-
-		if(choice == null)
-			fail("Evoke action not found.");
-
-		respondWith(choice);
+		respondWith(getCastSpellOrActivateAbilityAction(Mulldrifter.class));
+		respondWith(getChoiceByToString("Evoke cost"));
 		addMana("(2)(U)");
 		donePlayingManaAbilities();
 

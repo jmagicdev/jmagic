@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 
 public final class Bestow extends Keyword
 {
-	public static final String BESTOW_COST = "Bestow:Mana";
+	public static final String BESTOW_COST = "Bestow cost";
 
 	protected String bestowCost;
 
@@ -83,92 +83,20 @@ public final class Bestow extends Keyword
 			super(state, "You may cast this spell by paying its bestow cost rather than its mana cost.");
 			this.parent = parent;
 
-			this.canApply = NonEmpty.instance();
-
-			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.SPECIAL_ACTION);
+			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.ALTERNATE_COST);
+			part.parameters.put(ContinuousEffectType.Parameter.COST, Identity.instance(new CostCollection(BESTOW_COST, parent.bestowCost)));
 			part.parameters.put(ContinuousEffectType.Parameter.PLAYER, You.instance());
-			part.parameters.put(ContinuousEffectType.Parameter.ACTION, Identity.instance(new Bestow.BestowAction.Factory(this.parent)));
+			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());
+
 			this.addEffectPart(part);
+
+			this.canApply = NonEmpty.instance();
 		}
 
 		@Override
 		public BestowCastAbility create(Game game)
 		{
 			return new BestowCastAbility(game.physicalState, this.parent);
-		}
-	}
-
-	public static class BestowAction extends CastSpellAction
-	{
-		private static class Factory extends SpecialActionFactory
-		{
-			private final Bestow parent;
-
-			public Factory(Bestow parent)
-			{
-				this.parent = parent;
-			}
-
-			@Override
-			public java.util.Set<PlayerAction> getActions(GameState state, GameObject source, Player actor)
-			{
-				if(!source.getOwner(state).equals(state.getPlayerWithPriority()))
-					return java.util.Collections.<PlayerAction>emptySet();
-
-				java.util.Set<PlayerAction> ret = new java.util.HashSet<PlayerAction>();
-
-				// Only when you could begin casting the spell
-				boolean makeAbility = false;
-				for(PlayerAction action: state.playerActions)
-					if(action instanceof CastSpellAction)
-						if(((CastSpellAction)action).toBePlayedID == source.ID)
-						{
-							makeAbility = true;
-							break;
-						}
-
-				if(makeAbility)
-					ret.add(getAction(state, source, actor));
-
-				return ret;
-			}
-
-			private BestowAction getAction(GameState state, GameObject source, Player actor)
-			{
-				return new BestowAction(state.game, this.parent, source, actor);
-			}
-		}
-
-		private final int parentID;
-
-		public BestowAction(Game game, Bestow parent, GameObject cast, Player casting)
-		{
-			super(game, cast, new int[] {0}, casting, parent.ID);
-			this.name = "Cast " + cast + " for its bestow cost";
-			this.parentID = parent.ID;
-		}
-
-		@Override
-		public GameObject play()
-		{
-			Bestow parent = this.game.actualState.get(this.parentID);
-			ManaPool bestowCost = new ManaPool(parent.bestowCost);
-			CostCollection bestowCostCollection = new CostCollection(BESTOW_COST, bestowCost);
-
-			GameObject toBePlayed = this.game.actualState.get(this.toBePlayedID);
-			Player casting = this.game.actualState.get(this.actorID);
-
-			EventFactory castEventFactory = new EventFactory(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY, casting + " plays " + toBePlayed + ".");
-			castEventFactory.parameters.put(EventType.Parameter.PLAYER, Identity.instance(casting));
-			castEventFactory.parameters.put(EventType.Parameter.ACTION, Identity.instance(this));
-			castEventFactory.parameters.put(EventType.Parameter.OBJECT, Identity.instance(toBePlayed));
-			castEventFactory.parameters.put(EventType.Parameter.ALTERNATE_COST, Identity.instance(bestowCostCollection));
-			Event castEvent = castEventFactory.createEvent(this.game, toBePlayed);
-			if(!castEvent.perform(null, true))
-				return null;
-
-			GameObject cast = castEvent.getResult().getOne(GameObject.class);
-			return cast;
 		}
 	}
 }
