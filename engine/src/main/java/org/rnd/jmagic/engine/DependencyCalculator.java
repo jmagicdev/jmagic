@@ -341,7 +341,7 @@ public class DependencyCalculator
 				{
 					revertAffectedObjects(objectsAffectedByEffectXinStateX, originalState, this.stateX);
 					revertAffectedObjects(objectsAffectedByEffectYinStateY, originalState, this.stateY);
-					revertAffectedObjects(objectsAffectedByEffectYinStateXY, originalState, this.stateXY, true);
+					revertAffectedObjects(objectsAffectedByEffectYinStateXY, originalState, this.stateXY);
 					revertAffectedObjects(objectsAffectedByEffectXinStateXY, originalState, this.stateXY);
 
 					return true;
@@ -355,30 +355,25 @@ public class DependencyCalculator
 
 		revertAffectedObjects(objectsAffectedByEffectXinStateX, originalState, this.stateX);
 		revertAffectedObjects(objectsAffectedByEffectYinStateY, originalState, this.stateY);
-		revertAffectedObjects(objectsAffectedByEffectYinStateXY, originalState, this.stateXY, true);
+		revertAffectedObjects(objectsAffectedByEffectYinStateXY, originalState, this.stateXY);
 		revertAffectedObjects(objectsAffectedByEffectXinStateXY, originalState, this.stateXY);
 		return false;
 	}
 
 	private static void revertAffectedObjects(Set affectedObjects, GameState originalState, GameState fakeState)
 	{
-		revertAffectedObjects(affectedObjects, originalState, fakeState, false);
-	}
-
-	private static void revertAffectedObjects(Set affectedObjects, GameState originalState, GameState fakeState, boolean intermediate)
-	{
 		if(affectedObjects != null)
 		{
 			for(Identified i: affectedObjects.getAll(Identified.class))
 			{
 				fakeState.removeIdentified(i.ID);
-				if(intermediate && !originalState.containsIdentified(i.ID))
+				if(!originalState.containsIdentified(i.ID))
 					continue;
 				originalState.<Identified>get(i.ID).clone(fakeState);
 			}
 			ContinuousEffectType.RemovedObjects extraObjects = affectedObjects.getOne(ContinuousEffectType.RemovedObjects.class);
 			if(extraObjects != null)
-				revertAffectedObjects(extraObjects, originalState, fakeState, intermediate);
+				revertAffectedObjects(extraObjects, originalState, fakeState);
 		}
 	}
 }
