@@ -29,7 +29,7 @@ public final class AnimateDeadCreature extends EventTriggeredAbility
 	 */
 	public AnimateDeadCreature(GameState state, String cardName, Class<? extends org.rnd.jmagic.abilities.keywords.Enchant> enchantDead, Class<? extends org.rnd.jmagic.abilities.keywords.Enchant> enchantAnimated, boolean tapped)
 	{
-		super(state, "When " + cardName + " enters the battlefield, if it's on the battlefield, it loses \"enchant creature card in a graveyard\" and gains \"enchant creature put onto the battlefield with " + cardName + ".\" Return enchanted creature card to the battlefield under your control " + (tapped ? "tapped " : "") + "and attach " + cardName + " to it. When " + cardName + " leaves the battlefield, that creature's controller sacrifices it.");
+		super(state, "When " + cardName + " enters the battlefield, if it's on the battlefield, it loses \"enchant creature card in a graveyard\" and gains \"enchant creature put onto the battlefield with " + cardName + ".\" Put enchanted creature card to the battlefield under your control " + (tapped ? "tapped " : "") + "and attach " + cardName + " to it. When " + cardName + " leaves the battlefield, that creature's controller sacrifices it.");
 		this.cardName = cardName;
 		this.enchantDead = enchantDead;
 		this.enchantAnimated = enchantAnimated;
@@ -45,7 +45,7 @@ public final class AnimateDeadCreature extends EventTriggeredAbility
 
 		this.addEffect(createFloatingEffect("It loses \"enchant creature card in a graveyard\" and gains \"enchant creature put onto the battlefield with " + cardName + ".\"", part, addAbilityToObject(ABILITY_SOURCE_OF_THIS, enchantAnimated)));
 
-		EventFactory putOntoBattlefield = putOntoBattlefield(EnchantedBy.instance(ABILITY_SOURCE_OF_THIS), "Return enchanted creature card to the battlefield under your control.", tapped);
+		EventFactory putOntoBattlefield = putOntoBattlefield(EnchantedBy.instance(ABILITY_SOURCE_OF_THIS), "Put enchanted creature card to the battlefield under your control.", tapped);
 		this.addEffect(putOntoBattlefield);
 
 		SetGenerator thatCreature = NewObjectOf.instance(EffectResult.instance(putOntoBattlefield));
