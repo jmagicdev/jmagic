@@ -17,5 +17,7 @@ public final class Tear extends Card
 
 		Target target = this.addTarget(EnchantmentPermanents.instance(), "target enchantment");
 		this.addEffect(destroy(targetedBy(target), "Destroy target enchantment."));
+
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Fuse(state));
 	}
 }
