@@ -22,9 +22,9 @@ public class CreateFromJson
 			}
 		}
 
-		java.net.URL jsonLocation = CreateFromJson.class.getResource("AllSets-x.json");
+		java.net.URL jsonLocation = CreateFromJson.class.getResource("AllSets.json");
 		if(null == jsonLocation)
-			jsonLocation = new java.net.URL("http://mtgjson.com/json/AllSets-x.json");
+			jsonLocation = new java.net.URL("http://mtgjson.com/json/AllSets.json");
 		JsonReader jsonReader = Json.createReader(jsonLocation.openStream());
 		JsonObject root = jsonReader.readObject();
 
