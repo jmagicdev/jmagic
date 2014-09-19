@@ -104,10 +104,14 @@ public final class MoveBatch extends EventType
 				// These are worded like replacement effects. We really
 				// don't care.
 				boolean toBattlefield = to.equals(game.physicalState.battlefield());
-				if(toBattlefield && (original.getTypes().contains(Type.INSTANT) || original.getTypes().contains(Type.SORCERY)))
+				if(toBattlefield)
 				{
-					event.setResult(Empty.set);
-					continue;
+					game.physicalState.voidedObjects.remove(moveIn);
+					if((original.getTypes().contains(Type.INSTANT) || original.getTypes().contains(Type.SORCERY)))
+					{
+						event.setResult(Empty.set);
+						continue;
+					}
 				}
 
 				boolean toStack = to.equals(game.physicalState.stack());
