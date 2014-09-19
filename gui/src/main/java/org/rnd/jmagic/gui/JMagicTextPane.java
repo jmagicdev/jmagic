@@ -125,6 +125,8 @@ public class JMagicTextPane extends javax.swing.JTextPane
 		ALL_KEYWORDS.put("fuse", "You may cast one or both halves of this card from your hand.");
 		ALL_KEYWORDS.put("bestow", "If you cast this card for its bestow cost, it's an Aura spell with enchant creature. It becomes a creature again if it's not attached to a creature.");
 		ALL_KEYWORDS.put("tribute", "As this creature enters the battlefield, an opponent of your choice may place N +1/+1 counters on it.");
+		ALL_KEYWORDS.put("outlast", "T, pay this creature's outlast cost: Put a +1/+1 counter on this creature.  Outlast only as a sorcery.");
+		ALL_KEYWORDS.put("prowess", "Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.");
 	}
 
 	public JMagicTextPane()

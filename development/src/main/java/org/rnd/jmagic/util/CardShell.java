@@ -205,6 +205,7 @@ public class CardShell
 		newKeywords.put("Persist", simpleInstantiation(Persist.class));
 		newKeywords.put("Plainswalk", simpleInstantiation(Landwalk.Plainswalk.class));
 		newKeywords.put("Provoke", simpleInstantiation(Provoke.class));
+		newKeywords.put("Prowess", simpleInstantiation(Prowess.class));
 		newKeywords.put("Reach", simpleInstantiation(Reach.class));
 		newKeywords.put("Rebound", simpleInstantiation(Rebound.class));
 		newKeywords.put("Shadow", simpleInstantiation(Shadow.class));
@@ -248,6 +249,7 @@ public class CardShell
 		// little scheme
 		newKeywords.put("Multikicker \\((.*)\\)", "new org.rnd.jmagic.abilities.keywords.Kicker(state, true, \"(\\1)\")");
 		newKeywords.put(keywordAndManaCost("Ninjutsu"), complexInstantiation(Ninjutsu.class, true));
+		newKeywords.put(keywordAndManaCost("Outlast"), complexInstantiation(Outlast.class, true));
 		newKeywords.put(keywordAndManaCost("Overload"), complexInstantiation(Overload.class, true));
 		newKeywords.put(keywordAndNumber("Poisonous"), complexInstantiation(Poisonous.class));
 		newKeywords.put(keywordAndManaCost("Prowl"), complexInstantiation(Prowl.class, true));
