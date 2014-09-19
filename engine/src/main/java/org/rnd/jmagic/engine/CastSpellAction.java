@@ -11,10 +11,10 @@ public class CastSpellAction extends CastSpellOrActivateAbilityAction
 
 	private java.util.List<EventFactoryWithSource> attachedEvents;
 
-	private static String actionName(GameObject spell, int[] characteristicsIndices)
+	private static String actionName(GameObject spell, java.util.Collection<Integer> castableSides)
 	{
 		Characteristics[] characteristics = spell.getCharacteristics();
-		return java.util.Arrays.stream(characteristicsIndices).mapToObj(i -> characteristics[i].name).reduce((left, right) -> left + " // " + right).orElse("");
+		return castableSides.stream().map(i -> characteristics[i].name).reduce((left, right) -> left + " // " + right).orElse("");
 	}
 
 	/**
@@ -22,10 +22,16 @@ public class CastSpellAction extends CastSpellOrActivateAbilityAction
 	 * 
 	 * @param game The game in which the action will be performed.
 	 * @param spell The spell to cast.
+	 * @param castableSides Which sides of the spell are castable. For most
+	 * cards, this will just be [0]. For split cards not under a prohibition of
+	 * some sort, this will be [0, 1].
+	 * @param casting Who will be casting the spell.
+	 * @param source The thing generating this cast action -- usually the card
+	 * itself, but not always.
 	 */
-	public CastSpellAction(Game game, GameObject spell, int[] characteristicsIndices, Player casting, int source)
+	public CastSpellAction(Game game, GameObject spell, java.util.Collection<Integer> castableSides, Player casting, int source)
 	{
-		super(game, "Cast " + actionName(spell, characteristicsIndices), characteristicsIndices, casting, source);
+		super(game, "Cast " + actionName(spell, castableSides), castableSides, casting, source);
 		this.attachedEvents = new java.util.LinkedList<EventFactoryWithSource>();
 		this.toBePlayedID = spell.ID;
 	}

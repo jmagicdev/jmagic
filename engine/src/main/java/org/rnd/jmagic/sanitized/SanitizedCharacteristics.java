@@ -98,4 +98,12 @@ public class SanitizedCharacteristics implements java.io.Serializable
 		}
 		this.numModes = c.numModes;
 	}
+
+	@Override
+	public java.lang.String toString()
+	{
+		// this is currently used for choosing between Characteristics when
+		// casting a split card
+		return this.name;
+	}
 }

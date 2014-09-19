@@ -10,7 +10,7 @@ public class ActivateAbilityAction extends CastSpellOrActivateAbilityAction
 	 */
 	public ActivateAbilityAction(Game game, ActivatedAbility ability, Player activator, int source)
 	{
-		super(game, ability.toString(), new int[] {0}, activator, source);
+		super(game, ability.toString(), java.util.Collections.singleton(0), activator, source);
 		this.toBePlayedID = ability.ID;
 	}
 

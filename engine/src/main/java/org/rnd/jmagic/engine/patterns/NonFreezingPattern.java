@@ -12,9 +12,9 @@ import org.rnd.jmagic.engine.SetPattern;
  */
 public class NonFreezingPattern implements SetPattern
 {
-	private MatcherFunction matcher;
+	private SetMatcherFunction matcher;
 
-	public NonFreezingPattern(MatcherFunction matcher)
+	public NonFreezingPattern(SetMatcherFunction matcher)
 	{
 		this.matcher = matcher;
 	}

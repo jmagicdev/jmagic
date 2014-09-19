@@ -78,20 +78,11 @@ public final class ChandraPyromaster extends Card
 			this.addEffect(copy);
 
 			SetGenerator copies = NewObjectOf.instance(EffectResult.instance(copy));
-
-			DynamicEvaluation eachCopy = DynamicEvaluation.instance();
-
-			EventFactory castOneCopy = new EventFactory(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY, "Cast a copy without paying its mana cost.");
-			castOneCopy.parameters.put(EventType.Parameter.PLAYER, You.instance());
-			castOneCopy.parameters.put(EventType.Parameter.OBJECT, eachCopy);
-			castOneCopy.parameters.put(EventType.Parameter.ALTERNATE_COST, Empty.instance());
-
-			EventFactory castTheCopies = new EventFactory(FOR_EACH, "Cast the copies without paying their mana costs.");
+			EventFactory castTheCopies = new EventFactory(PLAY_WITHOUT_PAYING_MANA_COSTS, "You may cast the copies without paying their mana costs.");
+			castTheCopies.parameters.put(EventType.Parameter.CAUSE, This.instance());
+			castTheCopies.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			castTheCopies.parameters.put(EventType.Parameter.OBJECT, copies);
-			castTheCopies.parameters.put(EventType.Parameter.TARGET, Identity.instance(eachCopy));
-			castTheCopies.parameters.put(EventType.Parameter.EFFECT, Identity.instance(castOneCopy));
-
-			this.addEffect(youMay(castTheCopies));
+			this.addEffect(castTheCopies);
 		}
 	}
 

@@ -37,14 +37,14 @@ public final class MasterofPredicaments extends Card
 			SetGenerator guessed = IfThenElse.instance(saidYes, bigCards, smallCards);
 			SetGenerator guessedWrong = RelativeComplement.instance(thatCard, guessed);
 
-			EventFactory cast = new EventFactory(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY, "Cast the card without paying its mana cost");
+			EventFactory cast = new EventFactory(EventType.PLAYER_MAY_CAST, "You may cast the card without paying its mana cost");
 			cast.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			cast.parameters.put(EventType.Parameter.ALTERNATE_COST, Identity.instance(new ManaPool("")));
 			cast.parameters.put(EventType.Parameter.OBJECT, thatCard);
 
 			EventFactory maybeCast = new EventFactory(EventType.IF_CONDITION_THEN_ELSE, "If the player guessed wrong, you may cast the card without paying its mana cost.");
 			maybeCast.parameters.put(EventType.Parameter.IF, guessedWrong);
-			maybeCast.parameters.put(EventType.Parameter.THEN, Identity.instance(youMay(cast)));
+			maybeCast.parameters.put(EventType.Parameter.THEN, Identity.instance(cast));
 			this.addEffect(maybeCast);
 		}
 	}

@@ -2571,9 +2571,18 @@ public abstract class ContinuousEffectType
 			return Layer.RULE_CHANGE;
 		}
 	};
+
 	/**
+	 * When prohibiting the casting of a spell based on its characteristics, do
+	 * NOT prohibit CAST_SPELL_OR_ACTIVATE_ABILITY directly. Instead of using an
+	 * EventPattern, use a PlayProhibition. When prohibiting the activation of
+	 * an ability, or the casting of a spell based on something other than its
+	 * characteristics, use an EventPattern as normal.
+	 * 
 	 * @eparam PROHIBITION: Any number of {@link EventPattern}s or
-	 * {@link ZoneChangePattern}s describing what can't happen.
+	 * {@link ZoneChangePattern}s describing what can't happen, and any number
+	 * of {@link PlayProhibition}s describing objects that can't be played/cast
+	 * and by whom.
 	 */
 	public static final ContinuousEffectType PROHIBIT = new ContinuousEffectType("PROHIBIT")
 	{
@@ -2588,6 +2597,11 @@ public abstract class ContinuousEffectType
 		{
 			state.eventProhibitions.addAll(parameters.get(Parameter.PROHIBITION).getAll(EventPattern.class));
 			state.zoneChangeProhibitions.addAll(parameters.get(Parameter.PROHIBITION).getAll(ZoneChangePattern.class));
+			for(PlayProhibition p: parameters.get(Parameter.PROHIBITION).getAll(PlayProhibition.class))
+			{
+				p.setSource(effect.getSourceObject());
+				state.playProhibitions.add(p);
+			}
 		}
 
 		@Override

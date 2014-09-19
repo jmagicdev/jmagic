@@ -94,9 +94,8 @@ public final class EtherswornCanonist extends Card
 			nonartifactSpells.addPattern(SetPattern.CASTABLE);
 
 			state.ensureTracker(new CastNonartifactSpellThisTurn.Tracker());
-			SimpleEventPattern castSpell = new SimpleEventPattern(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY);
-			castSpell.put(EventType.Parameter.PLAYER, CastNonartifactSpellThisTurn.instance());
-			castSpell.put(EventType.Parameter.OBJECT, nonartifactSpells);
+			PlayProhibition castSpell = new PlayProhibition(CastNonartifactSpellThisTurn.instance(),//
+			(c -> !c.types.contains(Type.ARTIFACT)));
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(castSpell));

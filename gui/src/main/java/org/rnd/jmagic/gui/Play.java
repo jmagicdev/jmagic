@@ -1135,7 +1135,8 @@ public class Play
 		case EVENT: // Text is probably fine
 		case COIN_FLIP: // use enum for this?
 		case CREATURE_TYPE: // enum?
-		case REPLACEMENT_EFFECT:
+		case REPLACEMENT_EFFECT: // no clue.
+		case CHARACTERISTICS: // show the cards somehow!
 
 			// ordered types:
 		case COSTS:

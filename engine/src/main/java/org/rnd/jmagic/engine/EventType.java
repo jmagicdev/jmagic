@@ -156,12 +156,25 @@ public abstract class EventType
 	 * action so that any failure in casting the spell or ability will
 	 * automatically be reverted.
 	 * 
+	 * If you are a card writer and you are tempted to use this EventType on
+	 * your card, you should be using PLAYER_MAY_CAST or PLAY_CARD instead, as
+	 * appropriate (depending on whether the card in question could be a land
+	 * card).
+	 * 
+	 * If you are a card writer, and you are writing a "can't cast" effect, and
+	 * that effect depends on the object's characteristics, you should use a
+	 * PlayProhibition rather than prohibiting this event type. If that effect
+	 * doesn't depend on the object's characteristics, prohibit this event type
+	 * directly.
+	 * 
+	 * Exactly one of EFFECT and FACE_DOWN must be passed. If both or neither is
+	 * passed, it will result in unexpected behavior.
+	 * 
 	 * @eparam PLAYER: the player playing the spell/ability
 	 * @eparam ALTERNATE_COST: a set of forced alternate costs represented as
 	 * events and/or mana pools [optional; default = no forced alternate cost]
-	 * @eparam EFFECT: which side(s) of a split card is/are being cast.
-	 * represented as 0-based indices (left side is 0, right side is 1).
-	 * [optional, default is 0 -- you can leave this alone for non-split cards.]
+	 * @eparam EFFECT: which side(s) of a split card may be cast, as 0-based
+	 * indices.
 	 * @eparam OBJECT: the spell/ability
 	 * @eparam ACTION: if the object being played is a spell being cast using an
 	 * action, that action; otherwise leave it out

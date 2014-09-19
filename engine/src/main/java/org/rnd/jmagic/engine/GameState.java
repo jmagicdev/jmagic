@@ -182,6 +182,7 @@ public class GameState implements Cloneable
 	private Step previousStep;
 
 	public java.util.Collection<EventPattern> eventProhibitions;
+	public java.util.Collection<PlayProhibition> playProhibitions;
 	public java.util.Collection<ZoneChangePattern> zoneChangeProhibitions;
 
 	/**
@@ -237,6 +238,7 @@ public class GameState implements Cloneable
 		this.delayedOneShots = new java.util.LinkedList<DelayedOneShot>();
 		this.declareAttackersPlayerOverride = -1;
 		this.declareBlockersPlayerOverride = -1;
+		this.eventProhibitions = new java.util.LinkedList<EventPattern>();
 		this.eventReplacementEffects = new java.util.LinkedList<EventReplacementEffect>();
 		this.eventReplacementEffectStoppers = new java.util.LinkedList<EventReplacementEffectStopper>();
 		this.eventTriggeredAbilityStoppers = new java.util.LinkedList<EventTriggeredAbilityStopper>();
@@ -257,8 +259,8 @@ public class GameState implements Cloneable
 		this.playerWithPriorityID = -1;
 		this.players = new IDList<Player>(this);
 		this.playingFirstID = -1;
+		this.playProhibitions = new java.util.LinkedList<>();
 		this.previousStep = null;
-		this.eventProhibitions = new java.util.LinkedList<EventPattern>();
 		this.resolvingID = -1;
 		this.sourcesOfUnpreventableDamage = new java.util.LinkedList<GameObject>();
 		this.specialActionFactories = new java.util.HashMap<SpecialActionFactory, GameObject>();
@@ -388,6 +390,7 @@ public class GameState implements Cloneable
 		this.manaCostRestrictedReductions.clear();
 		this.playerActions.clear();
 		this.players.clear();
+		this.playProhibitions.clear();
 		this.eventProhibitions.clear();
 		this.sourcesOfUnpreventableDamage.clear();
 		this.specialActionFactories.clear();
@@ -485,6 +488,7 @@ public class GameState implements Cloneable
 				ret.manaThatDoesntEmpty.put(key, new MultipleSetPattern(false));
 			ret.playerActions = new java.util.HashSet<PlayerAction>();
 			ret.eventProhibitions = new java.util.LinkedList<EventPattern>();
+			ret.playProhibitions = new java.util.LinkedList<>();
 			ret.zoneChangeProhibitions = new java.util.LinkedList<ZoneChangePattern>();
 			ret.sourcesOfUnpreventableDamage = new java.util.LinkedList<GameObject>();
 			ret.specialActionFactories = new java.util.HashMap<SpecialActionFactory, GameObject>();

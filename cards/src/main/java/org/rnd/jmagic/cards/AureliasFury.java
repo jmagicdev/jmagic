@@ -3,7 +3,6 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Aurelia's Fury")
 @Types({Type.INSTANT})
@@ -36,13 +35,7 @@ public final class AureliasFury extends Card
 
 		this.addEffect(tap(damagedCreatures, "Tap each creature dealt damage this way."));
 
-		MultipleSetPattern nonCreatureSpells = new MultipleSetPattern(true);
-		nonCreatureSpells.addPattern(SetPattern.CASTABLE);
-		nonCreatureSpells.addPattern(new NonTypePattern(Type.CREATURE));
-
-		SimpleEventPattern castSomething = new SimpleEventPattern(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY);
-		castSomething.put(EventType.Parameter.PLAYER, damagedPlayers);
-		castSomething.put(EventType.Parameter.OBJECT, nonCreatureSpells);
+		PlayProhibition castSomething = new PlayProhibition(damagedPlayers, c -> !c.types.contains(Type.CREATURE));
 
 		ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 		part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(castSomething));

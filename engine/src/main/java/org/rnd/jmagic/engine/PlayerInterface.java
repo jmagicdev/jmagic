@@ -9,7 +9,7 @@ public interface PlayerInterface
 	/** Represents different things a user might be asked to choose. */
 	public enum ChoiceType
 	{
-		ACTION(false), ACTIVATE_MANA_ABILITIES(false), ALTERNATE_COST(false), ATTACK(false), ATTACK_WHAT(false), BLOCK(false), BLOCK_WHAT(false), CLASS(false), COIN_FLIP(false), COLOR(false), COSTS(true), CREATURE_TYPE(false), DAMAGE(false), DAMAGE_SOURCE(false), ENUM(false), ENUM_ORDERED(true), EVENT(false), MANA_EXPLOSION(false), MANA_PAYMENT(false), MODE(false), MOVEMENT_GRAVEYARD(true), MOVEMENT_LIBRARY(true), MOVEMENT_STACK(true), NORMAL_ACTIONS(false), OBJECTS(false), OBJECTS_ORDERED(true), PILE(false), PLAYER(false), REPLACEMENT_EFFECT(false), SINGLE_TARGET(false), STRING(false), TARGETS(false), TIMESTAMPS(true), TRIGGERS(true);
+		ACTION(false), ACTIVATE_MANA_ABILITIES(false), ALTERNATE_COST(false), ATTACK(false), ATTACK_WHAT(false), BLOCK(false), BLOCK_WHAT(false), CHARACTERISTICS(false), CLASS(false), COIN_FLIP(false), COLOR(false), COSTS(true), CREATURE_TYPE(false), DAMAGE(false), DAMAGE_SOURCE(false), ENUM(false), ENUM_ORDERED(true), EVENT(false), MANA_EXPLOSION(false), MANA_PAYMENT(false), MODE(false), MOVEMENT_GRAVEYARD(true), MOVEMENT_LIBRARY(true), MOVEMENT_STACK(true), NORMAL_ACTIONS(false), OBJECTS(false), OBJECTS_ORDERED(true), PILE(false), PLAYER(false), REPLACEMENT_EFFECT(false), SINGLE_TARGET(false), STRING(false), TARGETS(false), TIMESTAMPS(true), TRIGGERS(true);
 
 		private final boolean isOrdered;
 
@@ -97,6 +97,7 @@ public interface PlayerInterface
 		public static final ChooseReason ACTION = new ChooseReason(GAME, "Choose an action to perform.", true);
 		public static final ChooseReason BEGIN_THE_GAME_EFFECTS = new ChooseReason(GAME, "Which opening hand actions would you like to take?", true);
 		public static final ChooseReason BOUNCE = new ChooseReason(GAME, "Choose object(s) to return to owner's hand.", true);
+		public static final ChooseReason CAST_SPLIT_CARD = new PlayerInterface.ChooseReason("GAME", "Choose which side(s) to cast.", true);
 		public static final ChooseReason CHOOSE_ANOTHER_COLOR = new ChooseReason(GAME, "Choose another color.", true);
 		public static final ChooseReason CHOOSE_ANOTHER_BASIC_LAND_TYPE = new ChooseReason(GAME, "Choose another basic land type.", true);
 		public static final ChooseReason CHOOSE_BASIC_LAND_TYPE = new ChooseReason(GAME, "Choose a basic land type.", true);
@@ -121,8 +122,7 @@ public interface PlayerInterface
 		public static final ChooseReason DISCARD = new ChooseReason(GAME, "Choose cards to discard.", true);
 		public static final ChooseReason EXILE = new ChooseReason(GAME, "Choose what to exile.", true);
 		public static final ChooseReason FIRST_PLAYER = new ChooseReason(GAME, "Who will play first?", true);
-		// TODO : hybrid_mana's text sounds really generic; how is it used?
-		public static final ChooseReason HYBRID_MANA = new ChooseReason(GAME, "Choose some mana.", true);
+		public static final ChooseReason HYBRID_MANA = new ChooseReason(GAME, "Choose which color of mana to add to your pool.", true);
 		public static final ChooseReason MAKE_PILE = new ChooseReason(GAME, "Choose objects for one pile.", true);
 		public static final ChooseReason MANIPULATE_COIN_FLIP = new ChooseReason(GAME, "Manipulate the coin flip.", true);
 		public static final ChooseReason MAY_CAST = new ChooseReason(GAME, "Cast ~?", true);

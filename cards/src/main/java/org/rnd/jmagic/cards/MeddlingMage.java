@@ -4,7 +4,6 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Meddling Mage")
 @Types({Type.CREATURE})
@@ -46,7 +45,8 @@ public final class MeddlingMage extends Card
 			super(state, "The named card can't be cast.");
 
 			SetGenerator name = ChosenFor.instance(LinkedTo.instance(Identity.instance(this)));
-			EventPattern cast = new CastSpellWithNamePattern(name);
+
+			PlayProhibition cast = new PlayProhibition(Players.instance(), (c, set) -> set.contains(c.name), name);
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(cast));

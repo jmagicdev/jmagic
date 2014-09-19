@@ -15,19 +15,19 @@ public abstract class CastSpellOrActivateAbilityAction extends PlayerAction
 	private int playedID;
 	private SetGenerator forcedAlternateCost;
 
-	public final int[] characteristicsIndices;
+	public final java.util.Collection<Integer> castableSides;
 
 	/**
 	 * @param game The game in which this action will be performed.
 	 * @param name This should usually be Magic-ese that describes this action;
 	 * for example, "Cast Giant Growth", or the text of an ability.
 	 */
-	public CastSpellOrActivateAbilityAction(Game game, String name, int[] characteristicsIndices, Player caster, int source)
+	public CastSpellOrActivateAbilityAction(Game game, String name, java.util.Collection<Integer> castableSides, Player caster, int source)
 	{
 		super(game, name, caster, source);
 		this.playedID = -1;
 		this.forcedAlternateCost = null;
-		this.characteristicsIndices = characteristicsIndices;
+		this.castableSides = castableSides;
 	}
 
 	/**
@@ -67,7 +67,7 @@ public abstract class CastSpellOrActivateAbilityAction extends PlayerAction
 		event.parameters.put(EventType.Parameter.OBJECT, Identity.instance(toBePlayed));
 		if(this.forcedAlternateCost != null)
 			event.parameters.put(EventType.Parameter.ALTERNATE_COST, this.forcedAlternateCost);
-		event.parameters.put(EventType.Parameter.EFFECT, Identity.fromCollection(new Set(this.characteristicsIndices)));
+		event.parameters.put(EventType.Parameter.EFFECT, Identity.fromCollection(this.castableSides));
 
 		event.setSource(toBePlayed);
 		return !event.isProhibited(this.game.actualState);
@@ -110,10 +110,7 @@ public abstract class CastSpellOrActivateAbilityAction extends PlayerAction
 		event.parameters.put(EventType.Parameter.PLAYER, Identity.instance(caster));
 		event.parameters.put(EventType.Parameter.ACTION, Identity.instance(this));
 		event.parameters.put(EventType.Parameter.OBJECT, Identity.instance(toBePlayed));
-		// this Identity looks inefficient, but if you try to replace it, please
-		// be very careful that the ints end up in the identity. it's easy to
-		// make this evaluate to [[1]] instead of [1].
-		event.parameters.put(EventType.Parameter.EFFECT, Identity.fromCollection(new Set(this.characteristicsIndices)));
+		event.parameters.put(EventType.Parameter.EFFECT, Identity.fromCollection(this.castableSides));
 		if(this.forcedAlternateCost != null)
 			event.parameters.put(EventType.Parameter.ALTERNATE_COST, this.forcedAlternateCost);
 

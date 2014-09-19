@@ -4,7 +4,6 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.engine.patterns.*;
 import org.rnd.jmagic.gameTypes.*;
 
 @Name("Skybreen")
@@ -32,45 +31,13 @@ public final class Skybreen extends Card
 
 	public static final class RestrictCasts extends StaticAbility
 	{
-		private static final class SpellsThatShareAColor implements SetPattern
-		{
-			@Override
-			public boolean match(GameState state, Identified thisObject, Set set)
-			{
-				if(!SetPattern.CASTABLE.match(state, thisObject, set))
-					return false;
-
-				java.util.Set<Type> types = java.util.EnumSet.noneOf(Type.class);
-
-				for(Player player: state.players)
-				{
-					Zone library = player.getLibrary(state);
-					if(library.objects.isEmpty())
-						continue;
-					types.addAll(library.objects.get(0).getTypes());
-				}
-
-				for(GameObject object: set.getAll(GameObject.class))
-					for(Type type: types)
-						if(object.getTypes().contains(type))
-							return true;
-
-				return false;
-			}
-
-			@Override
-			public void freeze(GameState state, Identified thisObject)
-			{
-				// Nothing to freeze
-			}
-		}
-
 		public RestrictCasts(GameState state)
 		{
 			super(state, "Spells that share a card type with the top card of a library can't be cast.");
 
-			SimpleEventPattern prohibitPattern = new SimpleEventPattern(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY);
-			prohibitPattern.put(EventType.Parameter.OBJECT, new SpellsThatShareAColor());
+			SetGenerator types = TypesOf.instance(TopCards.instance(1, LibraryOf.instance(Players.instance())));
+			PlayProhibition prohibitPattern = new PlayProhibition(Players.instance(),//
+			(c, data) -> !java.util.Collections.disjoint(c.types, data.getAll(Type.class)), types);
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(prohibitPattern));

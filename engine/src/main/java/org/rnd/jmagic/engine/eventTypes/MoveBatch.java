@@ -219,7 +219,9 @@ public final class MoveBatch extends EventType
 					faceDownValues = org.rnd.util.Constructor.construct(movement.faceDownCharacteristics, new Class<?>[] {}, new Object[] {});
 				moveIn.faceDownValues = faceDownValues;
 
-				moveIn.selectCharacteristics(movement.characteristicsIndices);
+				java.util.Set<Integer> sides = movement.characteristicsIndices;
+				if(sides != null && sides.size() == 1)
+					moveIn.selectCharacteristics(sides.iterator().next());
 
 				if(toBattlefield || toStack)
 				{

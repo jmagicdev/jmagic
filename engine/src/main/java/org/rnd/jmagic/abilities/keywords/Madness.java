@@ -1,7 +1,5 @@
 package org.rnd.jmagic.abilities.keywords;
 
-import static org.rnd.jmagic.Convenience.*;
-
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -134,12 +132,10 @@ public final class Madness extends Keyword
 			SetGenerator newObject = NewObjectOf.instance(TriggerZoneChange.instance(This.instance()));
 			SetGenerator owner = OwnerOf.instance(newObject);
 
-			EventFactory cast = new EventFactory(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY, "Cast it by paying " + costString + " rather than paying its mana cost.");
-			cast.parameters.put(EventType.Parameter.PLAYER, owner);
-			cast.parameters.put(EventType.Parameter.ALTERNATE_COST, Identity.fromCollection(newCosts));
-			cast.parameters.put(EventType.Parameter.OBJECT, newObject);
-
-			EventFactory mayCast = playerMay(owner, cast, "Its owner may cast it by paying " + costString + " rather than paying its mana cost.");
+			EventFactory mayCast = new EventFactory(EventType.PLAYER_MAY_CAST, "Its owner may cast it by paying " + costString + " rather than paying its mana cost.");
+			mayCast.parameters.put(EventType.Parameter.PLAYER, owner);
+			mayCast.parameters.put(EventType.Parameter.ALTERNATE_COST, Identity.fromCollection(newCosts));
+			mayCast.parameters.put(EventType.Parameter.OBJECT, newObject);
 
 			EventFactory move = new EventFactory(EventType.PUT_INTO_GRAVEYARD, "Put this card into its owner's graveyard.");
 			move.parameters.put(EventType.Parameter.CAUSE, This.instance());

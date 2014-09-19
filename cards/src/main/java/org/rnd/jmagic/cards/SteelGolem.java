@@ -2,7 +2,6 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Steel Golem")
 @Types({Type.ARTIFACT, Type.CREATURE})
@@ -17,9 +16,7 @@ public final class SteelGolem extends Card
 		{
 			super(state, "You can't cast creature spells.");
 
-			SimpleEventPattern castCreature = new SimpleEventPattern(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY);
-			castCreature.put(EventType.Parameter.PLAYER, ControllerOf.instance(This.instance()));
-			castCreature.put(EventType.Parameter.OBJECT, HasType.instance(Type.CREATURE));
+			PlayProhibition castCreature = new PlayProhibition(You.instance(), (c -> c.types.contains(Type.CREATURE)));
 
 			ContinuousEffect.Part prohibition = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			prohibition.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(castCreature));

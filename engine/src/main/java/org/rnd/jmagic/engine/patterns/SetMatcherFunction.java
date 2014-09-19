@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.*;
  * really want via lambdas. See the card Military Intelligence for an example.
  */
 @FunctionalInterface
-public interface MatcherFunction
+public interface SetMatcherFunction
 {
 	public boolean match(GameState state, Identified thisObject, Set set);
 }

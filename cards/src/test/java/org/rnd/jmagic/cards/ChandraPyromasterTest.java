@@ -42,11 +42,11 @@ public class ChandraPyromasterTest extends JUnitTest
 
 		// auto-choose the one lightning bolt for what to copy
 
-		// decide to cast the copies
-		respondWith(Answer.YES);
-		// target player 1 with each copy
+		respondWith(pullChoice(SpellCopy.class));
 		respondWith(getTarget(player(1)));
+		respondWith(pullChoice(SpellCopy.class));
 		respondWith(getTarget(player(1)));
+		respondWith(pullChoice(SpellCopy.class));
 		respondWith(getTarget(player(1)));
 
 		pass();

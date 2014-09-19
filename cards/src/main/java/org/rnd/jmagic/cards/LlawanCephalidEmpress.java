@@ -3,7 +3,6 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Llawan, Cephalid Empress")
 @SuperTypes({SuperType.LEGENDARY})
@@ -31,12 +30,11 @@ public final class LlawanCephalidEmpress extends Card
 		{
 			super(state, "Your opponents can't cast blue creature spells.");
 
-			SimpleEventPattern prohibitPattern = new SimpleEventPattern(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY);
-			prohibitPattern.put(EventType.Parameter.OBJECT, Intersect.instance(HasColor.instance(Color.BLACK), HasType.instance(Type.CREATURE)));
-			prohibitPattern.put(EventType.Parameter.PLAYER, OpponentsOf.instance(You.instance()));
+			PlayProhibition prohibitPattern = new PlayProhibition(OpponentsOf.instance(You.instance()),//
+			c -> c.colors.contains(Color.BLUE) && c.types.contains(Type.CREATURE));
+
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(prohibitPattern));
-
 			this.addEffectPart(part);
 		}
 	}

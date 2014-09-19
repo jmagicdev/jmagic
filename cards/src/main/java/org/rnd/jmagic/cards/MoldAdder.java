@@ -19,8 +19,7 @@ public final class MoldAdder extends Card
 		{
 			super(state, "Whenever an opponent casts a blue or black spell, you may put a +1/+1 counter on Mold Adder.");
 
-			// TODO : use becomes_played
-			SimpleEventPattern pattern = new SimpleEventPattern(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY);
+			SimpleEventPattern pattern = new SimpleEventPattern(EventType.BECOMES_PLAYED);
 			pattern.put(EventType.Parameter.PLAYER, OpponentsOf.instance(You.instance()));
 			pattern.put(EventType.Parameter.OBJECT, Intersect.instance(Spells.instance(), HasColor.instance(Color.BLUE, Color.BLACK)));
 			this.addPattern(pattern);

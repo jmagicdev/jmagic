@@ -52,7 +52,6 @@ public final class PlayCard extends EventType
 	public boolean perform(Game game, Event event, java.util.Map<Parameter, Set> parameters)
 	{
 		Identified cause = parameters.get(Parameter.CAUSE).getOne(Identified.class);
-		int sourceID = (cause == null ? 0 : cause.ID);
 		Player player = parameters.get(Parameter.PLAYER).getOne(Player.class);
 		GameObject object = parameters.get(Parameter.OBJECT).getOne(GameObject.class);
 
@@ -70,16 +69,15 @@ public final class PlayCard extends EventType
 
 		// if it's a split card, have them pick a cast action that corresponds
 		// to one of the sides
-		java.util.Collection<CastSpellAction> castChoices = new java.util.LinkedList<CastSpellAction>();
-		for(int i = 0; i < object.getCharacteristics().length; i++)
-		{
-			CastSpellAction castChoice = new CastSpellAction(game, object, new int[] {i}, player, sourceID);
-			if(parameters.containsKey(Parameter.ALTERNATE_COST))
-				castChoice.forceAlternateCost(Identity.fromCollection(parameters.get(Parameter.ALTERNATE_COST)));
-			castChoices.add(castChoice);
-		}
+		java.util.List<Integer> canCast = PlayProhibition.getAllowed(game.actualState, player, object);
+		if(canCast.isEmpty())
+			return false;
 
-		CastSpellAction cast = player.sanitizeAndChoose(game.actualState, 1, castChoices, PlayerInterface.ChoiceType.ACTION, PlayerInterface.ChooseReason.ACTION).get(0);
+		int sourceID = (cause == null ? 0 : cause.ID);
+		CastSpellAction cast = new CastSpellAction(game, object, canCast, player, sourceID);
+		if(parameters.containsKey(Parameter.ALTERNATE_COST))
+			cast.forceAlternateCost(Identity.fromCollection(parameters.get(Parameter.ALTERNATE_COST)));
+
 		boolean ret = cast.saveStateAndPerform();
 		event.setResult((ret ? Identity.instance(cast.played()) : Identity.instance()));
 		return ret;

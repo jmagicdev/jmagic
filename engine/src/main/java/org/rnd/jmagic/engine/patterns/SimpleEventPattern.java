@@ -110,7 +110,7 @@ public class SimpleEventPattern implements EventPattern
 		this.parameters.put(parameter, pattern);
 	}
 
-	public final void put(EventType.Parameter parameter, MatcherFunction matcher)
+	public final void put(EventType.Parameter parameter, SetMatcherFunction matcher)
 	{
 		this.parameters.put(parameter, new NonFreezingPattern(matcher));
 	}
@@ -125,7 +125,7 @@ public class SimpleEventPattern implements EventPattern
 		this.result = result;
 	}
 
-	public final void withResult(MatcherFunction result)
+	public final void withResult(SetMatcherFunction result)
 	{
 		this.result = new NonFreezingPattern(result);
 	}

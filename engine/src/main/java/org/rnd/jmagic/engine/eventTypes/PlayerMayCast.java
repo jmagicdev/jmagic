@@ -24,10 +24,12 @@ public final class PlayerMayCast extends EventType
 		GameObject spell = parameters.get(Parameter.OBJECT).getOne(GameObject.class);
 		Player player = parameters.get(Parameter.PLAYER).getOne(Player.class);
 
-		java.util.Collection<CastSpellAction> castChoices = new java.util.LinkedList<>();
-		for(int i = 0; i < spell.getCharacteristics().length; i++)
-			castChoices.add(new CastSpellAction(game, spell, new int[] {i}, player, spell.ID));
-		CastSpellAction action = player.sanitizeAndChoose(game.actualState, 1, castChoices, PlayerInterface.ChoiceType.ACTION, PlayerInterface.ChooseReason.ACTION).get(0);
+		event.setResult(Empty.set);
+		java.util.List<Integer> canCast = PlayProhibition.getAllowed(game.actualState, player, spell);
+		if(canCast.isEmpty())
+			return false;
+
+		CastSpellAction action = new CastSpellAction(game, spell, canCast, player, spell.ID);
 
 		if(parameters.containsKey(Parameter.ALTERNATE_COST))
 			action.forceAlternateCost(Identity.fromCollection(parameters.get(Parameter.ALTERNATE_COST)));
@@ -43,7 +45,6 @@ public final class PlayerMayCast extends EventType
 				return true;
 			}
 
-		event.setResult(Empty.set);
 		return false;
 	}
 }

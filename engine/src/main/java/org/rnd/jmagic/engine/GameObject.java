@@ -158,6 +158,13 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	public CastSpellAction castAction;
 
 	protected Characteristics[] characteristics;
+	// for split cards on the stack, which side was selected. this is NOT an
+	// index into the characteristics field of GameObject! this field tells copy
+	// effects which side of the split card to copy -- otherwise, when casting a
+	// copy of a split card, after selecting which side to cast, the selection
+	// would be overwritten by the copy effect. if this value is negative, it
+	// means that all sides of the card exist.
+	protected int characteristicsSelection;
 
 	public int controllerID;
 
@@ -180,6 +187,9 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 * visibility should be directly modified.
 	 */
 	public Characteristics faceDownValues;
+
+	/** If true, you can cast both halves of this object. */
+	public boolean fuseable;
 
 	/** What GameObject did this become after a move? */
 	public int futureSelf;
@@ -237,6 +247,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 
 		this.characteristics = new Characteristics[] {new Characteristics()};
 		this.characteristics[0].numModes = new Set(new org.rnd.util.NumberRange(1, 1));
+		this.characteristicsSelection = -1;
 
 		this.alternateCosts = null;
 		this.alternatePayments = null;
@@ -254,6 +265,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		this.definedX = null;
 		this.effectsGenerated = null;
 		this.faceDownValues = null;
+		this.fuseable = false;
 		this.futureSelf = -1;
 		this.hasACopyEffect = false;
 		this.isGhost = false;
@@ -734,6 +746,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		ret.cantBeAttachedBy = null;
 		ret.cantBeTheTargetOf = null;
 		ret.cantHave = new java.util.HashSet<>();
+		ret.fuseable = false;
 
 		// maximumBlocks will already have the right value from the constructor
 
@@ -1426,7 +1439,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		return false;
 	}
 
-	/** @return Whether this object is a copy of a spell. */
+	/** @return Whether this object is a copy of) a spell. */
 	public boolean isSpellCopy()
 	{
 		return false;
@@ -1904,29 +1917,28 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 * 
 	 * ...
 	 * 
-	 * This is for split cards. Giving [0] will cut off the right side, giving
-	 * [1] will cut off the left side.
+	 * This is for split cards. Giving 0 will cut off the right side, giving 1
+	 * will cut off the left side.
 	 * 
-	 * @param characteristicsIndices Which characteristics to retain. If this
-	 * parameter's size is equal to the number of "sides" this card has, or if
-	 * it's null, this method will do nothing.
+	 * @param characteristicsIndices Which characteristics to retain.
 	 */
-	public void selectCharacteristics(java.util.Set<Integer> characteristicsIndices)
+	public void selectCharacteristics(int characteristicsIndex)
 	{
-		if(characteristicsIndices == null || this.characteristics.length == characteristicsIndices.size())
-			return;
+		boolean setName = this.characteristics.length > 1;
 
-		java.util.List<Characteristics> newCharacteristics = new java.util.ArrayList<>();
+		this.characteristicsSelection = characteristicsIndex;
+		Characteristics keep = null;
 		for(int i = 0; i < this.characteristics.length; i++)
-			if(characteristicsIndices.contains(i))
-				newCharacteristics.add(this.characteristics[i]);
+			if(characteristicsIndex == i)
+				keep = this.characteristics[i];
 			else
 				this.characteristics[i].abilityIDsInOrder.stream().forEach(ability -> {
 					this.game.actualState.removeIdentified(ability);
 				});
 
-		this.characteristics = newCharacteristics.toArray(new Characteristics[] {});
-		this.setName(newCharacteristics.stream().map(c -> c.name).reduce((left, right) -> left + " // " + right).orElse(""));
+		this.characteristics = new Characteristics[] {keep};
+		if(setName)
+			this.setName(keep.name);
 	}
 
 	public void setCharacteristics(Characteristics characteristics)
@@ -2201,8 +2213,12 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 			this.setBottomHalf(cvs.bottomHalf);
 		}
 
-		if(this.characteristics.length < cvs.characteristics.length)
-			this.characteristics = java.util.Arrays.copyOf(this.characteristics, cvs.characteristics.length);
+		if(this.characteristics.length < cvs.characteristics.length && this.characteristicsSelection == -1)
+		{
+			this.characteristics = new Characteristics[cvs.characteristics.length];
+			for(int i = 0; i < this.characteristics.length; i++)
+				this.characteristics[i] = new Characteristics();
+		}
 
 		// If this object is flipped, then the name will be set by the
 		// Characteristics object for the bottom half, in the next block
@@ -2213,113 +2229,114 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 		{
 			Characteristics toApply = cvs.characteristics[i];
 
-			if(this.characteristics[i] == null)
+			if(cvs.bottomHalf != null && this.isFlipped())
 			{
-				this.characteristics[i] = toApply.create(this);
+				toApply = cvs.bottomHalf;
+				this.setName(toApply.name);
 			}
+
+			Characteristics thisSide = null;
+			if(this.characteristicsSelection == -1)
+				thisSide = this.characteristics[i];
+			else if(this.characteristicsSelection == i)
+				thisSide = this.characteristics[0];
 			else
+				continue;
+
+			if(cvs.toCopy.contains(Characteristics.Characteristic.NAME))
+				thisSide.name = toApply.name;
+
+			if(cvs.toCopy.contains(Characteristics.Characteristic.POWER))
+				thisSide.power = toApply.power;
+
+			if(cvs.toCopy.contains(Characteristics.Characteristic.TOUGHNESS))
+				thisSide.toughness = toApply.toughness;
+
+			if(cvs.toCopy.contains(Characteristics.Characteristic.LOYALTY))
+				thisSide.loyalty = toApply.loyalty;
+
+			if(cvs.toCopy.contains(Characteristics.Characteristic.MANA_COST))
 			{
-				if(cvs.bottomHalf != null && this.isFlipped())
+				if(toApply.manaCost != null)
+					thisSide.manaCost = new ManaPool(toApply.manaCost);
+				else
+					thisSide.manaCost = null;
+			}
+
+			if(cvs.toCopy.contains(Characteristics.Characteristic.RULES_TEXT))
+			{
+				thisSide.minimumX = toApply.minimumX;
+
 				{
-					toApply = cvs.bottomHalf;
-					this.setName(toApply.name);
+					for(Integer abilityID: toApply.nonStaticAbilities)
+						this.addAbility(state.<NonStaticAbility>get(abilityID));
+					for(Integer abilityID: toApply.staticAbilities)
+						this.addAbility(state.<StaticAbility>get(abilityID));
+
+					// Add keywords without applying them, since the
+					// abilities
+					// they
+					// would grant have already been taken care of.
+					for(Integer abilityID: toApply.keywordAbilities)
+						this.addAbility(state.<Keyword>get(abilityID), false);
+
+					thisSide.abilityIDsInOrder = new java.util.LinkedList<Integer>(toApply.abilityIDsInOrder);
 				}
 
-				if(cvs.toCopy.contains(Characteristics.Characteristic.NAME))
-					this.characteristics[i].name = toApply.name;
-
-				if(cvs.toCopy.contains(Characteristics.Characteristic.POWER))
-					this.characteristics[i].power = toApply.power;
-
-				if(cvs.toCopy.contains(Characteristics.Characteristic.TOUGHNESS))
-					this.characteristics[i].toughness = toApply.toughness;
-
-				if(cvs.toCopy.contains(Characteristics.Characteristic.LOYALTY))
-					this.characteristics[i].loyalty = toApply.loyalty;
-
-				if(cvs.toCopy.contains(Characteristics.Characteristic.MANA_COST))
+				thisSide.costs.clear();
 				{
-					if(toApply.manaCost != null)
-						this.characteristics[i].manaCost = new ManaPool(toApply.manaCost);
-					else
-						this.characteristics[i].manaCost = null;
+					for(EventFactory cost: toApply.costs)
+						thisSide.costs.add(cost);
 				}
 
-				if(cvs.toCopy.contains(Characteristics.Characteristic.RULES_TEXT))
+				thisSide.modes.clear();
 				{
-					this.characteristics[i].minimumX = toApply.minimumX;
-
-					{
-						for(Integer abilityID: toApply.nonStaticAbilities)
-							this.addAbility(state.<NonStaticAbility>get(abilityID));
-						for(Integer abilityID: toApply.staticAbilities)
-							this.addAbility(state.<StaticAbility>get(abilityID));
-
-						// Add keywords without applying them, since the
-						// abilities
-						// they
-						// would grant have already been taken care of.
-						for(Integer abilityID: toApply.keywordAbilities)
-							this.addAbility(state.<Keyword>get(abilityID), false);
-
-						this.characteristics[i].abilityIDsInOrder = new java.util.LinkedList<Integer>(toApply.abilityIDsInOrder);
-					}
-
-					this.characteristics[i].costs.clear();
-					{
-						for(EventFactory cost: toApply.costs)
-							this.characteristics[i].costs.add(cost);
-					}
-
-					this.characteristics[i].modes.clear();
-					{
-						for(Mode mode: toApply.modes)
-							this.characteristics[i].modes.add(mode);
-					}
-
+					for(Mode mode: toApply.modes)
+						thisSide.modes.add(mode);
 				}
 
-				if(cvs.toCopy.contains(Characteristics.Characteristic.COLOR))
+			}
+
+			if(cvs.toCopy.contains(Characteristics.Characteristic.COLOR))
+			{
+				thisSide.colors.clear();
+				thisSide.colors.addAll(toApply.colors);
+				thisSide.colorIndicator.clear();
+				thisSide.colorIndicator.addAll(toApply.colorIndicator);
+			}
+
+			if(cvs.toCopy.contains(Characteristics.Characteristic.TYPES))
+			{
+				thisSide.superTypes.clear();
+				thisSide.superTypes.addAll(toApply.superTypes);
+
+				thisSide.types.clear();
+				thisSide.types.addAll(toApply.types);
+
+				thisSide.subTypes.clear();
+				thisSide.subTypes.addAll(toApply.subTypes);
+			}
+
+			if(cvs.originalWasOnStack)
+			{
+				if(cvs.toCopy.contains(Characteristics.Characteristic.CHOICES_MADE_WHEN_PLAYING))
 				{
-					this.characteristics[i].colors.clear();
-					this.characteristics[i].colors.addAll(toApply.colors);
-					this.characteristics[i].colorIndicator.clear();
-					this.characteristics[i].colorIndicator.addAll(toApply.colorIndicator);
+					thisSide.alternateCost = toApply.alternateCost;
+
+					thisSide.optionalAdditionalCostsChosen.clear();
+					thisSide.optionalAdditionalCostsChosen.addAll(toApply.optionalAdditionalCostsChosen);
+
+					thisSide.selectedModeNumbers.clear();
+					thisSide.selectedModeNumbers.addAll(toApply.selectedModeNumbers);
+
+					thisSide.valueOfX = toApply.valueOfX;
+
+					thisSide.chosenTargets.clear();
+					thisSide.chosenTargets.putAll(toApply.chosenTargets);
 				}
 
-				if(cvs.toCopy.contains(Characteristics.Characteristic.TYPES))
-				{
-					this.characteristics[i].superTypes.clear();
-					this.characteristics[i].superTypes.addAll(toApply.superTypes);
-
-					this.characteristics[i].types.clear();
-					this.characteristics[i].types.addAll(toApply.types);
-
-					this.characteristics[i].subTypes.clear();
-					this.characteristics[i].subTypes.addAll(toApply.subTypes);
-				}
-
-				if(cvs.originalWasOnStack)
-				{
-					if(cvs.toCopy.contains(Characteristics.Characteristic.CHOICES_MADE_WHEN_PLAYING))
-					{
-						this.characteristics[i].alternateCost = toApply.alternateCost;
-
-						this.characteristics[i].optionalAdditionalCostsChosen.clear();
-						this.characteristics[i].optionalAdditionalCostsChosen.addAll(toApply.optionalAdditionalCostsChosen);
-
-						this.characteristics[i].selectedModeNumbers.clear();
-						this.characteristics[i].selectedModeNumbers.addAll(toApply.selectedModeNumbers);
-
-						this.characteristics[i].valueOfX = toApply.valueOfX;
-
-						this.characteristics[i].chosenTargets.clear();
-						this.characteristics[i].chosenTargets.putAll(toApply.chosenTargets);
-					}
-
-					if(toApply.sourceID != -1 && (this.isActivatedAbility() || this.isTriggeredAbility()))
-						((NonStaticAbility)this).sourceID = toApply.sourceID;
-				}
+				if(toApply.sourceID != -1 && (this.isActivatedAbility() || this.isTriggeredAbility()))
+					((NonStaticAbility)this).sourceID = toApply.sourceID;
 			}
 		}
 	}

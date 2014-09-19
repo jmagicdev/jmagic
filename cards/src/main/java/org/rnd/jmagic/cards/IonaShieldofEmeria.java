@@ -2,7 +2,6 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Iona, Shield of Emeria")
 @SuperTypes({SuperType.LEGENDARY})
@@ -60,9 +59,9 @@ public final class IonaShieldofEmeria extends Card
 
 			SetGenerator chosenColor = ChosenFor.instance(LinkedTo.instance(Identity.instance(this)));
 
-			SimpleEventPattern castSpell = new SimpleEventPattern(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY);
-			castSpell.put(EventType.Parameter.PLAYER, OpponentsOf.instance(You.instance()));
-			castSpell.put(EventType.Parameter.OBJECT, new CastableOfColor(chosenColor));
+			PlayProhibition castSpell = new PlayProhibition(OpponentsOf.instance(You.instance()),//
+			(c, data) -> !java.util.Collections.disjoint(c.colors, data),//
+			chosenColor);
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(castSpell));

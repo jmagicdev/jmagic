@@ -111,6 +111,11 @@ public interface Castable
 			if(spell.isGhost())
 				return java.util.Collections.emptyList();
 
+			// Can't cast it if... it can't be cast
+			java.util.List<Integer> canCast = PlayProhibition.getAllowed(state, who, spell);
+			if(canCast.isEmpty())
+				return java.util.Collections.emptyList();
+
 			java.util.List<CastSpellAction> ret = null;
 			for(PlayPermission l: this.locations)
 			{
@@ -120,52 +125,49 @@ public interface Castable
 					{
 						if(t.evaluate(state, who))
 						{
-							for(int i = 0; i < spell.getCharacteristics().length; i++)
+							CastSpellAction action = new CastSpellAction(state.game, spell, canCast, who, 0);
+
+							SetGenerator costLocation = l.getForcedAlternateCost();
+							SetGenerator costTiming = t.getForcedAlternateCost();
+							if(null != costLocation)
 							{
-								CastSpellAction action = new CastSpellAction(state.game, spell, new int[] {i}, who, 0);
-
-								SetGenerator costLocation = l.getForcedAlternateCost();
-								SetGenerator costTiming = t.getForcedAlternateCost();
-								if(null != costLocation)
+								if(null != costTiming)
 								{
-									if(null != costTiming)
-									{
-										SetGenerator empty = Empty.instance();
-										// Handle the special case where both
-										// forced
-										// alternate costs are empty
-										if((empty == costLocation) && (empty == costTiming))
-											action.forceAlternateCost(empty);
-										// Otherwise, both forced alternate
-										// costs
-										// can't be paid at the same time, so
-										// skip
-										// this combination
-										else
-											continue timings;
-									}
+									SetGenerator empty = Empty.instance();
+									// Handle the special case where both
+									// forced
+									// alternate costs are empty
+									if((empty == costLocation) && (empty == costTiming))
+										action.forceAlternateCost(empty);
+									// Otherwise, both forced alternate
+									// costs
+									// can't be paid at the same time, so
+									// skip
+									// this combination
 									else
-										action.forceAlternateCost(costLocation);
+										continue timings;
 								}
-								else if(null != costTiming)
-									action.forceAlternateCost(costTiming);
+								else
+									action.forceAlternateCost(costLocation);
+							}
+							else if(null != costTiming)
+								action.forceAlternateCost(costTiming);
 
-								EventFactory eventLocation = l.getAttachedEvent();
-								if(null != eventLocation)
-									action.attachEvent(eventLocation, l.getSourceID());
+							EventFactory eventLocation = l.getAttachedEvent();
+							if(null != eventLocation)
+								action.attachEvent(eventLocation, l.getSourceID());
 
-								EventFactory eventTiming = t.getAttachedEvent();
-								if(null != eventTiming)
-									action.attachEvent(eventTiming, t.getSourceID());
+							EventFactory eventTiming = t.getAttachedEvent();
+							if(null != eventTiming)
+								action.attachEvent(eventTiming, t.getSourceID());
 
-								// 601.5. A player can't begin to cast a spell
-								// that's prohibited from being cast.
-								if(action.attempt())
-								{
-									if(null == ret)
-										ret = new java.util.LinkedList<CastSpellAction>();
-									ret.add(action);
-								}
+							// 601.5. A player can't begin to cast a spell
+							// that's prohibited from being cast.
+							if(action.attempt())
+							{
+								if(null == ret)
+									ret = new java.util.LinkedList<CastSpellAction>();
+								ret.add(action);
 							}
 						}
 					}

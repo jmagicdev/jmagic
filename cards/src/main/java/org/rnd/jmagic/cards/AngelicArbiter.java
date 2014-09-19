@@ -168,11 +168,7 @@ public final class AngelicArbiter extends Card
 		{
 			super(state, "Each opponent who attacked with a creature this turn can't cast spells.");
 
-			SimpleEventPattern castSomething = new SimpleEventPattern(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY);
-			castSomething.put(EventType.Parameter.PLAYER, AttackTracker.Generator.instance());
-			castSomething.put(EventType.Parameter.OBJECT, SetPattern.CASTABLE);
-
-			state.ensureTracker(new AttackTracker());
+			PlayProhibition castSomething = new PlayProhibition(AttackTracker.Generator.instance(), (c -> true));
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(castSomething));

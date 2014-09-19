@@ -45,7 +45,8 @@ public final class OmenMachine extends Card
 			move.parameters.put(EventType.Parameter.CONTROLLER, thatPlayer);
 			move.parameters.put(EventType.Parameter.OBJECT, thatCard);
 
-			EventFactory cast = new EventFactory(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY, "The player casts it without paying its mana cost if able.");
+			EventFactory cast = new EventFactory(EventType.PLAY_CARD, "The player casts it without paying its mana cost if able.");
+			cast.parameters.put(EventType.Parameter.CAUSE, This.instance());
 			cast.parameters.put(EventType.Parameter.PLAYER, thatPlayer);
 			cast.parameters.put(EventType.Parameter.ALTERNATE_COST, Empty.instance());
 			cast.parameters.put(EventType.Parameter.OBJECT, thatCard);

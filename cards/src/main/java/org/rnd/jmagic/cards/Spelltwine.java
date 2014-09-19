@@ -38,14 +38,16 @@ public final class Spelltwine extends Card
 			java.util.Map<GameObject, Event> castable = new java.util.HashMap<GameObject, Event>();
 
 			Set playerSet = parameters.get(Parameter.PLAYER);
+			Set cause = parameters.get(Parameter.CAUSE);
 
 			for(GameObject spell: spells.getAll(GameObject.class))
 			{
 				java.util.Map<Parameter, Set> castParameters = new java.util.HashMap<Parameter, Set>();
+				castParameters.put(EventType.Parameter.CAUSE, cause);
 				castParameters.put(EventType.Parameter.PLAYER, playerSet);
 				castParameters.put(EventType.Parameter.ALTERNATE_COST, new Set());
 				castParameters.put(EventType.Parameter.OBJECT, new Set(spell));
-				Event cast = createEvent(game, "Cast " + spell + ".", EventType.CAST_SPELL_OR_ACTIVATE_ABILITY, castParameters);
+				Event cast = createEvent(game, "Cast " + spell + ".", EventType.PLAY_CARD, castParameters);
 				if(cast.attempt(event))
 					castable.put(spell, cast);
 			}

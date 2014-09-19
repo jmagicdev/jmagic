@@ -4,7 +4,6 @@ import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Nevermore")
 @Types({Type.ENCHANTMENT})
@@ -44,8 +43,8 @@ public final class Nevermore extends Card
 		{
 			super(state, "The named card can't be cast.");
 
-			SimpleEventPattern cast = new SimpleEventPattern(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY);
-			cast.put(EventType.Parameter.OBJECT, HasName.instance(ChosenFor.instance(LinkedTo.instance(Identity.instance(this)))));
+			SetGenerator name = ChosenFor.instance(LinkedTo.instance(Identity.instance(this)));
+			PlayProhibition cast = new PlayProhibition(Players.instance(), (c, set) -> set.contains(c.name), name);
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(cast));

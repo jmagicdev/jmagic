@@ -7,7 +7,6 @@ import static org.junit.Assert.*;
 import org.rnd.jmagic.cards.*;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.gameTypes.*;
-import org.rnd.jmagic.sanitized.*;
 
 public class SplitCardsTest extends JUnitTest
 {
@@ -26,17 +25,8 @@ public class SplitCardsTest extends JUnitTest
 
 		castAndResolveSpell(GrizzlyBears.class);
 
-		SanitizedPlayerAction action = null;
-		for(SanitizedCastSpellOrActivateAbilityAction choice: this.choices.getAll(SanitizedCastSpellOrActivateAbilityAction.class))
-			if(choice.name.equals("Cast Assault"))
-			{
-				action = choice;
-				break;
-			}
-		if(action == null)
-			fail("Couldn't cast Assault.");
-
-		respondWith(action);
+		respondWith(getSpellAction(AssaultBattery.class));
+		respondWith(getChoiceByToString("Assault"));
 		respondWith(getTarget(GrizzlyBears.class));
 		addMana("R");
 		donePlayingManaAbilities();
@@ -45,17 +35,8 @@ public class SplitCardsTest extends JUnitTest
 
 		assertEquals(0, this.game.actualState.battlefield().objects.size());
 
-		action = null;
-		for(SanitizedCastSpellOrActivateAbilityAction choice: this.choices.getAll(SanitizedCastSpellOrActivateAbilityAction.class))
-			if(choice.name.equals("Cast Battery"))
-			{
-				action = choice;
-				break;
-			}
-		if(action == null)
-			fail("Couldn't cast Battery.");
-
-		respondWith(action);
+		respondWith(getSpellAction(AssaultBattery.class));
+		respondWith(getChoiceByToString("Battery"));
 		addMana("3G");
 		donePlayingManaAbilities();
 		pass();
@@ -82,16 +63,8 @@ public class SplitCardsTest extends JUnitTest
 
 		castAndResolveSpell(GrizzlyBears.class);
 
-		SanitizedPlayerAction action = null;
-		for(SanitizedCastSpellOrActivateAbilityAction choice: this.choices.getAll(SanitizedCastSpellOrActivateAbilityAction.class))
-			if(choice.name.equals("Cast Dead"))
-			{
-				action = choice;
-				break;
-			}
-		if(action == null)
-			fail("Couldn't cast Dead.");
-		respondWith(action);
+		respondWith(getSpellAction(DeadGone.class));
+		respondWith(getChoiceByToString("Dead"));
 		// auto-pick grizzly bears
 		addMana("R");
 		donePlayingManaAbilities();
@@ -105,16 +78,8 @@ public class SplitCardsTest extends JUnitTest
 		pass();
 		pass();
 
-		action = null;
-		for(SanitizedCastSpellOrActivateAbilityAction choice: this.choices.getAll(SanitizedCastSpellOrActivateAbilityAction.class))
-			if(choice.name.equals("Cast Gone"))
-			{
-				action = choice;
-				break;
-			}
-		if(action == null)
-			fail("Couldn't cast Gone.");
-		respondWith(action);
+		respondWith(getSpellAction(DeadGone.class));
+		respondWith(getChoiceByToString("Gone"));
 		// auto-pick sleeper agent
 		addMana("2R");
 		donePlayingManaAbilities();
@@ -143,14 +108,8 @@ public class SplitCardsTest extends JUnitTest
 		castAndResolveSpell(MeddlingMage.class);
 		respondWith("Fire");
 
-		SanitizedPlayerAction action = null;
-		for(SanitizedCastSpellOrActivateAbilityAction choice: this.choices.getAll(SanitizedCastSpellOrActivateAbilityAction.class))
-			if(choice.name.equals("Cast Ice"))
-				action = choice;
-			else if(choice.name.equals("Cast Fire"))
-				fail("Could cast Fire (which was named for Meddling Mage)");
-		if(action == null)
-			fail("Couldn't cast Ice.");
+		respondWith(getSpellAction(FireIce.class));
+		respondWith(getChoiceByToString("Ice"));
 	}
 
 	@Test
@@ -170,16 +129,8 @@ public class SplitCardsTest extends JUnitTest
 		castAndResolveSpell(PyriteSpellbomb.class);
 		castAndResolveSpell(IntangibleVirtue.class);
 
-		SanitizedPlayerAction action = null;
-		for(SanitizedCastSpellOrActivateAbilityAction choice: this.choices.getAll(SanitizedCastSpellOrActivateAbilityAction.class))
-			if(choice.name.equals("Cast Wear // Tear"))
-			{
-				action = choice;
-				break;
-			}
-		if(action == null)
-			fail("Couldn't cast Wear // Tear.");
-		respondWith(action);
+		respondWith(getSpellAction(WearTear.class));
+		respondWith(getChoiceByToString("Wear"), getChoiceByToString("Tear"));
 		// auto-pick both targets
 		addMana("1WR");
 		donePlayingManaAbilities();

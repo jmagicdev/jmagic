@@ -2,7 +2,6 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Gaddock Teeg")
 @SuperTypes({SuperType.LEGENDARY})
@@ -18,13 +17,8 @@ public final class GaddockTeeg extends Card
 		{
 			super(state, "Noncreature spells with converted mana cost 4 or greater can't be cast.");
 
-			MultipleSetPattern wrathyThings = new MultipleSetPattern(true);
-			SetGenerator tooBig = HasConvertedManaCost.instance(Between.instance(4, null));
-			wrathyThings.addPattern(SetPattern.CASTABLE);
-			wrathyThings.addPattern(new SimpleSetPattern(RelativeComplement.instance(tooBig, HasType.instance(Type.CREATURE))));
-
-			SimpleEventPattern castSomethingWrathy = new SimpleEventPattern(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY);
-			castSomethingWrathy.put(EventType.Parameter.OBJECT, wrathyThings);
+			PlayProhibition castSomethingWrathy = new PlayProhibition(Players.instance(), //
+			c -> !c.types.contains(Type.CREATURE) && c.manaCost.converted() >= 4);
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(castSomethingWrathy));
@@ -38,12 +32,17 @@ public final class GaddockTeeg extends Card
 		{
 			super(state, "Noncreature spells with (X) in their mana costs can't be cast.");
 
-			MultipleSetPattern fireballyThings = new MultipleSetPattern(true);
-			fireballyThings.addPattern(SetPattern.CASTABLE);
-			fireballyThings.addPattern(new SimpleSetPattern(RelativeComplement.instance(ManaCostContainsX.instance(), HasType.instance(Type.CREATURE))));
-
-			SimpleEventPattern castSomethingFirebally = new SimpleEventPattern(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY);
-			castSomethingFirebally.put(EventType.Parameter.OBJECT, fireballyThings);
+			PlayProhibition castSomethingFirebally = new PlayProhibition(Players.instance(), //
+			(c -> {
+				if(c.types.contains(Type.CREATURE))
+					return false;
+				if(c.manaCost == null)
+					return false;
+				for(ManaSymbol m: c.manaCost)
+					if(m.isX)
+						return true;
+				return false;
+			}));
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(castSomethingFirebally));

@@ -1,9 +1,9 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.engine.patterns.*;
 
 @Name("Exclusion Ritual")
 @Types({Type.ENCHANTMENT})
@@ -32,8 +32,8 @@ public final class ExclusionRitual extends Card
 		{
 			super(state, "Players can't cast spells with the same name as the exiled card.");
 
-			SimpleEventPattern cast = new SimpleEventPattern(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY);
-			cast.put(EventType.Parameter.OBJECT, HasName.instance(NameOf.instance(ChosenFor.instance(LinkedTo.instance(Identity.instance(this))))));
+			SetGenerator name = ChosenFor.instance(LinkedTo.instance(Identity.instance(this)));
+			PlayProhibition cast = new PlayProhibition(Players.instance(), (c, set) -> set.contains(c.name), name);
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(cast));

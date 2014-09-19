@@ -174,6 +174,14 @@ public final class SpellCopy extends GameObject implements Castable
 	}
 
 	@Override
+	public void selectCharacteristics(int characteristicsIndex)
+	{
+		// physical versions of spell copies don't have any characteristics to
+		// select, so just tell the copy effect which side to copy.
+		this.characteristicsSelection = characteristicsIndex;
+	}
+
+	@Override
 	void setManaCost(ManaPool manaCost)
 	{
 		super.setManaCost(manaCost);

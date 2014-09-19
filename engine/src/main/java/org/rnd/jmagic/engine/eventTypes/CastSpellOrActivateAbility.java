@@ -150,13 +150,18 @@ public final class CastSpellOrActivateAbility extends EventType
 			onStack = beingPlayed.putOnStack(playerActing, parameters.get(Parameter.FACE_DOWN).getOne(Class.class));
 		else
 		{
-			// if it was a split card, figure out which half was chosen
-			java.util.Set<Integer> splitChoices = new java.util.HashSet<>();
-			if(parameters.containsKey(Parameter.EFFECT))
-				splitChoices.addAll(parameters.get(Parameter.EFFECT).getAll(Integer.class));
-			else
-				splitChoices.add(0);
-			onStack = beingPlayed.putOnStack(playerActing, splitChoices);
+			// ask the player which side to cast.
+			java.util.Set<Integer> splitIndices = parameters.get(Parameter.EFFECT).getAll(Integer.class);
+			java.util.List<Characteristics> characteristics = java.util.Arrays.asList(beingPlayed.getCharacteristics());
+			boolean canFuse = beingPlayed.fuseable && (splitIndices.size() == characteristics.size());
+
+			java.util.Set<Integer> splitDecision = //
+			playerActing.sanitizeAndChoose(game.actualState, 1, canFuse ? characteristics.size() : 1, characteristics,//
+			PlayerInterface.ChoiceType.CHARACTERISTICS, PlayerInterface.ChooseReason.CAST_SPLIT_CARD)//
+			.stream().map(c -> characteristics.indexOf(c))//
+			.collect(java.util.stream.Collectors.toSet());
+
+			onStack = beingPlayed.putOnStack(playerActing, splitDecision);
 		}
 		GameObject physicalOnStack = onStack.getPhysical();
 
