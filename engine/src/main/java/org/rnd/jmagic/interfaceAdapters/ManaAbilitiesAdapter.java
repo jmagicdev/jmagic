@@ -17,7 +17,10 @@ public class ManaAbilitiesAdapter extends SimplePlayerInterface
 	static
 	{
 		ignores = java.util.EnumSet.of( //
-		PlayerInterface.ChoiceType.COLOR, // e.g. black lotus
+		PlayerInterface.ChoiceType.CHARACTERISTICS, // split choices are still
+													// presented even if they're
+													// shortcutted.
+				PlayerInterface.ChoiceType.COLOR, // e.g. black lotus
 				PlayerInterface.ChoiceType.COSTS, // mana ability with multiple
 													// costs
 				PlayerInterface.ChoiceType.MANA_EXPLOSION, // e.g. filterlands
