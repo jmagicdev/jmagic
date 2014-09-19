@@ -2,7 +2,7 @@ package org.rnd.jmagic.cards;
 
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
-import org.rnd.jmagic.engine.patterns.*;
+import org.rnd.jmagic.engine.trackers.*;
 
 @Name("Angelic Arbiter")
 @Types({Type.CREATURE})
@@ -85,90 +85,24 @@ public final class AngelicArbiter extends Card
 		{
 			super(state, "Each opponent who cast a spell this turn can't attack with creatures.");
 
-			SimpleEventPattern castSomething = new SimpleEventPattern(EventType.CAST_SPELL_OR_ACTIVATE_ABILITY);
-			castSomething.put(EventType.Parameter.PLAYER, CastTracker.Generator.instance());
-			castSomething.put(EventType.Parameter.OBJECT, SetPattern.CASTABLE);
-
 			state.ensureTracker(new CastTracker());
 
-			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
-			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(castSomething));
+			SetGenerator restriction = Intersect.instance(Attacking.instance(), ControlledBy.instance(CastTracker.Generator.instance()));
+
+			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.ATTACKING_RESTRICTION);
+			part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(restriction));
 			this.addEffectPart(part);
 		}
 	}
 
 	public static final class DontCast extends StaticAbility
 	{
-		public static final class AttackTracker extends Tracker<java.util.Set<Integer>>
-		{
-			public static final class Generator extends SetGenerator
-			{
-				private static final Generator _instance = new Generator();
-
-				public static Generator instance()
-				{
-					return _instance;
-				}
-
-				private Generator()
-				{
-					// Singleton constructor
-				}
-
-				@Override
-				public Set evaluate(GameState state, Identified thisObject)
-				{
-					AttackTracker tracker = state.getTracker(AttackTracker.class);
-					Set ret = new Set();
-					for(int i: tracker.getValue(state))
-						ret.add(state.get(i));
-					return ret;
-				}
-			}
-
-			private java.util.Set<Integer> values = new java.util.HashSet<Integer>();
-			private java.util.Set<Integer> unmodifiable = java.util.Collections.unmodifiableSet(this.values);
-
-			@Override
-			protected AttackTracker clone()
-			{
-				AttackTracker ret = (AttackTracker)super.clone();
-				ret.values = new java.util.HashSet<Integer>(this.values);
-				ret.unmodifiable = java.util.Collections.unmodifiableSet(ret.values);
-				return ret;
-			}
-
-			@Override
-			protected java.util.Set<Integer> getValueInternal()
-			{
-				return this.unmodifiable;
-			}
-
-			@Override
-			protected void reset()
-			{
-				this.values.clear();
-			}
-
-			@Override
-			protected boolean match(GameState state, Event event)
-			{
-				return event.type == EventType.DECLARE_ONE_ATTACKER;
-			}
-
-			@Override
-			protected void update(GameState state, Event event)
-			{
-				GameObject attacker = event.parametersNow.get(EventType.Parameter.OBJECT).evaluate(state, null).getOne(GameObject.class);
-				this.values.add(attacker.controllerID);
-			}
-		}
-
 		public DontCast(GameState state)
 		{
 			super(state, "Each opponent who attacked with a creature this turn can't cast spells.");
 
-			PlayProhibition castSomething = new PlayProhibition(AttackTracker.Generator.instance(), (c -> true));
+			state.ensureTracker(new AttackTracker());
+			PlayProhibition castSomething = new PlayProhibition(AttackedWithACreatureThisTurn.instance(), (c -> true));
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(castSomething));
