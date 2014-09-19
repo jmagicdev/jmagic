@@ -33,7 +33,7 @@ public final class LevelUp extends Keyword
 
 		public LevelUpAbility(GameState state, String manaCostString)
 		{
-			super(state, manaCostString + ": Put a level counter on this permanent. Activate this ability only any time you could cast a sorcery.");
+			super(state, manaCostString + ": Put a level counter on this permanent. Level up only as a sorcery.");
 
 			this.manaCostString = manaCostString;
 
