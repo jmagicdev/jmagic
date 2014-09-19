@@ -83,9 +83,13 @@ public final class PowerSink extends Card
 
 		SetGenerator controller = ControllerOf.instance(targetedBy(target));
 
+		ManaSymbol symbol = new ManaSymbol("1");
+		symbol.isX = true;
+		symbol.colorless = 1;
+
 		EventFactory controllerPays = new EventFactory(EventType.PAY_MANA, "Pay (X)");
 		controllerPays.parameters.put(EventType.Parameter.CAUSE, This.instance());
-		controllerPays.parameters.put(EventType.Parameter.COST, Identity.fromCollection(new ManaPool("1")));
+		controllerPays.parameters.put(EventType.Parameter.COST, Identity.instance(symbol));
 		controllerPays.parameters.put(EventType.Parameter.NUMBER, ValueOfX.instance(This.instance()));
 		controllerPays.parameters.put(EventType.Parameter.PLAYER, controller);
 
