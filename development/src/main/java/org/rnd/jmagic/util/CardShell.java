@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 
 public class CardShell
 {
-	private static final java.util.Map<String, java.util.Map<java.util.regex.Pattern, String>> keywords = new java.util.HashMap<>();
+	private static final java.util.Map<java.util.regex.Pattern, String> keywords = new java.util.HashMap<>();
 	private static final java.util.Map<String, String> convenienceMethods = new java.util.HashMap<String, String>();
 
 	private static String getConvenienceMethod(String string)
@@ -262,9 +262,8 @@ public class CardShell
 		newKeywords.put(keywordAndNumber("Tribute"), complexInstantiation(Tribute.class));
 		newKeywords.put(keywordAndManaCost("Unearth"), complexInstantiation(Unearth.class, true));
 
-		java.util.HashMap<java.util.regex.Pattern, String> compiledKeywords = new java.util.HashMap<>();
 		for(java.util.Map.Entry<String, String> entry: newKeywords.entrySet())
-			compiledKeywords.put(java.util.regex.Pattern.compile(entry.getKey(), java.util.regex.Pattern.CASE_INSENSITIVE), entry.getValue());
+			keywords.put(java.util.regex.Pattern.compile(entry.getKey(), java.util.regex.Pattern.CASE_INSENSITIVE), entry.getValue());
 
 		// Not really keywords
 		java.util.Map<String, String> newAbilityWords = new java.util.HashMap<String, String>();
@@ -277,12 +276,8 @@ public class CardShell
 		// withThisNameInstantiation(LeylineAbility.class));
 		newAbilityWords.put("This costs (\\(.*\\)) more to cast for each target beyond the first.", "new Strive(state, this.getName(), \"\\1\")");
 
-		java.util.HashMap<java.util.regex.Pattern, String> compiledAbilityWords = new java.util.HashMap<>();
 		for(java.util.Map.Entry<String, String> entry: newAbilityWords.entrySet())
-			compiledAbilityWords.put(java.util.regex.Pattern.compile(entry.getKey(), java.util.regex.Pattern.CASE_INSENSITIVE), entry.getValue());
-
-		keywords.put("", compiledKeywords);
-		keywords.put("org.rnd.jmagic.abilities.*", compiledAbilityWords);
+			keywords.put(java.util.regex.Pattern.compile(entry.getKey(), java.util.regex.Pattern.CASE_INSENSITIVE), entry.getValue());
 	}
 
 	private static String removeReminderText(String ability)
@@ -453,23 +448,16 @@ public class CardShell
 					if(keywords.isEmpty())
 						populateKeywords();
 
-					for(java.util.Map.Entry<String, java.util.Map<java.util.regex.Pattern, String>> entry: keywords.entrySet())
+					for(java.util.regex.Pattern pattern: keywords.keySet())
 					{
-						boolean added = false;
-						for(java.util.regex.Pattern pattern: entry.getValue().keySet())
+						java.util.regex.Matcher match = pattern.matcher(ability);
+						if(match.matches())
 						{
-							java.util.regex.Matcher match = pattern.matcher(ability);
-							if(match.matches())
-							{
-								String construction = entry.getValue().get(pattern);
-								for(int i = 1; i <= match.groupCount(); ++i)
-									construction = construction.replace("\\" + i, match.group(i));
-								abilityConstructors.add(construction);
-								added = true;
-							}
+							String construction = keywords.get(pattern);
+							for(int i = 1; i <= match.groupCount(); ++i)
+								construction = construction.replace("\\" + i, match.group(i));
+							abilityConstructors.add(construction);
 						}
-						if(added && !entry.getKey().isEmpty())
-							imports.add(entry.getKey());
 					}
 
 					if(!abilityConstructors.isEmpty())
@@ -567,24 +555,16 @@ public class CardShell
 								populateKeywords();
 
 							boolean found = false;
-							for(java.util.Map.Entry<String, java.util.Map<java.util.regex.Pattern, String>> entry: keywords.entrySet())
+							for(java.util.regex.Pattern pattern: keywords.keySet())
 							{
-								boolean added = false;
-								for(java.util.regex.Pattern pattern: entry.getValue().keySet())
+								java.util.regex.Matcher match = pattern.matcher(seperateAbility);
+								if(match.matches())
 								{
-									java.util.regex.Matcher match = pattern.matcher(seperateAbility);
-									if(match.matches())
-									{
-										String construction = entry.getValue().get(pattern);
-										for(int i = 1; i <= match.groupCount(); ++i)
-											construction = construction.replace("\\" + i, match.group(i));
-										abilityConstructors.add(construction);
-										found = true;
-										added = true;
-									}
+									String construction = keywords.get(pattern);
+									for(int i = 1; i <= match.groupCount(); ++i)
+										construction = construction.replace("\\" + i, match.group(i));
+									abilityConstructors.add(construction);
 								}
-								if(added && !entry.getKey().isEmpty())
-									imports.add(entry.getKey());
 							}
 
 							// If we don't find one, quit. This avoids problems
