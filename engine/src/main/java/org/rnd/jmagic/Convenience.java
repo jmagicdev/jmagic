@@ -849,6 +849,8 @@ public class Convenience
 
 	public static final SetGenerator CREATURES_YOU_CONTROL = Intersect.instance(CreaturePermanents.instance(), ControlledBy.instance(You.instance()));
 
+	public static final SetGenerator CREATURES_YOU_CONTROL_WITH_PLUS_ONE_COUNTER = Intersect.instance(CREATURES_YOU_CONTROL, HasCounterOfType.instance(Counter.CounterType.PLUS_ONE_PLUS_ONE));
+
 	/**
 	 * @eparam PLAYER: players to iterate over; will be reordered to APNAP
 	 * order. [optional; default is all players]
