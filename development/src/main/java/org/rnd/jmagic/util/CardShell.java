@@ -263,7 +263,6 @@ public class CardShell
 		newKeywords.put(keywordAndManaCost("Unearth"), complexInstantiation(Unearth.class, true));
 
 		java.util.HashMap<java.util.regex.Pattern, String> compiledKeywords = new java.util.HashMap<>();
-		keywords.put("org.rnd.jmagic.engine.keywords.*", compiledKeywords);
 		for(java.util.Map.Entry<String, String> entry: newKeywords.entrySet())
 			compiledKeywords.put(java.util.regex.Pattern.compile(entry.getKey(), java.util.regex.Pattern.CASE_INSENSITIVE), entry.getValue());
 
@@ -282,7 +281,7 @@ public class CardShell
 		for(java.util.Map.Entry<String, String> entry: newAbilityWords.entrySet())
 			compiledAbilityWords.put(java.util.regex.Pattern.compile(entry.getKey(), java.util.regex.Pattern.CASE_INSENSITIVE), entry.getValue());
 
-		keywords.put("org.rnd.jmagic.engine.keywords.*", compiledKeywords);
+		keywords.put("", compiledKeywords);
 		keywords.put("org.rnd.jmagic.abilities.*", compiledAbilityWords);
 	}
 
@@ -469,7 +468,7 @@ public class CardShell
 								added = true;
 							}
 						}
-						if(added)
+						if(added && !entry.getKey().isEmpty())
 							imports.add(entry.getKey());
 					}
 
@@ -584,7 +583,7 @@ public class CardShell
 										added = true;
 									}
 								}
-								if(added)
+								if(added && !entry.getKey().isEmpty())
 									imports.add(entry.getKey());
 							}
 
