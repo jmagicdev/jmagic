@@ -1,0 +1,17 @@
+package org.rnd.jmagic.expansions;
+
+import org.rnd.jmagic.engine.*;
+
+@Name("Masters Edition")
+public final class MastersEdition extends SimpleExpansion
+{
+	public MastersEdition()
+	{
+		super();
+
+		this.addCards(Rarity.LAND, "Forest", "Island", "Mountain", "Plains", "Swamp");
+		this.addCards(Rarity.COMMON, "Apprentice Wizard", "Arcane Denial", "Artifact Blast", "Ashnod's Transmogrant", "Basal Thrull", "Benalish Hero", "Bestial Fury", "Brothers of Fire", "Chub Toad", "Crookshank Kobolds", "Cuombajj Witches", "Death Speakers", "Death Ward", "Dragon Engine", "Dust to Dust", "Dwarven Soldier", "Erg Raiders", "Exile", "Feast or Famine", "Fissure", "Fyndhorn Elves", "Ghazbán Ogre", "Giant Tortoise", "Goblin Chirurgeon", "Goblins of the Flarg", "Holy Light", "Hungry Mist", "Hyalopterous Lemure", "Hydroblast", "Icatian Lieutenant", "Illusionary Wall", "Knights of Thorn", "Lightning Bolt", "Mesa Pegasus", "Mindstab Thrull", "Mountain Yeti", "Nature's Lore", "Onulet", "Order of Leitbur", "Order of the Ebon Hand", "Oubliette", "Paralyze", "Phantom Monster", "Phyrexian Boon", "Psychic Venom", "Pyroblast", "Righteous Avengers", "River Merfolk", "Roots", "Scryb Sprites", "Sea Sprite", "Shambling Strider", "Shield Sphere", "Telekinesis", "Thorn Thallid", "Thrull Retainer", "Urza's Chalice", "Wanderlust", "Word of Undoing", "Wyluli Wolf");
+		this.addCards(Rarity.UNCOMMON, "Angry Mob", "Animate Dead", "Animate Wall", "Black Knight", "Blight", "Breeding Pit", "Carnivorous Plant", "Centaur Archer", "Clockwork Beast", "Copper Tablet", "Cursed Rack", "Derelor", "Divine Transformation", "Dwarven Catapult", "Eater of the Dead", "Elder Land Wurm", "Energy Arc", "Fire Covenant", "Goblin Grenade", "Goblin Mutant", "Granite Gargoyle", "Greater Realm of Preservation", "Hallowed Ground", "High Tide", "Homarid Spawning Bed", "Hymn of Rebirth", "Hymn to Tourach", "Icatian Town", "Ice Storm", "Illusionary Forces", "Juxtapose", "Keldon Warlord", "Lim-Dûl's Vault", "Mishra's Factory", "Mystic Remora", "Nether Shadow", "Orcish Mechanics", "Phyrexian War Beast", "Psychic Purge", "Rabid Wombat", "Seasinger", "Shield of the Ages", "Singing Tree", "Spectral Bears", "Spinal Villain", "Stone Calendar", "Stone Giant", "Storm Seeker", "Sunken City", "The Fallen", "Thicket Basilisk", "Thunder Spirit", "Tivadar's Crusade", "Urza's Bauble", "Vodalian Knights", "Walking Wall", "Winds of Change", "Winter Blast", "Yavimaya Ants", "Zuran Orb");
+		this.addCards(Rarity.RARE, "Adun Oakenshield", "Amnesia", "Ankh of Mishra", "Argivian Archaeologist", "Armageddon", "Autumn Willow", "Balduvian Horde", "Ball Lightning", "Baron Sengir", "Berserk", "Chains of Mephistopheles", "Contagion", "Crusade", "Dakkon Blackblade", "Diamond Valley", "Diminishing Returns", "Eureka", "Force of Will", "Forcefield", "Gargantuan Gorilla", "Goblin Wizard", "Hand of Justice", "Hecatomb", "Ifh-Bíff Efreet", "Illusions of Grandeur", "Island of Wak-Wak", "Ivory Tower", "Jacques le Vert", "Jokulhaups", "Juzám Djinn", "Khabál Ghoul", "Lake of the Dead", "Lord of Tresserhorn", "Mana Flare", "Mirror Universe", "Moat", "Márton Stromgald", "Nevinyrral's Disk", "Petra Sphinx", "Phelddagrif", "Polar Kraken", "Pox", "Preacher", "Primal Order", "Rainbow Vale", "Ring of Ma'rûf", "Seraph", "Serendib Efreet", "Serpent Generator", "Su-Chi", "Sylvan Library", "Tawnos's Coffin", "Thawing Glaciers", "Thrull Champion", "Time Elemental", "Tornado", "Varchild's War-Riders", "Vesuvan Doppelganger", "Winter Orb", "Ydwen Efreet");
+	}
+}
