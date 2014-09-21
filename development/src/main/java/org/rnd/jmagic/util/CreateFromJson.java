@@ -41,6 +41,8 @@ public class CreateFromJson
 				cardNames.add(line.trim());
 			}
 
+			System.out.println("Processing...");
+
 			JsonArrayBuilder cardsToWrite = Json.createArrayBuilder();
 			for(JsonValue expansion: root.values())
 				for(JsonValue cardValue: ((JsonObject)expansion).getJsonArray("cards"))

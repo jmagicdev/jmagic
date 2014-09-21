@@ -356,21 +356,25 @@ public class CardShell
 
 	private java.util.Set<String> colorIdentity()
 	{
-		if(null != this.colors)
-			return this.colors;
-
 		java.util.Set<String> ret = new java.util.HashSet<String>();
 
-		if(this.manaCost != null)
-			for(char c: this.manaCost.toUpperCase().toCharArray())
-			{
-				for(Color color: Color.values())
-					if(color.getLetter().equals(Character.toString(c)))
-						ret.add(color.toString().toUpperCase());
-			}
+		if(null != this.colors)
+		{
+			ret.addAll(this.colors);
+		}
+		else
+		{
+			if(this.manaCost != null)
+				for(char c: this.manaCost.toUpperCase().toCharArray())
+				{
+					for(Color color: Color.values())
+						if(color.getLetter().equals(Character.toString(c)))
+							ret.add(color.toString().toUpperCase());
+				}
 
-		for(String color: this.colorIndicator)
-			ret.add(color.toUpperCase());
+			for(String color: this.colorIndicator)
+				ret.add(color.toUpperCase());
+		}
 
 		java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("\\([WUBRG/0-9P]+\\)");
 		for(String string: this.abilities)
