@@ -226,7 +226,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 	{
 		if(null == i)
 			return "back.png";
-		if(null == option && i instanceof SanitizedGameObject && ((SanitizedGameObject)i).faceDown)
+		if(i instanceof SanitizedGameObject && ((SanitizedGameObject)i).faceDown)
 			return "back.png";
 
 		if(i instanceof SanitizedPlayer)
