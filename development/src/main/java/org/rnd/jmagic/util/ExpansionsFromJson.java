@@ -10,7 +10,7 @@ public class ExpansionsFromJson
 {
 	public static void main(String args[]) throws java.io.IOException, URISyntaxException
 	{
-		java.net.URL jsonLocation = CreateFromJson.class.getResource("AllSets-x.json");
+		java.net.URL jsonLocation = CreateFromJson.class.getResource("AllSets.json");
 		if(null == jsonLocation)
 			return;
 
