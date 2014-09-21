@@ -1420,6 +1420,8 @@ public class Convenience
 
 	private static ZoneChangePattern whenThisIsPutIntoYourGraveyardFromTheBattlefieldPattern = null;
 
+	private static EventPattern whenThisIsTurnedFaceUpPattern = null;
+
 	private static ZoneChangePattern whenThisLeavesTheBattlefieldPattern = null;
 
 	private static EventPattern whenTimeCounterIsRemovedFromThisPattern = null;
@@ -3604,6 +3606,17 @@ public class Convenience
 		if(whenThisIsPutIntoYourGraveyardFromTheBattlefieldPattern == null)
 			whenThisIsPutIntoYourGraveyardFromTheBattlefieldPattern = new ImmutableZoneChangePattern(new SimpleZoneChangePattern(Battlefield.instance(), GraveyardOf.instance(You.instance()), ABILITY_SOURCE_OF_THIS, true));
 		return whenThisIsPutIntoYourGraveyardFromTheBattlefieldPattern;
+	}
+
+	public static EventPattern whenThisIsTurnedFaceUp()
+	{
+		if(whenThisIsTurnedFaceUpPattern == null)
+		{
+			SimpleEventPattern pattern = new SimpleEventPattern(EventType.TURN_PERMANENT_FACE_UP);
+			pattern.put(EventType.Parameter.OBJECT, ABILITY_SOURCE_OF_THIS);
+			whenThisIsTurnedFaceUpPattern = new ImmutableEventPattern(pattern);
+		}
+		return whenThisIsTurnedFaceUpPattern;
 	}
 
 	public static ZoneChangePattern whenThisLeavesTheBattlefield()

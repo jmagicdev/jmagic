@@ -1,8 +1,8 @@
 package org.rnd.jmagic.engine;
 
 /**
- * Represents a 2/2 creature with no text, no name, no subtypes, no expansion
- * symbol, and no mana cost, for use by the following rules:
+ * Represents a 2/2 creature with no text, no name, no subtypes, and no mana
+ * cost, for use by the following rules:
  * 
  * 707.2a If a face-up permanent is turned face down by a spell or ability, it
  * becomes a 2/2 face-down creature with no text, no name, no subtypes, no

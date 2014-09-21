@@ -1159,8 +1159,8 @@ public abstract class EventType
 	 * @eparam OBJECT: the objects to move
 	 * @eparam EFFECT: if present, the side(s) of the split card chosen to cast
 	 * @eparam FACE_DOWN: if the object is to be put into the new zone with the
-	 * face down status, a CopiableValues class defining the characteristics for
-	 * that object to assume while face down (see
+	 * face down status, a Characteristics class defining the characteristics
+	 * for that object to assume while face down (see
 	 * {@link ZoneChange#faceDownCharacteristics})
 	 * @eparam INDEX: where to insert the object if the zone is ordered
 	 * [required if zone is ordered; not permitted otherwise] (See
