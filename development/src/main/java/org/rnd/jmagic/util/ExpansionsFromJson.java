@@ -1,5 +1,6 @@
 package org.rnd.jmagic.util;
 
+import java.io.*;
 import java.net.*;
 
 import javax.json.*;
@@ -25,16 +26,18 @@ public class ExpansionsFromJson
 		rarityMap.put("Mythic Rare", Rarity.MYTHIC);
 		rarityMap.put("Common", Rarity.COMMON);
 
-		for(java.util.Map.Entry<String, JsonValue> entry: root.entrySet())
+		java.util.EnumMap<Rarity, java.util.Set<String>> promosCardList = new java.util.EnumMap<>(Rarity.class);
+
+		for(java.util.Map.Entry<String, JsonValue> expansionEntry: root.entrySet())
 		{
-			JsonObject expansion = (JsonObject)entry.getValue();
+			JsonObject expansion = (JsonObject)expansionEntry.getValue();
 			JsonArray cards = expansion.getJsonArray("cards");
 			if(cards == null)
 				continue;
 
-			java.util.EnumMap<Rarity, java.util.List<String>> cardList = new java.util.EnumMap<>(Rarity.class);
+			java.util.EnumMap<Rarity, java.util.Set<String>> cardList = new java.util.EnumMap<>(Rarity.class);
 			for(Rarity rarity: Rarity.values())
-				cardList.put(rarity, new java.util.LinkedList<>());
+				cardList.put(rarity, new java.util.HashSet<>());
 			for(JsonObject card: cards.getValuesAs(JsonObject.class))
 			{
 				String name = card.getString("name", "[card missing name]");
@@ -63,42 +66,83 @@ public class ExpansionsFromJson
 			if(cardList.isEmpty())
 				continue;
 
-			String expansionName = expansion.getString("name", "[no name found]");
-
-			String className = "";
-			for(String part: expansionName.replaceAll("[^a-zA-Z0-9 ]", "").split(" "))
+			String expansionType = expansion.getString("type", "");
+			switch(expansionType)
 			{
-				className += part.substring(0, 1).toUpperCase() + part.substring(1);
-			}
-
-			java.io.File file = new java.io.File("..\\cards\\src\\main\\java\\org\\rnd\\jmagic\\expansions\\" + className + ".java");
-
-			if(!file.exists())
-				continue;
-
-			java.io.PrintStream write = new java.io.PrintStream(file);
-			write.print("package org.rnd.jmagic.expansions;\n\nimport org.rnd.jmagic.engine.*;\n\n@Name(\"" + expansionName.replace("\"", "\\\"") + "\")\npublic final class " + className + " extends SimpleExpansion\n{\n");
-			write.print("\tpublic " + className + "()\n\t{\n\t\tsuper();\n\n");
-
-			for(java.util.Map.Entry<Rarity, java.util.List<String>> rarity: cardList.entrySet())
-			{
-				if(!rarity.getValue().isEmpty())
+			case "promo":
+				for(java.util.Map.Entry<Rarity, java.util.Set<String>> cardEntry: cardList.entrySet())
 				{
-					java.util.List<String> rarityList = rarity.getValue();
-
-					// just in case there were some cards that are not in order;
-					// AE cards might cause this
-					java.util.Collections.sort(rarityList);
-
-					write.print("\t\tthis.addCards(Rarity." + rarity.getKey().name());
-					for(String card: rarityList)
-						write.print(", \"" + card + "\"");
-					write.print(");\n");
+					if(!promosCardList.containsKey(cardEntry.getKey()))
+						promosCardList.put(cardEntry.getKey(), new java.util.HashSet<String>(cardEntry.getValue()));
+					else
+						promosCardList.get(cardEntry.getKey()).addAll(cardEntry.getValue());
 				}
+				break;
+
+			case "archenemy":
+			case "box":
+			case "commander":
+			case "conspiracy":
+			case "core":
+			case "duel deck":
+			case "expansion":
+			case "from the vault":
+			case "masters":
+			case "planechase":
+			case "premium deck":
+			case "reprint":
+			case "starter":
+			case "vanguard":
+				String expansionName = expansion.getString("name", "[no name found]");
+				writeToFile(expansionName, cardList);
+				break;
+
+			case "un":
+				// Skip these sets...
+				break;
+
+			default:
+				System.out.println("Handle expansion type: " + expansionType);
+				break;
 			}
-			write.print("\t}\n}\n");
-			write.flush();
-			write.close();
 		}
+
+		if(!promosCardList.isEmpty())
+			writeToFile("Promos", promosCardList);
+	}
+
+	private static void writeToFile(String expansionName, java.util.Map<Rarity, java.util.Set<String>> cardList) throws FileNotFoundException
+	{
+		String className = "";
+		for(String part: expansionName.replaceAll("[^a-zA-Z0-9 ]", "").split(" "))
+		{
+			className += part.substring(0, 1).toUpperCase() + part.substring(1);
+		}
+
+		java.io.File file = new java.io.File("..\\cards\\src\\main\\java\\org\\rnd\\jmagic\\expansions\\" + className + ".java");
+
+		java.io.PrintStream write = new java.io.PrintStream(file);
+		write.print("package org.rnd.jmagic.expansions;\n\nimport org.rnd.jmagic.engine.*;\n\n@Name(\"" + expansionName.replace("\"", "\\\"") + "\")\npublic final class " + className + " extends SimpleExpansion\n{\n");
+		write.print("\tpublic " + className + "()\n\t{\n\t\tsuper();\n\n");
+
+		for(java.util.Map.Entry<Rarity, java.util.Set<String>> rarity: cardList.entrySet())
+		{
+			if(!rarity.getValue().isEmpty())
+			{
+				java.util.List<String> rarityList = new java.util.LinkedList<String>(rarity.getValue());
+
+				// just in case there were some cards that are not in order;
+				// AE cards might cause this
+				java.util.Collections.sort(rarityList);
+
+				write.print("\t\tthis.addCards(Rarity." + rarity.getKey().name());
+				for(String card: rarityList)
+					write.print(", \"" + card + "\"");
+				write.print(");\n");
+			}
+		}
+		write.print("\t}\n}\n");
+		write.flush();
+		write.close();
 	}
 }
