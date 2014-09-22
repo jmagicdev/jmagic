@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Godless Shrine")
 @Types({Type.LAND})
 @SubTypes({SubType.SWAMP, SubType.PLAINS})
-@ColorIdentity({Color.WHITE, Color.BLACK})
+@ColorIdentity({})
 public final class GodlessShrine extends Card
 {
 	public GodlessShrine(GameState state)

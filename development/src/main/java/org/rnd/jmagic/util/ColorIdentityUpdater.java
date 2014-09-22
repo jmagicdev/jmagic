@@ -63,6 +63,7 @@ public class ColorIdentityUpdater
 					java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("\\([WUBRG/0-9P]+\\)");
 					for(String ability: abilities)
 					{
+						ability = CardShell.removeReminderText(ability);
 						java.util.regex.Matcher matcher = pattern.matcher(ability);
 						while(matcher.find())
 						{

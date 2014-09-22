@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Temple Garden")
 @Types({Type.LAND})
 @SubTypes({SubType.FOREST, SubType.PLAINS})
-@ColorIdentity({Color.WHITE, Color.GREEN})
+@ColorIdentity({})
 public final class TempleGarden extends Card
 {
 	public TempleGarden(GameState state)

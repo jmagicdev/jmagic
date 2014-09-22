@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.DEMON})
 @ManaCost("1RWB")
-@ColorIdentity({Color.RED, Color.WHITE, Color.BLACK})
+@ColorIdentity({Color.WHITE, Color.BLACK, Color.RED})
 public final class ButcheroftheHorde extends Card
 {
 	public static final PlayerInterface.ChooseReason REASON = new PlayerInterface.ChooseReason("ButcherOfTheHorde", "Choose vigilance, lifelink, or haste.", true);

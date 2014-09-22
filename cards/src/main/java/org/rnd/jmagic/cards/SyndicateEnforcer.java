@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.ROGUE})
 @ManaCost("3B")
-@ColorIdentity({Color.WHITE, Color.BLACK})
+@ColorIdentity({Color.BLACK})
 public final class SyndicateEnforcer extends Card
 {
 	public SyndicateEnforcer(GameState state)
