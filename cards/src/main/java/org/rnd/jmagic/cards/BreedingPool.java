@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Breeding Pool")
 @Types({Type.LAND})
 @SubTypes({SubType.FOREST, SubType.ISLAND})
-@ColorIdentity({Color.BLUE, Color.GREEN})
+@ColorIdentity({})
 public final class BreedingPool extends Card
 {
 	public BreedingPool(GameState state)

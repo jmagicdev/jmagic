@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Crackling Doom")
 @Types({Type.INSTANT})
 @ManaCost("RWB")
-@ColorIdentity({Color.RED, Color.WHITE, Color.BLACK})
+@ColorIdentity({Color.WHITE, Color.BLACK, Color.RED})
 public final class CracklingDoom extends Card
 {
 	public CracklingDoom(GameState state)

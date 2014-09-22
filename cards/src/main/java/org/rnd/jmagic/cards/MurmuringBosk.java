@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Murmuring Bosk")
 @Types({Type.LAND})
 @SubTypes({SubType.FOREST})
-@ColorIdentity({Color.WHITE, Color.BLACK, Color.GREEN})
+@ColorIdentity({Color.WHITE, Color.BLACK})
 public final class MurmuringBosk extends Card
 {
 	public static final class MurmuringBoskAbility2 extends ActivatedAbility

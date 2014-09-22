@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Blood Crypt")
 @Types({Type.LAND})
 @SubTypes({SubType.SWAMP, SubType.MOUNTAIN})
-@ColorIdentity({Color.BLACK, Color.RED})
+@ColorIdentity({})
 public final class BloodCrypt extends Card
 {
 	public BloodCrypt(GameState state)

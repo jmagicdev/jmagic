@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.THRULL})
 @ManaCost("B")
-@ColorIdentity({Color.WHITE, Color.BLACK})
+@ColorIdentity({Color.BLACK})
 public final class ThrullParasite extends Card
 {
 	public static final class ThrullParasiteAbility1 extends ActivatedAbility

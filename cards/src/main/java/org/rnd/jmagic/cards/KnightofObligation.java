@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.KNIGHT, SubType.HUMAN})
 @ManaCost("3W")
-@ColorIdentity({Color.WHITE, Color.BLACK})
+@ColorIdentity({Color.WHITE})
 public final class KnightofObligation extends Card
 {
 	public KnightofObligation(GameState state)

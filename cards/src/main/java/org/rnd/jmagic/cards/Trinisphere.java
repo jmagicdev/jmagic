@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Trinisphere")
 @Types({Type.ARTIFACT})
 @ManaCost("3")
-@ColorIdentity({Color.BLACK})
+@ColorIdentity({})
 public final class Trinisphere extends Card
 {
 	public static final class TrinisphereAbility0 extends StaticAbility

@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.EFREET, SubType.SHAMAN})
 @ManaCost("2R")
-@ColorIdentity({Color.RED, Color.BLUE})
+@ColorIdentity({Color.BLUE, Color.RED})
 public final class BloodfireMentor extends Card
 {
 	public static final class BloodfireMentorAbility0 extends ActivatedAbility

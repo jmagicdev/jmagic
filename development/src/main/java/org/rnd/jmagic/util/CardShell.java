@@ -280,7 +280,7 @@ public class CardShell
 			keywords.put(java.util.regex.Pattern.compile(entry.getKey(), java.util.regex.Pattern.CASE_INSENSITIVE), entry.getValue());
 	}
 
-	private static String removeReminderText(String ability)
+	public static String removeReminderText(String ability)
 	{
 		int start = 0;
 		outer: while(true)
@@ -379,6 +379,7 @@ public class CardShell
 		java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("\\([WUBRG/0-9P]+\\)");
 		for(String string: this.abilities)
 		{
+			string = removeReminderText(string);
 			java.util.regex.Matcher matcher = pattern.matcher(string);
 			while(matcher.find())
 			{

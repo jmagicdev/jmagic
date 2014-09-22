@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Sacred Foundry")
 @Types({Type.LAND})
 @SubTypes({SubType.PLAINS, SubType.MOUNTAIN})
-@ColorIdentity({Color.WHITE, Color.RED})
+@ColorIdentity({})
 public final class SacredFoundry extends Card
 {
 	public SacredFoundry(GameState state)

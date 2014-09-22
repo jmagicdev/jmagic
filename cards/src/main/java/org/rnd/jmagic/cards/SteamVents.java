@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Steam Vents")
 @Types({Type.LAND})
 @SubTypes({SubType.ISLAND, SubType.MOUNTAIN})
-@ColorIdentity({Color.BLUE, Color.RED})
+@ColorIdentity({})
 public final class SteamVents extends Card
 {
 	public SteamVents(GameState state)

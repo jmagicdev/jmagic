@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Volcanic Island")
 @Types({Type.LAND})
 @SubTypes({SubType.MOUNTAIN, SubType.ISLAND})
-@ColorIdentity({Color.BLUE, Color.RED})
+@ColorIdentity({})
 public final class VolcanicIsland extends Card
 {
 	public VolcanicIsland(GameState state)
