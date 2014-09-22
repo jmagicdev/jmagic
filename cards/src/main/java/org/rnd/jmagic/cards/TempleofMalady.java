@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Temple of Malady")
 @Types({Type.LAND})
-@ColorIdentity({})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class TempleofMalady extends Card
 {
 	public static final class TempleofMaladyAbility1 extends EventTriggeredAbility

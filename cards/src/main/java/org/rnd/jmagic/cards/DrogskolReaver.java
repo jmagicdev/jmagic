@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT})
 @ManaCost("5WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class DrogskolReaver extends Card
 {
 	public static final class DrogskolReaverAbility1 extends EventTriggeredAbility

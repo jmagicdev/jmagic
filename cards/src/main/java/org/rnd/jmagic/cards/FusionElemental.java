@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL})
 @ManaCost("WUBRG")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN, Color.BLACK, Color.RED})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK, Color.RED, Color.GREEN})
 public final class FusionElemental extends Card
 {
 	public FusionElemental(GameState state)

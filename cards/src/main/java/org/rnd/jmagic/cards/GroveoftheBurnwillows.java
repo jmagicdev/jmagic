@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 
 @Name("Grove of the Burnwillows")
 @Types({Type.LAND})
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class GroveoftheBurnwillows extends Card
 {
 	public static final class TapForROrG extends org.rnd.jmagic.abilities.TapForMana

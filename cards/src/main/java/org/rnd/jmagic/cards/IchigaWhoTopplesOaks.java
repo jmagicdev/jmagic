@@ -10,7 +10,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT})
 @Flipped(BudokaPupil.class)
-@ColorIdentity({})
+@ColorIdentity({Color.GREEN})
 public final class IchigaWhoTopplesOaks extends FlipBottomHalf
 {
 	public static final class BudokaPupilAbility7 extends ActivatedAbility

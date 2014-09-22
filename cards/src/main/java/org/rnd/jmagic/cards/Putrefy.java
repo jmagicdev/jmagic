@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Putrefy")
 @Types({Type.INSTANT})
 @ManaCost("1BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class Putrefy extends Card
 {
 	public Putrefy(GameState state)

@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ROGUE, SubType.GOBLIN})
 @ManaCost("1R")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class TinStreetHooligan extends Card
 {
 	public static final class TinStreetHooliganAbility0 extends EventTriggeredAbility

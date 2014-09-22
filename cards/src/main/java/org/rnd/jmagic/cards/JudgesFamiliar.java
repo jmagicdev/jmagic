@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.BIRD})
 @ManaCost("(W/U)")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class JudgesFamiliar extends Card
 {
 	public static final class JudgesFamiliarAbility1 extends ActivatedAbility

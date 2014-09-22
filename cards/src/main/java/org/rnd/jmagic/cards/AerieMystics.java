@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.BIRD, SubType.WIZARD})
 @ManaCost("4W")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.GREEN})
 public final class AerieMystics extends Card
 {
 	public static final class Shroudiness extends ActivatedAbility

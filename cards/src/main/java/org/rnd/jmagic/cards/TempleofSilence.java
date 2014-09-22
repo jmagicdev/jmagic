@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Temple of Silence")
 @Types({Type.LAND})
-@ColorIdentity({})
+@ColorIdentity({Color.WHITE, Color.BLACK})
 public final class TempleofSilence extends Card
 {
 	public static final class TempleofSilenceAbility1 extends EventTriggeredAbility

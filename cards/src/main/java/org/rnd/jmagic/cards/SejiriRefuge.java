@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Sejiri Refuge")
 @Types({Type.LAND})
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class SejiriRefuge extends ZendikarLifeLand
 {
 	public SejiriRefuge(GameState state)

@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.patterns.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.ADVISOR})
 @ManaCost("3(W/U)(W/U)")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class AzorsElocutors extends Card
 {
 	public static final class AzorsElocutorsAbility0 extends EventTriggeredAbility

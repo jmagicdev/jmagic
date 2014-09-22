@@ -10,7 +10,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.GOBLIN, SubType.SHAMAN})
 @ManaCost("(RG)(RG)")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class VexingShusher extends Card
 {
 	public static final class BeQuiet extends ActivatedAbility

@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Resounding Thunder")
 @Types({Type.INSTANT})
 @ManaCost("2R")
-@ColorIdentity({Color.GREEN, Color.BLACK, Color.RED})
+@ColorIdentity({Color.BLACK, Color.RED, Color.GREEN})
 public final class ResoundingThunder extends Card
 {
 	public static final class ResoundingTrigger extends EventTriggeredAbility

@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.KNIGHT})
 @ManaCost("1WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class LyevSkyknight extends Card
 {
 	public static final class LyevSkyknightAbility1 extends EventTriggeredAbility

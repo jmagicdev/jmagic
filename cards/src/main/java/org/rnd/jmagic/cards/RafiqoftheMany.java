@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.KNIGHT, SubType.HUMAN})
 @ManaCost("1GWU")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.GREEN})
 public final class RafiqoftheMany extends Card
 {
 

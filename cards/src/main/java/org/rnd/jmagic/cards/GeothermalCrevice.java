@@ -4,7 +4,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Geothermal Crevice")
 @Types({Type.LAND})
-@ColorIdentity({Color.GREEN, Color.BLACK, Color.RED})
+@ColorIdentity({Color.BLACK, Color.RED, Color.GREEN})
 public final class GeothermalCrevice extends org.rnd.jmagic.cardTemplates.InvasionLand
 {
 	public GeothermalCrevice(GameState state)

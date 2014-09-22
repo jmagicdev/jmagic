@@ -10,7 +10,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.ENCHANTMENT, Type.CREATURE})
 @SubTypes({SubType.GOD})
 @ManaCost("2BR")
-@ColorIdentity({Color.RED, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.RED})
 public final class MogisGodofSlaughter extends Card
 {
 	public static final class MogisGodofSlaughterAbility1 extends StaticAbility

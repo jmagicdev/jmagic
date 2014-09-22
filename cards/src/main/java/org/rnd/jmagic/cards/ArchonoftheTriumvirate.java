@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ARCHON})
 @ManaCost("5WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class ArchonoftheTriumvirate extends Card
 {
 	public static final class ArchonoftheTriumvirateAbility1 extends EventTriggeredAbility

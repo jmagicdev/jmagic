@@ -8,7 +8,7 @@ import static org.rnd.jmagic.Convenience.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.CAT})
 @ManaCost("GW")
-@ColorIdentity({Color.GREEN, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.GREEN})
 public final class FleecemaneLion extends Card
 {
 	public static class MonstrousAbilities extends StaticAbility

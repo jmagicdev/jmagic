@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Fieldmist Borderpost")
 @ManaCost("1WU")
 @Types({Type.ARTIFACT})
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class FieldmistBorderpost extends Borderpost
 {
 	public FieldmistBorderpost(GameState state)

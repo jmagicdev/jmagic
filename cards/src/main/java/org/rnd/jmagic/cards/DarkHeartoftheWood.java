@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Dark Heart of the Wood")
 @Types({Type.ENCHANTMENT})
 @ManaCost("BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class DarkHeartoftheWood extends Card
 {
 	public static final class SacForLife extends ActivatedAbility

@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAGON})
 @ManaCost("3BRG")
-@ColorIdentity({Color.GREEN, Color.BLACK, Color.RED})
+@ColorIdentity({Color.BLACK, Color.RED, Color.GREEN})
 public final class BroodmateDragon extends Card
 {
 	public static final class MakeMate extends EventTriggeredAbility

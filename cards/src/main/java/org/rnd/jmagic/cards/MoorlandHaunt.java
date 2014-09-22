@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.generators.*;
 
 @Name("Moorland Haunt")
 @Types({Type.LAND})
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class MoorlandHaunt extends Card
 {
 	public static final class MoorlandHauntAbility1 extends ActivatedAbility

@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Abzan Banner")
 @Types({Type.ARTIFACT})
 @ManaCost("3")
-@ColorIdentity({})
+@ColorIdentity({Color.WHITE, Color.BLACK, Color.GREEN})
 public final class AbzanBanner extends Card
 {
 	public static final class AbzanBannerAbility1 extends ActivatedAbility

@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.BIRD, SubType.SCOUT})
 @ManaCost("1WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class TalonTrooper extends Card
 {
 	public TalonTrooper(GameState state)

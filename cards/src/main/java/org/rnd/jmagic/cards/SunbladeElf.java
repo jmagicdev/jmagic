@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.WARRIOR})
 @ManaCost("G")
-@ColorIdentity({Color.GREEN})
+@ColorIdentity({Color.WHITE, Color.GREEN})
 public final class SunbladeElf extends Card
 {
 	public static final class SunbladeElfAbility0 extends StaticAbility

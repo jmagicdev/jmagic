@@ -8,7 +8,7 @@ import static org.rnd.jmagic.Convenience.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.BIRD})
 @ManaCost("1WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class AvenMimeomancer extends Card
 {
 	public static final class AvianFlu extends EventTriggeredAbility

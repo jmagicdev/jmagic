@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("5G")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class CavernThoctar extends Card
 {
 	public static final class ExpensiveFirebreathing extends ActivatedAbility

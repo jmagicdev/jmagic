@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Grim Backwoods")
 @Types({Type.LAND})
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class GrimBackwoods extends Card
 {
 	public static final class GrimBackwoodsAbility1 extends ActivatedAbility

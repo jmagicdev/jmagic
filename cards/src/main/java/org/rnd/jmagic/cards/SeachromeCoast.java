@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Seachrome Coast")
 @Types({Type.LAND})
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class SeachromeCoast extends Card
 {
 	public SeachromeCoast(GameState state)

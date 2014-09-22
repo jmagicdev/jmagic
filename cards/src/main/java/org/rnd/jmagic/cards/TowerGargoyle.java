@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.GARGOYLE})
 @ManaCost("1WUB")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.BLACK})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK})
 public final class TowerGargoyle extends Card
 {
 	public TowerGargoyle(GameState state)

@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.KITHKIN, SubType.SOLDIER})
 @ManaCost("(WU)")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class ZealousGuardian extends Card
 {
 	public ZealousGuardian(GameState state)

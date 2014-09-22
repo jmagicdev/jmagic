@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL})
 @ManaCost("3BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class LordofExtinction extends Card
 {
 	public static final class StrengthOfDecay extends CharacteristicDefiningAbility

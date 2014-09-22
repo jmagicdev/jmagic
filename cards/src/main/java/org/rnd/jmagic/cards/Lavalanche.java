@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Lavalanche")
 @Types({Type.SORCERY})
 @ManaCost("XBRG")
-@ColorIdentity({Color.GREEN, Color.BLACK, Color.RED})
+@ColorIdentity({Color.BLACK, Color.RED, Color.GREEN})
 public final class Lavalanche extends Card
 {
 	public Lavalanche(GameState state)

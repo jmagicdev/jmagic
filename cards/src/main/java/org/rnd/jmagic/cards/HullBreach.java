@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Hull Breach")
 @Types({Type.SORCERY})
 @ManaCost("RG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class HullBreach extends Card
 {
 	public HullBreach(GameState state)

@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("4GWWU")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.GREEN})
 public final class EmpyrialArchangel extends Card
 {
 	public static final class EmpyrialShield extends StaticAbility

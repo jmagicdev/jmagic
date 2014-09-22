@@ -73,7 +73,7 @@ public class CardReader
 
 		card.printings = cardText.get(cardText.size() - 1).replaceAll("Set\\/Rarity:\\s*", "");
 
-		if(card.write(false))
+		if(card.write())
 			CardReader.cardsMade++;
 		else
 		{

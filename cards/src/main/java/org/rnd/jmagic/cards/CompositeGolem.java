@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.GOLEM})
 @ManaCost("6")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN, Color.BLACK, Color.RED})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK, Color.RED, Color.GREEN})
 public final class CompositeGolem extends Card
 {
 	public static final class SacForRainbow extends ActivatedAbility

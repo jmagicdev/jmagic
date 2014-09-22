@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Pernicious Deed")
 @Types({Type.ENCHANTMENT})
 @ManaCost("1BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class PerniciousDeed extends Card
 {
 	public static final class PerniciousDeedAbility0 extends ActivatedAbility

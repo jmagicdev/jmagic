@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Golgari Guildgate")
 @Types({Type.LAND})
 @SubTypes({SubType.GATE})
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class GolgariGuildgate extends Card
 {
 	public GolgariGuildgate(GameState state)

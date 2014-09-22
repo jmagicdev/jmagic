@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.LIZARD})
 @ManaCost("BRG")
-@ColorIdentity({Color.GREEN, Color.BLACK, Color.RED})
+@ColorIdentity({Color.BLACK, Color.RED, Color.GREEN})
 public final class ScarlandThrinax extends Card
 {
 	public static final class ScarlandThrinaxAbility0 extends ActivatedAbility

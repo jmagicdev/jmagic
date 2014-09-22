@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Azorius Keyrune")
 @Types({Type.ARTIFACT})
 @ManaCost("3")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class AzoriusKeyrune extends Card
 {
 	public static final class AzoriusKeyruneAbility1 extends ActivatedAbility

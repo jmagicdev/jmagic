@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.patterns.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("5RG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class GruulRagebeast extends Card
 {
 	public static final class GruulRagebeastAbility0 extends EventTriggeredAbility

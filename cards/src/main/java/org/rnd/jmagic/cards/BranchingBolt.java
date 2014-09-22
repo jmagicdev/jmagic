@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Branching Bolt")
 @Types({Type.INSTANT})
 @ManaCost("1RG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class BranchingBolt extends Card
 {
 	public BranchingBolt(GameState state)

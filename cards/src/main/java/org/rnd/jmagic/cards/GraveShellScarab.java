@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.INSECT})
 @ManaCost("2BGG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class GraveShellScarab extends Card
 {
 	public static final class SacDraw extends ActivatedAbility

@@ -4,7 +4,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Calciform Pools")
 @Types({Type.LAND})
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class CalciformPools extends org.rnd.jmagic.cardTemplates.TimeSpiralStorageLand
 {
 	public CalciformPools(GameState state)

@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.WALL})
 @ManaCost("1G")
-@ColorIdentity({Color.GREEN})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class ArchersParapet extends Card
 {
 	public static final class ArchersParapetAbility1 extends ActivatedAbility

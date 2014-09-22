@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Wrack with Madness")
 @Types({Type.SORCERY})
 @ManaCost("3R")
-@ColorIdentity(Color.RED)
+@ColorIdentity({Color.RED})
 public final class WrackwithMadness extends Card
 {
 	public WrackwithMadness(GameState state)

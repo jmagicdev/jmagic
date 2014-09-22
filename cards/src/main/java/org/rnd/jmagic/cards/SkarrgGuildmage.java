@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.HUMAN})
 @ManaCost("RG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class SkarrgGuildmage extends Card
 {
 	public static final class SkarrgGuildmageAbility0 extends ActivatedAbility

@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.TREEFOLK})
 @ManaCost("BGW")
-@ColorIdentity({Color.WHITE, Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.WHITE, Color.BLACK, Color.GREEN})
 public final class DorantheSiegeTower extends Card
 {
 	public static final class DorantheSiegeTowerAbility0 extends StaticAbility

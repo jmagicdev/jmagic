@@ -12,7 +12,7 @@ import org.rnd.jmagic.engine.trackers.*;
 @Types({Type.ENCHANTMENT, Type.CREATURE})
 @SubTypes({SubType.GOD})
 @ManaCost("3UR")
-@ColorIdentity({Color.RED, Color.BLUE})
+@ColorIdentity({Color.BLUE, Color.RED})
 public final class KeranosGodofStorms extends Card
 {
 	public static final class KeranosGodofStormsAbility1 extends StaticAbility

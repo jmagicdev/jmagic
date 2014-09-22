@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Underground Sea")
 @Types({Type.LAND})
 @SubTypes({SubType.SWAMP, SubType.ISLAND})
-@ColorIdentity({})
+@ColorIdentity({Color.BLUE, Color.BLACK})
 public final class UndergroundSea extends Card
 {
 	public UndergroundSea(GameState state)

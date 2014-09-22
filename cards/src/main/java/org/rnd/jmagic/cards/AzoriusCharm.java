@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Azorius Charm")
 @Types({Type.INSTANT})
 @ManaCost("WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class AzoriusCharm extends Card
 {
 	public AzoriusCharm(GameState state)

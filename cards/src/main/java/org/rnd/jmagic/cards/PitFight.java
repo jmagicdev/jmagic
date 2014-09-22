@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Pit Fight")
 @Types({Type.INSTANT})
 @ManaCost("1(R/G)")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class PitFight extends Card
 {
 	public PitFight(GameState state)

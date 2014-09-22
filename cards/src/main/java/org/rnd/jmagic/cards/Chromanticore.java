@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.ENCHANTMENT, Type.CREATURE})
 @SubTypes({SubType.MANTICORE})
 @ManaCost("WUBRG")
-@ColorIdentity({Color.RED, Color.WHITE, Color.BLUE, Color.BLACK, Color.GREEN})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK, Color.RED, Color.GREEN})
 public final class Chromanticore extends Card
 {
 	public static final class ChromanticoreAbility2 extends StaticAbility

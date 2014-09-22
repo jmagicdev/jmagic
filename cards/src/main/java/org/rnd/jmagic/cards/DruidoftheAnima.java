@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.DRUID})
 @ManaCost("1G")
-@ColorIdentity({Color.WHITE, Color.GREEN, Color.RED})
+@ColorIdentity({Color.WHITE, Color.RED, Color.GREEN})
 public final class DruidoftheAnima extends Card
 {
 	public DruidoftheAnima(GameState state)

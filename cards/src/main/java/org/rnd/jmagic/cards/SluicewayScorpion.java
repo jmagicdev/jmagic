@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.SCORPION})
 @ManaCost("2BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class SluicewayScorpion extends Card
 {
 	public SluicewayScorpion(GameState state)

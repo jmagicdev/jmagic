@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.DRUID})
 @ManaCost("G")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.GREEN})
 public final class NobleHierarch extends Card
 {
 	public static final class TapForBant extends org.rnd.jmagic.abilities.TapForMana

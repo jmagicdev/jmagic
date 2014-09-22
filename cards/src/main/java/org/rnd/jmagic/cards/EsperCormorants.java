@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.BIRD})
 @ManaCost("2WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class EsperCormorants extends Card
 {
 	public EsperCormorants(GameState state)

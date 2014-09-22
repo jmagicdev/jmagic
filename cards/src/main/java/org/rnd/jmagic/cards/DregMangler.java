@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.PLANT, SubType.ZOMBIE})
 @ManaCost("1BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class DregMangler extends Card
 {
 	public DregMangler(GameState state)

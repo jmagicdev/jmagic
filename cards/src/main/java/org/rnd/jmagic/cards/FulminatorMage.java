@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELEMENTAL, SubType.SHAMAN})
 @ManaCost("1(B/R)(B/R)")
-@ColorIdentity({Color.RED, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.RED})
 public final class FulminatorMage extends Card
 {
 	public static final class FulminatorMageAbility0 extends ActivatedAbility

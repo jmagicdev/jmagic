@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("4WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class SanctumPlowbeast extends Card
 {
 	public SanctumPlowbeast(GameState state)

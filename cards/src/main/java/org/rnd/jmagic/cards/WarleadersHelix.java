@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Warleader's Helix")
 @Types({Type.INSTANT})
 @ManaCost("2WR")
-@ColorIdentity({Color.RED, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.RED})
 public final class WarleadersHelix extends Card
 {
 	public WarleadersHelix(GameState state)

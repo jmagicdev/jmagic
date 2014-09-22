@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Ardent Plea")
 @Types({Type.ENCHANTMENT})
 @ManaCost("1WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class ArdentPlea extends Card
 {
 	public ArdentPlea(GameState state)

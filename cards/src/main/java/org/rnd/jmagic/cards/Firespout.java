@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Firespout")
 @Types({Type.SORCERY})
 @ManaCost("2(R/G)")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class Firespout extends Card
 {
 	public Firespout(GameState state)

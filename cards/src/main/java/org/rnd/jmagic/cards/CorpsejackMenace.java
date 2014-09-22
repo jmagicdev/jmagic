@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.patterns.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.FUNGUS})
 @ManaCost("2BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class CorpsejackMenace extends Card
 {
 	public static final class CorpsejackMenaceAbility0 extends StaticAbility

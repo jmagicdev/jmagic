@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Turn to Mist")
 @Types({Type.INSTANT})
 @ManaCost("1(WU)")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class TurntoMist extends Card
 {
 	public TurntoMist(GameState state)

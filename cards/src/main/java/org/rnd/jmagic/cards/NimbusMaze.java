@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.generators.*;
 
 @Name("Nimbus Maze")
 @Types({Type.LAND})
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class NimbusMaze extends Card
 {
 	public static final class TapForW extends org.rnd.jmagic.abilities.TapForMana

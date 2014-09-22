@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT})
 @ManaCost("1(W/U)(W/U)")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class VassalSoul extends Card
 {
 	public VassalSoul(GameState state)

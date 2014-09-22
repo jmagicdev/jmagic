@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Celestial Colonnade")
 @Types({Type.LAND})
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class CelestialColonnade extends Card
 {
 	public static final class AnimateColonnade extends ActivatedAbility

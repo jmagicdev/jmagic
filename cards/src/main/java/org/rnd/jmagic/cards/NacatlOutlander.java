@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @ManaCost("RG")
 @Types({Type.CREATURE})
 @SubTypes({SubType.CAT, SubType.SCOUT})
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class NacatlOutlander extends org.rnd.jmagic.cardTemplates.Outlander
 {
 	public NacatlOutlander(GameState state)

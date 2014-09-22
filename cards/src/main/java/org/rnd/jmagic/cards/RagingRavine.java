@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Raging Ravine")
 @Types({Type.LAND})
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class RagingRavine extends Card
 {
 	public static final class Pump extends EventTriggeredAbility

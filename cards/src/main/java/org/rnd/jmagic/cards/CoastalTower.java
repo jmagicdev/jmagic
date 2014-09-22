@@ -4,7 +4,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Coastal Tower")
 @Types({Type.LAND})
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class CoastalTower extends Card
 {
 	public CoastalTower(GameState state)

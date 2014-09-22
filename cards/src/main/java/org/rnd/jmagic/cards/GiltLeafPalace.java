@@ -4,7 +4,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Gilt-Leaf Palace")
 @Types({Type.LAND})
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class GiltLeafPalace extends Card
 {
 	public GiltLeafPalace(GameState state)

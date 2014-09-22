@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Plague Boiler")
 @Types({Type.ARTIFACT})
 @ManaCost("3")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class PlagueBoiler extends Card
 {
 	public static final class Tick extends EventTriggeredAbility

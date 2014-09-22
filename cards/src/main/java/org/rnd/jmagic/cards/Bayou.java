@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Bayou")
 @Types({Type.LAND})
 @SubTypes({SubType.FOREST, SubType.SWAMP})
-@ColorIdentity({})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class Bayou extends Card
 {
 	public Bayou(GameState state)

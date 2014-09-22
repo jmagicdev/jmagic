@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.WOLF})
 @ManaCost("G")
-@ColorIdentity(Color.GREEN)
+@ColorIdentity({Color.GREEN})
 public final class YoungWolf extends Card
 {
 	public YoungWolf(GameState state)

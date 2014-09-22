@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("1RWU")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.RED})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.RED})
 public final class LightningAngel extends Card
 {
 	public LightningAngel(GameState state)

@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.*;
 @ManaCost("(WB)U")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.VEDALKEN})
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.BLACK})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK})
 public final class EsperStormblade extends AlaraRebornBlade
 {
 	public EsperStormblade(GameState state)

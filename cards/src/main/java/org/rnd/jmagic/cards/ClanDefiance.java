@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Clan Defiance")
 @Types({Type.SORCERY})
 @ManaCost("XRG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class ClanDefiance extends Card
 {
 	public ClanDefiance(GameState state)

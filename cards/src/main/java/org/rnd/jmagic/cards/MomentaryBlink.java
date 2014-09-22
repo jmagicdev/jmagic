@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Momentary Blink")
 @Types({Type.INSTANT})
 @ManaCost("1W")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class MomentaryBlink extends Card
 {
 	public MomentaryBlink(GameState state)

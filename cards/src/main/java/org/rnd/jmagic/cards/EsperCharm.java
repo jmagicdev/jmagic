@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Esper Charm")
 @Types({Type.INSTANT})
 @ManaCost("WUB")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.BLACK})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK})
 public final class EsperCharm extends Card
 {
 	public EsperCharm(GameState state)

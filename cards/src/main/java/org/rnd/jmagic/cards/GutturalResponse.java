@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Guttural Response")
 @Types({Type.INSTANT})
 @ManaCost("(R/G)")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class GutturalResponse extends Card
 {
 	public GutturalResponse(GameState state)

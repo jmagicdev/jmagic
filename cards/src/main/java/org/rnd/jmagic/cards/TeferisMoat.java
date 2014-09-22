@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Teferi's Moat")
 @Types({Type.ENCHANTMENT})
 @ManaCost("3WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class TeferisMoat extends Card
 {
 	public static final class TeferisMoatAbility0 extends StaticAbility

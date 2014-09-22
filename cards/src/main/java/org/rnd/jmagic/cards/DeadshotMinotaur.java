@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.MINOTAUR})
 @ManaCost("3RG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class DeadshotMinotaur extends Card
 {
 	public static final class ClayPigeon extends EventTriggeredAbility

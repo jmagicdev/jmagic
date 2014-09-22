@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.ContinuousEffect.Part;
 @Types({Type.CREATURE})
 @SubTypes({SubType.GOBLIN, SubType.BERSERKER})
 @ManaCost("2RWB")
-@ColorIdentity({Color.RED, Color.WHITE, Color.BLACK})
+@ColorIdentity({Color.WHITE, Color.BLACK, Color.RED})
 public final class AnkleShanker extends Card
 {
 	public static final class AnkleShankerAbility1 extends EventTriggeredAbility

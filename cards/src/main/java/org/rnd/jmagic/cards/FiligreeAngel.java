@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.ANGEL})
 @ManaCost("5WWU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class FiligreeAngel extends Card
 {
 	public static final class GainLife extends EventTriggeredAbility

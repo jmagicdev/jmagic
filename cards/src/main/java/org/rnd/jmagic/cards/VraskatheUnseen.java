@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.patterns.*;
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.VRASKA})
 @ManaCost("3BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class VraskatheUnseen extends Card
 {
 	public static final class VraskatheUnseenAbility0 extends LoyaltyAbility

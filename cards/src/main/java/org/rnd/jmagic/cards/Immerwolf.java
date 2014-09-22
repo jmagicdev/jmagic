@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.WOLF})
 @ManaCost("1RG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class Immerwolf extends Card
 {
 	public static final class ImmerwolfAbility1 extends StaticAbility

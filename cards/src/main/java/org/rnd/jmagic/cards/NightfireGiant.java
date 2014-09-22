@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE, SubType.GIANT})
 @ManaCost("4B")
-@ColorIdentity({Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.RED})
 public final class NightfireGiant extends Card
 {
 	public static final class NightfireGiantAbility0 extends StaticAbility

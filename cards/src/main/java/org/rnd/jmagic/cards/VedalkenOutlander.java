@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @ManaCost("WU")
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.VEDALKEN, SubType.SCOUT})
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class VedalkenOutlander extends org.rnd.jmagic.cardTemplates.Outlander
 {
 	public VedalkenOutlander(GameState state)

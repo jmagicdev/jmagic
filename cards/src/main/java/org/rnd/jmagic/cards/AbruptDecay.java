@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Abrupt Decay")
 @Types({Type.INSTANT})
 @ManaCost("BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class AbruptDecay extends Card
 {
 	public AbruptDecay(GameState state)

@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.SOLDIER})
 @ManaCost("3W")
-@ColorIdentity({Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.RED})
 public final class AkroanPhalanx extends Card
 {
 	public static final class AkroanPhalanxAbility1 extends ActivatedAbility

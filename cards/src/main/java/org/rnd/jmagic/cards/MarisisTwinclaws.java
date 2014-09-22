@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.CAT})
 @ManaCost("2(R/W)G")
-@ColorIdentity({Color.WHITE, Color.GREEN, Color.RED})
+@ColorIdentity({Color.WHITE, Color.RED, Color.GREEN})
 public final class MarisisTwinclaws extends Card
 {
 	public MarisisTwinclaws(GameState state)

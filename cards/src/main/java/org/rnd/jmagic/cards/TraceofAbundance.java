@@ -10,7 +10,7 @@ import org.rnd.jmagic.engine.patterns.*;
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.AURA})
 @ManaCost("(R/W)G")
-@ColorIdentity({Color.WHITE, Color.GREEN, Color.RED})
+@ColorIdentity({Color.WHITE, Color.RED, Color.GREEN})
 public final class TraceofAbundance extends Card
 {
 	public static final class Trace extends StaticAbility

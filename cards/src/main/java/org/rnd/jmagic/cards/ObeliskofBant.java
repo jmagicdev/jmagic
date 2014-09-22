@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Obelisk of Bant")
 @ManaCost("3")
 @Types({Type.ARTIFACT})
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.GREEN})
 public final class ObeliskofBant extends org.rnd.jmagic.cardTemplates.ShardsObelisk
 {
 	public ObeliskofBant(GameState state)

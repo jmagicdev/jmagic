@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Rootbound Crag")
 @Types({Type.LAND})
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class RootboundCrag extends Magic2010DualLand
 {
 	public RootboundCrag(GameState state)

@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIDER})
 @ManaCost("3G")
-@ColorIdentity({Color.GREEN})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class GraverobberSpider extends Card
 {
 	public static final class GraverobberSpiderAbility1 extends ActivatedAbility

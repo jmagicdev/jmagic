@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Ground Assault")
 @Types({Type.SORCERY})
 @ManaCost("RG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class GroundAssault extends Card
 {
 	public GroundAssault(GameState state)

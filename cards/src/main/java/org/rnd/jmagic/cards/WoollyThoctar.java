@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("RGW")
-@ColorIdentity({Color.WHITE, Color.GREEN, Color.RED})
+@ColorIdentity({Color.WHITE, Color.RED, Color.GREEN})
 public final class WoollyThoctar extends Card
 {
 	public WoollyThoctar(GameState state)

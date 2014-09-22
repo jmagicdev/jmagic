@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Grisly Salvage")
 @Types({Type.INSTANT})
 @ManaCost("BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class GrislySalvage extends Card
 {
 	public GrislySalvage(GameState state)

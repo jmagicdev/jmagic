@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.BERSERKER, SubType.ELF})
 @ManaCost("2RG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class BloodbraidElf extends Card
 {
 	public BloodbraidElf(GameState state)

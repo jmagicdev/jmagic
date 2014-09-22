@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Flurry of Wings")
 @Types({Type.INSTANT})
 @ManaCost("GWU")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.GREEN})
 public final class FlurryofWings extends Card
 {
 	public FlurryofWings(GameState state)

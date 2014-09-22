@@ -15,7 +15,6 @@ public class CreateFromGatherer
 		String path = null;
 		boolean deckMode = false;
 		boolean setMode = false;
-		boolean expansionMode = false;
 
 		java.util.Set<String> names = null;
 
@@ -43,7 +42,6 @@ public class CreateFromGatherer
 		else if(args[0].equals("--expansions"))
 		{
 			System.out.println("Updating expansions for existing cards...");
-			expansionMode = true;
 
 			names = new java.util.HashSet<String>();
 
@@ -102,9 +100,9 @@ public class CreateFromGatherer
 			if(20 == queryCount)
 			{
 				if(setMode)
-					readQuery(cardsSkipped, cardsWritten, null, query.toString(), true);
+					readQuery(cardsSkipped, cardsWritten, null, query.toString());
 				else
-					readQuery(cardsSkipped, cardsWritten, names, query.toString(), expansionMode);
+					readQuery(cardsSkipped, cardsWritten, names, query.toString());
 
 				queryCount = 0;
 				query = new StringBuilder();
@@ -113,9 +111,9 @@ public class CreateFromGatherer
 		if(0 != queryCount)
 		{
 			if(setMode)
-				readQuery(cardsSkipped, cardsWritten, null, query.toString(), true);
+				readQuery(cardsSkipped, cardsWritten, null, query.toString());
 			else
-				readQuery(cardsSkipped, cardsWritten, names, query.toString(), expansionMode);
+				readQuery(cardsSkipped, cardsWritten, names, query.toString());
 		}
 
 		System.out.println(cardsSkipped.size() + " cards skipped:");
@@ -168,7 +166,7 @@ public class CreateFromGatherer
 		return names;
 	}
 
-	private static void readQuery(java.util.Map<String, CardShell> cardsSkipped, java.util.Map<String, CardShell> cardsWritten, java.util.Set<String> names, String query, boolean updatePrintings) throws java.io.IOException, java.net.URISyntaxException
+	private static void readQuery(java.util.Map<String, CardShell> cardsSkipped, java.util.Map<String, CardShell> cardsWritten, java.util.Set<String> names, String query) throws java.io.IOException, java.net.URISyntaxException
 	{
 		java.net.URI unencodedURI = new java.net.URI("http", null, "gatherer.wizards.com", -1, "/Pages/Search/Default.aspx", query, null);
 		java.net.URI encodedURI = new java.net.URI(unencodedURI.toASCIIString());
@@ -206,7 +204,7 @@ public class CreateFromGatherer
 						{
 							if((null != card) && ((null == names) || names.contains(card.name)))
 							{
-								if(card.write(updatePrintings))
+								if(card.write())
 									cardsWritten.put(card.name, card);
 								else
 									cardsSkipped.put(card.name, card);
@@ -277,7 +275,7 @@ public class CreateFromGatherer
 
 		if((null != card) && ((null == names) || names.contains(card.name)))
 		{
-			if(card.write(updatePrintings))
+			if(card.write())
 				cardsWritten.put(card.name, card);
 			else
 				cardsSkipped.put(card.name, card);

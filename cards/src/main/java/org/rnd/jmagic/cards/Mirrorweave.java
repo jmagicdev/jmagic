@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Mirrorweave")
 @Types({Type.INSTANT})
 @ManaCost("2(W/U)(W/U)")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class Mirrorweave extends Card
 {
 	public Mirrorweave(GameState state)

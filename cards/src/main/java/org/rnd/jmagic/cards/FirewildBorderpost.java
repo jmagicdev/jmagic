@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Firewild Borderpost")
 @ManaCost("1RG")
 @Types({Type.ARTIFACT})
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class FirewildBorderpost extends Borderpost
 {
 	public FirewildBorderpost(GameState state)

@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Brilliant Ultimatum")
 @Types({Type.SORCERY})
 @ManaCost("WWUUUBB")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.BLACK})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK})
 public final class BrilliantUltimatum extends Card
 {
 	public static final PlayerInterface.ChooseReason REASON = new PlayerInterface.ChooseReason("BrilliantUltimatum", "Choose a pile to play cards from.", true);

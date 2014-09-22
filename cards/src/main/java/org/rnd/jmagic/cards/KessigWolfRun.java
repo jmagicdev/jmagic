@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.generators.*;
 
 @Name("Kessig Wolf Run")
 @Types({Type.LAND})
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class KessigWolfRun extends Card
 {
 	public static final class KessigWolfRunAbility1 extends ActivatedAbility

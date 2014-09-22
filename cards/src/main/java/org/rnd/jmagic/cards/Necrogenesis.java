@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Necrogenesis")
 @Types({Type.ENCHANTMENT})
 @ManaCost("BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class Necrogenesis extends Card
 {
 	public static final class NecrogenesisAbility0 extends ActivatedAbility

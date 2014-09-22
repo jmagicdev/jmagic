@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Zombie Apocalypse")
 @Types({Type.SORCERY})
 @ManaCost("3BBB")
-@ColorIdentity(Color.BLACK)
+@ColorIdentity({Color.BLACK})
 public final class ZombieApocalypse extends Card
 {
 	public ZombieApocalypse(GameState state)

@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.HUMAN})
 @ManaCost("1(R/G)(R/G)(R/G)")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class RubblebeltRaiders extends Card
 {
 	public static final class RubblebeltRaidersAbility0 extends EventTriggeredAbility

@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.KNIGHT, SubType.HUMAN})
 @ManaCost("WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class EthercasteKnight extends Card
 {
 	public EthercasteKnight(GameState state)

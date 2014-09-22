@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Manamorphose")
 @Types({Type.INSTANT})
 @ManaCost("1(R/G)")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class Manamorphose extends Card
 {
 	public Manamorphose(GameState state)

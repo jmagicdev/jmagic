@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Ravager of the Fells")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WEREWOLF})
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class RavageroftheFells extends AlternateCard
 {
 	public static final class RavageroftheFellsAbility1 extends EventTriggeredAbility

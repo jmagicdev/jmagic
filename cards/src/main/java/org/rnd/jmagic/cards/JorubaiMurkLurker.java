@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.LEECH})
 @ManaCost("2U")
-@ColorIdentity({Color.BLUE})
+@ColorIdentity({Color.BLUE, Color.BLACK})
 public final class JorubaiMurkLurker extends Card
 {
 	public static final class JorubaiMurkLurkerAbility0 extends StaticAbility

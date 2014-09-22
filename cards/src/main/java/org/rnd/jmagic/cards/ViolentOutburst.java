@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Violent Outburst")
 @Types({Type.INSTANT})
 @ManaCost("1RG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class ViolentOutburst extends Card
 {
 	public ViolentOutburst(GameState state)

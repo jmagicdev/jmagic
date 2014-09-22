@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Door to Nothingness")
 @Types({Type.ARTIFACT})
 @ManaCost("5")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN, Color.BLACK, Color.RED})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK, Color.RED, Color.GREEN})
 public final class DoortoNothingness extends Card
 {
 	public static final Game.LoseReason DOOR_LOSE_REASON = new Game.LoseReason("DoorToNothingness");

@@ -4,7 +4,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Azorius Chancery")
 @Types({Type.LAND})
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class AzoriusChancery extends org.rnd.jmagic.cardTemplates.RavnicaBounceLand
 {
 	public AzoriusChancery(GameState state)

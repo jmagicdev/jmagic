@@ -10,7 +10,7 @@ import org.rnd.jmagic.engine.patterns.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT, SubType.CLERIC})
 @ManaCost("1WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class GeistofSaintTraft extends Card
 {
 	public static final class GeistofSaintTraftAbility1 extends EventTriggeredAbility

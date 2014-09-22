@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.ZOMBIE})
 @ManaCost("BBGG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class JaradGolgariLichLord extends Card
 {
 	public static final class JaradGolgariLichLordAbility0 extends StaticAbility

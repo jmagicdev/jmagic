@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Wild Hunger")
 @Types({Type.INSTANT})
 @ManaCost("2G")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class WildHunger extends Card
 {
 	public WildHunger(GameState state)

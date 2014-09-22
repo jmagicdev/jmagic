@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.HUMAN})
 @ManaCost("(R/G)(R/G)")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class BurningTreeEmissary extends Card
 {
 	public static final class BurningTreeEmissaryAbility0 extends EventTriggeredAbility

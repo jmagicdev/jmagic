@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE, SubType.TROLL})
 @ManaCost("BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class LotlethTroll extends Card
 {
 	public static final class LotlethTrollAbility1 extends ActivatedAbility

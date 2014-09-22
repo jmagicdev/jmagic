@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Golgari Signet")
 @ManaCost("2")
 @Types({Type.ARTIFACT})
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class GolgariSignet extends org.rnd.jmagic.cardTemplates.Signet
 {
 	public GolgariSignet(GameState state)

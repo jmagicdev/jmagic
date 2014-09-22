@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.HUMAN})
 @ManaCost("2GUR")
-@ColorIdentity({Color.RED, Color.BLUE, Color.GREEN})
+@ColorIdentity({Color.BLUE, Color.RED, Color.GREEN})
 public final class BearsCompanion extends Card
 {
 	public static final class BearsCompanionAbility0 extends EventTriggeredAbility

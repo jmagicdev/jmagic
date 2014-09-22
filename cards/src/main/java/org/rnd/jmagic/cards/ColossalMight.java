@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Colossal Might")
 @Types({Type.INSTANT})
 @ManaCost("RG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class ColossalMight extends Card
 {
 	public ColossalMight(GameState state)

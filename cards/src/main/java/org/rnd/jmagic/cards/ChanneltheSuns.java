@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Channel the Suns")
 @Types({Type.SORCERY})
 @ManaCost("3G")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.BLACK, Color.GREEN, Color.RED})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK, Color.RED, Color.GREEN})
 public final class ChanneltheSuns extends Card
 {
 	public ChanneltheSuns(GameState state)

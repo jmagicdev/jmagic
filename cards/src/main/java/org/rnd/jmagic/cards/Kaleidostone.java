@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Kaleidostone")
 @Types({Type.ARTIFACT})
 @ManaCost("2")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN, Color.BLACK, Color.RED})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK, Color.RED, Color.GREEN})
 public final class Kaleidostone extends Card
 {
 	public static final class KaleidoDraw extends EventTriggeredAbility

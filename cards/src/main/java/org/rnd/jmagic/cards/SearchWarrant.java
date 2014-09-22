@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Search Warrant")
 @Types({Type.SORCERY})
 @ManaCost("WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class SearchWarrant extends Card
 {
 	public SearchWarrant(GameState state)

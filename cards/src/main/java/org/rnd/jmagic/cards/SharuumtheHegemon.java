@@ -10,7 +10,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.SPHINX})
 @ManaCost("3WUB")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.BLACK})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK})
 public final class SharuumtheHegemon extends Card
 {
 	public static final class HegeTrimmer extends EventTriggeredAbility

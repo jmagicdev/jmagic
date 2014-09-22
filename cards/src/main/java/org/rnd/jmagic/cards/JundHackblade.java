@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.*;
 @ManaCost("(BG)R")
 @Types({Type.CREATURE})
 @SubTypes({SubType.BERSERKER, SubType.GOBLIN})
-@ColorIdentity({Color.GREEN, Color.BLACK, Color.RED})
+@ColorIdentity({Color.BLACK, Color.RED, Color.GREEN})
 public final class JundHackblade extends AlaraRebornBlade
 {
 	public JundHackblade(GameState state)

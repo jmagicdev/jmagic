@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ANGEL})
 @ManaCost("3WWU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class BrunaLightofAlabaster extends Card
 {
 	public static final PlayerInterface.ChooseReason BRUNA_FIELD = new PlayerInterface.ChooseReason("BrunaLightofAlabaster", "Choose Auras on the battlefield.", true);

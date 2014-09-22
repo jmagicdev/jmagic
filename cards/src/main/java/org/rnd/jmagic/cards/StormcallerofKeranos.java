@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.SHAMAN})
 @ManaCost("2R")
-@ColorIdentity({Color.RED})
+@ColorIdentity({Color.BLUE, Color.RED})
 public final class StormcallerofKeranos extends Card
 {
 	public static final class StormcallerofKeranosAbility1 extends ActivatedAbility

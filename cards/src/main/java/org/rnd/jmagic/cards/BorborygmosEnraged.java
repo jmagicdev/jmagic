@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.CYCLOPS})
 @ManaCost("4RRGG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class BorborygmosEnraged extends Card
 {
 	public static final class BorborygmosEnragedAbility1 extends EventTriggeredAbility

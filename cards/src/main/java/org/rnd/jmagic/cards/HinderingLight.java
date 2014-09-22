@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Hindering Light")
 @Types({Type.INSTANT})
 @ManaCost("WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class HinderingLight extends Card
 {
 	public HinderingLight(GameState state)

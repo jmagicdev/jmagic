@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.CLERIC})
 @ManaCost("1W")
-@ColorIdentity({Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLACK})
 public final class SyndicofTithes extends Card
 {
 	public SyndicofTithes(GameState state)

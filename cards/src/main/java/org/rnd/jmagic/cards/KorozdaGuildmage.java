@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.SHAMAN, SubType.ELF})
 @ManaCost("BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class KorozdaGuildmage extends Card
 {
 	public static final class KorozdaGuildmageAbility0 extends ActivatedAbility

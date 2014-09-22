@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.patterns.*;
 @Name("Blind Obedience")
 @Types({Type.ENCHANTMENT})
 @ManaCost("1W")
-@ColorIdentity({Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLACK})
 public final class BlindObedience extends Card
 {
 	public static final class BlindObedienceAbility1 extends StaticAbility

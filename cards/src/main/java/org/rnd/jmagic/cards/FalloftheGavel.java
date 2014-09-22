@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Fall of the Gavel")
 @Types({Type.INSTANT})
 @ManaCost("3WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class FalloftheGavel extends Card
 {
 	public FalloftheGavel(GameState state)

@@ -7,7 +7,7 @@ import static org.rnd.jmagic.Convenience.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.VIASHINO, SubType.SHAMAN})
 @ManaCost("BRG")
-@ColorIdentity({Color.GREEN, Color.BLACK, Color.RED})
+@ColorIdentity({Color.BLACK, Color.RED, Color.GREEN})
 public final class JundSojourners extends Card
 {
 	public static final class JundSojournerTrigger extends org.rnd.jmagic.abilityTemplates.SojournerTrigger

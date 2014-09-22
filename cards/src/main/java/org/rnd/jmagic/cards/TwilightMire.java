@@ -4,7 +4,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Twilight Mire")
 @Types({Type.LAND})
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class TwilightMire extends org.rnd.jmagic.cardTemplates.ShadowmoorDualLand
 {
 	public TwilightMire(GameState state)

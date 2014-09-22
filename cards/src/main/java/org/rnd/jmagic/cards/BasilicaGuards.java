@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.HUMAN, SubType.SOLDIER})
 @ManaCost("2W")
-@ColorIdentity({Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLACK})
 public final class BasilicaGuards extends Card
 {
 	public BasilicaGuards(GameState state)

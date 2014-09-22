@@ -10,7 +10,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT})
 @Flipped(CunningBandit.class)
-@ColorIdentity({})
+@ColorIdentity({Color.RED})
 public final class AzamukiTreacheryIncarnate extends FlipBottomHalf
 {
 	public static final class CunningBanditAbility6 extends ActivatedAbility

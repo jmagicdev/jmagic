@@ -4,7 +4,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Wanderwine Hub")
 @Types({Type.LAND})
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class WanderwineHub extends Card
 {
 	public WanderwineHub(GameState state)

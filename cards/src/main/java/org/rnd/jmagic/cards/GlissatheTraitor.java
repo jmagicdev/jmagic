@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ELF, SubType.ZOMBIE})
 @ManaCost("BGG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class GlissatheTraitor extends Card
 {
 	public static final class GlissatheTraitorAbility1 extends EventTriggeredAbility

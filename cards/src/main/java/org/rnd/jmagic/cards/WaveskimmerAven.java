@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.BIRD, SubType.SOLDIER})
 @ManaCost("2GWU")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.GREEN})
 public final class WaveskimmerAven extends Card
 {
 	public WaveskimmerAven(GameState state)

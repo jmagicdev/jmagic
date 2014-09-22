@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.BOAR})
 @ManaCost("3RG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class ZhurTaaSwine extends Card
 {
 	public ZhurTaaSwine(GameState state)

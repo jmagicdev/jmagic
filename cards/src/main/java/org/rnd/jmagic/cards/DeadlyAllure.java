@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Deadly Allure")
 @Types({Type.SORCERY})
 @ManaCost("B")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class DeadlyAllure extends Card
 {
 	public DeadlyAllure(GameState state)

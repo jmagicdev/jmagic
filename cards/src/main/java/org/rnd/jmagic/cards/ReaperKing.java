@@ -10,7 +10,7 @@ import org.rnd.jmagic.engine.patterns.*;
 @Types({Type.CREATURE, Type.ARTIFACT})
 @SubTypes({SubType.SCARECROW})
 @ManaCost("(2/W)(2/U)(2/B)(2/R)(2/G)")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN, Color.BLACK, Color.RED})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK, Color.RED, Color.GREEN})
 public final class ReaperKing extends Card
 {
 	public static final class KillStuff extends EventTriggeredAbility

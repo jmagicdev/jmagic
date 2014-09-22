@@ -4,7 +4,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Mystic Gate")
 @Types({Type.LAND})
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class MysticGate extends org.rnd.jmagic.cardTemplates.ShadowmoorDualLand
 {
 	public MysticGate(GameState state)

@@ -137,7 +137,7 @@ public class CreateFromJson
 				for(JsonString color: json.getJsonArray("colors").getValuesAs(JsonString.class))
 					card.colors.add(color.getString().toUpperCase());
 
-			card.write(true);
+			card.write();
 		}
 	}
 }

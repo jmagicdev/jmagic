@@ -8,7 +8,7 @@ import static org.rnd.jmagic.Convenience.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.HELLION})
 @ManaCost("3RG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class BlitzHellion extends Card
 {
 	public static final class Blitz extends EventTriggeredAbility

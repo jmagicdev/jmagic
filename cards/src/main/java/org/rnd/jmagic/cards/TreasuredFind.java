@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Treasured Find")
 @Types({Type.SORCERY})
 @ManaCost("BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class TreasuredFind extends Card
 {
 	public TreasuredFind(GameState state)

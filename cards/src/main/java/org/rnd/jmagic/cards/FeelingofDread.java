@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Feeling of Dread")
 @Types({Type.INSTANT})
 @ManaCost("1W")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class FeelingofDread extends Card
 {
 	public FeelingofDread(GameState state)

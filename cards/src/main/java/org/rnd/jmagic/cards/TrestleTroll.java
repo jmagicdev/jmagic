@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.TROLL})
 @ManaCost("1BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class TrestleTroll extends Card
 {
 	public static final class TrestleTrollAbility2 extends ActivatedAbility

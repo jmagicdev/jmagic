@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.SARKHAN})
 @ManaCost("2RG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class SarkhanVol extends Card
 {
 	public static final class SarkhanVolAbility0 extends LoyaltyAbility

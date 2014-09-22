@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Plateau")
 @Types({Type.LAND})
 @SubTypes({SubType.MOUNTAIN, SubType.PLAINS})
-@ColorIdentity({})
+@ColorIdentity({Color.WHITE, Color.RED})
 public final class Plateau extends Card
 {
 	public Plateau(GameState state)

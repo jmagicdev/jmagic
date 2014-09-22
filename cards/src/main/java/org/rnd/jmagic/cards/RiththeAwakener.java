@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.DRAGON})
 @ManaCost("3RGW")
-@ColorIdentity({Color.WHITE, Color.GREEN, Color.RED})
+@ColorIdentity({Color.WHITE, Color.RED, Color.GREEN})
 public final class RiththeAwakener extends Card
 {
 	public static final class RiththeAwakenerAbility1 extends EventTriggeredAbility

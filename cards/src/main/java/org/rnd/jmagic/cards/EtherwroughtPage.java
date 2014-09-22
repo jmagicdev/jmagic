@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Etherwrought Page")
 @Types({Type.ARTIFACT})
 @ManaCost("1WUB")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.BLACK})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK})
 public final class EtherwroughtPage extends Card
 {
 	public static final class DullSwissArmyKnife extends EventTriggeredAbility

@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.ELEPHANT})
 @ManaCost("2GUR")
-@ColorIdentity({Color.RED, Color.BLUE, Color.GREEN})
+@ColorIdentity({Color.BLUE, Color.RED, Color.GREEN})
 public final class AvalancheTusker extends Card
 {
 	public static final class AvalancheTuskerAbility0 extends EventTriggeredAbility

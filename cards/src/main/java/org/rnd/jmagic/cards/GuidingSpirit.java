@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT, SubType.ANGEL})
 @ManaCost("1WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class GuidingSpirit extends Card
 {
 	public static final class GuidingSpiritAbility1 extends ActivatedAbility

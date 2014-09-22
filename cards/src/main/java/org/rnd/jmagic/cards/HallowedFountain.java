@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Hallowed Fountain")
 @Types({Type.LAND})
 @SubTypes({SubType.ISLAND, SubType.PLAINS})
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class HallowedFountain extends Card
 {
 	public HallowedFountain(GameState state)

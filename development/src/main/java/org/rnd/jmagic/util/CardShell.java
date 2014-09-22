@@ -398,7 +398,7 @@ public class CardShell
 	 * @return Whether or not the card already existed
 	 */
 	@SuppressWarnings("unchecked")
-	public boolean write(boolean updatePrintings)
+	public boolean write()
 	{
 		for(int i = 0; i < this.abilities.size(); ++i)
 			this.abilities.set(i, replaceIllegalCharacters(this.abilities.get(i)));

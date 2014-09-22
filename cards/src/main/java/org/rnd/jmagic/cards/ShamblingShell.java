@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.PLANT, SubType.ZOMBIE})
 @ManaCost("1BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class ShamblingShell extends Card
 {
 	public static final class ShamblingShellAbility0 extends ActivatedAbility

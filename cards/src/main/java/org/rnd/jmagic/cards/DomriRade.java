@@ -10,7 +10,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.PLANESWALKER})
 @SubTypes({SubType.DOMRI})
 @ManaCost("1RG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class DomriRade extends Card
 {
 	public static final class DomriRadeAbility0 extends LoyaltyAbility

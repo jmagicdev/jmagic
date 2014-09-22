@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.WARRIOR, SubType.VIASHINO})
 @ManaCost("2BRG")
-@ColorIdentity({Color.GREEN, Color.BLACK, Color.RED})
+@ColorIdentity({Color.BLACK, Color.RED, Color.GREEN})
 public final class CarrionThrash extends Card
 {
 	public static final class CarrionThrashAbility0 extends EventTriggeredAbility

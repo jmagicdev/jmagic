@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE, SubType.PLANT})
 @ManaCost("(B/G)")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class Slitherhead extends Card
 {
 	public Slitherhead(GameState state)

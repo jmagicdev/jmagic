@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Stomping Ground")
 @Types({Type.LAND})
 @SubTypes({SubType.FOREST, SubType.MOUNTAIN})
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class StompingGround extends Card
 {
 	public StompingGround(GameState state)

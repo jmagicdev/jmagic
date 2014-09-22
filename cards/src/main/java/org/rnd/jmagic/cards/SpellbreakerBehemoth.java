@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.patterns.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.BEAST})
 @ManaCost("1RGG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class SpellbreakerBehemoth extends Card
 {
 	public static final class BreakSpells extends StaticAbility

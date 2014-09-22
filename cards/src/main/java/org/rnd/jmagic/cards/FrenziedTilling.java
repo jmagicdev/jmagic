@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Frenzied Tilling")
 @Types({Type.SORCERY})
 @ManaCost("3RG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class FrenziedTilling extends Card
 {
 	public FrenziedTilling(GameState state)

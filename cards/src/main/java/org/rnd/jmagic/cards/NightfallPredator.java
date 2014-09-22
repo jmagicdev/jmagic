@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Nightfall Predator")
 @Types({Type.CREATURE})
 @SubTypes({SubType.WEREWOLF})
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class NightfallPredator extends AlternateCard
 {
 	public static final class NightfallPredatorAbility0 extends ActivatedAbility

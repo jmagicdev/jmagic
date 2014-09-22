@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Jund Charm")
 @Types({Type.INSTANT})
 @ManaCost("BRG")
-@ColorIdentity({Color.GREEN, Color.BLACK, Color.RED})
+@ColorIdentity({Color.BLACK, Color.RED, Color.GREEN})
 public final class JundCharm extends Card
 {
 	public JundCharm(GameState state)

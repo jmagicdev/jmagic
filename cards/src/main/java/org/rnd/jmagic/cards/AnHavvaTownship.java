@@ -4,7 +4,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("An-Havva Township")
 @Types({Type.LAND})
-@ColorIdentity({Color.WHITE, Color.GREEN, Color.RED})
+@ColorIdentity({Color.WHITE, Color.RED, Color.GREEN})
 public final class AnHavvaTownship extends org.rnd.jmagic.engine.Card
 {
 	public static final class TapForG extends org.rnd.jmagic.abilities.TapForMana

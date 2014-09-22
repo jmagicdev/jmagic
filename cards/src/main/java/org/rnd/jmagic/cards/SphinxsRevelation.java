@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Sphinx's Revelation")
 @Types({Type.INSTANT})
 @ManaCost("XWUU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class SphinxsRevelation extends Card
 {
 	public SphinxsRevelation(GameState state)

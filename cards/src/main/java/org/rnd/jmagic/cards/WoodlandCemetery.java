@@ -4,7 +4,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Woodland Cemetery")
 @Types({Type.LAND})
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class WoodlandCemetery extends org.rnd.jmagic.cardTemplates.Magic2010DualLand
 {
 	public WoodlandCemetery(GameState state)

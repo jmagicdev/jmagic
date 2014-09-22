@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.WIZARD, SubType.ELF})
 @ManaCost("2G")
-@ColorIdentity({Color.WHITE, Color.GREEN, Color.RED})
+@ColorIdentity({Color.WHITE, Color.RED, Color.GREEN})
 public final class ThornscapeBattlemage extends Card
 {
 	public static final class ElectricBoots extends EventTriggeredAbility

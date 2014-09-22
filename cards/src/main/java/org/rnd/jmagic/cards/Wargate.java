@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Wargate")
 @Types({Type.SORCERY})
 @ManaCost("XGWU")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.GREEN})
 public final class Wargate extends Card
 {
 	public Wargate(GameState state)

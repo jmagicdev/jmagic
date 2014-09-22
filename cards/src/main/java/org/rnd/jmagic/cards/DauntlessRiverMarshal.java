@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.SOLDIER, SubType.HUMAN})
 @ManaCost("1W")
-@ColorIdentity({Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class DauntlessRiverMarshal extends Card
 {
 	public static final class DauntlessRiverMarshalAbility0 extends StaticAbility

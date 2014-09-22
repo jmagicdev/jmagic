@@ -4,7 +4,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Jungle Shrine")
 @Types({Type.LAND})
-@ColorIdentity({Color.WHITE, Color.GREEN, Color.RED})
+@ColorIdentity({Color.WHITE, Color.RED, Color.GREEN})
 public final class JungleShrine extends org.rnd.jmagic.cardTemplates.ETBTLand
 {
 	public JungleShrine(GameState state)

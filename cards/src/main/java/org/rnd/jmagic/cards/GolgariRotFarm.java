@@ -4,7 +4,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Golgari Rot Farm")
 @Types({Type.LAND})
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class GolgariRotFarm extends org.rnd.jmagic.cardTemplates.RavnicaBounceLand
 {
 	public GolgariRotFarm(GameState state)

@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Detention Sphere")
 @Types({Type.ENCHANTMENT})
 @ManaCost("1WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class DetentionSphere extends Card
 {
 	public static final class DetentionSphereAbility0 extends EventTriggeredAbility

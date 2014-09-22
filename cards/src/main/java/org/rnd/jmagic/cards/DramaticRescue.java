@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Dramatic Rescue")
 @Types({Type.INSTANT})
 @ManaCost("WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class DramaticRescue extends Card
 {
 	public DramaticRescue(GameState state)

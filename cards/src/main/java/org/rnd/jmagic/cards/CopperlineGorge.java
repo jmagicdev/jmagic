@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 
 @Name("Copperline Gorge")
 @Types({Type.LAND})
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class CopperlineGorge extends Card
 {
 	public CopperlineGorge(GameState state)

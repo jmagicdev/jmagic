@@ -8,7 +8,7 @@ import static org.rnd.jmagic.Convenience.*;
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.VEDALKEN, SubType.WIZARD})
 @ManaCost("WUB")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.BLACK})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK})
 public final class EsperSojourners extends Card
 {
 	public static final class EsperSojournerTrigger extends org.rnd.jmagic.abilityTemplates.SojournerTrigger

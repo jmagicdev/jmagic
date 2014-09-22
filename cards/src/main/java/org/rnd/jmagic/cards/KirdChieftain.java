@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.APE})
 @ManaCost("3R")
-@ColorIdentity({Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class KirdChieftain extends Card
 {
 	public static final class KirdChieftainAbility0 extends StaticAbility

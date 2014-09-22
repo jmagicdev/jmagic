@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Supreme Verdict")
 @Types({Type.SORCERY})
 @ManaCost("1WWU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class SupremeVerdict extends Card
 {
 	public SupremeVerdict(GameState state)

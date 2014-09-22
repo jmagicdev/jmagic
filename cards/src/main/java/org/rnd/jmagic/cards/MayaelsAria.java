@@ -9,7 +9,7 @@ import org.rnd.util.*;
 @Name("Mayael's Aria")
 @Types({Type.ENCHANTMENT})
 @ManaCost("RGW")
-@ColorIdentity({Color.WHITE, Color.GREEN, Color.RED})
+@ColorIdentity({Color.WHITE, Color.RED, Color.GREEN})
 public final class MayaelsAria extends Card
 {
 	public static final class MayaelsTrigger extends EventTriggeredAbility

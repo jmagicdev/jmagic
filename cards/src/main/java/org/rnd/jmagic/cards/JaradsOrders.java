@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Jarad's Orders")
 @Types({Type.SORCERY})
 @ManaCost("2BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class JaradsOrders extends Card
 {
 	public JaradsOrders(GameState state)

@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Maelstrom Pulse")
 @Types({Type.SORCERY})
 @ManaCost("1BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class MaelstromPulse extends Card
 {
 	public MaelstromPulse(GameState state)

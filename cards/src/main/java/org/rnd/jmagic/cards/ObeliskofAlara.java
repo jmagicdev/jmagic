@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Obelisk of Alara")
 @Types({Type.ARTIFACT})
 @ManaCost("6")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN, Color.BLACK, Color.RED})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK, Color.RED, Color.GREEN})
 public final class ObeliskofAlara extends Card
 {
 	public static final class ObeliskofAlaraAbility5 extends ActivatedAbility

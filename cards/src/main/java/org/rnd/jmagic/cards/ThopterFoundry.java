@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Thopter Foundry")
 @Types({Type.ARTIFACT})
 @ManaCost("(W/B)U")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.BLACK})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK})
 public final class ThopterFoundry extends Card
 {
 	public static final class ThopterBabies extends ActivatedAbility

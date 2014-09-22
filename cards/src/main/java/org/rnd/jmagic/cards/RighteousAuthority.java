@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.patterns.*;
 @Types({Type.ENCHANTMENT})
 @SubTypes({SubType.AURA})
 @ManaCost("3WU")
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class RighteousAuthority extends Card
 {
 	public static final class RighteousAuthorityAbility1 extends StaticAbility

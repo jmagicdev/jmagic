@@ -5,7 +5,7 @@ import org.rnd.jmagic.engine.*;
 @Name("Azorius Guildgate")
 @Types({Type.LAND})
 @SubTypes({SubType.GATE})
-@ColorIdentity({Color.BLUE, Color.WHITE})
+@ColorIdentity({Color.WHITE, Color.BLUE})
 public final class AzoriusGuildgate extends Card
 {
 	public AzoriusGuildgate(GameState state)

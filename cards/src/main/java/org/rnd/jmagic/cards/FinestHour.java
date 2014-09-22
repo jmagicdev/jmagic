@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Finest Hour")
 @Types({Type.ENCHANTMENT})
 @ManaCost("2GWU")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.GREEN})
 public final class FinestHour extends Card
 {
 	public static final class ExaltedMoreCombat extends org.rnd.jmagic.abilityTemplates.ExaltedBase

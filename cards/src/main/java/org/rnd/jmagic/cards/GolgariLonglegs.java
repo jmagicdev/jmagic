@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.INSECT})
 @ManaCost("3(B/G)(B/G)")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class GolgariLonglegs extends Card
 {
 	public GolgariLonglegs(GameState state)

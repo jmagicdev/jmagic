@@ -6,7 +6,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.BAT})
 @ManaCost("1B")
-@ColorIdentity({Color.BLACK})
+@ColorIdentity({Color.WHITE, Color.BLACK})
 public final class BasilicaScreecher extends Card
 {
 	public BasilicaScreecher(GameState state)

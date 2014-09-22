@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.MINOTAUR, SubType.SHAMAN})
 @ManaCost("1BR")
-@ColorIdentity({Color.RED, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.RED})
 public final class Ragemonger extends Card
 {
 	public static final class RagemongerAbility0 extends StaticAbility

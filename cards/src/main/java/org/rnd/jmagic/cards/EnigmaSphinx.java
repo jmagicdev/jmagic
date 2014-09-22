@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.ARTIFACT, Type.CREATURE})
 @SubTypes({SubType.SPHINX})
 @ManaCost("4WUB")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.BLACK})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK})
 public final class EnigmaSphinx extends Card
 {
 	public static final class LongTermPlanning extends EventTriggeredAbility

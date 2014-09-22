@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Sunbeam Spellbomb")
 @Types({Type.ARTIFACT})
 @ManaCost("1")
-@ColorIdentity({})
+@ColorIdentity({Color.WHITE})
 public final class SunbeamSpellbomb extends Card
 {
 	public static final class SunbeamSpellbombAbility0 extends ActivatedAbility

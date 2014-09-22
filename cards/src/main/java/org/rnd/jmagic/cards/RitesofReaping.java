@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Rites of Reaping")
 @Types({Type.SORCERY})
 @ManaCost("4BG")
-@ColorIdentity({Color.GREEN, Color.BLACK})
+@ColorIdentity({Color.BLACK, Color.GREEN})
 public final class RitesofReaping extends Card
 {
 	public RitesofReaping(GameState state)

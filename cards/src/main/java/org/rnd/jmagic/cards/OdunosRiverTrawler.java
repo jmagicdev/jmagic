@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.ZOMBIE})
 @ManaCost("2B")
-@ColorIdentity({Color.BLACK})
+@ColorIdentity({Color.WHITE, Color.BLACK})
 public final class OdunosRiverTrawler extends Card
 {
 	public static final class OdunosRiverTrawlerAbility0 extends EventTriggeredAbility

@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @SuperTypes({SuperType.LEGENDARY})
 @Types({Type.ARTIFACT})
 @ManaCost("7")
-@ColorIdentity({Color.BLUE, Color.WHITE, Color.GREEN, Color.BLACK, Color.RED})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK, Color.RED, Color.GREEN})
 public final class LegacyWeapon extends Card
 {
 	public static final class Removal extends ActivatedAbility

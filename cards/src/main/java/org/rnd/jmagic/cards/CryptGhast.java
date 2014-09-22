@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.SPIRIT})
 @ManaCost("3B")
-@ColorIdentity({Color.BLACK})
+@ColorIdentity({Color.WHITE, Color.BLACK})
 public final class CryptGhast extends Card
 {
 	public static final class CryptGhastAbility1 extends EventTriggeredAbility

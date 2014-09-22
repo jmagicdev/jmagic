@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Ancient Grudge")
 @Types({Type.INSTANT})
 @ManaCost("1R")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class AncientGrudge extends Card
 {
 	public AncientGrudge(GameState state)

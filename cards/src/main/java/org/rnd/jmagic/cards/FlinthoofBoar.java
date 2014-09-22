@@ -9,7 +9,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.BOAR})
 @ManaCost("1G")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class FlinthoofBoar extends Card
 {
 	public static final class FlinthoofBoarAbility0 extends StaticAbility

@@ -7,7 +7,7 @@ import org.rnd.jmagic.engine.generators.*;
 @Name("Signal the Clans")
 @Types({Type.INSTANT})
 @ManaCost("RG")
-@ColorIdentity({Color.GREEN, Color.RED})
+@ColorIdentity({Color.RED, Color.GREEN})
 public final class SignaltheClans extends Card
 {
 	public SignaltheClans(GameState state)

@@ -8,7 +8,7 @@ import org.rnd.jmagic.engine.*;
 @Types({Type.CREATURE})
 @SubTypes({SubType.SLIVER})
 @ManaCost("WUBRG")
-@ColorIdentity({Color.RED, Color.WHITE, Color.BLUE, Color.BLACK, Color.GREEN})
+@ColorIdentity({Color.WHITE, Color.BLUE, Color.BLACK, Color.RED, Color.GREEN})
 public final class SliverHivelord extends Card
 {
 	public static final class SliverHivelordAbility0 extends StaticAbility
