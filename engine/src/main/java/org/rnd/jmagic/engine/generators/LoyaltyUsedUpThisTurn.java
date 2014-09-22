@@ -68,31 +68,32 @@ public class LoyaltyUsedUpThisTurn extends SetGenerator
 		}
 	}
 
-	public static LoyaltyUsedUpThisTurn instance()
+	private final SetGenerator ofWhat;
+
+	public static LoyaltyUsedUpThisTurn instance(SetGenerator ofWhat)
 	{
-		return new LoyaltyUsedUpThisTurn();
+		return new LoyaltyUsedUpThisTurn(ofWhat);
 	}
 
-	private LoyaltyUsedUpThisTurn()
+	private LoyaltyUsedUpThisTurn(SetGenerator ofWhat)
 	{
-		// Singleton constructor
+		this.ofWhat = ofWhat;
 	}
 
 	@Override
 	public Set evaluate(GameState state, Identified thisObject)
 	{
-		Counter counter = state.getTracker(Counter.class);
-		if(counter == null)
-			return Empty.set;
-
 		Set ret = new Set();
-		for(java.util.Map.Entry<Integer, Integer> entry: counter.getValue(state).entrySet())
+		java.util.Map<Integer, Integer> flag = state.getTracker(Counter.class).getValue(state);
+		for(GameObject o: this.ofWhat.evaluate(state, thisObject).getAll(GameObject.class))
 		{
-			GameObject object = state.getByIDObject(entry.getKey());
-			if(object == null) // if it's a ghost we don't care about it
+			if(!o.getTypes().contains(Type.PLANESWALKER))
+			{
+				ret.add(o);
 				continue;
-			if(object.maxLoyaltyActivations == entry.getValue())
-				ret.add(object);
+			}
+			if(flag.containsKey(o.ID) && flag.get(o.ID) >= o.maxLoyaltyActivations)
+				ret.add(o);
 		}
 		return ret;
 	}
