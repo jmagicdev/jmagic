@@ -38,4 +38,16 @@ public class Deck implements java.io.Serializable
 	{
 		return this.publicCardMap;
 	}
+
+	public void addCard(String card)
+	{
+		this.addCard(card, MAIN_DECK);
+	}
+
+	public void addCard(String card, String deckPart)
+	{
+		if(!this.cards.containsKey(deckPart))
+			this.cards.put(deckPart, new java.util.LinkedList<String>());
+		this.cards.get(deckPart).add(card);
+	}
 }
