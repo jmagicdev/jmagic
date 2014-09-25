@@ -1142,7 +1142,7 @@ public abstract class EventType
 
 	/**
 	 * Do not use this event in {@link SimpleEventPattern}s. Use the
-	 * {@link CounterPlacedPattern} instead.
+	 * {@link CountersPlacedPattern} instead.
 	 * 
 	 * @eparam CAUSE: what is putting the counter
 	 * @eparam COUNTER: the counterTypes being added
@@ -1229,7 +1229,7 @@ public abstract class EventType
 	 * INVOKE THESE!!!!
 	 * 
 	 * Do not use this event in {@link SimpleEventPattern}s. Use the
-	 * {@link CounterPlacedPattern} instead.
+	 * {@link CountersPlacedPattern} instead.
 	 * 
 	 * @eparam CAUSE: what is putting the counter
 	 * @eparam COUNTER: the counterType to add

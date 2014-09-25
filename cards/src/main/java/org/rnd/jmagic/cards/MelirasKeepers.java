@@ -17,7 +17,7 @@ public final class MelirasKeepers extends Card
 		{
 			super(state, "Melira's Keepers can't have counters placed on it.");
 
-			EventPattern pattern = new CounterPlacedPattern(null, This.instance());
+			EventPattern pattern = new CountersPlacedPattern(null, This.instance());
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(pattern));

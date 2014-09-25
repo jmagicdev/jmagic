@@ -2,7 +2,7 @@ package org.rnd.jmagic.engine.patterns;
 
 import org.rnd.jmagic.engine.*;
 
-public class CounterPlacedPattern implements EventPattern
+public class CountersPlacedPattern implements EventPattern
 {
 	private Counter.CounterType type;
 	private SetPattern objectFilter;
@@ -20,7 +20,7 @@ public class CounterPlacedPattern implements EventPattern
 	 * @param objectFilter what objects to match against (null for "any"). Don't
 	 * require that these objects be permanents!
 	 */
-	public CounterPlacedPattern(Counter.CounterType type, SetGenerator objectFilter)
+	public CountersPlacedPattern(Counter.CounterType type, SetGenerator objectFilter)
 	{
 		this(type, (objectFilter == null ? null : new SimpleSetPattern(objectFilter)));
 	}
@@ -38,7 +38,7 @@ public class CounterPlacedPattern implements EventPattern
 	 * @param objectFilter what objects to match against (null for "any"). Don't
 	 * require that these objects be permanents!
 	 */
-	public CounterPlacedPattern(Counter.CounterType type, SetPattern objectFilter)
+	public CountersPlacedPattern(Counter.CounterType type, SetPattern objectFilter)
 	{
 		this.type = type;
 		this.objectFilter = objectFilter;
@@ -47,7 +47,7 @@ public class CounterPlacedPattern implements EventPattern
 	@Override
 	public boolean match(Event event, Identified object, GameState state)
 	{
-		if(event.type != EventType.PUT_ONE_COUNTER)
+		if(event.type != EventType.PUT_COUNTERS)
 			return false;
 
 		if(this.type != null)

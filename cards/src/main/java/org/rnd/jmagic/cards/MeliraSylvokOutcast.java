@@ -35,7 +35,7 @@ public final class MeliraSylvokOutcast extends Card
 			super(state, "Creatures you control can't have -1/-1 counters placed on them.");
 
 			SetPattern yourCreatures = new YouControlPattern(new TypePattern(Type.CREATURE));
-			EventPattern pattern = new CounterPlacedPattern(Counter.CounterType.MINUS_ONE_MINUS_ONE, yourCreatures);
+			EventPattern pattern = new CountersPlacedPattern(Counter.CounterType.MINUS_ONE_MINUS_ONE, yourCreatures);
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
 			part.parameters.put(ContinuousEffectType.Parameter.PROHIBITION, Identity.instance(pattern));
