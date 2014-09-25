@@ -13,7 +13,7 @@ public final class Morph extends Keyword
 		this(state, "Morph " + morphCost, new CostCollection(COST_TYPE, morphCost));
 	}
 
-	private Morph(GameState state, String name, CostCollection morphCost)
+	public Morph(GameState state, String name, CostCollection morphCost)
 	{
 		super(state, name);
 		this.morphCost = morphCost;
