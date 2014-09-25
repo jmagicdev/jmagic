@@ -2038,7 +2038,8 @@ public abstract class ContinuousEffectType
 
 	/**
 	 * @eparam OBJECT: What objects this applies to.
-	 * @eparam COST: ManaPool that is the reduction in cost.
+	 * @eparam COST: ManaSymbols representing the reduction in cost. (use
+	 * Identity.fromCollection(ManaPool))
 	 * @eparam NUMBER: How many times the cost is reduced (single number)
 	 * [optional; default is 1].
 	 * @eparam COLOR: if present, this effect reduces only the amount of colored
