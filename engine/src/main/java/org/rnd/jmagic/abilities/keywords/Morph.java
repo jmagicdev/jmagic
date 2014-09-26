@@ -83,10 +83,11 @@ public final class Morph extends Keyword
 			for(PlayerAction action: state.playerActions)
 				if(action instanceof CastSpellAction)
 					if(((CastSpellAction)action).toBePlayedID == source.ID)
-					{
-						makeAbility = true;
-						break;
-					}
+						if(((CastSpellAction)action).payingManaCost())
+						{
+							makeAbility = true;
+							break;
+						}
 
 			if(!makeAbility)
 				return java.util.Collections.emptySet();

@@ -74,6 +74,19 @@ public abstract class CastSpellOrActivateAbilityAction extends PlayerAction
 	}
 
 	/**
+	 * Says whether this action will have the player pay the mana cost of the
+	 * object when casting/activating it. If a forced alternate cost has been
+	 * specified, the answer is "no".
+	 * 
+	 * @return Whether the player will pay the mana cost of the object s/he is
+	 * casting/activating.
+	 */
+	public final boolean payingManaCost()
+	{
+		return this.forcedAlternateCost == null;
+	}
+
+	/**
 	 * <p>
 	 * Causes the acting player to carry out this action and play the spell or
 	 * ability specified on construction.
