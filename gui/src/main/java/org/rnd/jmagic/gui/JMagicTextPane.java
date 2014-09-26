@@ -163,6 +163,17 @@ public class JMagicTextPane extends javax.swing.JTextPane
 			return "Choose between " + org.rnd.util.NumberNames.get(lower) + " and " + org.rnd.util.NumberNames.get(upper);
 	}
 
+	private void italicizeAbilityWord(java.lang.String text, javax.swing.text.StyledDocument document, int beginParagraph, int endParagraph)
+	{
+		int spaceEmdashSpace = text.indexOf(" \u2014 ", beginParagraph + 1);
+		if(-1 != spaceEmdashSpace && spaceEmdashSpace < endParagraph)
+		{
+			javax.swing.text.Style italicStyle = document.addStyle("italic", null);
+			javax.swing.text.StyleConstants.setItalic(italicStyle, true);
+			document.setCharacterAttributes(beginParagraph, spaceEmdashSpace - beginParagraph, italicStyle, false);
+		}
+	}
+
 	@Override
 	public void setText(java.lang.String text)
 	{
@@ -188,7 +199,7 @@ public class JMagicTextPane extends javax.swing.JTextPane
 		// have been applied
 		javax.swing.text.Style defaultStyle = document.getLogicalStyle(0);
 		javax.swing.text.Style halfSize = document.addStyle("half-size", defaultStyle);
-		javax.swing.text.StyleConstants.setFontSize(halfSize, javax.swing.text.StyleConstants.getFontSize(defaultStyle) / 6);
+		javax.swing.text.StyleConstants.setFontSize(halfSize, javax.swing.text.StyleConstants.getFontSize(defaultStyle) / 3);
 
 		int leftParenthesis = text.indexOf('(');
 		while(-1 != leftParenthesis)
@@ -220,12 +231,19 @@ public class JMagicTextPane extends javax.swing.JTextPane
 			}
 		}
 
-		int doubleLineBreak = text.indexOf("\n\n");
-		while(-1 != doubleLineBreak)
+		int beginParagraph = 0;
+		int endParagraph = text.indexOf("\n\n");
+		while(-1 != endParagraph)
 		{
-			document.setCharacterAttributes(doubleLineBreak, 2, halfSize, true);
-			doubleLineBreak = text.indexOf("\n\n", doubleLineBreak + 1);
+			document.setCharacterAttributes(endParagraph, 2, halfSize, true);
+			italicizeAbilityWord(text, document, beginParagraph, endParagraph);
+
+			beginParagraph = endParagraph;
+			endParagraph = text.indexOf("\n\n", beginParagraph + 1);
 		}
+		// the last ability word won't have been hit, since the above loop ends
+		// once it's found the last \n\n
+		italicizeAbilityWord(text, document, beginParagraph, text.length());
 	}
 
 	/**
