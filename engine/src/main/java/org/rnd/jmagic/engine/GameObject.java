@@ -774,7 +774,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 */
 	public GameObject counterThisObject(Set counterer, Zone counterTo)
 	{
-		throw new UnsupportedOperationException("counter(Set,Zone) called on a class that does not define it");
+		throw new UnsupportedOperationException("counterThisObject(Set,Zone) called on a class that does not define it");
 	}
 
 	public GameObject create(Game game)
