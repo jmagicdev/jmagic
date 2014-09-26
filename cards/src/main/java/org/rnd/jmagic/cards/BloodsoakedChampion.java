@@ -16,7 +16,7 @@ public final class BloodsoakedChampion extends Card
 	{
 		public BloodsoakedChampionAbility1(GameState state)
 		{
-			super(state, "(1)(B): Return Bloodsoaked Champion from your graveyard to the battlefield. Activate this ability only if you attacked with a creature this turn.");
+			super(state, "Raid \u2014 (1)(B): Return Bloodsoaked Champion from your graveyard to the battlefield. Activate this ability only if you attacked with a creature this turn.");
 			this.setManaCost(new ManaPool("(1)(B)"));
 
 			this.addEffect(putOntoBattlefield(ABILITY_SOURCE_OF_THIS, "Return Bloodsoaked Champion from your graveyard to the battlefield."));

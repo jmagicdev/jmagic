@@ -15,7 +15,7 @@ public final class DeepwaterHypnotist extends Card
 	{
 		public DeepwaterHypnotistAbility0(GameState state)
 		{
-			super(state, "Whenever Deepwater Hypnotist becomes untapped, target creature an opponent controls gets -3/-0 until end of turn.");
+			super(state, "Inspired \u2014 Whenever Deepwater Hypnotist becomes untapped, target creature an opponent controls gets -3/-0 until end of turn.");
 			this.addPattern(inspired());
 
 			SetGenerator enemyCreatures = Intersect.instance(ControlledBy.instance(OpponentsOf.instance(You.instance())), CreaturePermanents.instance());

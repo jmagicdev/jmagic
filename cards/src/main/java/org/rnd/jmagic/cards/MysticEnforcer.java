@@ -16,7 +16,7 @@ public final class MysticEnforcer extends Card
 	{
 		public AngelicThreshold(GameState state)
 		{
-			super(state, "As long as seven or more cards are in your graveyard, Mystic Enforcer gets +3/+3 and has flying.");
+			super(state, "Threshold \u2014 As long as seven or more cards are in your graveyard, Mystic Enforcer gets +3/+3 and has flying.");
 
 			this.addEffectPart(modifyPowerAndToughness(This.instance(), +3, +3));
 

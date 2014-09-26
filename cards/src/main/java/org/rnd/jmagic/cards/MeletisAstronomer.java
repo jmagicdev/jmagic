@@ -16,7 +16,7 @@ public final class MeletisAstronomer extends Card
 	{
 		public MeletisAstronomerAbility0(GameState state)
 		{
-			super(state, "Whenever you cast a spell that targets Meletis Astronomer, look at the top three cards of your library. You may reveal an enchantment card from among them and put it into your hand. Put the rest on the bottom of your library in any order.");
+			super(state, "Heroic \u2014 Whenever you cast a spell that targets Meletis Astronomer, look at the top three cards of your library. You may reveal an enchantment card from among them and put it into your hand. Put the rest on the bottom of your library in any order.");
 			this.addPattern(heroic());
 
 			EventFactory effect = new EventFactory(PUT_ONE_FROM_TOP_N_OF_LIBRARY_INTO_HAND, "Look at the top five cards of your library. You may reveal a colorless card from among them and put it into your hand. Then put the rest on the bottom of your library in any order.");

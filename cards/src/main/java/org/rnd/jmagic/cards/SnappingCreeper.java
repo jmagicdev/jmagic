@@ -14,7 +14,7 @@ public final class SnappingCreeper extends Card
 	{
 		public SnappingCreeperAbility0(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, Snapping Creeper gains vigilance until end of turn.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, Snapping Creeper gains vigilance until end of turn.");
 			this.addPattern(landfall());
 			this.addEffect(addAbilityUntilEndOfTurn(ABILITY_SOURCE_OF_THIS, org.rnd.jmagic.abilities.keywords.Vigilance.class, "Snapping Creeper gains vigilance until end of turn."));
 		}

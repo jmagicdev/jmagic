@@ -28,7 +28,7 @@ public final class TideforceElemental extends Card
 	{
 		public TideforceElementalAbility1(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, you may untap Tideforce Elemental.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may untap Tideforce Elemental.");
 			this.addPattern(landfall());
 			this.addEffect(youMay(untap(ABILITY_SOURCE_OF_THIS, "Untap Tideforce Elemental."), "You may untap Tideforce Elemental."));
 		}

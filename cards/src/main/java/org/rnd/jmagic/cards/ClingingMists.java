@@ -23,6 +23,6 @@ public final class ClingingMists extends Card
 		EventFactory tapHard = new EventFactory(EventType.TAP_HARD, "Tap all attacking creatures. Those creatures don't untap during their controller's next untap step.");
 		tapHard.parameters.put(EventType.Parameter.CAUSE, This.instance());
 		tapHard.parameters.put(EventType.Parameter.OBJECT, Attacking.instance());
-		this.addEffect(ifThen(FatefulHour.instance(), tapHard, "If you have 5 or less life, tap all attacking creatures. Those creatures don't untap during their controller's next untap step."));
+		this.addEffect(ifThen(FatefulHour.instance(), tapHard, "Fateful hour \u2014 If you have 5 or less life, tap all attacking creatures. Those creatures don't untap during their controller's next untap step."));
 	}
 }

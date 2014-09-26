@@ -16,7 +16,7 @@ public final class ShoalSerpent extends Card
 	{
 		public LandfallAttacker(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, Shoal Serpent loses defender until end of turn.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, Shoal Serpent loses defender until end of turn.");
 
 			this.addPattern(landfall());
 

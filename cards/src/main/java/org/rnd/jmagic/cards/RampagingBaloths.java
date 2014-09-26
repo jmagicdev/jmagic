@@ -15,7 +15,7 @@ public final class RampagingBaloths extends Card
 	{
 		public LandBeast(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, you may put a 4/4 green Beast creature token onto the battlefield.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may put a 4/4 green Beast creature token onto the battlefield.");
 			this.addPattern(landfall());
 
 			CreateTokensFactory token = new CreateTokensFactory(1, 4, 4, "Put a 4/4 green Beast creature token onto the battlefield");

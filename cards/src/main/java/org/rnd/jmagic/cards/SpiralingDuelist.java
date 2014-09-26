@@ -15,7 +15,7 @@ public final class SpiralingDuelist extends Card
 	{
 		public SpiralingDuelistAbility0(GameState state)
 		{
-			super(state, "Spiraling Duelist has double strike as long as you control three or more artifacts.");
+			super(state, "Metalcraft \u2014 Spiraling Duelist has double strike as long as you control three or more artifacts.");
 
 			this.addEffectPart(addAbilityToObject(This.instance(), org.rnd.jmagic.abilities.keywords.DoubleStrike.class));
 

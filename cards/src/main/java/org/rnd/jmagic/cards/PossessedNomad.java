@@ -29,7 +29,7 @@ public final class PossessedNomad extends Card
 	{
 		public PossessedNomadAbility1(GameState state)
 		{
-			super(state, "As long as seven or more cards are in your graveyard, Possessed Nomad gets +1/+1, is black, and has \"(2)(B), (T): Destroy target white creature.\"");
+			super(state, "Threshold \u2014 As long as seven or more cards are in your graveyard, Possessed Nomad gets +1/+1, is black, and has \"(2)(B), (T): Destroy target white creature.\"");
 			this.canApply = Both.instance(this.canApply, Threshold.instance());
 
 			this.addEffectPart(modifyPowerAndToughness(This.instance(), +1, +1));

@@ -15,7 +15,7 @@ public final class CarapaceForger extends Card
 	{
 		public CarapaceForgerAbility0(GameState state)
 		{
-			super(state, "Carapace Forger gets +2/+2 as long as you control three or more artifacts.");
+			super(state, "Metalcraft \u2014 Carapace Forger gets +2/+2 as long as you control three or more artifacts.");
 			this.addEffectPart(modifyPowerAndToughness(This.instance(), +2, +2));
 			this.canApply = Both.instance(this.canApply, Metalcraft.instance());
 		}

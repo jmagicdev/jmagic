@@ -15,7 +15,7 @@ public final class Draco extends Card
 	{
 		public DracoAbility0(GameState state)
 		{
-			super(state, "Draco costs (2) less to cast for each basic land type among lands you control.");
+			super(state, "Domain \u2014 Draco costs (2) less to cast for each basic land type among lands you control.");
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());
@@ -31,7 +31,7 @@ public final class Draco extends Card
 	{
 		public DracoAbility2(GameState state)
 		{
-			super(state, "At the beginning of your upkeep, sacrifice Draco unless you pay (10). This cost is reduced by (2) for each basic land type among lands you control.");
+			super(state, "Domain \u2014 At the beginning of your upkeep, sacrifice Draco unless you pay (10). This cost is reduced by (2) for each basic land type among lands you control.");
 			this.addPattern(atTheBeginningOfYourUpkeep());
 
 			EventFactory payMana = new EventFactory(EventType.PAY_MANA, "Pay (10). This cost is reduced by (2) for each basic land type among lands you control.");

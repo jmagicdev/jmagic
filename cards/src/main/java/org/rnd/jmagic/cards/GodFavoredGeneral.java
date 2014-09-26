@@ -14,7 +14,7 @@ public final class GodFavoredGeneral extends Card
 	{
 		public GodFavoredGeneralAbility0(GameState state)
 		{
-			super(state, "Whenever God-Favored General becomes untapped, you may pay (2)(W). If you do, put two 1/1 white Soldier enchantment creature tokens onto the battlefield.");
+			super(state, "Inspired \u2014 Whenever God-Favored General becomes untapped, you may pay (2)(W). If you do, put two 1/1 white Soldier enchantment creature tokens onto the battlefield.");
 			this.addPattern(inspired());
 
 			EventFactory mayPay = youMayPay("(2)(W)");

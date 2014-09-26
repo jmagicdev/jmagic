@@ -15,7 +15,7 @@ public final class AshioksAdept extends Card
 	{
 		public AshioksAdeptAbility0(GameState state)
 		{
-			super(state, "Whenever you cast a spell that targets Ashiok's Adept, each opponent discards a card.");
+			super(state, "Heroic \u2014 Whenever you cast a spell that targets Ashiok's Adept, each opponent discards a card.");
 			this.addPattern(heroic());
 
 			this.addEffect(discardCards(OpponentsOf.instance(You.instance()), 1, "Each opponent discards a card."));

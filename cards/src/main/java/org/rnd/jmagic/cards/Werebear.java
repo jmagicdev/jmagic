@@ -16,7 +16,7 @@ public final class Werebear extends Card
 	{
 		public Lycanthropy(GameState state)
 		{
-			super(state, "Werebear gets +3/+3 as long as seven or more cards are in your graveyard.");
+			super(state, "Threshold \u2014 Werebear gets +3/+3 as long as seven or more cards are in your graveyard.");
 
 			this.addEffectPart(modifyPowerAndToughness(This.instance(), +3, +3));
 

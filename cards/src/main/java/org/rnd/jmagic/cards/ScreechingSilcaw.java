@@ -15,7 +15,7 @@ public final class ScreechingSilcaw extends Card
 	{
 		public ScreechingSilcawAbility1(GameState state)
 		{
-			super(state, "Whenever Screeching Silcaw deals combat damage to a player, if you control three or more artifacts, that player puts the top four cards of his or her library into his or her graveyard.");
+			super(state, "Metalcraft \u2014 Whenever Screeching Silcaw deals combat damage to a player, if you control three or more artifacts, that player puts the top four cards of his or her library into his or her graveyard.");
 			this.addPattern(whenDealsCombatDamageToAPlayer(ABILITY_SOURCE_OF_THIS));
 			this.interveningIf = Metalcraft.instance();
 			this.addEffect(millCards(TakerOfDamage.instance(TriggerDamage.instance(This.instance())), 4, "That player puts the top four cards of his or her library into his or her graveyard."));

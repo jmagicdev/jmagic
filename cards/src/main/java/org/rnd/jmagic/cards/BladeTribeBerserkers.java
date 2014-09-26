@@ -15,7 +15,7 @@ public final class BladeTribeBerserkers extends Card
 	{
 		public BladeTribeBerserkersAbility0(GameState state)
 		{
-			super(state, "When Blade-Tribe Berserkers enters the battlefield, if you control three or more artifacts, Blade-Tribe Berserkers gets +3/+3 and gains haste until end of turn.");
+			super(state, "Metalcraft \u2014 When Blade-Tribe Berserkers enters the battlefield, if you control three or more artifacts, Blade-Tribe Berserkers gets +3/+3 and gains haste until end of turn.");
 			this.addPattern(whenThisEntersTheBattlefield());
 			this.interveningIf = Metalcraft.instance();
 			this.addEffect(ptChangeAndAbilityUntilEndOfTurn(ABILITY_SOURCE_OF_THIS, +3, +3, "Blade-Tribe Berserkers gets +3/+3 and gains haste until end of turn.", org.rnd.jmagic.abilities.keywords.Haste.class));

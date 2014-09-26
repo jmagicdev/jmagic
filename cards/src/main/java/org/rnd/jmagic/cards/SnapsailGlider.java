@@ -15,7 +15,7 @@ public final class SnapsailGlider extends Card
 	{
 		public SnapsailGliderAbility0(GameState state)
 		{
-			super(state, "Snapsail Glider has flying as long as you control three or more artifacts.");
+			super(state, "Metalcraft \u2014 Snapsail Glider has flying as long as you control three or more artifacts.");
 
 			this.addEffectPart(addAbilityToObject(This.instance(), org.rnd.jmagic.abilities.keywords.Flying.class));
 

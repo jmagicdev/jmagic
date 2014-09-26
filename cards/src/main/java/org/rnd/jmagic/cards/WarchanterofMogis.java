@@ -15,7 +15,7 @@ public final class WarchanterofMogis extends Card
 	{
 		public WarchanterofMogisAbility0(GameState state)
 		{
-			super(state, "Whenever Warchanter of Mogis becomes untapped, target creature you control gains intimidate until end of turn.");
+			super(state, "Inspired \u2014 Whenever Warchanter of Mogis becomes untapped, target creature you control gains intimidate until end of turn.");
 			this.addPattern(inspired());
 
 			SetGenerator yourCreatures = Intersect.instance(ControlledBy.instance(You.instance()), HasType.instance(Type.CREATURE));

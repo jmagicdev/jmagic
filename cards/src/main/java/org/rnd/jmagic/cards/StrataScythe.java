@@ -15,7 +15,7 @@ public final class StrataScythe extends Card
 	{
 		public StrataScytheAbility0(GameState state)
 		{
-			super(state, "When Strata Scythe enters the battlefield, search your library for a land card, exile it, then shuffle your library.");
+			super(state, "Imprint \u2014 When Strata Scythe enters the battlefield, search your library for a land card, exile it, then shuffle your library.");
 			this.addPattern(whenThisEntersTheBattlefield());
 
 			EventFactory factory = new EventFactory(EventType.SEARCH_LIBRARY_AND_PUT_INTO, "Search your library for a land card, exile it, then shuffle your library.");

@@ -47,7 +47,7 @@ public final class CaravanVigil extends Card
 		EventFactory ifPutOntoBattlefield = ifElse(youMayPutOntoBattlefield, putIntoHand, "You may put that card onto the battlefield, otherwise, put it into your hand.");
 		EventFactory ifMorbid = sequence(search, ifPutOntoBattlefield, shuffle);
 		EventFactory ifNotMorbid = sequence(search, putIntoHand, shuffle);
-		this.addEffect(ifThenElse(Morbid.instance(), ifMorbid, ifNotMorbid, "Search your library for a basic land card, reveal it, put it into your hand, then shuffle your library.\n\nYou may put that card onto the battlefield instead of putting it into your hand if a creature died this turn."));
+		this.addEffect(ifThenElse(Morbid.instance(), ifMorbid, ifNotMorbid, "Search your library for a basic land card, reveal it, put it into your hand, then shuffle your library.\n\nMorbid \u2014 You may put that card onto the battlefield instead of putting it into your hand if a creature died this turn."));
 
 		state.ensureTracker(new Morbid.Tracker());
 	}

@@ -16,7 +16,7 @@ public final class LotusCobra extends Card
 	{
 		public LandfallMana(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, you may add one mana of any color to your mana pool.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may add one mana of any color to your mana pool.");
 			this.addPattern(landfall());
 
 			EventFactory makeMana = new EventFactory(EventType.ADD_MANA, "Add one mana of any color to your mana pool");

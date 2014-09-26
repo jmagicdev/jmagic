@@ -14,7 +14,7 @@ public final class SatyrNyxSmith extends Card
 	{
 		public SatyrNyxSmithAbility1(GameState state)
 		{
-			super(state, "Whenever Satyr Nyx-Smith becomes untapped, you may pay (2)(R). If you do, put a 3/1 red Elemental enchantment creature token with haste onto the battlefield.");
+			super(state, "Inspired \u2014 Whenever Satyr Nyx-Smith becomes untapped, you may pay (2)(R). If you do, put a 3/1 red Elemental enchantment creature token with haste onto the battlefield.");
 			this.addPattern(inspired());
 
 			EventFactory mayPay = youMayPay("(2)(R)");

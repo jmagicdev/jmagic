@@ -16,7 +16,7 @@ public final class MysticFamiliar extends Card
 	{
 		public ThresholdRacism(GameState state)
 		{
-			super(state, "As long as seven or more cards are in your graveyard, Mystic Familiar gets +1/+1 and has protection from black.");
+			super(state, "Threshold \u2014 As long as seven or more cards are in your graveyard, Mystic Familiar gets +1/+1 and has protection from black.");
 
 			this.addEffectPart(modifyPowerAndToughness(This.instance(), +1, +1));
 

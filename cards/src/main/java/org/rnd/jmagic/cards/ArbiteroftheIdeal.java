@@ -15,7 +15,7 @@ public final class ArbiteroftheIdeal extends Card
 	{
 		public ArbiteroftheIdealAbility1(GameState state)
 		{
-			super(state, "Whenever Arbiter of the Ideal becomes untapped, reveal the top card of your library. If it's an artifact, creature, or land card, you may put it onto the battlefield with a manifestation counter on it. That permanent is an enchantment in addition to its other types.");
+			super(state, "Inspired \u2014 Whenever Arbiter of the Ideal becomes untapped, reveal the top card of your library. If it's an artifact, creature, or land card, you may put it onto the battlefield with a manifestation counter on it. That permanent is an enchantment in addition to its other types.");
 			this.addPattern(inspired());
 
 			SetGenerator top = TopCards.instance(1, LibraryOf.instance(You.instance()));

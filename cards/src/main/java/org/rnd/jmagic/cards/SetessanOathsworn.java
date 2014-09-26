@@ -14,7 +14,7 @@ public final class SetessanOathsworn extends Card
 	{
 		public SetessanOathswornAbility0(GameState state)
 		{
-			super(state, "Whenever you cast a spell that targets Setessan Oathsworn, put two +1/+1 counters on Setessan Oathsworn.");
+			super(state, "Heroic \u2014 Whenever you cast a spell that targets Setessan Oathsworn, put two +1/+1 counters on Setessan Oathsworn.");
 			this.addPattern(heroic());
 
 			this.addEffect(putCountersOnThis(2, Counter.CounterType.PLUS_ONE_PLUS_ONE, "Put two +1/+1 counters on Setessan Oathsworn."));

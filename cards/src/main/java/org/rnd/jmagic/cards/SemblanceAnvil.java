@@ -14,7 +14,7 @@ public final class SemblanceAnvil extends Card
 	{
 		public SemblanceAnvilAbility0(GameState state)
 		{
-			super(state, "When Semblance Anvil enters the battlefield, you may exile a nonland card from your hand.");
+			super(state, "Imprint \u2014 When Semblance Anvil enters the battlefield, you may exile a nonland card from your hand.");
 			this.addPattern(whenThisEntersTheBattlefield());
 			EventFactory factory = exile(You.instance(), RelativeComplement.instance(InZone.instance(HandOf.instance(You.instance())), HasType.instance(Type.LAND)), 1, "Exile a nonland card from your hand.");
 			factory.setLink(this);

@@ -26,7 +26,7 @@ public final class PutridImp extends Card
 	{
 		public PutridImpAbility1(GameState state)
 		{
-			super(state, "As long as seven or more cards are in your graveyard, Putrid Imp gets +1/+1 and can't block.");
+			super(state, "Threshold \u2014 As long as seven or more cards are in your graveyard, Putrid Imp gets +1/+1 and can't block.");
 
 			this.addEffectPart(modifyPowerAndToughness(This.instance(), +1, +1));
 

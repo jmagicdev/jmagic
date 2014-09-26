@@ -16,7 +16,7 @@ public final class SpireSerpent extends Card
 	{
 		public SpireSerpentAbility1(GameState state)
 		{
-			super(state, "As long as you control three or more artifacts, Spire Serpent gets +2/+2 and can attack as though it didn't have defender.");
+			super(state, "Metalcraft \u2014 As long as you control three or more artifacts, Spire Serpent gets +2/+2 and can attack as though it didn't have defender.");
 
 			this.addEffectPart(modifyPowerAndToughness(This.instance(), +2, +2));
 

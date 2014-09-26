@@ -16,7 +16,7 @@ public final class HedronCrab extends Card
 	{
 		public Landmill(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, target player puts the top three cards of his or her library into his or her graveyard.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, target player puts the top three cards of his or her library into his or her graveyard.");
 			this.addPattern(landfall());
 
 			Target target = this.addTarget(Players.instance(), "target player");

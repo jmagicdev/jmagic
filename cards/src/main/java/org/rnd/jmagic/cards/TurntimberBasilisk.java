@@ -16,7 +16,7 @@ public final class TurntimberBasilisk extends Card
 	{
 		public LandfallForcesBlock(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, you may have target creature block Turntimber Basilisk this turn if able.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may have target creature block Turntimber Basilisk this turn if able.");
 			this.addPattern(landfall());
 
 			Target target = this.addTarget(CreaturePermanents.instance(), "target creature");

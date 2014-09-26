@@ -15,7 +15,7 @@ public final class MoxOpal extends Card
 	{
 		public MoxOpalAbility0(GameState state)
 		{
-			super(state, "(T): Add one mana of any color to your mana pool. Activate this ability only if you control three or more artifacts.");
+			super(state, "Metalcraft \u2014 (T): Add one mana of any color to your mana pool. Activate this ability only if you control three or more artifacts.");
 			this.costsTap = true;
 
 			this.addEffect(addManaToYourManaPoolFromAbility("(WUBRG)"));

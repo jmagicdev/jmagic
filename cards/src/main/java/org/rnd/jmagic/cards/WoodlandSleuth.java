@@ -15,7 +15,7 @@ public final class WoodlandSleuth extends Card
 	{
 		public WoodlandSleuthAbility0(GameState state)
 		{
-			super(state, "When Woodland Sleuth enters the battlefield, if a creature died this turn, return a creature card at random from your graveyard to your hand.");
+			super(state, "Morbid \u2014 When Woodland Sleuth enters the battlefield, if a creature died this turn, return a creature card at random from your graveyard to your hand.");
 			this.addPattern(whenThisEntersTheBattlefield());
 
 			this.interveningIf = Morbid.instance();

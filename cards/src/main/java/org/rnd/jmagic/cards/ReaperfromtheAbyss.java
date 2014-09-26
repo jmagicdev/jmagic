@@ -15,7 +15,7 @@ public final class ReaperfromtheAbyss extends Card
 	{
 		public ReaperfromtheAbyssAbility1(GameState state)
 		{
-			super(state, "At the beginning of each end step, if a creature died this turn, destroy target non-Demon creature.");
+			super(state, "Morbid \u2014 At the beginning of each end step, if a creature died this turn, destroy target non-Demon creature.");
 			this.addPattern(atTheBeginningOfEachEndStep());
 			this.interveningIf = Morbid.instance();
 			state.ensureTracker(new Morbid.Tracker());

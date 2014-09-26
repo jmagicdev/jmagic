@@ -17,6 +17,6 @@ public final class GaeasMight extends Card
 		Target target = this.addTarget(CreaturePermanents.instance(), "target creature");
 
 		SetGenerator boost = Domain.instance(You.instance());
-		this.addEffect(ptChangeUntilEndOfTurn(targetedBy(target), boost, boost, "Target creature gets +1/+1 until end of turn for each basic land type among lands you control."));
+		this.addEffect(ptChangeUntilEndOfTurn(targetedBy(target), boost, boost, "Domain \u2014 Target creature gets +1/+1 until end of turn for each basic land type among lands you control."));
 	}
 }

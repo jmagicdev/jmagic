@@ -15,7 +15,7 @@ public final class RoilElemental extends Card
 	{
 		public LandfallSower(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, you may gain control of target creature for as long as you control Roil Elemental.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may gain control of target creature for as long as you control Roil Elemental.");
 			this.addPattern(landfall());
 
 			Target target = this.addTarget(CreaturePermanents.instance(), "target creature");

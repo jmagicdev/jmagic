@@ -17,7 +17,7 @@ public final class IndomitableArchangel extends Card
 	{
 		public IndomitableArchangelAbility1(GameState state)
 		{
-			super(state, "Artifacts you control have shroud as long as you control three or more artifacts.");
+			super(state, "Metalcraft \u2014 Artifacts you control have shroud as long as you control three or more artifacts.");
 
 			this.addEffectPart(addAbilityToObject(Intersect.instance(ArtifactPermanents.instance(), ControlledBy.instance(You.instance())), Shroud.class));
 

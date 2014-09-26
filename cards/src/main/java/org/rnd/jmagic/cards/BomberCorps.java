@@ -14,7 +14,7 @@ public final class BomberCorps extends Card
 	{
 		public BomberCorpsAbility0(GameState state)
 		{
-			super(state, "Whenever Bomber Corps and at least two other creatures attack, Bomber Corps deals 1 damage to target creature or player.");
+			super(state, "Battalion \u2014 Whenever Bomber Corps and at least two other creatures attack, Bomber Corps deals 1 damage to target creature or player.");
 
 			this.addPattern(battalion());
 

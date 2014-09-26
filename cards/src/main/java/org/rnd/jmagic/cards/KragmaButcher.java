@@ -14,7 +14,7 @@ public final class KragmaButcher extends Card
 	{
 		public KragmaButcherAbility0(GameState state)
 		{
-			super(state, "Whenever Kragma Butcher becomes untapped, it gets +2/+0 until end of turn.");
+			super(state, "Inspired \u2014 Whenever Kragma Butcher becomes untapped, it gets +2/+0 until end of turn.");
 			this.addPattern(inspired());
 			this.addEffect(ptChangeUntilEndOfTurn(ABILITY_SOURCE_OF_THIS, +2, +0, "Kragma Butcher gets +2/+0 until end of turn."));
 		}

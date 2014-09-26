@@ -23,6 +23,6 @@ public final class ForceAway extends Card
 		// you may draw a card. If you do, discard a card.
 		EventFactory discard = discardCards(You.instance(), 1, "Discard a card");
 		EventFactory drawDiscard = ifThen(youMay(drawACard()), discard, "You may draw a card. If you do, discard a card.");
-		this.addEffect(ifThen(Ferocious.instance(), drawDiscard, "If you control a creature with power 4 or greater, you may draw a card. If you do, discard a card."));
+		this.addEffect(ifThen(Ferocious.instance(), drawDiscard, "Ferocious \u2014 If you control a creature with power 4 or greater, you may draw a card. If you do, discard a card."));
 	}
 }

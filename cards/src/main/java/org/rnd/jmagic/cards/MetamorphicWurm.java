@@ -16,7 +16,7 @@ public final class MetamorphicWurm extends Card
 	{
 		public Emergence(GameState state)
 		{
-			super(state, "Metamorphic Wurm gets +4/+4 as long as seven or more cards are in your graveyard.");
+			super(state, "Threshold \u2014 Metamorphic Wurm gets +4/+4 as long as seven or more cards are in your graveyard.");
 
 			this.addEffectPart(modifyPowerAndToughness(This.instance(), +4, +4));
 

@@ -15,7 +15,7 @@ public final class EliteSkirmisher extends Card
 	{
 		public EliteSkirmisherAbility0(GameState state)
 		{
-			super(state, "Whenever you cast a spell that targets Elite Skirmisher, you may tap target creature.");
+			super(state, "Heroic \u2014 Whenever you cast a spell that targets Elite Skirmisher, you may tap target creature.");
 			this.addPattern(heroic());
 			SetGenerator target = targetedBy(this.addTarget(CreaturePermanents.instance(), "target creature"));
 			this.addEffect(youMay(tap(target, "Tap target creature")));

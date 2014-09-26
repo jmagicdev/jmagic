@@ -25,7 +25,7 @@ public final class TombHex extends Card
 		state.ensureTracker(new LandsPutOntoTheBattlefieldThisTurnCounter());
 		SetGenerator amount = IfThenElse.instance(LandfallForSpells.instance(), numberGenerator(-4), numberGenerator(-2));
 
-		String effectName = "Target creature gets -2/-2 until end of turn.\n\nIf you had a land enter the battlefield under your control this turn, that creature gets -4/-4 until end of turn instead.";
+		String effectName = "Target creature gets -2/-2 until end of turn.\n\nLandfall \u2014 If you had a land enter the battlefield under your control this turn, that creature gets -4/-4 until end of turn instead.";
 		this.addEffect(createFloatingEffect(effectName, modifyPowerAndToughness(t, amount, amount)));
 	}
 }

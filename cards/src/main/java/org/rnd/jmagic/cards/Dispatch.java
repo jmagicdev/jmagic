@@ -20,7 +20,7 @@ public final class Dispatch extends Card
 
 		// Metalcraft \u2014 If you control three or more artifacts, exile that
 		// creature.
-		EventFactory effect = new EventFactory(EventType.IF_CONDITION_THEN_ELSE, "If you control three or more artifacts, exile that creature.");
+		EventFactory effect = new EventFactory(EventType.IF_CONDITION_THEN_ELSE, "\n\nMetalcraft \u2014 If you control three or more artifacts, exile that creature.");
 		effect.parameters.put(EventType.Parameter.IF, Metalcraft.instance());
 		effect.parameters.put(EventType.Parameter.THEN, Identity.instance(exile(target, "Exile that creature.")));
 		this.addEffect(effect);

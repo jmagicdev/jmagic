@@ -14,7 +14,7 @@ public final class StoicRebuttal extends Card
 	{
 		public CheapRebuttal(GameState state)
 		{
-			super(state, "Stoic Rebuttal costs (1) less to cast if you control three or more artifacts.");
+			super(state, "Metalcraft \u2014 Stoic Rebuttal costs (1) less to cast if you control three or more artifacts.");
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.MANA_COST_REDUCTION);
 			part.parameters.put(ContinuousEffectType.Parameter.OBJECT, This.instance());

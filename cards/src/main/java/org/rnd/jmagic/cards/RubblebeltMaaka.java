@@ -16,7 +16,7 @@ public final class RubblebeltMaaka extends Card
 	{
 		public RubblebeltMaakaAbility0(GameState state)
 		{
-			super(state, "(R), Discard Rubblebelt Maaka: Target attacking creature gets +3/+3 until end of turn.");
+			super(state, "Bloodrush \u2014 (R), Discard Rubblebelt Maaka: Target attacking creature gets +3/+3 until end of turn.");
 			this.setManaCost(new ManaPool("R"));
 
 			EventFactory discardFactory = new EventFactory(EventType.DISCARD_CARDS, "Discard Rubblebelt Maaka");
@@ -36,8 +36,8 @@ public final class RubblebeltMaaka extends Card
 		this.setPower(3);
 		this.setToughness(3);
 
-		// Bloodrush — {R}, Discard Rubblebelt Maaka: Target attacking creature
-		// gets +3/+3 until end of turn.
+		// Bloodrush -- {R}, Discard Rubblebelt Maaka: Target attacking
+		// creature gets +3/+3 until end of turn.
 		this.addAbility(new RubblebeltMaakaAbility0(state));
 	}
 }

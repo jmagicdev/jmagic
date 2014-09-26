@@ -21,6 +21,6 @@ public final class Groundswell extends Card
 		// that creature gets +4/+4 until end of turn instead.
 		state.ensureTracker(new LandsPutOntoTheBattlefieldThisTurnCounter());
 		SetGenerator amount = IfThenElse.instance(LandfallForSpells.instance(), numberGenerator(4), numberGenerator(2));
-		this.addEffect(ptChangeUntilEndOfTurn(target, amount, amount, "Target creature gets +2/+2 until end of turn.\n\nIf you had a land enter the battlefield under your control this turn, that creature gets +4/+4 until end of turn instead."));
+		this.addEffect(ptChangeUntilEndOfTurn(target, amount, amount, "Target creature gets +2/+2 until end of turn.\n\nLandfall \u2014 If you had a land enter the battlefield under your control this turn, that creature gets +4/+4 until end of turn instead."));
 	}
 }

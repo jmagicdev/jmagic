@@ -15,7 +15,7 @@ public final class CausticCrawler extends Card
 	{
 		public CausticCrawlerAbility0(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, you may have target creature get -1/-1 until end of turn.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may have target creature get -1/-1 until end of turn.");
 			this.addPattern(landfall());
 
 			SetGenerator target = targetedBy(this.addTarget(CreaturePermanents.instance(), "target creature"));

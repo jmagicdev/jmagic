@@ -20,7 +20,7 @@ public final class TragicSlip extends Card
 		// a creature died this turn.
 		SetGenerator amount = IfThenElse.instance(Morbid.instance(), numberGenerator(-13), numberGenerator(-1));
 		SetGenerator target = targetedBy(this.addTarget(CreaturePermanents.instance(), "target creature"));
-		this.addEffect(ptChangeUntilEndOfTurn(target, amount, amount, "Target creature gets -1/-1 until end of turn.\n\nThat creature gets -13/-13 until end of turn instead if a creature died this turn."));
+		this.addEffect(ptChangeUntilEndOfTurn(target, amount, amount, "Target creature gets -1/-1 until end of turn.\n\nMorbid \u2014 That creature gets -13/-13 until end of turn instead if a creature died this turn."));
 
 		state.ensureTracker(new Morbid.Tracker());
 	}

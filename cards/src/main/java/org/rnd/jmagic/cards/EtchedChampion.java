@@ -23,7 +23,7 @@ public final class EtchedChampion extends Card
 
 		public EtchedChampionAbility0(GameState state)
 		{
-			super(state, "Etched Champion has protection from all colors as long as you control three or more artifacts.");
+			super(state, "Metalcraft \u2014 Etched Champion has protection from all colors as long as you control three or more artifacts.");
 
 			this.addEffectPart(addAbilityToObject(This.instance(), ProColors.class));
 

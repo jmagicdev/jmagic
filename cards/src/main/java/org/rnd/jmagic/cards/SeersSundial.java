@@ -14,7 +14,7 @@ public final class SeersSundial extends Card
 	{
 		public SeersSundialAbility0(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, you may pay (2). If you do, draw a card.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may pay (2). If you do, draw a card.");
 			this.addPattern(landfall());
 
 			EventFactory mayPay2 = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay (2)");

@@ -14,7 +14,7 @@ public final class AerieWorshippers extends Card
 	{
 		public AerieWorshippersAbility0(GameState state)
 		{
-			super(state, "Whenever Aerie Worshippers becomes untapped, you may pay (2)(U). If you do, put a 2/2 blue Bird enchantment creature token with flying onto the battlefield.");
+			super(state, "Inspired \u2014 Whenever Aerie Worshippers becomes untapped, you may pay (2)(U). If you do, put a 2/2 blue Bird enchantment creature token with flying onto the battlefield.");
 			this.addPattern(inspired());
 
 			CreateTokensFactory bird = new CreateTokensFactory(1, 2, 2, "Put a 2/2 blue Bird enchantment creature token with flying onto the battlefield.");

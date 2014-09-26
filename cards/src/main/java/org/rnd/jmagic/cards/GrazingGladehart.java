@@ -16,7 +16,7 @@ public final class GrazingGladehart extends Card
 	{
 		public LandLife(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, you may gain 2 life.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may gain 2 life.");
 			this.addPattern(landfall());
 			this.addEffect(youMay(gainLife(You.instance(), 2, "Gain 2 life"), "You may gain 2 life."));
 		}

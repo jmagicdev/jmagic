@@ -14,7 +14,7 @@ public final class OrdruunVeteran extends Card
 	{
 		public OrdruunVeteranAbility0(GameState state)
 		{
-			super(state, "Whenever Ordruun Veteran and at least two other creatures attack, Ordruun Veteran gains double strike until end of turn.");
+			super(state, "Battalion \u2014 Whenever Ordruun Veteran and at least two other creatures attack, Ordruun Veteran gains double strike until end of turn.");
 			this.addPattern(battalion());
 			this.addEffect(addAbilityUntilEndOfTurn(ABILITY_SOURCE_OF_THIS, org.rnd.jmagic.abilities.keywords.DoubleStrike.class, "Ordruun Veteran gains double strike until end of turn."));
 		}

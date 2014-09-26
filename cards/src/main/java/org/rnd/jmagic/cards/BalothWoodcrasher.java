@@ -15,7 +15,7 @@ public final class BalothWoodcrasher extends Card
 	{
 		public AlwaysCampWithAtLeastOnePersonWhoRunsSlowerThanYou(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, Baloth Woodcrasher gets +4/+4 and gains trample until end of turn.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, Baloth Woodcrasher gets +4/+4 and gains trample until end of turn.");
 			this.addPattern(landfall());
 			this.addEffect(ptChangeAndAbilityUntilEndOfTurn(ABILITY_SOURCE_OF_THIS, +4, +4, "Baloth Woodcrasher gets +4/+4 and gains trample until end of turn.", org.rnd.jmagic.abilities.keywords.Trample.class));
 		}

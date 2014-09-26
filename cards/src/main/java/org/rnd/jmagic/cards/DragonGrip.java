@@ -16,7 +16,7 @@ public final class DragonGrip extends Card
 	{
 		public DragonGripAbility0(GameState state)
 		{
-			super(state, "If you control a creature with power 4 or greater, you may cast Dragon Grip as though it had flash.");
+			super(state, "Ferocious \u2014 If you control a creature with power 4 or greater, you may cast Dragon Grip as though it had flash.");
 
 			this.canApply = Ferocious.instance();
 

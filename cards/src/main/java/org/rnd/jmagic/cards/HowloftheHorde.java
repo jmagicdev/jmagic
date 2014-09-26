@@ -132,7 +132,7 @@ public final class HowloftheHorde extends Card
 
 		this.addEffect(copyLater);
 		state.ensureTracker(new org.rnd.jmagic.engine.trackers.AttackTracker());
-		this.addEffect(ifThen(Raid.instance(), copyLater, "\n\nIf you attacked with a creature this turn, when you cast your next instant or sorcery spell this turn, copy that spell an additional time. You may choose new targets for the copy."));
+		this.addEffect(ifThen(Raid.instance(), copyLater, "\n\nRaid \u2014 If you attacked with a creature this turn, when you cast your next instant or sorcery spell this turn, copy that spell an additional time. You may choose new targets for the copy."));
 
 		// If you attacked with a creature this turn, when you cast your next
 		// instant or sorcery spell this turn, copy that spell an additional

@@ -22,6 +22,6 @@ public final class MirranMettle extends Card
 		//
 		// That creature gets +4/+4 until end of turn instead if you control
 		// three or more artifacts.
-		this.addEffect(ptChangeUntilEndOfTurn(target, number, number, "Target creature gets +2/+2 until end of turn.\n\nThat creature gets +4/+4 until end of turn instead if you control three or more artifacts."));
+		this.addEffect(ptChangeUntilEndOfTurn(target, number, number, "Target creature gets +2/+2 until end of turn.\n\nMetalcraft \u2014 That creature gets +4/+4 until end of turn instead if you control three or more artifacts."));
 	}
 }

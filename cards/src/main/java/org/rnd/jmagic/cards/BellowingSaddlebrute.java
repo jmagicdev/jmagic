@@ -16,7 +16,7 @@ public final class BellowingSaddlebrute extends Card
 	{
 		public BellowingSaddlebruteAbility0(GameState state)
 		{
-			super(state, "When Bellowing Saddlebrute enters the battlefield, you lose 4 life unless you attacked with a creature this turn.");
+			super(state, "Raid \u2014 When Bellowing Saddlebrute enters the battlefield, you lose 4 life unless you attacked with a creature this turn.");
 			this.addPattern(whenThisEntersTheBattlefield());
 
 			state.ensureTracker(new org.rnd.jmagic.engine.trackers.AttackTracker());

@@ -21,6 +21,6 @@ public final class GalvanicBlast extends Card
 
 		SetGenerator target = targetedBy(this.addTarget(CREATURES_AND_PLAYERS, "target creature or player"));
 		SetGenerator number = IfThenElse.instance(Metalcraft.instance(), numberGenerator(4), numberGenerator(2));
-		this.addEffect(spellDealDamage(number, target, "Galvanic Blast deals 2 damage to target creature or player.\n\nGalvanic Blast deals 4 damage to that creature or player instead if you control three or more artifacts."));
+		this.addEffect(spellDealDamage(number, target, "Galvanic Blast deals 2 damage to target creature or player.\n\nMetalcraft \u2014 Galvanic Blast deals 4 damage to that creature or player instead if you control three or more artifacts."));
 	}
 }

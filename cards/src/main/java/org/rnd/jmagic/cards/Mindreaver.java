@@ -15,7 +15,7 @@ public final class Mindreaver extends Card
 	{
 		public MindreaverAbility0(GameState state)
 		{
-			super(state, "Whenever you cast a spell that targets Mindreaver, exile the top three cards of target player's library.");
+			super(state, "Heroic \u2014 Whenever you cast a spell that targets Mindreaver, exile the top three cards of target player's library.");
 			this.addPattern(heroic());
 
 			SetGenerator target = targetedBy(this.addTarget(Players.instance(), "target player"));

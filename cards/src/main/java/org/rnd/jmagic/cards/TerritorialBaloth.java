@@ -15,7 +15,7 @@ public final class TerritorialBaloth extends Card
 	{
 		public TerritoryPump(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, Territorial Baloth gets +2/+2 until end of turn.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, Territorial Baloth gets +2/+2 until end of turn.");
 
 			this.addPattern(landfall());
 

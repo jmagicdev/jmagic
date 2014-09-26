@@ -16,7 +16,7 @@ public final class AkroanConscriptor extends Card
 	{
 		public AkroanConscriptorAbility0(GameState state)
 		{
-			super(state, "Whenever you cast a spell that targets Akroan Conscriptor, gain control of another target creature until end of turn. Untap that creature. It gains haste until end of turn.");
+			super(state, "Heroic \u2014 Whenever you cast a spell that targets Akroan Conscriptor, gain control of another target creature until end of turn. Untap that creature. It gains haste until end of turn.");
 			this.addPattern(heroic());
 
 			SetGenerator anotherCreature = RelativeComplement.instance(CreaturePermanents.instance(), ABILITY_SOURCE_OF_THIS);

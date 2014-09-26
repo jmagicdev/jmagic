@@ -12,7 +12,7 @@ public final class Strive extends StaticAbility
 
 	public Strive(GameState state, String objectName, String cost)
 	{
-		super(state, objectName + " costs " + cost + " more to cast for each target beyond the first.");
+		super(state, "Strive \u2014 " + objectName + " costs " + cost + " more to cast for each target beyond the first.");
 
 		this.objectName = objectName;
 		this.cost = cost;

@@ -14,7 +14,7 @@ public final class VanguardofBrimaz extends Card
 	{
 		public VanguardofBrimazAbility1(GameState state)
 		{
-			super(state, "Whenever you cast a spell that targets Vanguard of Brimaz, put a 1/1 white Cat Soldier creature token with vigilance onto the battlefield.");
+			super(state, "Heroic \u2014 Whenever you cast a spell that targets Vanguard of Brimaz, put a 1/1 white Cat Soldier creature token with vigilance onto the battlefield.");
 			this.addPattern(heroic());
 
 			CreateTokensFactory cat = new CreateTokensFactory(1, 1, 1, "Put a 1/1 white Cat Soldier creature token with vigilance onto the battlefield.");

@@ -25,6 +25,6 @@ public final class CratersClaws extends Card
 
 		SetGenerator xPlus2 = Sum.instance(Union.instance(numberGenerator(2), ValueOfX.instance(This.instance())));
 		SetGenerator amount = IfThenElse.instance(Ferocious.instance(), xPlus2, ValueOfX.instance(This.instance()));
-		this.addEffect(spellDealDamage(amount, target, "Crater's Claws deals X damage to target creature or player.\n\nCrater's Claws deals X plus 2 damage to that creature or player instead if you control a creature with power 4 or greater."));
+		this.addEffect(spellDealDamage(amount, target, "Crater's Claws deals X damage to target creature or player.\n\nFerocious \u2014 Crater's Claws deals X plus 2 damage to that creature or player instead if you control a creature with power 4 or greater."));
 	}
 }

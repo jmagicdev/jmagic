@@ -16,7 +16,7 @@ public final class HuntingGrounds extends Card
 	{
 		public DramaticThreshold(GameState state)
 		{
-			super(state, "As long as seven or more cards are in your graveyard, Hunting Grounds has \"Whenever an opponent casts a spell, you may put a creature card from your hand onto the battlefield.\"");
+			super(state, "Threshold \u2014 As long as seven or more cards are in your graveyard, Hunting Grounds has \"Whenever an opponent casts a spell, you may put a creature card from your hand onto the battlefield.\"");
 
 			this.addEffectPart(addAbilityToObject(This.instance(), ASeriesOfUnfortunateEvents.class));
 

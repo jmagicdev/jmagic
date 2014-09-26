@@ -14,7 +14,7 @@ public final class CalciteSnapper extends Card
 	{
 		public Convert(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, you may switch Calcite Snapper's power and toughness until end of turn.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may switch Calcite Snapper's power and toughness until end of turn.");
 			this.addPattern(landfall());
 
 			ContinuousEffect.Part switchPt = new ContinuousEffect.Part(ContinuousEffectType.SWITCH_POWER_AND_TOUGHNESS);

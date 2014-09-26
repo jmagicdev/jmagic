@@ -15,7 +15,7 @@ public final class FiremaneAvenger extends Card
 	{
 		public FiremaneAvengerAbility1(GameState state)
 		{
-			super(state, "Whenever Firemane Avenger and at least two other creatures attack, Firemane Avenger deals 3 damage to target creature or player and you gain 3 life.");
+			super(state, "Battalion \u2014 Whenever Firemane Avenger and at least two other creatures attack, Firemane Avenger deals 3 damage to target creature or player and you gain 3 life.");
 			this.addPattern(battalion());
 
 			Target target = this.addTarget(CREATURES_AND_PLAYERS, "target creature or player");

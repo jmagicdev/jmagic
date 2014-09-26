@@ -16,7 +16,7 @@ public final class SilverSeraph extends Card
 	{
 		public ThresholdPenance(GameState state)
 		{
-			super(state, "Other creatures you control get +2/+2 as long as seven or more cards are in your graveyard.");
+			super(state, "Threshold \u2014 Other creatures you control get +2/+2 as long as seven or more cards are in your graveyard.");
 
 			this.addEffectPart(modifyPowerAndToughness(RelativeComplement.instance(CREATURES_YOU_CONTROL, This.instance()), +2, +2));
 

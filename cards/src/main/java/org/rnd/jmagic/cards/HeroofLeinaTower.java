@@ -16,7 +16,7 @@ public final class HeroofLeinaTower extends Card
 	{
 		public HeroofLeinaTowerAbility0(GameState state)
 		{
-			super(state, "Whenever you cast a spell that targets Hero of Leina Tower, you may pay (X). If you do, put X +1/+1 counters on Hero of Leina Tower.");
+			super(state, "Heroic \u2014 Whenever you cast a spell that targets Hero of Leina Tower, you may pay (X). If you do, put X +1/+1 counters on Hero of Leina Tower.");
 			this.addPattern(heroic());
 
 			EventFactory mayPayX = new EventFactory(EventType.PLAYER_MAY_PAY_X, "You may pay (X)(R)");

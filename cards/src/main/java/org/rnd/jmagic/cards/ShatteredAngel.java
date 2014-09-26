@@ -15,7 +15,7 @@ public final class ShatteredAngel extends Card
 	{
 		public ShatteredAngelAbility1(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under an opponent's control, you may gain 3 life.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under an opponent's control, you may gain 3 life.");
 			this.addPattern(landfall());
 
 			this.addEffect(youMay(gainLife(You.instance(), 3, "Gain 3 life."), "You may gain 3 life."));

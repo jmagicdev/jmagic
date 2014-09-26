@@ -16,7 +16,7 @@ public final class PainSeer extends Card
 	{
 		public PainSeerAbility0(GameState state)
 		{
-			super(state, "Whenever Pain Seer becomes untapped, reveal the top card of your library and put that card into your hand. You lose life equal to that card's converted mana cost.");
+			super(state, "Inspired \u2014 Whenever Pain Seer becomes untapped, reveal the top card of your library and put that card into your hand. You lose life equal to that card's converted mana cost.");
 			this.addPattern(inspired());
 
 			SetGenerator library = LibraryOf.instance(You.instance());

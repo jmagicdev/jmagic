@@ -16,7 +16,7 @@ public final class ServantofTymaret extends Card
 	{
 		public ServantofTymaretAbility0(GameState state)
 		{
-			super(state, "Whenever Servant of Tymaret becomes untapped, each opponent loses 1 life. You gain life equal to the life lost this way.");
+			super(state, "Inspired \u2014 Whenever Servant of Tymaret becomes untapped, each opponent loses 1 life. You gain life equal to the life lost this way.");
 			this.addPattern(inspired());
 
 			EventFactory loseLife = loseLife(OpponentsOf.instance(You.instance()), 1, "Each opponent loses 1 life.");

@@ -15,7 +15,7 @@ public final class ChromeMox extends Card
 	{
 		public ChromeMoxImprint(GameState state)
 		{
-			super(state, "When Chrome Mox enters the battlefield, you may exile a nonartifact, nonland card from your hand.");
+			super(state, "Imprint \u2014 When Chrome Mox enters the battlefield, you may exile a nonartifact, nonland card from your hand.");
 			this.addPattern(whenThisEntersTheBattlefield());
 
 			EventFactory exile = new EventFactory(EventType.EXILE_CHOICE, "Exile a nonartifact, nonland card from your hand.");

@@ -27,6 +27,6 @@ public final class FaithsShield extends Card
 		SetGenerator color = EffectResult.instance(chooseColor);
 		SetGenerator affected = IfThenElse.instance(FatefulHour.instance(), Union.instance(You.instance(), permanentsYouControl), target);
 
-		this.addEffect(addProtectionUntilEndOfTurn(affected, color, "Target permanent you control gains protection from the color of your choice until end of turn. If you have 5 or less life, instead you and each permanent you control gain protection from the color of your choice until end of turn."));
+		this.addEffect(addProtectionUntilEndOfTurn(affected, color, "Target permanent you control gains protection from the color of your choice until end of turn.\n\nFateful hour \u2014 If you have 5 or less life, instead you and each permanent you control gain protection from the color of your choice until end of turn."));
 	}
 }

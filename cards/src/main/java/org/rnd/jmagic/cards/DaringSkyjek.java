@@ -14,7 +14,7 @@ public final class DaringSkyjek extends Card
 	{
 		public DaringSkyjekAbility0(GameState state)
 		{
-			super(state, "Whenever Daring Skyjek and at least two other creatures attack, Daring Skyjek gains flying until end of turn.");
+			super(state, "Battalion \u2014 Whenever Daring Skyjek and at least two other creatures attack, Daring Skyjek gains flying until end of turn.");
 			this.addPattern(battalion());
 			this.addEffect(addAbilityUntilEndOfTurn(ABILITY_SOURCE_OF_THIS, org.rnd.jmagic.abilities.keywords.Flying.class, "Daring Skyjek gains flying until end of turn."));
 		}

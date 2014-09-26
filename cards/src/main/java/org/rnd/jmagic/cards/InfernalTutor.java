@@ -40,7 +40,7 @@ public final class InfernalTutor extends Card
 		searchForAny.parameters.put(EventType.Parameter.NUMBER, numberGenerator(1));
 		searchForAny.parameters.put(EventType.Parameter.TO, yourHand);
 
-		EventFactory effect = new EventFactory(EventType.IF_CONDITION_THEN_ELSE, "Reveal a card from your hand. Search your library for a card with the same name as that card, reveal it, put it into your hand, then shuffle your library.\n\nIf you have no cards in hand, instead search your library for a card, put it into your hand, then shuffle your library.");
+		EventFactory effect = new EventFactory(EventType.IF_CONDITION_THEN_ELSE, "Reveal a card from your hand. Search your library for a card with the same name as that card, reveal it, put it into your hand, then shuffle your library.\n\nHellbent \u2014 If you have no cards in hand, instead search your library for a card, put it into your hand, then shuffle your library.");
 		effect.parameters.put(EventType.Parameter.IF, Hellbent.instance());
 		effect.parameters.put(EventType.Parameter.THEN, Identity.instance(searchForAny));
 		effect.parameters.put(EventType.Parameter.ELSE, Identity.instance(sequence(reveal, search)));

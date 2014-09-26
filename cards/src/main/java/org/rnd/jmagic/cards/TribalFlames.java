@@ -17,6 +17,6 @@ public final class TribalFlames extends Card
 
 		Target target = this.addTarget(CREATURES_AND_PLAYERS, "target creature or player");
 
-		this.addEffect(spellDealDamage(Domain.instance(You.instance()), targetedBy(target), "Tribal Flames deals X damage to target creature or player, where X is the number of basic land types among lands you control."));
+		this.addEffect(spellDealDamage(Domain.instance(You.instance()), targetedBy(target), "Domain \u2014 Tribal Flames deals X damage to target creature or player, where X is the number of basic land types among lands you control."));
 	}
 }

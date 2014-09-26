@@ -14,7 +14,7 @@ public final class SurrakarMarauder extends Card
 	{
 		public LandfallIntimidate(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, Surrakar Marauder gains intimidate until end of turn.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, Surrakar Marauder gains intimidate until end of turn.");
 
 			this.addPattern(landfall());
 			this.addEffect(addAbilityUntilEndOfTurn(ABILITY_SOURCE_OF_THIS, org.rnd.jmagic.abilities.keywords.Intimidate.class, "Surrakar Marauder gains intimidate until end of turn."));

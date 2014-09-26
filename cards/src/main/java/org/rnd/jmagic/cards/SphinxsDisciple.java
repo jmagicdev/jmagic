@@ -14,7 +14,7 @@ public final class SphinxsDisciple extends Card
 	{
 		public SphinxsDiscipleAbility1(GameState state)
 		{
-			super(state, "Whenever Sphinx's Disciple becomes untapped, draw a card.");
+			super(state, "Inspired \u2014 Whenever Sphinx's Disciple becomes untapped, draw a card.");
 			this.addPattern(inspired());
 			this.addEffect(drawACard());
 		}

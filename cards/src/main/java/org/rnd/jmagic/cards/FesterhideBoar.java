@@ -16,7 +16,7 @@ public final class FesterhideBoar extends Card
 	{
 		public MorbidCounters(GameState state)
 		{
-			super(state, "Festerhide Boar enters the battlefield with two +1/+1 counters on it if a creature died this turn.");
+			super(state, "Morbid \u2014 Festerhide Boar enters the battlefield with two +1/+1 counters on it if a creature died this turn.");
 
 			ZoneChangeReplacementEffect replacement = new ZoneChangeReplacementEffect(this.game, this.getName());
 			replacement.addPattern(asThisEntersTheBattlefield());

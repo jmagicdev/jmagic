@@ -22,7 +22,7 @@ public final class BreakofDay extends Card
 		// "destroy" don't destroy them.)
 		EventFactory grant = createFloatingEffect("Those creatures gain indestructible until end of turn.", addAbilityToObject(CREATURES_YOU_CONTROL, org.rnd.jmagic.abilities.keywords.Indestructible.class));
 
-		EventFactory ifThen = new EventFactory(EventType.IF_CONDITION_THEN_ELSE, "If you have 5 or less life, those creatures gain indestructible until end of turn.");
+		EventFactory ifThen = new EventFactory(EventType.IF_CONDITION_THEN_ELSE, "Fateful hour \u2014 If you have 5 or less life, those creatures gain indestructible until end of turn.");
 		ifThen.parameters.put(EventType.Parameter.IF, FatefulHour.instance());
 		ifThen.parameters.put(EventType.Parameter.THEN, Identity.instance(grant));
 		this.addEffect(ifThen);

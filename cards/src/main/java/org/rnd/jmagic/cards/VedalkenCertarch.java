@@ -15,7 +15,7 @@ public final class VedalkenCertarch extends Card
 	{
 		public VedalkenCertarchAbility0(GameState state)
 		{
-			super(state, "(T): Tap target artifact, creature, or land. Activate this ability only if you control three or more artifacts.");
+			super(state, "Metalcraft \u2014 (T): Tap target artifact, creature, or land. Activate this ability only if you control three or more artifacts.");
 			this.costsTap = true;
 			SetGenerator target = targetedBy(this.addTarget(Union.instance(ArtifactPermanents.instance(), CreaturePermanents.instance(), LandPermanents.instance()), "target artifact, creature, or land"));
 			this.addEffect(tap(target, "Tap target artifact, creature, or land."));

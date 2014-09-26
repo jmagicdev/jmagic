@@ -14,7 +14,7 @@ public final class BorosElite extends Card
 	{
 		public BorosEliteAbility0(GameState state)
 		{
-			super(state, "Whenever Boros Elite and at least two other creatures attack, Boros Elite gets +2/+2 until end of turn.");
+			super(state, "Battalion \u2014 Whenever Boros Elite and at least two other creatures attack, Boros Elite gets +2/+2 until end of turn.");
 			this.addPattern(battalion());
 			this.addEffect(ptChangeAndAbilityUntilEndOfTurn(ABILITY_SOURCE_OF_THIS, +2, +2, "Boros Elite gets +2/+2 until end of turn."));
 		}

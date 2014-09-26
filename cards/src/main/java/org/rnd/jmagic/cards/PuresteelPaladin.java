@@ -27,7 +27,7 @@ public final class PuresteelPaladin extends Card
 	{
 		public PuresteelPaladinAbility1(GameState state)
 		{
-			super(state, "Equipment you control have equip (0) as long as you control three or more artifacts.");
+			super(state, "Metalcraft \u2014 Equipment you control have equip (0) as long as you control three or more artifacts.");
 
 			SetGenerator equipment = HasSubType.instance(SubType.EQUIPMENT);
 			SetGenerator youControl = ControlledBy.instance(You.instance());

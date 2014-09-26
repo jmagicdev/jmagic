@@ -17,7 +17,7 @@ public final class ObNixilistheFallen extends Card
 	{
 		public LandfallIsRidiculous(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, you may have target player lose 3 life. If you do, put three +1/+1 counters on Ob Nixilis, the Fallen.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may have target player lose 3 life. If you do, put three +1/+1 counters on Ob Nixilis, the Fallen.");
 			this.addPattern(landfall());
 
 			Target target = this.addTarget(Players.instance(), "target player");

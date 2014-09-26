@@ -16,7 +16,7 @@ public final class SomberwaldSpider extends Card
 	{
 		public SomberwaldSpiderAbility1(GameState state)
 		{
-			super(state, "Somberwald Spider enters the battlefield with two +1/+1 counters on it if a creature died this turn.");
+			super(state, "Morbid \u2014 Somberwald Spider enters the battlefield with two +1/+1 counters on it if a creature died this turn.");
 
 			ZoneChangeReplacementEffect replacement = new ZoneChangeReplacementEffect(this.game, this.getName());
 			replacement.addPattern(asThisEntersTheBattlefield());

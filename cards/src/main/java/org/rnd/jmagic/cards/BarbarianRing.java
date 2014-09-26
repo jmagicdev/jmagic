@@ -13,7 +13,7 @@ public final class BarbarianRing extends Card
 	{
 		public TapForShock(GameState state)
 		{
-			super(state, "(R), (T), Sacrifice Barbarian Ring: Barbarian Ring deals 2 damage to target creature or player. Activate this ability only if seven or more cards are in your graveyard.");
+			super(state, "Threshold \u2014 (R), (T), Sacrifice Barbarian Ring: Barbarian Ring deals 2 damage to target creature or player. Activate this ability only if seven or more cards are in your graveyard.");
 			this.setManaCost(new ManaPool("R"));
 			this.costsTap = true;
 			this.addCost(sacrificeThis("Barbarian Ring"));

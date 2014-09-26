@@ -85,7 +85,7 @@ public final class WorldlyCounsel extends Card
 		// number of basic land types among lands you control. Put one of those
 		// cards into your hand and the rest on the bottom of your library in
 		// any order.
-		EventFactory factory = new EventFactory(WORLDLY_COUNSEL, "Look at the top X cards of your library, where X is the number of basic land types among lands you control. Put one of those cards into your hand and the rest on the bottom of your library in any order.");
+		EventFactory factory = new EventFactory(WORLDLY_COUNSEL, "Domain \u2014 Look at the top X cards of your library, where X is the number of basic land types among lands you control. Put one of those cards into your hand and the rest on the bottom of your library in any order.");
 		factory.parameters.put(EventType.Parameter.CAUSE, This.instance());
 		factory.parameters.put(EventType.Parameter.PLAYER, You.instance());
 		factory.parameters.put(EventType.Parameter.CARD, TopCards.instance(Domain.instance(You.instance()), LibraryOf.instance(You.instance())));

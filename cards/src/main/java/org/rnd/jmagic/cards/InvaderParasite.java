@@ -16,7 +16,7 @@ public final class InvaderParasite extends Card
 	{
 		public InvaderParasiteAbility0(GameState state)
 		{
-			super(state, "When Invader Parasite enters the battlefield, exile target land.");
+			super(state, "Imprint \u2014 When Invader Parasite enters the battlefield, exile target land.");
 			this.addPattern(whenThisEntersTheBattlefield());
 			SetGenerator target = targetedBy(this.addTarget(LandPermanents.instance(), "target land"));
 			EventFactory effect = exile(target, "Exile target land.");

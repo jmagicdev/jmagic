@@ -16,7 +16,7 @@ public final class HeiroftheWilds extends Card
 	{
 		public HeiroftheWildsAbility1(GameState state)
 		{
-			super(state, "Whenever Heir of the Wilds attacks, if you control a creature with power 4 or greater, Heir of the Wilds gets +1/+1 until end of turn.");
+			super(state, "Ferocious \u2014 Whenever Heir of the Wilds attacks, if you control a creature with power 4 or greater, Heir of the Wilds gets +1/+1 until end of turn.");
 			this.addPattern(whenThisAttacks());
 			this.interveningIf = Ferocious.instance();
 

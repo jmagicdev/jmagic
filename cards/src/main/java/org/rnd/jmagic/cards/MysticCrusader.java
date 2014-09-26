@@ -16,7 +16,7 @@ public final class MysticCrusader extends Card
 	{
 		public KingRichard(GameState state)
 		{
-			super(state, "As long as seven or more cards are in your graveyard, Mystic Crusader gets +1/+1 and has flying.");
+			super(state, "Threshold \u2014 As long as seven or more cards are in your graveyard, Mystic Crusader gets +1/+1 and has flying.");
 
 			this.addEffectPart(modifyPowerAndToughness(This.instance(), +1, +1));
 

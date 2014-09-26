@@ -15,7 +15,7 @@ public final class UlvenwaldBear extends Card
 	{
 		public UlvenwaldBearAbility0(GameState state)
 		{
-			super(state, "When Ulvenwald Bear enters the battlefield, if a creature died this turn, put two +1/+1 counters on target creature.");
+			super(state, "Morbid \u2014 When Ulvenwald Bear enters the battlefield, if a creature died this turn, put two +1/+1 counters on target creature.");
 			this.addPattern(whenThisEntersTheBattlefield());
 			this.interveningIf = Morbid.instance();
 

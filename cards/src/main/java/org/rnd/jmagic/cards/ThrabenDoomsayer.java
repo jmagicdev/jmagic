@@ -29,7 +29,7 @@ public final class ThrabenDoomsayer extends Card
 	{
 		public ThrabenDoomsayerAbility1(GameState state)
 		{
-			super(state, "As long as you have 5 or less life, other creatures you control get +2/+2.");
+			super(state, "Fateful hour \u2014 As long as you have 5 or less life, other creatures you control get +2/+2.");
 
 			this.addEffectPart(modifyPowerAndToughness(RelativeComplement.instance(CREATURES_YOU_CONTROL, This.instance()), +2, +2));
 

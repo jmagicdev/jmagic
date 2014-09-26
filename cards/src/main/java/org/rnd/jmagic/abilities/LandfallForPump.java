@@ -13,7 +13,7 @@ public final class LandfallForPump extends EventTriggeredAbility
 
 	public LandfallForPump(GameState state, String cardName, int power, int toughness)
 	{
-		super(state, "Whenever a land enters the battlefield under your control, " + cardName + " gets " + ptChangeText(power, toughness) + " until end of turn.");
+		super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, " + cardName + " gets " + ptChangeText(power, toughness) + " until end of turn.");
 		this.cardName = cardName;
 		this.powerChange = power;
 		this.toughnessChange = toughness;

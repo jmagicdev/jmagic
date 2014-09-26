@@ -14,7 +14,7 @@ public final class ChorusoftheTides extends Card
 	{
 		public ChorusoftheTidesAbility1(GameState state)
 		{
-			super(state, "Whenever you cast a spell that targets Chorus of the Tides, scry 1.");
+			super(state, "Heroic \u2014 Whenever you cast a spell that targets Chorus of the Tides, scry 1.");
 			this.addPattern(heroic());
 			this.addEffect(scry(1, "Scry 1."));
 		}

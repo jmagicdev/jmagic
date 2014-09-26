@@ -15,7 +15,7 @@ public final class ChromeSteed extends Card
 	{
 		public ChromeSteedAbility0(GameState state)
 		{
-			super(state, "Chrome Steed gets +2/+2 as long as you control three or more artifacts.");
+			super(state, "Metalcraft \u2014 Chrome Steed gets +2/+2 as long as you control three or more artifacts.");
 
 			this.addEffectPart(modifyPowerAndToughness(This.instance(), +2, +2));
 

@@ -31,7 +31,7 @@ public final class AvengerofZendikar extends Card
 	{
 		public PlantsBigger(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, you may put a +1/+1 counter on each Plant creature you control.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may put a +1/+1 counter on each Plant creature you control.");
 			this.addPattern(landfall());
 			EventFactory counters = putCounters(1, Counter.CounterType.PLUS_ONE_PLUS_ONE, Intersect.instance(HasSubType.instance(SubType.PLANT), Intersect.instance(CreaturePermanents.instance(), ControlledBy.instance(You.instance()))), "Put a +1/+1 counter on each Plant creature you control.");
 			this.addEffect(youMay(counters, "You may put a +1/+1 counter on each Plant creature you control."));

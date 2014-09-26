@@ -15,7 +15,7 @@ public final class GravetillerWurm extends Card
 	{
 		public GravetillerWurmAbility1(GameState state)
 		{
-			super(state, "Gravetiller Wurm enters the battlefield with four +1/+1 counters on it if a creature died this turn.");
+			super(state, "Morbid \u2014 Gravetiller Wurm enters the battlefield with four +1/+1 counters on it if a creature died this turn.");
 
 			ZoneChangeReplacementEffect replacement = new ZoneChangeReplacementEffect(this.game, this.getName());
 			replacement.addPattern(asThisEntersTheBattlefield());

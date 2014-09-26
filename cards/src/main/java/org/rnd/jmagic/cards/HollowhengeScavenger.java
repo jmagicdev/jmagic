@@ -15,7 +15,7 @@ public final class HollowhengeScavenger extends Card
 	{
 		public HollowhengeScavengerAbility0(GameState state)
 		{
-			super(state, "When Hollowhenge Scavenger enters the battlefield, if a creature died this turn, you gain 5 life.");
+			super(state, "Morbid \u2014 When Hollowhenge Scavenger enters the battlefield, if a creature died this turn, you gain 5 life.");
 			this.addPattern(whenThisEntersTheBattlefield());
 			this.interveningIf = Morbid.instance();
 

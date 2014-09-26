@@ -15,7 +15,7 @@ public final class FarWanderings extends Card
 	{
 		super(state);
 
-		EventFactory factory = new EventFactory(EventType.SEARCH_LIBRARY_AND_PUT_INTO, "Search your library for a basic land card and put that card onto the battlefield tapped. Then shuffle your library.\n\nIf seven or more cards are in your graveyard, instead search your library for three basic land cards and put them onto the battlefield tapped. Then shuffle your library.");
+		EventFactory factory = new EventFactory(EventType.SEARCH_LIBRARY_AND_PUT_INTO, "Search your library for a basic land card and put that card onto the battlefield tapped. Then shuffle your library.\n\nThreshold \u2014 If seven or more cards are in your graveyard, instead search your library for three basic land cards and put them onto the battlefield tapped. Then shuffle your library.");
 		factory.parameters.put(EventType.Parameter.CAUSE, This.instance());
 		factory.parameters.put(EventType.Parameter.CONTROLLER, You.instance());
 		factory.parameters.put(EventType.Parameter.PLAYER, You.instance());

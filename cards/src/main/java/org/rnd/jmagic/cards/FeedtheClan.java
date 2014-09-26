@@ -21,6 +21,6 @@ public final class FeedtheClan extends Card
 		// with power 4 or greater.
 
 		SetGenerator amount = IfThenElse.instance(Ferocious.instance(), numberGenerator(10), numberGenerator(5));
-		this.addEffect(gainLife(You.instance(), amount, "You gain 5 life.\n\nYou gain 10 life instead if you control a creature with power 4 or greater."));
+		this.addEffect(gainLife(You.instance(), amount, "You gain 5 life.\n\nFerocious \u2014 You gain 10 life instead if you control a creature with power 4 or greater."));
 	}
 }

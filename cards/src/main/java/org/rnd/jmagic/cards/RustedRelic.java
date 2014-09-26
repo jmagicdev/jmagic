@@ -14,7 +14,7 @@ public final class RustedRelic extends Card
 	{
 		public RustedRelicAbility0(GameState state)
 		{
-			super(state, "Rusted Relic is a 5/5 Golem artifact creature as long as you control three or more artifacts.");
+			super(state, "Metalcraft \u2014 Rusted Relic is a 5/5 Golem artifact creature as long as you control three or more artifacts.");
 
 			Animator animator = new Animator(This.instance(), 5, 5);
 			animator.removeOldTypes();

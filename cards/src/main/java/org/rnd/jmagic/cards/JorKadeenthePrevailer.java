@@ -16,7 +16,7 @@ public final class JorKadeenthePrevailer extends Card
 	{
 		public JorKadeenthePrevailerAbility1(GameState state)
 		{
-			super(state, "Creatures you control get +3/+0 as long as you control three or more artifacts.");
+			super(state, "Metalcraft \u2014 Creatures you control get +3/+0 as long as you control three or more artifacts.");
 
 			this.addEffectPart(modifyPowerAndToughness(CREATURES_YOU_CONTROL, +3, +0));
 

@@ -15,7 +15,7 @@ public final class CosisRavager extends Card
 	{
 		public CosisRavagerAbility0(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, you may have Cosi's Ravager deal 1 damage to target player.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may have Cosi's Ravager deal 1 damage to target player.");
 			this.addPattern(landfall());
 
 			SetGenerator target = targetedBy(this.addTarget(Players.instance(), "target player"));

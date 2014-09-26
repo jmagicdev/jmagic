@@ -15,7 +15,7 @@ public final class FirefistStriker extends Card
 	{
 		public FirefistStrikerAbility0(GameState state)
 		{
-			super(state, "Whenever Firefist Striker and at least two other creatures attack, target creature can't block this turn.");
+			super(state, "Battalion \u2014 Whenever Firefist Striker and at least two other creatures attack, target creature can't block this turn.");
 			this.addPattern(battalion());
 
 			SetGenerator target = targetedBy(this.addTarget(CreaturePermanents.instance(), "target creature"));

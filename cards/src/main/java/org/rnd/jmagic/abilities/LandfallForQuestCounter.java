@@ -10,7 +10,7 @@ public final class LandfallForQuestCounter extends EventTriggeredAbility
 
 	public LandfallForQuestCounter(GameState state, String thisName)
 	{
-		super(state, "Whenever a land enters the battlefield under your control, you may put a quest counter on " + thisName + ".");
+		super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may put a quest counter on " + thisName + ".");
 
 		this.thisName = thisName;
 

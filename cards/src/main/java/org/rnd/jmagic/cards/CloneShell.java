@@ -15,7 +15,7 @@ public final class CloneShell extends Card
 	{
 		public CloneShellAbility0(GameState state)
 		{
-			super(state, "When Clone Shell enters the battlefield, look at the top four cards of your library, exile one face down, then put the rest on the bottom of your library in any order.");
+			super(state, "Imprint \u2014 When Clone Shell enters the battlefield, look at the top four cards of your library, exile one face down, then put the rest on the bottom of your library in any order.");
 			this.addPattern(whenThisEntersTheBattlefield());
 
 			SetGenerator yourLibrary = LibraryOf.instance(You.instance());

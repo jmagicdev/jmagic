@@ -15,7 +15,7 @@ public final class PhyrexianIngester extends Card
 	{
 		public PhyrexianIngesterAbility0(GameState state)
 		{
-			super(state, "When Phyrexian Ingester enters the battlefield, you may exile target nontoken creature.");
+			super(state, "Imprint \u2014 When Phyrexian Ingester enters the battlefield, you may exile target nontoken creature.");
 			this.addPattern(whenThisEntersTheBattlefield());
 			SetGenerator target = targetedBy(this.addTarget(Intersect.instance(CreaturePermanents.instance(), NonToken.instance()), "target nontoken creature"));
 			EventFactory factory = exile(target, "Exile target nontoken creature.");

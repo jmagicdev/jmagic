@@ -58,7 +58,7 @@ public final class SensationGorger extends Card
 
 		public WheelOfKinship(GameState state)
 		{
-			super(state, "At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with Sensation Gorger, you may reveal it. If you do, each player discards his or her hand, then draws four cards.");
+			super(state, "Kinship \u2014 At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with Sensation Gorger, you may reveal it. If you do, each player discards his or her hand, then draws four cards.");
 		}
 
 		@Override

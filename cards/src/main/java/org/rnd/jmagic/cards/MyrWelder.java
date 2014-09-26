@@ -15,7 +15,7 @@ public final class MyrWelder extends Card
 	{
 		public MyrWelderAbility0(GameState state)
 		{
-			super(state, "(T): Exile target artifact card from a graveyard.");
+			super(state, "Imprint \u2014 (T): Exile target artifact card from a graveyard.");
 			this.costsTap = true;
 
 			SetGenerator target = targetedBy(this.addTarget(Intersect.instance(HasType.instance(Type.ARTIFACT), InZone.instance(GraveyardOf.instance(You.instance()))), "target artifact card in a graveyard"));

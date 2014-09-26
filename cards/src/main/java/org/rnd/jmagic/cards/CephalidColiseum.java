@@ -13,7 +13,7 @@ public final class CephalidColiseum extends Card
 	{
 		public DrawThreeDiscardThree(GameState state)
 		{
-			super(state, "(U), (T), Sacrifice Cephalid Coliseum: Target player draws three cards, then discards three cards. Activate this ability only if seven or more cards are in your graveyard.");
+			super(state, "Threshold \u2014 (U), (T), Sacrifice Cephalid Coliseum: Target player draws three cards, then discards three cards. Activate this ability only if seven or more cards are in your graveyard.");
 			this.setManaCost(new ManaPool("U"));
 			this.costsTap = true;
 			this.addCost(sacrificeThis("Cephalid Coliseum"));

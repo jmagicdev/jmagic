@@ -15,7 +15,7 @@ public final class LegionLoyalist extends Card
 	{
 		public LegionLoyalistAbility1(GameState state)
 		{
-			super(state, "Whenever Legion Loyalist and at least two other creatures attack, creatures you control gain first strike and trample until end of turn and can't be blocked by creature tokens this turn.");
+			super(state, "Battalion \u2014 Whenever Legion Loyalist and at least two other creatures attack, creatures you control gain first strike and trample until end of turn and can't be blocked by creature tokens this turn.");
 			this.addPattern(battalion());
 
 			ContinuousEffect.Part abilities = addAbilityToObject(CREATURES_YOU_CONTROL, org.rnd.jmagic.abilities.keywords.FirstStrike.class, org.rnd.jmagic.abilities.keywords.Trample.class);

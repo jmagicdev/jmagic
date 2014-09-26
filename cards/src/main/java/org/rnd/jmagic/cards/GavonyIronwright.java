@@ -15,7 +15,7 @@ public final class GavonyIronwright extends Card
 	{
 		public GavonyIronwrightAbility0(GameState state)
 		{
-			super(state, "As long as you have 5 or less life, other creatures you control get +1/+4.");
+			super(state, "Fateful hour \u2014 As long as you have 5 or less life, other creatures you control get +1/+4.");
 
 			this.addEffectPart(modifyPowerAndToughness(RelativeComplement.instance(CREATURES_YOU_CONTROL, This.instance()), +1, +4));
 

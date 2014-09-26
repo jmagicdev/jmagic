@@ -15,7 +15,7 @@ public final class RazorfieldRhino extends Card
 	{
 		public RazorfieldRhinoAbility0(GameState state)
 		{
-			super(state, "Razorfield Rhino gets +2/+2 as long as you control three or more artifacts.");
+			super(state, "Metalcraft \u2014 Razorfield Rhino gets +2/+2 as long as you control three or more artifacts.");
 
 			this.addEffectPart(modifyPowerAndToughness(This.instance(), +2, +2));
 

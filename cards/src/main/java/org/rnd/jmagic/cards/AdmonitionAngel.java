@@ -15,7 +15,7 @@ public final class AdmonitionAngel extends Card
 	{
 		public TheAngelTakethAway(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, you may exile target nonland permanent other than Admonition Angel.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may exile target nonland permanent other than Admonition Angel.");
 			this.addPattern(landfall());
 
 			SetGenerator nonLandPermanents = RelativeComplement.instance(Permanents.instance(), HasType.instance(Type.LAND));

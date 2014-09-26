@@ -16,7 +16,7 @@ public final class HeroofIroas extends Card
 	{
 		public HeroofIroasAbility1(GameState state)
 		{
-			super(state, "Whenever you cast a spell that targets Hero of Iroas, put a +1/+1 counter on Hero of Iroas.");
+			super(state, "Heroic \u2014 Whenever you cast a spell that targets Hero of Iroas, put a +1/+1 counter on Hero of Iroas.");
 			this.addPattern(heroic());
 			this.addEffect(putCountersOnThis(1, Counter.CounterType.PLUS_ONE_PLUS_ONE, "Put a +1/+1 counter on Hero of Iroas."));
 		}

@@ -14,7 +14,7 @@ public final class WarmindInfantry extends Card
 	{
 		public WarmindInfantryAbility0(GameState state)
 		{
-			super(state, "Whenever Warmind Infantry and at least two other creatures attack, Warmind Infantry gets +2/+0 until end of turn.");
+			super(state, "Battalion \u2014 Whenever Warmind Infantry and at least two other creatures attack, Warmind Infantry gets +2/+0 until end of turn.");
 			this.addPattern(battalion());
 			this.addEffect(ptChangeUntilEndOfTurn(ABILITY_SOURCE_OF_THIS, +2, +0, "Warmind Infantry gets +2/+0 until end of turn."));
 		}

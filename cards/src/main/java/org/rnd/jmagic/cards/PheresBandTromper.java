@@ -14,7 +14,7 @@ public final class PheresBandTromper extends Card
 	{
 		public PheresBandTromperAbility0(GameState state)
 		{
-			super(state, "Whenever Pheres-Band Tromper becomes untapped, put a +1/+1 counter on it.");
+			super(state, "Inspired \u2014 Whenever Pheres-Band Tromper becomes untapped, put a +1/+1 counter on it.");
 			this.addPattern(inspired());
 			this.addEffect(putCountersOnThis(1, Counter.CounterType.PLUS_ONE_PLUS_ONE, "Put a +1/+1 counter on Pheres-Band Tromper."));
 		}

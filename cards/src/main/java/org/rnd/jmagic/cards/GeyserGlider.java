@@ -15,7 +15,7 @@ public final class GeyserGlider extends Card
 	{
 		public BirdyBoiler(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, Geyser Glider gains flying until end of turn.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, Geyser Glider gains flying until end of turn.");
 
 			this.addPattern(landfall());
 

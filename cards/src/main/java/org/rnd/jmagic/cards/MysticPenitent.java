@@ -16,7 +16,7 @@ public final class MysticPenitent extends Card
 	{
 		public ThresholdPenance(GameState state)
 		{
-			super(state, "As long as seven or more cards are in your graveyard, Mystic Penitent gets +1/+1 and has flying.");
+			super(state, "Threshold \u2014 As long as seven or more cards are in your graveyard, Mystic Penitent gets +1/+1 and has flying.");
 
 			this.addEffectPart(modifyPowerAndToughness(This.instance(), +1, +1));
 

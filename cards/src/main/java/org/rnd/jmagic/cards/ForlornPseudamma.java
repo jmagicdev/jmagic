@@ -14,7 +14,7 @@ public final class ForlornPseudamma extends Card
 	{
 		public ForlornPseudammaAbility1(GameState state)
 		{
-			super(state, "Whenever Forlorn Pseudamma becomes untapped, you may pay (2)(B). If you do, put a 2/2 black Zombie enchantment creature token onto the battlefield.");
+			super(state, "Inspired \u2014 Whenever Forlorn Pseudamma becomes untapped, you may pay (2)(B). If you do, put a 2/2 black Zombie enchantment creature token onto the battlefield.");
 			this.addPattern(inspired());
 
 			EventFactory mayPay = youMayPay("(2)(B)");

@@ -44,7 +44,7 @@ public final class MoltenPsyche extends Card
 		state.ensureTracker(new NumberCardsDrawnBy.DrawCounter());
 
 		EventFactory damageOne = spellDealDamage(NumberCardsDrawnBy.instance(eachPlayer), eachPlayer, "Molten Psyche deals damage to each opponent equal to the number of cards that player has drawn this turn.");
-		EventFactory damageEach = new EventFactory(FOR_EACH_PLAYER, "Molten Psyche deals damage to each opponent equal to the number of cards that player has drawn this turn.");
+		EventFactory damageEach = new EventFactory(FOR_EACH_PLAYER, "\n\nMetalcraft \u2014 Molten Psyche deals damage to each opponent equal to the number of cards that player has drawn this turn.");
 		damageEach.parameters.put(EventType.Parameter.TARGET, Identity.instance(eachPlayer));
 		damageEach.parameters.put(EventType.Parameter.EFFECT, Identity.instance(damageOne));
 		this.addEffect(damageEach);

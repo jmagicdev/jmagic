@@ -15,7 +15,7 @@ public final class EternityVessel extends Card
 	{
 		public QuickLoad(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, you may have your life total become the number of charge counters on Eternity Vessel.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may have your life total become the number of charge counters on Eternity Vessel.");
 
 			this.addPattern(landfall());
 

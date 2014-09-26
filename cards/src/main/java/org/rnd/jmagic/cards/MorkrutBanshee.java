@@ -15,7 +15,7 @@ public final class MorkrutBanshee extends Card
 	{
 		public MorkrutBansheeAbility0(GameState state)
 		{
-			super(state, "When Morkrut Banshee enters the battlefield, if a creature died this turn, target creature gets -4/-4 until end of turn.");
+			super(state, "Morbid \u2014 When Morkrut Banshee enters the battlefield, if a creature died this turn, target creature gets -4/-4 until end of turn.");
 			this.addPattern(whenThisEntersTheBattlefield());
 			this.interveningIf = Morbid.instance();
 

@@ -14,7 +14,7 @@ public final class MimicVat extends Card
 	{
 		public MimicVatAbility0(GameState state)
 		{
-			super(state, "Whenever a nontoken creature dies, you may exile that card. If you do, return each other card exiled with Mimic Vat to its owner's graveyard.");
+			super(state, "Imprint \u2014 Whenever a nontoken creature dies, you may exile that card. If you do, return each other card exiled with Mimic Vat to its owner's graveyard.");
 			this.addPattern(new org.rnd.jmagic.engine.patterns.SimpleZoneChangePattern(Battlefield.instance(), GraveyardOf.instance(Players.instance()), Intersect.instance(NonToken.instance(), CreaturePermanents.instance()), true));
 
 			SetGenerator thatCard = NewObjectOf.instance(TriggerZoneChange.instance(This.instance()));

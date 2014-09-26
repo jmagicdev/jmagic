@@ -15,7 +15,7 @@ public final class AuriokEdgewright extends Card
 	{
 		public AuriokEdgewrightAbility0(GameState state)
 		{
-			super(state, "Auriok Edgewright has double strike as long as you control three or more artifacts.");
+			super(state, "Metalcraft \u2014 Auriok Edgewright has double strike as long as you control three or more artifacts.");
 
 			this.addEffectPart(addAbilityToObject(This.instance(), org.rnd.jmagic.abilities.keywords.DoubleStrike.class));
 

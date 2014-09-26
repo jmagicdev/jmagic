@@ -14,7 +14,7 @@ public final class PrototypePortal extends Card
 	{
 		public PrototypePortalAbility0(GameState state)
 		{
-			super(state, "When Prototype Portal enters the battlefield, you may exile an artifact card from your hand.");
+			super(state, "Imprint \u2014 When Prototype Portal enters the battlefield, you may exile an artifact card from your hand.");
 			this.addPattern(whenThisEntersTheBattlefield());
 
 			SetGenerator stuff = Intersect.instance(HasType.instance(Type.ARTIFACT), InZone.instance(HandOf.instance(You.instance())));

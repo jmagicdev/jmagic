@@ -15,7 +15,7 @@ public final class ArgentSphinx extends Card
 	{
 		public ArgentSphinxAbility1(GameState state)
 		{
-			super(state, "(U): Exile Argent Sphinx. Return it to the battlefield under your control at the beginning of the next end step. Activate this ability only if you control three or more artifacts.");
+			super(state, "Metalcraft \u2014 (U): Exile Argent Sphinx. Return it to the battlefield under your control at the beginning of the next end step. Activate this ability only if you control three or more artifacts.");
 			this.setManaCost(new ManaPool("(U)"));
 
 			EventFactory exile = exile(ABILITY_SOURCE_OF_THIS, "Exile Argent Sphinx.");

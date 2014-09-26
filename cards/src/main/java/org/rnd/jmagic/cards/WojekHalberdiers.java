@@ -14,7 +14,7 @@ public final class WojekHalberdiers extends Card
 	{
 		public WojekHalberdiersAbility0(GameState state)
 		{
-			super(state, "Whenever Wojek Halberdiers and at least two other creatures attack, Wojek Halberdiers gains first strike until end of turn.");
+			super(state, "Battalion \u2014 Whenever Wojek Halberdiers and at least two other creatures attack, Wojek Halberdiers gains first strike until end of turn.");
 			this.addPattern(battalion());
 			this.addEffect(addAbilityUntilEndOfTurn(ABILITY_SOURCE_OF_THIS, org.rnd.jmagic.abilities.keywords.FirstStrike.class, "Wojek Halberdiers gains first strike until end of turn."));
 		}

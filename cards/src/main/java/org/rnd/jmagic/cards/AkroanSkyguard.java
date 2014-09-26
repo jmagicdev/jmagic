@@ -14,7 +14,7 @@ public final class AkroanSkyguard extends Card
 	{
 		public AkroanSkyguardAbility1(GameState state)
 		{
-			super(state, "Whenever you cast a spell that targets Akroan Skyguard, put a +1/+1 counter on Akroan Skyguard.");
+			super(state, "Heroic \u2014 Whenever you cast a spell that targets Akroan Skyguard, put a +1/+1 counter on Akroan Skyguard.");
 			this.addPattern(heroic());
 			this.addEffect(putCountersOnThis(1, Counter.CounterType.PLUS_ONE_PLUS_ONE, "Put a +1/+1 counter on Akroan Skyguard."));
 		}

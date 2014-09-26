@@ -16,7 +16,7 @@ public final class SkirsdagHighPriest extends Card
 	{
 		public SkirsdagHighPriestAbility0(GameState state)
 		{
-			super(state, "(T), Tap two untapped creatures you control: Put a 5/5 black Demon creature token with flying onto the battlefield. Activate this ability only if a creature died this turn.");
+			super(state, "Morbid \u2014 (T), Tap two untapped creatures you control: Put a 5/5 black Demon creature token with flying onto the battlefield. Activate this ability only if a creature died this turn.");
 			this.costsTap = true;
 
 			// Tap two untapped creatures you control

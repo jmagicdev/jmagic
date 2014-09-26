@@ -16,7 +16,7 @@ public final class LumengridDrake extends Card
 	{
 		public LumengridDrakeAbility1(GameState state)
 		{
-			super(state, "When Lumengrid Drake enters the battlefield, if you control three or more artifacts, return target creature to its owner's hand.");
+			super(state, "Metalcraft \u2014 When Lumengrid Drake enters the battlefield, if you control three or more artifacts, return target creature to its owner's hand.");
 			this.addPattern(whenThisEntersTheBattlefield());
 			this.interveningIf = Metalcraft.instance();
 			Target target = this.addTarget(CreaturePermanents.instance(), "target creature");

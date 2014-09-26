@@ -19,6 +19,6 @@ public final class DispenseJustice extends Card
 		// instead if you control three or more artifacts.
 		SetGenerator target = targetedBy(this.addTarget(Players.instance(), "target player"));
 		SetGenerator number = IfThenElse.instance(Metalcraft.instance(), numberGenerator(2), numberGenerator(1));
-		this.addEffect(sacrifice(target, number, Attacking.instance(), "Target player sacrifices an attacking creature.\n\nThat player sacrifices two attacking creatures instead if you control three or more artifacts."));
+		this.addEffect(sacrifice(target, number, Attacking.instance(), "Target player sacrifices an attacking creature.\n\nMetalcraft \u2014 That player sacrifices two attacking creatures instead if you control three or more artifacts."));
 	}
 }

@@ -15,7 +15,7 @@ public final class AuriokSunchaser extends Card
 	{
 		public AuriokSunchaserAbility0(GameState state)
 		{
-			super(state, "As long as you control three or more artifacts, Auriok Sunchaser gets +2/+2 and has flying.");
+			super(state, "Metalcraft \u2014 As long as you control three or more artifacts, Auriok Sunchaser gets +2/+2 and has flying.");
 
 			this.addEffectPart(modifyPowerAndToughness(This.instance(), +2, +2));
 

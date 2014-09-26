@@ -15,7 +15,7 @@ public final class ExclusionRitual extends Card
 	{
 		public ExclusionRitualAbility0(GameState state)
 		{
-			super(state, "When Exclusion Ritual enters the battlefield, exile target nonland permanent.");
+			super(state, "Imprint \u2014 When Exclusion Ritual enters the battlefield, exile target nonland permanent.");
 			this.addPattern(whenThisEntersTheBattlefield());
 			SetGenerator target = targetedBy(this.addTarget(RelativeComplement.instance(Permanents.instance(), LandPermanents.instance()), "target nonland permanent"));
 			EventFactory factory = exile(target, "Exile target nonland permanent.");

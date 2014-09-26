@@ -15,7 +15,7 @@ public final class OreskosSunGuide extends Card
 	{
 		public OreskosSunGuideAbility0(GameState state)
 		{
-			super(state, "Whenever Oreskos Sun Guide becomes untapped, you gain 2 life.");
+			super(state, "Inspired \u2014 Whenever Oreskos Sun Guide becomes untapped, you gain 2 life.");
 			this.addPattern(inspired());
 			this.addEffect(gainLife(You.instance(), 2, "You gain 2 life."));
 		}

@@ -14,7 +14,7 @@ public final class PheresBandRaiders extends Card
 	{
 		public PheresBandRaidersAbility0(GameState state)
 		{
-			super(state, "Whenever Pheres-Band Raiders becomes untapped, you may pay (2)(G). If you do, put a 3/3 green Centaur enchantment creature token onto the battlefield.");
+			super(state, "Inspired \u2014 Whenever Pheres-Band Raiders becomes untapped, you may pay (2)(G). If you do, put a 3/3 green Centaur enchantment creature token onto the battlefield.");
 			this.addPattern(inspired());
 
 			EventFactory mayPay = youMayPay("(2)(G)");

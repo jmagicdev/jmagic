@@ -16,7 +16,7 @@ public final class Duplicant extends Card
 	{
 		public DuplicantAbility0(GameState state)
 		{
-			super(state, "When Duplicant enters the battlefield, you may exile target nontoken creature.");
+			super(state, "Imprint \u2014 When Duplicant enters the battlefield, you may exile target nontoken creature.");
 			this.addPattern(whenThisEntersTheBattlefield());
 
 			SetGenerator target = targetedBy(this.addTarget(RelativeComplement.instance(CreaturePermanents.instance(), Tokens.instance()), "target nontoken creature"));

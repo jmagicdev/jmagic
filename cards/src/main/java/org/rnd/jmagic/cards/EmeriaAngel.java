@@ -14,7 +14,7 @@ public final class EmeriaAngel extends Card
 	{
 		public IAmNotASeagull(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, you may put a 1/1 white Bird creature token with flying onto the battlefield.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may put a 1/1 white Bird creature token with flying onto the battlefield.");
 			this.addPattern(landfall());
 
 			CreateTokensFactory token = new CreateTokensFactory(1, 1, 1, "Put a 1/1 white Bird creature token with flying onto the battlefield.");

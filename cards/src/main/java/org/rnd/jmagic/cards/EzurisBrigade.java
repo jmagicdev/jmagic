@@ -15,7 +15,7 @@ public final class EzurisBrigade extends Card
 	{
 		public EzurisBrigadeAbility0(GameState state)
 		{
-			super(state, "As long as you control three or more artifacts, Ezuri's Brigade gets +4/+4 and has trample.");
+			super(state, "Metalcraft \u2014 As long as you control three or more artifacts, Ezuri's Brigade gets +4/+4 and has trample.");
 
 			this.addEffectPart(modifyPowerAndToughness(This.instance(), +4, +4));
 

@@ -30,7 +30,7 @@ public final class CrashingCentaur extends Card
 	{
 		public ThresholdBigShroudy(GameState state)
 		{
-			super(state, "As long as seven or more cards are in your graveyard, Crashing Centaur gets +2/+2 and has shroud.");
+			super(state, "Threshold \u2014 As long as seven or more cards are in your graveyard, Crashing Centaur gets +2/+2 and has shroud.");
 
 			this.addEffectPart(modifyPowerAndToughness(This.instance(), +2, +2));
 

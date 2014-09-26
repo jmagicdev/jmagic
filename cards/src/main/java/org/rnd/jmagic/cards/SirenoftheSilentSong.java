@@ -15,7 +15,7 @@ public final class SirenoftheSilentSong extends Card
 	{
 		public SirenoftheSilentSongAbility1(GameState state)
 		{
-			super(state, "Whenever Siren of the Silent Song becomes untapped, each opponent discards a card, then puts the top card of his or her library into his or her graveyard.");
+			super(state, "Inspired \u2014 Whenever Siren of the Silent Song becomes untapped, each opponent discards a card, then puts the top card of his or her library into his or her graveyard.");
 			this.addPattern(inspired());
 
 			this.addEffect(discardCards(OpponentsOf.instance(You.instance()), 1, "Each opponent discards a card,"));

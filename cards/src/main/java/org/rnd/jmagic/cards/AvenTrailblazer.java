@@ -16,7 +16,7 @@ public final class AvenTrailblazer extends Card
 	{
 		public DomainToughness(GameState state)
 		{
-			super(state, "Aven Trailblazer's toughness is equal to the number of basic land types among lands you control.", Characteristics.Characteristic.TOUGHNESS);
+			super(state, "Domain \u2014 Aven Trailblazer's toughness is equal to the number of basic land types among lands you control.", Characteristics.Characteristic.TOUGHNESS);
 
 			ContinuousEffect.Part part = setPowerAndToughness(This.instance(), null, Domain.instance(You.instance()));
 			this.addEffectPart(part);

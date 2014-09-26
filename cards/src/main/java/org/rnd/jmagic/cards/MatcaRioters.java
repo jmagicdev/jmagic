@@ -16,7 +16,7 @@ public final class MatcaRioters extends Card
 	{
 		public DomainPT(GameState state)
 		{
-			super(state, "Matca Rioters's power and toughness are each equal to the number of basic land types among lands you control.", Characteristics.Characteristic.POWER, Characteristics.Characteristic.TOUGHNESS);
+			super(state, "Domain \u2014 Matca Rioters's power and toughness are each equal to the number of basic land types among lands you control.", Characteristics.Characteristic.POWER, Characteristics.Characteristic.TOUGHNESS);
 
 			SetGenerator number = Domain.instance(You.instance());
 

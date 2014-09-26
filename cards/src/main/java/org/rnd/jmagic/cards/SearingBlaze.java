@@ -27,7 +27,7 @@ public final class SearingBlaze extends Card
 		Target targetPlayer = this.addTarget(Players.instance(), "target player");
 		Target targetCreature = this.addTarget(Intersect.instance(CreaturePermanents.instance(), ControlledBy.instance(targetedBy(targetPlayer))), "target creature that player controls");
 
-		String effectName = "Searing Blaze deals 1 damage to target player and 1 damage to target creature that player controls.\n\nIf you had a land enter the battlefield under your control this turn, Searing Blaze deals 3 damage to that player and 3 damage to that creature instead.";
+		String effectName = "Searing Blaze deals 1 damage to target player and 1 damage to target creature that player controls.\n\nLandfall \u2014 If you had a land enter the battlefield under your control this turn, Searing Blaze deals 3 damage to that player and 3 damage to that creature instead.";
 		this.addEffect(spellDealDamage(damageAmount, targetedBy(targetPlayer, targetCreature), effectName));
 	}
 }

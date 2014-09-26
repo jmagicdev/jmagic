@@ -30,7 +30,7 @@ public final class Bloodghast extends Card
 	{
 		public WorstIchoridEver(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, you may return Bloodghast from your graveyard to the battlefield.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may return Bloodghast from your graveyard to the battlefield.");
 			this.addPattern(landfall());
 			this.triggersFromGraveyard();
 

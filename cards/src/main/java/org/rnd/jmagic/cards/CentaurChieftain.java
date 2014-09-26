@@ -26,7 +26,7 @@ public final class CentaurChieftain extends Card
 
 		public GrantCentaurRally(GameState state)
 		{
-			super(state, "As long as seven or more cards are in your graveyard, Centaur Chieftain has \"When Centaur Chieftain enters the battlefield, creatures you control get +1/+1 and gain trample until end of turn.\"");
+			super(state, "Threshold \u2014 As long as seven or more cards are in your graveyard, Centaur Chieftain has \"When Centaur Chieftain enters the battlefield, creatures you control get +1/+1 and gain trample until end of turn.\"");
 
 			this.addEffectPart(addAbilityToObject(This.instance(), CentaurRally.class));
 

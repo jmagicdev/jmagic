@@ -34,7 +34,7 @@ public final class ScribNibblers extends Card
 	{
 		public ScribNibblersAbility1(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, you may untap Scrib Nibblers.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, you may untap Scrib Nibblers.");
 			this.addPattern(landfall());
 			this.addEffect(youMay(untap(ABILITY_SOURCE_OF_THIS, "Untap Scrib Nibblers."), "You may untap Scrib Nibblers."));
 		}

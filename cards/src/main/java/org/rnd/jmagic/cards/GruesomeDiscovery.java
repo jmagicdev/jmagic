@@ -35,7 +35,7 @@ public final class GruesomeDiscovery extends Card
 		parameters.put(EventType.Parameter.NUMBER, numberGenerator(2));
 		EventFactory discardForce = new EventFactory(EventType.DISCARD_FORCE, parameters, "You choose a noncreature card from it, then that player discards that card.");
 
-		this.addEffect(ifThenElse(Morbid.instance(), sequence(reveal, discardForce), normalDiscard, "Target player discards two cards. If a creature died this turn, instead that player reveals his or her hand, you choose two cards from it, then that player discards those cards."));
+		this.addEffect(ifThenElse(Morbid.instance(), sequence(reveal, discardForce), normalDiscard, "Target player discards two cards.\n\nMorbid \u2014 If a creature died this turn, instead that player reveals his or her hand, you choose two cards from it, then that player discards those cards."));
 
 		state.ensureTracker(new Morbid.Tracker());
 	}

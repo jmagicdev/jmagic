@@ -20,6 +20,6 @@ public final class MysteriesoftheDeep extends Card
 		// control this turn, draw three cards instead.
 		state.ensureTracker(new LandsPutOntoTheBattlefieldThisTurnCounter());
 		SetGenerator number = IfThenElse.instance(LandfallForSpells.instance(), numberGenerator(3), numberGenerator(2));
-		this.addEffect(drawCards(You.instance(), number, "Draw two cards.\n\nIf you had a land enter the battlefield under your control this turn, draw three cards instead."));
+		this.addEffect(drawCards(You.instance(), number, "Draw two cards.\n\nLandfall \u2014 If you had a land enter the battlefield under your control this turn, draw three cards instead."));
 	}
 }

@@ -29,6 +29,6 @@ public final class ArrowStorm extends Card
 		damagePlus.parameters.put(EventType.Parameter.PREVENT, Empty.instance());
 
 		state.ensureTracker(new org.rnd.jmagic.engine.trackers.AttackTracker());
-		this.addEffect(ifThenElse(Raid.instance(), damagePlus, damage, "Arrow Storm deals 4 damage to target creature or player.\n\nIf you attacked with a creature this turn, instead Arrow Storm deals 5 damage to that creature or player and the damage can't be prevented."));
+		this.addEffect(ifThenElse(Raid.instance(), damagePlus, damage, "Arrow Storm deals 4 damage to target creature or player.\n\nRaid \u2014 If you attacked with a creature this turn, instead Arrow Storm deals 5 damage to that creature or player and the damage can't be prevented."));
 	}
 }

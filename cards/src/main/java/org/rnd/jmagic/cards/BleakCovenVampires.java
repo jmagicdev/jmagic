@@ -15,7 +15,7 @@ public final class BleakCovenVampires extends Card
 	{
 		public BleakCovenVampiresAbility0(GameState state)
 		{
-			super(state, "When Bleak Coven Vampires enters the battlefield, if you control three or more artifacts, target player loses 4 life and you gain 4 life.");
+			super(state, "Metalcraft \u2014 When Bleak Coven Vampires enters the battlefield, if you control three or more artifacts, target player loses 4 life and you gain 4 life.");
 			this.addPattern(whenThisEntersTheBattlefield());
 			this.interveningIf = Metalcraft.instance();
 			SetGenerator target = targetedBy(this.addTarget(Players.instance(), "target player"));

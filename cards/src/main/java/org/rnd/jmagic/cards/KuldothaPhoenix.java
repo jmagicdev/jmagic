@@ -15,7 +15,7 @@ public final class KuldothaPhoenix extends Card
 	{
 		public KuldothaPhoenixAbility1(GameState state)
 		{
-			super(state, "(4): Return Kuldotha Phoenix from your graveyard to the battlefield. Activate this ability only during your upkeep and only if you control three or more artifacts.");
+			super(state, "Metalcraft \u2014 (4): Return Kuldotha Phoenix from your graveyard to the battlefield. Activate this ability only during your upkeep and only if you control three or more artifacts.");
 			this.setManaCost(new ManaPool("4"));
 
 			EventFactory effect = new EventFactory(EventType.PUT_ONTO_BATTLEFIELD, "Return Kuldotha Phoenix from your graveyard to the battlefield.");

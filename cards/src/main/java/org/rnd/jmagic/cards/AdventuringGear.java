@@ -16,7 +16,7 @@ public final class AdventuringGear extends Card
 	{
 		public Hitchhiking(GameState state)
 		{
-			super(state, "Whenever a land enters the battlefield under your control, equipped creature gets +2/+2 until end of turn.");
+			super(state, "Landfall \u2014 Whenever a land enters the battlefield under your control, equipped creature gets +2/+2 until end of turn.");
 
 			this.addPattern(landfall());
 
