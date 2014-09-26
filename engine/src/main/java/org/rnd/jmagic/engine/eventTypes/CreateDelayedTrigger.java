@@ -45,7 +45,7 @@ public final class CreateDelayedTrigger extends EventType
 			game.physicalState.delayedTriggers.add(trigger);
 		}
 		else
-			throw new UnsupportedOperationException("CREATE_DELAYED_TRIGGER must specify either EVENT or ZONE_CHANGE parameter");
+			throw new UnsupportedOperationException("CREATE_DELAYED_TRIGGER must specify either EVENT or ZONE_CHANGE or DAMAGE parameter");
 
 		if(parameters.containsKey(Parameter.COST))
 		{
