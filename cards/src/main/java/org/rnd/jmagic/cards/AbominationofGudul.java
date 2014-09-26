@@ -3,7 +3,6 @@ package org.rnd.jmagic.cards;
 import static org.rnd.jmagic.Convenience.*;
 
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.generators.*;
 
 @Name("Abomination of Gudul")
 @Types({Type.CREATURE})
@@ -19,8 +18,7 @@ public final class AbominationofGudul extends Card
 			super(state, "Whenever Abomination of Gudul deals combat damage to a player, you may draw a card. If you do, discard a card.");
 			this.addPattern(whenThisDealsCombatDamageToAPlayer());
 
-			EventFactory discard = discardCards(You.instance(), 1, "Discard a card.");
-			this.addEffect(ifThen(youMay(drawACard()), discard, "You may draw a card. If you do, discard a card."));
+			this.addEffect(youMayDrawACardIfYouDoDiscardACard());
 		}
 	}
 

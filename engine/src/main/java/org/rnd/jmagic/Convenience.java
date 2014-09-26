@@ -3802,6 +3802,11 @@ public class Convenience
 		return playerMay(You.instance(), event, effectName);
 	}
 
+	public static EventFactory youMayDrawACardIfYouDoDiscardACard()
+	{
+		return ifThen(youMay(drawACard()), discardCards(You.instance(), 1, "Discard a card."), "You may draw a card. If you do, discard a card.");
+	}
+
 	public static EventFactory youMayPay(String cost)
 	{
 		EventFactory factory = new EventFactory(EventType.PLAYER_MAY_PAY_MANA, "You may pay " + cost + ".");

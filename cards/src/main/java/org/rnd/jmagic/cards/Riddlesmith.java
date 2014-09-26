@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
@@ -23,10 +24,7 @@ public final class Riddlesmith extends Card
 			pattern.withResult(HasType.instance(Type.ARTIFACT));
 			this.addPattern(pattern);
 
-			EventFactory factory = new EventFactory(EventType.IF_EVENT_THEN_ELSE, "You may draw a card. If you do, discard a card.");
-			factory.parameters.put(EventType.Parameter.IF, Identity.instance(youMay(drawACard(), "You may draw a card.")));
-			factory.parameters.put(EventType.Parameter.THEN, Identity.instance(discardCards(You.instance(), 1, "Discard a card.")));
-			this.addEffect(factory);
+			this.addEffect(youMayDrawACardIfYouDoDiscardACard());
 		}
 	}
 

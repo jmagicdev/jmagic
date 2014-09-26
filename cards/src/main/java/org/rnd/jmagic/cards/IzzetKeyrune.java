@@ -1,8 +1,8 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
-import org.rnd.jmagic.engine.generators.*;
 
 @Name("Izzet Keyrune")
 @Types({Type.ARTIFACT})
@@ -32,7 +32,7 @@ public final class IzzetKeyrune extends Card
 		{
 			super(state, "Whenever Izzet Keyrune deals combat damage to a player, you may draw a card. If you do, discard a card.");
 			this.addPattern(whenThisDealsCombatDamageToAPlayer());
-			this.addEffect(ifThen(youMay(drawACard()), discardCards(You.instance(), 1, "Discard a card."), "You may draw a card. If you do, discard a card."));
+			this.addEffect(youMayDrawACardIfYouDoDiscardACard());
 		}
 	}
 
