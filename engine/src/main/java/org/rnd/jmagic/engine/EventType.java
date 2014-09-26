@@ -1786,13 +1786,6 @@ public abstract class EventType
 	public static final EventType TEXT_CHANGE_COLOR_OR_BASIC_LAND_TYPE = TextChangeColorOrBasicLandType.INSTANCE;
 
 	/**
-	 * @eparam CAUSE: what is doing the turning face down
-	 * @eparam OBJECT: what permanents to turn face down
-	 * @eparam RESULT: the permanents that were turned face down
-	 */
-	public static final EventType TURN_PERMANENTS_FACE_DOWN = TurnPermanentsFaceDown.INSTANCE;
-
-	/**
 	 * @eparam OBJECT: the card to transform
 	 * @eparam RESULT: empty
 	 */
@@ -1823,6 +1816,19 @@ public abstract class EventType
 	 * @eparam RESULT: the permanents that were turned face up
 	 */
 	public static final EventType TURN_PERMANENT_FACE_UP = TurnPermanentFaceUp.INSTANCE;
+
+	/**
+	 * This allows "As . . . is turned face up" abilities to work. All
+	 * parameters are the same as in TURN_PERMANENT_FACE_UP (no result though).
+	 */
+	public static final EventType TURN_PERMANENT_FACE_UP_FINISH = TurnPermanentFaceUpFinish.INSTANCE;
+
+	/**
+	 * @eparam CAUSE: what is doing the turning face down
+	 * @eparam OBJECT: what permanents to turn face down
+	 * @eparam RESULT: the permanents that were turned face down
+	 */
+	public static final EventType TURN_PERMANENTS_FACE_DOWN = TurnPermanentsFaceDown.INSTANCE;
 
 	/**
 	 * @eparam OBJECT: the GameObject instances already attached

@@ -776,6 +776,9 @@ public class Convenience
 	private static ZoneChangePattern allyTriggerPattern = null;
 
 	private static ZoneChangePattern asThisEntersTheBattlefieldPattern = null;
+
+	private static EventPattern asThisIsTurnedFaceUpPattern;
+
 	private static EventPattern atTheBeginningOfEachPlayersUpkeepPattern = null;
 
 	private static EventPattern atTheBeginningOfEachUpkeepPattern = null;
@@ -1608,6 +1611,17 @@ public class Convenience
 		if(asThisEntersTheBattlefieldPattern == null)
 			asThisEntersTheBattlefieldPattern = new ImmutableZoneChangePattern(new SimpleZoneChangePattern(null, Battlefield.instance(), This.instance(), false));
 		return asThisEntersTheBattlefieldPattern;
+	}
+
+	public static EventPattern asThisIsTurnedFaceUp()
+	{
+		if(asThisIsTurnedFaceUpPattern == null)
+		{
+			SimpleEventPattern pattern = new SimpleEventPattern(EventType.TURN_PERMANENT_FACE_UP_FINISH);
+			pattern.put(EventType.Parameter.OBJECT, This.instance());
+			asThisIsTurnedFaceUpPattern = new ImmutableEventPattern(pattern);
+		}
+		return asThisIsTurnedFaceUpPattern;
 	}
 
 	public static EventFactory attach(SetGenerator object, SetGenerator target, String effectName)
@@ -3636,6 +3650,13 @@ public class Convenience
 			whenTimeCounterIsRemovedFromThisPattern = new ImmutableEventPattern(pattern);
 		}
 		return whenTimeCounterIsRemovedFromThisPattern;
+	}
+
+	public static EventPattern whenXAttacks(SetGenerator X)
+	{
+		SimpleEventPattern ret = new SimpleEventPattern(EventType.DECLARE_ONE_ATTACKER);
+		ret.put(EventType.Parameter.OBJECT, X);
+		return ret;
 	}
 
 	public static ZoneChangePattern whenXDies(SetGenerator X)

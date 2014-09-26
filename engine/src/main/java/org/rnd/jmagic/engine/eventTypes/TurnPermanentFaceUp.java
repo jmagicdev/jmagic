@@ -35,6 +35,10 @@ public final class TurnPermanentFaceUp extends EventType
 			// entered the battlefield.
 			physical.faceDownValues = null;
 			result.add(actual);
+
+			game.refreshActualState();
+			Event finish = createEvent(game, "" + physical + " has been turned face up.", EventType.TURN_PERMANENT_FACE_UP_FINISH, parameters);
+			finish.perform(event, false);
 		}
 
 		event.setResult(Identity.fromCollection(result));
