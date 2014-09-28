@@ -1429,11 +1429,13 @@ public class Convenience
 
 	private static EventPattern whenTimeCounterIsRemovedFromThisPattern = null;
 
+	private static EventPattern whenYouCastANoncreatureSpellPattern = null;
+
 	private static EventPattern whenYouCastASpellPattern = null;
 
-	private static EventPattern whenYouCastThisSpellPattern = null;
-
 	private static EventPattern whenYouCastASpellFromYourGraveyardPattern = null;
+
+	private static EventPattern whenYouCastThisSpellPattern = null;
 
 	private static ZoneChangePattern whenYouCycleThisPattern = null;
 
@@ -3669,6 +3671,18 @@ public class Convenience
 		return new org.rnd.jmagic.engine.patterns.SimpleZoneChangePattern(Battlefield.instance(), GraveyardOf.instance(Players.instance()), X, true);
 	}
 
+	public static EventPattern whenYouCastANoncreatureSpell()
+	{
+		if(null == whenYouCastANoncreatureSpellPattern)
+		{
+			SimpleEventPattern pattern = new SimpleEventPattern(EventType.BECOMES_PLAYED);
+			pattern.put(EventType.Parameter.PLAYER, You.instance());
+			pattern.put(EventType.Parameter.OBJECT, new NonTypePattern(Type.CREATURE));
+			whenYouCastANoncreatureSpellPattern = new ImmutableEventPattern(pattern);
+		}
+		return whenYouCastANoncreatureSpellPattern;
+	}
+
 	public static EventPattern whenYouCastASpell()
 	{
 		if(null == whenYouCastASpellPattern)
@@ -3679,18 +3693,6 @@ public class Convenience
 			whenYouCastASpellPattern = new ImmutableEventPattern(pattern);
 		}
 		return whenYouCastASpellPattern;
-	}
-
-	public static EventPattern whenYouCastThisSpell()
-	{
-		if(null == whenYouCastThisSpellPattern)
-		{
-			SimpleEventPattern pattern = new SimpleEventPattern(EventType.BECOMES_PLAYED);
-			pattern.put(EventType.Parameter.PLAYER, You.instance());
-			pattern.withResult(ABILITY_SOURCE_OF_THIS);
-			whenYouCastThisSpellPattern = new ImmutableEventPattern(pattern);
-		}
-		return whenYouCastThisSpellPattern;
 	}
 
 	public static EventPattern whenYouCastASpellFromYourGraveyard()
@@ -3733,6 +3735,18 @@ public class Convenience
 			};
 		}
 		return whenYouCastASpellFromYourGraveyardPattern;
+	}
+
+	public static EventPattern whenYouCastThisSpell()
+	{
+		if(null == whenYouCastThisSpellPattern)
+		{
+			SimpleEventPattern pattern = new SimpleEventPattern(EventType.BECOMES_PLAYED);
+			pattern.put(EventType.Parameter.PLAYER, You.instance());
+			pattern.withResult(ABILITY_SOURCE_OF_THIS);
+			whenYouCastThisSpellPattern = new ImmutableEventPattern(pattern);
+		}
+		return whenYouCastThisSpellPattern;
 	}
 
 	/**
