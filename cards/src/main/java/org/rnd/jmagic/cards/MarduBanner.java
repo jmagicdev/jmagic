@@ -18,6 +18,7 @@ public final class MarduBanner extends Card
 			this.setManaCost(new ManaPool("(R)(W)(B)"));
 			this.costsTap = true;
 			this.addCost(sacrificeThis("Mardu Banner"));
+			this.addEffect(drawACard());
 		}
 	}
 

@@ -18,6 +18,7 @@ public final class JeskaiBanner extends Card
 			this.setManaCost(new ManaPool("(U)(R)(W)"));
 			this.costsTap = true;
 			this.addCost(sacrificeThis("Jeskai Banner"));
+			this.addEffect(drawACard());
 		}
 	}
 

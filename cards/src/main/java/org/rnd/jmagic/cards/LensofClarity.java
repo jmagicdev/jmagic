@@ -19,7 +19,7 @@ public final class LensofClarity extends Card
 			SetGenerator morphs = Intersect.instance(FaceDown.instance(), CreaturePermanents.instance());
 			SetGenerator otherPlayersMorphs = RelativeComplement.instance(morphs, ControlledBy.instance(You.instance()));
 
-			ContinuousEffect.Part lookAtMorphs = new ContinuousEffect.Part(ContinuousEffectType.LOOK_PHYSICALLY);
+			ContinuousEffect.Part lookAtMorphs = new ContinuousEffect.Part(ContinuousEffectType.LOOK);
 			lookAtMorphs.parameters.put(ContinuousEffectType.Parameter.PLAYER, You.instance());
 			lookAtMorphs.parameters.put(ContinuousEffectType.Parameter.OBJECT, Union.instance(top, otherPlayersMorphs));
 			this.addEffectPart(lookAtMorphs);

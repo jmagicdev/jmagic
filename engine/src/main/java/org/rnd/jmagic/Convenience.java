@@ -148,6 +148,7 @@ public class Convenience
 		private boolean setColor;
 		private final java.util.Set<SubType> subTypes;
 		private final java.util.Set<SubType> subTypeRemoval;
+		private final java.util.Set<SuperType> superTypes;
 		private final java.util.Set<Type> types;
 
 		private ContinuousEffectType animationMode;
@@ -180,6 +181,7 @@ public class Convenience
 			this.setColor = false;
 			this.subTypes = java.util.EnumSet.noneOf(SubType.class);
 			this.subTypeRemoval = java.util.EnumSet.noneOf(SubType.class);
+			this.superTypes = java.util.EnumSet.noneOf(SuperType.class);
 			this.types = java.util.EnumSet.of(Type.CREATURE);
 		}
 
@@ -206,6 +208,11 @@ public class Convenience
 		public void addSubTypes(java.util.Set<SubType> subTypes)
 		{
 			this.subTypes.addAll(subTypes);
+		}
+
+		public void addSuperType(SuperType superType)
+		{
+			this.superTypes.add(superType);
 		}
 
 		/** You don't need to call this for {@link Type#CREATURE}. */
@@ -236,6 +243,7 @@ public class Convenience
 
 			Set types = Set.fromCollection(this.types);
 			types.addAll(this.subTypes);
+			types.addAll(this.superTypes);
 			ContinuousEffect.Part typesPart = new ContinuousEffect.Part(this.animationMode);
 			typesPart.parameters.put(ContinuousEffectType.Parameter.OBJECT, this.target);
 			typesPart.parameters.put(ContinuousEffectType.Parameter.TYPE, Identity.fromCollection(types));
@@ -3099,6 +3107,17 @@ public class Convenience
 		factory.parameters.put(EventType.Parameter.CAUSE, This.instance());
 		factory.parameters.put(EventType.Parameter.PLAYER, You.instance());
 		factory.parameters.put(EventType.Parameter.NUMBER, numberGenerator(number));
+		return factory;
+	}
+
+	public static EventFactory searchYourLibraryForABasicLandCardAndPutItIntoYourHand()
+	{
+		EventFactory factory = new EventFactory(EventType.SEARCH_LIBRARY_AND_PUT_INTO, "Search your library for a basic land card, reveal it, and put it into your hand. Then shuffle your library.");
+		factory.parameters.put(EventType.Parameter.CAUSE, This.instance());
+		factory.parameters.put(EventType.Parameter.PLAYER, You.instance());
+		factory.parameters.put(EventType.Parameter.NUMBER, numberGenerator(1));
+		factory.parameters.put(EventType.Parameter.TO, HandOf.instance(You.instance()));
+		factory.parameters.put(EventType.Parameter.TYPE, Identity.instance(Intersect.instance(HasSuperType.instance(SuperType.BASIC), HasType.instance(Type.LAND))));
 		return factory;
 	}
 

@@ -1968,42 +1968,13 @@ public abstract class ContinuousEffectType
 	};
 
 	/**
-	 * @eparam OBJECT: the object to be looked at
-	 * @eparam PLAYER: the player looking (can be more than one)
-	 */
-	public static final ContinuousEffectType LOOK = new ContinuousEffectType("LOOK")
-	{
-		@Override
-		public Parameter affects()
-		{
-			return Parameter.OBJECT;
-		}
-
-		@Override
-		public void apply(GameState state, ContinuousEffect effect, java.util.Map<Parameter, Set> parameters)
-		{
-			Set objects = parameters.get(Parameter.OBJECT);
-			java.util.Set<Player> players = parameters.get(Parameter.PLAYER).getAll(Player.class);
-
-			for(GameObject object: objects.getAll(GameObject.class))
-				for(Player player: players)
-					object.setActualVisibility(player, true);
-		}
-
-		@Override
-		public Layer layer()
-		{
-			return Layer.PLAYER;
-		}
-	};
-	/**
 	 * Allows a player to see the physical version of an object. This is what
 	 * you use when a player can "look at" a face down creature.
 	 * 
 	 * @eparam OBJECT: the object to be looked at
 	 * @eparam PLAYER: the player looking (can be more than one)
 	 */
-	public static final ContinuousEffectType LOOK_PHYSICALLY = new ContinuousEffectType("LOOK_PHYSICALLY")
+	public static final ContinuousEffectType LOOK = new ContinuousEffectType("LOOK_PHYSICALLY")
 	{
 		@Override
 		public Parameter affects()

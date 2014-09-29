@@ -19,7 +19,7 @@ public final class RakshasaVizier extends Card
 		public boolean match(GameState state, Identified thisObject, Set set)
 		{
 			Player you = You.instance().evaluate(state, thisObject).getOne(Player.class);
-			int graveyard = you.getGraveyard(state).ID;
+			int graveyard = you.getGraveyardID();
 			int exileZone = state.exileZone().ID;
 			for(ZoneChange zc: set.getAll(ZoneChange.class))
 			{
