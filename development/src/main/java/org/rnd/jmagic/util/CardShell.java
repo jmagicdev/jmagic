@@ -276,6 +276,10 @@ public class CardShell
 		// withThisNameInstantiation(LeylineAbility.class));
 		newAbilityWords.put("This costs (\\(.*\\)) more to cast for each target beyond the first.", "new Strive(state, this.getName(), \"\\1\")");
 
+		newAbilityWords.put("\\(T\\): Add \\((.)\\) to your mana pool.", "new org.rnd.jmagic.abilities.TapFor\\1(state)");
+		newAbilityWords.put("\\(T\\): Add \\((.)\\) or \\((.)\\) to your mana pool.", "new org.rnd.jmagic.abilities.TapForMana.Final(state, \"(\\1\\2)\")");
+		newAbilityWords.put("\\(T\\): Add \\((.)\\), \\((.)\\) or \\((.)\\) to your mana pool.", "new org.rnd.jmagic.abilities.TapForMana.Final(state, \"(\\1\\2\\3)\")");
+
 		for(java.util.Map.Entry<String, String> entry: newAbilityWords.entrySet())
 			keywords.put(java.util.regex.Pattern.compile(entry.getKey(), java.util.regex.Pattern.CASE_INSENSITIVE), entry.getValue());
 	}
