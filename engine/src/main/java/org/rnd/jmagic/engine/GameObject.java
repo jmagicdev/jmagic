@@ -1920,7 +1920,7 @@ abstract public class GameObject extends Identified implements AttachableTo, Att
 	 * This is for split cards. Giving 0 will cut off the right side, giving 1
 	 * will cut off the left side.
 	 * 
-	 * @param characteristicsIndices Which characteristics to retain.
+	 * @param characteristicsIndex Which characteristics to retain.
 	 */
 	public void selectCharacteristics(int characteristicsIndex)
 	{

@@ -29,12 +29,10 @@ public class PlayProhibition
 	/**
 	 * Makes a prohibition saying that [players] can't play [things].
 	 * 
-	 * @param source The thing this prohibition is coming from (e.g. the
-	 * Meddling Mage itself).
 	 * @param players The players who are prohibited from playing the given
 	 * objects.
-	 * @param things A SetPattern matching Characteristics of things that can't
-	 * be played.
+	 * @param matcher A predicate function that determines whether this
+	 * prohibition should apply to a given set of characteristics.
 	 */
 	public PlayProhibition(SetGenerator players, CharacteristicsMatcherFunction matcher)
 	{
@@ -45,12 +43,12 @@ public class PlayProhibition
 	/**
 	 * Makes a prohibition saying that [players] can't play [things].
 	 * 
-	 * @param source The thing this prohibition is coming from (e.g. the
-	 * Meddling Mage itself).
 	 * @param players The players who are prohibited from playing the given
 	 * objects.
-	 * @param things A SetPattern matching Characteristics of things that can't
-	 * be played.
+	 * @param matcher A predicate function that determines whether this
+	 * prohibition should apply to a given set of characteristics, given some
+	 * piece of data (usually a choice made in regards to the effect generating
+	 * this prohibition).
 	 */
 	public PlayProhibition(SetGenerator players, CharacteristicsEvaluatorFunction matcher, SetGenerator data)
 	{
