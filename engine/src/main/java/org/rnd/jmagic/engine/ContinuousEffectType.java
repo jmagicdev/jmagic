@@ -1968,13 +1968,13 @@ public abstract class ContinuousEffectType
 	};
 
 	/**
-	 * Allows a player to see the physical version of an object. This is what
-	 * you use when a player can "look at" a face down creature.
+	 * Allows a player to see the front face of an object. This works both for
+	 * looking at a face down creature, and for looking at hidden objects.
 	 * 
 	 * @eparam OBJECT: the object to be looked at
 	 * @eparam PLAYER: the player looking (can be more than one)
 	 */
-	public static final ContinuousEffectType LOOK = new ContinuousEffectType("LOOK_PHYSICALLY")
+	public static final ContinuousEffectType LOOK = new ContinuousEffectType("LOOK")
 	{
 		@Override
 		public Parameter affects()
@@ -1990,7 +1990,10 @@ public abstract class ContinuousEffectType
 
 			for(GameObject object: objects.getAll(GameObject.class))
 				for(Player player: players)
+				{
 					object.setPhysicalVisibility(player, true);
+					object.setActualVisibility(player, true);
+				}
 		}
 
 		@Override
