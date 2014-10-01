@@ -57,7 +57,7 @@ public class AllSourcesOfDamage extends SetGenerator
 				ret.add(object);
 
 			// any object referred to by an object on the stack,
-			if(!thisObject.equals(object))
+			if(!object.equals(thisObject))
 				ret.addAll(referencedBy(state, object));
 		}
 
