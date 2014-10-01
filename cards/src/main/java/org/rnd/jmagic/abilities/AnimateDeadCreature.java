@@ -1,9 +1,10 @@
 package org.rnd.jmagic.abilities;
 
+import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 import org.rnd.jmagic.engine.patterns.*;
-import static org.rnd.jmagic.Convenience.*;
 
 /** Goes with {@link EnchantAnimatedCreature} */
 public final class AnimateDeadCreature extends EventTriggeredAbility
@@ -23,7 +24,6 @@ public final class AnimateDeadCreature extends EventTriggeredAbility
 	}
 
 	/**
-	 * @param state
 	 * @param cardName The name of the card doing the animating
 	 * @param enchantDead The enchant ability to lose
 	 */
