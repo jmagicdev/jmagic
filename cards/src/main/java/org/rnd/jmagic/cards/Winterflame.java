@@ -16,6 +16,7 @@ public final class Winterflame extends Card
 		super(state);
 
 		// Choose one or both \u2014
+		this.setNumModes(new Set(new org.rnd.util.NumberRange(1, 2)));
 
 		// • Tap target creature.
 		{

@@ -23,6 +23,7 @@ public final class BitterRevelation extends Card
 
 		// Put two of them
 		EventFactory choose = playerChoose(You.instance(), 2, them, PlayerInterface.ChoiceType.OBJECTS, PlayerInterface.ChooseReason.PUT_INTO_HAND, "Put two of them");
+		this.addEffect(choose);
 		SetGenerator twoOfThem = EffectResult.instance(choose);
 
 		// into your hand
