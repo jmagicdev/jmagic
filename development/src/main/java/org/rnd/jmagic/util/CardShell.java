@@ -274,11 +274,7 @@ public class CardShell
 		/* This doesn't work because it has a comma */
 		// keywords.put("If this is in your opening hand, you may begin the game with it on the battlefield.",
 		// withThisNameInstantiation(LeylineAbility.class));
-		newAbilityWords.put("This costs (\\(.*\\)) more to cast for each target beyond the first.", "new Strive(state, this.getName(), \"\\1\")");
-
-		newAbilityWords.put("\\(T\\): Add \\((.)\\) to your mana pool.", "new org.rnd.jmagic.abilities.TapFor\\1(state)");
-		newAbilityWords.put("\\(T\\): Add \\((.)\\) or \\((.)\\) to your mana pool.", "new org.rnd.jmagic.abilities.TapForMana.Final(state, \"(\\1\\2)\")");
-		newAbilityWords.put("\\(T\\): Add \\((.)\\), \\((.)\\) or \\((.)\\) to your mana pool.", "new org.rnd.jmagic.abilities.TapForMana.Final(state, \"(\\1\\2\\3)\")");
+		newAbilityWords.put("This costs (\\(.*\\)) more to cast for each target beyond the first.", "new org.rnd.jmagic.abilities.Strive(state, this.getName(), \"\\1\")");
 
 		for(java.util.Map.Entry<String, String> entry: newAbilityWords.entrySet())
 			keywords.put(java.util.regex.Pattern.compile(entry.getKey(), java.util.regex.Pattern.CASE_INSENSITIVE), entry.getValue());
