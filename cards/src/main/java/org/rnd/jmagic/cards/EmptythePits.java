@@ -22,7 +22,7 @@ public final class EmptythePits extends Card
 		// Put X 2/2 black Zombie creature tokens onto the battlefield tapped.
 		SetGenerator X = ValueOfX.instance(This.instance());
 
-		CreateTokensFactory zombies = new CreateTokensFactory(X, numberGenerator(2), numberGenerator(2), "");
+		CreateTokensFactory zombies = new CreateTokensFactory(X, numberGenerator(2), numberGenerator(2), "Put X 2/2 black Zombie creature tokens onto the battlefield tapped.");
 		zombies.setColors(Color.BLACK);
 		zombies.setSubTypes(SubType.ZOMBIE);
 		this.addEffect(zombies.getEventFactory());
