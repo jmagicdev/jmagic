@@ -55,6 +55,8 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 
 	public static final java.awt.Color LIFE_TOTAL_COLOR = java.awt.Color.GREEN.darker().darker();
 
+	private static final java.util.logging.Logger LOG = java.util.logging.Logger.getLogger(CardGraphics.class.getName());
+
 	private static final java.awt.Color POISON_COUNTER_COLOR = java.awt.Color.RED.darker();
 
 	private static final int POISON_LIFE_PADDING = 1;
@@ -175,21 +177,21 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 		return new java.awt.Rectangle(cardStart.x, y, SMALL_CARD.width, (int)(SMALL_CARD.height / (double)total));
 	}
 
-	private static java.io.File cardArts = null;
+	private static java.nio.file.Path cardArts = null;
 
-	public static java.io.File getCardImageLocation()
+	public static java.nio.file.Path getCardImageLocation()
 	{
 		return cardArts;
 	}
 
 	public static void setCardImageLocation(String location)
 	{
-		setCardImageLocation(new java.io.File(location));
+		setCardImageLocation(java.nio.file.FileSystems.getDefault().getPath(location));
 	}
 
-	public static void setCardImageLocation(java.io.File location)
+	public static void setCardImageLocation(java.nio.file.Path location)
 	{
-		if(location.exists() && location.isDirectory())
+		if(java.nio.file.Files.isDirectory(location) && java.nio.file.Files.isWritable(location))
 			cardArts = location;
 		else
 			cardArts = null;
@@ -482,6 +484,32 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 		for(Enum<?> subType: subTypes)
 			ret.append(" " + subType.toString());
 		return ret.toString();
+	}
+
+	private static boolean readCardArtIntoImageCache(String imageCacheKey, java.nio.file.Path path)
+	{
+		try
+		{
+			java.awt.Image image = javax.imageio.ImageIO.read(java.nio.file.Files.newInputStream(path));
+
+			// Cache both a small version and a large version of the card art to
+			// save processor power resizing repeatedly later.
+			java.awt.image.BufferedImage large = new java.awt.image.BufferedImage(LARGE_CARD_ART_WIDTH, LARGE_CARD_ART_HEIGHT, java.awt.image.BufferedImage.TYPE_INT_RGB);
+			large.getGraphics().drawImage(image, 0, 0, LARGE_CARD_ART_WIDTH, LARGE_CARD_ART_HEIGHT, null);
+			imageCache.put(imageCacheKey, large);
+
+			java.awt.image.BufferedImage small = new java.awt.image.BufferedImage(SMALL_CARD_ART_WIDTH, SMALL_CARD_ART_HEIGHT, java.awt.image.BufferedImage.TYPE_INT_RGB);
+			small.getGraphics().drawImage(image, 0, 0, SMALL_CARD_ART_WIDTH, SMALL_CARD_ART_HEIGHT, null);
+			imageCache.put("*" + imageCacheKey, small);
+
+			return true;
+		}
+		catch(java.io.IOException e)
+		{
+			LOG.log(java.util.logging.Level.INFO, "Could not read card art from " + path, e);
+		}
+
+		return false;
 	}
 
 	public static java.awt.Image renderTextAsLargeCard(String cardText, java.awt.Font font)
@@ -1120,57 +1148,33 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 		if(cardArts == null)
 			return null;
 
-		final String fileName = cardName + ".jpg";
+		String fileName = cardName + ".jpg";
+		java.nio.file.Path cardPath = cardArts.resolve(fileName);
 
 		if(!imageCache.containsKey(fileName))
+			readCardArtIntoImageCache(fileName, cardPath);
+
+		// If the file wasn't found, try downloading a copy to use
+		if(!imageCache.containsKey(fileName))
 		{
-			boolean fileFound = false;
-
-			for(java.io.File file: cardArts.listFiles(new java.io.FilenameFilter()
+			String url = "http://mtgimage.com/card/%s-crop.jpg";
+			try(java.io.InputStream in = new java.net.URL(url.replace("%s", cardName)).openStream())
 			{
-				@Override
-				public boolean accept(java.io.File dir, String name)
-				{
-					return name.equalsIgnoreCase(fileName);
-				}
-			}))
-			{
-
-				java.awt.Image image = null;
-				try
-				{
-					image = javax.imageio.ImageIO.read(file);
-				}
-				catch(java.io.IOException e)
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				if(image != null)
-				{
-					// Cache both a small version and a large version of the
-					// card art to save processor power resizing repeatedly
-					// later.
-					java.awt.image.BufferedImage large = new java.awt.image.BufferedImage(LARGE_CARD_ART_WIDTH, LARGE_CARD_ART_HEIGHT, java.awt.image.BufferedImage.TYPE_INT_RGB);
-					large.getGraphics().drawImage(image, 0, 0, LARGE_CARD_ART_WIDTH, LARGE_CARD_ART_HEIGHT, null);
-					imageCache.put(fileName, large);
-
-					java.awt.image.BufferedImage small = new java.awt.image.BufferedImage(SMALL_CARD_ART_WIDTH, SMALL_CARD_ART_HEIGHT, java.awt.image.BufferedImage.TYPE_INT_RGB);
-					small.getGraphics().drawImage(image, 0, 0, SMALL_CARD_ART_WIDTH, SMALL_CARD_ART_HEIGHT, null);
-					imageCache.put("*" + fileName, small);
-
-					fileFound = true;
-					break;
-				}
+				java.nio.file.Files.copy(in, cardPath);
+				readCardArtIntoImageCache(fileName, cardPath);
 			}
-
-			if(!fileFound)
+			catch(java.io.IOException e)
 			{
-				// If we don't find the file the first time, assume we won't
-				// find it any other time and save some directory reads.
-				imageCache.put(fileName, null);
-				imageCache.put("*" + fileName, null);
+				LOG.log(java.util.logging.Level.INFO, "Could not download art for " + cardName, e);
 			}
+		}
+
+		// If we don't find the file, assume we won't find it any other time and
+		// save some reads.
+		if(!imageCache.containsKey(fileName))
+		{
+			imageCache.put(fileName, null);
+			imageCache.put("*" + fileName, null);
 		}
 
 		// Small images are prepended with an *
