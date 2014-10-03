@@ -7,6 +7,18 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 {
 	public static final java.awt.Dimension COLOR_INDICATOR = new java.awt.Dimension(11, 11);
 
+	/**
+	 * This serves as a sentinel value that a key in the image cache will never
+	 * have an image associated with it.
+	 */
+	private static final java.awt.Image IMAGE_CACHE_NO_IMAGE = new java.awt.image.BufferedImage(1, 1, java.awt.image.BufferedImage.TYPE_INT_RGB);
+
+	/**
+	 * This serves as a sentinel value that an attempt is being made to retrieve
+	 * an image for the image cache.
+	 */
+	private static final java.awt.Image IMAGE_CACHE_WORKING = new java.awt.image.BufferedImage(1, 1, java.awt.image.BufferedImage.TYPE_INT_RGB);
+
 	public static final java.awt.Dimension LARGE_CARD = new java.awt.Dimension(223, 310);
 
 	private static final int LARGE_CARD_ART_LEFT = 20;
@@ -109,7 +121,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 
 	public static final java.awt.Dimension SMALL_MANA_SYMBOL = new java.awt.Dimension(9, 9);
 
-	private static final java.util.Map<String, java.awt.Image> imageCache = new java.util.HashMap<String, java.awt.Image>();
+	private static final java.util.concurrent.ConcurrentMap<String, java.awt.Image> imageCache = new java.util.concurrent.ConcurrentHashMap<String, java.awt.Image>();
 
 	public static SanitizedGameObject.CharacteristicSet getLargeCardDisplayOption(java.awt.event.MouseEvent e, java.awt.Point smallCardStart, SanitizedGameObject hoveredCard, boolean flipped)
 	{
@@ -503,6 +515,10 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 			imageCache.put("*" + imageCacheKey, small);
 
 			return true;
+		}
+		catch(java.nio.file.NoSuchFileException e)
+		{
+			LOG.info("Could not open file " + path);
 		}
 		catch(java.io.IOException e)
 		{
@@ -898,7 +914,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 			this.popTransform();
 		}
 
-		java.awt.Image art = getCardArt(c.name, true);
+		java.awt.Image art = getCardArt(c.name, true, object);
 		if(art != null)
 			this.drawImage(art, LARGE_CARD_ART_LEFT, LARGE_CARD_ART_TOP, LARGE_CARD_ART_WIDTH, LARGE_CARD_ART_HEIGHT, null);
 
@@ -1019,7 +1035,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 
 					cg.drawImage(CardGraphics.getImage("smallframes/" + getCardFrameString(o, SanitizedGameObject.CharacteristicSet.ACTUAL, i)), 0, 0, null);
 
-					java.awt.Image art = getCardArt(characteristics.name, false);
+					java.awt.Image art = getCardArt(characteristics.name, false, object);
 					if(art != null)
 						cg.drawImage(art, SMALL_CARD_ART_LEFT, SMALL_CARD_ART_TOP, SMALL_CARD_ART_WIDTH, SMALL_CARD_ART_HEIGHT, null);
 
@@ -1050,7 +1066,7 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 			{
 				SanitizedCharacteristics characteristics = object.characteristics[0].get(SanitizedGameObject.CharacteristicSet.ACTUAL);
 
-				java.awt.Image art = getCardArt(characteristics.name, false);
+				java.awt.Image art = getCardArt(characteristics.name, false, object);
 				if(0 != characteristics.name.length())
 				{
 					if(art == null)
@@ -1143,42 +1159,65 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 		}
 	}
 
-	private static java.awt.Image getCardArt(String cardName, boolean getLargeArt)
+	private static java.awt.Image getCardArt(String cardName, boolean getLargeArt, final SanitizedGameObject object)
 	{
 		if(cardArts == null)
 			return null;
 
-		String fileName = cardName + ".jpg";
-		java.nio.file.Path cardPath = cardArts.resolve(fileName);
-
-		if(!imageCache.containsKey(fileName))
-			readCardArtIntoImageCache(fileName, cardPath);
-
-		// If the file wasn't found, try downloading a copy to use
-		if(!imageCache.containsKey(fileName))
+		final String fileName = cardName + ".jpg";
+		if(imageCache.containsKey(fileName))
 		{
-			String url = "http://mtgimage.com/card/%s-crop.jpg";
-			try(java.io.InputStream in = new java.net.URL(url.replace("%s", cardName)).openStream())
-			{
-				java.nio.file.Files.copy(in, cardPath);
-				readCardArtIntoImageCache(fileName, cardPath);
-			}
-			catch(java.io.IOException e)
-			{
-				LOG.log(java.util.logging.Level.INFO, "Could not download art for " + cardName, e);
-			}
+			// Small images are prepended with an *
+			java.awt.Image value = imageCache.get((getLargeArt ? "" : "*") + fileName);
+			if((value == IMAGE_CACHE_NO_IMAGE) || (value == IMAGE_CACHE_WORKING))
+				return null;
+			return value;
 		}
 
-		// If we don't find the file, assume we won't find it any other time and
-		// save some reads.
-		if(!imageCache.containsKey(fileName))
-		{
-			imageCache.put(fileName, null);
-			imageCache.put("*" + fileName, null);
-		}
+		// Don't spawn hundreds of concurrent threads to retrieve the same
+		// resource
+		imageCache.put(fileName, IMAGE_CACHE_WORKING);
+		imageCache.put("*" + fileName, IMAGE_CACHE_WORKING);
 
-		// Small images are prepended with an *
-		return imageCache.get((getLargeArt ? "" : "*") + fileName);
+		new Thread("GetCardArt " + fileName)
+		{
+			@Override
+			public void run()
+			{
+				java.nio.file.Path cardPath = cardArts.resolve(fileName);
+
+				// Abilities and emblems will never have art, right?
+				if(!(object instanceof SanitizedNonStaticAbility) && !object.isEmblem)
+				{
+					if(readCardArtIntoImageCache(fileName, cardPath))
+						return;
+				}
+
+				// Try to download the art only for cards that aren't a
+				// face-down creature
+				if(object.isCard && !cardName.isEmpty())
+				{
+					String url = "http://mtgimage.com/card/%s-crop.jpg";
+					try(java.io.InputStream in = new java.net.URL(url.replace("%s", cardName)).openStream())
+					{
+						java.nio.file.Files.copy(in, cardPath);
+						if(readCardArtIntoImageCache(fileName, cardPath))
+							return;
+					}
+					catch(java.io.IOException e)
+					{
+						LOG.log(java.util.logging.Level.INFO, "Could not download art for " + cardName, e);
+					}
+				}
+
+				// If we don't find the file, assume we won't find it any other
+				// time and save some reads.
+				imageCache.put(fileName, IMAGE_CACHE_NO_IMAGE);
+				imageCache.put("*" + fileName, IMAGE_CACHE_NO_IMAGE);
+			}
+		}.start();
+
+		return null;
 	}
 
 	private int loyaltyOf(SanitizedGameObject o, SanitizedGameObject.CharacteristicSet set)
