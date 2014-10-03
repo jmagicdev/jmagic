@@ -21,7 +21,7 @@ public final class Goblinslide extends Card
 			CreateTokensFactory goblin = new CreateTokensFactory(1, 1, 1, "Put a 1/1 red Goblin creature token with haste onto the battlefield.");
 			goblin.setColors(Color.RED);
 			goblin.setSubTypes(SubType.GOBLIN);
-
+			goblin.addAbility(org.rnd.jmagic.abilities.keywords.Haste.class);
 			this.addEffect(ifThen(mayPay, goblin.getEventFactory(), "You may pay (1). If you do, put a 1/1 red Goblin creature token with haste onto the battlefield."));
 		}
 	}
