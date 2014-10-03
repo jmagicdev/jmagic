@@ -43,8 +43,6 @@ public abstract class TriggeredAbility extends NonStaticAbility
 	{
 		super(state, abilityText);
 
-		this.canTrigger = Intersect.instance(AbilitySource.instance(This.instance()), Permanents.instance());
-
 		SetGenerator source = AbilitySource.instance(This.instance());
 		SetGenerator isEmblem = EmblemFilter.instance(source);
 		SetGenerator inCommandZone = InZone.instance(CommandZone.instance());
