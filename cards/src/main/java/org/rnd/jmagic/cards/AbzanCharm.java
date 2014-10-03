@@ -19,7 +19,8 @@ public final class AbzanCharm extends Card
 
 		// Exile target creature with power 3 or greater.
 		{
-			SetGenerator target = targetedBy(this.addTarget(1, HasPower.instance(Between.instance(3, null)), "target creature with power 3 or greater"));
+			SetGenerator bigThings = Intersect.instance(HasPower.instance(Between.instance(3, null)), CreaturePermanents.instance());
+			SetGenerator target = targetedBy(this.addTarget(1, bigThings, "target creature with power 3 or greater"));
 			this.addEffect(1, exile(target, "Exile target creature with power 3 or greater."));
 		}
 
