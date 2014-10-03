@@ -77,6 +77,8 @@ public class Server implements Runnable
 
 	private org.rnd.jmagic.engine.GameType gameType;
 
+	private java.util.Map<java.net.InetAddress, org.bitlet.weupnp.GatewayDevice> gateways;
+
 	private String hostPlayerName = null;
 
 	private java.util.concurrent.ConcurrentMap<java.util.UUID, org.rnd.jmagic.engine.Player> players;
@@ -90,8 +92,6 @@ public class Server implements Runnable
 	private java.nio.channels.Selector selector = null;
 
 	private java.nio.channels.ServerSocketChannel serverChannel = null;
-
-	private org.teleal.cling.UpnpService upnpService = null;
 
 	private org.rnd.jmagic.Version version;
 
@@ -418,18 +418,29 @@ public class Server implements Runnable
 	{
 		try
 		{
-			String localHostIP = java.net.InetAddress.getLocalHost().getHostAddress();
-			String description = "jMagic at " + localHostIP + ":" + this.port;
-			org.teleal.cling.support.model.PortMapping portMapping;
-			portMapping = new org.teleal.cling.support.model.PortMapping(this.port, localHostIP, org.teleal.cling.support.model.PortMapping.Protocol.TCP, description);
-			// No game should last more than a day, right?
-			portMapping.setLeaseDurationSeconds(new org.teleal.cling.model.types.UnsignedIntegerFourBytes(86400));
-			this.upnpService = new org.teleal.cling.UpnpServiceImpl(new org.teleal.cling.support.igd.PortMappingListener(portMapping));
-			this.upnpService.getControlPoint().search();
+			String description = "jMagic on port " + this.port;
+			this.gateways = new java.util.HashMap<java.net.InetAddress, org.bitlet.weupnp.GatewayDevice>();
+
+			org.bitlet.weupnp.GatewayDiscover discovery = new org.bitlet.weupnp.GatewayDiscover();
+			for(java.util.Map.Entry<java.net.InetAddress, org.bitlet.weupnp.GatewayDevice> entry: discovery.discover().entrySet())
+			{
+				java.net.InetAddress address = entry.getKey();
+				org.bitlet.weupnp.GatewayDevice gateway = entry.getValue();
+				org.bitlet.weupnp.PortMappingEntry mapping = new org.bitlet.weupnp.PortMappingEntry();
+				if(gateway.getSpecificPortMappingEntry(this.port, "TCP", mapping))
+					LOG.warning("Port forwarding on address " + address + " already exists; port forwarding not set up");
+				else if(gateway.addPortMapping(this.port, this.port, address.getHostAddress(), "TCP", description))
+				{
+					this.gateways.put(address, gateway);
+					LOG.info("Set up port forwarding on address " + address.getHostAddress());
+				}
+				else
+					LOG.warning("Could not set up port forwarding on address " + address.getHostAddress());
+			}
 		}
-		catch(java.net.UnknownHostException e)
+		catch(javax.xml.parsers.ParserConfigurationException | org.xml.sax.SAXException | java.io.IOException e)
 		{
-			LOG.log(java.util.logging.Level.WARNING, "Could not look up local IP address", e);
+			LOG.log(java.util.logging.Level.WARNING, "Error when trying to set up port forwarding", e);
 		}
 	}
 
@@ -501,8 +512,13 @@ public class Server implements Runnable
 		if(setup())
 		{
 			runGame();
-			closeConnections();
-			stopForwardUPNP();
+
+			// Skip any networking cleanup for local-only games
+			if(0 != this.port)
+			{
+				closeConnections();
+				stopForwardUPNP();
+			}
 		}
 
 		routingThread.interrupt();
@@ -532,7 +548,9 @@ public class Server implements Runnable
 
 	private boolean setup()
 	{
-		boolean ret = false;
+		// Skip any networking setup for local-only games
+		if(0 == this.port)
+			return true;
 
 		if(listenForConnections())
 		{
@@ -540,7 +558,7 @@ public class Server implements Runnable
 			registerWithGameFinder();
 
 			if(acceptConnections())
-				ret = true;
+				return true;
 			else
 			{
 				cancelGameFinder();
@@ -549,13 +567,27 @@ public class Server implements Runnable
 			}
 		}
 
-		return ret;
+		return false;
 	}
 
 	private void stopForwardUPNP()
 	{
-		if(null != this.upnpService)
-			this.upnpService.shutdown();
+		try
+		{
+			for(java.util.Map.Entry<java.net.InetAddress, org.bitlet.weupnp.GatewayDevice> entry: this.gateways.entrySet())
+			{
+				String address = entry.getKey().getHostAddress();
+				org.bitlet.weupnp.GatewayDevice gateway = entry.getValue();
+				if(gateway.deletePortMapping(this.port, "TCP"))
+					LOG.info("Removed port forwarding on address " + address);
+				else
+					LOG.warning("Could not remove port forwarding on address " + address);
+			}
+		}
+		catch(org.xml.sax.SAXException | java.io.IOException e)
+		{
+			LOG.log(java.util.logging.Level.WARNING, "Error when trying to remove port forwarding", e);
+		}
 	}
 
 	private void updateGameFinder()

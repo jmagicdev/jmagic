@@ -12,26 +12,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-	<repositories>
-		<repository>
-			<id>teleal-repo</id>
-			<url>http://teleal.org/m2</url>
-			<!-- These optional flags are designed to speed up your builds by reducing 
-				remote server calls -->
-			<releases>
-				<updatePolicy>never</updatePolicy>
-			</releases>
-			<snapshots>
-				<updatePolicy>daily</updatePolicy>
-			</snapshots>
-		</repository>
-	</repositories>
-
 	<dependencies>
 		<dependency>
-			<groupId>org.teleal.cling</groupId>
-			<artifactId>cling-support</artifactId>
-			<version>1.0.5</version>
+			<groupId>org.bitlet</groupId>
+			<artifactId>weupnp</artifactId>
+			<version>0.1.2</version>
 		</dependency>
 	</dependencies>
 
