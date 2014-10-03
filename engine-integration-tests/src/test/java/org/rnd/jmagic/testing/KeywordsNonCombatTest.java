@@ -3964,6 +3964,42 @@ public class KeywordsNonCombatTest extends JUnitTest
 	}
 
 	@Test
+	public void prowess()
+	{
+		this.addDeck(JeskaiWindscout.class, Forest.class, AngelsMercy.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
+		this.addDeck(GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class, GrizzlyBears.class);
+
+		startGame(new Open());
+
+		respondWith(getPlayer(0));
+		keep();
+		keep();
+
+		goToPhase(Phase.PhaseType.PRECOMBAT_MAIN);
+		castAndResolveSpell(JeskaiWindscout.class);
+
+		respondWith(getLandAction(Forest.class));
+		respondWith(getAbilityAction(org.rnd.jmagic.engine.Game.IntrinsicManaAbility.class));
+		// prowess shouldn't trigger
+		assertEquals(0, this.game.actualState.stack().objects.size());
+
+		respondWith(getSpellAction(AngelsMercy.class));
+		// we already have a green mana!
+		addMana("1WW");
+		donePlayingManaAbilities();
+
+		// prowess should trigger
+		assertEquals(2, this.game.actualState.stack().objects.size());
+		pass();
+		pass();
+
+		GameObject jeskaiWindscout = this.game.actualState.battlefield().objects.get(1);
+		assertEquals("Jeskai Windscout", jeskaiWindscout.getName());
+		assertEquals(3, jeskaiWindscout.getPower());
+		assertEquals(2, jeskaiWindscout.getToughness());
+	}
+
+	@Test
 	public void rebound()
 	{
 		addDeck(Staggershock.class, Staggershock.class, Staggershock.class, Staggershock.class, Staggershock.class, Staggershock.class, Staggershock.class, Staggershock.class);
