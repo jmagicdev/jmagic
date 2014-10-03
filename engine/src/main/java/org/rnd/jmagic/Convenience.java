@@ -3694,9 +3694,13 @@ public class Convenience
 	{
 		if(null == whenYouCastANoncreatureSpellPattern)
 		{
+			MultipleSetPattern noncreatureSpell = new MultipleSetPattern(true);
+			noncreatureSpell.addPattern(new SimpleSetPattern(Spells.instance()));
+			noncreatureSpell.addPattern(new NonTypePattern(Type.CREATURE));
+
 			SimpleEventPattern pattern = new SimpleEventPattern(EventType.BECOMES_PLAYED);
 			pattern.put(EventType.Parameter.PLAYER, You.instance());
-			pattern.put(EventType.Parameter.OBJECT, new NonTypePattern(Type.CREATURE));
+			pattern.put(EventType.Parameter.OBJECT, noncreatureSpell);
 			whenYouCastANoncreatureSpellPattern = new ImmutableEventPattern(pattern);
 		}
 		return whenYouCastANoncreatureSpellPattern;
