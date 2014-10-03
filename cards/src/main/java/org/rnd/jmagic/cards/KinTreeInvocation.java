@@ -21,10 +21,8 @@ public final class KinTreeInvocation extends Card
 		SetGenerator X = Maximum.instance(ToughnessOf.instance(CREATURES_YOU_CONTROL));
 
 		CreateTokensFactory spiritWarrior = new CreateTokensFactory(numberGenerator(1), X, X, "Put an X/X black and green Spirit Warrior creature token onto the battlefield, where X is the greatest toughness among creatures you control.");
-		spiritWarrior.setColors(Color.BLACK);
-		spiritWarrior.setColors(Color.GREEN);
-		spiritWarrior.setSubTypes(SubType.SPIRIT);
-		spiritWarrior.setSubTypes(SubType.WARRIOR);
+		spiritWarrior.setColors(Color.BLACK, Color.GREEN);
+		spiritWarrior.setSubTypes(SubType.SPIRIT, SubType.WARRIOR);
 		this.addEffect(spiritWarrior.getEventFactory());
 	}
 }

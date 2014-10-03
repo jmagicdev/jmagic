@@ -19,8 +19,7 @@ public final class VanguardofBrimaz extends Card
 
 			CreateTokensFactory cat = new CreateTokensFactory(1, 1, 1, "Put a 1/1 white Cat Soldier creature token with vigilance onto the battlefield.");
 			cat.setColors(Color.WHITE);
-			cat.setSubTypes(SubType.CAT);
-			cat.setSubTypes(SubType.SOLDIER);
+			cat.setSubTypes(SubType.CAT, SubType.SOLDIER);
 			cat.addAbility(org.rnd.jmagic.abilities.keywords.Vigilance.class);
 			this.addEffect(cat.getEventFactory());
 		}
