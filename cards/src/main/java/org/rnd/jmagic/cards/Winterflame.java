@@ -20,13 +20,13 @@ public final class Winterflame extends Card
 
 		// • Tap target creature.
 		{
-			SetGenerator target = targetedBy(this.addTarget(1, CreaturePermanents.instance(), "target creature"));
+			SetGenerator target = targetedBy(this.addTarget(1, CreaturePermanents.instance(), "target creature to tap"));
 			this.addEffect(1, tap(target, "Tap target creature."));
 		}
 
 		// • Winterflame deals 2 damage to target creature.
 		{
-			SetGenerator target = targetedBy(this.addTarget(2, CreaturePermanents.instance(), "target creature"));
+			SetGenerator target = targetedBy(this.addTarget(2, CreaturePermanents.instance(), "target creature to deal 2 damage to"));
 			this.addEffect(2, spellDealDamage(2, target, "Winterflame deals 2 damage to target creature."));
 		}
 	}
