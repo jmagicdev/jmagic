@@ -281,6 +281,15 @@ public class CardShell
 			keywords.put(java.util.regex.Pattern.compile(entry.getKey(), java.util.regex.Pattern.CASE_INSENSITIVE), entry.getValue());
 	}
 
+	public static String removeAbilityWords(String ability)
+	{
+		String spaceEmdashSpace = " \\u2014 ";
+		int index = ability.indexOf(spaceEmdashSpace);
+		if(index == -1)
+			return ability;
+		return ability.substring(index + spaceEmdashSpace.length());
+	}
+
 	public static String removeReminderText(String ability)
 	{
 		int start = 0;
@@ -475,6 +484,7 @@ public class CardShell
 				while(abilityIterator.hasNext())
 				{
 					String ability = removeReminderText(abilityIterator.next());
+					String noAbilityWords = removeAbilityWords(ability);
 					if(0 == ability.length())
 					{
 						abilityIterator.remove();
@@ -483,7 +493,7 @@ public class CardShell
 
 					int firstQuote = ability.indexOf("\"");
 					int firstColon = ability.indexOf(":");
-					boolean triggered = ability.startsWith("When ") || ability.startsWith("Whenever ") || ability.startsWith("At ") || ability.startsWith("Landfall ");
+					boolean triggered = noAbilityWords.startsWith("When ") || noAbilityWords.startsWith("Whenever ") || noAbilityWords.startsWith("At ");
 					if((-1 != firstColon) && ((-1 == firstQuote) || (firstColon < firstQuote)))
 					{
 						addable = false;
@@ -532,7 +542,7 @@ public class CardShell
 						abilityCode.append("\t\t{\r\n");
 						abilityCode.append("\t\t\tsuper(state, \"" + ability.replace("\"", "\\\"") + "\");\r\n");
 
-						String replacedAbility = ability.replace(nameInFile, "This");
+						String replacedAbility = noAbilityWords.replace(nameInFile, "This");
 						String triggerCondition = replacedAbility.substring(0, replacedAbility.indexOf(","));
 						String method = getConvenienceMethod(triggerCondition);
 						if(method != null)
