@@ -2451,7 +2451,7 @@ public class Convenience
 			SimpleEventPattern target = new SimpleEventPattern(EventType.BECOMES_PLAYED);
 			target.put(EventType.Parameter.PLAYER, You.instance());
 			target.put(EventType.Parameter.OBJECT, Intersect.instance(Spells.instance(), HasTarget.instance(ABILITY_SOURCE_OF_THIS)));
-			heroicPattern = new ImmutableEventPattern(heroicPattern);
+			heroicPattern = new ImmutableEventPattern(target);
 		}
 		return heroicPattern;
 	}
