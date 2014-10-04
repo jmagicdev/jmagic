@@ -327,12 +327,6 @@ public class CardShell
 			break;
 		}
 
-		int dashIndex = ability.indexOf("\\u2014");
-		if(dashIndex >= 0 && !ability.startsWith("Choose "))
-		{
-			ability = ability.substring(dashIndex + 6).trim();
-		}
-
 		return ability;
 	}
 
