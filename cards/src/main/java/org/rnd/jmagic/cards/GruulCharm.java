@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -20,9 +21,7 @@ public final class GruulCharm extends Card
 		{
 			SetGenerator withoutFlying = RelativeComplement.instance(CreaturePermanents.instance(), HasKeywordAbility.instance(org.rnd.jmagic.abilities.keywords.Flying.class));
 
-			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.BLOCKING_RESTRICTION);
-			part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(Intersect.instance(Blocking.instance(), withoutFlying)));
-			this.addEffect(1, createFloatingEffect("Creatures without flying can't block this turn.", part));
+			this.addEffect(1, cantBlockThisTurn(withoutFlying, "Creatures without flying can't block this turn."));
 		}
 
 		// gain control of all permanents you own

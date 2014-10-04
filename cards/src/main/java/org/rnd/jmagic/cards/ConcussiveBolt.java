@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -21,12 +22,11 @@ public final class ConcussiveBolt extends Card
 
 		// Metalcraft \u2014 If you control three or more artifacts, creatures
 		// that player controls can't block this turn.
-		ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.BLOCKING_RESTRICTION);
-		part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(Intersect.instance(Blocking.instance(), Intersect.instance(ControlledBy.instance(target), CreaturePermanents.instance()))));
+		SetGenerator thatPlayersCreatures = Intersect.instance(ControlledBy.instance(target), CreaturePermanents.instance());
 
 		EventFactory factory = new EventFactory(EventType.IF_CONDITION_THEN_ELSE, "\n\nMetalcraft \u2014 If you control three or more artifacts, creatures that player controls can't block this turn.");
 		factory.parameters.put(EventType.Parameter.IF, Metalcraft.instance());
-		factory.parameters.put(EventType.Parameter.THEN, Identity.instance(createFloatingEffect("Creatures that player controls can't block this turn.", part)));
+		factory.parameters.put(EventType.Parameter.THEN, Identity.instance(cantBlockThisTurn(thatPlayersCreatures, "Creatures that player controls can't block this turn.")));
 		this.addEffect(factory);
 	}
 }

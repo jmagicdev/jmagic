@@ -37,11 +37,8 @@ public final class TemurCharm extends Card
 
 		// • Creatures with power 3 or less can't block this turn.
 		{
-			SetGenerator restriction = Intersect.instance(Blocking.instance(), HasPower.instance(Between.instance(null, 3)));
-			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.BLOCKING_RESTRICTION);
-			part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(restriction));
-
-			this.addEffect(createFloatingEffect("Creatures with power 3 or less can't block this turn.", part));
+			SetGenerator small = HasPower.instance(Between.instance(null, 3));
+			this.addEffect(cantBlockThisTurn(small, "Creatures with power 3 or less can't block this turn."));
 		}
 	}
 }

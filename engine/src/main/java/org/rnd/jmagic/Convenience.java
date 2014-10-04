@@ -1822,6 +1822,16 @@ public class Convenience
 	}
 
 	/**
+	 * [things] can't block this turn.
+	 */
+	public static EventFactory cantBlockThisTurn(SetGenerator what, String effectName)
+	{
+		ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.BLOCKING_RESTRICTION);
+		part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(Intersect.instance(Blocking.instance(), what)));
+		return createFloatingEffect(effectName, part);
+	}
+
+	/**
 	 * Whenever [this] or another enchantment enters the battlefield under your
 	 * control ...
 	 */

@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -21,9 +22,7 @@ public final class MarkovWarlord extends Card
 			Target target = this.addTarget(CreaturePermanents.instance(), "up to two target creatures");
 			target.setNumber(0, 2);
 
-			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.BLOCKING_RESTRICTION);
-			part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(Intersect.instance(targetedBy(target), Blocking.instance())));
-			this.addEffect(createFloatingEffect("Up to two target creatures can't block this turn.", part));
+			this.addEffect(cantBlockThisTurn(targetedBy(target), "Up to two target creatures can't block this turn."));
 		}
 	}
 

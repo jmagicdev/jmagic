@@ -1,6 +1,7 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -21,9 +22,6 @@ public final class WrapinFlames extends Card
 		// Wrap in Flames deals 1 damage to each of up to three target
 		// creatures. Those creatures can't block this turn.
 		this.addEffect(spellDealDamage(1, targetGenerator, "Wrap in Flames deals 1 damage to each of up to three target creatures."));
-
-		ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.BLOCKING_RESTRICTION);
-		part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(Intersect.instance(Blocking.instance(), targetGenerator)));
-		this.addEffect(createFloatingEffect("Those creatures can't block this turn.", part));
+		this.addEffect(cantBlockThisTurn(targetGenerator, "Those creatures can't block this turn."));
 	}
 }

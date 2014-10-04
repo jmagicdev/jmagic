@@ -19,9 +19,7 @@ public final class CrosswayVampire extends Card
 			this.addPattern(whenThisEntersTheBattlefield());
 
 			SetGenerator target = targetedBy(this.addTarget(CreaturePermanents.instance(), "target creature"));
-			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.BLOCKING_RESTRICTION);
-			part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(Intersect.instance(target, Blocking.instance())));
-			this.addEffect(createFloatingEffect("Target creature can't block this turn", part));
+			this.addEffect(cantBlockThisTurn(target, "Target creature can't block this turn"));
 		}
 	}
 

@@ -18,9 +18,6 @@ public final class PanicAttack extends Card
 		Target target = this.addTarget(CreaturePermanents.instance(), "up to three target creatures");
 		target.setNumber(0, 3);
 
-		ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.BLOCKING_RESTRICTION);
-		part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(Intersect.instance(Blocking.instance(), targetedBy(target))));
-
-		this.addEffect(createFloatingEffect("Up to three target creatures can't block this turn.", part));
+		this.addEffect(cantBlockThisTurn(targetedBy(target), "Up to three target creatures can't block this turn."));
 	}
 }

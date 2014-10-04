@@ -16,12 +16,7 @@ public final class Stun extends Card
 		super(state);
 
 		Target target = this.addTarget(CreaturePermanents.instance(), "target creature");
-
-		ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.BLOCKING_RESTRICTION);
-		part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(Intersect.instance(Blocking.instance(), targetedBy(target))));
-
-		this.addEffect(createFloatingEffect("Target creature can't block this turn.", part));
-
+		this.addEffect(cantBlockThisTurn(targetedBy(target), "Target creature can't block this turn."));
 		this.addEffect(drawCards(You.instance(), 1, "\n\nDraw a card."));
 	}
 }

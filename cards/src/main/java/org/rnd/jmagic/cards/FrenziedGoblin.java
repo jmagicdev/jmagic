@@ -20,10 +20,7 @@ public final class FrenziedGoblin extends Card
 			this.addPattern(whenThisAttacks());
 
 			SetGenerator target = targetedBy(this.addTarget(CreaturePermanents.instance(), "target creature"));
-			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.BLOCKING_RESTRICTION);
-			SetGenerator restriction = Intersect.instance(Blocking.instance(), target);
-			part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(restriction));
-			EventFactory stun = createFloatingEffect("Target creature can't block this turn.", part);
+			EventFactory stun = cantBlockThisTurn(target, "Target creature can't block this turn.");
 
 			this.addEffect(ifThen(youMayPay("(R)"), stun, "You may pay (R). If you do, target creature can't block this turn."));
 		}

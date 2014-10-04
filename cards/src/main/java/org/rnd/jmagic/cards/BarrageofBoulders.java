@@ -22,9 +22,7 @@ public final class BarrageofBoulders extends Card
 
 		// Ferocious \u2014 If you control a creature with power 4 or greater,
 		// creatures can't block this turn.
-		ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.BLOCKING_RESTRICTION);
-		part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(Blocking.instance()));
-		EventFactory cantBlock = createFloatingEffect("Creatures can't block this turn", part);
+		EventFactory cantBlock = cantBlockThisTurn(CreaturePermanents.instance(), "Creatures can't block this turn.");
 		this.addEffect(ifThen(Ferocious.instance(), cantBlock, "Ferocious \u2014 If you control a creature with power 4 or greater, creatures can't block this turn."));
 	}
 }

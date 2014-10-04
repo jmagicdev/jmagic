@@ -29,11 +29,7 @@ public final class ChandraPyromaster extends Card
 
 			this.addEffect(permanentDealDamage(1, Union.instance(targetPlayer, targetCreature), "Chandra, Pyromaster deals 1 damage to target player and 1 damage to up to one target creature that player controls."));
 
-			SetGenerator restriction = Intersect.instance(Blocking.instance(), targetCreature);
-
-			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.BLOCKING_RESTRICTION);
-			part.parameters.put(ContinuousEffectType.Parameter.RESTRICTION, Identity.instance(restriction));
-			this.addEffect(createFloatingEffect("That creature can't block this turn.", part));
+			this.addEffect(cantBlockThisTurn(targetCreature, "That creature can't block this turn."));
 		}
 	}
 
