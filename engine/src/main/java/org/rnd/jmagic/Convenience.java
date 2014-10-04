@@ -1008,6 +1008,7 @@ public class Convenience
 	 * @eparam NUMBER: the number of cards to look at
 	 * @eparam PLAYER: the player choosing
 	 * @eparam ZONE: the library to look through
+	 * @eparam TYPE: [optional] if specified, the kinds of cards you can choose
 	 * @eparam RESULT: empty
 	 */
 	public static final EventType LOOK_AT_THE_TOP_N_CARDS_PUT_ONE_INTO_HAND_AND_THE_REST_ON_BOTTOM = new EventType("LOOK_AT_THE_TOP_N_CARDS_PUT_ONE_INTO_HAND_AND_THE_REST_ON_BOTTOM")
@@ -1039,7 +1040,6 @@ public class Convenience
 			// I dont want to deal with empty collections for choose
 			if(!objects.isEmpty())
 			{
-
 				java.util.Map<Parameter, Set> lookParameters = new java.util.HashMap<Parameter, Set>();
 				lookParameters.put(Parameter.CAUSE, cause);
 				lookParameters.put(Parameter.OBJECT, Set.fromCollection(objects));
@@ -1047,7 +1047,11 @@ public class Convenience
 				Event lookEvent = createEvent(game, "Look at the top X cards of your library.", EventType.LOOK, lookParameters);
 				lookEvent.perform(event, true);
 
-				java.util.List<GameObject> choice = player.getActual().sanitizeAndChoose(game.actualState, 1, objects.getAll(GameObject.class), PlayerInterface.ChoiceType.OBJECTS, LOOK_AT_THE_TOP_N_CARDS_PUT_ONE_INTO_HAND_AND_THE_REST_ON_BOTTOM_REASON);
+				java.util.Set<GameObject> chooseable = objects.getAll(GameObject.class);
+				if(parameters.containsKey(Parameter.TYPE))
+					chooseable.retainAll(parameters.get(Parameter.TYPE));
+
+				java.util.List<GameObject> choice = player.getActual().sanitizeAndChoose(game.actualState, 1, chooseable, PlayerInterface.ChoiceType.OBJECTS, LOOK_AT_THE_TOP_N_CARDS_PUT_ONE_INTO_HAND_AND_THE_REST_ON_BOTTOM_REASON);
 				objects.removeAll(choice);
 
 				// These two events are not top level because they happen
@@ -1055,6 +1059,7 @@ public class Convenience
 				// TODO : Should this be (yet another) separate event? Should we
 				// make an event that can move different cards to different
 				// zones at the same time?
+
 				java.util.Map<Parameter, Set> handParameters = new java.util.HashMap<Parameter, Set>();
 				handParameters.put(Parameter.CAUSE, cause);
 				handParameters.put(Parameter.TO, new Set(player.getHand(game.actualState)));
