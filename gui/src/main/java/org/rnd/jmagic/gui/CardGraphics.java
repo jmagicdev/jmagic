@@ -1197,12 +1197,16 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 				// face-down creature
 				if(object.isCard && !cardName.isEmpty())
 				{
-					String url = "http://mtgimage.com/card/%s-crop.jpg";
-					try(java.io.InputStream in = new java.net.URL(url.replace("%s", cardName)).openStream())
+					// TODO: make this URI configurable somehow
+					try(java.io.InputStream in = new java.net.URI("http", "mtgimage.com", "/card/" + cardName + "-crop.jpg", null).toURL().openStream())
 					{
 						java.nio.file.Files.copy(in, cardPath);
 						if(readCardArtIntoImageCache(fileName, cardPath))
 							return;
+					}
+					catch(java.net.URISyntaxException e)
+					{
+						LOG.log(java.util.logging.Level.SEVERE, "Something is wrong with the card name " + cardName + " such that a URI couldn't be created with it", e);
 					}
 					catch(java.io.IOException e)
 					{
