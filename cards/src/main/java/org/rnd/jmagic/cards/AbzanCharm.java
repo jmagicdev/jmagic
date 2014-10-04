@@ -32,12 +32,11 @@ public final class AbzanCharm extends Card
 
 		// Distribute two +1/+1 counters among one or two target creatures.
 		{
-			SetGenerator target = targetedBy(this.addTarget(3, CreaturePermanents.instance(), "one or two target creatures").setNumber(1, 2));
+			SetGenerator target = targetedDistribute(this.addTarget(3, CreaturePermanents.instance(), "one or two target creatures").setNumber(1, 2));
 			this.setDivision(3, Union.instance(numberGenerator(2), Identity.instance("+1/+1 counters")));
 
 			EventFactory effect = new EventFactory(EventType.DISTRIBUTE_COUNTERS, "Distribute two +1/+1 counters among one or two target creatures.");
 			effect.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			effect.parameters.put(EventType.Parameter.PLAYER, You.instance());
 			effect.parameters.put(EventType.Parameter.OBJECT, target);
 			effect.parameters.put(EventType.Parameter.COUNTER, Identity.instance(Counter.CounterType.PLUS_ONE_PLUS_ONE));
 			this.addEffect(3, effect);

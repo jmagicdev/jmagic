@@ -3418,6 +3418,17 @@ public class Convenience
 		return ExtractTargets.instance(ChosenTargetsFor.instance(Identity.instance((Object[])targets), This.instance()));
 	}
 
+	/**
+	 * Cover for ChosenTargetsFor(Identity(targets), This)). This is for
+	 * "distribute" effects, all of which expect the target objects themselves.
+	 * 
+	 * @param targets The targets over which to distribute the counters/damage.
+	 */
+	public static SetGenerator targetedDistribute(Target... targets)
+	{
+		return ChosenTargetsFor.instance(Identity.instance((Object[])targets), This.instance());
+	}
+
 	public static EventFactory transformThis(String cardName)
 	{
 		return transform(ABILITY_SOURCE_OF_THIS, "Transform " + cardName + ".");

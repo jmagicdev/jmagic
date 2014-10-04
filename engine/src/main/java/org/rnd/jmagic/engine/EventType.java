@@ -618,7 +618,6 @@ public abstract class EventType
 
 	/**
 	 * @eparam CAUSE: the cause of the counters
-	 * @eparam PLAYER: the player distributing the counters
 	 * @eparam OBJECT: targets describing who is getting counters and how many
 	 * @eparam COUNTER: the Counter.CounterType of counters to distribute
 	 * @eparam RESULT: empty
