@@ -856,6 +856,8 @@ public class Convenience
 		}
 	};
 
+	private static ZoneChangePattern constellationPattern = null;
+
 	public static final SetGenerator CREATURES_AND_PLAYERS = Union.instance(Players.instance(), CreaturePermanents.instance());
 
 	public static final SetGenerator CREATURES_YOU_CONTROL = Intersect.instance(CreaturePermanents.instance(), ControlledBy.instance(You.instance()));
@@ -1812,6 +1814,22 @@ public class Convenience
 		// the card reads. If someone can figure out a better way to do this...
 		// I'm all ears. -RulesGuru
 		return new EventFactory[] {stopRegen(cause, objects, ""), destroy(objects, effectName)};
+	}
+
+	/**
+	 * Whenever [this] or another enchantment enters the battlefield under your
+	 * control ...
+	 */
+	public static ZoneChangePattern constellation()
+	{
+		if(constellationPattern == null)
+		{
+			SetGenerator otherEnchantments = RelativeComplement.instance(HasType.instance(Type.ENCHANTMENT), ABILITY_SOURCE_OF_THIS);
+			SetGenerator stuff = Union.instance(ABILITY_SOURCE_OF_THIS, otherEnchantments);
+			SimpleZoneChangePattern pattern = new SimpleZoneChangePattern(null, Battlefield.instance(), stuff, You.instance(), false);
+			constellationPattern = new ImmutableZoneChangePattern(pattern);
+		}
+		return constellationPattern;
 	}
 
 	/**

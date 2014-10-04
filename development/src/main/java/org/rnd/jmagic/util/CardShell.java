@@ -129,6 +129,7 @@ public class CardShell
 		convenienceMethods.put("whenthisandatleasttwoothercreaturesattack", "battalion");
 		convenienceMethods.put("whenyoucastaspellthattargetsthis", "heroic");
 		convenienceMethods.put("whenthisbecomesuntapped", "inspired");
+		convenienceMethods.put("whenthisoranotherenchantmententersthebattlefieldunderyourcontrol", "constellation");
 	}
 
 	private static String simpleInstantiation(Class<? extends Keyword> k)
