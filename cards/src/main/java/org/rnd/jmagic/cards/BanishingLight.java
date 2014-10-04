@@ -20,15 +20,7 @@ public final class BanishingLight extends Card
 
 			SetGenerator legalTargets = RelativeComplement.instance(ControlledBy.instance(OpponentsOf.instance(You.instance())), HasType.instance(Type.LAND));
 			SetGenerator target = targetedBy(this.addTarget(legalTargets, "target nonland permanent an opponent controls"));
-
-			state.ensureTracker(new LeftTheBattlefield.LeavesTheBattlefieldTracker());
-			SetGenerator thisIsGone = Intersect.instance(ABILITY_SOURCE_OF_THIS, LeftTheBattlefield.instance());
-
-			EventFactory exileUntil = new EventFactory(EventType.EXILE_UNTIL, "Exile target nonland permanent an opponent controls until Banishing Light leaves the battlefield.");
-			exileUntil.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			exileUntil.parameters.put(EventType.Parameter.OBJECT, target);
-			exileUntil.parameters.put(EventType.Parameter.EXPIRES, Identity.instance(thisIsGone));
-			this.addEffect(exileUntil);
+			this.addEffect(exileUntilThisLeavesTheBattlefield(state, target, "Exile target nonland permanent an opponent controls until Banishing Light leaves the battlefield."));
 		}
 	}
 

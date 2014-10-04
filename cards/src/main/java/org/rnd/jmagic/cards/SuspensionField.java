@@ -20,15 +20,7 @@ public final class SuspensionField extends Card
 
 			SetGenerator legal = HasToughness.instance(Between.instance(3, null));
 			Target target = this.addTarget(legal, "target creature an opponent controls");
-
-			state.ensureTracker(new LeftTheBattlefield.LeavesTheBattlefieldTracker());
-			SetGenerator thisIsGone = Intersect.instance(ABILITY_SOURCE_OF_THIS, LeftTheBattlefield.instance());
-
-			EventFactory exileUntil = new EventFactory(EventType.EXILE_UNTIL, "Exile target creature with toughness 3 or greater until Suspension Field leaves the battlefield.");
-			exileUntil.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			exileUntil.parameters.put(EventType.Parameter.OBJECT, targetedBy(target));
-			exileUntil.parameters.put(EventType.Parameter.EXPIRES, Identity.instance(thisIsGone));
-			this.addEffect(youMay(exileUntil));
+			this.addEffect(youMay(exileUntilThisLeavesTheBattlefield(state, targetedBy(target), "Exile target creature with toughness 3 or greater until Suspension Field leaves the battlefield.")));
 		}
 	}
 

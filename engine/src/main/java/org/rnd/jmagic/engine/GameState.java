@@ -585,9 +585,10 @@ public class GameState implements Cloneable
 		java.util.Iterator<DelayedOneShot> iterator = this.game.physicalState.delayedOneShots.iterator();
 		while(iterator.hasNext())
 		{
+			GameState state = this.game.actualState;
 			DelayedOneShot effect = iterator.next();
-			GameObject source = this.get(effect.sourceID);
-			if(effect.condition.evaluate(this, source).isEmpty())
+			GameObject source = state.get(effect.sourceID);
+			if(effect.condition.evaluate(state, source).isEmpty())
 				continue;
 
 			iterator.remove();

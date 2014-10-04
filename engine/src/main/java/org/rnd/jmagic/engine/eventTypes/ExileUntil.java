@@ -3,8 +3,6 @@ package org.rnd.jmagic.engine.eventTypes;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
-import static org.rnd.jmagic.Convenience.*;
-
 public final class ExileUntil extends EventType
 {
 	public static final EventType INSTANCE = new ExileUntil();
@@ -51,6 +49,10 @@ public final class ExileUntil extends EventType
 
 		// exile the object(s).
 		Set toExile = parameters.get(Parameter.OBJECT);
+		if(toExile.isEmpty())
+			return event.allChoicesMade;
+
+		Zone returnTo = toExile.getOne(GameObject.class).getZone();
 
 		java.util.Map<Parameter, Set> moveParameters = new java.util.HashMap<Parameter, Set>();
 		moveParameters.put(Parameter.CAUSE, new Set(cause));
@@ -67,8 +69,13 @@ public final class ExileUntil extends EventType
 
 		// set up the event to return the object(s).
 		SetGenerator exiled = NewObjectOf.instance(exileZC);
-		EventFactory returnToBattlefield = putOntoBattlefield(exiled, OwnerOf.instance(exiled), "Return exiled object to the battlefield.", false);
-		game.physicalState.addDelayedOneShot(cause, returnCondition, returnToBattlefield);
+		EventFactory returnObjects = new EventFactory(EventType.MOVE_OBJECTS, "Return object(s) exiled by " + cause + " to " + returnTo + ".");
+		returnObjects.parameters.put(Parameter.CAUSE, Identity.instance(cause));
+		returnObjects.parameters.put(Parameter.OBJECT, exiled);
+		returnObjects.parameters.put(Parameter.TO, Identity.instance(returnTo));
+		if(returnTo.equals(game.actualState.battlefield()))
+			returnObjects.parameters.put(Parameter.CONTROLLER, OwnerOf.instance(exiled));
+		game.physicalState.addDelayedOneShot(cause, returnCondition, returnObjects);
 
 		return event.allChoicesMade && status;
 	}

@@ -2321,6 +2321,26 @@ public class Convenience
 	}
 
 	/**
+	 * This takes care of ensuring the LeavesTheBattlefieldTracker.
+	 * 
+	 * @param state State to ensure the tracker in
+	 * @param object What to exile
+	 * @param effectName Text of the effect
+	 * @return Exile [object] until ~ leaves the battlefield.
+	 */
+	public static EventFactory exileUntilThisLeavesTheBattlefield(GameState state, SetGenerator object, String effectName)
+	{
+		state.ensureTracker(new LeftTheBattlefield.LeavesTheBattlefieldTracker());
+		SetGenerator thisIsGone = Intersect.instance(ABILITY_SOURCE_OF_THIS, LeftTheBattlefield.instance());
+
+		EventFactory exileUntil = new EventFactory(EventType.EXILE_UNTIL, effectName);
+		exileUntil.parameters.put(EventType.Parameter.CAUSE, This.instance());
+		exileUntil.parameters.put(EventType.Parameter.OBJECT, object);
+		exileUntil.parameters.put(EventType.Parameter.EXPIRES, Identity.instance(thisIsGone));
+		return exileUntil;
+	}
+
+	/**
 	 * IMPORTANT NOTE: The who generator must resolve to two objects that can
 	 * either be 2 Targets, 1 Target and 1 GameObject, or 2 GameObjects. If
 	 * there is a possibility that both objects could represent the same

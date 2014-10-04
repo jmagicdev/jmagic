@@ -21,15 +21,7 @@ public final class ChainedtotheRocks extends Card
 
 			SetGenerator opponentsCreatures = Intersect.instance(CreaturePermanents.instance(), ControlledBy.instance(OpponentsOf.instance(You.instance())));
 			SetGenerator target = targetedBy(this.addTarget(opponentsCreatures, "target creature an opponent controls"));
-
-			state.ensureTracker(new LeftTheBattlefield.LeavesTheBattlefieldTracker());
-			SetGenerator thisIsGone = Intersect.instance(ABILITY_SOURCE_OF_THIS, LeftTheBattlefield.instance());
-
-			EventFactory exileUntil = new EventFactory(EventType.EXILE_UNTIL, "Exile target creature an opponent controls until Chained to the Rocks leaves the battlefield.");
-			exileUntil.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			exileUntil.parameters.put(EventType.Parameter.OBJECT, target);
-			exileUntil.parameters.put(EventType.Parameter.EXPIRES, Identity.instance(thisIsGone));
-			this.addEffect(exileUntil);
+			this.addEffect(exileUntilThisLeavesTheBattlefield(state, target, "Exile target creature an opponent controls until Chained to the Rocks leaves the battlefield."));
 		}
 	}
 

@@ -721,14 +721,14 @@ public abstract class EventType
 	public static final EventType EXILE_CHOICE = ExileChoice.INSTANCE;
 
 	/**
-	 * Exiles a permanent from the battlefield, returning it when a specified
-	 * event occurs. The way this actually works is that it looks at a
-	 * generator, and returns the object when that generator is nonempty. The
-	 * generator shouldn't simply refer to (e.g.) the Banisher Priest not being
-	 * on the battlefield, but rather should refer to a tracker that explicitly
-	 * tracks objects (e.g.) leaving the battlefield. The rules are pretty
-	 * explicit that the return happens after a specified *event*, not under a
-	 * certain *condition*, but trackers are our only way of looking for events.
+	 * Exiles objects from a single zone, returning them when a specified event
+	 * occurs. The way this actually works is that it looks at a generator, and
+	 * returns the object when that generator is nonempty. The generator
+	 * shouldn't simply refer to (e.g.) the Banisher Priest not being on the
+	 * battlefield, but rather should refer to a tracker that explicitly tracks
+	 * objects (e.g.) leaving the battlefield. The rules are pretty explicit
+	 * that the return happens after a specified *event*, not under a certain
+	 * *condition*, but trackers are our only way of looking for events.
 	 * 
 	 * @eparam CAUSE: what is causing the exile
 	 * @eparam OBJECT: what is being exiled
