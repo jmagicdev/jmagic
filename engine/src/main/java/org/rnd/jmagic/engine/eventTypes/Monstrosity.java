@@ -1,6 +1,5 @@
 package org.rnd.jmagic.engine.eventTypes;
 
-
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -21,6 +20,7 @@ public final class Monstrosity extends EventType
 			ret.unmodifiable = java.util.Collections.unmodifiableSet(ret.values);
 			return ret;
 		}
+
 		@Override
 		protected java.util.Set<Integer> getValueInternal()
 		{
@@ -91,7 +91,10 @@ public final class Monstrosity extends EventType
 		newParameters.put(Parameter.NUMBER, new Set(N));
 		createEvent(game, "Put " + org.rnd.util.NumberNames.get(N) + " +1/+1 counter" + (N == 1 ? "" : "s") + " on " + object + ".", EventType.PUT_COUNTERS, newParameters).perform(event, false);
 
-		createEvent(game, "" + object + " becomes monstrous.", EventType.BECOMES_MONSTROUS, java.util.Collections.singletonMap(Parameter.OBJECT, objectParameter)).perform(event, false);
+		java.util.Map<Parameter, Set> becomeMonstrousParameters = new java.util.HashMap<>();
+		becomeMonstrousParameters.put(Parameter.OBJECT, objectParameter);
+		becomeMonstrousParameters.put(Parameter.NUMBER, new Set(N));
+		createEvent(game, "" + object + " becomes monstrous.", EventType.BECOMES_MONSTROUS, becomeMonstrousParameters).perform(event, false);
 
 		return true;
 	}

@@ -100,6 +100,8 @@ public abstract class EventType
 	 * Marker event for a permanent becoming monstrous.
 	 * 
 	 * @eparam OBJECT: the permanent
+	 * @eparam NUMBER: N, in "monstrosity N". important for the "monstrosity X"
+	 * / ability-referring-to-X pair
 	 * @eparam RESULT: empty
 	 */
 	public static final EventType BECOMES_MONSTROUS = BecomesMonstrous.INSTANCE;
