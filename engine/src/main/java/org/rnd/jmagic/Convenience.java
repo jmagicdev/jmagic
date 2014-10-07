@@ -110,6 +110,221 @@ public class Convenience
 		}
 	}
 
+	// these interfaces ensure the methods of Sifter are all called in the
+	// correct order and the correct number of times (once per interface).
+
+	public static interface SifterSee
+	{
+		public SifterSee player(SetGenerator player);
+
+		public SifterSee may();
+
+		public SifterChoose look(int n);
+
+		public SifterChoose look(SetGenerator n);
+
+		public SifterChoose reveal(int n);
+
+		public SifterChoose reveal(SetGenerator n);
+	}
+
+	public static interface SifterChoose
+	{
+		public SifterDump drop(int n, SetGenerator kind);
+
+		public SifterDump drop(SetGenerator n, SetGenerator kind);
+
+		public SifterDump take(int n, SetGenerator kind);
+
+		public SifterDump take(int n);
+	}
+
+	public static interface SifterDump
+	{
+		public SifterFinal dumpToBottom();
+
+		public SifterFinal dumpToBottomRandomly();
+
+		public SifterFinal dumpToGraveyard();
+
+		public SifterFinal shuffle();
+	}
+
+	public static interface SifterFinal
+	{
+		public EventFactory getEventFactory(String name);
+
+		public SetGenerator newObject();
+	}
+
+	/**
+	 * [Reveal/look at] the top [M] cards of your library. Put up to [N] [kind]
+	 * cards from among them into your hand, and the rest of the revealed cards
+	 * [somewhere].
+	 */
+	public static final class Sifter implements SifterSee, SifterChoose, SifterDump, SifterFinal
+	{
+		private SetGenerator player;
+		private boolean youMay;
+		private SetGenerator seen;
+		private boolean show;
+
+		private java.util.List<EventFactory> effects;
+		private SetGenerator newObject;
+
+		public static SifterSee start()
+		{
+			return new Sifter();
+		}
+
+		private Sifter()
+		{
+			this.player = You.instance();
+			this.youMay = false;
+			this.effects = new java.util.ArrayList<EventFactory>();
+		}
+
+		@Override
+		public SifterSee player(SetGenerator player)
+		{
+			this.player = player;
+			return this;
+		}
+
+		@Override
+		public SifterSee may()
+		{
+			this.youMay = true;
+			return this;
+		}
+
+		@Override
+		public SifterChoose look(int n)
+		{
+			return this.look(numberGenerator(n));
+		}
+
+		@Override
+		public SifterChoose look(SetGenerator n)
+		{
+			EventFactory look = Convenience.look(this.player, TopCards.instance(n, LibraryOf.instance(this.player)), "Look at the top " + n + " cards of your library.");
+			this.effects.add(look);
+			this.seen = EffectResult.instance(look);
+			this.show = true;
+			return this;
+		}
+
+		@Override
+		public SifterChoose reveal(int n)
+		{
+			return this.reveal(numberGenerator(n));
+		}
+
+		@Override
+		public SifterChoose reveal(SetGenerator n)
+		{
+			EventFactory reveal = Convenience.reveal(TopCards.instance(n, LibraryOf.instance(this.player)), "Reveal the top " + n + " cards of your library.");
+			this.effects.add(reveal);
+			this.seen = EffectResult.instance(reveal);
+			this.show = false;
+			return this;
+		}
+
+		@Override
+		public SifterDump drop(SetGenerator n, SetGenerator kind)
+		{
+			SetGenerator chosen = this.choose(n, Intersect.instance(kind, this.seen), false);
+			EventFactory drop = putOntoBattlefield(chosen, this.player, "Put the chosen cards onto the battlefield.", false);
+			this.effects.add(drop);
+			this.newObject = NewObjectOf.instance(EffectResult.instance(drop));
+			return this;
+		}
+
+		@Override
+		public SifterDump drop(int n, SetGenerator kind)
+		{
+			return this.drop(Between.instance(0, n), kind);
+		}
+
+		@Override
+		public SifterDump take(int n)
+		{
+			SetGenerator chosen = this.choose(numberGenerator(n), this.seen, true);
+			this.effects.add(putIntoHand(chosen, this.player, "Put those cards into your hand."));
+			return this;
+		}
+
+		@Override
+		public SifterDump take(int n, SetGenerator kind)
+		{
+			SetGenerator chosen = this.choose(Between.instance(0, n), Intersect.instance(kind, this.seen), true);
+			EventFactory take = putIntoHand(chosen, this.player, "Put those cards into your hand.");
+			this.effects.add(take);
+			this.newObject = NewObjectOf.instance(EffectResult.instance(take));
+			return this;
+		}
+
+		private SetGenerator choose(SetGenerator n, SetGenerator chooseable, boolean hand)
+		{
+			PlayerInterface.ChooseReason reason = hand ? PlayerInterface.ChooseReason.PUT_INTO_HAND : PlayerInterface.ChooseReason.PUT_ONTO_BATTLEFIELD;
+			String chooseText = hand ? "Choose cards to put into your hand." : "Choose cards to put onto the battlefield.";
+			EventFactory choose = playerChoose(this.player, n, chooseable, PlayerInterface.ChoiceType.OBJECTS, reason, chooseText);
+			this.effects.add(choose);
+
+			SetGenerator chosen = EffectResult.instance(choose);
+			if(this.show)
+				this.effects.add(Convenience.reveal(chosen, "Reveal the chosen cards."));
+			return chosen;
+		}
+
+		@Override
+		public SifterFinal dumpToBottom()
+		{
+			this.effects.add(putOnBottomOfLibrary(this.seen, "Put the rest on the bottom of your library in any order."));
+			return this;
+		}
+
+		@Override
+		public SifterFinal dumpToBottomRandomly()
+		{
+			EventFactory dump = putOnBottomOfLibrary(this.seen, "Put the rest on the bottom of your library in a random order.");
+			dump.parameters.put(EventType.Parameter.RANDOM, Empty.instance());
+			this.effects.add(dump);
+			return this;
+		}
+
+		@Override
+		public SifterFinal dumpToGraveyard()
+		{
+			this.effects.add(putIntoGraveyard(this.seen, "Put the rest into your graveyard."));
+			return this;
+		}
+
+		@Override
+		public SifterFinal shuffle()
+		{
+			this.effects.add(shuffleLibrary(this.player, "Then shuffle the rest into your library."));
+			return this;
+		}
+
+		@Override
+		public EventFactory getEventFactory(String name)
+		{
+			if(this.youMay)
+			{
+				EventFactory may = playerMay(this.player, this.effects.get(0), "You may look at/reveal cards.");
+				return ifThen(may, sequence(this.effects.subList(1, this.effects.size())), name);
+			}
+			return sequence(name, this.effects);
+		}
+
+		@Override
+		public SetGenerator newObject()
+		{
+			return this.newObject;
+		}
+	}
+
 	private static final class One extends SetGenerator
 	{
 		private static final SetGenerator _instance = new One();
@@ -999,89 +1214,6 @@ public class Convenience
 		}
 	};
 
-	public static final PlayerInterface.ChooseReason LOOK_AT_THE_TOP_N_CARDS_PUT_ONE_INTO_HAND_AND_THE_REST_ON_BOTTOM_REASON = new PlayerInterface.ChooseReason("{Convenience}", "Put a card into your hand.", false);
-
-	/**
-	 * s
-	 * 
-	 * @eparam CAUSE: the object causing this
-	 * @eparam NUMBER: the number of cards to look at
-	 * @eparam PLAYER: the player choosing
-	 * @eparam ZONE: the library to look through
-	 * @eparam TYPE: [optional] if specified, the kinds of cards you can choose
-	 * @eparam RESULT: empty
-	 */
-	public static final EventType LOOK_AT_THE_TOP_N_CARDS_PUT_ONE_INTO_HAND_AND_THE_REST_ON_BOTTOM = new EventType("LOOK_AT_THE_TOP_N_CARDS_PUT_ONE_INTO_HAND_AND_THE_REST_ON_BOTTOM")
-	{
-		@Override
-		public Parameter affects()
-		{
-			return null;
-		}
-
-		@Override
-		public boolean perform(Game game, Event event, java.util.Map<Parameter, Set> parameters)
-		{
-			int num = Sum.get(parameters.get(Parameter.NUMBER));
-			Player player = parameters.get(Parameter.PLAYER).getOne(Player.class);
-			Set playerSet = new Set(player);
-			Zone library = parameters.get(Parameter.ZONE).getOne(Zone.class);
-			Set librarySet = new Set(library);
-
-			Set objects = new Set();
-			if(num >= library.objects.size())
-				objects.addAll(library.objects);
-			else
-				for(int i = 0; i < num; i++)
-					objects.add(library.objects.get(i));
-
-			Set cause = parameters.get(Parameter.CAUSE);
-
-			// I dont want to deal with empty collections for choose
-			if(!objects.isEmpty())
-			{
-				java.util.Map<Parameter, Set> lookParameters = new java.util.HashMap<Parameter, Set>();
-				lookParameters.put(Parameter.CAUSE, cause);
-				lookParameters.put(Parameter.OBJECT, Set.fromCollection(objects));
-				lookParameters.put(Parameter.PLAYER, playerSet);
-				Event lookEvent = createEvent(game, "Look at the top X cards of your library.", EventType.LOOK, lookParameters);
-				lookEvent.perform(event, true);
-
-				java.util.Set<GameObject> chooseable = objects.getAll(GameObject.class);
-				if(parameters.containsKey(Parameter.TYPE))
-					chooseable.retainAll(parameters.get(Parameter.TYPE));
-
-				java.util.List<GameObject> choice = player.getActual().sanitizeAndChoose(game.actualState, 1, chooseable, PlayerInterface.ChoiceType.OBJECTS, LOOK_AT_THE_TOP_N_CARDS_PUT_ONE_INTO_HAND_AND_THE_REST_ON_BOTTOM_REASON);
-				objects.removeAll(choice);
-
-				// These two events are not top level because they happen
-				// simultaneously.
-				// TODO : Should this be (yet another) separate event? Should we
-				// make an event that can move different cards to different
-				// zones at the same time?
-
-				java.util.Map<Parameter, Set> handParameters = new java.util.HashMap<Parameter, Set>();
-				handParameters.put(Parameter.CAUSE, cause);
-				handParameters.put(Parameter.TO, new Set(player.getHand(game.actualState)));
-				handParameters.put(Parameter.OBJECT, Set.fromCollection(choice));
-				Event handEvent = createEvent(game, "Put one of them into your hand.", EventType.MOVE_OBJECTS, handParameters);
-				handEvent.perform(event, false);
-
-				java.util.Map<Parameter, Set> libraryParameters = new java.util.HashMap<Parameter, Set>();
-				libraryParameters.put(Parameter.CAUSE, cause);
-				libraryParameters.put(Parameter.TO, librarySet);
-				libraryParameters.put(Parameter.OBJECT, objects);
-				libraryParameters.put(Parameter.INDEX, NEGATIVE_ONE);
-				Event libraryEvent = createEvent(game, "And the rest on the bottom of your library.", EventType.MOVE_OBJECTS, libraryParameters);
-				libraryEvent.perform(event, false);
-			}
-
-			event.setResult(Empty.set);
-
-			return true;
-		}
-	};
-
 	private static EventPattern heroicPattern = null;
 
 	private static EventPattern inspiredPattern = null;
@@ -1154,97 +1286,6 @@ public class Convenience
 			}
 
 			event.setResult(result);
-			return true;
-		}
-	};
-
-	/**
-	 * Look at the top [n] cards of your library. You may reveal a [card type]
-	 * card from among them and put that card into your hand. Put the rest on
-	 * the bottom of your library in any order.
-	 * 
-	 * @eparam CAUSE: the cause of everything
-	 * @eparam PLAYER: the player controlling the cause of everything as it
-	 * resolves
-	 * @eparam CARD: the top N cards of the library of the player controlling
-	 * the cause of everything as it resolves
-	 * @eparam TYPE: the type of cards to choose from when looking through the
-	 * top N cards of the library of the player controlling the cause of
-	 * everything as it resolves
-	 * @eparam TO: The zone to put the other cards. [optional; default is
-	 * player's library] Cannot be a controlled zone unless you feel like adding
-	 * a controller parameter and such.
-	 * @eparam INDEX: The position to insert the other cards in the TO zone
-	 * [optional; default is -1 (the bottom)]
-	 * @eparam RESULT: empty
-	 */
-	public static EventType PUT_ONE_FROM_TOP_N_OF_LIBRARY_INTO_HAND = new EventType("PUT_ONE_FROM_TOP_N_OF_LIBRARY_INTO_HAND")
-	{
-
-		@Override
-		public Parameter affects()
-		{
-			return null;
-		}
-
-		@Override
-		public boolean perform(Game game, Event event, java.util.Map<Parameter, Set> parameters)
-		{
-			Set cause = parameters.get(Parameter.CAUSE);
-
-			Set you = parameters.get(Parameter.PLAYER);
-			Set cards = parameters.get(Parameter.CARD);
-
-			java.util.Map<Parameter, Set> lookParameters = new java.util.HashMap<Parameter, Set>();
-			lookParameters.put(Parameter.CAUSE, cause);
-			lookParameters.put(Parameter.PLAYER, you);
-			lookParameters.put(Parameter.OBJECT, cards);
-			createEvent(game, "Look at the top five cards of your library", LOOK, lookParameters).perform(event, true);
-
-			Set filteredCards = new Set();
-			Set filter = parameters.get(Parameter.TYPE);
-			for(GameObject object: cards.getAll(GameObject.class))
-				if(filter.contains(object))
-					filteredCards.add(object);
-
-			EventType.ParameterMap revealParameters = new EventType.ParameterMap();
-			revealParameters.put(Parameter.CAUSE, Identity.fromCollection(cause));
-			revealParameters.put(Parameter.PLAYER, Identity.fromCollection(you));
-			revealParameters.put(Parameter.OBJECT, Identity.fromCollection(filteredCards));
-
-			java.util.Map<Parameter, Set> mayParameters = new java.util.HashMap<Parameter, Set>();
-			mayParameters.put(Parameter.PLAYER, you);
-			mayParameters.put(Parameter.EVENT, new Set(new EventFactory(REVEAL_CHOICE, revealParameters, "Reveal a card from among them")));
-			Set revealedCard = new Set();
-			Event may = createEvent(game, "You may reveal a creature card from among them", PLAYER_MAY, mayParameters);
-			if(may.perform(event, true))
-				// there's only one of these
-				for(Event reveal: may.children.keySet())
-					revealedCard.addAll(reveal.getResult());
-
-			Player player = you.getOne(Player.class).getActual();
-			Set hand = new Set(player.getHand(game.actualState));
-
-			java.util.Map<Parameter, Set> moveParameters = new java.util.HashMap<Parameter, Set>();
-			moveParameters.put(Parameter.CAUSE, cause);
-			moveParameters.put(Parameter.TO, hand);
-			moveParameters.put(Parameter.OBJECT, revealedCard);
-			createEvent(game, "Put that card into your hand", MOVE_OBJECTS, moveParameters).perform(event, true);
-
-			Set putOnBottom = Set.fromCollection(cards);
-			putOnBottom.removeAll(revealedCard);
-
-			Set zone = parameters.containsKey(Parameter.TO) ? parameters.get(Parameter.TO) : new Set(player.getLibrary(game.actualState));
-			Set index = parameters.containsKey(Parameter.INDEX) ? parameters.get(Parameter.INDEX) : NEGATIVE_ONE;
-
-			java.util.Map<Parameter, Set> bottomParameters = new java.util.HashMap<Parameter, Set>();
-			bottomParameters.put(Parameter.CAUSE, cause);
-			bottomParameters.put(Parameter.TO, zone);
-			bottomParameters.put(Parameter.INDEX, index);
-			bottomParameters.put(Parameter.OBJECT, putOnBottom);
-			createEvent(game, "Put the rest in " + zone + " in any order", MOVE_OBJECTS, bottomParameters).perform(event, true);
-
-			event.setResult(Empty.set);
 			return true;
 		}
 	};
@@ -3104,36 +3145,6 @@ public class Convenience
 	}
 
 	/**
-	 * Reveal the top [M] cards of your library. Put [M] [kind] cards from among
-	 * them into your hand and the rest of the revealed cards into your
-	 * graveyard.
-	 * 
-	 * @param M how many cards to reveal
-	 * @param N how many cards to select
-	 * @param kind what kind of cards to select (filter)
-	 */
-	public static EventFactory revealAndSelect(int M, SetGenerator N, SetGenerator kind, String effectName)
-	{
-		// Reveal the top [M] cards of your library.
-		SetGenerator top = TopCards.instance(6, LibraryOf.instance(You.instance()));
-		EventFactory reveal = reveal(top, "Reveal the top " + M + " cards of your library.");
-
-		// Put [N] [kind] cards from among them
-		SetGenerator revealed = EffectResult.instance(reveal);
-		SetGenerator chooseable = Intersect.instance(kind, revealed);
-		EventFactory choose = playerChoose(You.instance(), N, chooseable, PlayerInterface.ChoiceType.OBJECTS, PlayerInterface.ChooseReason.PUT_INTO_HAND, "Choose cards to put into your hand.");
-
-		// into your hand
-		SetGenerator chosen = EffectResult.instance(choose);
-		EventFactory take = putIntoHand(chosen, You.instance(), "Put the chosen cards into your hand.");
-
-		// and the rest of the revealed cards into your graveyard.
-		EventFactory dump = putIntoGraveyard(revealed, "Put the rest into your graveyard.");
-
-		return sequence(effectName, reveal, choose, take, dump);
-	}
-
-	/**
 	 * Creates an event factory that causes a player to choose and sacrifice
 	 * permanents.
 	 */
@@ -3230,15 +3241,20 @@ public class Convenience
 	public static EventFactory sequence(EventFactory... sequence)
 	{
 		java.util.List<EventFactory> events = java.util.Arrays.asList(sequence);
-		return sequenceAux(org.rnd.util.SeparatedList.get(" ", "", events).toString(), events);
+		return sequence(org.rnd.util.SeparatedList.get(" ", "", events).toString(), events);
 	}
 
 	public static EventFactory sequence(String effectName, EventFactory... sequence)
 	{
-		return sequenceAux(effectName, java.util.Arrays.asList(sequence));
+		return sequence(effectName, java.util.Arrays.asList(sequence));
 	}
 
-	private static EventFactory sequenceAux(String effectName, java.util.List<EventFactory> sequence)
+	public static EventFactory sequence(java.util.List<EventFactory> sequence)
+	{
+		return sequence(org.rnd.util.SeparatedList.get(" ", "", sequence).toString(), sequence);
+	}
+
+	public static EventFactory sequence(String effectName, java.util.List<EventFactory> sequence)
 	{
 		EventFactory ret = new EventFactory(SEQUENCE, effectName);
 		ret.parameters.put(EventType.Parameter.EFFECT, Identity.instance((Object)sequence));

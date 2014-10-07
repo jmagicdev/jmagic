@@ -34,12 +34,8 @@ public final class JarofEyeballs extends Card
 			cost.parameters.put(EventType.Parameter.OBJECT, ABILITY_SOURCE_OF_THIS);
 			this.addCost(cost);
 
-			EventFactory factory = new EventFactory(LOOK_AT_THE_TOP_N_CARDS_PUT_ONE_INTO_HAND_AND_THE_REST_ON_BOTTOM, "Look at the top X cards of your library, where X is the number of eyeball counters removed this way. Put one of them into your hand and the rest on the bottom of your library in any order.");
-			factory.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			factory.parameters.put(EventType.Parameter.NUMBER, Count.instance(CostResult.instance(cost)));
-			factory.parameters.put(EventType.Parameter.PLAYER, You.instance());
-			factory.parameters.put(EventType.Parameter.ZONE, LibraryOf.instance(You.instance()));
-			this.addEffect(factory);
+			SetGenerator X = Count.instance(CostResult.instance(cost));
+			this.addEffect(Sifter.start().look(X).take(1).dumpToBottom().getEventFactory("Look at the top X cards of your library, where X is the number of eyeball counters removed this way. Put one of them into your hand and the rest on the bottom of your library in any order."));
 		}
 	}
 

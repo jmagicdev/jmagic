@@ -18,19 +18,7 @@ public final class TrackersInstincts extends Card
 
 		// Reveal the top four cards of your library. Put a creature card from
 		// among them into your hand and the rest into your graveyard.
-		EventFactory reveal = reveal(TopCards.instance(4, LibraryOf.instance(You.instance())), "Reveal the top four cards of your library.");
-		this.addEffect(reveal);
-
-		SetGenerator revealed = EffectResult.instance(reveal);
-
-		EventFactory choose = playerChoose(You.instance(), 1, Intersect.instance(revealed, HasType.instance(Type.CREATURE)), PlayerInterface.ChoiceType.OBJECTS, REASON, "");
-		this.addEffect(choose);
-
-		SetGenerator chosen = EffectResult.instance(choose);
-
-		EventFactory putIntoHand = putIntoHand(chosen, You.instance(), "Put a creature card from among them into your hand");
-		EventFactory putIntoGraveyard = putIntoGraveyard(RelativeComplement.instance(revealed, chosen), "and the rest into your graveyard.");
-		this.addEffect(simultaneous(putIntoHand, putIntoGraveyard));
+		this.addEffect(Sifter.start().reveal(4).take(1, HasType.instance(Type.CREATURE)).dumpToGraveyard().getEventFactory("Reveal the top four cards of your library. Put a creature card from among them into your hand and the rest into your graveyard."));
 
 		// Flashback (2)(U) (You may cast this card from your graveyard for its
 		// flashback cost. Then exile it.)

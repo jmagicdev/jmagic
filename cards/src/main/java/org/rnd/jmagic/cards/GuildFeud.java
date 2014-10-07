@@ -1,6 +1,8 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
+import org.rnd.jmagic.Convenience.SifterFinal;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -18,41 +20,13 @@ public final class GuildFeud extends Card
 			this.addPattern(atTheBeginningOfYourUpkeep());
 
 			SetGenerator target = targetedBy(this.addTarget(OpponentsOf.instance(You.instance()), "target opponent"));
+			SifterFinal opponentPutCreature = Sifter.start().player(target).reveal(3).drop(1, HasType.instance(Type.CREATURE)).dumpToGraveyard();
+			this.addEffect(opponentPutCreature.getEventFactory("Target opponent reveals the top three cards of his or her library, may put a creature card from among them onto the battlefield, then puts the rest into his or her graveyard."));
 
-			SetGenerator opponentTopThree = TopCards.instance(3, LibraryOf.instance(target));
-			this.addEffect(reveal(opponentTopThree, "Target opponent reveals the top three cards of his or her library,"));
+			SifterFinal youPutCreature = Sifter.start().reveal(3).drop(1, HasType.instance(Type.CREATURE)).dumpToGraveyard();
+			this.addEffect(youPutCreature.getEventFactory("You do the same with the top three cards of your library."));
 
-			SetGenerator opponentCreatureCard = Intersect.instance(HasType.instance(Type.CREATURE), opponentTopThree);
-			EventFactory opponentPutCreature = new EventFactory(EventType.PUT_ONTO_BATTLEFIELD_CHOICE, "Put a creature card from among them onto the battlefield");
-			opponentPutCreature.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			opponentPutCreature.parameters.put(EventType.Parameter.CONTROLLER, target);
-			opponentPutCreature.parameters.put(EventType.Parameter.OBJECT, opponentCreatureCard);
-
-			EventFactory opponentMayPutCreature = new EventFactory(EventType.PLAYER_MAY, "may put a creature card from among them onto the battlefield,");
-			opponentMayPutCreature.parameters.put(EventType.Parameter.PLAYER, target);
-			opponentMayPutCreature.parameters.put(EventType.Parameter.EVENT, Identity.instance(opponentPutCreature));
-			this.addEffect(opponentMayPutCreature);
-
-			this.addEffect(putIntoGraveyard(opponentTopThree, "then puts the rest into his or her graveyard."));
-
-			SetGenerator yourTopThree = TopCards.instance(3, LibraryOf.instance(You.instance()));
-			this.addEffect(reveal(yourTopThree, "You do the same with the top three cards of your library."));
-
-			SetGenerator yourCreatureCard = Intersect.instance(HasType.instance(Type.CREATURE), yourTopThree);
-			EventFactory youPutCreature = new EventFactory(EventType.PUT_ONTO_BATTLEFIELD_CHOICE, "Put a creature card from among them onto the battlefield");
-			youPutCreature.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			youPutCreature.parameters.put(EventType.Parameter.CONTROLLER, You.instance());
-			youPutCreature.parameters.put(EventType.Parameter.OBJECT, yourCreatureCard);
-
-			EventFactory youMayPutCreature = new EventFactory(EventType.PLAYER_MAY, "");
-			youMayPutCreature.parameters.put(EventType.Parameter.PLAYER, You.instance());
-			youMayPutCreature.parameters.put(EventType.Parameter.EVENT, Identity.instance(youPutCreature));
-			this.addEffect(youMayPutCreature);
-
-			this.addEffect(putIntoGraveyard(yourTopThree, ""));
-
-			SetGenerator result = Union.instance(EffectResult.instance(opponentPutCreature), EffectResult.instance(youPutCreature));
-			SetGenerator thoseCreatures = NewObjectOf.instance(result);
+			SetGenerator thoseCreatures = Union.instance(opponentPutCreature.newObject(), youPutCreature.newObject());
 
 			SetGenerator thereWereTwo = Intersect.instance(numberGenerator(2), Count.instance(thoseCreatures));
 			EventFactory fight = fight(thoseCreatures, "Those creatures fight each other");

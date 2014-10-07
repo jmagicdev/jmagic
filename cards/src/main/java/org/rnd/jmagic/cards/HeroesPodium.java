@@ -33,24 +33,9 @@ public final class HeroesPodium extends Card
 			this.setManaCost(new ManaPool("(X)"));
 			this.costsTap = true;
 
-			SetGenerator top = TopCards.instance(ValueOfX.instance(This.instance()), LibraryOf.instance(You.instance()));
-			EventFactory look = look(You.instance(), top, "Look at the top X cards of your library.");
-			this.addEffect(look);
-
-			SetGenerator lookedAt = EffectResult.instance(look);
-			SetGenerator legendsThere = Intersect.instance(lookedAt, HasSuperType.instance(SuperType.LEGENDARY), HasType.instance(Type.CREATURE));
-			EventFactory chooseLegend = playerChoose(You.instance(), Between.instance(0, 1), legendsThere, PlayerInterface.ChoiceType.OBJECTS, PlayerInterface.ChooseReason.PUT_INTO_HAND, "Choose a legend");
-			this.addEffect(chooseLegend);
-
-			SetGenerator chosen = EffectResult.instance(chooseLegend);
-			this.addEffect(putIntoHand(chosen, You.instance(), "You may reveal a legendary creature card from among them and put it into your hand."));
-
-			EventFactory bottom = new EventFactory(EventType.PUT_INTO_LIBRARY, "Put the rest on the bottom of your library in a random order.");
-			bottom.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			bottom.parameters.put(EventType.Parameter.INDEX, numberGenerator(-1));
-			bottom.parameters.put(EventType.Parameter.OBJECT, lookedAt);
-			bottom.parameters.put(EventType.Parameter.RANDOM, Empty.instance());
-			this.addEffect(bottom);
+			SetGenerator X = ValueOfX.instance(This.instance());
+			SetGenerator legends = Intersect.instance(HasSuperType.instance(SuperType.LEGENDARY), HasType.instance(Type.CREATURE));
+			this.addEffect(Sifter.start().look(X).take(1, legends).dumpToBottomRandomly().getEventFactory("Look at the top X cards of your library. You may reveal a legendary creature card from among them and put it into your hand. Put the rest on the bottom of your library in a random order."));
 		}
 	}
 

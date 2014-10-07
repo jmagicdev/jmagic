@@ -2,6 +2,7 @@ package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
 
+import org.rnd.jmagic.Convenience.Sifter;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -18,13 +19,7 @@ public final class MeletisAstronomer extends Card
 		{
 			super(state, "Heroic \u2014 Whenever you cast a spell that targets Meletis Astronomer, look at the top three cards of your library. You may reveal an enchantment card from among them and put it into your hand. Put the rest on the bottom of your library in any order.");
 			this.addPattern(heroic());
-
-			EventFactory effect = new EventFactory(PUT_ONE_FROM_TOP_N_OF_LIBRARY_INTO_HAND, "Look at the top five cards of your library. You may reveal a colorless card from among them and put it into your hand. Then put the rest on the bottom of your library in any order.");
-			effect.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			effect.parameters.put(EventType.Parameter.PLAYER, You.instance());
-			effect.parameters.put(EventType.Parameter.CARD, TopCards.instance(5, LibraryOf.instance(You.instance())));
-			effect.parameters.put(EventType.Parameter.TYPE, HasType.instance(Type.ENCHANTMENT));
-			this.addEffect(effect);
+			this.addEffect(Sifter.start().look(3).take(1, HasType.instance(Type.ENCHANTMENT)).dumpToBottom().getEventFactory("Look at the top three cards of your library. You may reveal an enchantment card from among them and put it into your hand. Put the rest on the bottom of your library in any order."));
 		}
 	}
 

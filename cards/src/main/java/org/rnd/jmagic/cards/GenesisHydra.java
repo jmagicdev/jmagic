@@ -21,22 +21,14 @@ public final class GenesisHydra extends Card
 			this.triggersFromStack();
 
 			SetGenerator X = ValueOfX.instance(ABILITY_SOURCE_OF_THIS);
-			SetGenerator topCards = TopCards.instance(X, LibraryOf.instance(You.instance()));
-			this.addEffect(reveal(topCards, "Reveal the top X cards of your library."));
 
 			// i'm not just saying "permanent types that aren't lands" here,
 			// because Dryad Arbor isn't a nonland permanent card
 			SetGenerator nonlandPermanentCard = RelativeComplement.instance(HasType.instance(Type.permanentTypes()), HasType.instance(Type.LAND));
 			SetGenerator cmcXOrLess = HasConvertedManaCost.instance(Between.instance(numberGenerator(0), X));
-			SetGenerator available = Intersect.instance(nonlandPermanentCard, cmcXOrLess, topCards);
+			SetGenerator available = Intersect.instance(nonlandPermanentCard, cmcXOrLess);
 
-			EventFactory effect = new EventFactory(EventType.PUT_ONTO_BATTLEFIELD_CHOICE, "You may put a nonland permanent card with converted mana cost X or less from among them onto the battlefield.");
-			effect.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			effect.parameters.put(EventType.Parameter.CONTROLLER, You.instance());
-			effect.parameters.put(EventType.Parameter.OBJECT, available);
-			this.addEffect(effect);
-
-			this.addEffect(shuffleYourLibrary("Then shuffle the rest into your library."));
+			this.addEffect(Sifter.start().reveal(X).drop(1, available).shuffle().getEventFactory("Reveal the top X cards of your library. You may put a nonland permanent card with converted mana cost X or less from among them onto the battlefield. Then shuffle the rest into your library."));
 		}
 	}
 

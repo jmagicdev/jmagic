@@ -1,6 +1,8 @@
 package org.rnd.jmagic.cards;
 
 import static org.rnd.jmagic.Convenience.*;
+
+import org.rnd.jmagic.Convenience.Sifter;
 import org.rnd.jmagic.engine.*;
 import org.rnd.jmagic.engine.generators.*;
 
@@ -17,12 +19,8 @@ public final class TezzeretAgentofBolas extends Card
 		{
 			super(state, 1, "Look at the top five cards of your library. You may reveal an artifact card from among them and put it into your hand. Put the rest on the bottom of your library in any order.");
 
-			EventType.ParameterMap parameters = new EventType.ParameterMap();
-			parameters.put(EventType.Parameter.CAUSE, This.instance());
-			parameters.put(EventType.Parameter.PLAYER, You.instance());
-			parameters.put(EventType.Parameter.CARD, TopCards.instance(5, LibraryOf.instance(You.instance())));
-			parameters.put(EventType.Parameter.TYPE, HasType.instance(Type.ARTIFACT));
-			this.addEffect(new EventFactory(PUT_ONE_FROM_TOP_N_OF_LIBRARY_INTO_HAND, parameters, "Look at the top five cards of your library. You may reveal an artifact card from among them and put it into your hand. Put the rest on the bottom of your library in any order."));
+			this.addEffect(Sifter.start().look(5).take(1, HasType.instance(Type.ARTIFACT)).dumpToBottom().getEventFactory("Look at the top five cards of your library. You may reveal an artifact card from among them and put it into your hand. Put the rest on the bottom of your library in any order."));
+
 		}
 	}
 

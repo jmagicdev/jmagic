@@ -35,13 +35,9 @@ public final class AjaniMentorofHeroes extends Card
 		{
 			super(state, +1, "Look at the top four cards of your library. You may reveal an Aura, creature, or planeswalker card from among them and put it into your hand. Put the rest on the bottom of your library in any order.");
 
-			EventFactory effect = new EventFactory(LOOK_AT_THE_TOP_N_CARDS_PUT_ONE_INTO_HAND_AND_THE_REST_ON_BOTTOM, "Look at the top four cards of your library. You may reveal an Aura, creature, or planeswalker card from among them and put it into your hand. Put the rest on the bottom of your library in any order.");
-			effect.parameters.put(EventType.Parameter.CAUSE, This.instance());
-			effect.parameters.put(EventType.Parameter.NUMBER, numberGenerator(4));
-			effect.parameters.put(EventType.Parameter.PLAYER, You.instance());
-			effect.parameters.put(EventType.Parameter.ZONE, LibraryOf.instance(You.instance()));
-			effect.parameters.put(EventType.Parameter.TYPE, Union.instance(HasSubType.instance(SubType.AURA), HasType.instance(Type.CREATURE, Type.PLANESWALKER)));
-			this.addEffect(effect);
+			SetGenerator things = Union.instance(HasSubType.instance(SubType.AURA), HasType.instance(Type.CREATURE, Type.PLANESWALKER));
+
+			this.addEffect(Sifter.start().look(4).take(1, things).dumpToBottom().getEventFactory("Look at the top four cards of your library. You may reveal an Aura, creature, or planeswalker card from among them and put it into your hand. Put the rest on the bottom of your library in any order."));
 		}
 	}
 

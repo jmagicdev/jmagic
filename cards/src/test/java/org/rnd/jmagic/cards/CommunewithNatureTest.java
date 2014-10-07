@@ -35,9 +35,6 @@ public class CommunewithNatureTest extends JUnitTest
 		this.pass();
 		this.pass();
 
-		// choose to reveal a creature card:
-		this.respondWith(Answer.YES);
-
 		// two of the five cards seen are creatures:
 		assertEquals(2, this.choices.size());
 		this.respondWith(this.pullChoice(SpinelessThug.class));

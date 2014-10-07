@@ -167,28 +167,9 @@ public final class SummoningTrap extends Card
 		SetGenerator trapCondition = Intersect.instance(HadACreatureSpellCounteredByAnOpponent.instance(), You.instance());
 		this.addAbility(new org.rnd.jmagic.abilities.Trap(state, this.getName(), trapCondition, "If a creature spell you cast this turn was countered by a spell or ability an opponent controlled", "(0)"));
 
-		// Look at the top seven cards of your library.
-		SetGenerator yourLibrary = LibraryOf.instance(You.instance());
-		SetGenerator topSeven = TopCards.instance(7, yourLibrary);
-		EventFactory look = new EventFactory(EventType.LOOK, "Look at the top seven cards of your library.");
-		look.parameters.put(EventType.Parameter.CAUSE, This.instance());
-		look.parameters.put(EventType.Parameter.PLAYER, You.instance());
-		look.parameters.put(EventType.Parameter.OBJECT, topSeven);
-		this.addEffect(look);
-
-		// You may put a creature card from among them onto the battlefield.
-		SetGenerator creatureCards = Intersect.instance(HasType.instance(Type.CREATURE), topSeven);
-		EventFactory putOntoBattlefield = new EventFactory(EventType.PUT_ONTO_BATTLEFIELD_CHOICE, "Put a creature card from among them onto the battlefield.");
-		putOntoBattlefield.parameters.put(EventType.Parameter.CAUSE, This.instance());
-		putOntoBattlefield.parameters.put(EventType.Parameter.CONTROLLER, You.instance());
-		putOntoBattlefield.parameters.put(EventType.Parameter.OBJECT, creatureCards);
-		this.addEffect(youMay(putOntoBattlefield, "You may put a creature card from among them onto the battlefield."));
-
-		// Put the rest on the bottom of your library in any order.
-		EventFactory putOnBottom = new EventFactory(EventType.PUT_INTO_LIBRARY, "Put the rest on the bottom of your library in any order.");
-		putOnBottom.parameters.put(EventType.Parameter.CAUSE, This.instance());
-		putOnBottom.parameters.put(EventType.Parameter.INDEX, numberGenerator(-1));
-		putOnBottom.parameters.put(EventType.Parameter.OBJECT, topSeven);
-		this.addEffect(putOnBottom);
+		// Look at the top seven cards of your library. You may put a creature
+		// card from among them onto the battlefield. Put the rest on the bottom
+		// of your library in any order.
+		this.addEffect(Sifter.start().look(7).drop(1, HasType.instance(Type.CREATURE)).dumpToBottom().getEventFactory("Look at the top seven cards of your library. You may put a creature card from among them onto the battlefield. Put the rest on the bottom of your library in any order."));
 	}
 }
