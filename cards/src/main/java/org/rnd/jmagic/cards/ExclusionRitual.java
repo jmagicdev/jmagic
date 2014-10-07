@@ -32,7 +32,7 @@ public final class ExclusionRitual extends Card
 		{
 			super(state, "Players can't cast spells with the same name as the exiled card.");
 
-			SetGenerator name = ChosenFor.instance(LinkedTo.instance(Identity.instance(this)));
+			SetGenerator name = NameOf.instance(ChosenFor.instance(LinkedTo.instance(Identity.instance(this))));
 			PlayProhibition cast = new PlayProhibition(Players.instance(), (c, set) -> set.contains(c.name), name);
 
 			ContinuousEffect.Part part = new ContinuousEffect.Part(ContinuousEffectType.PROHIBIT);
