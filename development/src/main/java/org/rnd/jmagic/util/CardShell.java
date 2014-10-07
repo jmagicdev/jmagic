@@ -271,11 +271,14 @@ public class CardShell
 
 		newAbilityWords.put("This enters the battlefield tapped.", withThisNameInstantiation(EntersTheBattlefieldTapped.class));
 		newAbilityWords.put("This can't block.", withThisNameInstantiation(CantBlock.class));
-		newAbilityWords.put("This is unblockable.", withThisNameInstantiation(Unblockable.class));
+		newAbilityWords.put("This can't be blocked.", withThisNameInstantiation(Unblockable.class));
 		/* This doesn't work because it has a comma */
 		// keywords.put("If this is in your opening hand, you may begin the game with it on the battlefield.",
 		// withThisNameInstantiation(LeylineAbility.class));
 		newAbilityWords.put("Strive \\\\u2014 This costs (\\(.*\\)) more to cast for each target beyond the first.", "new org.rnd.jmagic.abilities.Strive(state, this.getName(), \"\\1\")");
+
+		newAbilityWords.put("This enters the battlefield with a \\+1/\\+1 counter on it.", "new org.rnd.jmagic.abilities.EntersTheBattlefieldWithCounters(state, this.getName(), 1, Counter.CounterType.PLUS_ONE_PLUS_ONE)");
+		newAbilityWords.put("This enters the battlefield with [a-z]* \\+1/\\+1 counters on it.", "new org.rnd.jmagic.abilities.EntersTheBattlefieldWithCounters(state, this.getName(), N, Counter.CounterType.PLUS_ONE_PLUS_ONE)");
 
 		for(java.util.Map.Entry<String, String> entry: newAbilityWords.entrySet())
 			keywords.put(java.util.regex.Pattern.compile(entry.getKey(), java.util.regex.Pattern.CASE_INSENSITIVE), entry.getValue());
