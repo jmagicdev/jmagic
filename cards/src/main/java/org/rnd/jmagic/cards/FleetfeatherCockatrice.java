@@ -1,7 +1,5 @@
 package org.rnd.jmagic.cards;
 
-import static org.rnd.jmagic.Convenience.*;
-
 import org.rnd.jmagic.engine.*;
 
 @Name("Fleetfeather Cockatrice")
@@ -11,16 +9,6 @@ import org.rnd.jmagic.engine.*;
 @ColorIdentity({Color.BLUE, Color.GREEN})
 public final class FleetfeatherCockatrice extends Card
 {
-	public static final class FleetfeatherCockatriceAbility2 extends ActivatedAbility
-	{
-		public FleetfeatherCockatriceAbility2(GameState state)
-		{
-			super(state, "(5)(G)(U): Monstrosity 3.");
-			this.setManaCost(new ManaPool("(5)(G)(U)"));
-			this.addEffect(monstrosity(3));
-		}
-	}
-
 	public FleetfeatherCockatrice(GameState state)
 	{
 		super(state);
@@ -36,6 +24,6 @@ public final class FleetfeatherCockatrice extends Card
 
 		// (5)(G)(U): Monstrosity 3. (If this creature isn't monstrous, put
 		// three +1/+1 counters on it and it becomes monstrous.)
-		this.addAbility(new FleetfeatherCockatriceAbility2(state));
+		this.addAbility(new org.rnd.jmagic.abilities.Monstrosity(state, "(5)(G)(U)", 3));
 	}
 }
