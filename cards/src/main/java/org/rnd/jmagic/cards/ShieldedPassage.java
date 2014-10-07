@@ -10,11 +10,11 @@ import org.rnd.jmagic.engine.generators.*;
 @ColorIdentity({Color.WHITE})
 public final class ShieldedPassage extends Card
 {
-	private static final class Prevent extends DamageReplacementEffect
+	public static final class Prevent extends DamageReplacementEffect
 	{
 		private SetGenerator target;
 
-		private Prevent(Game game, String name, SetGenerator target)
+		public Prevent(Game game, String name, SetGenerator target)
 		{
 			super(game, name);
 			this.target = target;
