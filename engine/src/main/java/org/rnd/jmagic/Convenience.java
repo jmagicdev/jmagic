@@ -3104,6 +3104,36 @@ public class Convenience
 	}
 
 	/**
+	 * Reveal the top [M] cards of your library. Put [M] [kind] cards from among
+	 * them into your hand and the rest of the revealed cards into your
+	 * graveyard.
+	 * 
+	 * @param M how many cards to reveal
+	 * @param N how many cards to select
+	 * @param kind what kind of cards to select (filter)
+	 */
+	public static EventFactory revealAndSelect(int M, SetGenerator N, SetGenerator kind, String effectName)
+	{
+		// Reveal the top [M] cards of your library.
+		SetGenerator top = TopCards.instance(6, LibraryOf.instance(You.instance()));
+		EventFactory reveal = reveal(top, "Reveal the top " + M + " cards of your library.");
+
+		// Put [N] [kind] cards from among them
+		SetGenerator revealed = EffectResult.instance(reveal);
+		SetGenerator chooseable = Intersect.instance(kind, revealed);
+		EventFactory choose = playerChoose(You.instance(), N, chooseable, PlayerInterface.ChoiceType.OBJECTS, PlayerInterface.ChooseReason.PUT_INTO_HAND, "Choose cards to put into your hand.");
+
+		// into your hand
+		SetGenerator chosen = EffectResult.instance(choose);
+		EventFactory take = putIntoHand(chosen, You.instance(), "Put the chosen cards into your hand.");
+
+		// and the rest of the revealed cards into your graveyard.
+		EventFactory dump = putIntoGraveyard(revealed, "Put the rest into your graveyard.");
+
+		return sequence(effectName, reveal, choose, take, dump);
+	}
+
+	/**
 	 * Creates an event factory that causes a player to choose and sacrifice
 	 * permanents.
 	 */
@@ -3200,10 +3230,18 @@ public class Convenience
 	public static EventFactory sequence(EventFactory... sequence)
 	{
 		java.util.List<EventFactory> events = java.util.Arrays.asList(sequence);
-		String eventName = org.rnd.util.SeparatedList.get(" ", "", events).toString();
+		return sequenceAux(org.rnd.util.SeparatedList.get(" ", "", events).toString(), events);
+	}
 
-		EventFactory ret = new EventFactory(SEQUENCE, eventName);
-		ret.parameters.put(EventType.Parameter.EFFECT, Identity.instance((Object)events));
+	public static EventFactory sequence(String effectName, EventFactory... sequence)
+	{
+		return sequenceAux(effectName, java.util.Arrays.asList(sequence));
+	}
+
+	private static EventFactory sequenceAux(String effectName, java.util.List<EventFactory> sequence)
+	{
+		EventFactory ret = new EventFactory(SEQUENCE, effectName);
+		ret.parameters.put(EventType.Parameter.EFFECT, Identity.instance((Object)sequence));
 		return ret;
 	}
 
