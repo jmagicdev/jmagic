@@ -1,6 +1,6 @@
 package org.rnd.jmagic.cards;
 
-import org.rnd.jmagic.Convenience.Sifter;
+import org.rnd.jmagic.Convenience.*;
 import org.rnd.jmagic.engine.*;
 
 @Name("Thieves' Fortune")
