@@ -272,6 +272,7 @@ public class CardShell
 		newAbilityWords.put("This enters the battlefield tapped.", withThisNameInstantiation(EntersTheBattlefieldTapped.class));
 		newAbilityWords.put("This can't block.", withThisNameInstantiation(CantBlock.class));
 		newAbilityWords.put("This can't be blocked.", withThisNameInstantiation(Unblockable.class));
+		newAbilityWords.put("This attacks each turn if able.", withThisNameInstantiation(AttacksEachTurnIfAble.class));
 		/* This doesn't work because it has a comma */
 		// keywords.put("If this is in your opening hand, you may begin the game with it on the battlefield.",
 		// withThisNameInstantiation(LeylineAbility.class));
