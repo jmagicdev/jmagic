@@ -243,7 +243,8 @@ public class Convenience
 		@Override
 		public SifterDump drop(int n, SetGenerator kind)
 		{
-			return this.drop(Between.instance(0, n), kind);
+			SetGenerator number = this.show ? Between.instance(0, n) : numberGenerator(n);
+			return this.drop(number, kind);
 		}
 
 		@Override
@@ -257,7 +258,8 @@ public class Convenience
 		@Override
 		public SifterDump take(int n, SetGenerator kind)
 		{
-			SetGenerator chosen = this.choose(Between.instance(0, n), Intersect.instance(kind, this.seen), true);
+			SetGenerator number = this.show ? Between.instance(0, n) : numberGenerator(n);
+			SetGenerator chosen = this.choose(number, Intersect.instance(kind, this.seen), true);
 			EventFactory take = putIntoHand(chosen, this.player, "Put those cards into your hand.");
 			this.effects.add(take);
 			this.newObject = NewObjectOf.instance(EffectResult.instance(take));
