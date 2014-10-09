@@ -10,8 +10,6 @@ import org.rnd.jmagic.engine.generators.*;
 @ColorIdentity({Color.BLUE, Color.GREEN})
 public final class TrackersInstincts extends Card
 {
-	public static final PlayerInterface.ChooseReason REASON = new PlayerInterface.ChooseReason("Tracker's Instincts", "Choose a creature card to put into your hand", true);
-
 	public TrackersInstincts(GameState state)
 	{
 		super(state);
