@@ -574,14 +574,12 @@ public class Server implements Runnable
 	{
 		try
 		{
-			for(java.util.Map.Entry<java.net.InetAddress, org.bitlet.weupnp.GatewayDevice> entry: this.gateways.entrySet())
+			for(org.bitlet.weupnp.GatewayDevice gateway: this.gateways.values())
 			{
-				String address = entry.getKey().getHostAddress();
-				org.bitlet.weupnp.GatewayDevice gateway = entry.getValue();
 				if(gateway.deletePortMapping(this.port, "TCP"))
-					LOG.info("Removed port forwarding on address " + address);
+					LOG.info(gateway.getExternalIPAddress() + ":" + this.port + " no longer forwarded");
 				else
-					LOG.warning("Could not remove port forwarding on address " + address);
+					LOG.warning(gateway.getExternalIPAddress() + ":" + this.port + " could not be unforwarded");
 			}
 		}
 		catch(org.xml.sax.SAXException | java.io.IOException e)
