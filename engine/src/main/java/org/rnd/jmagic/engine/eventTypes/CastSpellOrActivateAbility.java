@@ -502,20 +502,26 @@ public final class CastSpellOrActivateAbility extends EventType
 
 		// 601.2d -- Divisions (like Violent Eruption)
 		modes = onStack.getModes();
-		for(int sideNumber = 0; sideNumber < modes.length; ++sideNumber)
-			for(int modeNumber = 0; modeNumber < onStack.getModes()[sideNumber].size(); modeNumber++)
+		for(int sideIndex = 0; sideIndex < modes.length; ++sideIndex)
+		{
+			java.util.List<Integer> selectedModeNumbers = onStack.getSelectedModeNumbers()[sideIndex];
+			for(int modeIndex = 0; modeIndex < onStack.getModes()[sideIndex].size(); modeIndex++)
 			{
-				Set division = onStack.getModes()[sideNumber].get(modeNumber).division.evaluate(game, onStack);
+				if(!selectedModeNumbers.contains(modeIndex + 1))
+					continue;
+
+				Set division = onStack.getModes()[sideIndex].get(modeIndex).division.evaluate(game, onStack);
 				int divisionAmount = division.getOne(Integer.class);
 				if(divisionAmount != 0)
 				{
 					java.util.LinkedList<Target> targets = new java.util.LinkedList<Target>();
-					for(Target possibleTarget: onStack.getPhysical().getModes()[sideNumber].get(modeNumber).targets)
-						for(Target chosenTarget: onStack.getPhysical().getChosenTargets()[sideNumber].get(possibleTarget))
+					for(Target possibleTarget: onStack.getPhysical().getModes()[sideIndex].get(modeIndex).targets)
+						for(Target chosenTarget: onStack.getPhysical().getChosenTargets()[sideIndex].get(possibleTarget))
 							targets.add(chosenTarget);
 					playerActing.divide(divisionAmount, 1, onStack.ID, division.getOne(String.class), targets);
 				}
 			}
+		}
 
 		// 601.2e -- Determine total cost
 
