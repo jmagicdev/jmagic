@@ -428,14 +428,14 @@ public class Server implements Runnable
 				org.bitlet.weupnp.GatewayDevice gateway = entry.getValue();
 				org.bitlet.weupnp.PortMappingEntry mapping = new org.bitlet.weupnp.PortMappingEntry();
 				if(gateway.getSpecificPortMappingEntry(this.port, "TCP", mapping))
-					LOG.warning("Port forwarding on address " + address + " already exists; port forwarding not set up");
+					LOG.warning(gateway.getExternalIPAddress() + ":" + this.port + " already forwarded to " + mapping.getInternalClient() + "; port forwarding not changed");
 				else if(gateway.addPortMapping(this.port, this.port, address.getHostAddress(), "TCP", description))
 				{
 					this.gateways.put(address, gateway);
-					LOG.info("Set up port forwarding on address " + address.getHostAddress());
+					LOG.info(gateway.getExternalIPAddress() + ":" + this.port + " forwarded to " + address.getHostAddress());
 				}
 				else
-					LOG.warning("Could not set up port forwarding on address " + address.getHostAddress());
+					LOG.warning(gateway.getExternalIPAddress() + ":" + this.port + "could not be forwarded to " + address.getHostAddress());
 			}
 		}
 		catch(javax.xml.parsers.ParserConfigurationException | org.xml.sax.SAXException | java.io.IOException e)
