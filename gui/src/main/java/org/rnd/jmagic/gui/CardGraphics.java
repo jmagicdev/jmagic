@@ -500,6 +500,9 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 
 	private static boolean readCardArtIntoImageCache(String imageCacheKey, java.nio.file.Path path)
 	{
+		if(!java.nio.file.Files.isReadable(path))
+			return false;
+
 		try
 		{
 			java.awt.Image image = javax.imageio.ImageIO.read(java.nio.file.Files.newInputStream(path));
@@ -515,10 +518,6 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 			imageCache.put("*" + imageCacheKey, small);
 
 			return true;
-		}
-		catch(java.nio.file.NoSuchFileException e)
-		{
-			LOG.info("Could not open file " + path);
 		}
 		catch(java.io.IOException e)
 		{
@@ -1184,34 +1183,38 @@ public class CardGraphics extends org.rnd.util.Graphics2DAdapter
 			@Override
 			public void run()
 			{
-				java.nio.file.Path cardPath = cardArts.resolve(fileName);
-
-				// Abilities and emblems will never have art, right?
-				if(!(object instanceof SanitizedNonStaticAbility) && !object.isEmblem)
+				try
 				{
+					java.nio.file.Path cardPath = cardArts.resolve(fileName);
+
 					if(readCardArtIntoImageCache(fileName, cardPath))
 						return;
-				}
 
-				// Try to download the art only for cards that aren't a
-				// face-down creature
-				if(object.isCard && !cardName.isEmpty())
+					// Try to download the art only for cards that aren't a
+					// face-down creature
+					if(object.isCard && !cardName.isEmpty())
+					{
+						// TODO: make this URI configurable somehow
+						try(java.io.InputStream in = new java.net.URI("http", "mtgimage.com", "/card/" + cardName + "-crop.jpg", null).toURL().openStream())
+						{
+							java.nio.file.Files.copy(in, cardPath);
+							if(readCardArtIntoImageCache(fileName, cardPath))
+								return;
+						}
+						catch(java.net.URISyntaxException e)
+						{
+							LOG.log(java.util.logging.Level.SEVERE, "Something is wrong with the card name " + cardName + " such that a URI couldn't be created with it", e);
+						}
+						catch(java.io.IOException e)
+						{
+							LOG.log(java.util.logging.Level.INFO, "Could not download art for " + cardName, e);
+						}
+					}
+				}
+				catch(java.nio.file.InvalidPathException e)
 				{
-					// TODO: make this URI configurable somehow
-					try(java.io.InputStream in = new java.net.URI("http", "mtgimage.com", "/card/" + cardName + "-crop.jpg", null).toURL().openStream())
-					{
-						java.nio.file.Files.copy(in, cardPath);
-						if(readCardArtIntoImageCache(fileName, cardPath))
-							return;
-					}
-					catch(java.net.URISyntaxException e)
-					{
-						LOG.log(java.util.logging.Level.SEVERE, "Something is wrong with the card name " + cardName + " such that a URI couldn't be created with it", e);
-					}
-					catch(java.io.IOException e)
-					{
-						LOG.log(java.util.logging.Level.INFO, "Could not download art for " + cardName, e);
-					}
+					// Most abilities won't have names that can have valid
+					// paths, so silently ignore the problem
 				}
 
 				// If we don't find the file, assume we won't find it any other
