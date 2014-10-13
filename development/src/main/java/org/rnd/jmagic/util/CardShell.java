@@ -470,6 +470,7 @@ public class CardShell
 							for(int i = 1; i <= match.groupCount(); ++i)
 								construction = construction.replace("\\" + i, match.group(i));
 							abilityConstructors.add(construction);
+							break;
 						}
 					}
 
@@ -578,6 +579,8 @@ public class CardShell
 									for(int i = 1; i <= match.groupCount(); ++i)
 										construction = construction.replace("\\" + i, match.group(i));
 									abilityConstructors.add(construction);
+									found = true;
+									break;
 								}
 							}
 
@@ -752,7 +755,7 @@ public class CardShell
 							System.out.println(line);
 					}
 				}
-				catch(InterruptedException ex)
+				catch(Exception ex)
 				{
 					System.out.println("Interrupted");
 				}
