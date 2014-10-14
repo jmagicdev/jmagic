@@ -18,5 +18,7 @@ public final class MantisRider extends Card
 
 		// Flying, vigilance, haste
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Flying(state));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Vigilance(state));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Haste(state));
 	}
 }

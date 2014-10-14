@@ -18,5 +18,6 @@ public final class HighspireMantis extends Card
 
 		// Flying, trample
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Flying(state));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Trample(state));
 	}
 }

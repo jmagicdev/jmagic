@@ -18,6 +18,7 @@ public final class MonasteryFlock extends Card
 
 		// Defender, flying
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Defender(state));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Flying(state));
 
 		// Morph (U) (You may cast this card face down as a 2/2 creature for
 		// (3). Turn it face up any time for its morph cost.)

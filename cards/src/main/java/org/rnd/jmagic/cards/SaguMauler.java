@@ -18,6 +18,7 @@ public final class SaguMauler extends Card
 
 		// Trample, hexproof
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Trample(state));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Hexproof(state));
 
 		// Morph (3)(G)(U) (You may cast this card face down as a 2/2 creature
 		// for (3). Turn it face up any time for its morph cost.)

@@ -18,5 +18,7 @@ public final class GurmagSwiftwing extends Card
 
 		// Flying, first strike, haste
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Flying(state));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.FirstStrike(state));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Haste(state));
 	}
 }

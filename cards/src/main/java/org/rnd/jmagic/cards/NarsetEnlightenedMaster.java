@@ -46,6 +46,7 @@ public final class NarsetEnlightenedMaster extends Card
 
 		// First strike, hexproof
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.FirstStrike(state));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Hexproof(state));
 
 		// Whenever Narset, Enlightened Master attacks, exile the top four cards
 		// of your library. Until end of turn, you may cast noncreature cards
