@@ -15,7 +15,7 @@ public final class Mindslaver extends Card
 	{
 		public TurnControl(GameState state)
 		{
-			super(state, "(4), (T), Sacrifice Mindslaver: You control target player's next turn.");
+			super(state, "(4), (T), Sacrifice Mindslaver: You control target player during their next turn.");
 			this.setManaCost(new ManaPool("4"));
 			this.costsTap = true;
 			this.addCost(sacrificeThis("Mindslaver"));
