@@ -34,6 +34,7 @@ public final class PheresBandWarchief extends Card
 
 		// Vigilance, trample
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Vigilance(state));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Trample(state));
 
 		// Other Centaur creatures you control get +1/+1 and have vigilance and
 		// trample.

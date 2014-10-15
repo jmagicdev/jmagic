@@ -18,5 +18,6 @@ public final class BassaraTowerArcher extends Card
 
 		// Hexproof, reach
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Hexproof(state));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Reach(state));
 	}
 }

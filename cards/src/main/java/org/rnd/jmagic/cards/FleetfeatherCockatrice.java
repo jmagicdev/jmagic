@@ -21,6 +21,7 @@ public final class FleetfeatherCockatrice extends Card
 
 		// Flying, deathtouch
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Flying(state));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Deathtouch(state));
 
 		// (5)(G)(U): Monstrosity 3. (If this creature isn't monstrous, put
 		// three +1/+1 counters on it and it becomes monstrous.)

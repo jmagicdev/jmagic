@@ -30,6 +30,7 @@ public final class DawnbringerCharioteers extends Card
 
 		// Flying, lifelink
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Flying(state));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Lifelink(state));
 
 		// Heroic \u2014 Whenever you cast a spell that targets Dawnbringer
 		// Charioteers, put a +1/+1 counter on Dawnbringer Charioteers.

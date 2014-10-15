@@ -18,5 +18,6 @@ public final class EagleoftheWatch extends Card
 
 		// Flying, vigilance
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.Flying(state));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Vigilance(state));
 	}
 }

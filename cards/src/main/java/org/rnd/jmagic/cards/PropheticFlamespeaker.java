@@ -42,6 +42,7 @@ public final class PropheticFlamespeaker extends Card
 
 		// Double strike, trample
 		this.addAbility(new org.rnd.jmagic.abilities.keywords.DoubleStrike(state));
+		this.addAbility(new org.rnd.jmagic.abilities.keywords.Trample(state));
 
 		// Whenever Prophetic Flamespeaker deals combat damage to a player,
 		// exile the top card of your library. You may play it this turn.
