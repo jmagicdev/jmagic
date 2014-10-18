@@ -1,0 +1,1019 @@
+options
+{
+	IGNORE_CASE = true;
+	STATIC = false;
+//	LOOKAHEAD = 2147483647;
+//	FORCE_LA_CHECK = true;
+}
+
+PARSER_BEGIN(AbilityParser)
+
+package org.rnd.jmagic.cardscript;
+
+public class AbilityParser
+{
+	public static void main(String[] args) throws Exception
+	{
+		String[] lines = new String[]		{
+"Whenever a land enters the battlefield, ~ deals 2 damage to that land's controller.",
+"At the beginning of the chosen player's upkeep, ~ deals X damage to that player, where X is the number of cards in his or her hand minus 4.",
+"At end of combat, if ~ attacked or blocked this combat, remove a +1/+0 counter from it.",
+"Whenever ~ blocks or becomes blocked by a non-Wall creature, destroy that creature at end of combat.",
+"At the beginning of your upkeep, sacrifice ~ unless you pay {W}{W}.",
+"At the beginning of each player's upkeep, ~ deals 1 damage to that player.",
+"When enchanted creature dies, ~ deals damage equal to that creature's toughness to the creature's controller.",
+"Whenever a player casts a blue spell, you may pay {1}. If you do, you gain 1 life.",
+"At the beginning of the upkeep of enchanted land's controller, ~ deals 1 damage to that player.",
+"At the beginning of your upkeep, unless you pay {B}{B}{B}, tap ~ and sacrifice a land of an opponent's choice.",
+"Whenever a land is put into a graveyard from the battlefield, ~ deals 2 damage to that land's controller.",
+"When ~ enters the battlefield, if enchanted creature has flying, ~ deals 2 damage to that creature and ~ gains \"Enchanted creature loses flying.\"",
+"Whenever you play a land, if it wasn't the first land you played this turn, ~ deals 1 damage to you.",
+"At the beginning of the upkeep of enchanted enchantment's controller, ~ deals 1 damage to that player.",
+"At the beginning of your upkeep, ~ deals 8 damage to you unless you pay {G}{G}{G}{G}.",
+"Whenever ~ is dealt damage, put a +1/+1 counter on it.",
+"Whenever a Mountain is tapped for mana, its controller adds {R} to his or her mana pool (in addition to the mana the land produces).",
+"At the beginning of each player's draw step, if ~ is untapped, that player draws an additional card.",
+"Whenever ~ deals damage to an opponent, that player discards a card at random.",
+"Whenever a player casts a red spell, you may pay {1}. If you do, you gain 1 life.",
+"Whenever a player casts a white spell, you may pay {1}. If you do, you gain 1 life.",
+"At the beginning of each player's upkeep, ~ deals damage to that player equal to the number of Swamps he or she controls.",
+"When enchanted land becomes tapped, destroy it. That land's controller attaches ~ to a land of his or her choice.",
+"Whenever you're dealt damage, sacrifice that many nontoken permanents. If you can't, you lose the game.",
+"When ~ is put into a graveyard from the battlefield, you lose the game.",
+"Whenever a Forest an opponent controls becomes tapped, you gain 1 life.",
+"Whenever you're dealt damage, put that many vitality counters on ~.",
+"At the beginning of your upkeep, you may remove a vitality counter from ~. If you do, you gain 1 life.",
+"At the beginning of your upkeep, sacrifice a creature other than ~. If you can't, ~ deals 7 damage to you.",
+"Whenever a player taps a land for mana, that player adds one mana to his or her mana pool of any type that land produced.",
+"At the beginning of your upkeep, you may pay {4}. If you do, untap ~.",
+"At the beginning of your draw step, if ~ is tapped, it deals 1 damage to you.",
+"Whenever a player taps a land for mana, ~ deals 1 damage to that player.",
+"At the beginning of your upkeep, if ~ is in your graveyard with three or more creature cards above it, you may put ~ onto the battlefield.",
+"When ~ enters the battlefield, tap enchanted creature.",
+"At the beginning of the upkeep of enchanted creature's controller, that player may pay {4}. If he or she does, untap the creature.",
+"When ~ dies, its owner loses half his or her life, rounded up.",
+"At the beginning of the end step, if no creatures are on the battlefield, sacrifice ~.",
+"At the beginning of your upkeep, sacrifice ~ unless you pay {U}.",
+"When you control no Islands, sacrifice ~.",
+"At the beginning of the upkeep of enchanted enchantment's controller, that player may pay any amount of mana. ~ deals 2 damage to that player. Prevent X of that damage, where X is the amount of mana that player paid this way.",
+"At the beginning of each player's upkeep, ~ deals X damage to that player, where X is the number of untapped lands he or she controlled at the beginning of this turn.",
+"Whenever enchanted land becomes tapped, ~ deals 2 damage to that land's controller.",
+"At the beginning of each end step, put a corpse counter on ~ for each creature that died this turn.",
+"Whenever a creature dealt damage by ~ this turn dies, put a +1/+1 counter on ~.",
+"At the beginning of the next end step, destroy all non-Wall creatures that player controls that didn't attack this turn. Ignore this effect for each creature the player didn't control continuously since the beginning of the turn.",
+"Whenever a creature dies, you may pay {1}. If you do, you gain 1 life.",
+"Whenever a player casts a black spell, you may pay {1}. If you do, you gain 1 life.",
+"Whenever you cast an enchantment spell, you may draw a card.",
+"At the beginning of the upkeep of enchanted creature's controller, ~ deals 1 damage to that player.",
+"At the beginning of the upkeep of enchanted artifact's controller, ~ deals 1 damage to that player.",
+"Whenever enchanted land is tapped for mana, its controller adds {G} to his or her mana pool (in addition to the mana the land produces).",
+"Whenever a player casts a green spell, you may pay {1}. If you do, you gain 1 life.",
+"When ~ dies, destroy all creatures blocking or blocked by it. They can't be regenerated.",
+"At the beginning of your upkeep, you may pay {1}. If you do, untap ~.",
+"Whenever a nontoken permanent originally printed in the Arabian Nights expansion other than ~ is on the battlefield, its controller sacrifices it.",
+"Whenever ~ becomes tapped, it deals 1 damage to you.",
+"At the beginning of your upkeep, put a wind counter on ~, then sacrifice ~ unless you pay {G} for each wind counter on it. If you pay, ~ deals damage equal to the number of wind counters on it to each creature and each player.",
+"At the beginning of your upkeep, destroy the creature with the least power. It can't be regenerated. If two or more creatures are tied for least power, you choose one of them.",
+"When there are no creatures on the battlefield, sacrifice ~.",
+"Whenever ~ deals damage, you gain that much life.",
+"At the beginning of your end step, if ~ didn't attack this turn, ~ deals 2 damage to you unless it came under your control this turn.",
+"At the beginning of your upkeep, target non-Wall creature an opponent controls gains forestwalk until your next upkeep.",
+"At the beginning of your upkeep, if a player has more life than each other player, the player with the most life gains control of ~.",
+"Whenever ~ attacks, it deals 3 damage to you unless you pay {2}.",
+"At the beginning of your upkeep, you may pay {U}{U}{U}. If you do, untap ~.",
+"When the chosen player controls no nontoken permanents of the chosen color, sacrifice ~.",
+"At the beginning of your upkeep, sacrifice ~ unless you pay {B}{B}.",
+"At the beginning of your upkeep, ~ deals 1 damage to you.",
+"At the beginning of each end step, put a +1/+1 counter on ~ for each creature that died this turn.",
+"At the beginning of each player's upkeep, that player may choose any number of tapped blue creatures he or she controls and pay {4} for each creature chosen this way. If the player does, untap those creatures.",
+"Whenever ~ attacks and isn't blocked, you gain 2 life.",
+"Whenever ~ attacks, flip a coin. If you lose the flip, remove ~ from combat and tap it.",
+"Whenever ~ deals damage to a player, that player loses 1 life at the beginning of his or her next draw step unless he or she pays {1} before that draw step.",
+"When ~ enters the battlefield, exile target creature and all Auras attached to it. Note the number and kind of counters that were on that creature.",
+"When ~ leaves the battlefield, return that exiled card to the battlefield under its owner's control tapped with the noted number and kind of counters on it. If you do, return the other exiled cards to the battlefield under their owner's control attached to that permanent.",
+"When ~ dies, put a 4/4 red Bird creature token with flying onto the battlefield at the beginning of the next end step.",
+"At the beginning of your upkeep, sacrifice a land. If you sacrifice an Island this way, ~ deals 3 damage to you.",
+"When you control no lands, sacrifice ~.",
+"At the beginning of the upkeep of enchanted creature's controller, put a -1/-1 counter on that creature.",
+"Whenever ~ blocks, flip a coin. If you lose the flip, remove ~ from combat and it can't block this turn. Creatures it was blocking that had become blocked by only ~ this combat become unblocked.",
+"At the beginning of your upkeep, put a doom counter on ~.",
+"At the beginning of your draw step, ~ deals damage equal to the number of doom counters on it to each player.",
+"Whenever enchanted artifact becomes tapped or a player activates an ability of enchanted artifact without {T} in its activation cost, ~ deals 2 damage to that artifact's controller.",
+"At the beginning of combat on your turn, ~ gains banding until end of combat. (Any creatures with banding, and up to one without, can attack in a band. Bands are blocked as a group. If any creatures with banding you control are being blocked by a creature, you divide that creature's combat damage, not its controller, among any of the creatures it's blocking.)",
+"Whenever ~ becomes blocked by a Wall, destroy that Wall at end of combat.",
+"Whenever an opponent casts an artifact spell, put a +1/+1 counter on ~.",
+"Whenever an artifact becomes tapped or a player activates an artifact's ability without {T} in its activation cost, ~ deals 1 damage to that artifact's controller.",
+"At the beginning of your upkeep, you gain X life, where X is the number of cards in your hand minus 4.",
+"At the beginning of your upkeep, ~ deals 3 damage to you unless you discard a card. If ~ deals damage to you this way, tap it.",
+"When ~ dies, you gain 2 life.",
+"Whenever an artifact an opponent controls becomes tapped or an opponent activates an artifact's ability without {T} in its activation cost, you gain 1 life.",
+"At the beginning of your upkeep, you may choose a number between 0 and 7.",
+"When ~ dies, add {4} to your mana pool.",
+"Whenever an artifact you control is put into a graveyard from the battlefield, you may pay {1}. If you do, you gain 1 life.",
+"At the beginning of your upkeep, you may remove any number of +1/+1 counters from ~. If you do, put that many 1/1 colorless Tetravite artifact creature tokens onto the battlefield. They each have flying and \"This creature can't be enchanted.\"",
+"At the beginning of your upkeep, you may exile any number of tokens put onto the battlefield with ~. If you do, put that many +1/+1 counters on ~.",
+
+
+"({T}: Add {B} or {R} to your mana pool.)",
+"{T}: Add {3} to your mana pool.",
+"{3}: Untap ~.",
+"({T}: Add {B} or {G} to your mana pool.)",
+"{T}: Add one mana of any color to your mana pool.",
+"{T}, Sacrifice ~: Add three mana of any one color to your mana pool.",
+"{W}: Enchanted creature gets +1/+1 until end of turn.",
+"{2}, {T}: Add one mana of any color to your mana pool.",
+//"{1}, {T}: If ~ is on the battlefield, flip ~ onto the battlefield from a height of at least one foot. If ~ turns over completely at least once during the flip, destroy all nontoken permanents it touches. Then destroy ~.",
+"{1}: The next time a blue source of your choice would deal damage to you this turn, prevent that damage.",
+"{1}: The next time a green source of your choice would deal damage to you this turn, prevent that damage.",
+"{1}: The next time a red source of your choice would deal damage to you this turn, prevent that damage.",
+"{1}: The next time a white source of your choice would deal damage to you this turn, prevent that damage.",
+"{X}, {T}: Put up to X +1/+0 counters on ~. This ability can't cause the total number of +1/+0 counters on ~ to be greater than seven. Activate this ability only during your upkeep.",
+"{3}, {T}: Prevent the next 2 damage that would be dealt to you this turn.",
+"{2}, {T}: Put a mire counter on target non-Swamp land. That land is a Swamp for as long as it has a mire counter on it. Activate this ability only during your upkeep.",
+"{B}{B}: Counter target green spell.",
+"{T}: Destroy target land.",
+"{3}, {T}: Target player discards a card. Activate this ability only during your turn.",
+"{R}: ~ gets +1/+0 until end of turn. If this ability has been activated four or more times this turn, sacrifice ~ at the beginning of the next end step.",
+"{B}: Regenerate ~. (The next time this creature would be destroyed this turn, it isn't. Instead tap it, remove all damage from it, and remove it from combat.)",
+"{T}: Destroy target Wall.",
+"{T}: Target creature with power 2 or less can't be blocked this turn.",
+"{R}: Enchanted creature gets +1/+0 until end of turn.",
+"{1}: The next time an unblocked creature of your choice would deal combat damage to you this turn, prevent all but 1 of that damage.",
+"{B}: ~ gets +1/+1 until end of turn.",
+"{T}: Target land becomes a Forest until ~ leaves the battlefield.",
+"{T}: Look at target player's hand.",
+"{R}: ~ gains flying until end of turn.",
+"{R}: ~ gets +0/+1 until end of turn.",
+"{1}, {T}: Target creature gains banding until end of turn. (Any creatures with banding, and up to one without, can attack in a band. Bands are blocked as a group. If any creatures with banding a player controls are blocking or being blocked by a creature, that player divides that creature's combat damage, not its controller, among any of the creatures it's being blocked by or is blocking.)",
+"{W}: Enchanted creature gets +0/+1 until end of turn.",
+"{1}, {T}: Tap target artifact, creature, or land.",
+"{X}: You may choose a creature card in your hand whose mana cost could be paid by some amount of, or all of, the mana you spent on {X}. If you do, you may cast that card face down as a 2/2 creature spell without paying its mana cost. If the creature that spell becomes as it resolves has not been turned face up and would assign or deal damage, be dealt damage, or become tapped, instead it's turned face up and assigns or deals damage, is dealt damage, or becomes tapped. Activate this ability only any time you could cast a sorcery.",
+"{0}: Untap enchanted creature. Activate this ability only during your turn and only once each turn.",
+"{1}: The next time a source of your choice would deal damage to target creature this turn, that source deals that damage to you instead.",
+"{2}: ~ becomes a 3/6 Golem artifact creature until end of combat. Activate this ability only during combat.",
+"{4}, {T}: Draw a card.",
+"{T}: Untap target land.",
+"{G}{G}: Counter target black spell.",
+"{1}: Regenerate ~.",
+"{T}: Add {G} to your mana pool.",
+"{T}: Add {B} to your mana pool.",
+"{T}: Add {W} to your mana pool.",
+"{T}: Add {R} to your mana pool.",
+"{T}: Add {U} to your mana pool.",
+"{T}: Choose target non-Wall creature the active player has controlled continuously since the beginning of the turn. That creature attacks this turn if able. If it doesn't, destroy it at the beginning of the next end step. Activate this ability only during an opponent's turn, before attackers are declared.",
+"{1}, {T}: Destroy all artifacts, creatures, and enchantments.",
+"{W}{W}, {T}: Destroy target black permanent.",
+"{T}: ~ deals 2 damage to target creature or player and 3 damage to you.",
+"{0}: The next 1 damage that would be dealt to ~ this turn is dealt to its owner instead. Any player may activate this ability, but only if he or she owns ~.",
+"{B}: ~ deals 1 damage to each creature and each player.",
+"{T}: ~ deals 1 damage to target creature or player.",
+"({T}: Add {R} or {W} to your mana pool.)",
+"{G}: Regenerate enchanted creature. (The next time that creature would be destroyed this turn, it isn't. Instead tap it, remove all damage from it, and remove it from combat.)",
+"{R}: Prevent the next 1 damage that would be dealt to ~ this turn.",
+"{R}{R}{R}: Put a +1/+1 counter on ~. Activate this ability only during your upkeep.",
+"{3}, {T}: ~ deals 1 damage to target creature or player.",
+"{T}: Destroy target tapped creature.",
+"{T}: Prevent the next 1 damage that would be dealt to target creature or player this turn.",
+"({T}: Add {G} or {W} to your mana pool.)",
+"Remove a corpse counter from ~: Regenerate ~.",
+"({T}: Add {W} or {B} to your mana pool.)",
+"{B}: Regenerate ~.",
+"{R}: ~ gets +1/+0 until end of turn.",
+"{T}: Add {2} to your mana pool.",
+"{T}: Target creature you control with toughness less than ~'s power gains flying until end of turn. Destroy that creature at the beginning of the next end step.",
+"({T}: Add {R} or {G} to your mana pool.)",
+"{5}, {T}: Put a 1/1 colorless Insect artifact creature token with flying named Wasp onto the battlefield. (It can't be blocked except by creatures with flying or reach.)",
+"{T}: Take an extra turn after this one.",
+"({T}: Add {G} or {U} to your mana pool.)",
+"({T}: Add {W} or {U} to your mana pool.)",
+"({T}: Add {U} or {B} to your mana pool.)",
+"{R}: Regenerate ~.",
+"{G}: Regenerate ~.",
+"{U}: ~ gets +1/+0 until end of turn.",
+"Other Zombies have \"{B}: Regenerate this permanent.\"",
+"{1}: The next time a black source of your choice would deal damage to you this turn, prevent that damage.",
+"({T}: Add {U} or {R} to your mana pool.)",
+"{1}{R}{R}, {T}: Gain control of target artifact for as long as you control ~.",
+"{X}, {T}: The next time you would draw a card this turn, instead look at the top X cards of your library, put all but one of them on the bottom of your library in a random order, then draw a card. X can't be 0.",
+"{8}, {T}: ~ deals 4 damage to target creature or player.",
+"{R}: Tap target Wall.",
+"{T}: Draw two cards, then discard three cards.",
+"{1}, Sacrifice ~: Flip a coin. If you win the flip, put a 5/5 colorless Djinn artifact creature token with flying onto the battlefield. If you lose the flip, ~ deals 5 damage to you.",
+"{T}: ~ deals 1 damage to target creature or player and 1 damage to target creature or player of an opponent's choice.",
+"{T}: Add {1} to your mana pool.",
+"{T}: ~ deals 1 damage to target attacking creature. Activate this ability only during the end of combat step.",
+"{T}, Sacrifice a creature: You gain life equal to the sacrificed creature's toughness.",
+"{2}, {T}: Untap target attacking creature you control. Prevent all combat damage that would be dealt to and dealt by that creature this turn.",
+"{T}: Regenerate target Elephant.",
+"{2}, {T}: Target creature gains flying until end of turn.",
+"{T}: Target creature can't be regenerated this turn.",
+"{G}: ~ deals 1 damage to each creature with flying and each player. Any player may activate this ability.",
+"{T}: Target creature with flying has base power 0 until end of turn.",
+"{2}, {T}, Discard the last card you drew this turn: Draw a card.",
+"{3}, {T}: Untap target creature.",
+"{T}: Ante ~. If you do, put all other cards you own from the ante into your graveyard, then draw a card.",
+"{T}: Destroy target Djinn or Efreet.",
+"{T}: Draw a card. Activate this ability only if you have exactly seven cards in hand."
+		};
+		for (int i = 0; i < lines.length; ++i)
+		{
+			String line = lines[i];
+			line = org.rnd.jmagic.util.CardShell.removeReminderText(line.trim());
+			if (line.length() == 0)			{				continue;
+			}
+			if (line.contains(".\""))			{				line = line.replace(".\"", "\".");
+			}
+			java.io.InputStream is = new java.io.ByteArrayInputStream( line.getBytes() );
+			AbilityParser p = new AbilityParser(is);
+			try			{				p.cardability();
+			}
+			finally
+			{				System.out.println(i + ": " + line);
+				System.out.flush();
+			}
+		}
+	}
+}
+
+PARSER_END(AbilityParser)
+
+void cardability() : {}
+{
+	(
+		triggeredability()
+	|
+		activatedability()
+	|
+		"staticability()"
+	)
+}
+
+void activatedability() : {}
+{
+	activatedcost()
+	(		","
+		activatedcost()
+	)*
+	":"
+	effects()
+	"."
+	(		"Activate this ability only"
+		(			"during your upkeep"
+		|
+			"during your turn"
+		)
+		"."
+	|
+		"If this ability has been activated four or more times this turn, sacrifice ~ at the beginning of the next end step."
+	)?
+}
+
+void triggeredability() : {}
+{
+	condition()
+	","
+	(		"unless"
+		selectors()
+		cost()
+		","
+	)?
+	effects()
+	"."
+}
+
+void condition() : {}{	(
+		(
+			"when" | "whenever"
+		)
+		(
+			selectors()
+			pattern()
+			(
+				"or"
+				(selectors())?
+				pattern()
+			)?
+			(
+				"by"
+				selectors()
+			)?
+		|
+			"there are"
+			generator()
+		)
+	|
+		"at"
+		phaseorstep()
+	)
+}
+
+void phaseorstep() : {}{
+	(
+		"end of combat"
+	|
+		"end of turn"
+	|
+		"your next upkeep"
+	|	
+		"the beginning of"
+		(
+			"each player's"
+		|
+			"each"
+		|	
+			"your"
+		|
+			"the chosen player's"
+		|
+			"the next"
+		|
+			"the"
+		|
+			"his or her next"
+		)?
+		
+		(
+			"combat"
+		|	
+			"upkeep"
+		|
+			"draw step"
+		|
+			"end step"
+		)
+
+		(
+			"of"
+			selectors()
+		|
+			"on your turn"
+		)?
+	)
+}
+
+void pattern() : {}
+{	(
+		"activates an"
+		(			selectors()
+		)
+	|	
+		"attacked or blocked this combat"
+	|	
+		"attacks"
+		("and isn't blocked")?
+	|	
+		"blocks"
+	|
+		"came under your control this turn"
+	|
+		"can't"
+	|
+		"cast"
+		("s")?		selectors()
+	|
+		"control"
+		("s")?
+		generator()
+	|	
+		"deals"
+		"damage"
+		(			"to"
+			selectors()
+		)?
+		("this way")?
+	|
+		"didn't attack this turn"
+	|	
+		"dies"
+	|
+		("do"|"does")
+	|	
+		"enters the battlefield"
+	|
+		"has"
+		(
+			< KEYWORD >
+		|
+			"more life than each other player"
+		)
+	|
+		("is dealt damage"|"'re dealt damage")
+	|
+		("is"|"become")
+		("s")?
+		(
+			LOOKAHEAD(attribute())			attribute()
+		|
+			modifier()
+		)+
+		("for mana")?
+	|	
+		"is put"
+		(			"into a graveyard"
+			(				"from the battlefield"
+			)?
+		)
+	|
+		"leaves the battlefield"
+	|
+		"lose the flip"
+	|
+		"pay"
+	|
+		"play"
+		selectors()
+	|	
+		"taps"
+		selectors()
+		("for mana")?
+	|
+		"wasn't the first land you played this turn"
+	|
+		("would deal damage to you this turn"|"would deal combat damage to you this turn")
+	)
+}
+
+void generator() : {}
+{
+	(
+		"the amount of"
+	|			"the number of"
+	|
+		"no"
+	|
+		"for"
+	|
+		"equal to the number of"
+	|
+		"equal to"
+	)
+
+	countable()
+
+	(		"minus"
+		< INTEGER >
+	)?
+}
+
+void effects() : {}{
+	effect()
+	(
+		LOOKAHEAD("and"|", then"|"." effect())
+		(
+			"and"		|
+			", then"
+		|
+			"."
+		)
+		effects()
+	)?
+}
+
+void effect() :
+{
+	int qty;
+	Token token;
+}
+{
+	(		"if"
+		(			selectors()
+			pattern()
+		|
+			generator()
+			(				"are"
+				modifier()
+			)?
+		)
+		","
+	)?
+	(selectors())?
+	("may")?
+	(
+		cost()
+		(
+			generator()
+		)?
+	|	
+		"add"
+		("s")?
+		(
+			< NUMBERWORD >
+			"mana"
+		|
+			< MANA >
+		)
+		("of any color"|"of any one color")?
+		(			"to his or her mana pool"
+		|
+			"to your mana pool"
+		)
+		("of any type that land produced")?
+	|
+		"attaches"
+		selectors()
+		"to"
+		selectors()
+	|
+		"become"
+		("s")?
+		(			selectors()
+		)
+		(until())?
+	|	
+		"can't block this turn"
+	|	
+		"can't be blocked this turn"
+	|	
+		"choose"
+		quantity()
+		(			selectors()
+		|
+			"number between"
+			< INTEGER >
+			"and"
+			< INTEGER >
+		)
+	|
+		"counter"
+		selectors()
+	|	
+		"deals"
+		quantity()
+		"damage"
+		(
+			generator()
+		)?
+		"to"
+		selectors()
+	|
+		"destroy"
+		selectors()
+		(". It can't be regenerated"|". They can't be regenerated")?
+		(". Ignore this effect for each creature the player didn't control continuously since the beginning of the turn")?
+		(". If two or more creatures are tied for least power, you choose one of them")?
+	|	
+		"draw"
+		("s")?
+		(
+			"a"
+			{
+				qty = 1;
+			}
+		|			"an additional"
+			{				qty = 1;
+			}
+		)
+		"card"
+		("s")?
+	|
+		"exile"
+		quantity()
+		selectors()
+	|	
+		"flip a coin"
+	|	
+		"gain"
+		("s")?
+		(
+			quantity()
+			"life"
+		|
+			"control of"
+			selectors()
+		|	
+			(				< STRING >
+			|	
+				< KEYWORD >
+			)
+			(until())?
+		)
+	|
+		"gets"
+		< COUNTERTYPE >
+		(until())?
+	|
+		"look at"
+		selectors()
+	|	
+		"lose the game"
+	|
+		"loses"
+		quantity()
+		"life"
+		(", rounded up"|", rounded down")?
+	|	
+		"put"
+		quantity()
+		(
+			LOOKAHEAD(< COUNTERTYPE > "counter")			token = < COUNTERTYPE >
+			"counter"
+			("s")?
+			("on"|"from")
+			selectors()
+			(
+				generator()
+			)?
+			(				". This ability can't cause the total number of +1/+0 counters on ~ to be greater than seven"
+			)?
+		|
+			< INTEGER >
+			"/"
+			< INTEGER >
+			selectors()
+			"onto the battlefield"
+			(condition())?
+			(				". They each have"
+				(< KEYWORD > | < STRING >)
+				(					"and"
+					(< KEYWORD > | < STRING >)
+				)?
+			)?
+		|
+			selectors()
+			"onto the battlefield"
+		)
+	|
+		"prevent"
+		(
+			"that damage"
+		|				quantity()
+			"of that damage"
+		|
+			"the next"
+			quantity()
+			"damage that would be dealt to"
+			selectors()
+			"this turn"
+		)
+	|
+		"regenerate"
+		selectors()
+	|	
+		"remove"
+		quantity()
+		(
+			LOOKAHEAD(< COUNTERTYPE > "counter")
+			token = < COUNTERTYPE >
+			"counter"
+			("s")?
+			("on"|"from")
+			selectors()
+			(
+				generator()
+			)?
+		|
+			selectors()
+			"from combat"
+		)
+	|	
+		"return"
+		selectors()
+		"to the battlefield under its owner's control"
+		(
+			LOOKAHEAD(attribute())
+			attribute()
+		|
+			modifier()
+		)*
+	|
+		"tap"
+		selectors()
+	|
+		"the next time"
+		selectors()
+		pattern()
+		","
+		effect()
+	|
+		"untap"
+		selectors()
+	)
+	
+	(condition())?
+	
+	(		(", where X is")?
+		generator()
+	)?
+	
+	(		"unless"
+		selectors()
+		(
+			LOOKAHEAD(cost())
+			cost()
+		|				pattern()
+		)
+	)?
+}
+
+void until() : {}
+{
+	"until"
+	(		phaseorstep()
+	|
+		selectors()
+		pattern()
+	)
+}
+
+void activatedcost() : {}
+{	(		< TAP >
+	|
+		< MANA >
+	|
+		"{X}"
+	|
+		cost()
+	)
+}
+
+void cost() :
+{
+	int qty = 0;
+}
+{
+	(
+		"discard"
+		("s")?
+		(
+			"a"
+			{
+				qty = 1;
+			}
+		|
+			"an additional"
+			{
+				qty = 1;
+			}
+		)
+		"card"
+		("s")?
+		("at random")?
+	|			"pay"
+		("s")?
+		(
+			< MANA >
+			(
+				generator()
+			)?
+		|
+			< INTEGER >
+			"life"
+		|
+			"any amount of mana"
+		)
+
+		("before that draw step")?
+	|	
+		"sacrifice"
+		("s")?
+		quantity()
+		selectors()	)
+}
+
+void quantity() :{
+	int qty = 0;
+	Token token;}
+{
+	("up to")?
+	
+	(
+		"a"
+		{
+			qty = 1;
+		}
+	|
+		token = < INTEGER >
+		{
+			qty = Integer.parseInt(token.image);
+		}
+	|
+		"X"
+	|
+		"that many"
+	|
+		"that much"	
+	|
+		"half his or her"
+	|
+		"any number of"
+	|
+		"all but"
+		< INTEGER >
+	)?
+}
+
+void selectors() : {}{	selector()
+
+	(
+		LOOKAHEAD("and" selectors() ".")
+		"and"
+		selectors()
+	)?
+}
+
+void selector() : {}
+{	(
+		"you"
+	|
+		"he or she"
+	|
+		"~"
+	|		"it"
+		(modifier())*
+	|
+		("a"|"an"|"all"|"target"|"each"|"the chosen"|"the other"|"the"|"that"|"those")?
+		(attribute())+
+		("s")?
+		(modifier())*
+	)
+}
+
+void countable() : {}{
+	(
+		LOOKAHEAD(2)
+		("each")?		(
+			(< COUNTERTYPE >)?
+			"counter"
+		|	
+			"mana"
+		)
+		("s")?
+		(modifier())*
+	|
+		selectors()
+	)
+}
+
+void attribute() : {}{
+	("non"("-")?)?
+	(
+		"ability of"
+	|
+		"blocked"
+	|	
+		"card"
+	|
+		"colorless"
+	|	
+		"enchanted"
+	|
+		"exiled"
+	|	
+		"opponent"
+	|
+		"permanent"
+	|
+		"player"
+	|
+		"source"
+	|
+		"spell"
+	|	
+		"tapped"
+	|	
+		"token"
+	|
+		"unblocked"
+	|
+		"untapped"
+	|
+		< COLOR >
+	|	
+		< TYPE >
+	|
+		< LANDTYPE >
+	|
+		< CREATURETYPE >
+	|
+		< ENCHANTMENTTYPE >
+	|
+		< COUNTERTYPE >
+	)
+}
+
+void modifier() : {}
+{	(
+		selectors()
+		"control"
+		("s")?
+	|
+		"'s ability"
+	|
+		("'s controller"|"s controller")
+	|
+		"'s hand"
+	|
+		("'s owner"|"s owner")
+	|
+		"'s toughness"
+	|	
+		"an opponent controls"
+	|
+		"attached to it"
+	|
+		"blocking or blocked by it"
+	|
+		"chosen this way"
+	|
+		"dealt damage by"
+		selectors()
+		"this turn"
+	|	
+		"he or she controls"
+	|
+		"he or she controlled at the beginning of this turn"
+	|
+		"in your graveyard"
+		("with three or more creature cards above it")?
+	|
+		("in your hand"|"in his or her hand")
+	|
+		"it was blocking that had become blocked by only ~ this combat"
+	|
+		"of an opponent's choice"
+	|
+		"of his or her choice"
+	|
+		"of the chosen color"
+	|
+		"of your choice"
+	|
+		"on"
+		selectors()
+	|
+		"on the battlefield"
+	|	
+		"originally printed in the Arabian Nights expansion"
+	|
+		"other than ~"
+	|
+		"that player paid this way"
+	|
+		"put onto the battlefield with ~"
+	|
+		"that didn't attack this turn"
+	|
+		"that died this turn"
+	|
+		"with"
+		(			(				"the most"
+			|
+				"the least"
+			)
+			(				"power"
+			|
+				"life"
+			)
+		|
+			"power"
+			quantity()
+			"or less"
+		|
+			< KEYWORD >
+		|
+			"the noted number and kind of counters on it"
+		)
+	|
+		"without {T} in its activation cost"	)
+}
+
+
+SKIP:
+{
+	" "
+}
+
+TOKEN :
+{
+	<#DIGIT: ["0"-"9"] >
+|
+	<INTEGER: (["-","+"])?(<DIGIT>)+ >
+|
+	<SIGNED_INTEGER: (["-","+"])(<DIGIT>)+ >
+|
+	<NUMBERWORD: ("one"|"three") >
+|
+	<STRING: "\"" (~["\""])+ "\"" >
+|
+	<#CHARACTER: (<DIGIT>|["a"-"z","A"-"Z"]) >
+|
+	<COLOR: "white"|"blue"|"black"|"red"|"green" >
+|
+	<MANA: ( "{" ("W"|"U"|"B"|"R"|"G"|<DIGIT>)+ "}" )+ >
+|
+	<TAP: ( "{T}" ) >
+|
+	<SUPERTYPE: "basic"|"legendary"|"snow"|"world" >
+|
+	<TYPE: ("artifact"|"creature"|"enchantment"|"instant"|"land"|"plane"|"planeswalker"|"sorcery"|"tribal") >
+|
+	<COUNTERTYPE: "corpse" | "doom" | "mire" | "vitality" | "wind" | <SIGNED_INTEGER>"/"<SIGNED_INTEGER> >
+|
+	<LANDTYPE: ("plains"|"island"|"swamp"|"mountain"|"forest") >
+|
+	<CREATURETYPE: ("bird"|"tetravite"|"wall") >
+|	
+	<ENCHANTMENTTYPE: ("aura") >
+|
+	<KEYWORD: <LANDTYPE>"walk" | "banding" | "flying" >
+}
