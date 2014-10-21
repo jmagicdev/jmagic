@@ -4,7 +4,7 @@ options
 	STATIC = false;
 //	LOOKAHEAD = 2147483647;
 //	FORCE_LA_CHECK = true;
-//	DEBUG_PARSER = true;
+	DEBUG_PARSER = true;
 }
 
 PARSER_BEGIN(AbilityParser)
@@ -36,7 +36,21 @@ public class AbilityParser
 PARSER_END(AbilityParser)
 
 void spellability() : {}{
-	effects()}
+	(
+		// Bullet for a modal spell
+		"\u2022"
+		effects()
+	|			effects()
+	|
+		spell_limits()
+	)
+
+	// The "Choose" line of a modal ability doesn't end with a period
+	(".")?
+
+	(		"\n"
+		spellability()
+	)?}
 
 void permanentability() : {}
 {
@@ -49,20 +63,81 @@ void permanentability() : {}
 	|
 		< KEYWORD >
 	)
+
+	(		"\n"
+		permanentability()
+	)?
 }
 
-void staticability() : {}{	selector()
-	static_effect()
+void staticability() : {}{
+	(		"as long as"
+		selectors()
+		pattern()
+		","
+	)?
+
+	(		selector()
+		static_effect()
+	|
+		"it's"
+		static_effect()
+	|
+		// Replacement effects
+		"as"
+		selectors()
+		pattern()
+		","
+		effects()
+	)
+	"."
 }
 
 void static_effect() : {}
 {
-	(		"have"
+	(
+		"any time you could activate a mana ability, you may pay 1 life"
+	|	
+		"can attack as though it didn't have defender"
+	|
+		"doesn't untap during your untap step"
+	|	
+		"get"
+		("s")?
+		(
+			< SIGNED_INTEGER >
+			"/"
+			< SIGNED_INTEGER >
+		|
+			< SIGNED_VARIABLE >
+			"/"
+			< SIGNED_VARIABLE >
+		)
+	|
+		("has"|"have")
 		(			< KEYWORD >
+			(". This effect doesn't remove ~")?
 		|
 			< STRING >
 		)
+	|
+		"instead of"
+		pattern()
+		","
+		selectors()
+		effects()
+	|	
+		selectors()
+		(			pattern()
+		)?
 	)
+
+	(		", where X is"
+		generator()
+
+		(			", and Y is"
+			generator()
+		)?
+	)?
 }
 
 void activatedability() : {}
@@ -103,7 +178,19 @@ void activatedability_limits() : {}
 	(		"and"
 		activatedability_limits()
 	)?
-}
+}
+
+void spell_limits() : {}{	(		"Cast ~ only"
+		(			"before"
+		|
+			"during"
+		)
+		phaseorstep()
+
+		("before blockers are declared")?
+	)
+}
+
 void triggeredability() : {}
 {
 	condition()
@@ -172,16 +259,20 @@ void phaseorstep() : {}{
 	
 	(
 		"combat"
-		("step")?
-	|	
+	|
+		"combat damage"
+	|
+		"declare attackers"
+	|		
 		"upkeep"
 	|
-		"draw step"
+		"draw"
 	|
-		"end step"
+		"end"
 	|
 		"turn"
 	)
+	("step")?
 
 	(
 		"of"
@@ -222,6 +313,8 @@ void pattern() : {}
 		)?
 		("this way")?
 	|
+		"declaring blockers"
+	|
 		"didn't attack this turn"
 	|	
 		"dies"
@@ -254,6 +347,9 @@ void pattern() : {}
 			)?
 		)
 	|
+		"isn't"
+		selectors()
+	|
 		"leaves the battlefield"
 	|
 		"lose the flip"
@@ -279,6 +375,8 @@ void pattern() : {}
 
 void generator() : {}
 {
+	("half")?
+	
 	(
 		"the amount of"
 	|			"the number of"
@@ -296,6 +394,10 @@ void generator() : {}
 
 	(		"minus"
 		< INTEGER >
+	|
+		", rounded down"
+	|
+		", rounded up"
 	)?
 }
 
@@ -368,6 +470,10 @@ void effect() :
 		|				selectors()
 		)
 		(until())?
+	|
+		"blocks each attacking creature this turn if able"
+	|	
+		"can block any number of creatures this turn"
 	|	
 		"can't block this turn"
 	|	
@@ -376,8 +482,15 @@ void effect() :
 		"can't be regenerated this turn"
 	|	
 		"choose"
+		("s")?
 		(
+			LOOKAHEAD(quantity() "\u2014")
+			quantity()
+			"\u2014"
+			// This ends the current line, the choices are on following lines.
+		|	
 			(quantity())?			selectors()
+			(generator())?
 		|
 			"a number between"
 			< INTEGER >
@@ -439,7 +552,8 @@ void effect() :
 			(until())?
 		)
 	|
-		"gets"
+		"get"
+		("s")?
 		< SIGNED_INTEGER >
 		"/"
 		< SIGNED_INTEGER >
@@ -544,8 +658,16 @@ void effect() :
 		effects()
 		("instead")?
 	|
+		"this turn"
+		","
+		static_effect()
+	|
 		"untap"
 		selectors()
+	|
+		until()
+		","
+		static_effect()
 	|
 		"win the flip"
 	)
@@ -659,6 +781,8 @@ void quantity() : {}
 	(
 		"a"
 	|
+		"a number of"
+	|
 		< NUMBERWORD >
 	|	
 		< INTEGER >
@@ -724,11 +848,30 @@ void selector() : {}
 	|		"it"
 		(modifier())*
 	|
-		("a"|"an"|"all"|"target"|"each"|"the chosen"|"the other"|"the"|"that"|"those"|"other")?
+		"the rest"
+	|
+		"target"
+		target_selector()	|
+		("a"|"an"|"all"|"each"|"the chosen"|"the other"|"the"|"that"|"those"|"other")?
 		(attribute())+
 		("s")?
 		(modifier())*
 	)
+}
+
+void target_selector() : {}{	(		(attribute())+
+		(modifier())*
+	)
+
+	(		(			","
+			target_selector()
+		)+
+		", or"
+		target_selector()
+	|
+		"or"
+		target_selector()
+	)?
 }
 
 void countable() : {}{
@@ -760,6 +903,8 @@ void attribute() : {}{
 		"card"
 	|
 		"colorless"
+	|
+		"defending player"
 	|	
 		"enchanted"
 	|
@@ -821,6 +966,8 @@ void modifier() : {}
 	|
 		("'s controller"|"s controller")
 	|
+		"s converted mana cost"
+	|
 		"'s hand"
 	|
 		("'s owner"|"s owner")
@@ -837,9 +984,14 @@ void modifier() : {}
 	|
 		"chosen this way"
 	|
+		"controlled by"
+		selectors()
+	|
 		"dealt damage by"
 		selectors()
 		"this turn"
+	|
+		"defending player controls"
 	|
 		"he or she controlled at the beginning of this turn"
 	|
@@ -883,6 +1035,8 @@ void modifier() : {}
 	|
 		"that died this turn"
 	|
+		"who controls the fewest"
+	|	
 		"whose mana cost could be paid by some amount of, or all of, the mana you spent on {X}"	|
 		"with"
 		(			(				"the most"
@@ -894,17 +1048,25 @@ void modifier() : {}
 				"life"
 			)
 		|
-			("power"|"toughness")
+			("power"|"toughness"|"power and toughness")
 			(				quantity()
 				"or less"
 			|
 				"less than"
 				selectors()
+			|
+				"each"
+				generator()
 			)
 		|
 			< KEYWORD >
 		|
 			"the noted number and kind of counters on it"
+		|
+			quantity()
+			< COUNTERTYPE >
+			("s")?
+			("on it")
 		)
 	|
 		"without {T} in its activation cost"	)
@@ -923,6 +1085,8 @@ TOKEN :
 	<INTEGER: (<DIGIT>)+ >
 |
 	<SIGNED_INTEGER: ("-"|"+") <INTEGER> >
+|
+	<SIGNED_VARIABLE: ("-"|"+") ("X"|"Y") >
 |
 	<NUMBERWORD: ("one"|"two"|"three") >
 |
@@ -948,7 +1112,14 @@ TOKEN :
 |	
 	<ENCHANTMENTTYPE: ("aura") >
 |
-	<KEYWORD: <LANDTYPE>"walk" | "banding" | "flying" >
+	<KEYWORD:
+		<LANDTYPE>"walk" |
+		"banding" |
+		"enchant " (< TYPE > | < CREATURETYPE >) |
+		"first strike" |
+		"flying" |
+		"protection from " < COLOR > |
+		"trample" >
 |
 	<TOKEN_DEFINITION: < INTEGER > "/" < INTEGER > (" " (< COLOR > | "colorless"))* (" " < CREATURETYPE >)* (" " < TYPE >)+ >
 |
