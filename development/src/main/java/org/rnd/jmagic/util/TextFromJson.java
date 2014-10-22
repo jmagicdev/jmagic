@@ -29,8 +29,13 @@ public class TextFromJson
 		counted.add("{1}, {T}: If ~ is on the battlefield, flip ~ onto the battlefield from a height of at least one foot. If ~ turns over completely at least once during the flip, destroy all nontoken permanents it touches. Then destroy ~.");
 		// ante
 		counted.add("{T}: Ante ~. If you do, put all other cards you own from the ante into your graveyard, then draw a card.");
+		counted.add("Remove ~ from your deck before playing if you're not playing for ante.\nDiscard your hand, ante the top card of your library, then draw seven cards.");
+		counted.add("Remove ~ from your deck before playing if you're not playing for ante.\nYou own target card in the ante. Exchange that card with the top card of your library.");
+		counted.add("Remove ~ from your deck before playing if you're not playing for ante.\nEach player antes the top card of his or her library.");
 		// "the same way" may be hard to handle programmatically
 		counted.add("Each player chooses a number of lands he or she controls equal to the number of lands controlled by the player who controls the fewest, then sacrifices the rest. Players discard cards and sacrifice creatures the same way.");
+
+		int initialSize = counted.size();
 
 		for(java.util.Map.Entry<String, JsonValue> expansionEntry: root.entrySet())
 		{
@@ -69,10 +74,24 @@ public class TextFromJson
 						}
 						catch(org.rnd.jmagic.cardscript.ParseException | org.rnd.jmagic.cardscript.TokenMgrError e)
 						{
-							System.out.println("Correctly Parsed: " + counted.size());
+							// Print performance summary
+							System.out.println("Correctly Parsed: " + (counted.size() - initialSize));
 							System.out.println();
+
+							// Print out character indices, for easy debugging
+							int maxLineLength = java.util.Arrays.stream(text.split("\n")).mapToInt(String::length).max().getAsInt();
+							for(int i = 0; i < maxLineLength; ++i)
+							{
+								System.out.print(i % 10 == 0 ? (i % 100 / 10) : " ");
+							}
+							System.out.println();
+
+							// Print the text that failed to parse
 							System.out.println(text);
 							System.out.flush();
+
+							// Sleep to ensure stdout flushes completely before
+							// printing to stderr
 							try
 							{
 								Thread.sleep(5);
@@ -81,7 +100,9 @@ public class TextFromJson
 							{
 								//
 							}
-							System.err.println(e.getMessage());
+
+							// Print error message, without the extra output
+							System.err.println(e.getMessage().split("\n", 2)[0]);
 							System.err.flush();
 							return;
 						}

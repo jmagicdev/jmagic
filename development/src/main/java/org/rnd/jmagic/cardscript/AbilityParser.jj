@@ -40,13 +40,15 @@ void spellability() : {}{
 		// Bullet for a modal spell
 		"\u2022"
 		effects()
+		"."
 	|			effects()
+		// The "Choose" line of a modal ability doesn't end with a period
+		(".")?
 	|
 		spell_limits()
+	|
+		staticability()
 	)
-
-	// The "Choose" line of a modal ability doesn't end with a period
-	(".")?
 
 	(		"\n"
 		spellability()
@@ -70,17 +72,11 @@ void permanentability() : {}
 }
 
 void staticability() : {}{
-	(		"as long as"
-		selectors()
-		pattern()
+	(		as_long_as()
 		","
 	)?
 
-	(		selector()
-		static_effect()
-	|
-		"it's"
-		static_effect()
+	(		static_effects()
 	|
 		// Replacement effects
 		"as"
@@ -92,43 +88,47 @@ void staticability() : {}{
 	"."
 }
 
+void as_long_as() : {}
+{
+	("as long as"|"for as long as")
+	selectors()
+	pattern()
+}
+
+void static_effects() : {}
+{
+	static_effect()
+
+	(		LOOKAHEAD("and" static_effect())
+		"and"
+		static_effects()
+	)?
+}
+
 void static_effect() : {}
 {
 	(
 		"any time you could activate a mana ability, you may pay 1 life"
-	|	
-		"can attack as though it didn't have defender"
-	|
-		"doesn't untap during your untap step"
-	|	
-		"get"
-		("s")?
-		(
-			< SIGNED_INTEGER >
-			"/"
-			< SIGNED_INTEGER >
-		|
-			< SIGNED_VARIABLE >
-			"/"
-			< SIGNED_VARIABLE >
-		)
-	|
-		("has"|"have")
-		(			< KEYWORD >
-			(". This effect doesn't remove ~")?
-		|
-			< STRING >
-		)
 	|
 		"instead of"
 		pattern()
 		","
 		selectors()
 		effects()
+	|		LOOKAHEAD(2)		"it"		"'s"
+		("a"|"an")
+		(attribute())+		modifiers()
+	|
+		"its power and toughness"
+		"are each"
+		generator()
+	|
+		"spend only"
+		< COLOR >
+		"mana on X"
 	|	
 		selectors()
-		(			pattern()
-		)?
+		static_selector_effects()
 	)
 
 	(		", where X is"
@@ -139,6 +139,94 @@ void static_effect() : {}
 		)?
 	)?
 }
+
+void static_selector_effects() : {}
+{
+	static_selector_effect()
+
+	(		LOOKAHEAD("and" static_selector_effect())
+		"and"
+		static_selector_effects()
+	)?
+}
+
+void static_selector_effect() : {}
+{
+	(
+		"are"
+		attribute()
+	|	
+		"can attack as though it didn't have defender"
+	|
+		"can't be blocked"
+	|	
+		"can't be enchanted by"
+		selectors()
+	|
+		"control"
+		selectors()
+	|
+		"cost"
+		< MANA >
+		("more"|"less")
+		"to"
+		("cast"|"activate")
+	|
+		"doesn't untap during your untap step"
+	|
+		"enters the battlefield"
+		(
+			"with"
+			quantity()
+			< COUNTERTYPE >
+			("s")?
+			"on"
+			"it"
+		)
+	|
+		"gain"
+		("s")?
+		(
+			< STRING >
+		|	
+			< KEYWORD >
+		)
+	|	
+		"get"
+		("s")?
+		(
+			(< SIGNED_INTEGER >|< SIGNED_VARIABLE >)
+			"/"
+			(< SIGNED_INTEGER >|< SIGNED_VARIABLE >)
+		)
+	|
+		("has"|"have")
+		(
+			< KEYWORD >
+			(". This effect doesn't remove ~")?
+		|
+			< STRING >
+		)
+	|
+		"is a"
+		< LANDTYPE >
+	|
+		"may have"
+		selectors()
+		(
+			"block"
+			selectors()
+		|				"enter the battlefield as a copy of"
+			selectors()
+			modifiers()
+			(				(", except it's an"|", except it's a")
+				< TYPE >
+				"in addition to its other types"
+			)?
+		)
+	|
+		"may play any number of lands on each of your turns"
+	)}
 
 void activatedability() : {}
 {
@@ -263,6 +351,8 @@ void phaseorstep() : {}{
 		"combat damage"
 	|
 		"declare attackers"
+	|
+		"declare blockers"
 	|		
 		"upkeep"
 	|
@@ -328,6 +418,11 @@ void pattern() : {}
 			< KEYWORD >
 		|
 			"more life than each other player"
+		|
+			"a"
+			< COUNTERTYPE >
+			"on"
+			"it"
 		)
 	|
 		("is dealt damage"|"'re dealt damage")
@@ -404,7 +499,7 @@ void generator() : {}
 void effects() : {}{
 	effect()
 	(
-		LOOKAHEAD(("and"|","|", then"|".") effect())
+		LOOKAHEAD(("and"|","|", then"|"."|". then") effect())
 		(
 			"and"		|
 			","
@@ -412,6 +507,8 @@ void effects() : {}{
 			", then"
 		|
 			"."
+		|
+			". then"
 		)
 		effects()
 	)?
@@ -440,6 +537,16 @@ void effect() :
 		(
 			generator()
 		)?
+	|
+		LOOKAHEAD(static_selector_effect() ("this turn"|"until end of turn")?)
+		static_selector_effect()
+		("this turn"|"until end of turn"|as_long_as())?
+	|
+		LOOKAHEAD("until end of turn," static_effect())
+		"until end of turn,"
+		static_effect()
+	|	
+		"activates a mana ability of each land he or she controls"
 	|	
 		"add"
 		("s")?
@@ -474,13 +581,7 @@ void effect() :
 		"blocks each attacking creature this turn if able"
 	|	
 		"can block any number of creatures this turn"
-	|	
-		"can't block this turn"
-	|	
-		"can't be blocked this turn"
 	|
-		"can't be regenerated this turn"
-	|	
 		"choose"
 		("s")?
 		(
@@ -498,6 +599,12 @@ void effect() :
 			< INTEGER >
 		)
 	|
+		"copy"
+		selectors()
+		", except that the copy is"
+		< COLOR >
+		". You may choose new targets for the copy"
+	|	
 		"counter"
 		selectors()
 	|	
@@ -530,7 +637,6 @@ void effect() :
 		"flip a coin"
 	|	
 		"gain"
-		("s")?
 		(
 			quantity()
 			"life"
@@ -538,26 +644,7 @@ void effect() :
 			"life"
 			"equal to"
 			selectors()
-		|
-			"control of"
-			selectors()
-			(				"for as long as you control"
-				selectors()
-			)?
-		|	
-			(				< STRING >
-			|	
-				< KEYWORD >
-			)
-			(until())?
 		)
-	|
-		"get"
-		("s")?
-		< SIGNED_INTEGER >
-		"/"
-		< SIGNED_INTEGER >
-		(until())?
 	|
 		"has"
 		(			"base power"
@@ -593,7 +680,7 @@ void effect() :
 			"a"
 			< TOKEN_DEFINITION >
 			"token"
-			(modifier())*
+			modifiers()
 			"onto the battlefield"
 			(condition())?
 			(				". They each have"
@@ -608,11 +695,16 @@ void effect() :
 			(				"onto the battlefield"
 			|
 				"on the bottom of your library in a random order"
+			|
+				"into"
+				zone()
 			)
 		)
 	|
 		"prevent"
 		(
+			"all combat damage that would be dealt this turn"
+		|	
 			"that damage"
 		|				quantity()
 			"of that damage"
@@ -636,6 +728,15 @@ void effect() :
 		|
 			modifier()
 		)*
+	|
+		"search"
+		zone()
+		"for"
+		quantity()
+		attribute()
+	|
+		"shuffle"
+		zone()
 	|
 		"take an extra turn after this one"
 	|
@@ -696,9 +797,12 @@ void damage() : {}{
 		"that damage"
 	)
 	(
+		"divided evenly, rounded down,"
+	|	
 		generator()
 	)?
-	"to"
+	("to"|"among")
+	(quantity())?
 	selectors()}
 
 void until() : {}
@@ -846,21 +950,21 @@ void selector() : {}
 	|
 		"of them"
 	|		"it"
-		(modifier())*
+		modifiers()
 	|
 		"the rest"
 	|
 		"target"
 		target_selector()	|
-		("a"|"an"|"all"|"each"|"the chosen"|"the other"|"the"|"that"|"those"|"other")?
+		("a"|"an"|"all"|"each"|"the chosen"|"the other"|"the"|"that"|"those"|"other"|"any")?
 		(attribute())+
 		("s")?
-		(modifier())*
+		modifiers()
 	)
 }
 
 void target_selector() : {}{	(		(attribute())+
-		(modifier())*
+		modifiers()
 	)
 
 	(		(			","
@@ -883,7 +987,7 @@ void countable() : {}{
 			"mana"
 		)
 		("s")?
-		(modifier())*
+		modifiers()
 	|
 		selectors()
 	)
@@ -893,6 +997,8 @@ void attribute() : {}{
 	("non"("-")?)?
 	(
 		"ability of"
+	|
+		"activated abilities of"
 	|
 		"active player"
 	|
@@ -904,6 +1010,8 @@ void attribute() : {}{
 	|
 		"colorless"
 	|
+		"copy of"
+	|
 		"defending player"
 	|	
 		"enchanted"
@@ -911,6 +1019,8 @@ void attribute() : {}{
 		"exiled"
 	|
 		"last card you drew this turn"
+	|
+		"mana"
 	|	
 		"opponent"
 	|
@@ -947,6 +1057,11 @@ void attribute() : {}{
 	|
 		< COUNTERTYPE >
 	)
+}
+
+void modifiers() : {}
+{
+	(modifier())*
 }
 
 void modifier() : {}
@@ -1000,7 +1115,7 @@ void modifier() : {}
 	|
 		("in your hand"|"in his or her hand")
 	|
-		"it was blocking that had become blocked by only ~ this combat"
+		("it was blocking that had become blocked by only ~ this combat"|"it was blocking that had become blocked by only that creature this combat")
 	|
 		< NAMED >
 		// Switch to the NAMING_STATE lexical state in order to accept any type
@@ -1038,7 +1153,7 @@ void modifier() : {}
 		"who controls the fewest"
 	|	
 		"whose mana cost could be paid by some amount of, or all of, the mana you spent on {X}"	|
-		"with"
+		("with"|"without")
 		(			(				"the most"
 			|
 				"the least"
@@ -1066,11 +1181,22 @@ void modifier() : {}
 			quantity()
 			< COUNTERTYPE >
 			("s")?
-			("on it")
+			"on"
+			"it"
 		)
 	|
 		"without {T} in its activation cost"	)
 }
+
+void zone(): {}{
+	(		"your"
+
+		(
+			"library"
+		|
+			"hand"
+		)
+	)}
 
 
 SKIP:
@@ -1088,7 +1214,7 @@ TOKEN :
 |
 	<SIGNED_VARIABLE: ("-"|"+") ("X"|"Y") >
 |
-	<NUMBERWORD: ("one"|"two"|"three") >
+	<NUMBERWORD: ("one"|"two"|"three"|"seven") >
 |
 	<STRING: "\"" (~["\""])+ "\"" >
 |
@@ -1108,7 +1234,7 @@ TOKEN :
 |
 	<LANDTYPE: ("plains"|"island"|"swamp"|"mountain"|"forest") >
 |
-	<CREATURETYPE: ("bird"|"djinn"|"efreet"|"elephant"|"golem"|"insect"|"tetravite"|"wall"|"zombie") >
+	<CREATURETYPE: ("bird"|"djinn"|"efreet"|"elephant"|"goblin"|"golem"|"insect"|"tetravite"|"wall"|"zombie") >
 |	
 	<ENCHANTMENTTYPE: ("aura") >
 |
@@ -1116,9 +1242,12 @@ TOKEN :
 		<LANDTYPE>"walk" |
 		"banding" |
 		"enchant " (< TYPE > | < CREATURETYPE >) |
+		"fear" |
 		"first strike" |
 		"flying" |
+		"indestructible" |
 		"protection from " < COLOR > |
+		"reach" |
 		"trample" >
 |
 	<TOKEN_DEFINITION: < INTEGER > "/" < INTEGER > (" " (< COLOR > | "colorless"))* (" " < CREATURETYPE >)* (" " < TYPE >)+ >
